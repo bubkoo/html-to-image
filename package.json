@@ -1,0 +1,28 @@
+{
+  "name": "html-to-image",
+  "version": "0.0.1",
+  "description": "Generates an image from a DOM node using HTML5 canvas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bubkoo/html-to-img.git"
+  },
+  "keywords": [
+    "cavas",
+    "html",
+    "dom",
+    "render",
+    "image",
+    "vector",
+    "svg"
+  ],
+  "author": "bubkoo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bubkoo/html-to-img/issues"
+  },
+  "homepage": "https://github.com/bubkoo/html-to-img#readme"
+}
