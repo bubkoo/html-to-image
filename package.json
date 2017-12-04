@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bubkoo/html-to-img.git"
+    "url": "git+https://github.com/bubkoo/html-to-image.git"
   },
   "keywords": [
     "cavas",
@@ -22,7 +22,7 @@
   "author": "bubkoo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bubkoo/html-to-img/issues"
+    "url": "https://github.com/bubkoo/html-to-image/issues"
   },
-  "homepage": "https://github.com/bubkoo/html-to-img#readme"
+  "homepage": "https://github.com/bubkoo/html-to-image#readme"
 }
