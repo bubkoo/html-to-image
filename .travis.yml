@@ -1,0 +1,15 @@
+sudo: false
+language: node_js
+
+node_js:
+  - "6"
+  - "7"
+
+install: npm install
+
+script:
+  - npm run lint
+  - npm test
+
+after_success:
+  - npm run coveralls
