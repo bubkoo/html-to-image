@@ -55,7 +55,7 @@ export function createImage(url) {
 }
 
 export function isDataUrl(url) {
-  return url.indexOf(/^(data:)/) !== -1
+  return url.search(/^(data:)/) !== -1
 }
 
 export function toDataURL(content, mimeType) {
@@ -113,4 +113,15 @@ export function getNodeHeight(node) {
   const topBorder = px(node, 'border-top-width')
   const bottomBorder = px(node, 'border-bottom-width')
   return node.scrollHeight + topBorder + bottomBorder
+}
+
+export function getPixelRatio(context) {
+  const backingStore = context.backingStorePixelRatio ||
+    context.webkitBackingStorePixelRatio ||
+    context.mozBackingStorePixelRatio ||
+    context.msBackingStorePixelRatio ||
+    context.oBackingStorePixelRatio ||
+    context.backingStorePixelRatio || 1
+
+  return (window.devicePixelRatio || 1) / backingStore
 }

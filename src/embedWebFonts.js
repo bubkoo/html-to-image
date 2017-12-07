@@ -1,7 +1,6 @@
 import { toArray } from './utils'
 import embedResources, { shouldEmbed } from './embedResources'
 
-
 function getCssRules(styleSheets) {
   return styleSheets.reduce((memo, sheet) => {
     try {
@@ -29,7 +28,7 @@ export function parseWebFontRules() {
     .then(getWebFontRules)
 }
 
-export function embedWebFonts(clonedNode, options) {
+export default function embedWebFonts(clonedNode, options) {
   return parseWebFontRules()
     .then(rules => Promise.all(rules.map((rule) => {
       const baseUrl = (rule.parentStyleSheet || {}).href
