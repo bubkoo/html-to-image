@@ -1,8 +1,7 @@
 import { createImage, toArray, uuid } from './utils'
 
-const pseudos = [':before', ':after']
 
-function clone(node) {
+function cloneSingleNode(node) {
   return node instanceof HTMLCanvasElement
     ? createImage(node.toDataURL())
     : node.cloneNode(false)
@@ -25,7 +24,7 @@ function cloneChildren(node, cloned, filter) {
   return cloneChildrenInOrder(cloned, toArray(children), filter).then(() => cloned)
 }
 
-function copyStyle(original, cloned) {
+function cloneStyle(original, cloned) {
   const source = window.getComputedStyle(original)
   const target = cloned.style
 
@@ -83,9 +82,13 @@ function clonePseudoElement(original, cloned, pseudo) {
   cloned.appendChild(styleElement)
 }
 
+function clonePseudoElements(original, cloned) {
+  [':before', ':after'].forEach(pseudo => clonePseudoElement(original, cloned, pseudo))
+}
+
 
 // handle input elements
-function copyInput(original, cloned) {
+function fixInputValue(original, cloned) {
   if (original instanceof HTMLTextAreaElement) {
     cloned.innerHTML = original.value
   }
@@ -117,22 +120,26 @@ function fixSvg(cloned) {
 }
 
 function decorate(original, cloned) {
-  if (cloned instanceof Element) {
-    copyStyle(original, cloned)
-    pseudos.forEach(pseudo => clonePseudoElement(original, cloned, pseudo))
-    copyInput(original, cloned)
-    fixSvg(cloned)
+  if (!(cloned instanceof Element)) {
+    return cloned
   }
 
-  return cloned
+  return Promise.resolve()
+    .then(() => cloneStyle(original, cloned))
+    .then(() => clonePseudoElements(original, cloned))
+    .then(() => fixInputValue(original, cloned))
+    .then(() => fixSvg(cloned))
+    .then(() => cloned)
 }
 
 
-export default function cloneNode(node, filter, root) {
-  if (!root && filter && !filter(node)) return Promise.resolve()
+export default function cloneNode(node, filter, isRoot) {
+  if (!isRoot && filter && !filter(node)) {
+    return Promise.resolve()
+  }
 
   return Promise.resolve(node)
-    .then(clone)
+    .then(cloneSingleNode)
     .then(cloned => cloneChildren(node, cloned, filter))
     .then(cloned => decorate(node, cloned))
 }

@@ -2,13 +2,14 @@ import cloneNode from './cloneNode'
 import embedWebFonts from './embedWebFonts'
 import embedImages from './embedImages'
 import createSvgDataURL from './createSvgDataURL'
-import applyStyle from './applyStyle'
+import applyStyleWithOptions from './applyStyleWithOptions'
 import {
-  getNodeWidth,
-  getNodeHeight,
   createImage,
   delay,
   canvasToBlob,
+  getNodeWidth,
+  getNodeHeight,
+  getPixelRatio,
 } from './utils'
 
 
@@ -19,7 +20,8 @@ export function toSvgDataURL(domNode, options = {}) {
   return cloneNode(domNode, options.filter, true)
     .then(clonedNode => embedWebFonts(clonedNode, options))
     .then(clonedNode => embedImages(clonedNode, options))
-    .then(clonedNode => applyStyle(clonedNode, options))
+    .then(clonedNode => applyStyleWithOptions(clonedNode, options))
+    .then((clonedNode) => { document.body.appendChild(clonedNode); return clonedNode })
     .then(clonedNode => createSvgDataURL(clonedNode, width, height))
 }
 
@@ -31,8 +33,15 @@ export function toCanvas(domNode, options = {}) {
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')
 
-      canvas.width = options.width || getNodeWidth(domNode)
-      canvas.height = options.height || getNodeHeight(domNode)
+      const width = options.width || getNodeWidth(domNode)
+      const height = options.height || getNodeHeight(domNode)
+      const ratio = getPixelRatio(context)
+
+      canvas.width = width * ratio
+      canvas.height = height * ratio
+      canvas.style.width = width
+      canvas.style.height = height
+      context.scale(ratio, ratio)
 
       if (options.backgroundColor) {
         context.fillStyle = options.backgroundColor
@@ -69,4 +78,13 @@ export function toJpeg(domNode, options = {}) {
 
 export function toBlob(domNode, options = {}) {
   return toCanvas(domNode, options).then(canvasToBlob)
+}
+
+export default {
+  toSvgDataURL,
+  toCanvas,
+  toPixelData,
+  toPng,
+  toJpeg,
+  toBlob,
 }

@@ -1,4 +1,4 @@
-export default function applyStyle(cloned, options) {
+export default function applyStyleWithOptions(cloned, options) {
   const { style } = cloned
 
   if (options.backgroundColor) {
