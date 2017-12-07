@@ -1,4 +1,4 @@
-import resourceToBlob from './resourceToBlob'
+import getBlobFromURL from './getBlobFromURL'
 import {
   isDataUrl,
   toDataURL,
@@ -6,15 +6,24 @@ import {
 } from './utils'
 
 
-const URL_REGEX = /url\(['"]?([^'"]+?)['"]?\)/g
+const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
 
 function resolveUrl(url, baseUrl) {
+  if (url.match(/^[a-z]+:\/\//i)) { // url is absolute already
+    return url
+  } else if (url.match(/^\/\//)) {
+    return window.location.protocol + url // url is absolute already, without protocol
+  } else if (url.match(/^[a-z]+:/i)) { // dataURI, mailto:, tel:, etc.
+    return url
+  }
+
   const doc = document.implementation.createHTMLDocument()
   const base = doc.createElement('base')
   const a = doc.createElement('a')
 
   doc.head.appendChild(base)
   doc.body.appendChild(a)
+
   base.href = baseUrl
   a.href = url
 
@@ -26,13 +35,13 @@ function escape(url) {
 }
 
 function urlToRegex(url) {
-  return new RegExp(`(url\\(['"]?)(${escape(url)})(['"]?\\))`, 'g') // TODO
+  return new RegExp(`(url\\(['"]?)(${escape(url)})(['"]?\\))`, 'g')
 }
 
 function parseURLs(str) {
   const result = []
 
-  str.replace(URL_REGEX, (raw, url) => {
+  str.replace(URL_REGEX, (raw, quotation, url) => {
     result.push(url)
     return raw
   })
@@ -40,12 +49,14 @@ function parseURLs(str) {
   return result.filter(url => !isDataUrl(url))
 }
 
-function embed(cssString, resourceUrl, baseUrl, options) {
-  return Promise.resolve(resourceUrl)
-    .then(url => (baseUrl ? resolveUrl(url, baseUrl) : url))
-    .then(url => resourceToBlob(url, options))
-    .then(data => toDataURL(data, getMimeType(resourceUrl)))
-    .then(dataURL => cssString.replace(urlToRegex(resourceUrl), `$1${dataURL}$3`))
+function embed(cssString, resourceURL, baseURL, options) {
+  const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
+
+  return Promise.resolve(resolvedURL)
+    .then(url => getBlobFromURL(url, options))
+    .then(data => toDataURL(data, getMimeType(resourceURL)))
+    .then(dataURL => cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`))
+    .then(content => content, () => resolvedURL)
 }
 
 export function shouldEmbed(string) {

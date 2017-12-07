@@ -1,4 +1,5 @@
 import { toArray, isDataUrl, toDataURL, getMimeType } from './utils'
+import getBlobFromURL from './getBlobFromURL'
 import embedResources from './embedResources'
 
 
@@ -27,14 +28,14 @@ function embedImageNode(clonedNode, options) {
   }
 
   return Promise.resolve(clonedNode.src)
-    .then(url => embedResources(url, null, options))
+    .then(url => getBlobFromURL(url, options))
     .then(data => toDataURL(data, getMimeType(clonedNode.src)))
     .then(dataURL => new Promise(((resolve, reject) => {
       clonedNode.onload = resolve
       clonedNode.onerror = reject
       clonedNode.src = dataURL
     })))
-    .then(() => clonedNode)
+    .then(() => clonedNode, () => clonedNode)
 }
 
 function embedChildren(clonedNode, options) {
@@ -44,14 +45,14 @@ function embedChildren(clonedNode, options) {
   return Promise.all(deferreds).then(() => clonedNode)
 }
 
-export default function embedImages(clonedNode, options) {
-  const resolved = Promise.resolve(clonedNode)
-
+export default function embedImages(clonedNode, opts) {
   if (!(clonedNode instanceof Element)) {
-    return resolved
+    return Promise.resolve(clonedNode)
   }
 
-  return resolved
+  const options = { ...opts, isImage: true }
+
+  return Promise.resolve(clonedNode)
     .then(node => embedBackground(node, options))
     .then(node => embedImageNode(node, options))
     .then(node => embedChildren(node, options))

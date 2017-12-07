@@ -2,7 +2,7 @@ import cloneNode from './cloneNode'
 import embedWebFonts from './embedWebFonts'
 import embedImages from './embedImages'
 import createSvgDataURL from './createSvgDataURL'
-import applyStyle from './applyStyle'
+import applyStyleWithOptions from './applyStyleWithOptions'
 import {
   createImage,
   delay,
@@ -20,7 +20,8 @@ export function toSvgDataURL(domNode, options = {}) {
   return cloneNode(domNode, options.filter, true)
     .then(clonedNode => embedWebFonts(clonedNode, options))
     .then(clonedNode => embedImages(clonedNode, options))
-    .then(clonedNode => applyStyle(clonedNode, options))
+    .then(clonedNode => applyStyleWithOptions(clonedNode, options))
+    .then((clonedNode) => { document.body.appendChild(clonedNode); return clonedNode })
     .then(clonedNode => createSvgDataURL(clonedNode, width, height))
 }
 

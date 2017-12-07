@@ -15,17 +15,24 @@ const mimes = {
   svg: 'image/svg+xml',
 }
 
-export function uuid() {
-  // ref: https://stackoverflow.com/a/2117523
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-    const r = Math.random() * 16 | 0
-    const v = c === 'x' ? r : (r & 0x3 | 0x8) // eslint-disable-line
-    return v.toString(16)
-  })
-}
+
+export const uuid = (function uuid() {
+  // generate uuid for className of pseudo elements.
+  // We should not use GUIDs, otherwise pseudo elements sometimes cannot be captured.
+  let counter = 0
+
+  // ref: http://stackoverflow.com/a/6248722/2519373
+  const randomFourChars = () =>
+    (`0000${(Math.random() * (36 ** 4) << 0).toString(36)}`).slice(-4)
+
+  return () => {
+    counter += 1
+    return `u${randomFourChars()}${counter}`
+  }
+}())
 
 export function parseExtension(url) {
-  const match = /\.([^\.\/]*?)$/g.exec(url) // eslint-disable-line
+  const match = /\.([^./]*?)$/g.exec(url)
   if (match) return match[1]
   return ''
 }
@@ -45,12 +52,13 @@ export function delay(ms) {
 
 export function createImage(url) {
   return new Promise(((resolve, reject) => {
-    const img = new Image()
-    img.onload = () => {
-      resolve(img)
+    const image = new Image()
+    image.onload = () => {
+      resolve(image)
     }
-    img.onerror = reject
-    img.src = url
+    image.onerror = reject
+    image.crossOrigin = 'anonymous'
+    image.src = url
   }))
 }
 
@@ -60,6 +68,10 @@ export function isDataUrl(url) {
 
 export function toDataURL(content, mimeType) {
   return `data:${mimeType};base64,${content}`
+}
+
+export function getDataURLContent(dataURL) {
+  return dataURL.split(/,/)[1]
 }
 
 function toBlob(canvas) {

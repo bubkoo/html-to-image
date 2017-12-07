@@ -37,9 +37,15 @@ export default function embedWebFonts(clonedNode, options) {
     .then(cssStrings => cssStrings.join('\n'))
     .then((cssString) => {
       const styleNode = document.createElement('style')
+      const sytleContent = document.createTextNode(cssString)
 
-      styleNode.appendChild(document.createTextNode(cssString))
-      clonedNode.appendChild(styleNode)
+      styleNode.appendChild(sytleContent)
+
+      if (clonedNode.firstChild) {
+        clonedNode.insertBefore(styleNode, clonedNode.firstChild)
+      } else {
+        clonedNode.appendChild(styleNode)
+      }
 
       return clonedNode
     })
