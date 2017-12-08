@@ -22,7 +22,10 @@ export type Options = {
   imagePlaceholder: ?String, // DataURL
 }
 
-export function toSvgDataURL(domNode: HTMLElement, options: Options = {}): Promise<*> {
+export function toSvgDataURL(
+  domNode: HTMLElement,
+  options: Options = {},
+): Promise<String> {
   const width = options.width || getNodeWidth(domNode)
   const height = options.height || getNodeHeight(domNode)
 
@@ -37,7 +40,10 @@ export function toSvgDataURL(domNode: HTMLElement, options: Options = {}): Promi
     .then(clonedNode => createSvgDataURL(clonedNode, width, height))
 }
 
-export function toCanvas(domNode: HTMLElement, options: Options = {}): Promise<*> {
+export function toCanvas(
+  domNode: HTMLElement,
+  options: Options = {},
+): Promise<HTMLCanvasElement> {
   return toSvgDataURL(domNode, options)
     .then(createImage)
     .then(delay(100))
@@ -66,7 +72,10 @@ export function toCanvas(domNode: HTMLElement, options: Options = {}): Promise<*
     })
 }
 
-export function toPixelData(domNode: HTMLElement, options: Options = {}): Promise<*> {
+export function toPixelData(
+  domNode: HTMLElement,
+  options: Options = {},
+): Promise<Array> {
   const width = options.width || getNodeWidth(domNode)
   const height = options.height || getNodeHeight(domNode)
 
@@ -76,19 +85,28 @@ export function toPixelData(domNode: HTMLElement, options: Options = {}): Promis
     ))
 }
 
-export function toPng(domNode: HTMLElement, options: Options = {}): Promise<*> {
+export function toPng(
+  domNode: HTMLElement,
+  options: Options = {},
+): Promise<String> {
   return toCanvas(domNode, options).then(canvas => (
     canvas.toDataURL()
   ))
 }
 
-export function toJpeg(domNode: HTMLElement, options: Options = {}): Promise<*> {
+export function toJpeg(
+  domNode: HTMLElement,
+  options: Options = {},
+): Promise<String> {
   return toCanvas(domNode, options).then(canvas => (
     canvas.toDataURL('image/jpeg', options.quality || 1)
   ))
 }
 
-export function toBlob(domNode: HTMLElement, options: Options = {}): Promise<*> {
+export function toBlob(
+  domNode: HTMLElement,
+  options: Options = {},
+): Promise<Blob> {
   return toCanvas(domNode, options).then(canvasToBlob)
 }
 
