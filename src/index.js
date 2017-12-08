@@ -21,6 +21,10 @@ export function toSvgDataURL(domNode, options = {}) {
     .then(clonedNode => embedWebFonts(clonedNode, options))
     .then(clonedNode => embedImages(clonedNode, options))
     .then(clonedNode => applyStyleWithOptions(clonedNode, options))
+    .then((clonedNode) => {
+      document.body.appendChild(clonedNode)
+      return clonedNode
+    })
     .then(clonedNode => createSvgDataURL(clonedNode, width, height))
 }
 
