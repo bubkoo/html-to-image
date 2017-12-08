@@ -12,8 +12,17 @@ import {
   getPixelRatio,
 } from './utils'
 
+export type Options = {
+  filter: ?Function,
+  width: ?Number,
+  height: ?Number,
+  style: ?Object,
+  backgroundColor: ?String,
+  cacheBust: ?Boolean,
+  imagePlaceholder: ?String, // DataURL
+}
 
-export function toSvgDataURL(domNode, options = {}) {
+export function toSvgDataURL(domNode: HTMLElement, options: Options = {}): Promise<*> {
   const width = options.width || getNodeWidth(domNode)
   const height = options.height || getNodeHeight(domNode)
 
@@ -25,7 +34,7 @@ export function toSvgDataURL(domNode, options = {}) {
     .then(clonedNode => createSvgDataURL(clonedNode, width, height))
 }
 
-export function toCanvas(domNode, options = {}) {
+export function toCanvas(domNode: HTMLElement, options: Options = {}): Promise<*> {
   return toSvgDataURL(domNode, options)
     .then(createImage)
     .then(delay(100))
@@ -54,7 +63,7 @@ export function toCanvas(domNode, options = {}) {
     })
 }
 
-export function toPixelData(domNode, options = {}) {
+export function toPixelData(domNode: HTMLElement, options: Options = {}): Promise<*> {
   const width = options.width || getNodeWidth(domNode)
   const height = options.height || getNodeHeight(domNode)
 
@@ -64,19 +73,19 @@ export function toPixelData(domNode, options = {}) {
     ))
 }
 
-export function toPng(domNode, options = {}) {
+export function toPng(domNode: HTMLElement, options: Options = {}): Promise<*> {
   return toCanvas(domNode, options).then(canvas => (
     canvas.toDataURL()
   ))
 }
 
-export function toJpeg(domNode, options = {}) {
+export function toJpeg(domNode: HTMLElement, options: Options = {}): Promise<*> {
   return toCanvas(domNode, options).then(canvas => (
     canvas.toDataURL('image/jpeg', options.quality || 1)
   ))
 }
 
-export function toBlob(domNode, options = {}) {
+export function toBlob(domNode: HTMLElement, options: Options = {}): Promise<*> {
   return toCanvas(domNode, options).then(canvasToBlob)
 }
 

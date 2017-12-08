@@ -22,14 +22,19 @@ function getWebFontRules(cssRules) {
     .filter(rule => shouldEmbed(rule.style.getPropertyValue('src')))
 }
 
-export function parseWebFontRules() {
-  return Promise.resolve(toArray(document.styleSheets))
+export function parseWebFontRules(clonedNode) {
+  return new Promise((resolve, reject) => {
+    if (!clonedNode.ownerDocument) {
+      reject(new Error('Provided element is not within a Document'))
+    }
+    resolve(toArray(clonedNode.ownerDocument.styleSheets))
+  })
     .then(getCssRules)
     .then(getWebFontRules)
 }
 
 export default function embedWebFonts(clonedNode, options) {
-  return parseWebFontRules()
+  return parseWebFontRules(clonedNode)
     .then(rules => Promise.all(rules.map((rule) => {
       const baseUrl = (rule.parentStyleSheet || {}).href
       return embedResources(rule.cssText, baseUrl, options)
