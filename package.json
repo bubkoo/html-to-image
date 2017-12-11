@@ -21,6 +21,7 @@
     "url": "git+https://github.com/bubkoo/html-to-image.git"
   },
   "keywords": [
+    "screenshot",
     "cavas",
     "html",
     "dom",
