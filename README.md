@@ -134,15 +134,21 @@ An object whose properties to be copied to node's style before rendering. You mi
 
 ### quality
 
-A number between `0` and `1` indicating image quality (e.g. `0.92` => `92%`) of the JPEG image. Defaults to `1.0` (`100%`)
+A number between `0` and `1` indicating image quality (e.g. `0.92` => `92%`) of the JPEG image. 
+
+Defaults to `1.0` (`100%`)
 
 ### cacheBust
 
-Set to true to append the current time as a query string to URL requests to enable cache busting. Defaults to `false`
+Set to true to append the current time as a query string to URL requests to enable cache busting. 
+
+Defaults to `false`
 
 ### imagePlaceholder
 
-A data URL for a placeholder image that will be used when fetching an image fails. Defaults to an empty string and will render empty areas for failed images.
+A data URL for a placeholder image that will be used when fetching an image fails. 
+
+Defaults to an empty string and will render empty areas for failed images.
 
 ## Browsers
 
@@ -195,7 +201,7 @@ This library uses a feature of SVG that allows having arbitrary HTML content ins
 ## Things to watch out for
 
 - If the DOM node you want to render includes a `<canvas>` element with something drawn on it, it should be handled fine, unless the canvas is [tainted](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image) - in this case rendering will rather not succeed.
-
+- Rendering will failed on huge DOM due to the dataURI [limit varies](https://stackoverflow.com/questions/695151/data-protocol-url-size-limitations/41755526#41755526).
 
 ## Contributing
 
