@@ -1,8 +1,10 @@
-function createForeignObjectSVG(
-  node: HTMLElement,
+import { svgToDataURL } from './utils'
+
+export default function createSvgDataURL(
+  clonedNode: HTMLElement,
   width: number,
   height: number,
-): SVGElement {
+): Promise<String> {
   const xmlns = 'http://www.w3.org/2000/svg'
   const svg = document.createElementNS(xmlns, 'svg')
   const foreignObject = document.createElementNS(xmlns, 'foreignObject')
@@ -17,18 +19,7 @@ function createForeignObjectSVG(
   foreignObject.setAttributeNS(null, 'externalResourcesRequired', 'true')
 
   svg.appendChild(foreignObject)
-  foreignObject.appendChild(node)
+  foreignObject.appendChild(clonedNode)
 
-  return svg
-}
-
-export default function createSvgDataURL(
-  clonedNode: HTMLElement,
-  width: number,
-  height: number,
-): Promise<*> {
-  return Promise.resolve(createForeignObjectSVG(clonedNode, width, height))
-    .then(svg => new XMLSerializer().serializeToString(svg))
-    .then(encodeURIComponent)
-    .then(html => `data:image/svg+xml;charset=utf-8,${html}`)
+  return svgToDataURL(svg)
 }

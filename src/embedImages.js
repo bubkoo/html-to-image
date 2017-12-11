@@ -3,7 +3,10 @@ import getBlobFromURL from './getBlobFromURL'
 import embedResources from './embedResources'
 
 
-function embedBackground(clonedNode, options) {
+function embedBackground(
+  clonedNode: HTMLElement,
+  options: Object,
+): Promise<HTMLElement> {
   const background = clonedNode.style.getPropertyValue('background')
   if (!background) {
     return Promise.resolve(clonedNode)
@@ -22,7 +25,10 @@ function embedBackground(clonedNode, options) {
     })
 }
 
-function embedImageNode(clonedNode, options) {
+function embedImageNode(
+  clonedNode: HTMLElement,
+  options: Object,
+): Promise<HTMLElement> {
   if (!(clonedNode instanceof HTMLImageElement) || isDataUrl(clonedNode.src)) {
     return Promise.resolve(clonedNode)
   }
@@ -38,19 +44,23 @@ function embedImageNode(clonedNode, options) {
     .then(() => clonedNode, () => clonedNode)
 }
 
-function embedChildren(clonedNode, options) {
+function embedChildren(
+  clonedNode: HTMLElement,
+  options: Object,
+): Promise<HTMLElement> {
   const children = toArray(clonedNode.childNodes)
   const deferreds = children.map(child => embedImages(child, options)) // eslint-disable-line
 
   return Promise.all(deferreds).then(() => clonedNode)
 }
 
-export default function embedImages(clonedNode, opts) {
+export default function embedImages(
+  clonedNode: HTMLElement,
+  options: Object,
+): Promise<HTMLElement> {
   if (!(clonedNode instanceof Element)) {
     return Promise.resolve(clonedNode)
   }
-
-  const options = { ...opts, isImage: true }
 
   return Promise.resolve(clonedNode)
     .then(node => embedBackground(node, options))

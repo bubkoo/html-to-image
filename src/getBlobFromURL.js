@@ -1,5 +1,4 @@
 import { getDataURLContent } from './utils'
-// import getBlobFromImageURL from './getBlobFromImageURL'
 
 
 const TIMEOUT = 30000
@@ -10,7 +9,7 @@ const TIMEOUT = 30000
 // will redirect to 'http://something.com/65fc2ffcc8aea7ba65a1d1feda173540'
 
 
-export default function getBlobFromURL(url, options) {
+export default function getBlobFromURL(url: String, options: Object): Promise<Blob> {
   // cache bypass so we dont have CORS issues with cached images
   // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
   if (options.cacheBust) {
@@ -88,12 +87,4 @@ export default function getBlobFromURL(url, options) {
     }))
 
   return deferred.catch(failed)
-
-  // return deferred.catch((err) => {
-  //   if (options.isImage) {
-  //     return getBlobFromImageURL(url).catch(failed)
-  //   }
-
-  //   return failed(err)
-  // })
 }

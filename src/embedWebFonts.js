@@ -1,7 +1,7 @@
 import { toArray } from './utils'
 import embedResources, { shouldEmbed } from './embedResources'
 
-function getCssRules(styleSheets) {
+function getCssRules(styleSheets: Array<StyleSheet>): Array<CSSRule> {
   return styleSheets.reduce((memo, sheet) => {
     try {
       if (sheet.cssRules) {
@@ -16,13 +16,13 @@ function getCssRules(styleSheets) {
   }, [])
 }
 
-function getWebFontRules(cssRules) {
+function getWebFontRules(cssRules: Array<CSSRule>): Promise<Array<CSSRule>> {
   return cssRules
     .filter(rule => rule.type === CSSRule.FONT_FACE_RULE)
     .filter(rule => shouldEmbed(rule.style.getPropertyValue('src')))
 }
 
-export function parseWebFontRules(clonedNode) {
+export function parseWebFontRules(clonedNode: HTMLElement): Promise<Array<CSSRule>> {
   return new Promise((resolve, reject) => {
     if (!clonedNode.ownerDocument) {
       reject(new Error('Provided element is not within a Document'))
@@ -33,7 +33,10 @@ export function parseWebFontRules(clonedNode) {
     .then(getWebFontRules)
 }
 
-export default function embedWebFonts(clonedNode, options) {
+export default function embedWebFonts(
+  clonedNode: HTMLElement,
+  options: Object,
+): Promise<HTMLElement> {
   return parseWebFontRules(clonedNode)
     .then(rules => Promise.all(rules.map((rule) => {
       const baseUrl = (rule.parentStyleSheet || {}).href

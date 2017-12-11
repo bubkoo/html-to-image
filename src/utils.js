@@ -31,18 +31,18 @@ export const uuid = (function uuid() {
   }
 }())
 
-export function parseExtension(url) {
+export function parseExtension(url: String): String {
   const match = /\.([^./]*?)$/g.exec(url)
   if (match) return match[1]
   return ''
 }
 
-export function getMimeType(url) {
+export function getMimeType(url: String): String {
   const ext = parseExtension(url).toLowerCase()
   return mimes[ext] || ''
 }
 
-export function delay(ms) {
+export function delay(ms: Number): Promise {
   return arg => new Promise(((resolve) => {
     setTimeout(() => {
       resolve(arg)
@@ -50,7 +50,7 @@ export function delay(ms) {
   }))
 }
 
-export function createImage(url) {
+export function createImage(url: String): Promise<Image> {
   return new Promise(((resolve, reject) => {
     const image = new Image()
     image.onload = () => {
@@ -62,19 +62,19 @@ export function createImage(url) {
   }))
 }
 
-export function isDataUrl(url) {
+export function isDataUrl(url: String): Boolean {
   return url.search(/^(data:)/) !== -1
 }
 
-export function toDataURL(content, mimeType) {
+export function toDataURL(content: String, mimeType: String): String {
   return `data:${mimeType};base64,${content}`
 }
 
-export function getDataURLContent(dataURL) {
+export function getDataURLContent(dataURL: String): String {
   return dataURL.split(/,/)[1]
 }
 
-function toBlob(canvas) {
+function toBlob(canvas: HTMLCanvasElement): Promise<Blob> {
   return new Promise(((resolve) => {
     const binaryString = window.atob(canvas.toDataURL().split(',')[1])
     const len = binaryString.length
@@ -90,7 +90,7 @@ function toBlob(canvas) {
   }))
 }
 
-export function canvasToBlob(canvas) {
+export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
   if (canvas.toBlob) {
     return new Promise(((resolve) => {
       canvas.toBlob(resolve)
@@ -100,7 +100,7 @@ export function canvasToBlob(canvas) {
   return toBlob(canvas)
 }
 
-export function toArray(arrayLike) {
+export function toArray(arrayLike: Object): Array<*> {
   const arr = []
 
   for (let i = 0, l = arrayLike.length; i < l; i += 1) {
@@ -110,24 +110,24 @@ export function toArray(arrayLike) {
   return arr
 }
 
-function px(node, styleProperty) {
+function px(node: HTMLElement, styleProperty: String): Number {
   const value = window.getComputedStyle(node).getPropertyValue(styleProperty)
   return parseFloat(value.replace('px', ''))
 }
 
-export function getNodeWidth(node) {
+export function getNodeWidth(node: HTMLElement): Number {
   const leftBorder = px(node, 'border-left-width')
   const rightBorder = px(node, 'border-right-width')
   return node.scrollWidth + leftBorder + rightBorder
 }
 
-export function getNodeHeight(node) {
+export function getNodeHeight(node: HTMLElement): Number {
   const topBorder = px(node, 'border-top-width')
   const bottomBorder = px(node, 'border-bottom-width')
   return node.scrollHeight + topBorder + bottomBorder
 }
 
-export function getPixelRatio(context) {
+export function getPixelRatio(context: Object): Number {
   const backingStore = context.backingStorePixelRatio ||
     context.webkitBackingStorePixelRatio ||
     context.mozBackingStorePixelRatio ||
@@ -136,4 +136,33 @@ export function getPixelRatio(context) {
     context.backingStorePixelRatio || 1
 
   return (window.devicePixelRatio || 1) / backingStore
+}
+
+export function svgToDataURL(svg: SVGElement): Promise<String> {
+  return Promise.resolve()
+    .then(() => new XMLSerializer().serializeToString(svg))
+    .then(encodeURIComponent)
+    .then(html => `data:image/svg+xml;charset=utf-8,${html}`)
+}
+
+export function getBlobFromImageURL(url: String): Promise<String> {
+  return createImage(url).then((image) => {
+    const { width, height } = image
+
+    const canvas = document.createElement('canvas')
+    const context = canvas.getContext('2d')
+    const ratio = getPixelRatio(context)
+
+    canvas.width = width * ratio
+    canvas.height = height * ratio
+    canvas.style.width = width
+    canvas.style.height = height
+
+    context.scale(ratio, ratio)
+    context.drawImage(image, 0, 0)
+
+    const dataURL = canvas.toDataURL(getMimeType(url))
+
+    return getDataURLContent(dataURL)
+  })
 }
