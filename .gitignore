@@ -4,6 +4,6 @@
 .nyc_output
 npm-debug.log
 node_modules
-dist
+/dist
 /lib
 /test/coverage
