@@ -25,7 +25,7 @@
       ],
       "plugins": [
         "istanbul",
-        "transform-decorators-legacy"
+        "transform-es2015-modules-umd"
       ]
     }
   }
