@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "outDir": "./lib",
+    "lib": [
+      "es5",
+      "dom",
+      "es2015",
+    ],
+    "types": [
+      "jest"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
