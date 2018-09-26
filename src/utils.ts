@@ -1,8 +1,6 @@
-/* eslint-disable no-bitwise */
-
 const WOFF = 'application/font-woff'
 const JPEG = 'image/jpeg'
-const mimes = {
+const mimes: { [key: string]: string } = {
   woff: WOFF,
   woff2: WOFF,
   ttf: 'application/font-truetype',
@@ -14,7 +12,6 @@ const mimes = {
   tiff: 'image/tiff',
   svg: 'image/svg+xml',
 }
-
 
 export const uuid = (function uuid() {
   // generate uuid for className of pseudo elements.
@@ -31,26 +28,26 @@ export const uuid = (function uuid() {
   }
 }())
 
-export function parseExtension(url: String): String {
+export function parseExtension(url: string): string {
   const match = /\.([^./]*?)$/g.exec(url)
   if (match) return match[1]
   return ''
 }
 
-export function getMimeType(url: String): String {
+export function getMimeType(url: string): string {
   const ext = parseExtension(url).toLowerCase()
   return mimes[ext] || ''
 }
 
-export function delay(ms: Number): Promise {
-  return arg => new Promise(((resolve) => {
+export function delay(ms: number): (ret: any) => Promise<any> {
+  return (args: any) => new Promise<any>(((resolve) => {
     setTimeout(() => {
-      resolve(arg)
-    }, ms)
+      resolve(args)
+    },         ms)
   }))
 }
 
-export function createImage(url: String): Promise<Image> {
+export function createImage(url: string): Promise<HTMLImageElement> {
   return new Promise(((resolve, reject) => {
     const image = new Image()
     image.onload = () => {
@@ -62,15 +59,15 @@ export function createImage(url: String): Promise<Image> {
   }))
 }
 
-export function isDataUrl(url: String): Boolean {
+export function isDataUrl(url: string): Boolean {
   return url.search(/^(data:)/) !== -1
 }
 
-export function toDataURL(content: String, mimeType: String): String {
+export function toDataURL(content: string, mimeType: string): string {
   return `data:${mimeType};base64,${content}`
 }
 
-export function getDataURLContent(dataURL: String): String {
+export function getDataURLContent(dataURL: string): string {
   return dataURL.split(/,/)[1]
 }
 
@@ -90,7 +87,7 @@ function toBlob(canvas: HTMLCanvasElement): Promise<Blob> {
   }))
 }
 
-export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
   if (canvas.toBlob) {
     return new Promise(((resolve) => {
       canvas.toBlob(resolve)
@@ -100,8 +97,8 @@ export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
   return toBlob(canvas)
 }
 
-export function toArray(arrayLike: Object): Array<*> {
-  const arr = []
+export function toArray<T>(arrayLike: any): T[] {
+  const arr: T[] = []
 
   for (let i = 0, l = arrayLike.length; i < l; i += 1) {
     arr.push(arrayLike[i])
@@ -110,56 +107,49 @@ export function toArray(arrayLike: Object): Array<*> {
   return arr
 }
 
-function px(node: HTMLElement, styleProperty: String): Number {
+function px(node: HTMLElement, styleProperty: string): number {
   const value = window.getComputedStyle(node).getPropertyValue(styleProperty)
   return parseFloat(value.replace('px', ''))
 }
 
-export function getNodeWidth(node: HTMLElement): Number {
+export function getNodeWidth(node: HTMLElement): number {
   const leftBorder = px(node, 'border-left-width')
   const rightBorder = px(node, 'border-right-width')
   return node.scrollWidth + leftBorder + rightBorder
 }
 
-export function getNodeHeight(node: HTMLElement): Number {
+export function getNodeHeight(node: HTMLElement): number {
   const topBorder = px(node, 'border-top-width')
   const bottomBorder = px(node, 'border-bottom-width')
   return node.scrollHeight + topBorder + bottomBorder
 }
 
-export function getPixelRatio(context: Object): Number {
-  const backingStore = context.backingStorePixelRatio ||
-    context.webkitBackingStorePixelRatio ||
-    context.mozBackingStorePixelRatio ||
-    context.msBackingStorePixelRatio ||
-    context.oBackingStorePixelRatio ||
-    context.backingStorePixelRatio || 1
-
-  return (window.devicePixelRatio || 1) / backingStore
+export function getPixelRatio(): number {
+  return (window.devicePixelRatio || 1)
 }
 
-export function svgToDataURL(svg: SVGElement): Promise<String> {
+export function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
     .then(() => new XMLSerializer().serializeToString(svg))
     .then(encodeURIComponent)
     .then(html => `data:image/svg+xml;charset=utf-8,${html}`)
 }
 
-export function getBlobFromImageURL(url: String): Promise<String> {
+export function getBlobFromImageURL(url: string): Promise<string> {
   return createImage(url).then((image) => {
     const { width, height } = image
 
     const canvas = document.createElement('canvas')
     const context = canvas.getContext('2d')
-    const ratio = getPixelRatio(context)
+    const ratio = getPixelRatio()
 
     canvas.width = width * ratio
     canvas.height = height * ratio
-    canvas.style.width = width
-    canvas.style.height = height
+    canvas.style.width = `${width}`
+    canvas.style.height = `${height}`
 
-    context.scale(ratio, ratio)
-    context.drawImage(image, 0, 0)
+    context!.scale(ratio, ratio)
+    context!.drawImage(image, 0, 0)
 
     const dataURL = canvas.toDataURL(getMimeType(url))
 

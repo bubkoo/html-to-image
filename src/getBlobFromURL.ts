@@ -1,38 +1,43 @@
+/* tslint:disable:max-line-length */
+
 import { getDataURLContent } from './utils'
-
-
-const TIMEOUT = 30000
+import { OptionsType } from './index'
 
 // KNOWN ISSUE
 // -----------
 // Can not handle redirect-url, such as when access 'http://something.com/avatar.png'
 // will redirect to 'http://something.com/65fc2ffcc8aea7ba65a1d1feda173540'
 
+const TIMEOUT = 30000
 
-export default function getBlobFromURL(url: String, options: Object): Promise<Blob> {
+export default function getBlobFromURL(
+  url: string,
+  options: OptionsType,
+): Promise<string | null> {
+
   // cache bypass so we dont have CORS issues with cached images
   // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
   if (options.cacheBust) {
-    url += ((/\?/).test(url) ? '&' : '?') + (new Date()).getTime() // eslint-disable-line
+    url += ((/\?/).test(url) ? '&' : '?') + (new Date()).getTime() // tslint:disable-line
   }
 
-  const failed = (err) => {
+  const failed = (reason: any) => {
     let placeholder = ''
     if (options.imagePlaceholder) {
       const split = options.imagePlaceholder.split(/,/)
       if (split && split[1]) {
-        placeholder = split[1] // eslint-disable-line
+        placeholder = split[1]
       }
     }
 
     let msg = `Failed to fetch resource: ${url}`
 
-    if (err) {
-      msg = typeof err === 'string' ? err : err.message
+    if (reason) {
+      msg = typeof reason === 'string' ? reason : reason.message
     }
 
     if (msg) {
-      console.error(msg) // eslint-disable-line
+      console.error(msg)
     }
 
     return placeholder
@@ -44,7 +49,7 @@ export default function getBlobFromURL(url: String, options: Object): Promise<Bl
       .then(response => response.blob())
       .then(blob => new Promise((resolve, reject) => {
         const reader = new FileReader()
-        reader.onloadend = () => resolve(reader.result)
+        reader.onloadend = () => resolve(reader.result as string)
         reader.onerror = reject
         reader.readAsDataURL(blob)
       }))
@@ -54,7 +59,7 @@ export default function getBlobFromURL(url: String, options: Object): Promise<Bl
       }))
 
     // xhr
-    : new Promise(((resolve, reject) => {
+    : new Promise<string | null>(((resolve, reject) => {
       const req = new XMLHttpRequest()
 
       const timeout = () => {
@@ -73,7 +78,7 @@ export default function getBlobFromURL(url: String, options: Object): Promise<Bl
 
         const encoder = new FileReader()
         encoder.onloadend = () => {
-          resolve(getDataURLContent(encoder.result))
+          resolve(getDataURLContent(encoder.result as string))
         }
         encoder.readAsDataURL(req.response)
       }

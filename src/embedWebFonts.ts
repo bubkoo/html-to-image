@@ -1,28 +1,31 @@
 import { toArray } from './utils'
 import embedResources, { shouldEmbed } from './embedResources'
 
-function getCssRules(styleSheets: Array<StyleSheet>): Array<CSSRule> {
-  return styleSheets.reduce((memo, sheet) => {
+function getCssRules(styleSheets: CSSStyleSheet[]): CSSStyleRule[] {
+  const ret: CSSStyleRule[] = []
+
+  styleSheets.forEach((sheet) => {
     try {
       if (sheet.cssRules) {
-        memo.push(...toArray(sheet.cssRules))
+        toArray<CSSStyleRule>(sheet.cssRules).forEach((item: CSSStyleRule) => {
+          ret.push(item)
+        })
       }
     } catch (e) {
-      // eslint-disable-next-line
       console.log(`Error while reading CSS rules from ${sheet.href}`, e.toString())
     }
+  })
 
-    return memo
-  }, [])
+  return ret
 }
 
-function getWebFontRules(cssRules: Array<CSSRule>): Promise<Array<CSSRule>> {
+function getWebFontRules(cssRules: CSSStyleRule[]): CSSStyleRule[] {
   return cssRules
     .filter(rule => rule.type === CSSRule.FONT_FACE_RULE)
     .filter(rule => shouldEmbed(rule.style.getPropertyValue('src')))
 }
 
-export function parseWebFontRules(clonedNode: HTMLElement): Promise<Array<CSSRule>> {
+export function parseWebFontRules(clonedNode: HTMLElement): Promise<CSSRule[]> {
   return new Promise((resolve, reject) => {
     if (!clonedNode.ownerDocument) {
       reject(new Error('Provided element is not within a Document'))
@@ -39,7 +42,7 @@ export default function embedWebFonts(
 ): Promise<HTMLElement> {
   return parseWebFontRules(clonedNode)
     .then(rules => Promise.all(rules.map((rule) => {
-      const baseUrl = (rule.parentStyleSheet || {}).href
+      const baseUrl = rule.parentStyleSheet ? rule.parentStyleSheet.href : null
       return embedResources(rule.cssText, baseUrl, options)
     })))
     .then(cssStrings => cssStrings.join('\n'))

@@ -1,6 +1,6 @@
 export default function applyStyleWithOptions(
   clonedNode: HTMLElement,
-  options: Object,
+  options: any,
 ): HTMLElement {
   const { style } = clonedNode
 

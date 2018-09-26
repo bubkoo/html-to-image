@@ -1,13 +1,14 @@
 import { toArray, uuid } from './utils'
 
+export type PseudoType = ':before' | ':after'
 
-function formatCssText(style: CSSStyleDeclaration): String {
+function formatCssText(style: CSSStyleDeclaration): string {
   const content = style.getPropertyValue('content')
   return `${style.cssText} content: ${content};`
 }
 
-function formatCssProperties(style: CSSStyleDeclaration): String {
-  return toArray(style).map((name) => {
+function formatCssProperties(style: CSSStyleDeclaration): string {
+  return toArray<string>(style).map((name) => {
     const value = style.getPropertyValue(name)
     const priority = style.getPropertyPriority(name)
 
@@ -16,10 +17,10 @@ function formatCssProperties(style: CSSStyleDeclaration): String {
 }
 
 function getPseudoElementStyle(
-  className: String,
-  pseudo: ':before' | ':after',
+  className: string,
+  pseudo: PseudoType,
   style: CSSStyleDeclaration,
-): HTMLElement {
+): Text {
   const selector = `.${className}:${pseudo}`
   const cssText = style.cssText ? formatCssText(style) : formatCssProperties(style)
 
@@ -29,7 +30,7 @@ function getPseudoElementStyle(
 function clonePseudoElement(
   nativeNode: HTMLElement,
   clonedNode: HTMLElement,
-  pseudo: ':before' | ':after',
+  pseudo: PseudoType,
 ) {
   const style = window.getComputedStyle(nativeNode, pseudo)
   const content = style.getPropertyValue('content')
@@ -40,9 +41,7 @@ function clonePseudoElement(
 
   const className = uuid()
   const styleElement = document.createElement('style')
-
   styleElement.appendChild(getPseudoElementStyle(className, pseudo, style))
-
   clonedNode.className = `${clonedNode.className} ${className}`
   clonedNode.appendChild(styleElement)
 }
@@ -51,5 +50,8 @@ export default function clonePseudoElements(
   nativeNode: HTMLElement,
   clonedNode: HTMLElement,
 ) {
-  [':before', ':after'].forEach(pseudo => clonePseudoElement(nativeNode, clonedNode, pseudo))
+  [
+    ':before',
+    ':after',
+  ].forEach((pseudo: PseudoType) => clonePseudoElement(nativeNode, clonedNode, pseudo))
 }

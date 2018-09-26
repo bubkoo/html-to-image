@@ -5,9 +5,8 @@ import {
   toJpeg,
   toBlob,
   toCanvas,
-  toPixelData,
   toSvgDataURL,
-} from '../../src/index'
+} from '../../lib/index'
 
 
 const BASE_URL = '/base/test/spec/resources/'
@@ -106,7 +105,6 @@ function compare(dataURL) {
 function renderAndCompare() {
   return Promise.resolve(getCaptureNode())
     .then(toPng)
-    // .then((dataURL) => { console.log(dataURL); return dataURL })
     .then(compare)
 }
 

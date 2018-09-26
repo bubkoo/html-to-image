@@ -8,17 +8,6 @@
     "dist",
     "src"
   ],
-  "scripts": {
-    "test": "cross-env NODE_ENV=test karma start --single-run",
-    "lint": "eslint --ext .js,.jsx src",
-    "clean": "rimraf dist && rimraf lib",
-    "build:lib": "cross-env NODE_ENV=test babel src --out-dir lib ",
-    "build:dist": "webpack",
-    "build": "npm run clean && npm run build:lib && npm run build:dist",
-    "prebuild": "npm run lint",
-    "prepublish": "npm run build",
-    "precommit": "npm run lint"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bubkoo/html-to-image.git"
@@ -51,7 +40,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
     "cross-env": "^5.1.1",
     "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -71,8 +59,26 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-webpack-preprocessor": "^1.0.1",
     "mocha": "^4.0.1",
-    "rimraf": "^2.6.2",
     "uglifyjs-webpack-plugin": "^1.1.2",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "@types/jest": "^23.3.1",
+    "coveralls": "^3.0.2",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "jest": "^23.5.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=test karma start --single-run",
+    "lint": "tslint ./src/*.ts -c tslint.json -p tsconfig.json --fix",
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "build:dist": "webpack",
+    "build1": "npm run clean && npm run build:lib && npm run build:dist",
+    "prebuild": "npm run lint",
+    "prepublish": "npm run build",
+    "precommit": "npm run lint"
   }
 }

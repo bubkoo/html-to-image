@@ -1,19 +1,22 @@
 import getBlobFromURL from './getBlobFromURL'
-import {
-  isDataUrl,
-  toDataURL,
-  getMimeType,
-} from './utils'
-
+import { isDataUrl, toDataURL, getMimeType } from './utils'
+import { OptionsType } from './index'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
 
-function resolveUrl(url: String, baseUrl: String): String {
-  if (url.match(/^[a-z]+:\/\//i)) { // url is absolute already
+function resolveUrl(url: string, baseUrl: string | null): string {
+  // url is absolute already
+  if (url.match(/^[a-z]+:\/\//i)) {
     return url
-  } else if (url.match(/^\/\//)) {
-    return window.location.protocol + url // url is absolute already, without protocol
-  } else if (url.match(/^[a-z]+:/i)) { // dataURI, mailto:, tel:, etc.
+  }
+
+  // url is absolute already, without protocol
+  if (url.match(/^\/\//)) {
+    return window.location.protocol + url
+  }
+
+  // dataURI, mailto:, tel:, etc.
+  if (url.match(/^[a-z]+:/i)) {
     return url
   }
 
@@ -24,22 +27,25 @@ function resolveUrl(url: String, baseUrl: String): String {
   doc.head.appendChild(base)
   doc.body.appendChild(a)
 
-  base.href = baseUrl
+  if (baseUrl) {
+    base.href = baseUrl
+  }
+
   a.href = url
 
   return a.href
 }
 
-function escape(url: String): String {
-  return url.replace(/([.*+?^${}()|\[\]\/\\])/g, '\\$1') // eslint-disable-line
+function escape(url: string): string {
+  return url.replace(/([.*+?^${}()|\[\]\/\\])/g, '\\$1')
 }
 
-function urlToRegex(url: String): RegExp {
+function urlToRegex(url: string): RegExp {
   return new RegExp(`(url\\(['"]?)(${escape(url)})(['"]?\\))`, 'g')
 }
 
-function parseURLs(str: String): Array<String> {
-  const result = []
+function parseURLs(str: string): string[] {
+  const result: string[] = []
 
   str.replace(URL_REGEX, (raw, quotation, url) => {
     result.push(url)
@@ -50,29 +56,29 @@ function parseURLs(str: String): Array<String> {
 }
 
 function embed(
-  cssString: String,
-  resourceURL: String,
-  baseURL: String,
-  options: Object,
-): Promise<String> {
+  cssString: string,
+  resourceURL: string,
+  baseURL: string | null,
+  options: OptionsType,
+): Promise<string> {
   const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
 
   return Promise.resolve(resolvedURL)
     .then(url => getBlobFromURL(url, options))
-    .then(data => toDataURL(data, getMimeType(resourceURL)))
+    .then(data => toDataURL(data!, getMimeType(resourceURL)))
     .then(dataURL => cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`))
     .then(content => content, () => resolvedURL)
 }
 
-export function shouldEmbed(string: String): Boolean {
+export function shouldEmbed(string: string): boolean {
   return string.search(URL_REGEX) !== -1
 }
 
 export default function embedResources(
-  cssString: String,
-  baseUrl: String,
+  cssString: string,
+  baseUrl: string | null,
   options: Object,
-): Promise<String> {
+): Promise<string> {
   if (!shouldEmbed(cssString)) {
     return Promise.resolve(cssString)
   }

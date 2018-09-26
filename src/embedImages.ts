@@ -1,11 +1,11 @@
 import { toArray, isDataUrl, toDataURL, getMimeType } from './utils'
 import getBlobFromURL from './getBlobFromURL'
 import embedResources from './embedResources'
-
+import { OptionsType } from './index'
 
 function embedBackground(
   clonedNode: HTMLElement,
-  options: Object,
+  options: OptionsType,
 ): Promise<HTMLElement> {
   const background = clonedNode.style.getPropertyValue('background')
   if (!background) {
@@ -27,7 +27,7 @@ function embedBackground(
 
 function embedImageNode(
   clonedNode: HTMLElement,
-  options: Object,
+  options: OptionsType,
 ): Promise<HTMLElement> {
   if (!(clonedNode instanceof HTMLImageElement) || isDataUrl(clonedNode.src)) {
     return Promise.resolve(clonedNode)
@@ -35,7 +35,7 @@ function embedImageNode(
 
   return Promise.resolve(clonedNode.src)
     .then(url => getBlobFromURL(url, options))
-    .then(data => toDataURL(data, getMimeType(clonedNode.src)))
+    .then(data => toDataURL(data!, getMimeType(clonedNode.src)))
     .then(dataURL => new Promise(((resolve, reject) => {
       clonedNode.onload = resolve
       clonedNode.onerror = reject
@@ -48,8 +48,8 @@ function embedChildren(
   clonedNode: HTMLElement,
   options: Object,
 ): Promise<HTMLElement> {
-  const children = toArray(clonedNode.childNodes)
-  const deferreds = children.map(child => embedImages(child, options)) // eslint-disable-line
+  const children = toArray<HTMLElement>(clonedNode.childNodes)
+  const deferreds = children.map(child => embedImages(child, options))
 
   return Promise.all(deferreds).then(() => clonedNode)
 }
