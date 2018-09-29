@@ -14,9 +14,6 @@
       "es5",
       "dom",
       "es2015",
-    ],
-    "types": [
-      "jest"
     ]
   },
   "include": [
