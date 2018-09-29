@@ -167,14 +167,6 @@ Only standard lib is currently used, but make sure your browser supports:
 - [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - SVG `<foreignObject>` tag
 
-### Tests
-
-Most importantly, tests depend on:
-
-- [js-imagediff](https://github.com/HumbleSoftware/js-imagediff), to compare rendered and control images
-
-- [ocrad.js](https://github.com/antimatter15/ocrad.js), for the parts when you can't compare images (due to the browser rendering differences) and just have to test whether the text is rendered
-
 ## How it works
 
 There might some day exist (or maybe already exists?) a simple and standard way of exporting parts of the HTML to image (and then this script can only serve as an evidence of all the hoops I had to jump through in order to get such obvious thing done) but I haven't found one so far.
