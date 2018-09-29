@@ -30,7 +30,7 @@ export function parseWebFontRules(clonedNode: HTMLElement): Promise<CSSRule[]> {
     if (!clonedNode.ownerDocument) {
       reject(new Error('Provided element is not within a Document'))
     }
-    resolve(toArray(clonedNode.ownerDocument.styleSheets))
+    resolve(toArray(clonedNode.ownerDocument!.styleSheets))
   })
     .then(getCssRules)
     .then(getWebFontRules)

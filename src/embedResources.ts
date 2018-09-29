@@ -24,7 +24,7 @@ function resolveUrl(url: string, baseUrl: string | null): string {
   const base = doc.createElement('base')
   const a = doc.createElement('a')
 
-  doc.head.appendChild(base)
+  doc.head!.appendChild(base)
   doc.body.appendChild(a)
 
   if (baseUrl) {
