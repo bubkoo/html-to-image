@@ -128,3 +128,12 @@ export function toBlob(
 ): Promise<Blob | null> {
   return toCanvas(domNode, options).then(canvasToBlob)
 }
+
+export default {
+  toSvgDataURL,
+  toCanvas,
+  toPixelData,
+  toPng,
+  toJpeg,
+  toBlob,
+}
