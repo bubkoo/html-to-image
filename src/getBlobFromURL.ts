@@ -15,10 +15,24 @@ export default function getBlobFromURL(
   options: OptionsType,
 ): Promise<string | null> {
 
+  let corsUrl: string = url
+
+  // decide cors everywhere proxy usage
+  if (options.useCorsEverywhereProxy) {
+    let proxyUrl = 'https://cors-anywhere.herokuapp.com'
+
+    if (options.customCorsEverywhereProxyLink) {
+      const isLastCharSlash = options.customCorsEverywhereProxyLink.substr(-1) === '/'
+      proxyUrl = isLastCharSlash ? options.customCorsEverywhereProxyLink.substr(0, options.customCorsEverywhereProxyLink.length - 1) : options.customCorsEverywhereProxyLink
+    }
+
+    corsUrl = `${ proxyUrl }/${ url }`
+  }
+
   // cache bypass so we dont have CORS issues with cached images
   // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
   if (options.cacheBust) {
-    url += ((/\?/).test(url) ? '&' : '?') + (new Date()).getTime() // tslint:disable-line
+    corsUrl += ((/\?/).test(corsUrl) ? '&' : '?') + (new Date()).getTime() // tslint:disable-line
   }
 
   const failed = (reason: any) => {
@@ -30,7 +44,7 @@ export default function getBlobFromURL(
       }
     }
 
-    let msg = `Failed to fetch resource: ${url}`
+    let msg = `Failed to fetch resource: ${ corsUrl }`
 
     if (reason) {
       msg = typeof reason === 'string' ? reason : reason.message
@@ -45,7 +59,7 @@ export default function getBlobFromURL(
 
   const deferred = window.fetch
     // fetch
-    ? window.fetch(url)
+    ? window.fetch(corsUrl)
       .then(response => response.blob())
       .then(blob => new Promise((resolve, reject) => {
         const reader = new FileReader()
@@ -63,7 +77,7 @@ export default function getBlobFromURL(
       const req = new XMLHttpRequest()
 
       const timeout = () => {
-        reject(new Error(`Timeout of ${TIMEOUT}ms occured while fetching resource: ${url}`))
+        reject(new Error(`Timeout of ${TIMEOUT}ms occured while fetching resource: ${ corsUrl }`))
       }
 
       const done = () => {
@@ -72,7 +86,7 @@ export default function getBlobFromURL(
         }
 
         if (req.status !== 200) {
-          reject(new Error(`Failed to fetch resource: ${url}, status: ${req.status}`))
+          reject(new Error(`Failed to fetch resource: ${ corsUrl }, status: ${req.status}`))
           return
         }
 
@@ -87,7 +101,7 @@ export default function getBlobFromURL(
       req.ontimeout = timeout
       req.responseType = 'blob'
       req.timeout = TIMEOUT
-      req.open('GET', url, true)
+      req.open('GET', corsUrl, true)
       req.send()
     }))
 

@@ -42,6 +42,15 @@ export type OptionsType = {
    * areas for failed images.
   */
   imagePlaceholder?: string,
+  /**
+   * Decide if you would like to use cors everywhere
+   * Read more here: https://github.com/Rob--W/cors-anywhere
+   */
+  useCorsEverywhereProxy?: boolean,
+  /**
+   * A custom URL if you like to use your own cors proxy server.
+   */
+  customCorsEverywhereProxyLink?: string,
 }
 
 function getImageSize(domNode: HTMLElement, options: OptionsType = {}) {
