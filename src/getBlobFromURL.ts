@@ -18,7 +18,7 @@ export default function getBlobFromURL(
   let corsUrl: string = url
 
   // decide cors everywhere proxy usage
-  if (options.useCorsEverywhereProxy) {
+  if (options.useCorsEverywhereProxy && url.indexOf('http://localhost') < 0) {
     let proxyUrl = 'https://cors-anywhere.herokuapp.com'
 
     if (options.customCorsEverywhereProxyLink) {

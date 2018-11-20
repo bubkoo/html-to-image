@@ -5,13 +5,13 @@ function getCssRules(styleSheets: CSSStyleSheet[]): CSSStyleRule[] {
   const ret: CSSStyleRule[] = []
 
   styleSheets.forEach((sheet) => {
-    if (sheet.hasOwnProperty('cssRules')) {
+    if (sheet.cssRules) {
       try {
         toArray<CSSStyleRule>(sheet.cssRules).forEach((item: CSSStyleRule) => {
           ret.push(item)
         })
       } catch (e) {
-        console.log(`Error while reading CSS rules from ${sheet.href}`, e.toString())
+        console.error(`Error while reading CSS rules from ${sheet.href}`, e.toString())
       }
     }
   })
