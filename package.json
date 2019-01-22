@@ -1,6 +1,6 @@
 {
   "name": "html-to-image",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generates an image from a DOM node using HTML5 canvas.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,10 +21,16 @@
     "vector",
     "svg"
   ],
-  "author": {
-    "name": "bubkooo",
-    "email": "bubkoo.wy@gmail.com"
-  },
+  "authors": [
+    {
+      "name": "bubkooo",
+      "email": "bubkoo.wy@gmail.com"
+    },
+    {
+      "name": "OiNutter",
+      "email": "will@oinutter.co.uk"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
