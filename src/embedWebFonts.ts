@@ -96,7 +96,7 @@ function getCssRules(styleSheets: CSSStyleSheet[]): Promise<CSSStyleRule[]> {
           if (item.type === CSSRule.IMPORT_RULE) {
             promises.push(fetchCSS((item as CSSImportRule).href, sheet)
               .then(embedFonts)
-              .then((cssText) => {
+              .then((cssText: any) => {
                 const parsed = parseCSS(cssText)
                 parsed.forEach((rule:any) => {
                   sheet.insertRule(rule, sheet.cssRules.length)
@@ -108,6 +108,20 @@ function getCssRules(styleSheets: CSSStyleSheet[]): Promise<CSSStyleRule[]> {
           }
         })
       } catch (e) {
+        const inline = styleSheets.find(a => a.href === null) || document.styleSheets[0]
+        if (sheet.href != null) {
+          promises.push(fetchCSS(sheet.href, inline)
+            .then(embedFonts)
+            .then((cssText: any) => {
+              const parsed = parseCSS(cssText)
+              parsed.forEach((rule:any) => {
+                (inline as CSSStyleSheet).insertRule(rule, sheet.cssRules.length)
+              })
+            })
+            .catch((e) => {
+              console.log('Error loading remote stylesheet', e.toString())
+            }))
+        }
         console.log('Error inlining remote css file', e.toString())
       }
     }
