@@ -60,10 +60,8 @@ function embedFonts(data: any): Promise<string> {
       let url = location.replace(/url\(([^]+)\)/g, '$1')
       if (!url.startsWith('https://')) {
         const source = data.url
-        console.log('source', source.substr(0, source.lastIndexOf('/')), url)
         url = new URL(url, source).href
       }
-      console.log('URL', url)
       return new Promise((resolve, reject) => {
         fetch(url)
           .then((res: Response) => res.blob())
