@@ -91,5 +91,5 @@ export default function getBlobFromURL(
       req.send()
     }))
 
-  return deferred.catch(failed)
+  return deferred.catch(failed) as Promise<string | null>
 }
