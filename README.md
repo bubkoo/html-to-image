@@ -12,7 +12,8 @@ npm install --save html-to-image
 
 ```js
 /* ES6 */
-import htmlToImage from 'html-to-image';
+import * as htmlToImage from 'html-to-image';
+
 /* ES5 */
 var htmlToImage = require('html-to-image');
 ```
