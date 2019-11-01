@@ -4,7 +4,7 @@ import clonePseudoElements from './clonePseudoElements'
 function cloneSingleNode(nativeNode: HTMLCanvasElement | SVGElement | HTMLElement)
   : Promise<HTMLElement> {
   if (nativeNode instanceof HTMLCanvasElement) {
-    var dataURL = nativeNode.toDataURL();
+    const dataURL = nativeNode.toDataURL();
 
     if(dataURL ===  'data:,')
        return Promise.resolve(null);
