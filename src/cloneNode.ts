@@ -4,7 +4,12 @@ import clonePseudoElements from './clonePseudoElements'
 function cloneSingleNode(nativeNode: HTMLCanvasElement | SVGElement | HTMLElement)
   : Promise<HTMLElement> {
   if (nativeNode instanceof HTMLCanvasElement) {
-    return createImage(nativeNode.toDataURL())
+    var dataURL = nativeNode.toDataURL();
+
+    if(dataURL ===  'data:,')
+       return Promise.resolve(null);
+
+    return utils_1.createImage(dataURL);
   }
 
   if (nativeNode.tagName && nativeNode.tagName.toLowerCase() === 'svg') {
