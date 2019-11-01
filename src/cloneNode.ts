@@ -7,9 +7,9 @@ function cloneSingleNode(nativeNode: HTMLCanvasElement | SVGElement | HTMLElemen
     const dataURL = nativeNode.toDataURL();
 
     if(dataURL ===  'data:,')
-       return Promise.resolve(null);
+       return Promise.resolve(nativeNode.cloneNode(false) as HTMLElement);
 
-    return utils_1.createImage(dataURL);
+    return createImage(dataURL);
   }
 
   if (nativeNode.tagName && nativeNode.tagName.toLowerCase() === 'svg') {
