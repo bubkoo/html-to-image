@@ -55,9 +55,10 @@ function fetchCSS(url: string, sheet: StyleSheet): Promise<any> {
 function embedFonts(data: any): Promise<string> {
   return data.cssText.then((resolved: string) => {
     let cssText = resolved
+    const regexUrlFind = /url\(["']?([^"')]+)["']?\)/g
     const fontLocations = cssText.match(/url\([^)]+\)/g) || []
     const fontLoadedPromises = fontLocations.map((location: string) => {
-      let url = location.replace(/url\(([^]+)\)/g, '$1')
+      let url = location.replace(regexUrlFind, '$1')
       if (!url.startsWith('https://')) {
         const source = data.url
         url = new URL(url, source).href
