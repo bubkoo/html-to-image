@@ -1,16 +1,17 @@
 {
-  "extends": "tslint-config-airbnb",
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-eslint-rules",
+    "tslint-config-prettier"
+  ],
   "linterOptions": {
-    "exclude": [
-      "node_modules/**",
-      "./packages/**/*.d.ts"
-    ]
+    "exclude": ["./es/**/*.d.ts", "./lib/**/*.d.ts"]
   },
   "rules": {
+    "no-construct": true,
+    "no-debugger": true,
+    "no-reference": true,
     "import-name": false,
-    "semicolon": [
-      true,
-      "never"
-    ]
+    "semicolon": [true, "never"]
   }
 }
