@@ -3,14 +3,14 @@
   "version": "0.1.1",
   "description": "Generates an image from a DOM node using HTML5 canvas.",
   "main": "lib/index.js",
+  "module": "es/index.js",
+  "unpkg": "dist/html-to-image.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib/*.d.ts",
-    "lib/*.js"
+    "dist",
+    "es",
+    "lib"
   ],
-  "directories": {
-    "lib": "lib/"
-  },
   "keywords": [
     "screenshot",
     "cavas",
@@ -21,7 +21,43 @@
     "vector",
     "svg"
   ],
-  "authors": [
+  "scripts": {
+    "lint": "tslint ./src/*.ts -c tslint.json -p tsconfig.json --fix",
+    "clean": "rimraf dist es lib",
+    "build:esm": "tsc --module esnext --target es2015 --outDir ./es",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir ./lib",
+    "build:umd": "rollup -c",
+    "build": "run-s build:esm build:cjs build:umd",
+    "prebuild": "run-s lint clean",
+    "prepublish": "npm run build",
+    "precommit": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "devmoji -e --lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "tslint -c tslint.json -p ./tsconfig.json --fix"
+    ],
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "pretty-quick — staged"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "license": "MIT",
+  "authors": {
+    "name": "bubkooo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "contributors": [
     {
       "name": "bubkooo",
       "email": "bubkoo.wy@gmail.com"
@@ -31,7 +67,29 @@
       "email": "will@oinutter.co.uk"
     }
   ],
-  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-typescript": "^4.1.2",
+    "devmoji": "^2.1.9",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.0",
+    "rollup": "^2.10.5",
+    "rollup-plugin-filesize": "^9.0.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "tslib": "^2.0.0",
+    "tslint": "^5.1.0",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.9.6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bubkoo/html-to-image.git"
@@ -39,20 +97,5 @@
   "bugs": {
     "url": "https://github.com/bubkoo/html-to-image/issues"
   },
-  "homepage": "https://github.com/bubkoo/html-to-image#readme",
-  "devDependencies": {
-    "husky": "^0.14.3",
-    "tslint": "^5.11.0",
-    "tslint-config-airbnb": "^5.11.0",
-    "rimraf": "^2.6.2",
-    "typescript": "^3.0.3"
-  },
-  "scripts": {
-    "lint": "tslint ./src/*.ts -c tslint.json -p tsconfig.json --fix",
-    "clean": "rimraf lib",
-    "build": "tsc",
-    "prebuild": "npm run lint",
-    "prepublish": "npm run build",
-    "precommit": "npm run lint"
-  }
+  "homepage": "https://github.com/bubkoo/html-to-image#readme"
 }

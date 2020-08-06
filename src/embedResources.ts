@@ -1,8 +1,62 @@
-import getBlobFromURL from './getBlobFromURL'
+import { Options } from './index'
+import { getBlobFromURL } from './getBlobFromURL'
 import { isDataUrl, toDataURL, getMimeType } from './utils'
-import { OptionsType } from './index'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
+
+export function shouldEmbed(string: string): boolean {
+  return string.search(URL_REGEX) !== -1
+}
+
+export async function embedResources(
+  cssString: string,
+  baseUrl: string | null,
+  options: Object,
+): Promise<string> {
+  if (!shouldEmbed(cssString)) {
+    return Promise.resolve(cssString)
+  }
+
+  return Promise.resolve(cssString)
+    .then(parseURLs)
+    .then((urls) =>
+      urls.reduce(
+        (done, url) => done.then((ret) => embed(ret, url, baseUrl, options)),
+        Promise.resolve(cssString),
+      ),
+    )
+}
+
+function parseURLs(str: string): string[] {
+  const result: string[] = []
+
+  str.replace(URL_REGEX, (raw, quotation, url) => {
+    result.push(url)
+    return raw
+  })
+
+  return result.filter((url) => !isDataUrl(url))
+}
+
+function embed(
+  cssString: string,
+  resourceURL: string,
+  baseURL: string | null,
+  options: Options,
+): Promise<string> {
+  const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
+
+  return Promise.resolve(resolvedURL)
+    .then((url) => getBlobFromURL(url, options))
+    .then((data) => toDataURL(data!, getMimeType(resourceURL)))
+    .then((dataURL) =>
+      cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`),
+    )
+    .then(
+      (content) => content,
+      () => resolvedURL,
+    )
+}
 
 function resolveUrl(url: string, baseUrl: string | null): string {
   // url is absolute already
@@ -36,57 +90,10 @@ function resolveUrl(url: string, baseUrl: string | null): string {
   return a.href
 }
 
-function escape(url: string): string {
-  return url.replace(/([.*+?^${}()|\[\]\/\\])/g, '\\$1')
-}
-
 function urlToRegex(url: string): RegExp {
   return new RegExp(`(url\\(['"]?)(${escape(url)})(['"]?\\))`, 'g')
 }
 
-function parseURLs(str: string): string[] {
-  const result: string[] = []
-
-  str.replace(URL_REGEX, (raw, quotation, url) => {
-    result.push(url)
-    return raw
-  })
-
-  return result.filter(url => !isDataUrl(url))
-}
-
-function embed(
-  cssString: string,
-  resourceURL: string,
-  baseURL: string | null,
-  options: OptionsType,
-): Promise<string> {
-  const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
-
-  return Promise.resolve(resolvedURL)
-    .then(url => getBlobFromURL(url, options))
-    .then(data => toDataURL(data!, getMimeType(resourceURL)))
-    .then(dataURL => cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`))
-    .then(content => content, () => resolvedURL)
-}
-
-export function shouldEmbed(string: string): boolean {
-  return string.search(URL_REGEX) !== -1
-}
-
-export default function embedResources(
-  cssString: string,
-  baseUrl: string | null,
-  options: Object,
-): Promise<string> {
-  if (!shouldEmbed(cssString)) {
-    return Promise.resolve(cssString)
-  }
-
-  return Promise.resolve(cssString)
-    .then(parseURLs)
-    .then(urls => urls.reduce(
-      (done, url) => done.then(ret => embed(ret, url, baseUrl, options)),
-      Promise.resolve(cssString),
-    ))
+function escape(url: string): string {
+  return url.replace(/([.*+?^${}()|\[\]\/\\])/g, '\\$1')
 }

@@ -1,4 +1,4 @@
-export default function applyStyleWithOptions(
+export function applyStyleWithOptions(
   clonedNode: HTMLElement,
   options: any,
 ): HTMLElement {

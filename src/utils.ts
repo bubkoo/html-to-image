@@ -20,59 +20,47 @@ export const uuid = (function uuid() {
 
   // ref: http://stackoverflow.com/a/6248722/2519373
   const randomFourChars = () =>
-    (`0000${(Math.random() * (36 ** 4) << 0).toString(36)}`).slice(-4)
+    `0000${((Math.random() * 36 ** 4) << 0).toString(36)}`.slice(-4)
 
   return () => {
     counter += 1
     return `u${randomFourChars()}${counter}`
   }
-}())
+})()
 
-export function parseExtension(url: string): string {
+export function getExtension(url: string): string {
   const match = /\.([^./]*?)$/g.exec(url)
-  if (match) return match[1]
-  return ''
+  return match ? match[1] : ''
 }
 
 export function getMimeType(url: string): string {
-  const ext = parseExtension(url).toLowerCase()
+  const ext = getExtension(url).toLowerCase()
   return mimes[ext] || ''
 }
 
 export function delay(ms: number): (ret: any) => Promise<any> {
-  return (args: any) => new Promise<any>(((resolve) => {
-    setTimeout(() => {
-      resolve(args)
-    },         ms)
-  }))
+  return (args: any) =>
+    new Promise<any>((resolve) => {
+      setTimeout(() => {
+        resolve(args)
+      }, ms)
+    })
 }
 
-export function createImage(url: string): Promise<HTMLImageElement> {
-  return new Promise(((resolve, reject) => {
-    const image = new Image()
-    image.onload = () => {
-      resolve(image)
-    }
-    image.onerror = reject
-    image.crossOrigin = 'anonymous'
-    image.src = url
-  }))
-}
-
-export function isDataUrl(url: string): Boolean {
+export function isDataUrl(url: string) {
   return url.search(/^(data:)/) !== -1
 }
 
-export function toDataURL(content: string, mimeType: string): string {
+export function toDataURL(content: string, mimeType: string) {
   return `data:${mimeType};base64,${content}`
 }
 
-export function getDataURLContent(dataURL: string): string {
+export function getDataURLContent(dataURL: string) {
   return dataURL.split(/,/)[1]
 }
 
 function toBlob(canvas: HTMLCanvasElement): Promise<Blob> {
-  return new Promise(((resolve) => {
+  return new Promise((resolve) => {
     const binaryString = window.atob(canvas.toDataURL().split(',')[1])
     const len = binaryString.length
     const binaryArray = new Uint8Array(len)
@@ -81,61 +69,67 @@ function toBlob(canvas: HTMLCanvasElement): Promise<Blob> {
       binaryArray[i] = binaryString.charCodeAt(i)
     }
 
-    resolve(new Blob([binaryArray], {
-      type: 'image/png',
-    }))
-  }))
+    resolve(new Blob([binaryArray], { type: 'image/png' }))
+  })
 }
 
 export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
   if (canvas.toBlob) {
-    return new Promise(((resolve) => {
-      canvas.toBlob(resolve)
-    }))
+    return new Promise((resolve) => canvas.toBlob(resolve))
   }
 
   return toBlob(canvas)
 }
 
 export function toArray<T>(arrayLike: any): T[] {
-  const arr: T[] = []
+  const result: T[] = []
 
   for (let i = 0, l = arrayLike.length; i < l; i += 1) {
-    arr.push(arrayLike[i])
+    result.push(arrayLike[i])
   }
 
-  return arr
+  return result
 }
 
-function px(node: HTMLElement, styleProperty: string): number {
-  const value = window.getComputedStyle(node).getPropertyValue(styleProperty)
-  return parseFloat(value.replace('px', ''))
+function px(node: HTMLElement, styleProperty: string) {
+  const val = window.getComputedStyle(node).getPropertyValue(styleProperty)
+  return parseFloat(val.replace('px', ''))
 }
 
-export function getNodeWidth(node: HTMLElement): number {
+export function getNodeWidth(node: HTMLElement) {
   const leftBorder = px(node, 'border-left-width')
   const rightBorder = px(node, 'border-right-width')
   return node.scrollWidth + leftBorder + rightBorder
 }
 
-export function getNodeHeight(node: HTMLElement): number {
+export function getNodeHeight(node: HTMLElement) {
   const topBorder = px(node, 'border-top-width')
   const bottomBorder = px(node, 'border-bottom-width')
   return node.scrollHeight + topBorder + bottomBorder
 }
 
-export function getPixelRatio(): number {
-  return (window.devicePixelRatio || 1)
+export function getPixelRatio() {
+  return window.devicePixelRatio || 1
 }
 
-export function svgToDataURL(svg: SVGElement): Promise<string> {
+export function createImage(url: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const image = new Image()
+    image.onload = () => resolve(image)
+    image.onerror = reject
+    image.crossOrigin = 'anonymous'
+    image.src = url
+  })
+}
+
+export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
     .then(() => new XMLSerializer().serializeToString(svg))
     .then(encodeURIComponent)
-    .then(html => `data:image/svg+xml;charset=utf-8,${html}`)
+    .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
 }
 
-export function getBlobFromImageURL(url: string): Promise<string> {
+export async function getBlobFromImageURL(url: string): Promise<string> {
   return createImage(url).then((image) => {
     const { width, height } = image
 

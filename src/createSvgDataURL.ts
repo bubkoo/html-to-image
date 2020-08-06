@@ -1,6 +1,6 @@
 import { svgToDataURL } from './utils'
 
-export default function createSvgDataURL(
+export function createSvgDataURL(
   clonedNode: HTMLElement,
   width: number,
   height: number,

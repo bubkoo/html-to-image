@@ -1,71 +1,80 @@
-import cloneNode from './cloneNode'
-import embedWebFonts from './embedWebFonts'
-import embedImages from './embedImages'
-import createSvgDataURL from './createSvgDataURL'
-import applyStyleWithOptions from './applyStyleWithOptions'
+import { cloneNode } from './cloneNode'
+import { embedImages } from './embedImages'
+import { embedWebFonts } from './embedWebFonts'
+import { createSvgDataURL } from './createSvgDataURL'
+import { applyStyleWithOptions } from './applyStyleWithOptions'
 import {
-  createImage,
   delay,
+  createImage,
   canvasToBlob,
   getNodeWidth,
   getNodeHeight,
   getPixelRatio,
 } from './utils'
 
-export type OptionsType = {
+export type Options = {
   /**
-   * A function taking DOM node as argument. Should return `true`
-   * if passed node should be included in the output. Excluding
-   * node means excluding it's children as well.
-  */
-  filter?: (domNode: HTMLElement) => boolean,
-  width?: number,
-  height?: number,
-  style?: Object,
+   * Width in pixels to be applied to node before rendering.
+   */
+  width?: number
+  /**
+   * Height in pixels to be applied to node before rendering.
+   */
+  height?: number
+  /**
+   * A string value for the background color, any valid CSS color value.
+   */
+  backgroundColor?: string
+  /**
+   * An object whose properties to be copied to node's style before rendering.
+   */
+  style?: Object
+  /**
+   * A function taking DOM node as argument. Should return `true` if passed
+   * node should be included in the output. Excluding node means excluding
+   * it's children as well.
+   */
+  filter?: (domNode: HTMLElement) => boolean
   /**
    * A number between `0` and `1` indicating image quality (e.g. 0.92 => 92%)
    * of the JPEG image.
-  */
-  quality?: number,
-  /**
-   * A string value for the background color, any valid CSS color value.
-  */
-  backgroundColor?: string,
+   */
+  quality?: number
   /**
    * Set to `true` to append the current time as a query string to URL
    * requests to enable cache busting.
-  */
-  cacheBust?: boolean,
+   */
+  cacheBust?: boolean
   /**
    * A data URL for a placeholder image that will be used when fetching
    * an image fails. Defaults to an empty string and will render empty
    * areas for failed images.
-  */
-  imagePlaceholder?: string,
+   */
+  imagePlaceholder?: string
 }
 
-function getImageSize(domNode: HTMLElement, options: OptionsType = {}) {
+function getImageSize(domNode: HTMLElement, options: Options = {}) {
   const width = options.width || getNodeWidth(domNode)
   const height = options.height || getNodeHeight(domNode)
   return { width, height }
 }
 
-export function toSvgDataURL(
+export async function toSvgDataURL(
   domNode: HTMLElement,
-  options: OptionsType = {},
+  options: Options = {},
 ): Promise<string> {
   const { width, height } = getImageSize(domNode, options)
 
   return cloneNode(domNode, options.filter, true)
-    .then(clonedNode => embedWebFonts(clonedNode!, options))
-    .then(clonedNode => embedImages(clonedNode, options))
-    .then(clonedNode => applyStyleWithOptions(clonedNode, options))
-    .then(clonedNode => createSvgDataURL(clonedNode, width, height))
+    .then((clonedNode) => embedWebFonts(clonedNode!, options))
+    .then((clonedNode) => embedImages(clonedNode, options))
+    .then((clonedNode) => applyStyleWithOptions(clonedNode, options))
+    .then((clonedNode) => createSvgDataURL(clonedNode, width, height))
 }
 
-export function toCanvas(
+export async function toCanvas(
   domNode: HTMLElement,
-  options: OptionsType = {},
+  options: Options = {},
 ): Promise<HTMLCanvasElement> {
   return toSvgDataURL(domNode, options)
     .then(createImage)
@@ -93,47 +102,36 @@ export function toCanvas(
     })
 }
 
-export function toPixelData(
+export async function toPixelData(
   domNode: HTMLElement,
-  options: OptionsType = {},
+  options: Options = {},
 ): Promise<Uint8ClampedArray> {
   const { width, height } = getImageSize(domNode, options)
-  return toCanvas(domNode, options)
-    .then(canvas => (
-      canvas.getContext('2d')!.getImageData(0, 0, width, height).data
-    ))
+  return toCanvas(domNode, options).then((canvas) => {
+    const ctx = canvas.getContext('2d')!
+    return ctx.getImageData(0, 0, width, height).data
+  })
 }
 
-export function toPng(
+export async function toPng(
   domNode: HTMLElement,
-  options: OptionsType = {},
+  options: Options = {},
 ): Promise<string> {
-  return toCanvas(domNode, options).then(canvas => (
-    canvas.toDataURL()
-  ))
+  return toCanvas(domNode, options).then((canvas) => canvas.toDataURL())
 }
 
-export function toJpeg(
+export async function toJpeg(
   domNode: HTMLElement,
-  options: OptionsType = {},
+  options: Options = {},
 ): Promise<string> {
-  return toCanvas(domNode, options).then(canvas => (
-    canvas.toDataURL('image/jpeg', options.quality || 1)
-  ))
+  return toCanvas(domNode, options).then((canvas) =>
+    canvas.toDataURL('image/jpeg', options.quality || 1),
+  )
 }
 
-export function toBlob(
+export async function toBlob(
   domNode: HTMLElement,
-  options: OptionsType = {},
+  options: Options = {},
 ): Promise<Blob | null> {
   return toCanvas(domNode, options).then(canvasToBlob)
-}
-
-export default {
-  toSvgDataURL,
-  toCanvas,
-  toPixelData,
-  toPng,
-  toJpeg,
-  toBlob,
 }
