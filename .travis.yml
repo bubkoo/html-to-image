@@ -1,12 +1,15 @@
 language: node_js
 node_js:
-  - 10
+  - 12
 cache:
+  yarn: true
   directories:
     - node_modules
-install: npm install
+install:
+  - npm install -g yarn
+  - yarn
 script:
-  - npm run lint
-  - npm test
-  after_script:
-    - npm run coveralls
+  - yarn lint
+  - yarn test
+after_script:
+  - yarn coveralls
