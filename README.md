@@ -1,6 +1,7 @@
 # html-to-image
 
 > ✂️ Generates an image from a DOM node using HTML5 canvas and SVG.
+> 
 > Fork from [dom-to-image](https://github.com/tsayen/dom-to-image) with more maintainable code and some new features.
 
 [![MIT License](https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square)](https://github.com/bubkoo/html-to-image/blob/master/LICENSE)
