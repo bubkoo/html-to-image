@@ -1,20 +1,28 @@
 {
-  "exclude": ["node_modules", "./es", "./lib"],
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "declaration": true,
-    "skipLibCheck": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noEmitOnError": true,
-    "noUnusedLocals": true,
     "strictNullChecks": true,
+    "noUnusedLocals": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "jsx": "react",
+    "pretty": true,
     "target": "es5",
-    "lib": ["dom", "es2015"]
-  }
+    "lib": [
+      "dom",
+      "es2015"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }
