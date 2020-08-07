@@ -1,6 +1,7 @@
 # html-to-image
 
-> A pure JavaScript library which can turn arbitrary DOM node into a vector (SVG) or raster (PNG or JPEG) images. Fork from [dom-to-image](https://github.com/tsayen/dom-to-image) with more maintainable code and some new features.
+> ✂️ Generates an image from a DOM node using HTML5 canvas and SVG.
+> Fork from [dom-to-image](https://github.com/tsayen/dom-to-image) with more maintainable code and some new features.
 
 [![MIT License](https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square)](https://github.com/bubkoo/html-to-image/blob/master/LICENSE)
 [![Language](https://img.shields.io/badge/language-typescript-blue.svg?style=flat-square)](https://www.typescriptlang.org)
