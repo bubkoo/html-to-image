@@ -19,12 +19,12 @@ export const uuid = (function uuid() {
   let counter = 0
 
   // ref: http://stackoverflow.com/a/6248722/2519373
-  const randomFourChars = () =>
+  const random = () =>
     `0000${((Math.random() * 36 ** 4) << 0).toString(36)}`.slice(-4)
 
   return () => {
     counter += 1
-    return `u${randomFourChars()}${counter}`
+    return `u${random()}${counter}`
   }
 })()
 

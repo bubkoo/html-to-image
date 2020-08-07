@@ -1,6 +1,6 @@
 import { Options } from './index'
 import { getBlobFromURL } from './getBlobFromURL'
-import { isDataUrl, toDataURL, getMimeType } from './utils'
+import { isDataUrl, toDataURL, getMimeType } from './util'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
 
@@ -8,7 +8,7 @@ export function shouldEmbed(string: string): boolean {
   return string.search(URL_REGEX) !== -1
 }
 
-export async function embedResources(
+export function embedResources(
   cssString: string,
   baseUrl: string | null,
   options: Object,
@@ -27,7 +27,7 @@ export async function embedResources(
     )
 }
 
-function parseURLs(str: string): string[] {
+export function parseURLs(str: string): string[] {
   const result: string[] = []
 
   str.replace(URL_REGEX, (raw, quotation, url) => {
@@ -38,16 +38,17 @@ function parseURLs(str: string): string[] {
   return result.filter((url) => !isDataUrl(url))
 }
 
-function embed(
+export function embed(
   cssString: string,
   resourceURL: string,
   baseURL: string | null,
   options: Options,
+  get?: (url: string) => Promise<string>,
 ): Promise<string> {
   const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
 
   return Promise.resolve(resolvedURL)
-    .then((url) => getBlobFromURL(url, options))
+    .then((url) => (get ? get(url) : getBlobFromURL(url, options)))
     .then((data) => toDataURL(data!, getMimeType(resourceURL)))
     .then((dataURL) =>
       cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`),

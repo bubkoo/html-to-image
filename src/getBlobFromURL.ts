@@ -1,7 +1,7 @@
 /* tslint:disable:max-line-length */
 
 import { Options } from './index'
-import { getDataURLContent } from './utils'
+import { getDataURLContent } from './util'
 
 // KNOWN ISSUE
 // -----------

@@ -10,7 +10,7 @@ import {
   getNodeWidth,
   getNodeHeight,
   getPixelRatio,
-} from './utils'
+} from './util'
 
 export type Options = {
   /**
@@ -89,7 +89,6 @@ export async function toCanvas(
       canvas.height = height * ratio
       canvas.style.width = `${width}`
       canvas.style.height = `${height}`
-      context.scale(ratio, ratio)
 
       if (options.backgroundColor) {
         context.fillStyle = options.backgroundColor

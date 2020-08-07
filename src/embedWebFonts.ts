@@ -1,4 +1,4 @@
-import { toArray } from './utils'
+import { toArray } from './util'
 import { shouldEmbed, embedResources } from './embedResources'
 
 export async function parseWebFontRules(
@@ -46,7 +46,7 @@ export async function embedWebFonts(
     })
 }
 
-async function getCssRules(
+export async function getCssRules(
   styleSheets: CSSStyleSheet[],
 ): Promise<CSSStyleRule[]> {
   const ret: CSSStyleRule[] = []

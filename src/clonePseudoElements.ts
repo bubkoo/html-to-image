@@ -1,4 +1,4 @@
-import { uuid, toArray } from './utils'
+import { uuid, toArray } from './util'
 
 export function clonePseudoElements(
   nativeNode: HTMLElement,

@@ -1,5 +1,5 @@
 import { clonePseudoElements } from './clonePseudoElements'
-import { createImage, toArray, svgToDataURL } from './utils'
+import { createImage, toArray, svgToDataURL } from './util'
 
 async function cloneSingleNode(
   node: HTMLCanvasElement | SVGElement | HTMLElement,

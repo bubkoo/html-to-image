@@ -1,4 +1,4 @@
-import { svgToDataURL } from './utils'
+import { svgToDataURL } from './util'
 
 export function createSvgDataURL(
   clonedNode: HTMLElement,

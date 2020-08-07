@@ -1,7 +1,7 @@
 import { Options } from './index'
 import { getBlobFromURL } from './getBlobFromURL'
 import { embedResources } from './embedResources'
-import { toArray, isDataUrl, toDataURL, getMimeType } from './utils'
+import { toArray, isDataUrl, toDataURL, getMimeType } from './util'
 
 export async function embedImages(
   clonedNode: HTMLElement,
