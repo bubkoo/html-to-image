@@ -2,6 +2,16 @@
 
 > A pure JavaScript library which can turn arbitrary DOM node into a vector (SVG) or raster (PNG or JPEG) images. Fork from [dom-to-image](https://github.com/tsayen/dom-to-image) with more maintainable code and some new features.
 
+[![MIT License](https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square)](https://github.com/bubkoo/html-to-image/blob/master/LICENSE)
+[![Language](https://img.shields.io/badge/language-typescript-blue.svg?style=flat-square)](https://www.typescriptlang.org)
+
+[![build](https://img.shields.io/travis/bubkoo/html-to-image.svg?style=flat-square)](https://travis-ci.org/bubkoo/html-to-image)
+[![coverage](https://img.shields.io/coveralls/bubkoo/html-to-image/master.svg?style=flat-square)](https://coveralls.io/github/bubkoo/html-to-image)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/bubkoo/html-to-image.svg?logo=lgtm&style=flat-square)](https://lgtm.com/projects/g/bubkoo/html-to-image/context:javascript)
+
+[![NPM Package](https://img.shields.io/npm/v/html-to-image.svg?style=flat-square)](https://www.npmjs.com/package/html-to-image)
+[![NPM Downloads](http://img.shields.io/npm/dm/html-to-image.svg?style=flat-square)](https://www.npmjs.com/package/html-to-image)
+
 ## Install 
 
 ```shell
@@ -13,7 +23,6 @@ npm install --save html-to-image
 ```js
 /* ES6 */
 import * as htmlToImage from 'html-to-image';
-// or
 import { toPng, toJpeg, toBlob, toPixelData, toSvgDataURL } from 'html-to-image';
 
 /* ES5 */
