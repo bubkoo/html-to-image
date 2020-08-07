@@ -1,7 +1,7 @@
 {
   "name": "html-to-image",
   "version": "0.1.1",
-  "description": "Generates an image from a DOM node using HTML5 canvas.",
+  "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/html-to-image.js",
@@ -29,8 +29,12 @@
     "build:umd": "rollup -c",
     "build": "run-s build:esm build:cjs build:umd",
     "prebuild": "run-s lint clean",
-    "prepublish": "npm run build",
-    "precommit": "npm run lint"
+    "test": "karma start",
+    "test-debug": "karma start --browsers=Chrome --single-run=false --debug",
+    "test-watch": "karma start --browsers=Chrome --single-run=false --auto-watch",
+    "coveralls": "cat ./test/coverage/lcov.info | coveralls",
+    "pretest": "rimraf ./test/coverage",
+    "prepublish": "run-s build"
   },
   "husky": {
     "hooks": {
@@ -70,11 +74,23 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-typescript": "^4.1.2",
+    "@types/jasmine": "^3.5.12",
+    "@types/jquery": "^3.5.1",
+    "coveralls": "^3.1.0",
     "devmoji": "^2.1.9",
     "husky": "^4.2.5",
+    "imagediff": "^1.0.8",
+    "jasmine-core": "^3.6.0",
+    "karma": "^5.1.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-jasmine": "^3.3.1",
+    "karma-spec-reporter": "^0.0.32",
+    "karma-typescript": "^5.0.3",
     "lint-staged": "^10.2.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
