@@ -4,12 +4,19 @@ import * as embeding from '../../src/embedResources'
 import { Helper } from './helper'
 
 describe('html to image', () => {
-  afterAll(Helper.clean)
+  beforeAll(() => {
+    process.env.devicePixelRatio = '1'
+  })
+
+  afterAll(() => {
+    delete process.env.devicePixelRatio
+    Helper.clean
+  })
 
   describe('basic usage', () => {
     it('should render to svg', (done) => {
       Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
-        .then(htmlToImage.toSvgDataURL)
+        .then(htmlToImage.toSvg)
         .then(Helper.check)
         .then(done)
         .catch(done)
@@ -287,7 +294,7 @@ describe('html to image', () => {
         'bgcolor/image',
       )
         .then((node) => {
-          return htmlToImage.toSvgDataURL(node, {
+          return htmlToImage.toSvg(node, {
             backgroundColor: '#ff0000',
           })
         })

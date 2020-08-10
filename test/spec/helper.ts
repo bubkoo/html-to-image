@@ -1,4 +1,5 @@
 import { toPng } from '../../src'
+import { getPixelRatio } from '../../src/util'
 
 export namespace Helper {
   export function getCaptureNode() {
@@ -6,7 +7,7 @@ export namespace Helper {
   }
 
   export function getReferenceImage() {
-    return document.getElementById('control-image') as HTMLImageElement
+    return document.getElementById('ref-image') as HTMLImageElement
   }
 
   export function getCanvasNode() {
@@ -149,8 +150,9 @@ export namespace Helper {
 
     const width = dimensions.width || node.offsetWidth
     const height = dimensions.height || node.offsetHeight
-    canvas.width = width
-    canvas.height = height
+    const ratio = getPixelRatio()
+    canvas.width = width * ratio
+    canvas.height = height * ratio
     canvas.style.width = `${width}`
     canvas.style.height = `${height}`
 
