@@ -32,7 +32,7 @@
     "test": "karma start",
     "test-debug": "karma start --browsers=Chrome --single-run=false --debug",
     "test-watch": "karma start --browsers=Chrome --single-run=false --auto-watch",
-    "coveralls": "cat ./test/coverage/lcov.info | coveralls",
+    "coveralls": "cat ./test/coverage/lcovonly/lcov.info | coveralls",
     "pretest": "rimraf ./test/coverage",
     "prepublish": "run-s build"
   },
