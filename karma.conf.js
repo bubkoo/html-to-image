@@ -1,3 +1,5 @@
+const { join } = require('path')
+
 module.exports = function (config) {
   const configuration = {
     frameworks: ['jasmine', 'karma-typescript'],
@@ -37,7 +39,11 @@ module.exports = function (config) {
       },
       reports: {
         html: 'test/coverage',
-        lcovonly: 'test/coverage',
+        lcovonly: {
+          directory: 'test/coverage',
+          filename: 'lcov.info',
+          subdirectory: './',
+        },
         'text-summary': '',
       },
     },
