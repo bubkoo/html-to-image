@@ -25,7 +25,7 @@ npm install --save html-to-image
 ```js
 /* ES6 */
 import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvgDataURL } from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 /* ES5 */
 var htmlToImage = require('html-to-image');
@@ -33,11 +33,11 @@ var htmlToImage = require('html-to-image');
 
 All the top level functions accept DOM node and rendering options, and return a promise fulfilled with corresponding dataURL:
 
+- toSvg
 - toPng
 - toJpeg
 - toBlob
 - toPixelData
-- toSvgDataURL
 
 Go with the following examples.
 
@@ -94,7 +94,7 @@ function filter (node) {
   return (node.tagName !== 'i');
 }
 
-htmlToImage.toSvgDataURL(document.getElementById('my-node'), {filter: filter})
+htmlToImage.toSvg(document.getElementById('my-node'), { filter: filter })
   .then(function (dataUrl) {
     /* do something */
   });

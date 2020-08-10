@@ -59,7 +59,7 @@ function getImageSize(domNode: HTMLElement, options: Options = {}) {
   return { width, height }
 }
 
-export async function toSvgDataURL(
+export async function toSvg(
   domNode: HTMLElement,
   options: Options = {},
 ): Promise<string> {
@@ -72,11 +72,13 @@ export async function toSvgDataURL(
     .then((clonedNode) => createSvgDataURL(clonedNode, width, height))
 }
 
+export const toSvgDataURL = toSvg
+
 export async function toCanvas(
   domNode: HTMLElement,
   options: Options = {},
 ): Promise<HTMLCanvasElement> {
-  return toSvgDataURL(domNode, options)
+  return toSvg(domNode, options)
     .then(createImage)
     .then(delay(100))
     .then((image) => {

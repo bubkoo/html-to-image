@@ -109,7 +109,16 @@ export function getNodeHeight(node: HTMLElement) {
 }
 
 export function getPixelRatio() {
-  return window.devicePixelRatio || 1
+  let ratio
+
+  const val = process.env.devicePixelRatio
+  if (val) {
+    ratio = parseInt(val, 10)
+    if (isNaN(ratio)) {
+      ratio = 1
+    }
+  }
+  return ratio || window.devicePixelRatio || 1
 }
 
 export function createImage(url: string): Promise<HTMLImageElement> {
