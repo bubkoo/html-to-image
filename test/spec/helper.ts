@@ -124,11 +124,7 @@ export namespace Helper {
     tolerance?: number,
   ) {
     expect(
-      window.imagediff.equal(
-        image,
-        Helper.getReferenceImage(),
-        tolerance || 10,
-      ),
+      window.imagediff.equal(image, Helper.getReferenceImage(), tolerance || 3),
     ).toBe(true)
   }
 

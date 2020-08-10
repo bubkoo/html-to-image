@@ -6,7 +6,7 @@ import { Helper } from './helper'
 describe('html to image', () => {
   beforeAll(() => {
     process.env.devicePixelRatio = '1'
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
   })
 
   afterAll(() => {
