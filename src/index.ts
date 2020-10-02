@@ -51,6 +51,11 @@ export type Options = {
    * areas for failed images.
    */
   imagePlaceholder?: string
+  /**
+   * Defalut vlaue is the actual pixel ratio of the device.
+   * Set 1 to use as initial-scale 1 for the image
+   */
+  pixelRatio?: number;
 }
 
 function getImageSize(domNode: HTMLElement, options: Options = {}) {
@@ -84,7 +89,7 @@ export async function toCanvas(
     .then((image) => {
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')!
-      const ratio = getPixelRatio()
+      const ratio = options.pixelRatio || getPixelRatio()
       const { width, height } = getImageSize(domNode, options)
 
       canvas.width = width * ratio
