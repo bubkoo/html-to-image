@@ -1,5 +1,5 @@
 import { clonePseudoElements } from './clonePseudoElements'
-import { createImage, toArray, svgToDataURL } from './util'
+import { createImage, toArray } from './util'
 
 async function cloneSingleNode(
   node: HTMLCanvasElement | SVGElement | HTMLElement,
@@ -11,12 +11,6 @@ async function cloneSingleNode(
     }
 
     return createImage(dataURL)
-  }
-
-  if (node.tagName && node.tagName.toLowerCase() === 'svg') {
-    return Promise.resolve(node as SVGElement)
-      .then((svg) => svgToDataURL(svg))
-      .then(createImage)
   }
 
   return Promise.resolve(node.cloneNode(false) as HTMLElement)

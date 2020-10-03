@@ -1,0 +1,8 @@
+#dom-node {
+  width: 120px;
+  overflow: hidden;
+}
+
+.rect {
+  fill: black;
+}
