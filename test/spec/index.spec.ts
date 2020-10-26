@@ -232,12 +232,12 @@ describe('html to image', () => {
   // })
 
   describe('work with svg', () => {
-    // xit('should render nested svg with broken namespace', (done) => {
-    //   Helper.bootstrap('svg-ns/node.html', 'svg-ns/style.css', 'svg-ns/image')
-    //     .then(Helper.renderAndCheck)
-    //     .then(done)
-    //     .catch(done)
-    // })
+    it('should render nested svg with broken namespace', (done) => {
+      Helper.bootstrap('svg-ns/node.html', 'svg-ns/style.css', 'svg-ns/image')
+        .then(Helper.renderAndCheck)
+        .then(done)
+        .catch(done)
+    })
 
     // it('should render svg `<rect>` with width and heigth', (done) => {
     //   Helper.bootstrap(
