@@ -12,7 +12,6 @@
 
 [![NPM Package](https://img.shields.io/npm/v/html-to-image.svg?style=flat-square)](https://www.npmjs.com/package/html-to-image)
 [![NPM Downloads](http://img.shields.io/npm/dm/html-to-image.svg?style=flat-square)](https://www.npmjs.com/package/html-to-image)
-[![Dependency Status](https://david-dm.org/bubkoo/html-to-image.svg?style=flat-square)](https://david-dm.org/bubkoo/html-to-image)
 [![devDependencies Status](https://david-dm.org/bubkoo/html-to-image/dev-status.svg?style=flat-square)](https://david-dm.org/bubkoo/html-to-image?type=dev)
 
 ## Install 
