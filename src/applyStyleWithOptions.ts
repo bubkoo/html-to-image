@@ -1,6 +1,8 @@
+import { Options } from './index'
+
 export function applyStyleWithOptions(
   clonedNode: HTMLElement,
-  options: any,
+  options: Options,
 ): HTMLElement {
   const { style } = clonedNode
 
@@ -16,8 +18,11 @@ export function applyStyleWithOptions(
     style.height = `${options.height}px`
   }
 
-  if (options.style) {
-    Object.assign(style, options.style)
+  const manual = options.style
+  if (manual != null) {
+    Object.keys(manual).forEach((key: any) => {
+      style[key] = manual[key]
+    })
   }
 
   return clonedNode
