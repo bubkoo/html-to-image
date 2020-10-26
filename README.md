@@ -134,7 +134,11 @@ htmlToImage.toCanvas(document.getElementById('my-node'))
 
 ### filter
 
-A function taking DOM node as argument. Should return true if passed node should be included in the output. Excluding node means excluding it's children as well. 
+```ts
+(domNode: HTMLElement) => boolean
+```
+
+A function taking DOM node as argument. Should return true if passed node should be included in the output. Excluding node means excluding it's children as well.
 
 Not called on the root node.
 
@@ -152,25 +156,25 @@ An object whose properties to be copied to node's style before rendering. You mi
 
 ### quality
 
-A number between `0` and `1` indicating image quality (e.g. `0.92` => `92%`) of the JPEG image. 
+A number between `0` and `1` indicating image quality (e.g. `0.92` => `92%`) of the JPEG image.
 
 Defaults to `1.0` (`100%`)
 
 ### cacheBust
 
-Set to true to append the current time as a query string to URL requests to enable cache busting. 
+Set to true to append the current time as a query string to URL requests to enable cache busting.
 
 Defaults to `false`
 
 ### imagePlaceholder
 
-A data URL for a placeholder image that will be used when fetching an image fails. 
+A data URL for a placeholder image that will be used when fetching an image fails.
 
 Defaults to an empty string and will render empty areas for failed images.
 
 ### pixelRatio
 
-The pixel ratio of the device. Defalut is the actual pixel ratio of the device. Set `1` to use as initial-scale `1` for the image.
+The pixel ratio of the captured image. Defalut use the actual pixel ratio of the device. Set `1` to use as initial-scale `1` for the image.
 
 ## Browsers
 
