@@ -20,15 +20,21 @@ namespace Pseudo {
   ) {
     const style = window.getComputedStyle(nativeNode, pseudo)
     const content = style.getPropertyValue('content')
-
     if (content === '' || content === 'none') {
       return
     }
 
     const className = uuid()
+
+    // fix: Cannot assign to read only property 'className' of object '#<…
+    try {
+      clonedNode.className = `${clonedNode.className} ${className}`
+    } catch (err) {
+      return
+    }
+
     const styleElement = document.createElement('style')
     styleElement.appendChild(getPseudoElementStyle(className, pseudo, style))
-    clonedNode.className = `${clonedNode.className} ${className}`
     clonedNode.appendChild(styleElement)
   }
 
