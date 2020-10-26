@@ -249,6 +249,17 @@ describe('html to image', () => {
         .then(done)
         .catch(done)
     })
+
+    it('should render svg `<rect>` with applied css styles', (done) => {
+      Helper.bootstrap(
+        'svg-color/node.html',
+        'svg-color/style.css',
+        'svg-color/image',
+      )
+        .then(Helper.renderAndCheck)
+        .then(done)
+        .catch(done)
+    })
   })
 
   describe('work with options', () => {
