@@ -174,20 +174,16 @@ The pixel ratio of the device. Defalut is the actual pixel ratio of the device. 
 
 ## Browsers
 
+Only standard lib is currently used, but make sure your browser supports:
+
+- [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- SVG `<foreignObject>` tag
+
 It's tested on latest Chrome and Firefox (49 and 45 respectively at the time of writing), with Chrome performing significantly better on big DOM trees, possibly due to it's more performant SVG support, and the fact that it supports `CSSStyleDeclaration.cssText` property.
 
 *Internet Explorer is not (and will not be) supported, as it does not support SVG `<foreignObject>` tag.*
 
 *Safari is not supported, as it uses a stricter security model on `<foreignObject>` tag. Suggested workaround is to use `toSvg` and render on the server.*
-
-## Dependencies
-
-### Source
-
-Only standard lib is currently used, but make sure your browser supports:
-
-- [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- SVG `<foreignObject>` tag
 
 ## How it works
 
