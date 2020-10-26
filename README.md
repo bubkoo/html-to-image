@@ -1,20 +1,24 @@
-# html-to-image
+<h1 align="center">html-to-image</h1>
 
-> ✂️ Generates an image from a DOM node using HTML5 canvas and SVG.
-> 
-> Fork from [dom-to-image](https://github.com/tsayen/dom-to-image) with more maintainable code and some new features.
+<p align="center"><strong>✂️ Generates an image from a DOM node using HTML5 canvas and SVG.</strong></p>
 
-[![MIT License](https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square)](https://github.com/bubkoo/html-to-image/blob/master/LICENSE)
-[![Language](https://img.shields.io/badge/language-typescript-blue.svg?style=flat-square)](https://www.typescriptlang.org)
-[![build](https://img.shields.io/travis/bubkoo/html-to-image.svg?style=flat-square)](https://travis-ci.org/bubkoo/html-to-image)
-[![coverage](https://img.shields.io/coveralls/bubkoo/html-to-image/master.svg?style=flat-square)](https://coveralls.io/github/bubkoo/html-to-image)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/bubkoo/html-to-image.svg?logo=lgtm&style=flat-square)](https://lgtm.com/projects/g/bubkoo/html-to-image/context:javascript)
+<p align="center">Fork from [dom-to-image](https://github.com/tsayen/dom-to-image) with more maintainable code and some new features.</p>
 
-[![NPM Package](https://img.shields.io/npm/v/html-to-image.svg?style=flat-square)](https://www.npmjs.com/package/html-to-image)
-[![NPM Downloads](http://img.shields.io/npm/dm/html-to-image.svg?style=flat-square)](https://www.npmjs.com/package/html-to-image)
-[![devDependencies Status](https://david-dm.org/bubkoo/html-to-image/dev-status.svg?style=flat-square)](https://david-dm.org/bubkoo/html-to-image?type=dev)
+<p align="center">
+<a href="https://github.com/bubkoo/html-to-image/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square"></a>
+<a href="https://www.typescriptlang.org" rel="nofollow"><img alt="Language" src="https://img.shields.io/badge/language-typescript-blue.svg?style=flat-square" /></a>
+<a href="https://travis-ci.org/bubkoo/html-to-image" rel="nofollow"><img alt="build" src="https://img.shields.io/travis/bubkoo/html-to-image.svg?style=flat-square" /></a>
+<a href="https://coveralls.io/github/bubkoo/html-to-image" rel="nofollow"><img alt="coverage" src="https://img.shields.io/coveralls/bubkoo/html-to-image/master.svg?style=flat-square" /></a>
+<a href="https://lgtm.com/projects/g/bubkoo/html-to-image/context:javascript" rel="nofollow"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/bubkoo/html-to-image.svg?logo=lgtm&style=flat-square" /></a>
+</p>
 
-## Install 
+<p align="center">
+<a href="https://www.npmjs.com/package/html-to-image" rel="nofollow"><img alt="NPM Package" src="https://img.shields.io/npm/v/html-to-image.svg?style=flat-square" /></a>
+<a href="https://www.npmjs.com/package/html-to-image" rel="nofollow"><img alt="NPM Downloads" src="http://img.shields.io/npm/dm/html-to-image.svg?style=flat-square" /></a>
+<a href="https://david-dm.org/bubkoo/html-to-image?type=dev" rel="nofollow"><img alt="devDependencies Status" src="https://david-dm.org/bubkoo/html-to-image/dev-status.svg?style=flat-square" /></a>
+</p>
+
+## Install
 
 ```shell
 npm install --save html-to-image
