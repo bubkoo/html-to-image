@@ -9,11 +9,21 @@ import { getDataURLContent } from './util'
 // will redirect to 'http://something.com/65fc2ffcc8aea7ba65a1d1feda173540'
 
 const TIMEOUT = 30000
+const cache: {
+  url: string
+  promise: Promise<string | null>
+}[] = []
 
 export function getBlobFromURL(
   url: string,
   options: Options,
 ): Promise<string | null> {
+  const root = url.split('?')[0]
+  const found = cache.find((item) => item.url === root)
+  if (found) {
+    return found.promise
+  }
+
   // cache bypass so we dont have CORS issues with cached images
   // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
   if (options.cacheBust) {
@@ -97,5 +107,7 @@ export function getBlobFromURL(
         req.send()
       })
 
-  return deferred.catch(failed) as Promise<string | null>
+  const promise = deferred.catch(failed) as Promise<string | null>
+  cache.push({ promise, url: root })
+  return promise
 }
