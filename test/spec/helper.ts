@@ -156,7 +156,7 @@ export namespace Helper {
 
     context.imageSmoothingEnabled = false
     context.drawImage(image, 0, 0)
-    console.log(canvas.toDataURL())
+    // console.log(canvas.toDataURL())
     return image
   }
 }
