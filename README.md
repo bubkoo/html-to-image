@@ -164,6 +164,10 @@ A data URL for a placeholder image that will be used when fetching an image fail
 
 Defaults to an empty string and will render empty areas for failed images.
 
+### pixelRatio
+
+The pixel ratio of the device. Defalut is the actual pixel ratio of the device. Set `1` to use as initial-scale `1` for the image.
+
 ## Browsers
 
 It's tested on latest Chrome and Firefox (49 and 45 respectively at the time of writing), with Chrome performing significantly better on big DOM trees, possibly due to it's more performant SVG support, and the fact that it supports `CSSStyleDeclaration.cssText` property.
