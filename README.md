@@ -2,7 +2,7 @@
 
 <p align="center"><strong>✂️ Generates an image from a DOM node using HTML5 canvas and SVG.</strong></p>
 
-<p align="center">Fork from [dom-to-image](https://github.com/tsayen/dom-to-image) with more maintainable code and some new features.</p>
+<p align="center">Fork from <a href="https://github.com/tsayen/dom-to-image" rel="nofollow">dom-to-image</a> with more maintainable code and some new features.</p>
 
 <p align="center">
 <a href="https://github.com/bubkoo/html-to-image/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square"></a>
