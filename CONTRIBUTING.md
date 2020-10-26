@@ -9,28 +9,19 @@ or make any change as you wish and submit a [PR](https://github.com/bubkoo/html-
 - Before you report an issue, please search for related issues. Make sure you are not going to open a duplicate issue.
 - Explain your purpose clearly in labels, title, or content.
 
-AntV group members will confirm the purpose of the issue, replace more accurate labels for it, identify related milestone, and assign developers working on it.
+We will confirm the purpose of the issue, replace more accurate labels for it, identify related milestone, and assign developers working on it.
 
 ## Submitting Code
 
 ### Pull Request Guide
 
-If you are developer of AntV repo and you are willing to contribute, feel free to create a new branch, finish your modification and submit a PR. AntV group will review your work and merge it to master branch.
-
-```bash
-# Create a new branch for development. The name of branch should be semantic, avoiding words like 'update' or 'tmp'. We suggest to use feature/xxx, if the modification is about to implement a new feature.
-$ git checkout -b branch-name
-
-# Run the test after you finish your modification. Add new test cases or change old ones if you feel necessary
-$ npm test
-
-# If your modification pass the tests, congradulations it's time to push your work back to us. Notice that the commit message should be wirtten in the following format.
-$ git add . # git add -u to delete files
-$ git commit -m "fix(role): role.use must xxx"
-$ git push origin branch-name
-```
-
-Then you can create a Pull Request at [html-to-image](https://github.com/bubkoo/html-to-image/pulls).
+1. [Fork][fork] and clone the repository
+2. Configure and install the dependencies `yarn`
+3. Make sure the tests pass on your machine `yarn test`, note: these tests also run the TypeScript compiler (`tsc`) to check for type errors, so there's no need to run these commands separately.
+4. Create a new branch `git checkout -b my-branch-name` for development. The name of branch should be semantic, avoiding words like 'update' or 'tmp'. We suggest to use `'feature/xxx'`, if the modification is about to implement a new feature.
+5. Run the test `yarn test` after you finish your modification. Add new test cases or change old ones if you feel necessary.
+6. Push to your fork and [submit a pull request][pr]
+7. Pat your self on the back and wait for your pull request to be reviewed and merged.
 
 No one can guarantee how much will be remembered about certain PR after some time. To make sure we can easily recap what happened previously, please provide the following information in your PR.
 
@@ -108,7 +99,7 @@ Look at [these files](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJyg
 
 ## Release
 
-html-to-image uses semantic versioning in release process based on [semver](https://semver.org/).
+We use semantic versioning in release process based on [semver](https://semver.org/).
 
 ### Branch Strategy
 
