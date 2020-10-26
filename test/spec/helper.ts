@@ -105,15 +105,17 @@ export namespace Helper {
     height?: number
   }
 
-  export function check(dataUrl: string) {
+  export async function check(dataUrl: string) {
     return Promise.resolve(dataUrl).then(drawDataUrl).then(compareToRefImage)
   }
 
-  export function renderAndCheck(node: HTMLDivElement = getCaptureNode()) {
+  export async function renderAndCheck(
+    node: HTMLDivElement = getCaptureNode(),
+  ) {
     return renderToPng(node).then(check)
   }
 
-  export function drawDataUrl(dataUrl: string, dimensions?: Dimensions) {
+  export async function drawDataUrl(dataUrl: string, dimensions?: Dimensions) {
     return Promise.resolve(dataUrl)
       .then(createImg)
       .then((image) => drawImg(image, undefined, dimensions))

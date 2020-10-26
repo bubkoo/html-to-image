@@ -11,7 +11,7 @@ describe('html to image', () => {
 
   afterAll(() => {
     delete process.env.devicePixelRatio
-    Helper.clean
+    Helper.clean()
   })
 
   describe('basic usage', () => {
