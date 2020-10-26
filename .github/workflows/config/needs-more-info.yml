@@ -1,0 +1,41 @@
+# common config
+# -------------
+
+# chenck issue and PR template
+checkTemplate: true
+# minimum title length required
+miniTitleLength: 8
+# add label to trigger a label command, see ./label-commands.yml
+labelToAdd: needs-more-info
+# reactions to add
+reactions:
+  - '-1'
+  - confused
+
+
+# config for issues
+# -----------------
+issue:
+  badTitles:
+    - update
+    - updates
+    - test
+    - issue
+    - debug
+    - demo
+  badTitleComment: ''
+  badBodyComment: ''
+
+
+# config for PRs
+# --------------
+pullRequest:
+  badTitles:
+    - update
+    - updates
+    - test
+  badTitleComment: >
+    @{{ author }} Please provide us with more info about this pull request title.
+
+  badBodyComment: >
+    @{{ author }} Please provide us with more info about this pull request.

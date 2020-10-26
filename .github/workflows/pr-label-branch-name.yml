@@ -1,0 +1,12 @@
+name: 🏷️　Label(Branch Name)
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: TimonVS/pr-labeler-action@v3
+          with:
+            GITHUB_TOKEN: ${{ secrets.bot_token }}
+            configuration-path: .github/workflows/config/pr-label-branch-name.yml

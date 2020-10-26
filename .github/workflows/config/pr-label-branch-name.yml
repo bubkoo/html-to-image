@@ -1,0 +1,12 @@
+# https://github.com/marketplace/actions/PR-labeler
+
+PR(fix): ['fix/*', 'bug/*']
+PR(chore): chore/*
+PR(test): ['testing/*', 'test/*']
+PR(feature): ['feature/*', 'feat/*']
+PR(breaking): ['breaking/*', 'break/*']
+PR(internal): ['internal/*', 'inter/*']
+PR(documentation): ['documentation/*', 'document/*', 'doc/*']
+PR(enhancement): ['enhancement/*', 'enhance/*']
+PR(dependency): ['dependency/*', 'dep/*']
+PR(refactor): ['refactoring/*', 'refactor/*']
