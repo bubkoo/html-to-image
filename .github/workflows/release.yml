@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: cycjimmy/semantic-release-action@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
