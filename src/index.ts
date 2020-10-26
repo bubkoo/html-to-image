@@ -52,10 +52,14 @@ export type Options = {
    */
   imagePlaceholder?: string
   /**
-   * Defalut vlaue is the actual pixel ratio of the device.
-   * Set 1 to use as initial-scale 1 for the image
+   * The pixel ratio of captured image. Defalut is the actual pixel ratio of
+   * the device. Set 1 to use as initial-scale 1 for the image
    */
-  pixelRatio?: number;
+  pixelRatio?: number
+  /**
+   * Option to skip the fonts download and embed.
+   */
+  skipFonts?: boolean
 }
 
 function getImageSize(domNode: HTMLElement, options: Options = {}) {

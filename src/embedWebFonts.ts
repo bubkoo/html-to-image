@@ -1,4 +1,5 @@
 import { toArray } from './util'
+import { Options } from './index'
 import { shouldEmbed, embedResources } from './embedResources'
 
 export async function parseWebFontRules(
@@ -16,7 +17,7 @@ export async function parseWebFontRules(
 
 export async function embedWebFonts(
   clonedNode: HTMLElement,
-  options: Object,
+  options: Options,
 ): Promise<HTMLElement> {
   return parseWebFontRules(clonedNode)
     .then((rules) =>
@@ -83,7 +84,7 @@ export async function getCssRules(
               .then((cssText: any) => {
                 const parsed = parseCSS(cssText)
                 parsed.forEach((rule: any) => {
-                  (inline as CSSStyleSheet).insertRule(
+                  ;(inline as CSSStyleSheet).insertRule(
                     rule,
                     sheet.cssRules.length,
                   )
