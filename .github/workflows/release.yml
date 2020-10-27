@@ -11,12 +11,43 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - run: yarn
-      - uses: cycjimmy/semantic-release-action@v2
+
+      - name: Generate token
+        uses: bubkoo/use-app-token@v1
+        id: generate_token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
+            - name: Setup Node.js with GitHub Package Registry
+            uses: actions/setup-node@v1
+            with:
+              node-version: 12
+              GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+              registry-url: 'https://npm.pkg.github.com'
+              scope: 'cycjimmy'
+
+      - name: Publish To GitHub Package Registry
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ steps.generate_token.outputs.token }}
+
+      - name: Push updates to branch for major version
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: "git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{steps.semantic.outputs.new_release_major_version}}"
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
