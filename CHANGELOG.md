@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/bubkoo/html-to-image/compare/v1.3.13...v1.3.14) (2020-10-27)
+
+
+### Bug Fixes
+
+* 🐛 use bot token ([6af2c7b](https://github.com/bubkoo/html-to-image/commit/6af2c7b5b34a135bba165c22c0783167d17c7fba))
+
 ## [1.3.13](https://github.com/bubkoo/html-to-image/compare/v1.3.12...v1.3.13) (2020-10-27)
 
 
