@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
+      - run: npm install @octokit/core
       - name: Generate token
         uses: bubkoo/use-app-token@v1
         id: generate_token
