@@ -8,12 +8,10 @@ on:
       - alpha
       - beta
 jobs:
-  release:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
       - run: yarn
 
       - name: Generate token
@@ -32,13 +30,14 @@ jobs:
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
-            - name: Setup Node.js with GitHub Package Registry
-            uses: actions/setup-node@v1
-            with:
-              node-version: 12
-              GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
-              registry-url: 'https://npm.pkg.github.com'
-              scope: 'cycjimmy'
+
+      - name: Setup Node.js with GitHub Package Registry
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          registry-url: 'https://npm.pkg.github.com'
+          scope: bubkoo
 
       - name: Publish To GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
