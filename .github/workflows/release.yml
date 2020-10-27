@@ -23,12 +23,13 @@ jobs:
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+        with:
           extra_plugins: |
             @semantic-release/changelog
             @semantic-release/git
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
       - name: Publish To GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
