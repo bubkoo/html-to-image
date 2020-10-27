@@ -34,7 +34,7 @@
     "test-watch": "karma start --browsers=Chrome --single-run=false --auto-watch",
     "coveralls": "cat ./test/coverage/lcov.info | coveralls",
     "pretest": "rimraf ./test/coverage",
-    "prepublish": "run-s build"
+    "prepare": "run-s build"
   },
   "husky": {
     "hooks": {
