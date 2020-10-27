@@ -27,8 +27,8 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
           extra_plugins: |
-            @semantic-release/git
             @semantic-release/changelog
+            @semantic-release/git
 
       # - name: Publish To GitHub Package Registry
       #   if: steps.semantic.outputs.new_release_published == 'true'
