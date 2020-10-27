@@ -30,18 +30,18 @@ jobs:
             @semantic-release/git
             @semantic-release/changelog
 
-      - name: Publish To GitHub Package Registry
-        if: steps.semantic.outputs.new_release_published == 'true'
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com
-          scope: bubkoo
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Publish To GitHub Package Registry
+      #   if: steps.semantic.outputs.new_release_published == 'true'
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 12
+      #     registry-url: https://npm.pkg.github.com/
+      #     scope: bubkoo
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ steps.generate_token.outputs.token }}
 
-      - name: Publish To GitHub Package Registry
-        if: steps.semantic.outputs.new_release_published == 'true'
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Publish To GitHub Package Registry
+      #   if: steps.semantic.outputs.new_release_published == 'true'
+      #   run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ steps.generate_token.outputs.token }}
