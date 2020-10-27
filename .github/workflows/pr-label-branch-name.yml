@@ -3,10 +3,15 @@ on:
   pull_request:
     types: [opened]
 jobs:
-  label:
+  run:
     runs-on: ubuntu-latest
     steps:
+        - uses: bubkoo/use-app-token@v1
+          id: generate_token
+          with:
+            app_id: ${{ secrets.APP_ID }}
+            private_key: ${{ secrets.PRIVATE_KEY }}
         - uses: TimonVS/pr-labeler-action@v3
           with:
-            GITHUB_TOKEN: ${{ secrets.bot_token }}
+            GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
             configuration-path: .github/workflows/config/pr-label-branch-name.yml

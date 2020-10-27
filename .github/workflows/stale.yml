@@ -6,9 +6,14 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
+      - uses: bubkoo/use-app-token@v1
+        id: generate_token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
       - uses: actions/stale@v3
         with:
-          repo-token: ${{ secrets.bot_token }}
+          repo-token: ${{ steps.generate_token.outputs.token }}
           stale-issue-message: >
             Hiya!
 

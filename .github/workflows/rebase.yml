@@ -3,10 +3,15 @@ on:
   issue_comment:
     types: [created]
 jobs:
-  rebase:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: bubkoo/use-app-token@v1
+        id: generate_token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
       - uses: cirrus-actions/rebase@master
         env:
-          GITHUB_TOKEN: ${{ secrets.bot_token }}
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}

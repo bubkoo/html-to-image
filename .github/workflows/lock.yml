@@ -3,12 +3,17 @@ on:
   schedule:
     - cron: 0 0 * * *
 jobs:
-  lock:
+  run:
     runs-on: ubuntu-latest
     steps:
+      - uses: bubkoo/use-app-token@v1
+        id: generate_token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
       - uses: dessant/lock-threads@v2
         with:
-          github-token: ${{ secrets.bot_token }}
+          github-token: ${{ steps.generate_token.outputs.token }}
           issue-lock-inactive-days: 365
           issue-lock-comment: >
             This thread has been automatically locked because it has not had recent
