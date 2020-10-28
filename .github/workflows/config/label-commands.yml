@@ -1,0 +1,26 @@
+heated:
+  lock: true
+  lockReason: too heated
+  comment: The thread has been temporarily locked.
+
+-heated:
+  unlock: true
+
+issues:
+  feature:
+    close: true
+    comment: >
+      :wave: @{{ author }}, please use our idea board to request new features.
+  -wontfix:
+    open: true
+
+  needs-more-info:
+    close: true
+    comment: >
+      @{{ author }}
+
+
+      In order to communicate effectively, we have a certain format requirement for the issue, your issue is automatically closed because there is no recurring step or reproducible warehouse, and will be REOPEN after the offer.
+
+  -needs-more-info:
+    open: true
