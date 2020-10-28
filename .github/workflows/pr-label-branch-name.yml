@@ -13,5 +13,6 @@ jobs:
           variable_name: bot_token
       - uses: TimonVS/pr-labeler-action@v3
         with:
-          GITHUB_TOKEN: ${{ env.bot_token }}
           configuration-path: .github/workflows/config/pr-label-branch-name.yml
+        env:
+          GITHUB_TOKEN: ${{ env.bot_token }}
