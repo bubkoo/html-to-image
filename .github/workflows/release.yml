@@ -45,4 +45,4 @@ jobs:
           sed -i 's/\("name"\:[[:space:]]*"\)\(html-to-image"\)/\1@bubkoo\/\2/' package.json
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ env.bot_token }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
