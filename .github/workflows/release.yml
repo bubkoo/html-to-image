@@ -42,7 +42,7 @@ jobs:
       - name: Publish To GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
-          sed -i '' 's/\("name"\:[[:space:]]*"\)\(html-to-image"\)/\1@bubkoo\/\2/' package.json
+          sed -i 's/\("name"\:[[:space:]]*"\)\(html-to-image"\)/\1@bubkoo\/\2/' package.json
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ env.bot_token }}
