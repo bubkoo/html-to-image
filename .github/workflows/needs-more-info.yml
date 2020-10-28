@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: bubkoo/use-app-token@v1
-        id: generate_token
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
+          variable_name: bot_token
       - uses: bubkoo/needs-more-info@v1
         with:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          GITHUB_TOKEN: ${{ env.bot_token }}
           CONFIG_FILE: .github/workflows/config/needs-more-info.yml
 

@@ -8,10 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: bubkoo/use-app-token@v1
-        id: generate_token
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
+          variable_name: bot_token
       - uses: cirrus-actions/rebase@master
         env:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          GITHUB_TOKEN: ${{ env.bot_token }}

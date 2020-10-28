@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: bubkoo/use-app-token@v1
-        id: generate_token
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
+          variable_name: bot_token
       - uses: Naturalclar/issue-action@v2.0.1
         with:
-          github-token: ${{ steps.generate_token.outputs.token }}
+          github-token: ${{ env.bot_token }}
           title-or-body: title
           parameters: >
             [

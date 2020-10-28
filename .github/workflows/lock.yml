@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: bubkoo/use-app-token@v1
-        id: generate_token
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
+          variable_name: bot_token
       - uses: dessant/lock-threads@v2
         with:
-          github-token: ${{ steps.generate_token.outputs.token }}
+          github-token: ${{ env.bot_token }}
           issue-lock-inactive-days: 365
           issue-lock-comment: >
             This thread has been automatically locked because it has not had recent

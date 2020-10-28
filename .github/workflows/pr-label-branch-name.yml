@@ -6,12 +6,12 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-        - uses: bubkoo/use-app-token@v1
-          id: generate_token
-          with:
-            app_id: ${{ secrets.APP_ID }}
-            private_key: ${{ secrets.PRIVATE_KEY }}
-        - uses: TimonVS/pr-labeler-action@v3
-          with:
-            GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
-            configuration-path: .github/workflows/config/pr-label-branch-name.yml
+      - uses: bubkoo/use-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          variable_name: bot_token
+      - uses: TimonVS/pr-labeler-action@v3
+        with:
+          GITHUB_TOKEN: ${{ env.bot_token }}
+          configuration-path: .github/workflows/config/pr-label-branch-name.yml
