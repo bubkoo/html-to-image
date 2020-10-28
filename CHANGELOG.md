@@ -1,3 +1,10 @@
+## [1.3.16](https://github.com/bubkoo/html-to-image/compare/v1.3.15...v1.3.16) (2020-10-28)
+
+
+### Bug Fixes
+
+* 🐛 publish to github package ([44e358e](https://github.com/bubkoo/html-to-image/commit/44e358e963fb786652d295ae33e7c3dbde9cec06))
+
 ## [1.3.15](https://github.com/bubkoo/html-to-image/compare/v1.3.14...v1.3.15) (2020-10-27)
 
 
