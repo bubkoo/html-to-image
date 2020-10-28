@@ -24,6 +24,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         with:
+          extends: '@bubkoo/semantic-release-config'
           extra_plugins: |
             @semantic-release/changelog
             @semantic-release/git
