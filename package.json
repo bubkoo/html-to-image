@@ -107,23 +107,7 @@
     "typescript": "^4.0.3"
   },
   "release": {
-    "dryRun": false,
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/github",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json"
-          ]
-        }
-      ]
-    ]
+    "extends": "@bubkoo/semantic-release-config"
   },
   "repository": {
     "type": "git",
