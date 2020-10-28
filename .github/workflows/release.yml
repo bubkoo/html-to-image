@@ -31,18 +31,18 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ env.bot_token }}
 
-      - name: Publish To GitHub Package Registry
+      - name: Setup Node.js with GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
         uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com
           scope: bubkoo
-        env:
-          NODE_AUTH_TOKEN: ${{ env.bot_token }}
 
       - name: Publish To GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
-        run: npm publish
+        run: |
+          sed -i '' 's/\("name"\:[[:space:]]*"\)\(html-to-image"\)/\1@bubkoo\/\2/' package.json
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ env.bot_token }}
