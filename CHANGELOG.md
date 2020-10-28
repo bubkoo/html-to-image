@@ -1,3 +1,10 @@
+## [1.3.20](https://github.com/bubkoo/html-to-image/compare/v1.3.19...v1.3.20) (2020-10-28)
+
+
+### Bug Fixes
+
+* 🐛 auto install semantic-release-config ([aff7edc](https://github.com/bubkoo/html-to-image/commit/aff7edce1b3df1822d455d17a9c28ae8768eca9e))
+
 ## [1.3.19](https://github.com/bubkoo/html-to-image/compare/v1.3.18...v1.3.19) (2020-10-28)
 
 
