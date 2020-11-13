@@ -174,7 +174,7 @@ Defaults to an empty string and will render empty areas for failed images.
 
 ### pixelRatio
 
-The pixel ratio of the captured image. Defalut use the actual pixel ratio of the device. Set `1` to use as initial-scale `1` for the image.
+The pixel ratio of the captured image. Default use the actual pixel ratio of the device. Set `1` to use as initial-scale `1` for the image.
 
 ## Browsers
 
