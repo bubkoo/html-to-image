@@ -28,7 +28,7 @@ export type Options = {
   /**
    * An object whose properties to be copied to node's style before rendering.
    */
-  style?: CSSStyleDeclaration
+  style?: Partial<CSSStyleDeclaration>
   /**
    * A function taking DOM node as argument. Should return `true` if passed
    * node should be included in the output. Excluding node means excluding
