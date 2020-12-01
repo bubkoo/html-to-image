@@ -111,7 +111,15 @@ export function getNodeHeight(node: HTMLElement) {
 export function getPixelRatio() {
   let ratio
 
-  const val = process && process.env ? process.env.devicePixelRatio : null
+  let FINAL_PROCESS
+  try {
+    FINAL_PROCESS = process
+  } catch (e) {}
+
+  const val =
+    FINAL_PROCESS && FINAL_PROCESS.env
+      ? FINAL_PROCESS.env.devicePixelRatio
+      : null
   if (val) {
     ratio = parseInt(val, 10)
     if (isNaN(ratio)) {
