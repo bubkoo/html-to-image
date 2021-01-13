@@ -37,14 +37,16 @@ var htmlToImage = require('html-to-image');
 
 All the top level functions accept DOM node and rendering options, and return a promise fulfilled with corresponding dataURL:
 
-- toSvg
-- toPng
-- toJpeg
-- toBlob
-- toPixelData
+- [toPng](#toPng)
+- [toSvg](#toSvg)
+- [toJpeg](#toJpeg)
+- [toBlob](#toBlob)
+- [toCanvas](#toCanvas)
+- [toPixelData](#toPixelData)
 
 Go with the following examples.
 
+#### toPng
 Get a PNG image base64-encoded data URL and display it right away:
 
 ```js
@@ -70,27 +72,7 @@ htmlToImage.toPng(document.getElementById('my-node'))
   });
 ```
 
-Get a PNG image blob and download it (using [FileSaver](https://github.com/eligrey/FileSaver.js)):
-
-```js
-htmlToImage.toBlob(document.getElementById('my-node'))
-  .then(function (blob) {
-    window.saveAs(blob, 'my-node.png');
-  });
-```
-
-Save and download a compressed JPEG image:
-
-```js
-htmlToImage.toJpeg(document.getElementById('my-node'), { quality: 0.95 })
-  .then(function (dataUrl) {
-    var link = document.createElement('a');
-    link.download = 'my-image-name.jpeg';
-    link.href = dataUrl;
-    link.click();
-  });
-```
-
+#### toSvg
 Get an SVG data URL, but filter out all the `<i>` elements:
 
 ```js
@@ -104,6 +86,40 @@ htmlToImage.toSvg(document.getElementById('my-node'), { filter: filter })
   });
 ```
 
+#### toJpeg
+Save and download a compressed JPEG image:
+
+```js
+htmlToImage.toJpeg(document.getElementById('my-node'), { quality: 0.95 })
+  .then(function (dataUrl) {
+    var link = document.createElement('a');
+    link.download = 'my-image-name.jpeg';
+    link.href = dataUrl;
+    link.click();
+  });
+```
+
+#### toBlob
+Get a PNG image blob and download it (using [FileSaver](https://github.com/eligrey/FileSaver.js)):
+
+```js
+htmlToImage.toBlob(document.getElementById('my-node'))
+  .then(function (blob) {
+    window.saveAs(blob, 'my-node.png');
+  });
+```
+
+#### toCanvas
+Get a HTMLCanvasElement, and display it right away:
+
+```js
+htmlToImage.toCanvas(document.getElementById('my-node'))
+  .then(function (canvas) {
+    document.body.appendChild(canvas);
+  });
+```
+
+#### toPixelData
 Get the raw pixel data as a [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) with every 4 array elements representing the RGBA data of a pixel:
 
 ```js
@@ -118,15 +134,6 @@ htmlToImage.toPixelData(node)
         pixelAtXY = pixels.slice(pixelAtXYOffset, pixelAtXYOffset + 4);
       }
     }
-  });
-```
-
-Get a HTMLCanvasElement, and display it right away:
-
-```js
-htmlToImage.toCanvas(document.getElementById('my-node'))
-  .then(function (canvas) {
-    document.body.appendChild(canvas);
   });
 ```
 
