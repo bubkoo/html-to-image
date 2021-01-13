@@ -420,7 +420,7 @@ describe('html to image', () => {
             'http://acme.com/image.png',
             null,
             {},
-            () => Promise.resolve('AAA'),
+            () => Promise.resolve({ data: 'AAA' }),
           )
           .then((result) => {
             expect(result).toEqual(
@@ -441,7 +441,7 @@ describe('html to image', () => {
             (url) =>
               Promise.resolve(
                 ({
-                  'http://acme.com/images/image.png': 'AAA',
+                  'http://acme.com/images/image.png': { data: 'AAA' },
                 } as any)[url],
               ),
           )

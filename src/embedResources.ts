@@ -1,5 +1,5 @@
 import { Options } from './index'
-import { getBlobFromURL } from './getBlobFromURL'
+import { BlobWithType, getBlobFromURL } from './getBlobFromURL'
 import { isDataUrl, toDataURL, getMimeType } from './util'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
@@ -43,13 +43,18 @@ export function embed(
   resourceURL: string,
   baseURL: string | null,
   options: Options,
-  get?: (url: string) => Promise<string>,
+  get?: (url: string) => Promise<BlobWithType>,
 ): Promise<string> {
   const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
 
   return Promise.resolve(resolvedURL)
     .then((url) => (get ? get(url) : getBlobFromURL(url, options)))
-    .then((data) => toDataURL(data!, getMimeType(resourceURL)))
+    .then(({ data, contentType }) =>
+      toDataURL(
+        data,
+        contentType != null ? contentType : getMimeType(resourceURL),
+      ),
+    )
     .then((dataURL) =>
       cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`),
     )

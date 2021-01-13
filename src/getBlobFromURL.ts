@@ -8,9 +8,11 @@ import { getDataURLContent } from './util'
 // Can not handle redirect-url, such as when access 'http://something.com/avatar.png'
 // will redirect to 'http://something.com/65fc2ffcc8aea7ba65a1d1feda173540'
 
+export type BlobWithType = { data: string; contentType?: string }
+
 const TIMEOUT = 30000
 const cache: {
-  [url: string]: Promise<string | null>
+  [url: string]: Promise<BlobWithType>
 } = {}
 
 function isFont(filename: string) {
@@ -20,7 +22,7 @@ function isFont(filename: string) {
 export function getBlobFromURL(
   url: string,
   options: Options,
-): Promise<string | null> {
+): Promise<BlobWithType> {
   let href = url.replace(/\?.*/, '')
 
   if (isFont(href)) {
@@ -56,25 +58,32 @@ export function getBlobFromURL(
       console.error(msg)
     }
 
-    return placeholder
+    return { data: placeholder }
   }
 
-  const deferred = window.fetch
+  const deferred: Promise<BlobWithType> = window.fetch
     ? window
         .fetch(url)
         .then((response) => response.blob())
         .then(
           (blob) =>
-            new Promise((resolve, reject) => {
+            new Promise<BlobWithType>((resolve, reject) => {
               const reader = new FileReader()
-              reader.onloadend = () => resolve(reader.result as string)
+              reader.onloadend = () =>
+                resolve({
+                  data: reader.result as string,
+                  contentType: blob.type,
+                })
               reader.onerror = reject
               reader.readAsDataURL(blob)
             }),
         )
-        .then(getDataURLContent)
+        .then(({ data, contentType }) => ({
+          contentType,
+          data: getDataURLContent(data),
+        }))
         .catch(() => new Promise((resolve, reject) => reject()))
-    : new Promise<string | null>((resolve, reject) => {
+    : new Promise<BlobWithType>((resolve, reject) => {
         const req = new XMLHttpRequest()
 
         const timeout = () => {
@@ -101,7 +110,11 @@ export function getBlobFromURL(
 
           const encoder = new FileReader()
           encoder.onloadend = () => {
-            resolve(getDataURLContent(encoder.result as string))
+            const contentType = req.getResponseHeader('content-type')
+            resolve({
+              ...{ data: getDataURLContent(encoder.result as string) },
+              ...(contentType != null && { contentType }),
+            })
           }
           encoder.readAsDataURL(req.response)
         }
@@ -114,7 +127,7 @@ export function getBlobFromURL(
         req.send()
       })
 
-  const promise = deferred.catch(failed) as Promise<string | null>
+  const promise = deferred.catch(failed)
   cache[href] = promise
 
   return promise
