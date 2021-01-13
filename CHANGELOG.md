@@ -1,3 +1,10 @@
+## [1.3.21](https://github.com/bubkoo/html-to-image/compare/v1.3.20...v1.3.21) (2021-01-13)
+
+
+### Bug Fixes
+
+* 🐛 [#74](https://github.com/bubkoo/html-to-image/issues/74) process reference ([#75](https://github.com/bubkoo/html-to-image/issues/75)) ([9e9d71b](https://github.com/bubkoo/html-to-image/commit/9e9d71ba80133c0f676053b04cf5787fd0469f80))
+
 ## [1.3.20](https://github.com/bubkoo/html-to-image/compare/v1.3.19...v1.3.20) (2020-10-28)
 
 
