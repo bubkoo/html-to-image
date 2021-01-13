@@ -20,7 +20,8 @@ export function applyStyleWithOptions(
 
   const manual = options.style
   if (manual != null) {
-    Object.keys(manual).forEach((key: any) => {
+    Object.keys(manual).forEach((key) => {
+      // @ts-expect-error
       style[key] = manual[key]
     })
   }

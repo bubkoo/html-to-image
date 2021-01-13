@@ -2,6 +2,13 @@ import { toArray } from './util'
 import { Options } from './index'
 import { shouldEmbed, embedResources } from './embedResources'
 
+const cssFetchPromiseStore: {
+  [href: string]: Promise<void | {
+    url: string
+    cssText: Promise<string>
+  }>
+} = {}
+
 export async function parseWebFontRules(
   clonedNode: HTMLElement,
 ): Promise<CSSRule[]> {
@@ -170,7 +177,11 @@ function parseCSS(source: string) {
 }
 
 function fetchCSS(url: string, sheet: StyleSheet): Promise<any> {
-  return fetch(url).then(
+  if (cssFetchPromiseStore[url]) {
+    return cssFetchPromiseStore[url]
+  }
+
+  const promise = fetch(url).then(
     (res: Response) => {
       return {
         url,
@@ -181,6 +192,10 @@ function fetchCSS(url: string, sheet: StyleSheet): Promise<any> {
       console.log('ERROR FETCHING CSS: ', e.toString())
     },
   )
+
+  cssFetchPromiseStore[url] = promise
+
+  return promise
 }
 
 async function embedFonts(data: any): Promise<string> {

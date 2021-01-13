@@ -319,7 +319,7 @@ describe('html to image', () => {
       Helper.bootstrap('style/node.html', 'style/style.css', 'style/image')
         .then((node) => {
           return htmlToImage.toPng(node, {
-            style: { 'background-color': 'red', transform: 'scale(0.5)' },
+            style: { backgroundColor: 'red', transform: 'scale(0.5)' },
           })
         })
         .then(Helper.check)
@@ -335,7 +335,7 @@ describe('html to image', () => {
             height: 200,
             style: {
               transform: 'scale(2)',
-              'transform-origin': 'top left',
+              transformOrigin: 'top left',
             },
           })
         })

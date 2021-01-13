@@ -10,18 +10,25 @@ import { getDataURLContent } from './util'
 
 const TIMEOUT = 30000
 const cache: {
-  url: string
-  promise: Promise<string | null>
-}[] = []
+  [url: string]: Promise<string | null>
+} = {}
+
+function isFont(filename: string) {
+  return /ttf|otf|eot|woff2?/i.test(filename)
+}
 
 export function getBlobFromURL(
   url: string,
   options: Options,
 ): Promise<string | null> {
-  const root = url.split('?')[0]
-  const found = cache.find((item) => item.url === root)
-  if (found) {
-    return found.promise
+  let href = url.replace(/\?.*/, '')
+
+  if (isFont(href)) {
+    href = href.replace(/.*\//, '')
+  }
+
+  if (cache[href]) {
+    return cache[href]
   }
 
   // cache bypass so we dont have CORS issues with cached images
@@ -108,6 +115,7 @@ export function getBlobFromURL(
       })
 
   const promise = deferred.catch(failed) as Promise<string | null>
-  cache.push({ promise, url: root })
+  cache[href] = promise
+
   return promise
 }
