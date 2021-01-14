@@ -1,5 +1,5 @@
 {
-  "name": "html-to-image",
+  "name": "@kovaci/html-to-image",
   "version": "1.3.21",
   "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
   "main": "lib/index.js",
