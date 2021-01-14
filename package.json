@@ -1,6 +1,6 @@
 {
   "name": "@kovaci/html-to-image",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -38,7 +38,6 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "devmoji -e --lint",
       "pre-commit": "lint-staged"
     }
   },
