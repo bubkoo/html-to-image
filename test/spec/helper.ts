@@ -18,6 +18,10 @@ export namespace Helper {
     return document.getElementById('style') as HTMLStyleElement
   }
 
+  export function createJsNode() {
+    return document.createElement('script') as HTMLScriptElement
+  }
+
   export function renderToPng(node: HTMLDivElement) {
     return toPng(node)
   }
@@ -38,10 +42,21 @@ export namespace Helper {
     htmlUrl: string,
     cssUrl?: string,
     refImageUrl?: string,
+    javascriptUrl?: string,
   ) {
     return setup()
       .then(() => {
         const deferred: Promise<any>[] = []
+
+        if (javascriptUrl) {
+          deferred.push(
+            fetch(javascriptUrl).then((js) => {
+              const jsNode = createJsNode()
+              jsNode.innerText = js
+              document.getElementsByTagName('head')[0].appendChild(jsNode)
+            }),
+          )
+        }
 
         deferred.push(
           fetch(htmlUrl).then((html) => {
@@ -64,7 +79,6 @@ export namespace Helper {
             }),
           )
         }
-
         return Promise.all(deferred)
       })
       .then(() => getCaptureNode())
@@ -170,6 +184,18 @@ export namespace Helper {
           recognize(getCanvasNode().toDataURL()).then((text: string) => {
             // console.log(text)
             expect(lines.every((line) => text.includes(line))).toBe(true)
+          }),
+        )
+  }
+
+  export function assertTextNotRendered(lines: string[]) {
+    return (node: HTMLDivElement = getCaptureNode()) =>
+      renderToPng(node)
+        .then(drawDataUrl)
+        .then(() =>
+          recognize(getCanvasNode().toDataURL()).then((text: string) => {
+            // console.log(text)
+            expect(lines.every((line) => text.includes(line))).toBe(false)
           }),
         )
   }
