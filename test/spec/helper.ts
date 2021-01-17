@@ -21,6 +21,13 @@ export namespace Helper {
   export function renderToPng(node: HTMLDivElement) {
     return toPng(node)
   }
+
+  export function createJsNode() {
+    const el = document.createElement('script') as HTMLScriptElement
+    el.setAttribute('defer', 'defer')
+    el.setAttribute('type', 'text/javascript')
+    return el
+  }
 }
 
 export namespace Helper {
@@ -38,6 +45,7 @@ export namespace Helper {
     htmlUrl: string,
     cssUrl?: string,
     refImageUrl?: string,
+    javascriptUrl?: string,
   ) {
     return setup()
       .then(() => {
@@ -61,6 +69,16 @@ export namespace Helper {
           deferred.push(
             fetch(refImageUrl).then((url) => {
               getReferenceImage().setAttribute('src', url)
+            }),
+          )
+        }
+
+        if (javascriptUrl) {
+          deferred.push(
+            fetch(javascriptUrl).then((js) => {
+              const jsNode = createJsNode()
+              jsNode.innerText = js
+              document.getElementsByTagName('head')[0].appendChild(jsNode)
             }),
           )
         }

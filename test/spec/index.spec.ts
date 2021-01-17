@@ -214,6 +214,18 @@ describe('html to image', () => {
         .catch(done)
     })
 
+    it('should render slot-ed elements', (done) => {
+      Helper.bootstrap(
+        'web-components-sloted/node.html',
+        undefined,
+        'web-components-sloted/image',
+        'web-components-sloted/sc.js',
+      )
+        .then((node) => htmlToImage.toPng(node))
+        .then(Helper.check)
+        .then(done)
+    })
+
     it('should render content from <canvas>', (done) => {
       Helper.bootstrap('canvas/node.html', 'canvas/style.css')
         .then(() => {
