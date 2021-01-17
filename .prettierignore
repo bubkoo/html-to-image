@@ -25,3 +25,4 @@ yarn.lock
 yarn-error.log
 npm-debug.log
 lerna-debug.log
+test/spec/resources/web-components-sloted/sc.js

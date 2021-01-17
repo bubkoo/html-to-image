@@ -49,8 +49,7 @@
     ],
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
       "pretty-quick — staged"
-    ]
-  },
+    ]},
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
