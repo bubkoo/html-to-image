@@ -22,16 +22,37 @@ async function cloneSingleNode(
   return Promise.resolve(node.cloneNode(false) as HTMLElement)
 }
 
+const isSlotElement = (node: Node): node is HTMLSlotElement =>
+  (node as Element).tagName === 'SLOT'
+
+const getEffectiveChildren = (node: HTMLElement): HTMLElement[] => {
+  const children = node.shadowRoot
+    ? toArray<HTMLElement>(node.shadowRoot.childNodes)
+    : toArray<HTMLElement>(node.childNodes)
+  for (let i = 0; i < children.length; i = i + 1) {
+    const child = children[i]
+    if (isSlotElement(child)) {
+      const assignedNodes = child.assignedNodes() as HTMLElement[]
+      if (assignedNodes.length > 0) {
+        // replace the slot element with its assigned nodes, and then process them immediately
+        children.splice(i, 1, ...assignedNodes)
+        i -= 1
+      }
+    }
+  }
+
+  return children
+}
+
 async function cloneChildren(
   nativeNode: HTMLElement,
   clonedNode: HTMLElement,
   filter?: Function,
 ): Promise<HTMLElement> {
-  const children = toArray<HTMLElement>(nativeNode.childNodes)
+  const children = getEffectiveChildren(nativeNode)
   if (children.length === 0) {
     return Promise.resolve(clonedNode)
   }
-
   return children
     .reduce(
       (done, child) =>
