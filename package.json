@@ -1,6 +1,6 @@
 {
-  "name": "html-to-image",
-  "version": "1.3.21",
+  "name": "@kovaci/html-to-image",
+  "version": "1.0.0",
   "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -62,18 +62,9 @@
     "email": "bubkoo.wy@gmail.com"
   },
   "contributors": [
-    {
-      "name": "bubkooo",
-      "email": "bubkoo.wy@gmail.com"
-    },
-    {
-      "name": "OiNutter",
-      "email": "will@oinutter.co.uk"
-    },
-    {
-      "name": "Henri Kovaci",
-      "email": "henri89kovaci@gmail.com"
-    }
+    "bubkooo <bubkoo.wy@gmail.com>",
+    "OiNutter <will@oinutter.co.uk>",
+    "Henri Kovaci <henri89kovaci@gmail.com>"
   ],
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -120,5 +111,11 @@
   "bugs": {
     "url": "https://github.com/bubkoo/html-to-image/issues"
   },
-  "homepage": "https://github.com/bubkoo/html-to-image#readme"
+  "homepage": "https://github.com/bubkoo/html-to-image#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {},
+  "author": ""
 }
