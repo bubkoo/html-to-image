@@ -19,7 +19,10 @@ export namespace Helper {
   }
 
   export function createJsNode() {
-    return document.createElement('script') as HTMLScriptElement
+    const el = document.createElement('script') as HTMLScriptElement
+    el.setAttribute("defer", "defer")
+    el.setAttribute('type', 'text/javascript')
+    return el
   }
 
   export function renderToPng(node: HTMLDivElement) {
