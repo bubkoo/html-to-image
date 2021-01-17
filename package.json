@@ -106,12 +106,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bubkoo/html-to-image.git"
+    "url": "git+https://github.com/hkovaci/html-to-image.git"
   },
   "bugs": {
-    "url": "https://github.com/bubkoo/html-to-image/issues"
+    "url": "https://github.com/hkovaci/html-to-image.git"
   },
-  "homepage": "https://github.com/bubkoo/html-to-image#readme",
+  "homepage": "https://github.com/hkovaci/html-to-image.git#readme",
   "directories": {
     "lib": "lib",
     "test": "test"
