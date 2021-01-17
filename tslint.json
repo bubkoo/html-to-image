@@ -5,7 +5,7 @@
     "tslint-config-prettier"
   ],
   "linterOptions": {
-    "exclude": ["./es/**/*.d.ts", "./lib/**/*.d.ts"]
+    "exclude": ["./es/**/*.d.ts", "./lib/**/*.d.ts", ",./test/spec/resources/web-components-sloted/sc.js"]
   },
   "rules": {
     "no-construct": true,
