@@ -69,6 +69,10 @@
     {
       "name": "OiNutter",
       "email": "will@oinutter.co.uk"
+    },
+    {
+      "name": "Henri Kovaci",
+      "email": "henri89kovaci@gmail.com"
     }
   ],
   "devDependencies": {
