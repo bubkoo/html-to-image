@@ -1,3 +1,6 @@
+> Fork from <a hrref="https://github.com/bubkoo/html-to-image">html-to-image</a> which adds support for web components
+
+
 <h1 align="center">html-to-image</h1>
 
 <p align="center"><strong>✂️ Generates an image from a DOM node using HTML5 canvas and SVG.</strong></p>
