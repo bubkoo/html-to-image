@@ -23,7 +23,7 @@ export function getBlobFromURL(
   url: string,
   options: Options,
 ): Promise<BlobWithType> {
-  let href = url.replace(/\?.*/, '')
+  let href = options.cacheQueryString ? url : url.replace(/\?.*/, '')
 
   if (isFont(href)) {
     href = href.replace(/.*\//, '')

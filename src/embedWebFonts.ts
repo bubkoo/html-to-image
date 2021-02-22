@@ -91,7 +91,7 @@ export async function getCssRules(
               .then((cssText: any) => {
                 const parsed = parseCSS(cssText)
                 parsed.forEach((rule: any) => {
-                  ;(inline as CSSStyleSheet).insertRule(
+                  (inline as CSSStyleSheet).insertRule(
                     rule,
                     sheet.cssRules.length,
                   )

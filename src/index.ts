@@ -46,6 +46,10 @@ export type Options = {
    */
   cacheBust?: boolean
   /**
+   * Caches the query string of urls.
+   */
+  cacheQueryString?: boolean
+  /**
    * A data URL for a placeholder image that will be used when fetching
    * an image fails. Defaults to an empty string and will render empty
    * areas for failed images.

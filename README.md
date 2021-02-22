@@ -18,6 +18,11 @@
 <a href="https://david-dm.org/bubkoo/html-to-image?type=dev" rel="nofollow"><img alt="devDependencies Status" src="https://david-dm.org/bubkoo/html-to-image/dev-status.svg?style=flat-square" /></a>
 </p>
 
+## Notice
+
+This is a fix for the regular `html-to-image` package with fixes for loading images depending on the mimetype set by the requested server.
+I in no way intent to maintain this package further.
+
 ## Install
 
 ```shell
@@ -203,7 +208,7 @@ There might some day exist (or maybe already exists?) a simple and standard way 
 This library uses a feature of SVG that allows having arbitrary HTML content inside of the `<foreignObject>` tag. So, in order to render that DOM node for you, following steps are taken:
 
 1. Clone the original DOM node recursively
-2. Compute the style for the node and each sub-node and copy it to corresponding clone 
+2. Compute the style for the node and each sub-node and copy it to corresponding clone
    - and don't forget to recreate pseudo-elements, as they are not cloned in any way, of course
 3. Embed web fonts
    - find all the `@font-face` declarations that might represent web fonts
