@@ -9,7 +9,8 @@
   "files": [
     "dist",
     "es",
-    "lib"
+    "lib",
+    "src"
   ],
   "keywords": [
     "screenshot",
