@@ -49,7 +49,9 @@ function embedImageNode(
 
   return Promise.resolve(clonedNode.src)
     .then((url) => getBlobFromURL(url, options))
-    .then((data) => toDataURL(data!, getMimeType(clonedNode.src)))
+    .then((data) =>
+      toDataURL(data!.blob, getMimeType(clonedNode.src) || data!.contentType),
+    )
     .then(
       (dataURL) =>
         new Promise((resolve, reject) => {
