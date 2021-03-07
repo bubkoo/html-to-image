@@ -147,7 +147,8 @@ function parseCSS(source: string) {
   const combinedCSSRegex =
     '((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]' +
     '*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})' // to match css & media queries together
-  const cssCommentsRegex = new RegExp('(\\/\\*[\\s\\S]*?\\*\\/)', 'gi')
+  const cssCommentsRegex = /(\/\*[\s\S]*?\*\/)/gi
+  const importRegex = /@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi
 
   // strip out comments
   cssText = cssText.replace(cssCommentsRegex, '')
@@ -166,9 +167,17 @@ function parseCSS(source: string) {
   // unified regex
   const unified = new RegExp(combinedCSSRegex, 'gi')
   while (true) {
-    arr = unified.exec(cssText)
+    arr = importRegex.exec(cssText)
+
     if (arr === null) {
-      break
+      arr = unified.exec(cssText)
+      if (arr === null) {
+        break
+      } else {
+        importRegex.lastIndex = unified.lastIndex
+      }
+    } else {
+      unified.lastIndex = importRegex.lastIndex
     }
     css.push(arr[0])
   }
