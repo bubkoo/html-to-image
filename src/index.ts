@@ -106,7 +106,7 @@ export async function toCanvas(
         context.fillRect(0, 0, canvas.width, canvas.height)
       }
 
-      context.drawImage(image, 0, 0)
+      context.drawImage(image, 0, 0, canvas.width, canvas.height)
 
       return canvas
     })
