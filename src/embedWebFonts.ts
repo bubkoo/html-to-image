@@ -64,23 +64,38 @@ export async function getCssRules(
   styleSheets.forEach((sheet) => {
     if ('cssRules' in sheet) {
       try {
-        toArray<CSSRule>(sheet.cssRules).forEach((item: CSSRule) => {
-          if (item.type === CSSRule.IMPORT_RULE) {
-            promises.push(
-              fetchCSS((item as CSSImportRule).href, sheet)
-                .then(embedFonts)
-                .then((cssText: any) => {
-                  const parsed = parseCSS(cssText)
-                  parsed.forEach((rule: any) => {
-                    sheet.insertRule(rule, sheet.cssRules.length)
+        toArray<CSSRule>(sheet.cssRules).forEach(
+          (item: CSSRule, index: number) => {
+            if (item.type === CSSRule.IMPORT_RULE) {
+              let importIndex = index + 1
+              promises.push(
+                fetchCSS((item as CSSImportRule).href, sheet)
+                  .then(embedFonts)
+                  .then((cssText: any) => {
+                    const parsed = parseCSS(cssText)
+                    parsed.forEach((rule: any) => {
+                      try {
+                        sheet.insertRule(
+                          rule,
+                          rule.startsWith('@import')
+                            ? (importIndex = importIndex + 1)
+                            : sheet.cssRules.length,
+                        )
+                      } catch (error) {
+                        console.log('Error inserting rule from remote css', {
+                          rule,
+                          error,
+                        })
+                      }
+                    })
                   })
-                })
-                .catch((e) => {
-                  console.log('Error loading remote css', e.toString())
-                }),
-            )
-          }
-        })
+                  .catch((e) => {
+                    console.log('Error loading remote css', e.toString())
+                  }),
+              )
+            }
+          },
+        )
       } catch (e) {
         const inline =
           styleSheets.find((a) => a.href === null) || document.styleSheets[0]
