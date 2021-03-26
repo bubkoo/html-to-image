@@ -138,6 +138,12 @@ export namespace Helper {
     })
   }
 
+  export function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
+    return fetch(dataUrl)
+      .then((response) => response.text())
+      .then((str) => new window.DOMParser().parseFromString(str, 'text/xml'))
+  }
+
   function drawImg(
     image: CanvasImageSource,
     node = Helper.getCaptureNode(),

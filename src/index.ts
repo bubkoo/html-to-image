@@ -60,6 +60,17 @@ export type Options = {
    * Option to skip the fonts download and embed.
    */
   skipFonts?: boolean
+  /**
+   * The preferred font format. If specified all other font formats are ignored.
+   */
+  preferredFontFormat?:
+    | 'woff'
+    | 'woff2'
+    | 'truetype'
+    | 'opentype'
+    | 'embedded-opentype'
+    | 'svg'
+    | string
 }
 
 function getImageSize(domNode: HTMLElement, options: Options = {}) {

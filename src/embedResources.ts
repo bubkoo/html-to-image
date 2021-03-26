@@ -3,6 +3,8 @@ import { getBlobFromURL } from './getBlobFromURL'
 import { isDataUrl, toDataURL, getMimeType } from './util'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
+const URL_WITH_FORMAT_REGEX = /url\([^)]+\)\s*format\((["'])([^"']+)\1\)/g
+const FONT_SRC_REGEX = /src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g
 
 export function shouldEmbed(string: string): boolean {
   return string.search(URL_REGEX) !== -1
@@ -11,20 +13,41 @@ export function shouldEmbed(string: string): boolean {
 export function embedResources(
   cssString: string,
   baseUrl: string | null,
-  options: Object,
+  options: Options,
 ): Promise<string> {
   if (!shouldEmbed(cssString)) {
     return Promise.resolve(cssString)
   }
 
-  return Promise.resolve(cssString)
+  const filteredCssString = filterPreferredFontFormat(cssString, options)
+  return Promise.resolve(filteredCssString)
     .then(parseURLs)
     .then((urls) =>
       urls.reduce(
         (done, url) => done.then((ret) => embed(ret, url, baseUrl, options)),
-        Promise.resolve(cssString),
+        Promise.resolve(filteredCssString),
       ),
     )
+}
+
+export function filterPreferredFontFormat(
+  str: string,
+  { preferredFontFormat }: Options,
+): string {
+  return !preferredFontFormat
+    ? str
+    : str.replace(FONT_SRC_REGEX, (match: string) => {
+        while (true) {
+          const [src, , format] = URL_WITH_FORMAT_REGEX.exec(match) || []
+
+          if (!format) {
+            return ''
+          }
+          if (format === preferredFontFormat) {
+            return `src: ${src};`
+          }
+        }
+      })
 }
 
 export function parseURLs(str: string): string[] {

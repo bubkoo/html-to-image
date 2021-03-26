@@ -18,7 +18,7 @@ export async function parseWebFontRules(
     }
     resolve(toArray(clonedNode.ownerDocument!.styleSheets))
   })
-    .then(getCssRules)
+    .then((styleSheets: CSSStyleSheet[]) => getCssRules(styleSheets))
     .then(getWebFontRules)
 }
 
