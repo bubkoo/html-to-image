@@ -1,3 +1,10 @@
+## [1.3.23](https://github.com/bubkoo/html-to-image/compare/v1.3.22...v1.3.23) (2021-03-29)
+
+
+### Bug Fixes
+
+* 🐛 use content-type to get image src type if extension is not provided in url ([#98](https://github.com/bubkoo/html-to-image/issues/98)) ([5e2da9c](https://github.com/bubkoo/html-to-image/commit/5e2da9c3a5e0b7ff5f3e84de4272c2574b2e5460))
+
 ## [1.3.22](https://github.com/bubkoo/html-to-image/compare/v1.3.21...v1.3.22) (2021-03-29)
 
 
