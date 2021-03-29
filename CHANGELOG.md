@@ -1,3 +1,5 @@
+## [1.3.24](https://github.com/bubkoo/html-to-image/compare/v1.3.23...v1.3.24) (2021-03-29)
+
 ## [1.3.23](https://github.com/bubkoo/html-to-image/compare/v1.3.22...v1.3.23) (2021-03-29)
 
 
