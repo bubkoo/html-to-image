@@ -1,3 +1,11 @@
+## [1.3.22](https://github.com/bubkoo/html-to-image/compare/v1.3.21...v1.3.22) (2021-03-29)
+
+
+### Bug Fixes
+
+* 🐛 parse [@import](https://github.com/import) rules in fetched CSS ([#100](https://github.com/bubkoo/html-to-image/issues/100)) ([553c7e1](https://github.com/bubkoo/html-to-image/commit/553c7e1086038c268019333fab0d8b8252504633))
+* 🐛 toCanvas scale ([#102](https://github.com/bubkoo/html-to-image/issues/102)) ([4049536](https://github.com/bubkoo/html-to-image/commit/40495364a26ce18f951d04da24b2a0cc9254a6b9))
+
 ## [1.3.21](https://github.com/bubkoo/html-to-image/compare/v1.3.20...v1.3.21) (2021-01-13)
 
 
