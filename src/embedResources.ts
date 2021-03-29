@@ -48,8 +48,19 @@ export function embed(
   const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
 
   return Promise.resolve(resolvedURL)
-    .then((url) => (get ? get(url) : getBlobFromURL(url, options)))
-    .then((data) => toDataURL(data!, getMimeType(resourceURL)))
+    .then<string | { blob: string; contentType: string } | null>((url) =>
+      get ? get(url) : getBlobFromURL(url, options),
+    )
+    .then((data) => {
+      if (typeof data === 'string') {
+        return toDataURL(data!, getMimeType(resourceURL))
+      }
+
+      return toDataURL(
+        data!.blob,
+        getMimeType(resourceURL) || data!.contentType,
+      )
+    })
     .then((dataURL) =>
       cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`),
     )
