@@ -64,23 +64,38 @@ export async function getCssRules(
   styleSheets.forEach((sheet) => {
     if ('cssRules' in sheet) {
       try {
-        toArray<CSSRule>(sheet.cssRules).forEach((item: CSSRule) => {
-          if (item.type === CSSRule.IMPORT_RULE) {
-            promises.push(
-              fetchCSS((item as CSSImportRule).href, sheet)
-                .then(embedFonts)
-                .then((cssText: any) => {
-                  const parsed = parseCSS(cssText)
-                  parsed.forEach((rule: any) => {
-                    sheet.insertRule(rule, sheet.cssRules.length)
+        toArray<CSSRule>(sheet.cssRules).forEach(
+          (item: CSSRule, index: number) => {
+            if (item.type === CSSRule.IMPORT_RULE) {
+              let importIndex = index + 1
+              promises.push(
+                fetchCSS((item as CSSImportRule).href, sheet)
+                  .then(embedFonts)
+                  .then((cssText: any) => {
+                    const parsed = parseCSS(cssText)
+                    parsed.forEach((rule: any) => {
+                      try {
+                        sheet.insertRule(
+                          rule,
+                          rule.startsWith('@import')
+                            ? (importIndex = importIndex + 1)
+                            : sheet.cssRules.length,
+                        )
+                      } catch (error) {
+                        console.log('Error inserting rule from remote css', {
+                          rule,
+                          error,
+                        })
+                      }
+                    })
                   })
-                })
-                .catch((e) => {
-                  console.log('Error loading remote css', e.toString())
-                }),
-            )
-          }
-        })
+                  .catch((e) => {
+                    console.log('Error loading remote css', e.toString())
+                  }),
+              )
+            }
+          },
+        )
       } catch (e) {
         const inline =
           styleSheets.find((a) => a.href === null) || document.styleSheets[0]
@@ -147,7 +162,8 @@ function parseCSS(source: string) {
   const combinedCSSRegex =
     '((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]' +
     '*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})' // to match css & media queries together
-  const cssCommentsRegex = new RegExp('(\\/\\*[\\s\\S]*?\\*\\/)', 'gi')
+  const cssCommentsRegex = /(\/\*[\s\S]*?\*\/)/gi
+  const importRegex = /@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi
 
   // strip out comments
   cssText = cssText.replace(cssCommentsRegex, '')
@@ -166,9 +182,17 @@ function parseCSS(source: string) {
   // unified regex
   const unified = new RegExp(combinedCSSRegex, 'gi')
   while (true) {
-    arr = unified.exec(cssText)
+    arr = importRegex.exec(cssText)
+
     if (arr === null) {
-      break
+      arr = unified.exec(cssText)
+      if (arr === null) {
+        break
+      } else {
+        importRegex.lastIndex = unified.lastIndex
+      }
+    } else {
+      unified.lastIndex = importRegex.lastIndex
     }
     css.push(arr[0])
   }
