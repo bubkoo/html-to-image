@@ -1,5 +1,5 @@
 name: 🏷️　Label(Patch Size)
-on: pull_request
+on: pull_request_target
 jobs:
   run:
     runs-on: ubuntu-latest

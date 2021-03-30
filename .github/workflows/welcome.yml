@@ -1,6 +1,6 @@
 name: 👋　Welcome
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, closed]
   issues:
     types: [opened]

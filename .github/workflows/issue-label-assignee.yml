@@ -5,7 +5,7 @@ name: 🏷️　Label(Title and Body)
 on:
   issues:
     types: [opened]
-  pull_request:
+  pull_request_target:
     types: [opened]
 jobs:
   run:

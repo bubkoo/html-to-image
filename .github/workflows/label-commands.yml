@@ -1,6 +1,6 @@
 name: 👾　Label Commands
 on:
-  pull_request:
+  pull_request_target:
     types: [labeled, unlabeled]
   issues:
     types: [labeled, unlabeled]
