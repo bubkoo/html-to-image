@@ -380,6 +380,24 @@ describe('html to image', () => {
         .then(done)
         .catch(done)
     })
+
+    it('should embed only the preferred font', (done) => {
+      Helper.bootstrap(
+        'fonts/web-fonts/empty.html',
+        'fonts/web-fonts/remote.css',
+      )
+        .then((node) =>
+          htmlToImage.toSvg(node, { preferredFontFormat: 'woff2' }),
+        )
+        .then(Helper.getSvgDocument)
+        .then((doc) => {
+          const [style] = Array.from(doc.getElementsByTagName('style'))
+
+          expect(style.textContent).toMatch(/url\([^)]+\) format\("woff2"\)/)
+          expect(style.textContent).not.toMatch(/url\([^)]+\) format\("woff"\)/)
+        })
+        .then(done)
+    })
   })
 
   describe('special cases', () => {

@@ -181,7 +181,23 @@ Defaults to an empty string and will render empty areas for failed images.
 
 ### pixelRatio
 
-The pixel ratio of the captured image. Defalut use the actual pixel ratio of the device. Set `1` to use as initial-scale `1` for the image.
+The pixel ratio of the captured image. Defalut use the actual pixel ratio of the device. Set `1` to
+use as initial-scale `1` for the image.
+
+### preferredFontFormat
+
+The format required for font embedding. This is a useful optimisation when a webfont provider
+specifies several different formats for fonts in the CSS, for example:
+
+```css
+@font-face {
+  name: 'proxima-nova';
+  src: url("...") format("woff2"), url("...") format("woff"), url("...") format("opentype");
+}
+```
+
+Instead of embedding each format, all formats other than the one specified will be discarded. If
+this option is not specified then all formats will be downloaded and embedded.
 
 ## Browsers
 
