@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/bubkoo/html-to-image/compare/v1.3.25...v1.4.0) (2021-03-30)
+
+
+### Features
+
+* ✨ option to specify preferred font format ([#106](https://github.com/bubkoo/html-to-image/issues/106)) ([740b371](https://github.com/bubkoo/html-to-image/commit/740b3719d16839c9b079ab2ce86a2d9200f22d77))
+
 ## [1.3.25](https://github.com/bubkoo/html-to-image/compare/v1.3.24...v1.3.25) (2021-03-30)
 
 ## [1.3.24](https://github.com/bubkoo/html-to-image/compare/v1.3.23...v1.3.24) (2021-03-29)
