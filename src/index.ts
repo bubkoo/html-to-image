@@ -124,8 +124,6 @@ export async function toCanvas(
       canvas.style.width = `${canvasWidth}`
       canvas.style.height = `${canvasHeight}`
 
-      console.log(canvas.width)
-
       if (options.backgroundColor) {
         context.fillStyle = options.backgroundColor
         context.fillRect(0, 0, canvas.width, canvas.height)
