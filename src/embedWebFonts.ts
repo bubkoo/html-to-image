@@ -26,7 +26,30 @@ export async function embedWebFonts(
   clonedNode: HTMLElement,
   options: Options,
 ): Promise<HTMLElement> {
-  return parseWebFontRules(clonedNode)
+  return (options.fontEmbedCss != null
+    ? Promise.resolve(options.fontEmbedCss)
+    : getWebFontCss(clonedNode, options)
+  ).then((cssString) => {
+    const styleNode = document.createElement('style')
+    const sytleContent = document.createTextNode(cssString)
+
+    styleNode.appendChild(sytleContent)
+
+    if (clonedNode.firstChild) {
+      clonedNode.insertBefore(styleNode, clonedNode.firstChild)
+    } else {
+      clonedNode.appendChild(styleNode)
+    }
+
+    return clonedNode
+  })
+}
+
+export async function getWebFontCss(
+  node: HTMLElement,
+  options: Options,
+): Promise<string> {
+  return parseWebFontRules(node)
     .then((rules) =>
       Promise.all(
         rules.map((rule) => {
@@ -38,20 +61,6 @@ export async function embedWebFonts(
       ),
     )
     .then((cssStrings) => cssStrings.join('\n'))
-    .then((cssString) => {
-      const styleNode = document.createElement('style')
-      const sytleContent = document.createTextNode(cssString)
-
-      styleNode.appendChild(sytleContent)
-
-      if (clonedNode.firstChild) {
-        clonedNode.insertBefore(styleNode, clonedNode.firstChild)
-      } else {
-        clonedNode.appendChild(styleNode)
-      }
-
-      return clonedNode
-    })
 }
 
 export async function getCssRules(
@@ -106,7 +115,7 @@ export async function getCssRules(
               .then((cssText: any) => {
                 const parsed = parseCSS(cssText)
                 parsed.forEach((rule: any) => {
-                  ;(inline as CSSStyleSheet).insertRule(
+                  (inline as CSSStyleSheet).insertRule(
                     rule,
                     sheet.cssRules.length,
                   )

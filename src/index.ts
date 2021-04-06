@@ -1,6 +1,6 @@
 import { cloneNode } from './cloneNode'
 import { embedImages } from './embedImages'
-import { embedWebFonts } from './embedWebFonts'
+import { embedWebFonts, getWebFontCss } from './embedWebFonts'
 import { createSvgDataURL } from './createSvgDataURL'
 import { applyStyleWithOptions } from './applyStyleWithOptions'
 import {
@@ -71,6 +71,11 @@ export type Options = {
     | 'embedded-opentype'
     | 'svg'
     | string
+  /**
+   * A CSS string to specify for font embeds. If specified only this CSS will be present in the resulting image.
+   * Use with `getFontEmbedCss()` to create embed CSS for use across multiple calls to library functions.
+   */
+  fontEmbedCss?: string
 }
 
 function getImageSize(domNode: HTMLElement, options: Options = {}) {
@@ -155,4 +160,11 @@ export async function toBlob(
   options: Options = {},
 ): Promise<Blob | null> {
   return toCanvas(domNode, options).then(canvasToBlob)
+}
+
+export async function getWebFontEmbedCss(
+  domNode: HTMLElement,
+  options: Options = {},
+): Promise<string> {
+  return getWebFontCss(domNode, options)
 }

@@ -381,6 +381,28 @@ describe('html to image', () => {
         .catch(done)
     })
 
+    it('should only use fontEmbedCss if it is supplied', (done) => {
+      const testCss = `
+        @font-face {
+          name: "Arial";
+          src: url("data:AAA") format("woff2");
+        }
+      `
+      Helper.bootstrap(
+        'fonts/web-fonts/empty.html',
+        'fonts/web-fonts/remote.css',
+      )
+        .then((node) => htmlToImage.toSvg(node, { fontEmbedCss: testCss }))
+        .then(Helper.getSvgDocument)
+        .then((doc) => {
+          const styles = Array.from(doc.getElementsByTagName('style'))
+
+          expect(styles).toHaveSize(1)
+          expect(styles[0].textContent).toEqual(testCss)
+        })
+        .then(done)
+    })
+
     it('should embed only the preferred font', (done) => {
       Helper.bootstrap(
         'fonts/web-fonts/empty.html',
