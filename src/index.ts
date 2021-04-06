@@ -26,6 +26,14 @@ export type Options = {
    */
   backgroundColor?: string
   /**
+   * Width in pixels to be applied to canvas on export.
+   */
+  canvasWidth?: number
+  /**
+   * Height in pixels to be applied to canvas on export.
+   */
+  canvasHeight?: number
+  /**
    * An object whose properties to be copied to node's style before rendering.
    */
   style?: Partial<CSSStyleDeclaration>
@@ -81,6 +89,7 @@ export type Options = {
 function getImageSize(domNode: HTMLElement, options: Options = {}) {
   const width = options.width || getNodeWidth(domNode)
   const height = options.height || getNodeHeight(domNode)
+
   return { width, height }
 }
 
@@ -112,10 +121,13 @@ export async function toCanvas(
       const ratio = options.pixelRatio || getPixelRatio()
       const { width, height } = getImageSize(domNode, options)
 
-      canvas.width = width * ratio
-      canvas.height = height * ratio
-      canvas.style.width = `${width}`
-      canvas.style.height = `${height}`
+      const canvasWidth = options.canvasWidth || width
+      const canvasHeight = options.canvasHeight || height
+
+      canvas.width = canvasWidth * ratio
+      canvas.height = canvasHeight * ratio
+      canvas.style.width = `${canvasWidth}`
+      canvas.style.height = `${canvasHeight}`
 
       if (options.backgroundColor) {
         context.fillStyle = options.backgroundColor
