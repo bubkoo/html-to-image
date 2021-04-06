@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/bubkoo/html-to-image/compare/v1.5.0...v1.6.0) (2021-04-06)
+
+
+### Features
+
+* **tocanvas:** ✨ adding custom width/height for exported canvas ([#110](https://github.com/bubkoo/html-to-image/issues/110)) ([aefa9f8](https://github.com/bubkoo/html-to-image/commit/aefa9f8cced44824a37bf49d35d5ae0e87e823f5))
+
 # [1.5.0](https://github.com/bubkoo/html-to-image/compare/v1.4.0...v1.5.0) (2021-04-06)
 
 
