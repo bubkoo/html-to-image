@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/bubkoo/html-to-image/compare/v1.4.0...v1.5.0) (2021-04-06)
+
+
+### Features
+
+* ✨ option to specify font embed css ([#109](https://github.com/bubkoo/html-to-image/issues/109)) ([6d644da](https://github.com/bubkoo/html-to-image/commit/6d644dab86bd40bed8aa46f2dcdb4124291d9ebf))
+
 # [1.4.0](https://github.com/bubkoo/html-to-image/compare/v1.3.25...v1.4.0) (2021-03-30)
 
 
