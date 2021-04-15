@@ -161,6 +161,14 @@ Width and height in pixels to be applied to node before rendering.
 
 An object whose properties to be copied to node's style before rendering. You might want to check [this reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) for JavaScript names of CSS properties.
 
+### cssStyles
+
+A string of CSS styles to apply across the DOM node and its children before rendering.
+The style string must be compatible with the <style> tag.
+Note that because the source styles are set as inline styles before rendering,
+you may need to use !important to override existing styles.
+For futher information see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
+
 ### quality
 
 A number between `0` and `1` indicating image quality (e.g. `0.92` => `92%`) of the JPEG image.
