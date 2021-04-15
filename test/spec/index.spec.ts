@@ -327,6 +327,37 @@ describe('html to image', () => {
         .catch(done)
     })
 
+    it('should apply CSS styles to DOM being rendered', (done) => {
+      const testCss = `
+        .child {
+          background-color: orange !important;
+        }
+        .grandchild {
+          display: inline-block !important;
+          color: blue !important;
+          font-weight: bold !important;
+        }
+      `
+
+      Helper.bootstrap(
+        'css-styles/node.html',
+        'css-styles/style.css',
+        'css-styles/image',
+      )
+        .then((node) => {
+          return htmlToImage.toSvg(node, {
+            cssStyles: testCss,
+          })
+        })
+        .then((thing) => {
+          console.log(thing)
+          return thing
+        })
+        .then(Helper.check)
+        .then(done)
+        .catch(done)
+    })
+
     it('should combine dimensions and style', (done) => {
       Helper.bootstrap('scale/node.html', 'scale/style.css', 'scale/image')
         .then((node) => {

@@ -38,6 +38,12 @@ export type Options = {
    */
   style?: Partial<CSSStyleDeclaration>
   /**
+   * A string of CSS styles to apply across the DOM node and its children.
+   * The style string must be compatible with the <style> tag.
+   * For futher information see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
+   */
+  cssStyles?: string
+  /**
    * A function taking DOM node as argument. Should return `true` if passed
    * node should be included in the output. Excluding node means excluding
    * it's children as well.
@@ -103,7 +109,7 @@ export async function toSvg(
     .then((clonedNode) => embedWebFonts(clonedNode!, options))
     .then((clonedNode) => embedImages(clonedNode, options))
     .then((clonedNode) => applyStyleWithOptions(clonedNode, options))
-    .then((clonedNode) => createSvgDataURL(clonedNode, width, height))
+    .then((clonedNode) => createSvgDataURL(clonedNode, width, height, options))
 }
 
 export const toSvgDataURL = toSvg
