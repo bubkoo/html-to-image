@@ -157,6 +157,10 @@ A string value for the background color, any valid CSS color value.
 
 Width and height in pixels to be applied to node before rendering.
 
+### canvasWidth, canvasHeight
+
+Allows to scale the canva's size including the elements inside to a given width and height (in pixels).
+
 ### style
 
 An object whose properties to be copied to node's style before rendering. You might want to check [this reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) for JavaScript names of CSS properties.
@@ -184,7 +188,7 @@ Defaults to an empty string and will render empty areas for failed images.
 The pixel ratio of the captured image. Defalut use the actual pixel ratio of the device. Set `1` to
 use as initial-scale `1` for the image.
 
-### preferredFontFormat
+### preferredFontFormat
 
 The format required for font embedding. This is a useful optimisation when a webfont provider
 specifies several different formats for fonts in the CSS, for example:
