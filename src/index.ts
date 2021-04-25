@@ -84,6 +84,10 @@ export type Options = {
    * Use with `getFontEmbedCss()` to create embed CSS for use across multiple calls to library functions.
    */
   fontEmbedCss?: string
+   /**
+   * A boolean to set cors options
+   */
+  corsOptions?: RequestInit;
 }
 
 function getImageSize(domNode: HTMLElement, options: Options = {}) {
