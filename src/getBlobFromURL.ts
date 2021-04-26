@@ -61,7 +61,7 @@ export function getBlobFromURL(
 
   const deferred = window.fetch
     ? window
-        .fetch(url, {...options.corsOptions})
+        .fetch(url, options.corsOptions)
         .then((response) => {
           return new Promise((res, rej) => {
             response.blob().then((blob) => {
