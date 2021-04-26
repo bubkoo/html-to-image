@@ -85,7 +85,7 @@ export type Options = {
    */
   fontEmbedCss?: string
    /**
-   * A boolean to set cors options
+   * An object to set fetch options
    */
   corsOptions?: RequestInit;
 }
