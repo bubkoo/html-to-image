@@ -17,6 +17,15 @@ function isFont(filename: string) {
   return /ttf|otf|eot|woff2?/i.test(filename)
 }
 
+function isFileProtocol(url: string) {
+  try {
+    const protocol = new URL(url, document.location.href).protocol
+    return protocol === 'file:'
+  } catch {
+    return false
+  }
+}
+
 export function getBlobFromURL(
   url: string,
   options: Options,
@@ -59,81 +68,82 @@ export function getBlobFromURL(
     return placeholder
   }
 
-  const deferred = window.fetch
-    ? window
-        .fetch(url)
-        .then((response) => {
-          return new Promise((res, rej) => {
-            response.blob().then((blob) => {
-              res({
-                blob,
-                contentType: response.headers.get('Content-Type'),
+  const deferred =
+    window.fetch && !isFileProtocol(url)
+      ? window
+          .fetch(url)
+          .then((response) => {
+            return new Promise((res, rej) => {
+              response.blob().then((blob) => {
+                res({
+                  blob,
+                  contentType: response.headers.get('Content-Type'),
+                })
               })
             })
           })
-        })
-        .then(
-          ({ blob, contentType }) =>
-            new Promise((resolve, reject) => {
-              const reader = new FileReader()
-              reader.onloadend = () =>
-                resolve({
-                  contentType,
-                  blob: reader.result as string,
-                })
-              reader.onerror = reject
-              reader.readAsDataURL(blob)
-            }),
-        )
-        .then(({ blob, contentType }) => ({
-          contentType,
-          blob: getDataURLContent(blob),
-        }))
-        .catch(() => new Promise((resolve, reject) => reject()))
-    : new Promise<{ blob: string; contentType: string } | null>(
-        (resolve, reject) => {
-          const req = new XMLHttpRequest()
+          .then(
+            ({ blob, contentType }) =>
+              new Promise((resolve, reject) => {
+                const reader = new FileReader()
+                reader.onloadend = () =>
+                  resolve({
+                    contentType,
+                    blob: reader.result as string,
+                  })
+                reader.onerror = reject
+                reader.readAsDataURL(blob)
+              }),
+          )
+          .then(({ blob, contentType }) => ({
+            contentType,
+            blob: getDataURLContent(blob),
+          }))
+          .catch(() => new Promise((resolve, reject) => reject()))
+      : new Promise<{ blob: string; contentType: string } | null>(
+          (resolve, reject) => {
+            const req = new XMLHttpRequest()
 
-          const timeout = () => {
-            reject(
-              new Error(
-                `Timeout of ${TIMEOUT}ms occured while fetching resource: ${url}`,
-              ),
-            )
-          }
-
-          const done = () => {
-            if (req.readyState !== 4) {
-              return
-            }
-
-            if (req.status !== 200) {
+            const timeout = () => {
               reject(
                 new Error(
-                  `Failed to fetch resource: ${url}, status: ${req.status}`,
+                  `Timeout of ${TIMEOUT}ms occured while fetching resource: ${url}`,
                 ),
               )
-              return
             }
 
-            const encoder = new FileReader()
-            encoder.onloadend = () => {
-              resolve({
-                blob: getDataURLContent(encoder.result as string),
-                contentType: req.getResponseHeader('Content-Type') || '',
-              })
-            }
-            encoder.readAsDataURL(req.response)
-          }
+            const done = () => {
+              if (req.readyState !== 4) {
+                return
+              }
 
-          req.onreadystatechange = done
-          req.ontimeout = timeout
-          req.responseType = 'blob'
-          req.timeout = TIMEOUT
-          req.open('GET', url, true)
-          req.send()
-        },
-      )
+              if (req.status !== 200) {
+                reject(
+                  new Error(
+                    `Failed to fetch resource: ${url}, status: ${req.status}`,
+                  ),
+                )
+                return
+              }
+
+              const encoder = new FileReader()
+              encoder.onloadend = () => {
+                resolve({
+                  blob: getDataURLContent(encoder.result as string),
+                  contentType: req.getResponseHeader('Content-Type') || '',
+                })
+              }
+              encoder.readAsDataURL(req.response)
+            }
+
+            req.onreadystatechange = done
+            req.ontimeout = timeout
+            req.responseType = 'blob'
+            req.timeout = TIMEOUT
+            req.open('GET', url, true)
+            req.send()
+          },
+        )
 
   const promise = deferred.catch(failed) as Promise<{
     blob: string
