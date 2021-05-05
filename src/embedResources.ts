@@ -14,6 +14,7 @@ export function embedResources(
   cssString: string,
   baseUrl: string | null,
   options: Options,
+  get?: (url: string) => Promise<string>,
 ): Promise<string> {
   if (!shouldEmbed(cssString)) {
     return Promise.resolve(cssString)
@@ -24,7 +25,8 @@ export function embedResources(
     .then(parseURLs)
     .then((urls) =>
       urls.reduce(
-        (done, url) => done.then((ret) => embed(ret, url, baseUrl, options)),
+        (done, url) =>
+          done.then((ret) => embed(ret, url, baseUrl, options, get)),
         Promise.resolve(filteredCssString),
       ),
     )

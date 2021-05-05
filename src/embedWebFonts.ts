@@ -48,6 +48,7 @@ export async function embedWebFonts(
 export async function getWebFontCss(
   node: HTMLElement,
   options: Options,
+  get?: (url: string) => Promise<string>,
 ): Promise<string> {
   return parseWebFontRules(node)
     .then((rules) =>
@@ -56,7 +57,7 @@ export async function getWebFontCss(
           const baseUrl = rule.parentStyleSheet
             ? rule.parentStyleSheet.href
             : null
-          return embedResources(rule.cssText, baseUrl, options)
+          return embedResources(rule.cssText, baseUrl, options, get)
         }),
       ),
     )
@@ -115,7 +116,7 @@ export async function getCssRules(
               .then((cssText: any) => {
                 const parsed = parseCSS(cssText)
                 parsed.forEach((rule: any) => {
-                  (inline as CSSStyleSheet).insertRule(
+                  ;(inline as CSSStyleSheet).insertRule(
                     rule,
                     sheet.cssRules.length,
                   )

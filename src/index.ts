@@ -177,6 +177,7 @@ export async function toBlob(
 export async function getWebFontEmbedCss(
   domNode: HTMLElement,
   options: Options = {},
+  get?: (url: string) => Promise<string>,
 ): Promise<string> {
-  return getWebFontCss(domNode, options)
+  return getWebFontCss(domNode, options, get)
 }
