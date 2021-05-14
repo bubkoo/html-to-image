@@ -229,6 +229,46 @@ describe('html to image', () => {
         .then(done)
         .catch(done)
     })
+
+    describe('custom element', () => {
+      let link: HTMLLinkElement
+      beforeAll(() => {
+        const script = document.createElement('script')
+        script.src = 'https://unpkg.com/mathlive/dist/mathlive.min.js'
+        link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = 'https://unpkg.com/mathlive/dist/mathlive-fonts.css'
+        const tasks = [
+          new Promise((resolve, reject) => {
+            script.onload = resolve
+            script.onerror = reject
+          }),
+          new Promise((resolve, reject) => {
+            link.onload = resolve
+            link.onerror = reject
+          }),
+        ]
+        document.head.append(script, link)
+        return Promise.all(tasks)
+      })
+
+      afterAll(() => {
+        link.remove()
+      })
+
+      it('should render content from shadow node of custom element', (done) => {
+        Helper.bootstrap(
+          'custom-element/node.html',
+          'custom-element/style.css',
+          'custom-element/image',
+        )
+          .then(util.delay(1000))
+          .then(Helper.renderAndCheck)
+          .then(util.delay(1000))
+          .then(done)
+          .catch(done)
+      })
+    })
   })
 
   describe('work with svg', () => {
