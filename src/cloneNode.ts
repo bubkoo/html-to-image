@@ -27,7 +27,9 @@ async function cloneChildren(
   clonedNode: HTMLElement,
   filter?: Function,
 ): Promise<HTMLElement> {
-  const children = toArray<HTMLElement>(nativeNode.childNodes)
+  const children = toArray<HTMLElement>(
+    (nativeNode.shadowRoot ?? nativeNode).childNodes,
+  )
   if (children.length === 0) {
     return Promise.resolve(clonedNode)
   }
