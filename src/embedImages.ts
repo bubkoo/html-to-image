@@ -21,7 +21,7 @@ async function embedBackground(
   clonedNode: HTMLElement,
   options: Options,
 ): Promise<HTMLElement> {
-  const background = clonedNode.style.getPropertyValue('background')
+  const background = clonedNode.style?.getPropertyValue('background')
   if (!background) {
     return Promise.resolve(clonedNode)
   }
