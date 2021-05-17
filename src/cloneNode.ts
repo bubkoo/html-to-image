@@ -27,7 +27,9 @@ async function cloneChildren(
   clonedNode: HTMLElement,
   filter?: Function,
 ): Promise<HTMLElement> {
-  const children = toArray<HTMLElement>(nativeNode.childNodes)
+  const children = toArray<HTMLElement>(
+    (nativeNode.shadowRoot ?? nativeNode).childNodes,
+  )
   if (children.length === 0) {
     return Promise.resolve(clonedNode)
   }
@@ -65,7 +67,7 @@ async function decorate(
 function cloneCssStyle(nativeNode: HTMLElement, clonedNode: HTMLElement) {
   const source = window.getComputedStyle(nativeNode)
   const target = clonedNode.style
-
+  if (!target) return
   if (source.cssText) {
     target.cssText = source.cssText
   } else {
