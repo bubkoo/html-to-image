@@ -1,3 +1,5 @@
+## [1.6.2](https://github.com/bubkoo/html-to-image/compare/v1.6.1...v1.6.2) (2021-05-17)
+
 ## [1.6.1](https://github.com/bubkoo/html-to-image/compare/v1.6.0...v1.6.1) (2021-04-23)
 
 # [1.6.0](https://github.com/bubkoo/html-to-image/compare/v1.5.0...v1.6.0) (2021-04-06)
