@@ -25,7 +25,6 @@ jobs:
             We get a lot of issues on this repo, so please be patient and we will get back to you as soon as we can.
 
           FIRST_PR: |
-            |
             👋 @{{ author }}
 
             💖 Thanks for opening this pull request! 💖
