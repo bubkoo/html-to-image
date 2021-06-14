@@ -300,6 +300,20 @@ describe('html to image', () => {
         .then(done)
         .catch(done)
     })
+
+    it('should include a viewBox attribute', (done) => {
+      Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
+        .then(htmlToImage.toSvg)
+        .then(Helper.getSvgDocument)
+        .then((doc) => {
+          const width = doc.documentElement.getAttribute('width')
+          const height = doc.documentElement.getAttribute('height')
+          const viewBox = doc.documentElement.getAttribute('viewBox')
+          expect(viewBox).toEqual(`0 0 ${width} ${height}`)
+        })
+        .then(done)
+        .catch(done)
+    })
   })
 
   describe('work with options', () => {
