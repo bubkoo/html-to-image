@@ -46,17 +46,18 @@ function embedImageNode(
   if (!(clonedNode instanceof HTMLImageElement) || isDataUrl(clonedNode.src)) {
     return Promise.resolve(clonedNode)
   }
-
-  return Promise.resolve(clonedNode.src)
+  const src = clonedNode.src
+  return Promise.resolve(src)
     .then((url) => getBlobFromURL(url, options))
     .then((data) =>
-      toDataURL(data!.blob, getMimeType(clonedNode.src) || data!.contentType),
+      toDataURL(data!.blob, getMimeType(src) || data!.contentType),
     )
     .then(
       (dataURL) =>
         new Promise((resolve, reject) => {
           clonedNode.onload = resolve
           clonedNode.onerror = reject
+          clonedNode.srcset = ''
           clonedNode.src = dataURL
         }),
     )
