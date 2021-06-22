@@ -1,8 +1,11 @@
 import { clonePseudoElements } from './clonePseudoElements'
-import { createImage, toArray } from './util'
+import { getBlobFromURL } from './getBlobFromURL'
+import { createImage, toArray, toDataURL, getMimeType } from './util'
+import { Options } from './index'
 
 async function cloneSingleNode(
   node: HTMLCanvasElement | SVGElement | HTMLElement,
+  options: Options
 ): Promise<HTMLElement> {
   if (node instanceof HTMLCanvasElement) {
     const dataURL = node.toDataURL()
@@ -11,6 +14,14 @@ async function cloneSingleNode(
     }
 
     return createImage(dataURL)
+  }
+  if (node instanceof HTMLVideoElement) {
+    return Promise.resolve(node.poster)
+      .then((url) => getBlobFromURL(url, options))
+      .then((data) =>
+        toDataURL(data!.blob, getMimeType(node.poster) || data!.contentType),
+      )
+      .then(dataURL => createImage(dataURL))
   }
 
   // if (node.tagName && node.tagName.toLowerCase() === 'svg') {
@@ -25,7 +36,7 @@ async function cloneSingleNode(
 async function cloneChildren(
   nativeNode: HTMLElement,
   clonedNode: HTMLElement,
-  filter?: Function,
+  options: Options,
 ): Promise<HTMLElement> {
   const children = toArray<HTMLElement>(
     (nativeNode.shadowRoot ?? nativeNode).childNodes,
@@ -38,7 +49,7 @@ async function cloneChildren(
     .reduce(
       (done, child) =>
         done
-          .then(() => cloneNode(child, filter))
+          .then(() => cloneNode(child, options))
           .then((clonedChild: HTMLElement | null) => {
             if (clonedChild) {
               clonedNode.appendChild(clonedChild)
@@ -93,15 +104,15 @@ function cloneInputValue(nativeNode: HTMLElement, clonedNode: HTMLElement) {
 
 export async function cloneNode(
   nativeNode: HTMLElement,
-  filter?: Function,
+  options: Options,
   isRoot?: boolean,
 ): Promise<HTMLElement | null> {
-  if (!isRoot && filter && !filter(nativeNode)) {
+  if (!isRoot && options.filter && !options.filter(nativeNode)) {
     return Promise.resolve(null)
   }
 
   return Promise.resolve(nativeNode)
-    .then(cloneSingleNode)
-    .then((clonedNode) => cloneChildren(nativeNode, clonedNode, filter))
+    .then((clonedNode) => cloneSingleNode(clonedNode, options))
+    .then((clonedNode) => cloneChildren(nativeNode, clonedNode, options))
     .then((clonedNode) => decorate(nativeNode, clonedNode))
 }
