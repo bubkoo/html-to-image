@@ -53,7 +53,7 @@ namespace Pseudo {
 
   function formatCssText(style: CSSStyleDeclaration) {
     const content = style.getPropertyValue('content')
-    return `${style.cssText} content: ${content};`
+    return `${style.cssText} content: '${content.replace(/'|"/g, '')}';`
   }
 
   function formatCssProperties(style: CSSStyleDeclaration) {
