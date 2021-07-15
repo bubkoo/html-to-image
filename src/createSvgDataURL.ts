@@ -11,6 +11,7 @@ export function createSvgDataURL(
 
   svg.setAttributeNS('', 'width', `${width}`)
   svg.setAttributeNS('', 'height', `${height}`)
+  svg.setAttributeNS('', 'viewBox', `0 0 ${width} ${height}`)
 
   foreignObject.setAttributeNS('', 'width', '100%')
   foreignObject.setAttributeNS('', 'height', '100%')
