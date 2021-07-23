@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/bubkoo/html-to-image/compare/v1.6.2...v1.7.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* 🐛  UMD bundle is missing local source dependencies ([#138](https://github.com/bubkoo/html-to-image/issues/138)) ([67be116](https://github.com/bubkoo/html-to-image/commit/67be1166d6db8345b740dc57bdba9b55fcab50e4))
+* 🐛 fontAwesome icons are not included in the resulting image on safari ([#131](https://github.com/bubkoo/html-to-image/issues/131)) ([c6ebb34](https://github.com/bubkoo/html-to-image/commit/c6ebb34292b799b23b6e9d86ba01ab7d4f016197))
+
+
+### Features
+
+* ✨ Add viewBox attribute to SVG ([#146](https://github.com/bubkoo/html-to-image/issues/146)) ([b4ac1d8](https://github.com/bubkoo/html-to-image/commit/b4ac1d85820ae3ec688eeb94eeef171b5a6cca41))
+
 ## [1.6.2](https://github.com/bubkoo/html-to-image/compare/v1.6.1...v1.6.2) (2021-05-17)
 
 ## [1.6.1](https://github.com/bubkoo/html-to-image/compare/v1.6.0...v1.6.1) (2021-04-23)
