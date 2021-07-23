@@ -1,6 +1,6 @@
 /* tslint:disable:max-line-length */
 
-import { Options } from './index'
+import { Options } from './options'
 import { getDataURLContent } from './util'
 
 // KNOWN ISSUE
@@ -62,34 +62,31 @@ export function getBlobFromURL(
   const deferred = window.fetch
     ? window
         .fetch(url)
-        .then((response) => {
-          return new Promise((res, rej) => {
-            response.blob().then((blob) => {
-              res({
-                blob,
-                contentType: response.headers.get('Content-Type'),
-              })
-            })
-          })
-        })
+        .then((res) =>
+          res.blob().then((blob) => ({
+            blob,
+            contentType: res.headers.get('Content-Type') || '',
+          })),
+        )
         .then(
           ({ blob, contentType }) =>
-            new Promise((resolve, reject) => {
-              const reader = new FileReader()
-              reader.onloadend = () =>
-                resolve({
-                  contentType,
-                  blob: reader.result as string,
-                })
-              reader.onerror = reject
-              reader.readAsDataURL(blob)
-            }),
+            new Promise<{ blob: string; contentType: string }>(
+              (resolve, reject) => {
+                const reader = new FileReader()
+                reader.onloadend = () =>
+                  resolve({
+                    contentType,
+                    blob: reader.result as string,
+                  })
+                reader.onerror = reject
+                reader.readAsDataURL(blob)
+              },
+            ),
         )
         .then(({ blob, contentType }) => ({
           contentType,
           blob: getDataURLContent(blob),
         }))
-        .catch(() => new Promise((resolve, reject) => reject()))
     : new Promise<{ blob: string; contentType: string } | null>(
         (resolve, reject) => {
           const req = new XMLHttpRequest()
@@ -139,6 +136,8 @@ export function getBlobFromURL(
     blob: string
     contentType: string
   } | null>
+
+  // cache result
   cache[href] = promise
 
   return promise

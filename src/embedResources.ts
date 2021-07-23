@@ -1,4 +1,4 @@
-import { Options } from './index'
+import { Options } from './options'
 import { getBlobFromURL } from './getBlobFromURL'
 import { isDataUrl, toDataURL, getMimeType } from './util'
 

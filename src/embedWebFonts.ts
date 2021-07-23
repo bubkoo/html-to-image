@@ -1,5 +1,5 @@
 import { toArray } from './util'
-import { Options } from './index'
+import { Options } from './options'
 import { shouldEmbed, embedResources } from './embedResources'
 
 const cssFetchPromiseStore: {

@@ -1,15 +1,5 @@
 import { uuid, toArray } from './util'
 
-export function clonePseudoElements(
-  nativeNode: HTMLElement,
-  clonedNode: HTMLElement,
-) {
-  const pseudos = [':before', ':after']
-  pseudos.forEach((pseudo: Pseudo.Type) =>
-    Pseudo.clonePseudoElement(nativeNode, clonedNode, pseudo),
-  )
-}
-
 namespace Pseudo {
   export type Type = ':before' | ':after'
 
@@ -66,4 +56,14 @@ namespace Pseudo {
       })
       .join(' ')
   }
+}
+
+export function clonePseudoElements(
+  nativeNode: HTMLElement,
+  clonedNode: HTMLElement,
+) {
+  const pseudos = [':before', ':after']
+  pseudos.forEach((pseudo: Pseudo.Type) =>
+    Pseudo.clonePseudoElement(nativeNode, clonedNode, pseudo),
+  )
 }
