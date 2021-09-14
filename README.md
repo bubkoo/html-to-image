@@ -183,6 +183,22 @@ const App: React.FC = () => {
 
 A function taking DOM node as argument. Should return true if passed node should be included in the output. Excluding node means excluding it's children as well.
 
+You can add filter to every image function. For example, 
+
+```js
+const filter = (node)=>{
+  const exclusionClasses = ['remove-me', 'secret-div'];
+  return !exclusionClasses.some(classname=>node.classList.includes(classname));
+}
+
+htmlToImage.toJpeg(node, { quality: 0.95, filter: filter});
+```
+or
+
+```js
+htmlToImage.toPng(node, {filter:filter})
+```
+
 Not called on the root node.
 
 ### backgroundColor
