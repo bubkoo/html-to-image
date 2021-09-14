@@ -33,7 +33,10 @@ async function cloneChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  const children = toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
+  const children =
+    isSlotElement(nativeNode) && nativeNode.assignedNodes
+      ? toArray<T>(nativeNode.assignedNodes())
+      : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
 
   if (children.length === 0) {
     return Promise.resolve(clonedNode)
@@ -114,3 +117,6 @@ export async function cloneNode<T extends HTMLElement>(
     .then((clonedNode) => cloneChildren(nativeNode, clonedNode, options))
     .then((clonedNode) => decorate(nativeNode, clonedNode))
 }
+
+const isSlotElement = (node: Element): node is HTMLSlotElement =>
+  node.tagName === 'SLOT'
