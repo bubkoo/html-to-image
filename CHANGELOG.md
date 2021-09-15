@@ -1,3 +1,5 @@
+## [1.8.3](https://github.com/bubkoo/html-to-image/compare/v1.8.2...v1.8.3) (2021-09-15)
+
 ## [1.8.2](https://github.com/bubkoo/html-to-image/compare/v1.8.1...v1.8.2) (2021-09-15)
 
 ## [1.8.1](https://github.com/bubkoo/html-to-image/compare/v1.8.0...v1.8.1) (2021-09-15)
