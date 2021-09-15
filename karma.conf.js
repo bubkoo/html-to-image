@@ -1,8 +1,14 @@
-const { join } = require('path')
+/* eslint-disable */
+
+const cpuCount = require('os').cpus().length
+const reportsDir = 'test/coverage'
 
 module.exports = function (config) {
-  const configuration = {
-    frameworks: ['jasmine', 'karma-typescript'],
+  const hasFlag = (flag) => process.argv.some((arg) => arg === flag)
+  const isDebug = hasFlag('--debug')
+  const isWatch = hasFlag('--auto-watch')
+
+  config.set({
     files: [
       {
         pattern: 'test/spec/resources/**/*',
@@ -23,47 +29,77 @@ module.exports = function (config) {
       'src/**/*.ts',
       'test/spec/**/*.ts',
     ],
+    frameworks: ['jasmine', 'karma-typescript'],
     preprocessors: {
-      'src/**/*.ts': ['karma-typescript'],
-      'test/spec/**/*.ts': ['karma-typescript'],
+      '**/*.ts': ['karma-typescript'],
     },
     reporters: ['spec', 'karma-typescript'],
-    browsers: ['Chrome'],
+    specReporter: {
+      suppressPassed: isWatch || isDebug,
+    },
+    browsers: [process.env.CI ? 'ChromeHeadless' : 'ChromeHeadless'],
+    customLaunchers: {
+      ChromeHeadless: {
+        base: 'Chrome',
+        flags: [
+          '--headless',
+          '--no-sandbox',
+          '--disable-gpu',
+          '--disable-translate',
+          '--disable-extensions',
+          '--remote-debugging-port=9222',
+        ],
+      },
+    },
     karmaTypescriptConfig: {
       tsconfig: './tsconfig.json',
       include: ['src/**/*.ts', 'test/spec/**/*.ts'],
       bundlerOptions: { sourceMap: true },
       coverageOptions: {
-        instrumentation: true,
-        exclude: /test\/spec\/.*\.ts$/,
+        instrumentation: !isDebug,
+        exclude: /\.test|spec\.ts$/,
       },
       reports: {
-        html: 'test/coverage',
+        html: reportsDir,
         lcovonly: {
-          directory: 'test/coverage',
-          filename: 'lcov.info',
+          directory: reportsDir,
           subdirectory: './',
+          filename: 'lcov.info',
+        },
+        cobertura: {
+          directory: reportsDir,
+          subdirectory: './',
+          filename: 'coverage.xml',
         },
         'text-summary': '',
       },
     },
-    customLaunchers: {
-      ChromeTravisCI: {
-        base: 'Chrome',
-        flags: ['--no-sandbox'],
+
+    client: {
+      jasmine: {
+        random: false,
       },
     },
-    client: { jasmine: { random: false } },
+
+    // web server port
     port: 9876,
+
+    // enable / disable colors in the output (reporters and logs)
     colors: true,
-    autoWatch: true,
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: false,
+
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
-    concurrency: Infinity,
-  }
 
-  if (process.env.TRAVIS) {
-    configuration.browsers = ['ChromeTravisCI']
-  }
-
-  config.set(configuration)
+    // Concurrency level
+    // how many browser should be started simultaneous
+    concurrency: cpuCount || Infinity,
+  })
 }
