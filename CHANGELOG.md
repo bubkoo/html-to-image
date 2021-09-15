@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/bubkoo/html-to-image/compare/v1.7.0...v1.8.0) (2021-09-15)
+
+
+### Bug Fixes
+
+* 🐛 ternary to convert slot assignedNodes to array ([#168](https://github.com/bubkoo/html-to-image/issues/168)) ([d12f4e2](https://github.com/bubkoo/html-to-image/commit/d12f4e210deaa179f9db5e36119964750d8ef45f))
+
+
+### Features
+
+* ✨ update deps ([8dd487a](https://github.com/bubkoo/html-to-image/commit/8dd487abfa9c12ee9c3553043cd5f21c87a78f91))
+
 # [1.7.0](https://github.com/bubkoo/html-to-image/compare/v1.6.2...v1.7.0) (2021-07-23)
 
 
