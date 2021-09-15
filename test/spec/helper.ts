@@ -108,7 +108,7 @@ export namespace Helper {
   }
 
   export async function check(dataUrl: string) {
-    console.log(dataUrl)
+    // console.log(dataUrl)
     return Promise.resolve(dataUrl).then(drawDataUrl).then(compareToRefImage)
   }
 

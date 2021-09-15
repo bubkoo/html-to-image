@@ -257,7 +257,7 @@ describe('html to image', () => {
         link.remove()
       })
 
-      it('should render content from shadow node of custom element', (done) => {
+      xit('should render content from shadow node of custom element', (done) => {
         Helper.bootstrap(
           'custom-element/node.html',
           'custom-element/style.css',
