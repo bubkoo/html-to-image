@@ -1,0 +1,18 @@
+name: 🏷️　Label(Status)
+on:
+  pull_request_target:
+    types: [opened, closed, edited, reopened, synchronize, ready_for_review]
+  pull_request_review:
+    types: [submitted, dismissed]
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bubkoo/use-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          env_name: bot_token
+      - uses: bubkoo/pr-triage@v1
+        with:
+          GITHUB_TOKEN: ${{ env.bot_token }}

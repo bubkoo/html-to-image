@@ -1,0 +1,19 @@
+name: 🔑　Update License
+on:
+  schedule:
+    - cron: '0 3 1 1 *' # At 03:00 on day-of-month 1 in January.
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: bubkoo/use-app-token@v1
+      with:
+        app_id: ${{ secrets.APP_ID }}
+        private_key: ${{ secrets.PRIVATE_KEY }}
+        env_name: bot_token
+    - uses: FantasticFiasco/action-update-license-year@v2
+      with:
+        token: ${{ env.bot_token }}

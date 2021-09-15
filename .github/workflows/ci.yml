@@ -1,0 +1,43 @@
+name: 👷　CI
+on:
+  pull_request_target:
+  push:
+    branches:
+      - master
+      - next
+      - next-major
+      - alpha
+      - beta
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: ⤵️　Checkout
+        uses: actions/checkout@v2
+      - name: 🎉　Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: 🚧　Install
+        run: yarn install
+      - name: ✅　Test
+        run: yarn test
+      - name: 🔑　Generate Token
+        uses: bubkoo/use-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          env_name: bot_token
+      - name: 💡　Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ env.bot_token }}
+          path-to-lcov: ./test/coverage/lcov.info
+      - name: 💡　Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./test/coverage/lcov.info

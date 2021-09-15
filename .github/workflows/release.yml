@@ -11,16 +11,13 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - name: Generate token
-        uses: bubkoo/use-app-token@v1
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-          variable_name: bot_token
-
-      - name: Semantic Release
+      - name: ⤵️　Checkout
+        uses: actions/checkout@v2
+      - name: 🚧　Install
+        run: yarn install
+      - name: ✅　Test
+        run: yarn test
+      - name: 📦　Semantic Release
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         with:
@@ -32,7 +29,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ env.bot_token }}
 
-      - name: Setup Node.js with GitHub Package Registry
+      - name: 🎉　Setup Node.js with GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
         uses: actions/setup-node@v1
         with:
@@ -40,7 +37,7 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: bubkoo
 
-      - name: Publish To GitHub Package Registry
+      - name: 🔀　Publish To GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           sed -i 's/\("name"\:[[:space:]]*"\)\(html-to-image"\)/\1@bubkoo\/\2/' package.json
