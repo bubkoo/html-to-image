@@ -36,6 +36,7 @@ jobs:
         with:
           extends: '@bubkoo/semantic-release-config'
           extra_plugins: |
+            @semantic-release/changelog
             @semantic-release/git
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
