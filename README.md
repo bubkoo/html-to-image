@@ -5,10 +5,11 @@
 <p align="center">Fork from <a href="https://github.com/tsayen/dom-to-image" rel="nofollow">dom-to-image</a> with more maintainable code and some new features.</p>
 
 <p align="center">
-<a href="https://github.com/bubkoo/html-to-image/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square"></a>
-<a href="https://www.typescriptlang.org" rel="nofollow"><img alt="Language" src="https://img.shields.io/badge/language-typescript-blue.svg?style=flat-square" /></a>
-<a href="https://travis-ci.org/bubkoo/html-to-image" rel="nofollow"><img alt="build" src="https://img.shields.io/travis/bubkoo/html-to-image.svg?style=flat-square" /></a>
-<a href="https://coveralls.io/github/bubkoo/html-to-image" rel="nofollow"><img alt="coverage" src="https://img.shields.io/coveralls/bubkoo/html-to-image/master.svg?style=flat-square" /></a>
+<a href="/LICENSE"><img src="https://img.shields.io/github/license/bubkoo/html-to-image?style=flat-square" alt="MIT License"></a>
+<a href="https://www.typescriptlang.org"><img alt="Language" src="https://img.shields.io/badge/language-TypeScript-blue.svg?style=flat-square"></a>
+<a href="https://github.com/bubkoo/html-to-image/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square"></a>
+<a href="https://github.com/bubkoo/html-to-image/actions/workflows/ci.yml"><img alt="build" src="https://img.shields.io/github/workflow/status/bubkoo/html-to-image/%F0%9F%91%B7%E3%80%80CI/master?style=flat-square"></a>
+<a href="https://coveralls.io/github/bubkoo/html-to-image"><img alt="coverage" src="https://img.shields.io/coveralls/bubkoo/html-to-image/master.svg?style=flat-square"></a>
 <a href="https://lgtm.com/projects/g/bubkoo/html-to-image/context:javascript" rel="nofollow"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/bubkoo/html-to-image.svg?logo=lgtm&style=flat-square" /></a>
 </p>
 
@@ -310,7 +311,7 @@ This library uses a feature of SVG that allows having arbitrary HTML content ins
 
 ## Contributing
 
-Please let us know how can we help. Do check out [issues](https://github.com/antvis/x6/issues) for bug reports or suggestions first.
+Please let us know how can we help. Do check out [issues](https://github.com/bubkoo/html-to-image/issues) for bug reports or suggestions first.
 
 To become a contributor, please follow our [contributing guide](/CONTRIBUTING.md).
 
