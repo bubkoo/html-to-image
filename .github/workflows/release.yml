@@ -17,6 +17,12 @@ jobs:
         run: yarn install
       - name: ✅　Test
         run: yarn test
+      - name: 🔑　Generate Token
+        uses: bubkoo/use-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          env_name: bot_token
       - name: 📦　Semantic Release
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
