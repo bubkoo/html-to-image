@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { toPng } from '../../src'
 import { getPixelRatio } from '../../src/util'
 
@@ -127,7 +129,7 @@ export namespace Helper {
     tolerance?: number,
   ) {
     expect(
-      window.imagediff.equal(image, Helper.getReferenceImage(), tolerance || 3),
+      window.imagediff.equal(image, Helper.getReferenceImage(), tolerance || 5),
     ).toBe(true)
   }
 

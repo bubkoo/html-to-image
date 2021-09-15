@@ -1,10 +1,10 @@
 import { Options } from './options'
 
-export function applyStyleWithOptions(
-  clonedNode: HTMLElement,
+export function applyStyleWithOptions<T extends HTMLElement>(
+  node: T,
   options: Options,
-): HTMLElement {
-  const { style } = clonedNode
+): T {
+  const { style } = node
 
   if (options.backgroundColor) {
     style.backgroundColor = options.backgroundColor
@@ -20,11 +20,10 @@ export function applyStyleWithOptions(
 
   const manual = options.style
   if (manual != null) {
-    Object.keys(manual).forEach((key) => {
-      // @ts-expect-error
-      style[key] = manual[key]
+    Object.keys(manual).forEach((key: any) => {
+      style[key] = manual[key] as string
     })
   }
 
-  return clonedNode
+  return node
 }

@@ -1,4 +1,4 @@
-export type Options = {
+export interface Options {
   /**
    * Width in pixels to be applied to node before rendering.
    */
@@ -67,8 +67,8 @@ export type Options = {
     | string
   /**
    * A CSS string to specify for font embeds. If specified only this CSS will
-   * be present in the resulting image. Use with `getFontEmbedCss()` to create
-   * embed CSS for use across multiple calls to library functions.
+   * be present in the resulting image. Use with `getFontEmbedCSS()` to
+   * create embed CSS for use across multiple calls to library functions.
    */
-  fontEmbedCss?: string
+  fontEmbedCSS?: string
 }

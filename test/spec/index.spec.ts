@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as util from '../../src/util'
 import * as htmlToImage from '../../src'
 import * as embeding from '../../src/embedResources'
@@ -446,7 +447,7 @@ describe('html to image', () => {
         'fonts/web-fonts/empty.html',
         'fonts/web-fonts/remote.css',
       )
-        .then((node) => htmlToImage.toSvg(node, { fontEmbedCss: testCss }))
+        .then((node) => htmlToImage.toSvg(node, { fontEmbedCSS: testCss }))
         .then(Helper.getSvgDocument)
         .then((doc) => {
           const styles = Array.from(doc.getElementsByTagName('style'))
@@ -534,9 +535,11 @@ describe('html to image', () => {
             {},
             (url) =>
               Promise.resolve(
-                ({
-                  'http://acme.com/images/image.png': 'AAA',
-                } as any)[url],
+                (
+                  {
+                    'http://acme.com/images/image.png': 'AAA',
+                  } as any
+                )[url],
               ),
           )
           .then((result) => {

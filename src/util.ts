@@ -13,6 +13,60 @@ const mimes: { [key: string]: string } = {
   svg: 'image/svg+xml',
 }
 
+export function getExtension(url: string): string {
+  const match = /\.([^./]*?)$/g.exec(url)
+  return match ? match[1] : ''
+}
+
+export function getMimeType(url: string): string {
+  const extension = getExtension(url).toLowerCase()
+  return mimes[extension] || ''
+}
+
+export function resolveUrl(url: string, baseUrl: string | null): string {
+  // url is absolute already
+  if (url.match(/^[a-z]+:\/\//i)) {
+    return url
+  }
+
+  // url is absolute already, without protocol
+  if (url.match(/^\/\//)) {
+    return window.location.protocol + url
+  }
+
+  // dataURI, mailto:, tel:, etc.
+  if (url.match(/^[a-z]+:/i)) {
+    return url
+  }
+
+  const doc = document.implementation.createHTMLDocument()
+  const base = doc.createElement('base')
+  const a = doc.createElement('a')
+
+  doc.head.appendChild(base)
+  doc.body.appendChild(a)
+
+  if (baseUrl) {
+    base.href = baseUrl
+  }
+
+  a.href = url
+
+  return a.href
+}
+
+export function isDataUrl(url: string) {
+  return url.search(/^(data:)/) !== -1
+}
+
+export function makeDataUrl(content: string, mimeType: string) {
+  return `data:${mimeType};base64,${content}`
+}
+
+export function parseDataUrlContent(dataURL: string) {
+  return dataURL.split(/,/)[1]
+}
+
 export const uuid = (function uuid() {
   // generate uuid for className of pseudo elements.
   // We should not use GUIDs, otherwise pseudo elements sometimes cannot be captured.
@@ -20,6 +74,7 @@ export const uuid = (function uuid() {
 
   // ref: http://stackoverflow.com/a/6248722/2519373
   const random = () =>
+    // eslint-disable-next-line no-bitwise
     `0000${((Math.random() * 36 ** 4) << 0).toString(36)}`.slice(-4)
 
   return () => {
@@ -28,67 +83,19 @@ export const uuid = (function uuid() {
   }
 })()
 
-export function getExtension(url: string): string {
-  const match = /\.([^./]*?)$/g.exec(url)
-  return match ? match[1] : ''
-}
-
-export function getMimeType(url: string): string {
-  const ext = getExtension(url).toLowerCase()
-  return mimes[ext] || ''
-}
-
-export function delay(ms: number): (ret: any) => Promise<any> {
-  return (args: any) =>
-    new Promise<any>((resolve) => {
-      setTimeout(() => {
-        resolve(args)
-      }, ms)
-    })
-}
-
-export function isDataUrl(url: string) {
-  return url.search(/^(data:)/) !== -1
-}
-
-export function toDataURL(content: string, mimeType: string) {
-  return `data:${mimeType};base64,${content}`
-}
-
-export function getDataURLContent(dataURL: string) {
-  return dataURL.split(/,/)[1]
-}
-
-function toBlob(canvas: HTMLCanvasElement): Promise<Blob> {
-  return new Promise((resolve) => {
-    const binaryString = window.atob(canvas.toDataURL().split(',')[1])
-    const len = binaryString.length
-    const binaryArray = new Uint8Array(len)
-
-    for (let i = 0; i < len; i += 1) {
-      binaryArray[i] = binaryString.charCodeAt(i)
-    }
-
-    resolve(new Blob([binaryArray], { type: 'image/png' }))
-  })
-}
-
-export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
-  if (canvas.toBlob) {
-    return new Promise((resolve) => canvas.toBlob(resolve))
-  }
-
-  return toBlob(canvas)
-}
+export const delay =
+  <T>(ms: number) =>
+  (args: T) =>
+    new Promise<T>((resolve) => setTimeout(() => resolve(args), ms))
 
 export function toArray<T>(arrayLike: any): T[] {
-  const result: T[] = []
+  const arr: T[] = []
 
   for (let i = 0, l = arrayLike.length; i < l; i += 1) {
-    result.push(arrayLike[i])
+    arr.push(arrayLike[i])
   }
 
-  return result
+  return arr
 }
 
 function px(node: HTMLElement, styleProperty: string) {
@@ -114,7 +121,9 @@ export function getPixelRatio() {
   let FINAL_PROCESS
   try {
     FINAL_PROCESS = process
-  } catch (e) {}
+  } catch (e) {
+    // pass
+  }
 
   const val =
     FINAL_PROCESS && FINAL_PROCESS.env
@@ -122,20 +131,38 @@ export function getPixelRatio() {
       : null
   if (val) {
     ratio = parseInt(val, 10)
-    if (isNaN(ratio)) {
+    if (Number.isNaN(ratio)) {
       ratio = 1
     }
   }
   return ratio || window.devicePixelRatio || 1
 }
 
+export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
+  if (canvas.toBlob) {
+    return new Promise((resolve) => canvas.toBlob(resolve))
+  }
+
+  return new Promise((resolve) => {
+    const binaryString = window.atob(canvas.toDataURL().split(',')[1])
+    const len = binaryString.length
+    const binaryArray = new Uint8Array(len)
+
+    for (let i = 0; i < len; i += 1) {
+      binaryArray[i] = binaryString.charCodeAt(i)
+    }
+
+    resolve(new Blob([binaryArray], { type: 'image/png' }))
+  })
+}
+
 export function createImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
-    const image = new Image()
-    image.onload = () => resolve(image)
-    image.onerror = reject
-    image.crossOrigin = 'anonymous'
-    image.src = url
+    const img = new Image()
+    img.onload = () => resolve(img)
+    img.onerror = reject
+    img.crossOrigin = 'anonymous'
+    img.src = url
   })
 }
 
@@ -146,24 +173,27 @@ export async function svgToDataURL(svg: SVGElement): Promise<string> {
     .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
 }
 
-export async function getBlobFromImageURL(url: string): Promise<string> {
-  return createImage(url).then((image) => {
-    const { width, height } = image
+export async function nodeToDataURL(
+  node: HTMLElement,
+  width: number,
+  height: number,
+): Promise<string> {
+  const xmlns = 'http://www.w3.org/2000/svg'
+  const svg = document.createElementNS(xmlns, 'svg')
+  const foreignObject = document.createElementNS(xmlns, 'foreignObject')
 
-    const canvas = document.createElement('canvas')
-    const context = canvas.getContext('2d')
-    const ratio = getPixelRatio()
+  svg.setAttribute('width', `${width}`)
+  svg.setAttribute('height', `${height}`)
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
 
-    canvas.width = width * ratio
-    canvas.height = height * ratio
-    canvas.style.width = `${width}`
-    canvas.style.height = `${height}`
+  foreignObject.setAttribute('width', '100%')
+  foreignObject.setAttribute('height', '100%')
+  foreignObject.setAttribute('x', '0')
+  foreignObject.setAttribute('y', '0')
+  foreignObject.setAttribute('externalResourcesRequired', 'true')
 
-    context!.scale(ratio, ratio)
-    context!.drawImage(image, 0, 0)
+  svg.appendChild(foreignObject)
+  foreignObject.appendChild(node)
 
-    const dataURL = canvas.toDataURL(getMimeType(url))
-
-    return getDataURLContent(dataURL)
-  })
+  return svgToDataURL(svg)
 }

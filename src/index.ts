@@ -1,52 +1,51 @@
 import { Options } from './options'
 import { cloneNode } from './cloneNode'
 import { embedImages } from './embedImages'
-import { embedWebFonts, getWebFontCss } from './embedWebFonts'
-import { createSvgDataURL } from './createSvgDataURL'
 import { applyStyleWithOptions } from './applyStyleWithOptions'
+import { embedWebFonts, getWebFontCSS } from './embedWebFonts'
 import {
   delay,
-  createImage,
-  canvasToBlob,
   getNodeWidth,
   getNodeHeight,
   getPixelRatio,
+  createImage,
+  canvasToBlob,
+  nodeToDataURL,
 } from './util'
 
-function getImageSize(domNode: HTMLElement, options: Options = {}) {
-  const width = options.width || getNodeWidth(domNode)
-  const height = options.height || getNodeHeight(domNode)
+function getImageSize(node: HTMLElement, options: Options = {}) {
+  const width = options.width || getNodeWidth(node)
+  const height = options.height || getNodeHeight(node)
 
   return { width, height }
 }
 
-export async function toSvg(
-  domNode: HTMLElement,
+export async function toSvg<T extends HTMLElement>(
+  node: T,
   options: Options = {},
 ): Promise<string> {
-  const { width, height } = getImageSize(domNode, options)
+  const { width, height } = getImageSize(node, options)
 
-  return cloneNode(domNode, options, true)
+  return Promise.resolve(node)
+    .then((nativeNode) => cloneNode(nativeNode, options, true))
     .then((clonedNode) => embedWebFonts(clonedNode!, options))
     .then((clonedNode) => embedImages(clonedNode, options))
     .then((clonedNode) => applyStyleWithOptions(clonedNode, options))
-    .then((clonedNode) => createSvgDataURL(clonedNode, width, height))
+    .then((clonedNode) => nodeToDataURL(clonedNode, width, height))
 }
 
-export const toSvgDataURL = toSvg
-
-export async function toCanvas(
-  domNode: HTMLElement,
+export async function toCanvas<T extends HTMLElement>(
+  node: T,
   options: Options = {},
 ): Promise<HTMLCanvasElement> {
-  return toSvg(domNode, options)
+  return toSvg(node, options)
     .then(createImage)
     .then(delay(100))
-    .then((image) => {
+    .then((img) => {
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')!
       const ratio = options.pixelRatio || getPixelRatio()
-      const { width, height } = getImageSize(domNode, options)
+      const { width, height } = getImageSize(node, options)
 
       const canvasWidth = options.canvasWidth || width
       const canvasHeight = options.canvasHeight || height
@@ -61,49 +60,49 @@ export async function toCanvas(
         context.fillRect(0, 0, canvas.width, canvas.height)
       }
 
-      context.drawImage(image, 0, 0, canvas.width, canvas.height)
+      context.drawImage(img, 0, 0, canvas.width, canvas.height)
 
       return canvas
     })
 }
 
-export async function toPixelData(
-  domNode: HTMLElement,
+export async function toPixelData<T extends HTMLElement>(
+  node: T,
   options: Options = {},
 ): Promise<Uint8ClampedArray> {
-  const { width, height } = getImageSize(domNode, options)
-  return toCanvas(domNode, options).then((canvas) => {
+  const { width, height } = getImageSize(node, options)
+  return toCanvas(node, options).then((canvas) => {
     const ctx = canvas.getContext('2d')!
     return ctx.getImageData(0, 0, width, height).data
   })
 }
 
-export async function toPng(
-  domNode: HTMLElement,
+export async function toPng<T extends HTMLElement>(
+  node: T,
   options: Options = {},
 ): Promise<string> {
-  return toCanvas(domNode, options).then((canvas) => canvas.toDataURL())
+  return toCanvas(node, options).then((canvas) => canvas.toDataURL())
 }
 
-export async function toJpeg(
-  domNode: HTMLElement,
+export async function toJpeg<T extends HTMLElement>(
+  node: T,
   options: Options = {},
 ): Promise<string> {
-  return toCanvas(domNode, options).then((canvas) =>
+  return toCanvas(node, options).then((canvas) =>
     canvas.toDataURL('image/jpeg', options.quality || 1),
   )
 }
 
-export async function toBlob(
-  domNode: HTMLElement,
+export async function toBlob<T extends HTMLElement>(
+  node: T,
   options: Options = {},
 ): Promise<Blob | null> {
-  return toCanvas(domNode, options).then(canvasToBlob)
+  return toCanvas(node, options).then(canvasToBlob)
 }
 
-export async function getWebFontEmbedCss(
-  domNode: HTMLElement,
+export async function getFontEmbedCSS<T extends HTMLElement>(
+  node: T,
   options: Options = {},
 ): Promise<string> {
-  return getWebFontCss(domNode, options)
+  return getWebFontCSS(node, options)
 }

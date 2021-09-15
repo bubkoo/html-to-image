@@ -255,14 +255,14 @@ specifies several different formats for fonts in the CSS, for example:
 Instead of embedding each format, all formats other than the one specified will be discarded. If
 this option is not specified then all formats will be downloaded and embedded.
 
-### fontEmbedCss
+### fontEmbedCSS
 
-When supplied, the library will skip the process of parsing and embedding webfont URLs in CSS, 
-instead using this value. This is useful when combined with `.getFontEmbedCss()` to only perform the
+When supplied, the library will skip the process of parsing and embedding webfont URLs in CSS,
+instead using this value. This is useful when combined with `getFontEmbedCSS()` to only perform the
 embedding process a single time across multiple calls to library functions.
 
 ```javascript
-const fontEmbedCss = await htmlToImage.getFontEmbedCss(element1);
+const fontEmbedCss = await htmlToImage.getFontEmbedCSS(element1);
 html2Image.toSVG(element1, { fontEmbedCss });
 html2Image.toSVG(element2, { fontEmbedCss });
 ```

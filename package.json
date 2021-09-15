@@ -22,7 +22,7 @@
     "svg"
   ],
   "scripts": {
-    "lint": "tslint ./src/*.ts -c tslint.json -p tsconfig.json --fix",
+    "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
     "clean": "rimraf dist es lib",
     "build:esm": "tsc --module esnext --target es2015 --outDir ./es",
     "build:cjs": "tsc --module commonjs --target es5 --outDir ./lib",
@@ -30,11 +30,11 @@
     "build": "run-s build:esm build:cjs build:umd",
     "prebuild": "run-s lint clean",
     "test": "karma start",
-    "test-debug": "karma start --browsers=Chrome --single-run=false --debug",
-    "test-watch": "karma start --browsers=Chrome --single-run=false --auto-watch",
+    "test:watch": "karma start --single-run=false --auto-watch",
+    "test:debug": "karma start --browsers=Chrome --single-run=false --auto-watch --debug",
     "coveralls": "cat ./test/coverage/lcov.info | coveralls",
     "pretest": "rimraf ./test/coverage",
-    "prepare": "run-s build"
+    "prepare": "is-ci || husky install .husky"
   },
   "husky": {
     "hooks": {
@@ -44,17 +44,20 @@
     }
   },
   "lint-staged": {
-    "src/**/*.ts": [
-      "tslint -c tslint.json -p ./tsconfig.json --fix"
-    ],
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
       "pretty-quick — staged"
+    ],
+    "*.ts": [
+      "eslint --fix"
     ]
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "release": {
+    "extends": "@bubkoo/semantic-release-config"
   },
   "license": "MIT",
   "authors": {
@@ -72,42 +75,45 @@
     }
   ],
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@fortawesome/fontawesome-free": "^5.15.1",
-    "@rollup/plugin-commonjs": "^15.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@types/jasmine": "^3.6.0",
-    "@types/jquery": "^3.5.3",
-    "coveralls": "^3.1.0",
-    "devmoji": "^2.1.9",
-    "husky": "^4.3.0",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/jasmine": "^3.9.1",
+    "@types/jquery": "^3.5.6",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "coveralls": "^3.1.1",
+    "devmoji": "^2.3.0",
+    "husky": "^7.0.2",
     "imagediff": "^1.0.8",
-    "jasmine-core": "^3.6.0",
+    "is-ci": "^3.0.0",
+    "jasmine-core": "^3.9.0",
     "karma": "^5.2.3",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.3",
     "karma-jasmine": "^4.0.1",
     "karma-spec-reporter": "^0.0.32",
-    "karma-typescript": "^5.2.0",
-    "lint-staged": "^10.4.2",
+    "karma-typescript": "^5.3.0",
+    "lint-staged": "^11.1.2",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.2",
-    "pretty-quick": "^3.1.0",
-    "rimraf": "^3.0.0",
-    "rollup": "^2.32.1",
-    "rollup-plugin-filesize": "^9.0.0",
+    "prettier": "^2.4.0",
+    "pretty-quick": "^3.1.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.3",
+    "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-terser": "^7.0.2",
-    "tslib": "^2.0.0",
-    "tslint": "^6.1.3",
-    "tslint-config-airbnb": "^5.11.2",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^4.0.3"
-  },
-  "release": {
-    "extends": "@bubkoo/semantic-release-config"
+    "tslib": "^2.3.1",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "typescript": "^4.4.3"
   },
   "repository": {
     "type": "git",
