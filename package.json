@@ -91,7 +91,7 @@
     "imagediff": "^1.0.8",
     "is-ci": "^3.0.0",
     "jasmine-core": "^3.9.0",
-    "karma": "^5.2.3",
+    "karma": "^6.3.4",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.3",
     "karma-jasmine": "^4.0.1",
@@ -111,8 +111,8 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
     "typescript": "^4.4.3"
   },
   "repository": {
