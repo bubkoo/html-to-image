@@ -107,6 +107,9 @@ Get a PNG image blob and download it (using [FileSaver](https://github.com/eligr
 htmlToImage.toBlob(document.getElementById('my-node'))
   .then(function (blob) {
     window.saveAs(blob, 'my-node.png');
+    
+    // if window.saveAs() doesn't work then consider using FileSaver
+    FileSaver.saveAs(blob, 'my-node.png');
   });
 ```
 
