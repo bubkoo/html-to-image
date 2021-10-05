@@ -268,6 +268,14 @@ html2Image.toSVG(element1, { fontEmbedCss });
 html2Image.toSVG(element2, { fontEmbedCss });
 ```
 
+### skipAutoScale
+
+When supplied, the library will skip the process of scaling extra large doms into the canvas object.
+You may experience loss of parts of the image if set to `true` and you are exporting a very large image.
+
+Defaults to `false`  
+
+
 ## Browsers
 
 Only standard lib is currently used, but make sure your browser supports:
