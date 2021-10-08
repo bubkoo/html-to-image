@@ -29,12 +29,13 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  const isImageWithUrl =
-    clonedNode instanceof HTMLImageElement && !isDataUrl(clonedNode.src)
-  const isSvgImageWithUrl =
-    clonedNode instanceof SVGImageElement && !isDataUrl(clonedNode.href.baseVal)
-
-  if (!isImageWithUrl && !isSvgImageWithUrl) {
+  if (
+    !(clonedNode instanceof HTMLImageElement && !isDataUrl(clonedNode.src)) &&
+    !(
+      clonedNode instanceof SVGImageElement &&
+      !isDataUrl(clonedNode.href.baseVal)
+    )
+  ) {
     return Promise.resolve(clonedNode)
   }
 
