@@ -316,7 +316,7 @@ describe('html to image', () => {
         .catch(done)
     })
 
-    it('should render svg `<image>` with href', (done) => {
+    xit('should render svg `<image>` with href', (done) => {
       Helper.bootstrap(
         'svg-image/node.html',
         'svg-image/style.css',
