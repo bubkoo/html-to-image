@@ -71,4 +71,8 @@ export interface Options {
    * create embed CSS for use across multiple calls to library functions.
    */
   fontEmbedCSS?: string
+  /**
+   * A boolean to turn off auto scaling for truly massive images..
+   */
+   skipAutoScale?: boolean
 }
