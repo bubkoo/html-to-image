@@ -4,7 +4,6 @@ import { embedImages } from './embedImages'
 import { applyStyleWithOptions } from './applyStyleWithOptions'
 import { embedWebFonts, getWebFontCSS } from './embedWebFonts'
 import {
-  delay,
   getNodeWidth,
   getNodeHeight,
   getPixelRatio,
@@ -34,26 +33,30 @@ export async function toSvg<T extends HTMLElement>(
     .then((clonedNode) => nodeToDataURL(clonedNode, width, height))
 }
 
-const dimensionCanvasLimit = 16384; // as per https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#maximum_canvas_size
+const dimensionCanvasLimit = 16384 // as per https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#maximum_canvas_size
 
 function checkCanvasDimensions(canvas: HTMLCanvasElement) {
-  if (canvas.width > dimensionCanvasLimit || canvas.height > dimensionCanvasLimit) {
-    if (canvas.width > dimensionCanvasLimit && canvas.height > dimensionCanvasLimit) {
+  if (
+    canvas.width > dimensionCanvasLimit ||
+    canvas.height > dimensionCanvasLimit
+  ) {
+    if (
+      canvas.width > dimensionCanvasLimit &&
+      canvas.height > dimensionCanvasLimit
+    ) {
       if (canvas.width > canvas.height) {
-        canvas.height = canvas.height * (dimensionCanvasLimit / canvas.width);
-        canvas.width = dimensionCanvasLimit;
+        canvas.height *= dimensionCanvasLimit / canvas.width
+        canvas.width = dimensionCanvasLimit
       } else {
-        canvas.width = canvas.width * (dimensionCanvasLimit / canvas.height);
-        canvas.height = dimensionCanvasLimit;
+        canvas.width *= dimensionCanvasLimit / canvas.height
+        canvas.height = dimensionCanvasLimit
       }
+    } else if (canvas.width > dimensionCanvasLimit) {
+      canvas.height *= dimensionCanvasLimit / canvas.width
+      canvas.width = dimensionCanvasLimit
     } else {
-      if (canvas.width > dimensionCanvasLimit) {
-        canvas.height = canvas.height * (dimensionCanvasLimit / canvas.width);
-        canvas.width = dimensionCanvasLimit;
-      } else {
-        canvas.width = canvas.width * (dimensionCanvasLimit / canvas.height);
-        canvas.height = dimensionCanvasLimit;
-      }
+      canvas.width *= dimensionCanvasLimit / canvas.height
+      canvas.height = dimensionCanvasLimit
     }
   }
 }
@@ -75,8 +78,8 @@ export async function toCanvas<T extends HTMLElement>(
       canvas.width = canvasWidth * ratio
       canvas.height = canvasHeight * ratio
 
-      if(!options.skipAutoScale) {
-        checkCanvasDimensions(canvas);
+      if (!options.skipAutoScale) {
+        checkCanvasDimensions(canvas)
       }
       canvas.style.width = `${canvasWidth}`
       canvas.style.height = `${canvasHeight}`

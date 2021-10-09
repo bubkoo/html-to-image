@@ -74,5 +74,5 @@ export interface Options {
   /**
    * A boolean to turn off auto scaling for truly massive images..
    */
-   skipAutoScale?: boolean
+  skipAutoScale?: boolean
 }
