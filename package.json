@@ -36,13 +36,6 @@
     "pretest": "rimraf ./test/coverage",
     "prepare": "is-ci || husky install .husky"
   },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "devmoji -e --lint",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
       "pretty-quick — staged"
@@ -60,7 +53,7 @@
     "extends": "@bubkoo/semantic-release-config"
   },
   "license": "MIT",
-  "authors": {
+  "author": {
     "name": "bubkooo",
     "email": "bubkoo.wy@gmail.com"
   },
@@ -86,7 +79,6 @@
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "coveralls": "^3.1.1",
-    "devmoji": "^2.3.0",
     "husky": "^7.0.2",
     "imagediff": "^1.0.8",
     "is-ci": "^3.0.0",
