@@ -315,6 +315,17 @@ describe('html to image', () => {
         .then(done)
         .catch(done)
     })
+
+    it('should render svg `<image>` with href', (done) => {
+      Helper.bootstrap(
+        'svg-image/node.html',
+        'svg-image/style.css',
+        'svg-image/image',
+      )
+        .then(Helper.renderAndCheck)
+        .then(done)
+        .catch(done)
+    })
   })
 
   describe('work with options', () => {
