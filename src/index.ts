@@ -40,7 +40,6 @@ export async function toCanvas<T extends HTMLElement>(
 ): Promise<HTMLCanvasElement> {
   return toSvg(node, options)
     .then(createImage)
-    .then(delay(100))
     .then((img) => {
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')!
