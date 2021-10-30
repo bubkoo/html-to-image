@@ -1,3 +1,5 @@
+import { Options } from './options'
+
 const WOFF = 'application/font-woff'
 const JPEG = 'image/jpeg'
 const mimes: { [key: string]: string } = {
@@ -138,13 +140,29 @@ export function getPixelRatio() {
   return ratio || window.devicePixelRatio || 1
 }
 
-export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
+export function canvasToBlob(
+  canvas: HTMLCanvasElement,
+  options: Options = {},
+): Promise<Blob | null> {
   if (canvas.toBlob) {
-    return new Promise((resolve) => canvas.toBlob(resolve))
+    return new Promise((resolve) =>
+      canvas.toBlob(
+        resolve,
+        options.type ? options.type : 'image/png',
+        options.quality ? options.quality : 1,
+      ),
+    )
   }
 
   return new Promise((resolve) => {
-    const binaryString = window.atob(canvas.toDataURL().split(',')[1])
+    const binaryString = window.atob(
+      canvas
+        .toDataURL(
+          options.type ? options.type : undefined,
+          options.quality ? options.quality : undefined,
+        )
+        .split(',')[1],
+    )
     const len = binaryString.length
     const binaryArray = new Uint8Array(len)
 
@@ -152,7 +170,11 @@ export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
       binaryArray[i] = binaryString.charCodeAt(i)
     }
 
-    resolve(new Blob([binaryArray], { type: 'image/png' }))
+    resolve(
+      new Blob([binaryArray], {
+        type: options.type ? options.type : 'image/png',
+      }),
+    )
   })
 }
 
