@@ -279,6 +279,12 @@ You may experience loss of parts of the image if set to `true` and you are expor
 
 Defaults to `false`  
 
+### type
+
+A string indicating the image format. The default type is image/png; that type is also used if the given type isn't supported.
+When supplied, the toCanvas function will return a blob matching the given image type and quality. 
+
+Defaults to `image/png`  
 
 ## Browsers
 
