@@ -1,0 +1,21 @@
+#dom-node {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+#scrolled {
+  overflow: auto;
+  width: 120px;
+  height: 100px;
+}
+
+#top {
+  height: 100px;
+  background: red;
+}
+
+#bottom {
+  height: 100px;
+  background: blue;
+}

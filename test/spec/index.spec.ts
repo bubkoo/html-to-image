@@ -138,6 +138,26 @@ describe('html to image', () => {
         .catch(done)
     })
 
+    it('should render children in a scrolled node at the correct position', (done) => {
+      Helper.bootstrap(
+        'scrolled-child/node.html',
+        'scrolled-child/style.css',
+        'scrolled-child/image',
+      )
+        .then((node) => node.querySelector('#parent') as HTMLDivElement)
+        .then((node) => {
+          const scrolled = node.querySelector('#scrolled')
+          if (!scrolled) {
+            return node
+          }
+          scrolled.scrollTop = 50
+          return node
+        })
+        .then(Helper.renderAndCheck)
+        .then(done)
+        .catch(done)
+    })
+
     it('should render text nodes', (done) => {
       Helper.bootstrap('text/node.html', 'text/style.css')
         .then(Helper.assertTextRendered(['SOME TEXT', 'SOME MORE TEXT']))
