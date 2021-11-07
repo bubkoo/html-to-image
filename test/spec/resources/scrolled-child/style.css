@@ -18,4 +18,5 @@
 #bottom {
   height: 100px;
   background: blue;
+  transform: rotate(45deg);
 }
