@@ -79,4 +79,11 @@ export interface Options {
    * A string indicating the image format. The default type is image/png; that type is also used if the given type isn't supported.
    */
   type?: string
+
+  /**
+   *
+   *the second parameter of  window.fetch (Promise<Response> fetch(input[, init]))
+   *
+   */
+  fetchRequestInit?: RequestInit
 }
