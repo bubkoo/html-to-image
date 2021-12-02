@@ -3,7 +3,7 @@ import { getBlobFromURL } from './getBlobFromURL'
 import { getMimeType, isDataUrl, makeDataUrl, resolveUrl } from './util'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
-const URL_WITH_FORMAT_REGEX = /url\([^)]+\)\s*format\((["'])([^"']+)\1\)/g
+const URL_WITH_FORMAT_REGEX = /url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g
 const FONT_SRC_REGEX = /src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g
 
 export function toRegex(url: string): RegExp {
