@@ -7,7 +7,4 @@
 npm-debug.log
 yarn-error.log
 node_modules
-dist
-es
-lib
 test/coverage
