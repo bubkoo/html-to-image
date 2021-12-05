@@ -11,14 +11,12 @@ const cache: {
 } = {}
 
 function getCacheKey(url: string) {
-  let key = url.replace(/\?.*/, '')
-
   // font resourse
-  if (/ttf|otf|eot|woff2?/i.test(key)) {
-    key = key.replace(/.*\//, '')
+  if (/ttf|otf|eot|woff2?/i.test(url)) {
+    return url.replace(/.*\//, '')
   }
 
-  return key
+  return url
 }
 
 export function getBlobFromURL(
