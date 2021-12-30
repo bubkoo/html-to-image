@@ -101,7 +101,8 @@ export function toArray<T>(arrayLike: any): T[] {
 }
 
 function px(node: HTMLElement, styleProperty: string) {
-  const val = window.getComputedStyle(node).getPropertyValue(styleProperty)
+  const window = node.ownerDocument.defaultView
+  const val = window!.getComputedStyle(node).getPropertyValue(styleProperty)
   return parseFloat(val.replace('px', ''))
 }
 

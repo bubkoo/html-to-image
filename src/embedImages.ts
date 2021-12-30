@@ -30,9 +30,14 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   options: Options,
 ): Promise<T> {
   if (
-    !(clonedNode instanceof HTMLImageElement && !isDataUrl(clonedNode.src)) &&
     !(
-      clonedNode instanceof SVGImageElement &&
+      clonedNode instanceof
+        clonedNode.ownerDocument.defaultView!.HTMLImageElement &&
+      !isDataUrl(clonedNode.src)
+    ) &&
+    !(
+      clonedNode instanceof
+        clonedNode.ownerDocument.defaultView!.SVGImageElement &&
       !isDataUrl(clonedNode.href.baseVal)
     )
   ) {
@@ -40,7 +45,7 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   }
 
   const src =
-    clonedNode instanceof HTMLImageElement
+    clonedNode instanceof clonedNode.ownerDocument.defaultView!.HTMLImageElement
       ? clonedNode.src
       : clonedNode.href.baseVal
 
@@ -54,7 +59,10 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
         new Promise((resolve, reject) => {
           clonedNode.onload = resolve
           clonedNode.onerror = reject
-          if (clonedNode instanceof HTMLImageElement) {
+          if (
+            clonedNode instanceof
+            clonedNode.ownerDocument.defaultView!.HTMLImageElement
+          ) {
             clonedNode.srcset = ''
             clonedNode.src = dataURL
           } else {
@@ -82,7 +90,7 @@ export async function embedImages<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  if (!(clonedNode instanceof Element)) {
+  if (!(clonedNode instanceof clonedNode.ownerDocument.defaultView!.Element)) {
     return Promise.resolve(clonedNode)
   }
 
