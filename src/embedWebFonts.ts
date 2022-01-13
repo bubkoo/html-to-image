@@ -177,8 +177,9 @@ async function getCSSRules(
                 console.error('Error loading remote stylesheet', err.toString())
               }),
           )
+        } else {
+          console.error('Error inlining remote css file', e.toString())
         }
-        console.error('Error inlining remote css file', e.toString())
       }
     }
   })
