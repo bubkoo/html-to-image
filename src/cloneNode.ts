@@ -25,11 +25,14 @@ async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
 ): Promise<HTMLElement> {
-  if (node instanceof HTMLCanvasElement) {
+  if (node instanceof node.ownerDocument.defaultView!.HTMLCanvasElement) {
     return cloneCanvasElement(node)
   }
 
-  if (node instanceof HTMLVideoElement && node.poster) {
+  if (
+    node instanceof node.ownerDocument.defaultView!.HTMLVideoElement &&
+    node.poster
+  ) {
     return cloneVideoElement(node, options)
   }
 
@@ -49,7 +52,10 @@ async function cloneChildren<T extends HTMLElement>(
       ? toArray<T>(nativeNode.assignedNodes())
       : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
 
-  if (children.length === 0 || nativeNode instanceof HTMLVideoElement) {
+  if (
+    children.length === 0 ||
+    nativeNode instanceof nativeNode.ownerDocument.defaultView!.HTMLVideoElement
+  ) {
     return Promise.resolve(clonedNode)
   }
 
@@ -71,7 +77,8 @@ async function cloneChildren<T extends HTMLElement>(
 }
 
 function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  const source = window.getComputedStyle(nativeNode)
+  const window = nativeNode.ownerDocument.defaultView
+  const source = window!.getComputedStyle(nativeNode)
   const target = clonedNode.style
 
   if (!target) {
@@ -92,11 +99,16 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (nativeNode instanceof HTMLTextAreaElement) {
+  if (
+    nativeNode instanceof
+    nativeNode.ownerDocument.defaultView!.HTMLTextAreaElement
+  ) {
     clonedNode.innerHTML = nativeNode.value
   }
 
-  if (nativeNode instanceof HTMLInputElement) {
+  if (
+    nativeNode instanceof nativeNode.ownerDocument.defaultView!.HTMLInputElement
+  ) {
     clonedNode.setAttribute('value', nativeNode.value)
   }
 }
@@ -105,7 +117,7 @@ async function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
 ): Promise<T> {
-  if (!(clonedNode instanceof Element)) {
+  if (!(clonedNode instanceof clonedNode.ownerDocument.defaultView!.Element)) {
     return Promise.resolve(clonedNode)
   }
 
