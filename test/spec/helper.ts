@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+import { recognize } from 'tesseract.js'
+
 import { toPng } from '../../src'
 import { getPixelRatio } from '../../src/util'
 
@@ -176,39 +178,12 @@ export namespace Helper {
       renderToPng(node)
         .then(drawDataUrl)
         .then(() =>
-          recognize(getCanvasNode().toDataURL()).then((text: string) => {
-            // console.log(text)
-            expect(lines.every((line) => text.includes(line))).toBe(true)
-          }),
+          recognize(getCanvasNode().toDataURL()).then(
+            ({ data: { text: text } }) => {
+              // console.log(text)
+              expect(lines.every((line) => text.includes(line))).toBe(true)
+            },
+          ),
         )
-  }
-
-  // see: https://ocr.space/OCRAPI
-  async function recognize(dataUrl: string) {
-    const data = new FormData()
-    data.append('base64Image', dataUrl)
-    data.append('apikey', 'aa8c3d7de088957')
-
-    return fetch('https://api.ocr.space/parse/image', {
-      method: 'post',
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const result: string[] = []
-        if (!data.IsErroredOnProcessing) {
-          // console.log(JSON.stringify(data.ParsedResults))
-          data.ParsedResults.forEach(({ ParsedText }: any) => {
-            if (ParsedText) {
-              result.push(ParsedText)
-            }
-          })
-        }
-        return result.join('\n')
-      })
-      .catch((err) => {
-        console.log(err)
-        return ''
-      })
   }
 }
