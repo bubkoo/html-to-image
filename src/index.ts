@@ -126,7 +126,7 @@ export async function toBlob<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<Blob | null> {
-  return toCanvas(node, options).then(canvasToBlob)
+  return toCanvas(node, options).then((canvas) => canvasToBlob(canvas, options))
 }
 
 export async function getFontEmbedCSS<T extends HTMLElement>(
