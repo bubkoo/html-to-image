@@ -20,7 +20,7 @@ export namespace Helper {
     return document.getElementById('style') as HTMLStyleElement
   }
 
-  export function renderToPng(node: HTMLDivElement) {
+  export function renderToPng(node: HTMLElement) {
     return toPng(node)
   }
 }
@@ -112,9 +112,7 @@ export namespace Helper {
     return Promise.resolve(dataUrl).then(drawDataUrl).then(compareToRefImage)
   }
 
-  export async function renderAndCheck(
-    node: HTMLDivElement = getCaptureNode(),
-  ) {
+  export async function renderAndCheck(node: HTMLElement = getCaptureNode()) {
     return renderToPng(node).then(check)
   }
 
