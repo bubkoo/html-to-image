@@ -328,7 +328,7 @@ describe('html to image', () => {
     })
   })
 
-  describe('work with iframe', () => {
+  fdescribe('work with iframe', () => {
     it('should render to png a html that is inside an iframe', (done) => {
       Helper.bootstrap('iframe/node.html', undefined, 'iframe/image')
         .then((node) => {
@@ -340,7 +340,11 @@ describe('html to image', () => {
             })
           })
         })
-        .then((node) => Helper.renderAndCheck(node))
+        .then((node) => htmlToImage.toPng(node, { width: 200, height: 200 }))
+        .then((dataUrl) =>
+          Helper.drawDataUrl(dataUrl, { width: 200, height: 200 }),
+        )
+        .then(Helper.compareToRefImage)
         .then(done)
         .catch(done)
     })
