@@ -125,40 +125,42 @@ async function getCSSRules(
   styleSheets.forEach((sheet) => {
     if ('cssRules' in sheet) {
       try {
-        toArray<CSSRule>(sheet.hasOwnProperty('cssRules')).forEach(
-          (item: CSSRule, index: number) => {
-            if (item.type === CSSRule.IMPORT_RULE) {
-              let importIndex = index + 1
-              const url = (item as CSSImportRule).href
-              const deferred = fetchCSS(url)
-                .then((metadata) =>
-                  metadata ? embedFonts(metadata, options) : '',
-                )
-                .then((cssText) =>
-                  parseCSS(cssText).forEach((rule) => {
-                    try {
-                      sheet.insertRule(
-                        rule,
-                        rule.startsWith('@import')
-                          ? (importIndex += 1)
-                          : sheet.hasOwnProperty('cssRules').length,
-                      )
-                    } catch (error) {
-                      console.error('Error inserting rule from remote css', {
-                        rule,
-                        error,
-                      })
-                    }
-                  }),
-                )
-                .catch((e) => {
-                  console.error('Error loading remote css', e.toString())
-                })
+        toArray<CSSRule>(
+          sheet.hasOwnProperty('cssRules') ? sheet.cssRules : [],
+        ).forEach((item: CSSRule, index: number) => {
+          if (item.type === CSSRule.IMPORT_RULE) {
+            let importIndex = index + 1
+            const url = (item as CSSImportRule).href
+            const deferred = fetchCSS(url)
+              .then((metadata) =>
+                metadata ? embedFonts(metadata, options) : '',
+              )
+              .then((cssText) =>
+                parseCSS(cssText).forEach((rule) => {
+                  try {
+                    sheet.insertRule(
+                      rule,
+                      rule.startsWith('@import')
+                        ? (importIndex += 1)
+                        : sheet.hasOwnProperty('cssRules')
+                        ? sheet.cssRules.length
+                        : 0,
+                    )
+                  } catch (error) {
+                    console.error('Error inserting rule from remote css', {
+                      rule,
+                      error,
+                    })
+                  }
+                }),
+              )
+              .catch((e) => {
+                console.error('Error loading remote css', e.toString())
+              })
 
-              deferreds.push(deferred)
-            }
-          },
-        )
+            deferreds.push(deferred)
+          }
+        })
       } catch (e) {
         const inline =
           styleSheets.find((a) => a.href == null) || document.styleSheets[0]
@@ -170,7 +172,12 @@ async function getCSSRules(
               )
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
-                  inline.insertRule(rule, sheet.hasOwnProperty('cssRules').length)
+                  inline.insertRule(
+                    rule,
+                    sheet.hasOwnProperty('cssRules')
+                      ? sheet.cssRules.length
+                      : 0,
+                  )
                 }),
               )
               .catch((err) => {
@@ -188,11 +195,11 @@ async function getCSSRules(
     styleSheets.forEach((sheet) => {
       if ('cssRules' in sheet) {
         try {
-          toArray<CSSStyleRule>(sheet.hasOwnProperty('cssRules')).forEach(
-            (item: CSSStyleRule) => {
-              ret.push(item)
-            },
-          )
+          toArray<CSSStyleRule>(
+            sheet.hasOwnProperty('cssRules') ? sheet.cssRules : [],
+          ).forEach((item: CSSStyleRule) => {
+            ret.push(item)
+          })
         } catch (e) {
           console.error(
             `Error while reading CSS rules from ${sheet.href}`,
