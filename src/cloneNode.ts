@@ -25,11 +25,12 @@ async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
 ): Promise<HTMLElement> {
-  if (node instanceof HTMLCanvasElement) {
+  const windowContext = node.ownerDocument.defaultView ?? window
+  if (node instanceof windowContext.HTMLCanvasElement) {
     return cloneCanvasElement(node)
   }
 
-  if (node instanceof HTMLVideoElement && node.poster) {
+  if (node instanceof windowContext.HTMLVideoElement && node.poster) {
     return cloneVideoElement(node, options)
   }
 
@@ -49,7 +50,11 @@ async function cloneChildren<T extends HTMLElement>(
       ? toArray<T>(nativeNode.assignedNodes())
       : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
 
-  if (children.length === 0 || nativeNode instanceof HTMLVideoElement) {
+  const windowContext = nativeNode.ownerDocument.defaultView ?? window
+  if (
+    children.length === 0 ||
+    nativeNode instanceof windowContext.HTMLVideoElement
+  ) {
     return Promise.resolve(clonedNode)
   }
 
@@ -92,11 +97,12 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (nativeNode instanceof HTMLTextAreaElement) {
+  const windowContext = nativeNode.ownerDocument.defaultView ?? window
+  if (nativeNode instanceof windowContext.HTMLTextAreaElement) {
     clonedNode.innerHTML = nativeNode.value
   }
 
-  if (nativeNode instanceof HTMLInputElement) {
+  if (nativeNode instanceof windowContext.HTMLInputElement) {
     clonedNode.setAttribute('value', nativeNode.value)
   }
 }
@@ -105,7 +111,8 @@ async function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
 ): Promise<T> {
-  if (!(clonedNode instanceof Element)) {
+  const windowContext = clonedNode.ownerDocument.defaultView ?? window
+  if (!(clonedNode instanceof windowContext.Element)) {
     return Promise.resolve(clonedNode)
   }
 

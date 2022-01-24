@@ -82,7 +82,9 @@ export async function embedImages<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  if (!(clonedNode instanceof Element)) {
+  const windowContext = clonedNode.ownerDocument.defaultView ?? window
+
+  if (!(clonedNode instanceof windowContext.Element)) {
     return Promise.resolve(clonedNode)
   }
 

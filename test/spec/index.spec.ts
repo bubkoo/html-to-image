@@ -328,6 +328,24 @@ describe('html to image', () => {
     })
   })
 
+  describe('work with iframe', () => {
+    it('should render to png a html that is inside an iframe', (done) => {
+      Helper.bootstrap('iframe/node.html', undefined, 'iframe/image')
+        .then((node) => {
+          const iframe = node!.querySelector<HTMLIFrameElement>('iframe')!
+          return new Promise<HTMLElement>((resolve) => {
+            iframe.addEventListener('load', () => {
+              const iframeContent = iframe.contentDocument!.documentElement!
+              resolve(iframeContent)
+            })
+          })
+        })
+        .then((node) => Helper.renderAndCheck(node))
+        .then(done)
+        .catch(done)
+    })
+  })
+
   describe('work with options', () => {
     it('should apply width and height options to node copy being rendered', (done) => {
       Helper.bootstrap(
