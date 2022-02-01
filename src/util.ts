@@ -192,6 +192,7 @@ export function createImage(url: string): Promise<HTMLImageElement> {
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
     .then(() => new XMLSerializer().serializeToString(svg))
+    .then((str) => str.replace(/\0/g, '')) // remove null characters
     .then(encodeURIComponent)
     .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
 }
