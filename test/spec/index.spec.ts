@@ -202,6 +202,21 @@ describe('html to image', () => {
         .catch(done)
     })
 
+    it('should render user input from <input type="checkbox"> after being changed', (done) => {
+      Helper.bootstrap(
+        'checkbox/node.html',
+        'checkbox/style.css',
+        'checkbox/image',
+      )
+        .then((node) => {
+          node.querySelector('input')!.checked = true
+          return node
+        })
+        .then(Helper.renderAndCheck)
+        .then(done)
+        .catch(done)
+    })
+
     it('should render user input from <textarea>', (done) => {
       const text = 'USER\nINPUT'
 
