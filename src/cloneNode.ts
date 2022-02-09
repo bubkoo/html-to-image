@@ -70,7 +70,11 @@ async function cloneChildren<T extends HTMLElement>(
     .then(() => clonedNode)
 }
 
-function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
+function cloneCSSStyle<T extends HTMLElement>(
+  nativeNode: T,
+  clonedNode: T,
+  options: Options,
+) {
   const source = window.getComputedStyle(nativeNode)
   const target = clonedNode.style
 
@@ -82,11 +86,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
     target.cssText = source.cssText
   } else {
     toArray<string>(source).forEach((name) => {
-      target.setProperty(
-        name,
-        source.getPropertyValue(name),
-        source.getPropertyPriority(name),
-      )
+      const originValue = source.getPropertyValue(name)
+      const styleValue =
+        options.cssStyleInterceptor?.(clonedNode, name, originValue) ||
+        originValue
+      target.setProperty(name, styleValue, source.getPropertyPriority(name))
     })
   }
 }
@@ -104,13 +108,14 @@ function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 async function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
+  options: Options,
 ): Promise<T> {
   if (!(clonedNode instanceof Element)) {
     return Promise.resolve(clonedNode)
   }
 
   return Promise.resolve()
-    .then(() => cloneCSSStyle(nativeNode, clonedNode))
+    .then(() => cloneCSSStyle(nativeNode, clonedNode, options))
     .then(() => clonePseudoElements(nativeNode, clonedNode))
     .then(() => cloneInputValue(nativeNode, clonedNode))
     .then(() => clonedNode)
@@ -128,5 +133,5 @@ export async function cloneNode<T extends HTMLElement>(
   return Promise.resolve(node)
     .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
     .then((clonedNode) => cloneChildren(node, clonedNode, options))
-    .then((clonedNode) => decorate(node, clonedNode))
+    .then((clonedNode) => decorate(node, clonedNode, options))
 }

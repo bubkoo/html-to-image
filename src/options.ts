@@ -30,6 +30,15 @@ export interface Options {
    */
   filter?: (domNode: HTMLElement) => boolean
   /**
+   * A function taking DOM node and the DOM node's styleName as argument. Should return `new styleValue` if
+   * you need modify the style or `originStyleValue` if you needn't change the style
+   */
+  cssStyleInterceptor?: <T extends HTMLElement>(
+    domNode: T,
+    styleName: string,
+    originStyleValue: string,
+  ) => string
+  /**
    * A number between `0` and `1` indicating image quality (e.g. 0.92 => 92%)
    * of the JPEG image.
    */

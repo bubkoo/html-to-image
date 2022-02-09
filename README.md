@@ -206,6 +206,41 @@ htmlToImage.toPng(node, {filter:filter})
 
 Not called on the root node.
 
+### cssStyleInterceptor
+
+```ts
+<T extends HTMLElement>(domNode: T, styleName: string, originStyleValue: string) => string
+```
+
+A function taking DOM node and the DOM node's styleName as argument. Should return `new styleValue` if you need modify the style or `originStyleValue` if you needn't change the style.
+
+We have known html-to-image will compute the style of origin node assign to clonedNode, if you want to change clonedNode css style and **don't impact the origin node**, use it.
+
+```ts
+const filter = {
+      cssStyleInterceptor: (domNode: HTMLElement, styleName: string, originStyleValue: string) => {
+        const classes = domNode.classList
+        const processClasses = ['n-data-table']
+        // you want to make the node with `n-data-table` class don't show scroll-bar in the svg
+        if (processClasses.some(processClass => classes.contains(processClass))) {
+          if (styleName === 'max-height') {
+            return 'none'
+          }
+
+          if (styleName === 'height') {
+            return 'fit-content'
+          }
+
+          if (styleName.startsWith('overflow')) {
+            return 'hidden'
+          }
+        }
+
+        return originStyleValue
+    },
+}
+```
+
 ### backgroundColor
 
 A string value for the background color, any valid CSS color value.

@@ -10,6 +10,7 @@ import {
   createImage,
   canvasToBlob,
   nodeToDataURL,
+  SVG_PREFIX,
 } from './util'
 
 function getImageSize(node: HTMLElement, options: Options = {}) {
@@ -19,18 +20,54 @@ function getImageSize(node: HTMLElement, options: Options = {}) {
   return { width, height }
 }
 
+/**
+ * The CSS of the cloned node may be changed by users,
+ * So the width and height need to be resolved from dataUrl
+ * @param dataUrl SVG dataUrl
+ * @param options configuration
+ * @returns width and height
+ */
+function getImageSizeFromSVGDataUrl(dataUrl: string, options: Options) {
+  const decodeUrl = decodeURIComponent(dataUrl)
+  const div = document.createElement('div')
+  div.innerHTML = decodeUrl.substring(SVG_PREFIX.length)
+  const svgElement = div.firstChild as SVGElement
+  return {
+    width:
+      options.width || parseFloat(svgElement?.getAttribute('width') || '0'),
+    height:
+      options.height || parseFloat(svgElement?.getAttribute('height') || '0'),
+  }
+}
+
+function getClonedNodeImageSize(node: HTMLElement, options: Options = {}) {
+  // Cloned Node need be inserted to DOM Tree so that calculate the clientHeight
+  const container = document.createElement('div')
+  container.setAttribute(
+    'style',
+    'position: absolute; top: 0; left: 0; z-index:-1000; opacity: 0;',
+  )
+  document.body.append(container)
+  container.append(node)
+  const { width, height } = getImageSize(node, options)
+  container.remove()
+  return { width, height }
+}
+
 export async function toSvg<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<string> {
-  const { width, height } = getImageSize(node, options)
-
   return Promise.resolve(node)
     .then((nativeNode) => cloneNode(nativeNode, options, true))
     .then((clonedNode) => embedWebFonts(clonedNode!, options))
     .then((clonedNode) => embedImages(clonedNode, options))
     .then((clonedNode) => applyStyleWithOptions(clonedNode, options))
-    .then((clonedNode) => nodeToDataURL(clonedNode, width, height))
+    .then((clonedNode) => {
+      // clonedNode maybe changed by uer, insert to dom and calculate width and height
+      const { width, height } = getClonedNodeImageSize(clonedNode, options)
+      return nodeToDataURL(clonedNode, width, height)
+    })
 }
 
 const dimensionCanvasLimit = 16384 // as per https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#maximum_canvas_size
@@ -70,7 +107,7 @@ export async function toCanvas<T extends HTMLElement>(
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')!
       const ratio = options.pixelRatio || getPixelRatio()
-      const { width, height } = getImageSize(node, options)
+      const { width, height } = getImageSizeFromSVGDataUrl(img.src, options)
 
       const canvasWidth = options.canvasWidth || width
       const canvasHeight = options.canvasHeight || height
