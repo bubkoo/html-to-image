@@ -10,10 +10,14 @@ const cache: {
   [url: string]: Promise<Metadata>
 } = {}
 
-function getCacheKey(url: string) {
+function getCacheKey(url: string, includeQueryParams: boolean | undefined) {
   let key = url.replace(/\?.*/, '')
 
-  // font resourse
+  if (includeQueryParams) {
+    key = url
+  }
+
+  // font resource
   if (/ttf|otf|eot|woff2?/i.test(key)) {
     key = key.replace(/.*\//, '')
   }
@@ -25,13 +29,13 @@ export function getBlobFromURL(
   url: string,
   options: Options,
 ): Promise<Metadata> {
-  const cacheKey = getCacheKey(url)
+  const cacheKey = getCacheKey(url, options.includeQueryParams)
 
   if (cache[cacheKey] != null) {
     return cache[cacheKey]
   }
 
-  // cache bypass so we dont have CORS issues with cached images
+  // cache bypass, we don't have CORS issues with cached images
   // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
   if (options.cacheBust) {
     // eslint-disable-next-line no-param-reassign

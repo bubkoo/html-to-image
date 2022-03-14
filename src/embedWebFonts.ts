@@ -141,7 +141,9 @@ async function getCSSRules(
                         rule,
                         rule.startsWith('@import')
                           ? (importIndex += 1)
-                          : sheet.hasOwnProperty('cssRules').length,
+                          : // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            sheet.hasOwnProperty('cssRules').length,
                       )
                     } catch (error) {
                       console.error('Error inserting rule from remote css', {
@@ -170,7 +172,12 @@ async function getCSSRules(
               )
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
-                  inline.insertRule(rule, sheet.hasOwnProperty('cssRules').length)
+                  inline.insertRule(
+                    rule,
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    sheet.hasOwnProperty('cssRules').length,
+                  )
                 }),
               )
               .catch((err) => {
