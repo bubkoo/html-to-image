@@ -1,5 +1,7 @@
 <h1 align="center">html-to-image</h1>
 
+<b>Note:</b> This is a forked repository, for more information please check the [documentation](https://outsystemsrd.atlassian.net/wiki/spaces/RKB/pages/2678030793/How+to+change+a+third-party+npm+library#How-to-update-a-forked-repository).
+
 <p align="center"><strong>✂️ Generates an image from a DOM node using HTML5 canvas and SVG.</strong></p>
 
 <p align="center">Fork from <a href="https://github.com/tsayen/dom-to-image" rel="nofollow">dom-to-image</a> with more maintainable code and some new features.</p>
