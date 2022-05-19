@@ -33,7 +33,6 @@
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
-    "no-prototype-builtins": 0,
     "no-param-reassign": [2, { "props": false }],
     "prefer-destructuring": [2, {"object": true, "array": false}],
     "@typescript-eslint/no-namespace": 0,
