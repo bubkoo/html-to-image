@@ -101,6 +101,19 @@ function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 }
 
+function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
+  if (nativeNode instanceof HTMLSelectElement) {
+    const clonedSelect = clonedNode as any as HTMLSelectElement
+    const selectedOption = Array.from(clonedSelect.children).find(
+      (child) => nativeNode.value === child.getAttribute('value'),
+    )
+
+    if (selectedOption) {
+      selectedOption.setAttribute('selected', '')
+    }
+  }
+}
+
 async function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
@@ -113,6 +126,7 @@ async function decorate<T extends HTMLElement>(
     .then(() => cloneCSSStyle(nativeNode, clonedNode))
     .then(() => clonePseudoElements(nativeNode, clonedNode))
     .then(() => cloneInputValue(nativeNode, clonedNode))
+    .then(() => cloneSelectValue(nativeNode, clonedNode))
     .then(() => clonedNode)
 }
 
