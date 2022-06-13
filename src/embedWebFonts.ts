@@ -11,23 +11,26 @@ const cssFetchCache: {
   [href: string]: Promise<void | Metadata>
 } = {}
 
-function fetchCSS(url: string): Promise<void | Metadata> {
-  const cache = cssFetchCache[url]
+function fetchCSS(url: string, window: Window): Promise<void | Metadata> {
+  const url1 = url.startsWith('..')
+    ? `embedded://webview/NRWidgetsResources${url.substring(2)}`
+    : url
+  const cache = cssFetchCache[url1]
   if (cache != null) {
     return cache
   }
 
-  const deferred = window.fetch(url).then((res) => ({
-    url,
+  const deferred = window.fetch(url1).then((res) => ({
+    url: url1,
     cssText: res.text(),
   }))
 
-  cssFetchCache[url] = deferred
+  cssFetchCache[url1] = deferred
 
   return deferred
 }
 
-async function embedFonts(meta: Metadata): Promise<string> {
+async function embedFonts(meta: Metadata, window: Window): Promise<string> {
   return meta.cssText.then((raw: string) => {
     let cssText = raw
     const regexUrl = /url\(["']?([^"')]+)["']?\)/g
@@ -41,7 +44,10 @@ async function embedFonts(meta: Metadata): Promise<string> {
       // eslint-disable-next-line promise/no-nesting
       return window
         .fetch(url)
-        .then((res) => res.blob())
+        .then(
+          (res) => res.blob(),
+          (reason) => console.warn('embedFonts', reason),
+        )
         .then(
           (blob) =>
             new Promise<[string, string | ArrayBuffer | null]>(
@@ -56,6 +62,7 @@ async function embedFonts(meta: Metadata): Promise<string> {
                 reader.readAsDataURL(blob)
               },
             ),
+          () => null,
         )
     })
 
@@ -116,6 +123,8 @@ function parseCSS(source: string) {
 
 async function getCSSRules(
   styleSheets: CSSStyleSheet[],
+  document: Document,
+  window: Window,
 ): Promise<CSSStyleRule[]> {
   const ret: CSSStyleRule[] = []
   const deferreds: Promise<number | void>[] = []
@@ -129,8 +138,10 @@ async function getCSSRules(
             if (item.type === CSSRule.IMPORT_RULE) {
               let importIndex = index + 1
               const url = (item as CSSImportRule).href
-              const deferred = fetchCSS(url)
-                .then((metadata) => (metadata ? embedFonts(metadata) : ''))
+              const deferred = fetchCSS(url, window)
+                .then((metadata) =>
+                  metadata ? embedFonts(metadata, window) : '',
+                )
                 .then((cssText) =>
                   parseCSS(cssText).forEach((rule) => {
                     try {
@@ -161,8 +172,10 @@ async function getCSSRules(
           styleSheets.find((a) => a.href == null) || document.styleSheets[0]
         if (sheet.href != null) {
           deferreds.push(
-            fetchCSS(sheet.href)
-              .then((metadata) => (metadata ? embedFonts(metadata) : ''))
+            fetchCSS(sheet.href, window)
+              .then((metadata) =>
+                metadata ? embedFonts(metadata, window) : '',
+              )
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
                   inline.insertRule(rule, sheet.cssRules.length)
@@ -209,6 +222,8 @@ function getWebFontRules(cssRules: CSSStyleRule[]): CSSStyleRule[] {
 
 async function parseWebFontRules<T extends HTMLElement>(
   node: T,
+  document: Document,
+  window: Window,
 ): Promise<CSSRule[]> {
   return new Promise((resolve, reject) => {
     if (node.ownerDocument == null) {
@@ -216,22 +231,32 @@ async function parseWebFontRules<T extends HTMLElement>(
     }
     resolve(toArray(node.ownerDocument.styleSheets))
   })
-    .then((styleSheets: CSSStyleSheet[]) => getCSSRules(styleSheets))
+    .then((styleSheets: CSSStyleSheet[]) =>
+      getCSSRules(styleSheets, document, window),
+    )
     .then(getWebFontRules)
 }
 
 export async function getWebFontCSS<T extends HTMLElement>(
   node: T,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<string> {
-  return parseWebFontRules(node)
+  return parseWebFontRules(node, document, window)
     .then((rules) =>
       Promise.all(
         rules.map((rule) => {
           const baseUrl = rule.parentStyleSheet
             ? rule.parentStyleSheet.href
             : null
-          return embedResources(rule.cssText, baseUrl, options)
+          return embedResources(
+            rule.cssText,
+            baseUrl,
+            options,
+            document,
+            window,
+          )
         }),
       ),
     )
@@ -241,11 +266,13 @@ export async function getWebFontCSS<T extends HTMLElement>(
 export async function embedWebFonts(
   clonedNode: HTMLElement,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<HTMLElement> {
   return (
     options.fontEmbedCSS != null
       ? Promise.resolve(options.fontEmbedCSS)
-      : getWebFontCSS(clonedNode, options)
+      : getWebFontCSS(clonedNode, options, document, window)
   ).then((cssText) => {
     const styleNode = document.createElement('style')
     const sytleContent = document.createTextNode(cssText)

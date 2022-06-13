@@ -24,6 +24,7 @@ function getCacheKey(url: string, includeQueryParams: boolean) {
 export function getBlobFromURL(
   url: string,
   options: Options,
+  window: Window,
 ): Promise<Metadata> {
   const cacheKey = getCacheKey(url, !!options.includeQueryParams)
 

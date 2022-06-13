@@ -45,6 +45,11 @@ export interface Options {
    */
   includeQueryParams?: boolean
   /**
+   * Set true to avoid cloning the passed node.
+   * Default: false | undefined - which clones the node that was passed in
+   */
+  skipNodeClone?: boolean
+  /**
    * A data URL for a placeholder image that will be used when fetching
    * an image fails. Defaults to an empty string and will render empty
    * areas for failed images.

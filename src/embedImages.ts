@@ -6,6 +6,8 @@ import { getMimeType, isDataUrl, makeDataUrl, toArray } from './util'
 async function embedBackground<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<T> {
   const background = clonedNode.style?.getPropertyValue('background')
   if (!background) {
@@ -13,7 +15,9 @@ async function embedBackground<T extends HTMLElement>(
   }
 
   return Promise.resolve(background)
-    .then((cssString) => embedResources(cssString, null, options))
+    .then((cssString) =>
+      embedResources(cssString, null, options, document, window),
+    )
     .then((cssString) => {
       clonedNode.style.setProperty(
         'background',
@@ -28,6 +32,7 @@ async function embedBackground<T extends HTMLElement>(
 async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   clonedNode: T,
   options: Options,
+  window: Window,
 ): Promise<T> {
   if (
     !(clonedNode instanceof HTMLImageElement && !isDataUrl(clonedNode.src)) &&
@@ -45,7 +50,7 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       : clonedNode.href.baseVal
 
   return Promise.resolve(src)
-    .then((url) => getBlobFromURL(url, options))
+    .then((url) => getBlobFromURL(url, options, window))
     .then((data) =>
       makeDataUrl(data.blob, getMimeType(src) || data.contentType),
     )
@@ -71,23 +76,29 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
 async function embedChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<T> {
   const children = toArray<HTMLElement>(clonedNode.childNodes)
   // eslint-disable-next-line no-use-before-define
-  const deferreds = children.map((child) => embedImages(child, options))
+  const deferreds = children.map((child) =>
+    embedImages(child, options, document, window),
+  )
   return Promise.all(deferreds).then(() => clonedNode)
 }
 
 export async function embedImages<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<T> {
   if (!(clonedNode instanceof Element)) {
     return Promise.resolve(clonedNode)
   }
 
   return Promise.resolve(clonedNode)
-    .then((node) => embedBackground(node, options))
-    .then((node) => embedImageNode(node, options))
-    .then((node) => embedChildren(node, options))
+    .then((node) => embedBackground(node, options, document, window))
+    .then((node) => embedImageNode(node, options, window))
+    .then((node) => embedChildren(node, options, document, window))
 }

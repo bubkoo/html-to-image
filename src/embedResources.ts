@@ -28,13 +28,17 @@ export function embed(
   resourceURL: string,
   baseURL: string | null,
   options: Options,
+  document: Document,
+  window: Window,
   get?: (url: string) => Promise<string>,
 ): Promise<string> {
-  const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
+  const resolvedURL = baseURL
+    ? resolveUrl(resourceURL, baseURL, document, window)
+    : resourceURL
 
   return Promise.resolve(resolvedURL)
     .then<string | { blob: string; contentType: string }>((url) =>
-      get ? get(url) : getBlobFromURL(url, options),
+      get ? get(url) : getBlobFromURL(url, options, window),
     )
     .then((data) => {
       if (typeof data === 'string') {
@@ -83,6 +87,8 @@ export async function embedResources(
   cssText: string,
   baseUrl: string | null,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<string> {
   if (!shouldEmbed(cssText)) {
     return Promise.resolve(cssText)
@@ -95,7 +101,9 @@ export async function embedResources(
       urls.reduce(
         (deferred, url) =>
           // eslint-disable-next-line promise/no-nesting
-          deferred.then((css) => embed(css, url, baseUrl, options)),
+          deferred.then((css) =>
+            embed(css, url, baseUrl, options, document, window),
+          ),
         Promise.resolve(filteredCSSText),
       ),
     )

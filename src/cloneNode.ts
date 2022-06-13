@@ -12,9 +12,13 @@ async function cloneCanvasElement(node: HTMLCanvasElement) {
   return createImage(dataURL)
 }
 
-async function cloneVideoElement(node: HTMLVideoElement, options: Options) {
+async function cloneVideoElement(
+  node: HTMLVideoElement,
+  options: Options,
+  window: Window,
+) {
   return Promise.resolve(node.poster)
-    .then((url) => getBlobFromURL(url, options))
+    .then((url) => getBlobFromURL(url, options, window))
     .then((data) =>
       makeDataUrl(data.blob, getMimeType(node.poster) || data.contentType),
     )
@@ -24,13 +28,14 @@ async function cloneVideoElement(node: HTMLVideoElement, options: Options) {
 async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
+  window: Window,
 ): Promise<HTMLElement> {
   if (node instanceof HTMLCanvasElement) {
     return cloneCanvasElement(node)
   }
 
   if (node instanceof HTMLVideoElement && node.poster) {
-    return cloneVideoElement(node, options)
+    return cloneVideoElement(node, options, window)
   }
 
   return Promise.resolve(node.cloneNode(false) as T)
@@ -43,6 +48,8 @@ async function cloneChildren<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
+  doc: Document,
+  window: Window,
 ): Promise<T> {
   const children =
     isSlotElement(nativeNode) && nativeNode.assignedNodes
@@ -58,7 +65,7 @@ async function cloneChildren<T extends HTMLElement>(
       (deferred, child) =>
         deferred
           // eslint-disable-next-line no-use-before-define
-          .then(() => cloneNode(child, options))
+          .then(() => cloneNode(child, options, doc, window))
           .then((clonedChild: HTMLElement | null) => {
             // eslint-disable-next-line promise/always-return
             if (clonedChild) {
@@ -70,7 +77,11 @@ async function cloneChildren<T extends HTMLElement>(
     .then(() => clonedNode)
 }
 
-function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
+function cloneCSSStyle<T extends HTMLElement>(
+  nativeNode: T,
+  clonedNode: T,
+  window: Window,
+) {
   const source = window.getComputedStyle(nativeNode)
   const target = clonedNode.style
 
@@ -104,14 +115,16 @@ function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 async function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
+  document: Document,
+  window: Window,
 ): Promise<T> {
   if (!(clonedNode instanceof Element)) {
     return Promise.resolve(clonedNode)
   }
 
   return Promise.resolve()
-    .then(() => cloneCSSStyle(nativeNode, clonedNode))
-    .then(() => clonePseudoElements(nativeNode, clonedNode))
+    .then(() => cloneCSSStyle(nativeNode, clonedNode, window))
+    .then(() => clonePseudoElements(nativeNode, clonedNode, document, window))
     .then(() => cloneInputValue(nativeNode, clonedNode))
     .then(() => clonedNode)
 }
@@ -119,6 +132,8 @@ async function decorate<T extends HTMLElement>(
 export async function cloneNode<T extends HTMLElement>(
   node: T,
   options: Options,
+  doc: Document,
+  nodeWindow: Window,
   isRoot?: boolean,
 ): Promise<T | null> {
   if (!isRoot && options.filter && !options.filter(node)) {
@@ -126,7 +141,12 @@ export async function cloneNode<T extends HTMLElement>(
   }
 
   return Promise.resolve(node)
-    .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
-    .then((clonedNode) => cloneChildren(node, clonedNode, options))
-    .then((clonedNode) => decorate(node, clonedNode))
+    .then(
+      (clonedNode) =>
+        cloneSingleNode(clonedNode, options, nodeWindow) as Promise<T>,
+    )
+    .then((clonedNode) =>
+      cloneChildren(node, clonedNode, options, doc, nodeWindow),
+    )
+    .then((clonedNode) => decorate(node, clonedNode, doc, nodeWindow))
 }
