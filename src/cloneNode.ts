@@ -56,7 +56,10 @@ async function cloneChildren<T extends HTMLElement>(
       ? toArray<T>(nativeNode.assignedNodes())
       : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
 
-  if (children.length === 0 || nativeNode instanceof HTMLVideoElement) {
+  if (
+    children.length === 0 ||
+    nativeNode instanceof (window as any).HTMLVideoElement
+  ) {
     return Promise.resolve(clonedNode)
   }
 
@@ -118,7 +121,7 @@ async function decorate<T extends HTMLElement>(
   document: Document,
   window: Window,
 ): Promise<T> {
-  if (!(clonedNode instanceof Element)) {
+  if (!(clonedNode instanceof (window as any).Element)) {
     return Promise.resolve(clonedNode)
   }
 

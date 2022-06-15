@@ -1,4 +1,4 @@
-import { toArray } from './util'
+import { resolveUrl, toArray } from './util'
 import { Options } from './options'
 import { shouldEmbed, embedResources } from './embedResources'
 
@@ -12,62 +12,144 @@ const cssFetchCache: {
 } = {}
 
 function fetchCSS(url: string, window: Window): Promise<void | Metadata> {
-  const url1 = url.startsWith('..')
-    ? `embedded://webview/NRWidgetsResources${url.substring(2)}`
-    : url
-  const cache = cssFetchCache[url1]
+  const cache = cssFetchCache[url]
   if (cache != null) {
     return cache
   }
 
-  const deferred = window.fetch(url1).then((res) => ({
-    url: url1,
+  const deferred = window.fetch(url).then((res) => ({
+    url,
     cssText: res.text(),
   }))
 
-  cssFetchCache[url1] = deferred
+  cssFetchCache[url] = deferred
 
   return deferred
 }
 
-async function embedFonts(meta: Metadata, window: Window): Promise<string> {
+async function embedFonts(
+  meta: Metadata,
+  document: Document,
+  window: Window,
+): Promise<string> {
+  // const raw = await meta.cssText
+  // let cssText = raw
+  // const regexUrl = /url\(["']?([^"')]+)["']?\)/g
+  // const fontLocs = cssText.match(/url\([^)]+\)/g) || []
+
+  // const loadFonts = fontLocs.map(async (loc: string, index: number) => {
+  //   try {
+  //     let url = loc.replace(regexUrl, '$1')
+
+  //     if (!url.startsWith('https://')) {
+  //       url = new URL(url, meta.url).href
+  //     }
+
+  //     console.warn(` iteration ${index} location: ${url}`)
+
+  //     // eslint-disable-next-line promise/no-nesting
+  //     const fetchData = await window.fetch(url)
+
+  //     console.warn(`fetched ${url}`)
+
+  //     const blob = await fetchData.blob()
+
+  //     console.warn(`fetched blob ${url}`)
+
+  //     return await (new Promise<void>((resolve, reject) => {
+  //       const reader = new FileReader()
+  //       reader.onloadend = () => {
+  //         console.warn(`filereader loadend ${url}`)
+  //         // Side Effect
+  //         cssText = cssText.replace(loc, `url(${reader.result})`)
+  //         resolve()
+  //       }
+
+  //       reader.onerror = () => {
+  //         console.warn(`filereader error ${url}`)
+  //         reject()
+  //       }
+
+  //       reader.readAsDataURL(blob)
+  //     })
+  //   } catch (e) {
+  //     console.warn('error loading font location', e)
+  //     return Promise.resolve()
+  //   }
+  // })
+
+  // // eslint-disable-next-line promise/no-nesting
+  // await Promise.all(loadFonts)
+
+  // loadFonts.map((p) => console.warn('log', p))
+
+  // return cssText
+
   return meta.cssText.then((raw: string) => {
     let cssText = raw
     const regexUrl = /url\(["']?([^"')]+)["']?\)/g
     const fontLocs = cssText.match(/url\([^)]+\)/g) || []
-    const loadFonts = fontLocs.map((location: string) => {
-      let url = location.replace(regexUrl, '$1')
-      if (!url.startsWith('https://')) {
-        url = new URL(url, meta.url).href
+    // const fontLocs5 = [fontLocs[4]]
+    const loadFonts = fontLocs.map((loc: string, index: number) => {
+      const url = loc.replace(regexUrl, '$1')
+
+      let urlToFetch = resolveUrl(url, meta.url, document, window)
+
+      if (!urlToFetch.startsWith('https://')) {
+        urlToFetch = new URL(urlToFetch, meta.url).href
       }
+
+      console.warn(` iteration ${index} location: ${urlToFetch}`)
 
       // eslint-disable-next-line promise/no-nesting
       return window
-        .fetch(url)
-        .then(
-          (res) => res.blob(),
-          (reason) => console.warn('embedFonts', reason),
-        )
-        .then(
-          (blob) =>
-            new Promise<[string, string | ArrayBuffer | null]>(
-              (resolve, reject) => {
-                const reader = new FileReader()
-                reader.onloadend = () => {
-                  // Side Effect
-                  cssText = cssText.replace(location, `url(${reader.result})`)
-                  resolve([location, reader.result])
-                }
-                reader.onerror = reject
-                reader.readAsDataURL(blob)
-              },
-            ),
-          () => null,
-        )
+        .fetch(urlToFetch)
+        .then((res) => {
+          console.warn(`fetched ${urlToFetch}`)
+          return res.blob()
+        })
+        .then((blob) => {
+          console.warn(`fetched blob for ${urlToFetch}`)
+          return new Promise<[string, string | ArrayBuffer | null]>(
+            (resolve, reject) => {
+              const reader = new FileReader()
+              reader.onloadend = () => {
+                console.warn(`filereader loadend ${urlToFetch}`)
+                // Side Effect
+                cssText = cssText.replace(loc, `url(${reader.result})`)
+                resolve([loc, reader.result])
+              }
+              reader.onerror = () => {
+                console.warn(`filereader error ${urlToFetch}`)
+                reject()
+              }
+              reader.readAsDataURL(blob)
+            },
+          )
+        })
+        .catch((reason) => {
+          console.warn(`Failed to load font ${urlToFetch} `, reason)
+          return Promise.resolve(null)
+        })
+    })
+
+    const timeoutPromise = new Promise<string>((resolve, reject) => {
+      window.setTimeout(() => {
+        console.warn('Timed out')
+        resolve('timeout')
+      }, 1000)
     })
 
     // eslint-disable-next-line promise/no-nesting
-    return Promise.all(loadFonts).then(() => cssText)
+    return Promise.race([Promise.all(loadFonts), timeoutPromise]).then(
+      (value) => {
+        if (value === 'timeout') {
+          console.warn('Race timeout')
+        }
+        console.warn('Returning cssText')
+        return cssText
+      },
+    )
   })
 }
 
@@ -81,8 +163,17 @@ function parseCSS(source: string) {
   // strip out comments
   let cssText = source.replace(commentsRegex, '')
 
+  // strip out newlines
+  cssText = (cssText as any).replaceAll('\n', '')
+
+  // replace tabular spaces
+  cssText = (cssText as any).replaceAll('\t', ' ')
+
+  // strip out excessive spaces
+  cssText = (cssText as any).replaceAll(/\s\s+/gi, ' ')
+
   const keyframesRegex = new RegExp(
-    '((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})',
+    /@(-moz-|-webkit-|-ms-)*keyframes\s(\S)+(\s?){(\s?\d%\s?{[-\w:\w+();\s]+}\s?\d+%\s?{[\w:\w();-\s]+)+}}/,
     'gi',
   )
   // eslint-disable-next-line no-constant-condition
@@ -138,22 +229,24 @@ async function getCSSRules(
             if (item.type === CSSRule.IMPORT_RULE) {
               let importIndex = index + 1
               const url = (item as CSSImportRule).href
-              const deferred = fetchCSS(url, window)
+              const urlToFetch = resolveUrl(url, sheet.href, document, window)
+              const deferred = fetchCSS(urlToFetch, window)
                 .then((metadata) =>
-                  metadata ? embedFonts(metadata, window) : '',
+                  metadata ? embedFonts(metadata, document, window) : '',
                 )
                 .then((cssText) =>
                   parseCSS(cssText).forEach((rule) => {
+                    const trimmedRule = rule.trim()
                     try {
                       sheet.insertRule(
-                        rule,
-                        rule.startsWith('@import')
+                        trimmedRule,
+                        trimmedRule.startsWith('@import')
                           ? (importIndex += 1)
                           : sheet.cssRules.length,
                       )
                     } catch (error) {
                       console.error('Error inserting rule from remote css', {
-                        rule,
+                        trimmedRule,
                         error,
                       })
                     }
@@ -174,7 +267,7 @@ async function getCSSRules(
           deferreds.push(
             fetchCSS(sheet.href, window)
               .then((metadata) =>
-                metadata ? embedFonts(metadata, window) : '',
+                metadata ? embedFonts(metadata, document, window) : '',
               )
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {

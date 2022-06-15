@@ -87,7 +87,7 @@ export async function toCanvas<T extends HTMLElement>(
   if (node instanceof HTMLIFrameElement) {
     const iframe = <HTMLIFrameElement>node
     doc = iframe.contentDocument ?? document
-    nodeToDraw = doc.body.firstChild as HTMLElement
+    nodeToDraw = doc.body as HTMLElement
     nodeWindow = iframe.contentWindow ?? window
   } else {
     doc = document
