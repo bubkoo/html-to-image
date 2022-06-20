@@ -1,6 +1,6 @@
 {
   "name": "@outsystems/html-to-image",
-  "version": "1.9.0-os2",
+  "version": "1.9.0-os3",
   "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
   "main": "lib/index.js",
   "module": "es/index.js",
