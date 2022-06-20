@@ -80,4 +80,9 @@ export interface Options {
    * A boolean to turn off auto scaling for truly massive images..
    */
   skipAutoScale?: boolean
+  /**
+   * Transformation function to be applied on elements.
+   * Here it is possible to manipulate dom and/or styling of nodes
+   */
+  applyCustomTransformation?: (domNode: HTMLElement) => void
 }

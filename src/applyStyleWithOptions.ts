@@ -25,5 +25,9 @@ export function applyStyleWithOptions<T extends HTMLElement>(
     })
   }
 
+  if (options.applyCustomTransformation) {
+    options.applyCustomTransformation(node)
+  }
+
   return node
 }
