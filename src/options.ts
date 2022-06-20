@@ -77,7 +77,7 @@ export interface Options {
    */
   fontEmbedCSS?: string
   /**
-   * A boolean to turn off auto scaling for truly massive images..
+   * A boolean to turn off auto scaling for truly massive images
    */
   skipAutoScale?: boolean
 }
