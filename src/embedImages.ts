@@ -6,6 +6,8 @@ import { getMimeType, isDataUrl, makeDataUrl, toArray } from './util'
 async function embedBackground<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<T> {
   const background = clonedNode.style?.getPropertyValue('background')
   if (!background) {
@@ -13,7 +15,9 @@ async function embedBackground<T extends HTMLElement>(
   }
 
   return Promise.resolve(background)
-    .then((cssString) => embedResources(cssString, null, options))
+    .then((cssString) =>
+      embedResources(cssString, null, options, document, window),
+    )
     .then((cssString) => {
       clonedNode.style.setProperty(
         'background',
@@ -28,37 +32,38 @@ async function embedBackground<T extends HTMLElement>(
 async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   clonedNode: T,
   options: Options,
+  window: Window,
 ): Promise<T> {
+  const node = clonedNode as any
+  const ownerWindow = window as any
   if (
-    !(clonedNode instanceof HTMLImageElement && !isDataUrl(clonedNode.src)) &&
+    !(node instanceof ownerWindow.HTMLImageElement && !isDataUrl(node.src)) &&
     !(
-      clonedNode instanceof SVGImageElement &&
-      !isDataUrl(clonedNode.href.baseVal)
+      node instanceof ownerWindow.SVGImageElement &&
+      !isDataUrl(node.href.baseVal)
     )
   ) {
     return Promise.resolve(clonedNode)
   }
 
   const src =
-    clonedNode instanceof HTMLImageElement
-      ? clonedNode.src
-      : clonedNode.href.baseVal
+    node instanceof ownerWindow.HTMLImageElement ? node.src : node.href.baseVal
 
   return Promise.resolve(src)
-    .then((url) => getBlobFromURL(url, options))
+    .then((url) => getBlobFromURL(url, options, window))
     .then((data) =>
       makeDataUrl(data.blob, getMimeType(src) || data.contentType),
     )
     .then(
       (dataURL) =>
         new Promise((resolve, reject) => {
-          clonedNode.onload = resolve
-          clonedNode.onerror = reject
-          if (clonedNode instanceof HTMLImageElement) {
-            clonedNode.srcset = ''
-            clonedNode.src = dataURL
+          node.onload = resolve
+          node.onerror = reject
+          if (node instanceof ownerWindow.HTMLImageElement) {
+            node.srcset = ''
+            node.src = dataURL
           } else {
-            clonedNode.href.baseVal = dataURL
+            node.href.baseVal = dataURL
           }
         }),
     )
@@ -71,23 +76,29 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
 async function embedChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<T> {
   const children = toArray<HTMLElement>(clonedNode.childNodes)
   // eslint-disable-next-line no-use-before-define
-  const deferreds = children.map((child) => embedImages(child, options))
+  const deferreds = children.map((child) =>
+    embedImages(child, options, document, window),
+  )
   return Promise.all(deferreds).then(() => clonedNode)
 }
 
 export async function embedImages<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
+  document: Document,
+  window: Window,
 ): Promise<T> {
-  if (!(clonedNode instanceof Element)) {
+  if (!(clonedNode instanceof (window as any).Element)) {
     return Promise.resolve(clonedNode)
   }
 
   return Promise.resolve(clonedNode)
-    .then((node) => embedBackground(node, options))
-    .then((node) => embedImageNode(node, options))
-    .then((node) => embedChildren(node, options))
+    .then((node) => embedBackground(node, options, document, window))
+    .then((node) => embedImageNode(node, options, window))
+    .then((node) => embedChildren(node, options, document, window))
 }

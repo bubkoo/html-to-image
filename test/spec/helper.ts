@@ -157,7 +157,7 @@ export namespace Helper {
 
     const width = dimensions.width || node.offsetWidth
     const height = dimensions.height || node.offsetHeight
-    const ratio = getPixelRatio()
+    const ratio = getPixelRatio(window)
     canvas.width = width * ratio
     canvas.height = height * ratio
     canvas.style.width = `${width}`

@@ -23,7 +23,31 @@ export function getMimeType(url: string): string {
   return mimes[extension] || ''
 }
 
-export function resolveUrl(url: string, baseUrl: string | null): string {
+export function fetchWithTimeout(
+  window: Window,
+  url: string,
+  timeoutInMs = 3000,
+): Promise<Response> {
+  const fetchAbortController = new AbortController()
+  const fetchTimeoutId = setTimeout(() => {
+    fetchAbortController.abort()
+    console.warn(
+      `Fetch exceeded the defined timeout of ${timeoutInMs}ms. Requested url was ${url}`,
+    )
+  }, timeoutInMs)
+  return window
+    .fetch(url, {
+      signal: fetchAbortController.signal,
+    })
+    .finally(() => clearTimeout(fetchTimeoutId))
+}
+
+export function resolveUrl(
+  url: string,
+  baseUrl: string | null,
+  document: Document,
+  window: Window,
+): string {
   // url is absolute already
   if (url.match(/^[a-z]+:\/\//i)) {
     return url
@@ -98,24 +122,24 @@ export function toArray<T>(arrayLike: any): T[] {
   return arr
 }
 
-function px(node: HTMLElement, styleProperty: string) {
+function px(node: HTMLElement, styleProperty: string, window: Window) {
   const val = window.getComputedStyle(node).getPropertyValue(styleProperty)
   return parseFloat(val.replace('px', ''))
 }
 
-export function getNodeWidth(node: HTMLElement) {
-  const leftBorder = px(node, 'border-left-width')
-  const rightBorder = px(node, 'border-right-width')
+export function getNodeWidth(node: HTMLElement, window: Window) {
+  const leftBorder = px(node, 'border-left-width', window)
+  const rightBorder = px(node, 'border-right-width', window)
   return node.clientWidth + leftBorder + rightBorder
 }
 
-export function getNodeHeight(node: HTMLElement) {
-  const topBorder = px(node, 'border-top-width')
-  const bottomBorder = px(node, 'border-bottom-width')
+export function getNodeHeight(node: HTMLElement, window: Window) {
+  const topBorder = px(node, 'border-top-width', window)
+  const bottomBorder = px(node, 'border-bottom-width', window)
   return node.clientHeight + topBorder + bottomBorder
 }
 
-export function getPixelRatio() {
+export function getPixelRatio(window: Window) {
   let ratio
 
   let FINAL_PROCESS
@@ -138,7 +162,10 @@ export function getPixelRatio() {
   return ratio || window.devicePixelRatio || 1
 }
 
-export function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
+export function canvasToBlob(
+  canvas: HTMLCanvasElement,
+  window: Window,
+): Promise<Blob | null> {
   if (canvas.toBlob) {
     return new Promise((resolve) => canvas.toBlob(resolve))
   }
@@ -178,6 +205,7 @@ export async function nodeToDataURL(
   node: HTMLElement,
   width: number,
   height: number,
+  document: Document,
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
   const svg = document.createElementNS(xmlns, 'svg')
