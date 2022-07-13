@@ -80,6 +80,7 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 
   if (source.cssText) {
     target.cssText = source.cssText
+    target.transformOrigin = source.transformOrigin
   } else {
     toArray<string>(source).forEach((name) => {
       target.setProperty(
