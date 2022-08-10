@@ -234,6 +234,13 @@ Set to true to append the current time as a query string to URL requests to enab
 
 Defaults to `false`
 
+### includeQueryParams
+
+Set false to use all URL as cache key.
+If the value has falsy value, it will exclude query params from the provided URL.
+
+Defaults to `false`
+
 ### imagePlaceholder
 
 A data URL for a placeholder image that will be used when fetching an image fails.
