@@ -187,7 +187,11 @@ export namespace Helper {
   async function recognize(dataUrl: string) {
     const data = new FormData()
     data.append('base64Image', dataUrl)
-    data.append('apikey', 'aa8c3d7de088957')
+
+    // You may only perform this action upto maximum 180 number of times within
+    // 3600 seconds.
+    // data.append('apikey', 'aa8c3d7de088957')
+    data.append('apikey', 'K89675126388957')
 
     return fetch('https://api.ocr.space/parse/image', {
       method: 'post',
@@ -204,10 +208,12 @@ export namespace Helper {
             }
           })
         }
-        return result.join('\n')
+        const text = result.join('\n').trim().replace('\r\n', '\n')
+        // console.log(`recognized text: ${text}`)
+        return text
       })
       .catch((err) => {
-        console.log(err)
+        // console.log(`text recognize error: ${err}`)
         return ''
       })
   }

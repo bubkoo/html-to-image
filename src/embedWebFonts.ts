@@ -74,10 +74,12 @@ function parseCSS(source: string) {
   // strip out comments
   let cssText = source.replace(commentsRegex, '')
 
+  // eslint-disable-next-line prefer-regex-literals
   const keyframesRegex = new RegExp(
     '((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})',
     'gi',
   )
+
   // eslint-disable-next-line no-constant-condition
   while (true) {
     const matches = keyframesRegex.exec(cssText)
@@ -125,42 +127,38 @@ async function getCSSRules(
   styleSheets.forEach((sheet) => {
     if ('cssRules' in sheet) {
       try {
-        toArray<CSSRule>(sheet.hasOwnProperty('cssRules')).forEach(
-          (item: CSSRule, index: number) => {
-            if (item.type === CSSRule.IMPORT_RULE) {
-              let importIndex = index + 1
-              const url = (item as CSSImportRule).href
-              const deferred = fetchCSS(url)
-                .then((metadata) =>
-                  metadata ? embedFonts(metadata, options) : '',
-                )
-                .then((cssText) =>
-                  parseCSS(cssText).forEach((rule) => {
-                    try {
-                      sheet.insertRule(
-                        rule,
-                        rule.startsWith('@import')
-                          ? (importIndex += 1)
-                          : // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            sheet.hasOwnProperty('cssRules').length,
-                      )
-                    } catch (error) {
-                      console.error('Error inserting rule from remote css', {
-                        rule,
-                        error,
-                      })
-                    }
-                  }),
-                )
-                .catch((e) => {
-                  console.error('Error loading remote css', e.toString())
-                })
+        toArray<CSSRule>(sheet.cssRules || []).forEach((item, index) => {
+          if (item.type === CSSRule.IMPORT_RULE) {
+            let importIndex = index + 1
+            const url = (item as CSSImportRule).href
+            const deferred = fetchCSS(url)
+              .then((metadata) =>
+                metadata ? embedFonts(metadata, options) : '',
+              )
+              .then((cssText) =>
+                parseCSS(cssText).forEach((rule) => {
+                  try {
+                    sheet.insertRule(
+                      rule,
+                      rule.startsWith('@import')
+                        ? (importIndex += 1)
+                        : sheet.cssRules.length,
+                    )
+                  } catch (error) {
+                    console.error('Error inserting rule from remote css', {
+                      rule,
+                      error,
+                    })
+                  }
+                }),
+              )
+              .catch((e) => {
+                console.error('Error loading remote css', e.toString())
+              })
 
-              deferreds.push(deferred)
-            }
-          },
-        )
+            deferreds.push(deferred)
+          }
+        })
       } catch (e) {
         const inline =
           styleSheets.find((a) => a.href == null) || document.styleSheets[0]
@@ -172,12 +170,7 @@ async function getCSSRules(
               )
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
-                  inline.insertRule(
-                    rule,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    sheet.hasOwnProperty('cssRules').length,
-                  )
+                  inline.insertRule(rule, sheet.cssRules.length)
                 }),
               )
               .catch((err) => {
@@ -195,11 +188,9 @@ async function getCSSRules(
     styleSheets.forEach((sheet) => {
       if ('cssRules' in sheet) {
         try {
-          toArray<CSSStyleRule>(sheet.hasOwnProperty('cssRules')).forEach(
-            (item: CSSStyleRule) => {
-              ret.push(item)
-            },
-          )
+          toArray<CSSStyleRule>(sheet.cssRules || []).forEach((item) => {
+            ret.push(item)
+          })
         } catch (e) {
           console.error(
             `Error while reading CSS rules from ${sheet.href}`,
