@@ -1,3 +1,20 @@
+# [1.10.0](https://github.com/bubkoo/html-to-image/compare/v1.9.0...v1.10.0) (2022-08-11)
+
+
+### Bug Fixes
+
+* 🐛 cloneCSSStyle: copy transformOriginProp ([#297](https://github.com/bubkoo/html-to-image/issues/297)) ([76b978a](https://github.com/bubkoo/html-to-image/commit/76b978a943ee11ad78ef09f9b3363377baebcbb3))
+* 🐛 font format could be without qoutation ([#217](https://github.com/bubkoo/html-to-image/issues/217)) ([2a96149](https://github.com/bubkoo/html-to-image/commit/2a9614966f636636be133d3e16d8fe93cf26db0d))
+* 🐛 set selected attribute on option to draw it ([#280](https://github.com/bubkoo/html-to-image/issues/280)) ([caf97c8](https://github.com/bubkoo/html-to-image/commit/caf97c80a3b6ef6f7205d12ab59ef42c5ab2f071))
+* 🐛 text breaks on the last word ([#270](https://github.com/bubkoo/html-to-image/issues/270)) ([062c98a](https://github.com/bubkoo/html-to-image/commit/062c98ab3491fb731d660780b1a0408e1f53549a))
+* test specs ([c7a664e](https://github.com/bubkoo/html-to-image/commit/c7a664e8148bfa813391e124e33ba44c60e1cdae))
+
+
+### Features
+
+* ✨ add 'fetchRequestInit' option ([#210](https://github.com/bubkoo/html-to-image/issues/210)) ([c51da3a](https://github.com/bubkoo/html-to-image/commit/c51da3a5cc7421c530ffb7cbaa7b5009c677c2d8))
+* ✨ added includeQueryParams flag ([#260](https://github.com/bubkoo/html-to-image/issues/260)) ([259d71e](https://github.com/bubkoo/html-to-image/commit/259d71e431445ba0c32bc081d9164fa094b4da32))
+
 # [1.9.0](https://github.com/bubkoo/html-to-image/compare/v1.8.5...v1.9.0) (2021-10-09)
 
 
