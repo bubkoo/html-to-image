@@ -1,27 +1,5 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "declaration": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noEmitOnError": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "pretty": true,
-    "target": "es5",
-    "lib": [
-      "dom",
-      "es2015"
-    ]
-  },
+ "extends": "@bubkoo/tsconfig",
   "include": [
     "src/**/*.ts"
   ]
