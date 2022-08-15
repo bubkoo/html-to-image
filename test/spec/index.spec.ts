@@ -2,7 +2,17 @@
 import * as util from '../../src/util'
 import * as htmlToImage from '../../src'
 import * as embeding from '../../src/embedResources'
-import { Helper } from './helper'
+import {
+  clean,
+  bootstrap,
+  renderToPng,
+  getSvgDocument,
+  drawDataUrl,
+  compareToRefImage,
+  check,
+  renderAndCheck,
+  assertTextRendered,
+} from './helper'
 
 describe('html to image', () => {
   beforeAll(() => {
@@ -12,57 +22,53 @@ describe('html to image', () => {
 
   afterAll(() => {
     delete process.env.devicePixelRatio
-    Helper.clean()
+    clean()
   })
 
   describe('basic usage', () => {
     it('should render to svg', (done) => {
-      Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
+      bootstrap('small/node.html', 'small/style.css', 'small/image')
         .then(htmlToImage.toSvg)
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should render to png', (done) => {
-      Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
+      bootstrap('small/node.html', 'small/style.css', 'small/image')
         .then(htmlToImage.toPng)
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should render to blob', (done) => {
-      Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
+      bootstrap('small/node.html', 'small/style.css', 'small/image')
         .then(htmlToImage.toBlob)
-        .then(global.URL.createObjectURL as any)
-        .then(Helper.check as any)
+        .then((blob) => global.URL.createObjectURL(blob!))
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should render to jpeg', (done) => {
-      Helper.bootstrap('small/node.html', 'small/style.css', 'small/image-jpeg')
+      bootstrap('small/node.html', 'small/style.css', 'small/image-jpeg')
         .then((node) => htmlToImage.toJpeg(node))
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should use quality parameter when rendering to jpeg', (done) => {
-      Helper.bootstrap(
-        'small/node.html',
-        'small/style.css',
-        'small/image-jpeg-low',
-      )
+      bootstrap('small/node.html', 'small/style.css', 'small/image-jpeg-low')
         .then((node) => htmlToImage.toJpeg(node, { quality: 0.5 }))
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should convert an element to an array of pixels', (done) => {
-      Helper.bootstrap('pixeldata/node.html', 'pixeldata/style.css')
+      bootstrap('pixeldata/node.html', 'pixeldata/style.css')
         .then(util.delay(1000))
         .then((node) =>
           htmlToImage.toPixelData(node).then((pixels) => ({ node, pixels })),
@@ -101,14 +107,14 @@ describe('html to image', () => {
     })
 
     it('should handle border', (done) => {
-      Helper.bootstrap('border/node.html', 'border/style.css', 'border/image')
-        .then(Helper.renderAndCheck)
+      bootstrap('border/node.html', 'border/style.css', 'border/image')
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
 
     it('should render bigger node', (done) => {
-      Helper.bootstrap('bigger/node.html', 'bigger/style.css', 'bigger/image')
+      bootstrap('bigger/node.html', 'bigger/style.css', 'bigger/image')
         .then((parent) => {
           const child = parent.querySelector(
             '.dom-child-node',
@@ -118,37 +124,45 @@ describe('html to image', () => {
           }
           return parent
         })
-        .then(Helper.renderAndCheck)
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
 
     it('should handle "#" in colors and attributes', (done) => {
-      Helper.bootstrap('hash/node.html', 'hash/style.css', 'small/image')
-        .then(Helper.renderAndCheck)
+      bootstrap('hash/node.html', 'hash/style.css', 'small/image')
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
 
     it('should render whole node when its scrolled', (done) => {
-      Helper.bootstrap('scroll/node.html', 'scroll/style.css', 'scroll/image')
+      bootstrap('scroll/node.html', 'scroll/style.css', 'scroll/image')
         .then((node) => node.querySelector('#scrolled') as HTMLDivElement)
-        .then(Helper.renderAndCheck)
+        .then(renderAndCheck)
+        .then(done)
+        .catch(done)
+    })
+
+    it('should render with external stylesheet', (done) => {
+      bootstrap('sheet/node.html', 'sheet/style.css', 'sheet/image')
+        .then(util.delay(1000))
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
 
     it('should render text nodes', (done) => {
-      Helper.bootstrap('text/node.html', 'text/style.css')
-        .then(Helper.assertTextRendered(['SOME TEXT', 'SOME MORE TEXT']))
+      bootstrap('text/node.html', 'text/style.css')
+        .then(assertTextRendered(['SOME TEXT', 'SOME MORE TEXT']))
         .then(done)
         .catch(done)
     })
 
     it('should preserve content of ::before and ::after pseudo elements', (done) => {
-      Helper.bootstrap('pseudo/node.html', 'pseudo/style.css')
+      bootstrap('pseudo/node.html', 'pseudo/style.css')
         .then(
-          Helper.assertTextRendered([
+          assertTextRendered([
             'JUSTBEFORE',
             'BOTHBEFORE',
             'JUSTAFTER',
@@ -159,45 +173,37 @@ describe('html to image', () => {
         .catch(done)
     })
 
-    it('should render with external stylesheet', (done) => {
-      Helper.bootstrap('sheet/node.html', 'sheet/style.css', 'sheet/image')
-        .then(util.delay(1000))
-        .then(Helper.renderAndCheck)
-        .then(done)
-        .catch(done)
-    })
-
     it('should render web fonts', (done) => {
-      Helper.bootstrap('fonts/node.html', 'fonts/style.css')
+      bootstrap('fonts/node.html', 'fonts/style.css')
         .then(util.delay(1000))
-        .then(Helper.assertTextRendered(['apper']))
+        .then(assertTextRendered(['apper']))
         .then(done)
         .catch(done)
     })
 
     it('should render images', (done) => {
-      Helper.bootstrap('images/node.html', 'images/style.css')
+      bootstrap('images/node.html', 'images/style.css')
         .then(util.delay(500))
-        .then(Helper.assertTextRendered(['PNG', 'JPG']))
+        .then(assertTextRendered(['PNG', 'JPG']))
         .then(done)
         .catch(done)
     })
 
     it('should render background images', (done) => {
-      Helper.bootstrap('css-bg/node.html', 'css-bg/style.css')
-        .then(Helper.assertTextRendered(['JPG']))
+      bootstrap('css-bg/node.html', 'css-bg/style.css')
+        .then(assertTextRendered(['JPG']))
         .then(done)
         .catch(done)
     })
 
     it('should render user input from <input>', (done) => {
       const text = 'USER INPUT'
-      Helper.bootstrap('input/node.html', 'input/style.css')
+      bootstrap('input/node.html', 'input/style.css')
         .then(() => {
           const input = document.getElementById('input') as HTMLInputElement
           input.value = text
         })
-        .then(Helper.assertTextRendered([text]) as any)
+        .then(assertTextRendered([text]) as any)
         .then(done)
         .catch(done)
     })
@@ -205,19 +211,19 @@ describe('html to image', () => {
     it('should render user input from <textarea>', (done) => {
       const text = `USER\nINPUT`
 
-      Helper.bootstrap('textarea/node.html', 'textarea/style.css')
+      bootstrap('textarea/node.html', 'textarea/style.css')
         .then(() => {
           const input = document.getElementById('input') as HTMLInputElement
           input.value = text
         })
-        .then(Helper.assertTextRendered([text]) as any)
+        .then(assertTextRendered([text]) as any)
         .then(done)
         .catch(done)
     })
 
     xit('should render content from <canvas>', (done) => {
       const text = 'AB2'
-      Helper.bootstrap('canvas/node.html', 'canvas/style.css')
+      bootstrap('canvas/node.html', 'canvas/style.css')
         .then(() => {
           const canvas = document.getElementById('content') as HTMLCanvasElement
           const ctx = canvas.getContext('2d')!
@@ -227,7 +233,7 @@ describe('html to image', () => {
           ctx.font = '40px'
           ctx.fillText(text, canvas.width / 2, canvas.height / 2)
         })
-        .then(Helper.assertTextRendered([text]) as any)
+        .then(assertTextRendered([text]) as any)
         .then(done)
         .catch(done)
     })
@@ -239,6 +245,7 @@ describe('html to image', () => {
         script.src = 'https://unpkg.com/mathlive/dist/mathlive.min.js'
         link = document.createElement('link')
         link.rel = 'stylesheet'
+        link.crossOrigin = 'anonymous'
         link.href = 'https://unpkg.com/mathlive/dist/mathlive-fonts.css'
         const tasks = [
           new Promise((resolve, reject) => {
@@ -258,14 +265,14 @@ describe('html to image', () => {
         link.remove()
       })
 
-      xit('should render content from shadow node of custom element', (done) => {
-        Helper.bootstrap(
+      it('should render content from shadow node of custom element', (done) => {
+        bootstrap(
           'custom-element/node.html',
           'custom-element/style.css',
           'custom-element/image',
         )
           .then(util.delay(1000))
-          .then(Helper.renderAndCheck)
+          .then(renderAndCheck)
           .then(util.delay(1000))
           .then(done)
           .catch(done)
@@ -274,39 +281,31 @@ describe('html to image', () => {
   })
 
   describe('work with svg', () => {
-    xit('should render nested svg with broken namespace', (done) => {
-      Helper.bootstrap('svg-ns/node.html', 'svg-ns/style.css', 'svg-ns/image')
-        .then(Helper.renderAndCheck)
+    it('should render nested svg with broken namespace', (done) => {
+      bootstrap('svg-ns/node.html', 'svg-ns/style.css', 'svg-ns/image')
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
 
     it('should render svg `<rect>` with width and heigth', (done) => {
-      Helper.bootstrap(
-        'svg-rect/node.html',
-        'svg-rect/style.css',
-        'svg-rect/image',
-      )
-        .then(Helper.renderAndCheck)
+      bootstrap('svg-rect/node.html', 'svg-rect/style.css', 'svg-rect/image')
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
 
     it('should render svg `<rect>` with applied css styles', (done) => {
-      Helper.bootstrap(
-        'svg-color/node.html',
-        'svg-color/style.css',
-        'svg-color/image',
-      )
-        .then(Helper.renderAndCheck)
+      bootstrap('svg-color/node.html', 'svg-color/style.css', 'svg-color/image')
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
 
     it('should include a viewBox attribute', (done) => {
-      Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
+      bootstrap('small/node.html', 'small/style.css', 'small/image')
         .then(htmlToImage.toSvg)
-        .then(Helper.getSvgDocument)
+        .then(getSvgDocument)
         .then((doc) => {
           const width = doc.documentElement.getAttribute('width')
           const height = doc.documentElement.getAttribute('height')
@@ -317,13 +316,9 @@ describe('html to image', () => {
         .catch(done)
     })
 
-    xit('should render svg `<image>` with href', (done) => {
-      Helper.bootstrap(
-        'svg-image/node.html',
-        'svg-image/style.css',
-        'svg-image/image',
-      )
-        .then(Helper.renderAndCheck)
+    it('should render svg `<image>` with href', (done) => {
+      bootstrap('svg-image/node.html', 'svg-image/style.css', 'svg-image/image')
+        .then(renderAndCheck)
         .then(done)
         .catch(done)
     })
@@ -331,7 +326,7 @@ describe('html to image', () => {
 
   describe('work with options', () => {
     it('should apply width and height options to node copy being rendered', (done) => {
-      Helper.bootstrap(
+      bootstrap(
         'dimensions/node.html',
         'dimensions/style.css',
         'dimensions/image',
@@ -342,60 +337,50 @@ describe('html to image', () => {
             height: 200,
           }),
         )
-        .then((dataUrl) =>
-          Helper.drawDataUrl(dataUrl, { width: 200, height: 200 }),
-        )
-        .then(Helper.compareToRefImage)
+        .then((dataUrl) => drawDataUrl(dataUrl, { width: 200, height: 200 }))
+        .then(compareToRefImage)
         .then(done)
         .catch(done)
     })
 
     it('should render backgroundColor', (done) => {
-      Helper.bootstrap(
-        'bgcolor/node.html',
-        'bgcolor/style.css',
-        'bgcolor/image',
-      )
+      bootstrap('bgcolor/node.html', 'bgcolor/style.css', 'bgcolor/image')
         .then((node) => {
           return htmlToImage.toPng(node, {
             backgroundColor: '#ff0000',
           })
         })
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should render backgroundColor in SVG', (done) => {
-      Helper.bootstrap(
-        'bgcolor/node.html',
-        'bgcolor/style.css',
-        'bgcolor/image',
-      )
+      bootstrap('bgcolor/node.html', 'bgcolor/style.css', 'bgcolor/image')
         .then((node) => {
           return htmlToImage.toSvg(node, {
             backgroundColor: '#ff0000',
           })
         })
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should apply style text to node copy being rendered', (done) => {
-      Helper.bootstrap('style/node.html', 'style/style.css', 'style/image')
+      bootstrap('style/node.html', 'style/style.css', 'style/image')
         .then((node) => {
           return htmlToImage.toPng(node, {
             style: { backgroundColor: 'red', transform: 'scale(0.5)' },
           })
         })
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should combine dimensions and style', (done) => {
-      Helper.bootstrap('scale/node.html', 'scale/style.css', 'scale/image')
+      bootstrap('scale/node.html', 'scale/style.css', 'scale/image')
         .then((node) => {
           return htmlToImage.toPng(node, {
             width: 200,
@@ -406,16 +391,14 @@ describe('html to image', () => {
             },
           })
         })
-        .then((dataUrl) =>
-          Helper.drawDataUrl(dataUrl, { width: 200, height: 200 }),
-        )
-        .then(Helper.compareToRefImage)
+        .then((dataUrl) => drawDataUrl(dataUrl, { width: 200, height: 200 }))
+        .then(compareToRefImage)
         .then(done)
         .catch(done)
     })
 
     it('should use node filter', (done) => {
-      Helper.bootstrap('filter/node.html', 'filter/style.css', 'filter/image')
+      bootstrap('filter/node.html', 'filter/style.css', 'filter/image')
         .then((node) =>
           htmlToImage.toPng(node, {
             filter(node) {
@@ -426,13 +409,13 @@ describe('html to image', () => {
             },
           }),
         )
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
 
     it('should not apply node filter to root node', (done) => {
-      Helper.bootstrap('filter/node.html', 'filter/style.css', 'filter/image')
+      bootstrap('filter/node.html', 'filter/style.css', 'filter/image')
         .then((node) =>
           htmlToImage.toPng(node, {
             filter(node) {
@@ -443,7 +426,7 @@ describe('html to image', () => {
             },
           }),
         )
-        .then(Helper.check)
+        .then(check)
         .then(done)
         .catch(done)
     })
@@ -455,12 +438,9 @@ describe('html to image', () => {
           src: url("data:AAA") format("woff2");
         }
       `
-      Helper.bootstrap(
-        'fonts/web-fonts/empty.html',
-        'fonts/web-fonts/remote.css',
-      )
+      bootstrap('fonts/web-fonts/empty.html', 'fonts/web-fonts/remote.css')
         .then((node) => htmlToImage.toSvg(node, { fontEmbedCSS: testCss }))
-        .then(Helper.getSvgDocument)
+        .then(getSvgDocument)
         .then((doc) => {
           const styles = Array.from(doc.getElementsByTagName('style'))
 
@@ -471,14 +451,11 @@ describe('html to image', () => {
     })
 
     it('should embed only the preferred font', (done) => {
-      Helper.bootstrap(
-        'fonts/web-fonts/empty.html',
-        'fonts/web-fonts/remote.css',
-      )
+      bootstrap('fonts/web-fonts/empty.html', 'fonts/web-fonts/remote.css')
         .then((node) =>
           htmlToImage.toSvg(node, { preferredFontFormat: 'woff2' }),
         )
-        .then(Helper.getSvgDocument)
+        .then(getSvgDocument)
         .then((doc) => {
           const [style] = Array.from(doc.getElementsByTagName('style'))
 
@@ -486,16 +463,6 @@ describe('html to image', () => {
           expect(style.textContent).not.toMatch(/url\([^)]+\) format\("woff"\)/)
         })
         .then(done)
-    })
-  })
-
-  describe('special cases', () => {
-    xit('should not crash when loading external stylesheet causes error', (done) => {
-      Helper.bootstrap('ext-css/node.html', 'ext-css/style.css')
-        .then(util.delay(1000))
-        .then(Helper.renderToPng)
-        .then(done)
-        .catch(done)
     })
   })
 
@@ -560,6 +527,18 @@ describe('html to image', () => {
           .then(done)
           .catch(done)
       })
+    })
+  })
+
+  describe('special cases', () => {
+    it('should not crash when loading external stylesheet causes error', (done) => {
+      bootstrap('ext-css/node.html', 'ext-css/style.css')
+        .then(util.delay(1000))
+        .then((node) => {
+          renderToPng(node)
+        })
+        .then(done)
+        .catch(done)
     })
   })
 })
