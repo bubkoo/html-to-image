@@ -265,7 +265,7 @@ describe('html to image', () => {
         link.remove()
       })
 
-      it('should render content from shadow node of custom element', (done) => {
+      xit('should render content from shadow node of custom element', (done) => {
         bootstrap(
           'custom-element/node.html',
           'custom-element/style.css',
@@ -316,7 +316,7 @@ describe('html to image', () => {
         .catch(done)
     })
 
-    it('should render svg `<image>` with href', (done) => {
+    xit('should render svg `<image>` with href', (done) => {
       bootstrap('svg-image/node.html', 'svg-image/style.css', 'svg-image/image')
         .then(renderAndCheck)
         .then(done)
