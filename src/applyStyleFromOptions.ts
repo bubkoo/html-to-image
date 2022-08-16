@@ -1,6 +1,6 @@
 import { Options } from './options'
 
-export function applyStyleWithOptions<T extends HTMLElement>(
+export function applyStyleFromOptions<T extends HTMLElement>(
   node: T,
   options: Options,
 ): T {

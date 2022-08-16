@@ -95,7 +95,7 @@ export function delay<T>(ms: number) {
 export function toArray<T>(arrayLike: any): T[] {
   const arr: T[] = []
 
-  for (let i = 0, l = arrayLike.length; i < l; i += 1) {
+  for (let i = 0, l = arrayLike.length; i < l; i++) {
     arr.push(arrayLike[i])
   }
 
@@ -103,20 +103,28 @@ export function toArray<T>(arrayLike: any): T[] {
 }
 
 function px(node: HTMLElement, styleProperty: string) {
-  const val = window.getComputedStyle(node).getPropertyValue(styleProperty)
-  return parseFloat(val.replace('px', ''))
+  const win = node.ownerDocument.defaultView || window
+  const val = win.getComputedStyle(node).getPropertyValue(styleProperty)
+  return val ? parseFloat(val.replace('px', '')) : 0
 }
 
-export function getNodeWidth(node: HTMLElement) {
+function getNodeWidth(node: HTMLElement) {
   const leftBorder = px(node, 'border-left-width')
   const rightBorder = px(node, 'border-right-width')
   return node.clientWidth + leftBorder + rightBorder
 }
 
-export function getNodeHeight(node: HTMLElement) {
+function getNodeHeight(node: HTMLElement) {
   const topBorder = px(node, 'border-top-width')
   const bottomBorder = px(node, 'border-bottom-width')
   return node.clientHeight + topBorder + bottomBorder
+}
+
+export function getImageSize(targetNode: HTMLElement, options: Options = {}) {
+  const width = options.width || getNodeWidth(targetNode)
+  const height = options.height || getNodeHeight(targetNode)
+
+  return { width, height }
 }
 
 export function getPixelRatio() {
@@ -140,6 +148,35 @@ export function getPixelRatio() {
     }
   }
   return ratio || window.devicePixelRatio || 1
+}
+
+// @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#maximum_canvas_size
+const canvasDimensionLimit = 16384
+
+export function checkCanvasDimensions(canvas: HTMLCanvasElement) {
+  if (
+    canvas.width > canvasDimensionLimit ||
+    canvas.height > canvasDimensionLimit
+  ) {
+    if (
+      canvas.width > canvasDimensionLimit &&
+      canvas.height > canvasDimensionLimit
+    ) {
+      if (canvas.width > canvas.height) {
+        canvas.height *= canvasDimensionLimit / canvas.width
+        canvas.width = canvasDimensionLimit
+      } else {
+        canvas.width *= canvasDimensionLimit / canvas.height
+        canvas.height = canvasDimensionLimit
+      }
+    } else if (canvas.width > canvasDimensionLimit) {
+      canvas.height *= canvasDimensionLimit / canvas.width
+      canvas.width = canvasDimensionLimit
+    } else {
+      canvas.width *= canvasDimensionLimit / canvas.height
+      canvas.height = canvasDimensionLimit
+    }
+  }
 }
 
 export function canvasToBlob(

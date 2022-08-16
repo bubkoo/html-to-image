@@ -1,11 +1,10 @@
-/* eslint-disable */
+/* eslint-disable promise/no-callback-in-promise */
 import * as util from '../../src/util'
 import * as htmlToImage from '../../src'
 import * as embeding from '../../src/embedResources'
 import {
   clean,
   bootstrap,
-  renderToPng,
   getSvgDocument,
   drawDataUrl,
   compareToRefImage,
@@ -14,7 +13,7 @@ import {
   assertTextRendered,
 } from './helper'
 
-describe('html to image', () => {
+describe('html-to-image', () => {
   beforeAll(() => {
     process.env.devicePixelRatio = '1'
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
@@ -527,18 +526,6 @@ describe('html to image', () => {
           .then(done)
           .catch(done)
       })
-    })
-  })
-
-  describe('special cases', () => {
-    it('should not crash when loading external stylesheet causes error', (done) => {
-      bootstrap('ext-css/node.html', 'ext-css/style.css')
-        .then(util.delay(1000))
-        .then((node) => {
-          renderToPng(node)
-        })
-        .then(done)
-        .catch(done)
     })
   })
 })

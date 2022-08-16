@@ -6,9 +6,7 @@ export interface Metadata {
   contentType: string
 }
 
-const cache: {
-  [url: string]: Promise<Metadata>
-} = {}
+const cache: { [url: string]: Promise<Metadata> } = {}
 
 function getCacheKey(url: string, includeQueryParams: boolean | undefined) {
   let key = url.replace(/\?.*/, '')
@@ -25,7 +23,7 @@ function getCacheKey(url: string, includeQueryParams: boolean | undefined) {
   return key
 }
 
-export function getBlobFromURL(
+export async function getBlobFromURL(
   url: string,
   options: Options,
 ): Promise<Metadata> {

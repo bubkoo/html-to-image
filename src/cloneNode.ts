@@ -3,22 +3,23 @@ import { getBlobFromURL } from './getBlobFromURL'
 import { clonePseudoElements } from './clonePseudoElements'
 import { createImage, getMimeType, makeDataUrl, toArray } from './util'
 
-async function cloneCanvasElement(node: HTMLCanvasElement) {
-  const dataURL = node.toDataURL()
+async function cloneCanvasElement(canvas: HTMLCanvasElement) {
+  const dataURL = canvas.toDataURL()
   if (dataURL === 'data:,') {
-    return Promise.resolve(node.cloneNode(false) as HTMLCanvasElement)
+    return canvas.cloneNode(false) as HTMLCanvasElement
   }
 
   return createImage(dataURL)
 }
 
-async function cloneVideoElement(node: HTMLVideoElement, options: Options) {
-  return Promise.resolve(node.poster)
-    .then((url) => getBlobFromURL(url, options))
-    .then((data) =>
-      makeDataUrl(data.blob, getMimeType(node.poster) || data.contentType),
-    )
-    .then((dataURL) => createImage(dataURL))
+async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
+  const poster = video.poster
+  const metadata = await getBlobFromURL(poster, options)
+  const dataURL = makeDataUrl(
+    metadata.blob,
+    getMimeType(poster) || metadata.contentType,
+  )
+  return createImage(dataURL)
 }
 
 async function cloneSingleNode<T extends HTMLElement>(
@@ -33,7 +34,7 @@ async function cloneSingleNode<T extends HTMLElement>(
     return cloneVideoElement(node, options)
   }
 
-  return Promise.resolve(node.cloneNode(false) as T)
+  return node.cloneNode(false) as T
 }
 
 const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
@@ -50,17 +51,15 @@ async function cloneChildren<T extends HTMLElement>(
       : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
 
   if (children.length === 0 || nativeNode instanceof HTMLVideoElement) {
-    return Promise.resolve(clonedNode)
+    return clonedNode
   }
 
   return children
     .reduce(
       (deferred, child) =>
         deferred
-          // eslint-disable-next-line no-use-before-define
           .then(() => cloneNode(child, options))
           .then((clonedChild: HTMLElement | null) => {
-            // eslint-disable-next-line promise/always-return
             if (clonedChild) {
               clonedNode.appendChild(clonedChild)
             }
@@ -71,26 +70,29 @@ async function cloneChildren<T extends HTMLElement>(
 }
 
 function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  const source = window.getComputedStyle(nativeNode)
-  const target = clonedNode.style
+  const sourceStyle = window.getComputedStyle(nativeNode)
+  const targetStyle = clonedNode.style
 
-  if (!target) {
+  if (!targetStyle) {
     return
   }
 
-  if (source.cssText) {
-    target.cssText = source.cssText
-    target.transformOrigin = source.transformOrigin
+  if (sourceStyle.cssText) {
+    targetStyle.cssText = sourceStyle.cssText
+    targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
-    toArray<string>(source).forEach((name) => {
-      let value = source.getPropertyValue(name)
-
+    toArray<string>(sourceStyle).forEach((name) => {
+      let value = sourceStyle.getPropertyValue(name)
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
         value = `${reducedFont}px`
       }
-      target.setProperty(name, value, source.getPropertyPriority(name))
+      targetStyle.setProperty(
+        name,
+        value,
+        sourceStyle.getPropertyPriority(name),
+      )
     })
   }
 }
@@ -118,20 +120,17 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 }
 
-async function decorate<T extends HTMLElement>(
-  nativeNode: T,
-  clonedNode: T,
-): Promise<T> {
+function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
   if (!(clonedNode instanceof Element)) {
-    return Promise.resolve(clonedNode)
+    return clonedNode
   }
 
-  return Promise.resolve()
-    .then(() => cloneCSSStyle(nativeNode, clonedNode))
-    .then(() => clonePseudoElements(nativeNode, clonedNode))
-    .then(() => cloneInputValue(nativeNode, clonedNode))
-    .then(() => cloneSelectValue(nativeNode, clonedNode))
-    .then(() => clonedNode)
+  cloneCSSStyle(nativeNode, clonedNode)
+  clonePseudoElements(nativeNode, clonedNode)
+  cloneInputValue(nativeNode, clonedNode)
+  cloneSelectValue(nativeNode, clonedNode)
+
+  return clonedNode
 }
 
 export async function cloneNode<T extends HTMLElement>(
@@ -140,7 +139,7 @@ export async function cloneNode<T extends HTMLElement>(
   isRoot?: boolean,
 ): Promise<T | null> {
   if (!isRoot && options.filter && !options.filter(node)) {
-    return Promise.resolve(null)
+    return null
   }
 
   return Promise.resolve(node)

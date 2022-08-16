@@ -9,7 +9,7 @@ async function embedBackground<T extends HTMLElement>(
 ): Promise<T> {
   const background = clonedNode.style?.getPropertyValue('background')
   if (!background) {
-    return Promise.resolve(clonedNode)
+    return clonedNode
   }
 
   return Promise.resolve(background)

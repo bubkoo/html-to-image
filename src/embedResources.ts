@@ -85,18 +85,15 @@ export async function embedResources(
   options: Options,
 ): Promise<string> {
   if (!shouldEmbed(cssText)) {
-    return Promise.resolve(cssText)
+    return cssText
   }
 
   const filteredCSSText = filterPreferredFontFormat(cssText, options)
-  return Promise.resolve(filteredCSSText)
-    .then(parseURLs)
-    .then((urls) =>
-      urls.reduce(
-        (deferred, url) =>
-          // eslint-disable-next-line promise/no-nesting
-          deferred.then((css) => embed(css, url, baseUrl, options)),
-        Promise.resolve(filteredCSSText),
-      ),
-    )
+  const urls = parseURLs(filteredCSSText)
+  return urls.reduce(
+    (deferred, url) =>
+      // eslint-disable-next-line promise/no-nesting
+      deferred.then((css) => embed(css, url, baseUrl, options)),
+    Promise.resolve(filteredCSSText),
+  )
 }
