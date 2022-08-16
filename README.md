@@ -343,3 +343,8 @@ To become a contributor, please follow our [contributing guide](/CONTRIBUTING.md
 <a href="https://github.com/bubkoo/html-to-image/graphs/contributors">
   <img src="/CONTRIBUTORS.svg" alt="Contributors" width="740" />
 </a>
+
+
+## License
+
+The scripts and documentation in this project are released under the [MIT License](LICENSE)
