@@ -1,3 +1,10 @@
+## [1.10.6](https://github.com/bubkoo/html-to-image/compare/v1.10.5...v1.10.6) (2022-08-26)
+
+
+### Bug Fixes
+
+* apply skipFonts option ([6b7e923](https://github.com/bubkoo/html-to-image/commit/6b7e923ca6a82dddb409a8ab2cda24c469640014)), closes [#93](https://github.com/bubkoo/html-to-image/issues/93) [#310](https://github.com/bubkoo/html-to-image/issues/310)
+
 ## [1.10.5](https://github.com/bubkoo/html-to-image/compare/v1.10.4...v1.10.5) (2022-08-26)
 
 ## [1.10.4](https://github.com/bubkoo/html-to-image/compare/v1.10.3...v1.10.4) (2022-08-16)
