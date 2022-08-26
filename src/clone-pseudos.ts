@@ -43,7 +43,6 @@ function clonePseudoElement<T extends HTMLElement>(
   }
 
   const className = uuid()
-
   try {
     clonedNode.className = `${clonedNode.className} ${className}`
   } catch (err) {

@@ -1,67 +1,51 @@
+import type { Options } from './types'
 import { toArray } from './util'
-import { Options } from './options'
-import { shouldEmbed, embedResources } from './embedResources'
+import { fetchAsDataURL } from './dataurl'
+import { shouldEmbed, embedResources } from './embed-resources'
 
 interface Metadata {
   url: string
-  cssText: Promise<string>
+  cssText: string
 }
 
-const cssFetchCache: {
-  [href: string]: Promise<void | Metadata>
-} = {}
+const cssFetchCache: { [href: string]: Metadata } = {}
 
-function fetchCSS(url: string): Promise<void | Metadata> {
-  const cache = cssFetchCache[url]
+async function fetchCSS(url: string) {
+  let cache = cssFetchCache[url]
   if (cache != null) {
     return cache
   }
 
-  const deferred = window.fetch(url).then((res) => ({
-    url,
-    cssText: res.text(),
-  }))
+  const res = await fetch(url)
+  const cssText = await res.text()
+  cache = { url, cssText }
 
-  cssFetchCache[url] = deferred
+  cssFetchCache[url] = cache
 
-  return deferred
+  return cache
 }
 
-async function embedFonts(meta: Metadata, options: Options): Promise<string> {
-  return meta.cssText.then((raw: string) => {
-    let cssText = raw
-    const regexUrl = /url\(["']?([^"')]+)["']?\)/g
-    const fontLocs = cssText.match(/url\([^)]+\)/g) || []
-    const loadFonts = fontLocs.map((location: string) => {
-      let url = location.replace(regexUrl, '$1')
-      if (!url.startsWith('https://')) {
-        url = new URL(url, meta.url).href
-      }
+async function embedFonts(data: Metadata, options: Options): Promise<string> {
+  let cssText = data.cssText
+  const regexUrl = /url\(["']?([^"')]+)["']?\)/g
+  const fontLocs = cssText.match(/url\([^)]+\)/g) || []
+  const loadFonts = fontLocs.map(async (loc: string) => {
+    let url = loc.replace(regexUrl, '$1')
+    if (!url.startsWith('https://')) {
+      url = new URL(url, data.url).href
+    }
 
-      // eslint-disable-next-line promise/no-nesting
-      return window
-        .fetch(url, options.fetchRequestInit)
-        .then((res) => res.blob())
-        .then(
-          (blob) =>
-            new Promise<[string, string | ArrayBuffer | null]>(
-              (resolve, reject) => {
-                const reader = new FileReader()
-                reader.onloadend = () => {
-                  // Side Effect
-                  cssText = cssText.replace(location, `url(${reader.result})`)
-                  resolve([location, reader.result])
-                }
-                reader.onerror = reject
-                reader.readAsDataURL(blob)
-              },
-            ),
-        )
-    })
-
-    // eslint-disable-next-line promise/no-nesting
-    return Promise.all(loadFonts).then(() => cssText)
+    return fetchAsDataURL<[string, string]>(
+      url,
+      options.fetchRequestInit,
+      ({ result }) => {
+        cssText = cssText.replace(loc, `url(${result})`)
+        return [loc, result]
+      },
+    )
   })
+
+  return Promise.all(loadFonts).then(() => cssText)
 }
 
 function parseCSS(source: string) {
@@ -97,6 +81,7 @@ function parseCSS(source: string) {
     '*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})'
   // unified regex
   const unifiedRegex = new RegExp(combinedCSSRegex, 'gi')
+
   // eslint-disable-next-line no-constant-condition
   while (true) {
     let matches = importRegex.exec(cssText)
@@ -132,9 +117,7 @@ async function getCSSRules(
             let importIndex = index + 1
             const url = (item as CSSImportRule).href
             const deferred = fetchCSS(url)
-              .then((metadata) =>
-                metadata ? embedFonts(metadata, options) : '',
-              )
+              .then((metadata) => embedFonts(metadata, options))
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
                   try {
@@ -165,9 +148,7 @@ async function getCSSRules(
         if (sheet.href != null) {
           deferreds.push(
             fetchCSS(sheet.href)
-              .then((metadata) =>
-                metadata ? embedFonts(metadata, options) : '',
-              )
+              .then((metadata) => embedFonts(metadata, options))
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
                   inline.insertRule(rule, sheet.cssRules.length)
@@ -213,55 +194,48 @@ function getWebFontRules(cssRules: CSSStyleRule[]): CSSStyleRule[] {
 async function parseWebFontRules<T extends HTMLElement>(
   node: T,
   options: Options,
-): Promise<CSSRule[]> {
-  return new Promise((resolve, reject) => {
-    if (node.ownerDocument == null) {
-      reject(new Error('Provided element is not within a Document'))
-    }
-    resolve(toArray(node.ownerDocument.styleSheets))
-  })
-    .then((styleSheets: CSSStyleSheet[]) => getCSSRules(styleSheets, options))
-    .then(getWebFontRules)
+) {
+  if (node.ownerDocument == null) {
+    throw new Error('Provided element is not within a Document')
+  }
+
+  const styleSheets = toArray<CSSStyleSheet>(node.ownerDocument.styleSheets)
+  const cssRules = await getCSSRules(styleSheets, options)
+
+  return getWebFontRules(cssRules)
 }
 
 export async function getWebFontCSS<T extends HTMLElement>(
   node: T,
   options: Options,
 ): Promise<string> {
-  return parseWebFontRules(node, options)
-    .then((rules) =>
-      Promise.all(
-        rules.map((rule) => {
-          const baseUrl = rule.parentStyleSheet
-            ? rule.parentStyleSheet.href
-            : null
-          return embedResources(rule.cssText, baseUrl, options)
-        }),
-      ),
-    )
-    .then((cssTexts) => cssTexts.join('\n'))
+  const rules = await parseWebFontRules(node, options)
+  const cssTexts = await Promise.all(
+    rules.map((rule) => {
+      const baseUrl = rule.parentStyleSheet ? rule.parentStyleSheet.href : null
+      return embedResources(rule.cssText, baseUrl, options)
+    }),
+  )
+
+  return cssTexts.join('\n')
 }
 
-export async function embedWebFonts(
-  clonedNode: HTMLElement,
+export async function embedWebFonts<T extends HTMLElement>(
+  clonedNode: T,
   options: Options,
-): Promise<HTMLElement> {
-  return (
+) {
+  const cssText =
     options.fontEmbedCSS != null
-      ? Promise.resolve(options.fontEmbedCSS)
-      : getWebFontCSS(clonedNode, options)
-  ).then((cssText) => {
-    const styleNode = document.createElement('style')
-    const sytleContent = document.createTextNode(cssText)
+      ? options.fontEmbedCSS
+      : await getWebFontCSS(clonedNode, options)
+  const styleNode = document.createElement('style')
+  const sytleContent = document.createTextNode(cssText)
 
-    styleNode.appendChild(sytleContent)
+  styleNode.appendChild(sytleContent)
 
-    if (clonedNode.firstChild) {
-      clonedNode.insertBefore(styleNode, clonedNode.firstChild)
-    } else {
-      clonedNode.appendChild(styleNode)
-    }
-
-    return clonedNode
-  })
+  if (clonedNode.firstChild) {
+    clonedNode.insertBefore(styleNode, clonedNode.firstChild)
+  } else {
+    clonedNode.appendChild(styleNode)
+  }
 }

@@ -1,29 +1,4 @@
-import { Options } from './options'
-
-const WOFF = 'application/font-woff'
-const JPEG = 'image/jpeg'
-const mimes: { [key: string]: string } = {
-  woff: WOFF,
-  woff2: WOFF,
-  ttf: 'application/font-truetype',
-  eot: 'application/vnd.ms-fontobject',
-  png: 'image/png',
-  jpg: JPEG,
-  jpeg: JPEG,
-  gif: 'image/gif',
-  tiff: 'image/tiff',
-  svg: 'image/svg+xml',
-}
-
-export function getExtension(url: string): string {
-  const match = /\.([^./]*?)$/g.exec(url)
-  return match ? match[1] : ''
-}
-
-export function getMimeType(url: string): string {
-  const extension = getExtension(url).toLowerCase()
-  return mimes[extension] || ''
-}
+import type { Options } from './types'
 
 export function resolveUrl(url: string, baseUrl: string | null): string {
   // url is absolute already
@@ -55,18 +30,6 @@ export function resolveUrl(url: string, baseUrl: string | null): string {
   a.href = url
 
   return a.href
-}
-
-export function isDataUrl(url: string) {
-  return url.search(/^(data:)/) !== -1
-}
-
-export function makeDataUrl(content: string, mimeType: string) {
-  return `data:${mimeType};base64,${content}`
-}
-
-export function parseDataUrlContent(dataURL: string) {
-  return dataURL.split(/,/)[1]
 }
 
 export const uuid = (() => {

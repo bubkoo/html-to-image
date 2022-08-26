@@ -1,8 +1,8 @@
-import { Options } from './options'
-import { cloneNode } from './cloneNode'
-import { embedImages } from './embedImages'
-import { applyStyleFromOptions } from './applyStyleFromOptions'
-import { embedWebFonts, getWebFontCSS } from './embedWebFonts'
+import { Options } from './types'
+import { cloneNode } from './clone-node'
+import { embedImages } from './embed-images'
+import { applyStyle } from './apply-style'
+import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
 import {
   getImageSize,
   getPixelRatio,
@@ -20,7 +20,7 @@ export async function toSvg<T extends HTMLElement>(
   const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
   await embedWebFonts(clonedNode, options)
   await embedImages(clonedNode, options)
-  applyStyleFromOptions(clonedNode, options)
+  applyStyle(clonedNode, options)
   const datauri = await nodeToDataURL(clonedNode, width, height)
   return datauri
 }

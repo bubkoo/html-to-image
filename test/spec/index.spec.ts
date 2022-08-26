@@ -1,7 +1,7 @@
 /* eslint-disable promise/no-callback-in-promise */
 import * as util from '../../src/util'
 import * as htmlToImage from '../../src'
-import * as embeding from '../../src/embedResources'
+import * as embeding from '../../src/embed-resources'
 import {
   clean,
   bootstrap,

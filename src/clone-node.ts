@@ -1,7 +1,8 @@
-import { Options } from './options'
-import { getBlobFromURL } from './getBlobFromURL'
-import { clonePseudoElements } from './clonePseudoElements'
-import { createImage, getMimeType, makeDataUrl, toArray } from './util'
+import type { Options } from './types'
+import { getMimeType } from './mimes'
+import { resourceToDataURL } from './dataurl'
+import { clonePseudoElements } from './clone-pseudos'
+import { createImage, toArray } from './util'
 
 async function cloneCanvasElement(canvas: HTMLCanvasElement) {
   const dataURL = canvas.toDataURL()
@@ -14,11 +15,8 @@ async function cloneCanvasElement(canvas: HTMLCanvasElement) {
 
 async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
   const poster = video.poster
-  const metadata = await getBlobFromURL(poster, options)
-  const dataURL = makeDataUrl(
-    metadata.blob,
-    getMimeType(poster) || metadata.contentType,
-  )
+  const contentType = getMimeType(poster)
+  const dataURL = await resourceToDataURL(poster, contentType, options)
   return createImage(dataURL)
 }
 
@@ -54,29 +52,28 @@ async function cloneChildren<T extends HTMLElement>(
     return clonedNode
   }
 
-  return children
-    .reduce(
-      (deferred, child) =>
-        deferred
-          .then(() => cloneNode(child, options))
-          .then((clonedChild: HTMLElement | null) => {
-            if (clonedChild) {
-              clonedNode.appendChild(clonedChild)
-            }
-          }),
-      Promise.resolve(),
-    )
-    .then(() => clonedNode)
+  await children.reduce(
+    (deferred, child) =>
+      deferred
+        .then(() => cloneNode(child, options))
+        .then((clonedChild: HTMLElement | null) => {
+          if (clonedChild) {
+            clonedNode.appendChild(clonedChild)
+          }
+        }),
+    Promise.resolve(),
+  )
+
+  return clonedNode
 }
 
 function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  const sourceStyle = window.getComputedStyle(nativeNode)
   const targetStyle = clonedNode.style
-
   if (!targetStyle) {
     return
   }
 
+  const sourceStyle = window.getComputedStyle(nativeNode)
   if (sourceStyle.cssText) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
@@ -121,14 +118,12 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
-  if (!(clonedNode instanceof Element)) {
-    return clonedNode
+  if (clonedNode instanceof Element) {
+    cloneCSSStyle(nativeNode, clonedNode)
+    clonePseudoElements(nativeNode, clonedNode)
+    cloneInputValue(nativeNode, clonedNode)
+    cloneSelectValue(nativeNode, clonedNode)
   }
-
-  cloneCSSStyle(nativeNode, clonedNode)
-  clonePseudoElements(nativeNode, clonedNode)
-  cloneInputValue(nativeNode, clonedNode)
-  cloneSelectValue(nativeNode, clonedNode)
 
   return clonedNode
 }
