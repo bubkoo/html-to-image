@@ -227,15 +227,20 @@ export async function embedWebFonts<T extends HTMLElement>(
   const cssText =
     options.fontEmbedCSS != null
       ? options.fontEmbedCSS
+      : options.skipFonts
+      ? null
       : await getWebFontCSS(clonedNode, options)
-  const styleNode = document.createElement('style')
-  const sytleContent = document.createTextNode(cssText)
 
-  styleNode.appendChild(sytleContent)
+  if (cssText) {
+    const styleNode = document.createElement('style')
+    const sytleContent = document.createTextNode(cssText)
 
-  if (clonedNode.firstChild) {
-    clonedNode.insertBefore(styleNode, clonedNode.firstChild)
-  } else {
-    clonedNode.appendChild(styleNode)
+    styleNode.appendChild(sytleContent)
+
+    if (clonedNode.firstChild) {
+      clonedNode.insertBefore(styleNode, clonedNode.firstChild)
+    } else {
+      clonedNode.appendChild(styleNode)
+    }
   }
 }
