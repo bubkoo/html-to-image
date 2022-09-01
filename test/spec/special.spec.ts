@@ -1,28 +1,55 @@
 /* eslint-disable promise/no-callback-in-promise */
 
-import * as util from '../../src/util'
-import { clean, bootstrap, renderToPng } from './helper'
+import '../spec/setup'
+import { toPng } from '../../src'
+import { delay } from '../../src/util'
+import { bootstrap, renderAndCheck } from '../spec/helper'
 
-describe('html-to-image', () => {
-  beforeAll(() => {
-    process.env.devicePixelRatio = '1'
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
+describe('special cases', () => {
+  xit('should not crash when loading external stylesheet causes error', (done) => {
+    bootstrap('ext-css/node.html', 'ext-css/style.css')
+      .then(delay(1000))
+      .then((node) => {
+        toPng(node)
+      })
+      .then(done)
+      .catch(done)
   })
 
-  afterAll(() => {
-    delete process.env.devicePixelRatio
-    clean()
-  })
+  xit('should render content from shadow node of custom element', (done) => {
+    const link = document.createElement('link')
+    const script = document.createElement('script')
+    script.src = 'https://unpkg.com/mathlive/dist/mathlive.min.js'
+    link.rel = 'stylesheet'
+    link.crossOrigin = 'anonymous'
+    link.href = 'https://unpkg.com/mathlive/dist/mathlive-fonts.css'
+    const tasks = [
+      new Promise((resolve, reject) => {
+        script.onload = resolve
+        script.onerror = reject
+      }),
+      new Promise((resolve, reject) => {
+        link.onload = resolve
+        link.onerror = reject
+      }),
+    ]
+    document.head.append(script, link)
 
-  describe('special cases', () => {
-    it('should not crash when loading external stylesheet causes error', (done) => {
-      bootstrap('ext-css/node.html', 'ext-css/style.css')
-        .then(util.delay(1000))
-        .then((node) => {
-          renderToPng(node)
+    Promise.all(tasks).then(() =>
+      // eslint-disable-next-line promise/no-nesting
+      bootstrap(
+        'custom-element/node.html',
+        'custom-element/style.css',
+        'custom-element/image',
+      )
+        .then(delay(1000))
+        .then(renderAndCheck)
+        .then(() => {
+          link.remove()
+          script.remove()
+          done()
         })
-        .then(done)
-        .catch(done)
-    })
+        .catch(done),
+    )
   })
 })

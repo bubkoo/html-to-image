@@ -1,0 +1,9 @@
+#dom-node {
+  width: 240px;
+  height: 160px;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+}

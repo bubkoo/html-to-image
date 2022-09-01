@@ -1,9 +1,9 @@
 #dom-node {
-  height: 100px;
   width: 100px;
+  height: 50px;
 }
 
-#content {
-  height: 100px;
+#dom-node img {
   width: 100px;
+  height: 50px;
 }

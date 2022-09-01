@@ -1,10 +1,7 @@
+import pixelmatch from 'pixelmatch'
 import { toPng } from '../../src'
+import { Options } from '../../src/types'
 import { getPixelRatio } from '../../src/util'
-import './global.d.ts'
-
-export function renderToPng(node: HTMLDivElement) {
-  return toPng(node)
-}
 
 export function getCaptureNode() {
   return document.getElementById('dom-node') as HTMLDivElement
@@ -22,7 +19,7 @@ export function getStyleNode() {
   return document.getElementById('style') as HTMLStyleElement
 }
 
-const BASE_URL = '/base/test/spec/resources/'
+const BASE_URL = '/base/test/resources/'
 const ROOT_ID = 'test-root'
 
 export function clean() {
@@ -33,13 +30,12 @@ export function clean() {
 }
 
 async function setup() {
-  return fetch('page.html').then((html) => {
-    clean()
-    const root = document.createElement('div') as HTMLDivElement
-    root.id = ROOT_ID
-    root.innerHTML = html
-    document.body.appendChild(root)
-  })
+  const html = await fetchFile('page.html')
+  clean()
+  const root = document.createElement('div') as HTMLDivElement
+  root.id = ROOT_ID
+  root.innerHTML = html
+  document.body.appendChild(root)
 }
 
 export async function bootstrap(
@@ -47,61 +43,33 @@ export async function bootstrap(
   cssUrl?: string,
   refImageUrl?: string,
 ) {
-  return setup()
-    .then(() => {
-      const deferred: Promise<void>[] = []
+  await setup()
 
-      deferred.push(
-        fetch(htmlUrl).then((html) => {
-          getCaptureNode().innerHTML = html
-        }),
-      )
+  const html = await fetchFile(htmlUrl)
+  const captureNode = getCaptureNode()
+  captureNode.innerHTML = html
 
-      if (cssUrl) {
-        deferred.push(
-          fetch(cssUrl).then((css) => {
-            getStyleNode().appendChild(document.createTextNode(css))
-          }),
-        )
-      }
+  if (cssUrl) {
+    const css = await fetchFile(cssUrl)
+    getStyleNode().appendChild(document.createTextNode(css))
+  }
 
-      if (refImageUrl) {
-        deferred.push(
-          fetch(refImageUrl).then((url) => {
-            getReferenceImage().setAttribute('src', url)
-          }),
-        )
-      }
+  if (refImageUrl) {
+    const url = await fetchFile(refImageUrl)
+    getReferenceImage().setAttribute('src', url)
+  }
 
-      return Promise.all(deferred)
-    })
-    .then(() => getCaptureNode())
+  return captureNode
 }
 
-function fetch(fileName: string) {
+async function fetchFile(fileName: string) {
   const url = BASE_URL + fileName
-  const request = new XMLHttpRequest()
-  request.open('GET', url, true)
-  request.responseType = 'text'
-
-  return new Promise<string>((resolve, reject) => {
-    request.onload = () => {
-      if (request.status === 200) {
-        resolve(request.response.toString().trim())
-      } else {
-        reject(new Error(`cannot load "${url}"`))
-      }
-    }
-    request.send()
-  })
+  const res = await fetch(url)
+  return res.text()
 }
 
-interface Dimensions {
-  width?: number
-  height?: number
-}
-
-function createImg(src: string) {
+function makeImage(src: string) {
+  // console.log(src)
   return new Promise<HTMLImageElement>((resolve) => {
     const image = new Image()
     image.onload = () => resolve(image)
@@ -109,16 +77,18 @@ function createImg(src: string) {
   })
 }
 
-function drawImg(
+function makeCanvas(
   img: HTMLImageElement,
-  node = getCaptureNode(),
-  dimensions: { width?: number; height?: number } = {},
+  size?: {
+    width?: number
+    height?: number
+  },
 ) {
   const canvas = getCanvasNode()
   const context = canvas.getContext('2d')!
 
-  const width = dimensions.width || node.offsetWidth
-  const height = dimensions.height || node.offsetHeight
+  const width = (size && size.width) || img.width
+  const height = (size && size.height) || img.height
   const ratio = getPixelRatio()
   canvas.width = width * ratio
   canvas.height = height * ratio
@@ -127,31 +97,64 @@ function drawImg(
 
   context.imageSmoothingEnabled = false
   context.drawImage(img, 0, 0)
-  // console.log(canvas.toDataURL())
-  return img
+  return { canvas, context, width, height }
 }
 
-export async function drawDataUrl(dataUrl: string, dimensions?: Dimensions) {
+function drawImg(
+  img: HTMLImageElement,
+  size?: {
+    width?: number
+    height?: number
+  },
+) {
+  const { context, width, height } = makeCanvas(img, size)
+  return context.getImageData(0, 0, width, height)
+}
+
+export async function drawDataUrl(
+  dataUrl: string,
+  size?: {
+    width?: number
+    height?: number
+  },
+) {
   return Promise.resolve(dataUrl)
-    .then(createImg)
-    .then((image) => drawImg(image, undefined, dimensions))
+    .then(makeImage)
+    .then((image) => drawImg(image, size))
 }
 
 export async function check(dataUrl: string) {
-  // console.log(dataUrl)
   return Promise.resolve(dataUrl)
     .then(drawDataUrl)
-    .then((img) => compareToRefImage(img))
+    .then((imgData) => compareToRefImage(imgData))
 }
 
-export async function renderAndCheck(node: HTMLDivElement = getCaptureNode()) {
-  return renderToPng(node).then(check)
+export async function logDataUrl(node: HTMLDivElement = getCaptureNode()) {
+  return toPng(node)
+    .then(makeImage)
+    .then(makeCanvas)
+    .then(({ canvas }) => {
+      // eslint-disable-next-line
+      console.log(canvas.toDataURL())
+      return node
+    })
 }
 
-export function compareToRefImage(image: HTMLImageElement, tolerance?: number) {
+export async function renderAndCheck(
+  node: HTMLDivElement = getCaptureNode(),
+  options: Options = {},
+) {
+  return toPng(node, options).then(check)
+}
+
+export function compareToRefImage(sourceData: ImageData, threshold = 0.1) {
+  const ref = getReferenceImage()
+  const refData = drawImg(ref)
   expect(
-    window.imagediff.equal(image, getReferenceImage(), tolerance || 10),
-  ).toBe(true)
+    pixelmatch(sourceData.data, refData.data, null, ref.width, ref.height, {
+      threshold,
+    }),
+  ).toBeLessThan(1)
 }
 
 export async function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
@@ -161,9 +164,9 @@ export async function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
     .then((str) => new window.DOMParser().parseFromString(str, 'text/xml'))
 }
 
-export function assertTextRendered(lines: string[]) {
+export function assertTextRendered(lines: string[], options?: Options) {
   return (node: HTMLDivElement = getCaptureNode()) =>
-    renderToPng(node)
+    toPng(node, options)
       .then(drawDataUrl)
       .then(() =>
         // eslint-disable-next-line promise/no-nesting
