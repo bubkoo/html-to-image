@@ -154,7 +154,7 @@ export function compareToRefImage(sourceData: ImageData, threshold = 0.1) {
     pixelmatch(sourceData.data, refData.data, null, ref.width, ref.height, {
       threshold,
     }),
-  ).toBeLessThan(1)
+  ).toBeLessThan(100)
 }
 
 export async function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
