@@ -1,3 +1,10 @@
+## [1.10.7](https://github.com/bubkoo/html-to-image/compare/v1.10.6...v1.10.7) (2022-09-01)
+
+
+### Bug Fixes
+
+* handle 404 status of fetch ([ecfdbcc](https://github.com/bubkoo/html-to-image/commit/ecfdbcc189771c3fe212ee2ce6f641495b0d650a))
+
 ## [1.10.6](https://github.com/bubkoo/html-to-image/compare/v1.10.5...v1.10.6) (2022-08-26)
 
 
