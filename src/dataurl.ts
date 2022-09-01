@@ -18,12 +18,21 @@ export async function fetchAsDataURL<T>(
   process: (data: { result: string; res: Response }) => T,
 ): Promise<T> {
   const res = await fetch(url, init)
+  if (res.status === 404) {
+    throw new Error(`Resource "${res.url}" not found`)
+  }
   const blob = await res.blob()
   return new Promise<T>((resolve, reject) => {
     const reader = new FileReader()
     reader.onerror = reject
-    reader.onloadend = () =>
-      resolve(process({ res, result: reader.result as string }))
+    reader.onloadend = () => {
+      try {
+        resolve(process({ res, result: reader.result as string }))
+      } catch (error) {
+        reject(error)
+      }
+    }
+
     reader.readAsDataURL(blob)
   })
 }
@@ -59,6 +68,7 @@ export async function resourceToDataURL(
     contentType,
     options.includeQueryParams,
   )
+
   if (cache[cacheKey] != null) {
     return cache[cacheKey]
   }
@@ -69,9 +79,9 @@ export async function resourceToDataURL(
     resourceUrl += (/\?/.test(resourceUrl) ? '&' : '?') + new Date().getTime()
   }
 
-  let content: string
+  let dataURL: string
   try {
-    content = await fetchAsDataURL(
+    const content = await fetchAsDataURL(
       resourceUrl,
       options.fetchRequestInit,
       ({ res, result }) => {
@@ -82,14 +92,9 @@ export async function resourceToDataURL(
         return getContentFromDataUrl(result)
       },
     )
+    dataURL = makeDataUrl(content, contentType!)
   } catch (error) {
-    let placeholder = ''
-    if (options.imagePlaceholder) {
-      const parts = options.imagePlaceholder.split(/,/)
-      if (parts && parts[1]) {
-        placeholder = parts[1]
-      }
-    }
+    dataURL = options.imagePlaceholder || ''
 
     let msg = `Failed to fetch resource: ${resourceUrl}`
     if (error) {
@@ -97,13 +102,10 @@ export async function resourceToDataURL(
     }
 
     if (msg) {
-      console.error(msg)
+      console.warn(msg)
     }
-
-    content = placeholder
   }
 
-  const dataurl = makeDataUrl(content, contentType || '')
-  cache[cacheKey] = dataurl
-  return dataurl
+  cache[cacheKey] = dataURL
+  return dataURL
 }
