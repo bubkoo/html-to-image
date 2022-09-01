@@ -3,8 +3,7 @@
   height: 100px;
 }
 .with-background {
-  background: url(/base/test/resources/images/image.jpeg) no-repeat left
-    top;
+  background: url(/base/test/resources/images/image.jpeg) no-repeat left top;
   background-size: 100px 100px;
   width: 100px;
   height: 100px;
