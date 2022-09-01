@@ -166,15 +166,15 @@ export async function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
 
 export function assertTextRendered(lines: string[], options?: Options) {
   return (node: HTMLDivElement = getCaptureNode()) =>
-    toPng(node, options)
-      .then(drawDataUrl)
-      .then(() =>
-        // eslint-disable-next-line promise/no-nesting
-        recognize(getCanvasNode().toDataURL()).then((text: string) => {
-          // console.log(text)
-          expect(lines.every((line) => text.includes(line))).toBe(true)
-        }),
-      )
+    recognizeImage(node, options).then((text) => {
+      expect(lines.every((line) => text.includes(line))).toBe(true)
+    })
+}
+
+export async function recognizeImage(node: HTMLDivElement, options?: Options) {
+  return toPng(node, options)
+    .then(drawDataUrl)
+    .then(() => recognize(getCanvasNode().toDataURL()))
 }
 
 // see: https://ocr.space/OCRAPI
