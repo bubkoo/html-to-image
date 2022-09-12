@@ -17,6 +17,16 @@ async function embedBackground<T extends HTMLElement>(
       clonedNode.style.getPropertyPriority('background'),
     )
   }
+
+  const mask = clonedNode.style?.getPropertyValue('mask')
+  if (mask) {
+    const cssString = await embedResources(mask, null, options)
+    clonedNode.style.setProperty(
+      'mask',
+      cssString,
+      clonedNode.style.getPropertyPriority('mask'),
+    )
+  }
 }
 
 async function embedImageNode<T extends HTMLElement | SVGImageElement>(
