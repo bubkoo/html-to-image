@@ -24,11 +24,14 @@ async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
 ): Promise<HTMLElement> {
-  if (node instanceof HTMLCanvasElement) {
+  if (node instanceof node.ownerDocument.defaultView!.HTMLCanvasElement) {
     return cloneCanvasElement(node)
   }
 
-  if (node instanceof HTMLVideoElement && node.poster) {
+  if (
+    node instanceof node.ownerDocument.defaultView!.HTMLVideoElement &&
+    node.poster
+  ) {
     return cloneVideoElement(node, options)
   }
 
@@ -48,7 +51,7 @@ async function cloneChildren<T extends HTMLElement>(
       ? toArray<T>(nativeNode.assignedNodes())
       : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
 
-  if (children.length === 0 || nativeNode instanceof HTMLVideoElement) {
+  if (children.length === 0 || nativeNode.ownerDocument.defaultView!.HTMLVideoElement) {
     return clonedNode
   }
 
@@ -72,8 +75,8 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   if (!targetStyle) {
     return
   }
-
-  const sourceStyle = window.getComputedStyle(nativeNode)
+  const window = nativeNode.ownerDocument.defaultView
+  const sourceStyle = window!.getComputedStyle(nativeNode)
   if (sourceStyle.cssText) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
@@ -95,11 +98,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (nativeNode instanceof HTMLTextAreaElement) {
+  if (nativeNode instanceof nativeNode.ownerDocument.defaultView!.HTMLTextAreaElement) {
     clonedNode.innerHTML = nativeNode.value
   }
 
-  if (nativeNode instanceof HTMLInputElement) {
+  if (nativeNode instanceof nativeNode.ownerDocument.defaultView!.HTMLInputElement) {
     clonedNode.setAttribute('value', nativeNode.value)
   }
 }
@@ -118,7 +121,7 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
-  if (clonedNode instanceof Element) {
+  if (clonedNode instanceof clonedNode.ownerDocument.defaultView!.Element) {
     cloneCSSStyle(nativeNode, clonedNode)
     clonePseudoElements(nativeNode, clonedNode)
     cloneInputValue(nativeNode, clonedNode)
