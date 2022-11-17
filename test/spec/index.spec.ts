@@ -18,7 +18,7 @@ describe('html to image', () => {
   describe('basic usage', () => {
     it('should render to svg', (done) => {
       Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
-        .then(node => htmlToImage.toSvg(node, document, window))
+        .then((node) => htmlToImage.toSvg(node, document, window))
         .then(Helper.check)
         .then(done)
         .catch(done)
@@ -35,7 +35,7 @@ describe('html to image', () => {
     it('should render to blob', (done) => {
       Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
         .then(htmlToImage.toBlob)
-        .then(global.URL.createObjectURL)
+        .then((obj) => global.URL.createObjectURL(obj as Blob))
         .then(Helper.check)
         .then(done)
         .catch(done)
@@ -65,7 +65,9 @@ describe('html to image', () => {
       Helper.bootstrap('pixeldata/node.html', 'pixeldata/style.css')
         .then(util.delay(1000))
         .then((node) =>
-          htmlToImage.toPixelData(node, window).then((pixels) => ({ node, pixels })),
+          htmlToImage
+            .toPixelData(node, window)
+            .then((pixels) => ({ node, pixels })),
         )
         .then(({ node, pixels }) => {
           for (let y = 0; y < node.scrollHeight; y += 1) {
@@ -304,7 +306,7 @@ describe('html to image', () => {
 
     it('should include a viewBox attribute', (done) => {
       Helper.bootstrap('small/node.html', 'small/style.css', 'small/image')
-        .then(node => htmlToImage.toSvg(node, document, window))
+        .then((node) => htmlToImage.toSvg(node, document, window))
         .then(Helper.getSvgDocument)
         .then((doc) => {
           const width = doc.documentElement.getAttribute('width')
@@ -344,7 +346,7 @@ describe('html to image', () => {
         .then((dataUrl) =>
           Helper.drawDataUrl(dataUrl, { width: 200, height: 200 }),
         )
-        .then(Helper.compareToRefImage)
+        .then((image) => Helper.compareToRefImage(image as HTMLImageElement))
         .then(done)
         .catch(done)
     })
@@ -408,7 +410,7 @@ describe('html to image', () => {
         .then((dataUrl) =>
           Helper.drawDataUrl(dataUrl, { width: 200, height: 200 }),
         )
-        .then(Helper.compareToRefImage)
+        .then((image) => Helper.compareToRefImage(image as HTMLImageElement))
         .then(done)
         .catch(done)
     })
@@ -458,7 +460,9 @@ describe('html to image', () => {
         'fonts/web-fonts/empty.html',
         'fonts/web-fonts/remote.css',
       )
-        .then((node) => htmlToImage.toSvg(node, document, window,{ fontEmbedCSS: testCss }))
+        .then((node) =>
+          htmlToImage.toSvg(node, document, window, { fontEmbedCSS: testCss }),
+        )
         .then(Helper.getSvgDocument)
         .then((doc) => {
           const styles = Array.from(doc.getElementsByTagName('style'))
@@ -475,7 +479,9 @@ describe('html to image', () => {
         'fonts/web-fonts/remote.css',
       )
         .then((node) =>
-          htmlToImage.toSvg(node, document, window,{ preferredFontFormat: 'woff2' }),
+          htmlToImage.toSvg(node, document, window, {
+            preferredFontFormat: 'woff2',
+          }),
         )
         .then(Helper.getSvgDocument)
         .then((doc) => {
