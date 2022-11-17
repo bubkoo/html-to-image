@@ -1,6 +1,6 @@
 {
   "name": "@outsystems/html-to-image",
-  "version": "1.9.0-os4",
+  "version": "1.9.0-os5",
   "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -105,7 +105,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.0",
-    "typescript": "^4.4.3"
+    "typescript": "^4.8.4"
   },
   "repository": {
     "type": "git",

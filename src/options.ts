@@ -99,4 +99,16 @@ export interface Options {
    * The part of the image to be exported
    */
   section?: Section
+  /**
+   * Rules that must not be considered for fetching resources. NOTE: the current implementation
+   * is simply doing a string comparison of the selectors.
+   */
+  skipCSSRuleBySelectors?: string[]
+  /**
+   * Skip fetching specific URLs.
+   * TODO: this feature is partially implemented. If you use this, make sure the
+   * URL is being skipped, otherwise you may need to implement the missing parts
+   * of the feature.
+   */
+  skipURLs?: string[]
 }

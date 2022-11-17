@@ -36,6 +36,10 @@ export function embed(
     ? resolveUrl(resourceURL, baseURL, document, window)
     : resourceURL
 
+  if (options.skipURLs?.includes(resourceURL)) {
+    return Promise.resolve(resolvedURL)
+  }
+
   return Promise.resolve(resolvedURL)
     .then<string | { blob: string; contentType: string }>((url) =>
       get ? get(url) : getBlobFromURL(url, options, window),
