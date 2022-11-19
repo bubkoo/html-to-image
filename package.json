@@ -26,6 +26,7 @@
     "clean": "rimraf dist es lib",
     "build:esm": "tsc --module esnext --target es2017 --outDir ./es",
     "build:cjs": "tsc --module commonjs --target es5 --outDir ./lib",
+    "build:decl": "tsc --declaration --module amd --target es5 --out ./amd/html-to-image.js",
     "build:umd": "rollup -c",
     "build": "run-s build:esm build:cjs build:umd",
     "prebuild": "run-s lint clean",
