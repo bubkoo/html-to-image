@@ -4,28 +4,29 @@ import { toArray } from './util'
 import { isDataUrl, resourceToDataURL } from './dataurl'
 import { getMimeType } from './mimes'
 
+async function embedProp(propName: string, node: HTMLElement, options: Options) {
+  const propValue = node.style?.getPropertyValue(propName)
+  if (propValue) {
+    const cssString = await embedResources(propValue, null, options)
+    node.style.setProperty(
+      propName,
+      cssString,
+      node.style.getPropertyPriority(propName),
+    )
+    return true;
+  }
+  return false;
+}
+
 async function embedBackground<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ) {
-  const background = clonedNode.style?.getPropertyValue('background')
-  if (background) {
-    const cssString = await embedResources(background, null, options)
-    clonedNode.style.setProperty(
-      'background',
-      cssString,
-      clonedNode.style.getPropertyPriority('background'),
-    )
+  if(!await embedProp("background", clonedNode, options)) {
+    await embedProp("background-image", clonedNode, options)
   }
-
-  const mask = clonedNode.style?.getPropertyValue('mask')
-  if (mask) {
-    const cssString = await embedResources(mask, null, options)
-    clonedNode.style.setProperty(
-      'mask',
-      cssString,
-      clonedNode.style.getPropertyPriority('mask'),
-    )
+  if(!await embedProp("mask", clonedNode, options)) {
+    await embedProp("mask-image", clonedNode, options)
   }
 }
 

@@ -74,24 +74,31 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 
   const sourceStyle = window.getComputedStyle(nativeNode)
+  const defaultElement = document.createElement(nativeNode.tagName)
+  document.body.appendChild(defaultElement) // we need to add it to the page to get the default computed styles (otherwise it's empty)
+  const defaultStyle = window.getComputedStyle(defaultElement)
   if (sourceStyle.cssText) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
     toArray<string>(sourceStyle).forEach((name) => {
+      const defaultValue = defaultStyle.getPropertyValue(name);
       let value = sourceStyle.getPropertyValue(name)
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
         value = `${reducedFont}px`
       }
-      targetStyle.setProperty(
-        name,
-        value,
-        sourceStyle.getPropertyPriority(name),
-      )
+      if(defaultValue != value) {
+        targetStyle.setProperty(
+          name,
+          value,
+          sourceStyle.getPropertyPriority(name),
+        )
+      }
     })
   }
+  document.body.removeChild(defaultElement);
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
