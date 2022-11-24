@@ -67,7 +67,17 @@ async function cloneChildren<T extends HTMLElement>(
   return clonedNode
 }
 
+/** DOM in which we can deduce the default value of properties without being polluted by the global namespace */
+let shadowDom: ShadowRoot | null = null;
+
 function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
+  if(shadowDom == null) {
+    let shadowContainer = document.createElement("div");
+    shadowContainer.style.display = "none";
+    shadowDom = shadowContainer.attachShadow({mode: "open"});
+    document.body.appendChild(shadowContainer);
+  }
+
   const targetStyle = clonedNode.style
   if (!targetStyle) {
     return
@@ -75,21 +85,21 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 
   const sourceStyle = window.getComputedStyle(nativeNode)
   const defaultElement = document.createElement(nativeNode.tagName)
-  document.body.appendChild(defaultElement) // we need to add it to the page to get the default computed styles (otherwise it's empty)
+  shadowDom.appendChild(defaultElement) // we need to add it to the page to get the default computed styles (otherwise it's empty)
   const defaultStyle = window.getComputedStyle(defaultElement)
   if (sourceStyle.cssText) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
     toArray<string>(sourceStyle).forEach((name) => {
-      const defaultValue = defaultStyle.getPropertyValue(name);
+      const defaultValue = defaultStyle.getPropertyValue(name)
       let value = sourceStyle.getPropertyValue(name)
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
         value = `${reducedFont}px`
       }
-      if(defaultValue != value) {
+      if (defaultValue != value) {
         targetStyle.setProperty(
           name,
           value,
@@ -98,7 +108,7 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
       }
     })
   }
-  document.body.removeChild(defaultElement);
+  shadowDom.removeChild(defaultElement)
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {

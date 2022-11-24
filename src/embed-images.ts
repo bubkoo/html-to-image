@@ -4,7 +4,11 @@ import { toArray } from './util'
 import { isDataUrl, resourceToDataURL } from './dataurl'
 import { getMimeType } from './mimes'
 
-async function embedProp(propName: string, node: HTMLElement, options: Options) {
+async function embedProp(
+  propName: string,
+  node: HTMLElement,
+  options: Options,
+) {
   const propValue = node.style?.getPropertyValue(propName)
   if (propValue) {
     const cssString = await embedResources(propValue, null, options)
@@ -13,20 +17,20 @@ async function embedProp(propName: string, node: HTMLElement, options: Options) 
       cssString,
       node.style.getPropertyPriority(propName),
     )
-    return true;
+    return true
   }
-  return false;
+  return false
 }
 
 async function embedBackground<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ) {
-  if(!await embedProp("background", clonedNode, options)) {
-    await embedProp("background-image", clonedNode, options)
+  if (!(await embedProp('background', clonedNode, options))) {
+    await embedProp('background-image', clonedNode, options)
   }
-  if(!await embedProp("mask", clonedNode, options)) {
-    await embedProp("mask-image", clonedNode, options)
+  if (!(await embedProp('mask', clonedNode, options))) {
+    await embedProp('mask-image', clonedNode, options)
   }
 }
 
