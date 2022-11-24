@@ -72,10 +72,10 @@ let shadowDom: ShadowRoot | null = null;
 
 function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   if(shadowDom == null) {
-    let shadowContainer = document.createElement("div");
-    shadowContainer.style.display = "none";
-    shadowDom = shadowContainer.attachShadow({mode: "open"});
-    document.body.appendChild(shadowContainer);
+    let shadowContainer = document.createElement("div")
+    shadowContainer.style.display = "none"
+    shadowDom = shadowContainer.attachShadow({mode: "open"})
+    document.body.appendChild(shadowContainer)
   }
 
   const targetStyle = clonedNode.style
