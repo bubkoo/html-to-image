@@ -198,6 +198,7 @@ export async function svgToDataURL(svg: SVGElement): Promise<string> {
     .then(() => new XMLSerializer().serializeToString(svg))
     .then(encodeURIComponent)
     .then((html) => {
+      (window as any).htis = html;
       return `data:image/svg+xml;charset=utf-8,${html}`
     })
 }
