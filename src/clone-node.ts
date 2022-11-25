@@ -87,7 +87,10 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 
   const sourceStyle = window.getComputedStyle(nativeNode)
-  targetStyle.setProperty("all", "initial",sourceStyle.getPropertyPriority("all")) // for some weird reason this is needed otherwise some styles are taken from the host page and others are not
+  //targetStyle.setProperty("all", "initial",sourceStyle.getPropertyPriority("all")) // for some weird reason this is needed otherwise some styles are taken from the host page and others are not
+  targetStyle.setProperty("margin", "0",sourceStyle.getPropertyPriority("margin"));
+  targetStyle.setProperty("padding", "0",sourceStyle.getPropertyPriority("padding"));
+  targetStyle.setProperty("box-sizing", "border-box",sourceStyle.getPropertyPriority("box-sizing"));
   const defaultElement = document.createElement(nativeNode.tagName)
   shadowDom.appendChild(defaultElement) // we need to add it to the page to get the default computed styles (otherwise it's empty)
   const defaultStyle = window.getComputedStyle(defaultElement)
@@ -109,7 +112,7 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
           value = `${reducedFont}px`
         }
       }
-      if (defaultValue != value) {
+      if (defaultValue != value && value != "initial") {
         targetStyle.setProperty(
           name,
           value,
