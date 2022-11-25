@@ -75,6 +75,9 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
     let shadowContainer = document.createElement("div")
     shadowContainer.style.display = "none"
     shadowDom = shadowContainer.attachShadow({mode: "open"})
+    const shadowStyle = document.createElement("style");
+    shadowStyle.innerHTML = ":host{all:initial;} *{all:initial;}";
+    shadowDom.appendChild(shadowStyle);
     document.body.appendChild(shadowContainer)
   }
 
@@ -84,6 +87,7 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 
   const sourceStyle = window.getComputedStyle(nativeNode)
+  targetStyle.setProperty("all", "initial",sourceStyle.getPropertyPriority("all")) // for some weird reason this is needed otherwise some styles are taken from the host page and others are not
   const defaultElement = document.createElement(nativeNode.tagName)
   shadowDom.appendChild(defaultElement) // we need to add it to the page to get the default computed styles (otherwise it's empty)
   const defaultStyle = window.getComputedStyle(defaultElement)
@@ -92,12 +96,18 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
     toArray<string>(sourceStyle).forEach((name) => {
-      const defaultValue = defaultStyle.getPropertyValue(name)
+      if(name.startsWith("--")) {
+        // No need to add those. CSS variables will be replaced by the engine.
+        return
+      }
       let value = sourceStyle.getPropertyValue(name)
+      const defaultValue = defaultStyle.getPropertyValue(name)
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
-          Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
-        value = `${reducedFont}px`
+          Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1;
+        if(reducedFont >= 0) {
+          value = `${reducedFont}px`
+        }
       }
       if (defaultValue != value) {
         targetStyle.setProperty(
