@@ -11,6 +11,7 @@ async function embedProp(
 ) {
   const propValue = node.style?.getPropertyValue(propName)
   if (propValue) {
+    // TODO we should try to use svg def to avoid putting the same string multiple times
     const cssString = await embedResources(propValue, null, options)
     node.style.setProperty(
       propName,
@@ -71,8 +72,12 @@ async function embedChildren<T extends HTMLElement>(
   options: Options,
 ) {
   const children = toArray<HTMLElement>(clonedNode.childNodes)
-  const deferreds = children.map((child) => embedImages(child, options))
-  await Promise.all(deferreds).then(() => clonedNode)
+  // TODO choose between the loop and the Promise.all, the first one leverage the cache correctly, the second one does not but makes requests faster (I think?)
+  for (const child of children) {
+    await embedImages(child, options)
+  }
+  //const deferreds = children.map((child) => embedImages(child, options))
+  //await Promise.all(deferreds).then(() => clonedNode)
 }
 
 export async function embedImages<T extends HTMLElement>(

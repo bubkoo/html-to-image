@@ -135,7 +135,6 @@ export async function logDataUrl(node: HTMLDivElement = getCaptureNode()) {
     .then(makeCanvas)
     .then(({ canvas }) => {
       // eslint-disable-next-line
-      console.log(canvas.toDataURL())
       return node
     })
 }

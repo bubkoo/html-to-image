@@ -191,14 +191,12 @@ export function createImage(url: string): Promise<HTMLImageElement> {
   })
 }
 
-
-
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
     .then(() => new XMLSerializer().serializeToString(svg))
     .then(encodeURIComponent)
     .then((html) => {
-      (window as any).htis = html;
+      //(window as any).htis = html;
       return `data:image/svg+xml;charset=utf-8,${html}`
     })
 }
@@ -223,6 +221,6 @@ export async function nodeToDataURL(
   foreignObject.setAttribute('externalResourcesRequired', 'true')
 
   svg.appendChild(foreignObject)
-  foreignObject.appendChild(node);
+  foreignObject.appendChild(node)
   return svgToDataURL(svg)
 }

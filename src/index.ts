@@ -1,5 +1,5 @@
 import { Options } from './types'
-import { cloneNode } from './clone-node'
+import { cloneNode, tryInitShadowDom } from './clone-node'
 import { embedImages } from './embed-images'
 import { applyStyle } from './apply-style'
 import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
@@ -12,10 +12,15 @@ import {
   checkCanvasDimensions,
 } from './util'
 
+function init() {
+  tryInitShadowDom()
+}
+
 export async function toSvg<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<string> {
+  init()
   const { width, height } = getImageSize(node, options)
   const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
   await embedWebFonts(clonedNode, options)
@@ -29,6 +34,7 @@ export async function toCanvas<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<HTMLCanvasElement> {
+  init()
   const { width, height } = getImageSize(node, options)
   const svg = await toSvg(node, options)
   const img = await createImage(svg)
@@ -62,6 +68,7 @@ export async function toPixelData<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<Uint8ClampedArray> {
+  init()
   const { width, height } = getImageSize(node, options)
   const canvas = await toCanvas(node, options)
   const ctx = canvas.getContext('2d')!
@@ -72,6 +79,7 @@ export async function toPng<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<string> {
+  init()
   const canvas = await toCanvas(node, options)
   return canvas.toDataURL()
 }
@@ -80,6 +88,7 @@ export async function toJpeg<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<string> {
+  init()
   const canvas = await toCanvas(node, options)
   return canvas.toDataURL('image/jpeg', options.quality || 1)
 }
@@ -88,6 +97,7 @@ export async function toBlob<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<Blob | null> {
+  init()
   const canvas = await toCanvas(node, options)
   const blob = await canvasToBlob(canvas)
   return blob

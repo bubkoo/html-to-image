@@ -1,5 +1,21 @@
 {
- "extends": "@bubkoo/tsconfig",
+  "exclude": ["node_modules", "**/es", "**/lib"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "strict": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "noUnusedLocals": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "target": "ES2022"
+  },
   "include": [
     "src/**/*.ts"
   ]
