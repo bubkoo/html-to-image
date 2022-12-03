@@ -40,8 +40,14 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
 
   const dataURL = await resourceToDataURL(url, getMimeType(url), options)
   await new Promise((resolve, reject) => {
-    clonedNode.decode = resolve
+    clonedNode.onload = resolve
     clonedNode.onerror = reject
+
+    const image = clonedNode as HTMLImageElement
+    if (image.decode) {
+      image.decode = resolve as any
+    }
+
     if (clonedNode instanceof HTMLImageElement) {
       clonedNode.srcset = ''
       clonedNode.src = dataURL
