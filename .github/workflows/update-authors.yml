@@ -21,3 +21,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ env.bot_token  }}
           bots: false
+          path: CONTRIBUTORS
+          commit: 'chore: update CONTRIBUTORS [skip ci]'
