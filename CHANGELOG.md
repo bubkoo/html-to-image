@@ -1,3 +1,11 @@
+## [1.10.10](https://github.com/bubkoo/html-to-image/compare/v1.10.9...v1.10.10) (2022-12-03)
+
+
+### Bug Fixes
+
+* build script ([db7d435](https://github.com/bubkoo/html-to-image/commit/db7d43507c9419fb84ee126b8c334ffa1655b8b3))
+* type errors ([b516783](https://github.com/bubkoo/html-to-image/commit/b516783244e9aa847c89cd3ca3b8114bc6157934))
+
 ## [1.10.9](https://github.com/bubkoo/html-to-image/compare/v1.10.8...v1.10.9) (2022-12-01)
 
 ## [1.10.8](https://github.com/bubkoo/html-to-image/compare/v1.10.7...v1.10.8) (2022-09-01)
