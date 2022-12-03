@@ -190,10 +190,10 @@ A function taking DOM node as argument. Should return true if passed node should
 
 You can add filter to every image function. For example, 
 
-```js
-const filter = (node)=>{
+```ts
+const filter = (node: HTMLElement) => {
   const exclusionClasses = ['remove-me', 'secret-div'];
-  return !exclusionClasses.some(classname=>node.classList.includes(classname));
+  return !exclusionClasses.some((classname) => node.classList?.contains(classname));
 }
 
 htmlToImage.toJpeg(node, { quality: 0.95, filter: filter});
