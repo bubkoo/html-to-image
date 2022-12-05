@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/bubkoo/html-to-image/compare/v1.11.0...v1.11.1) (2022-12-05)
+
+
+### Bug Fixes
+
+* clone svg symbols ([#344](https://github.com/bubkoo/html-to-image/issues/344)) ([aec6fa1](https://github.com/bubkoo/html-to-image/commit/aec6fa1573d0f64be6e2879e54a8e4d7e9e300ac))
+
 # [1.11.0](https://github.com/bubkoo/html-to-image/compare/v1.10.10...v1.11.0) (2022-12-05)
 
 
