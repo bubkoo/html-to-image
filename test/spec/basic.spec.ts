@@ -183,6 +183,14 @@ describe('basic usage', () => {
       .catch(done)
   })
 
+  it('should render webp images', (done) => {
+    bootstrap('webp/node.html', 'webp/style.css')
+      .then(delay(500))
+      .then(assertTextRendered(['PNG']))
+      .then(done)
+      .catch(done)
+  })
+
   it('should render background images', (done) => {
     bootstrap('css-bg/node.html', 'css-bg/style.css')
       .then(assertTextRendered(['JPG']))
