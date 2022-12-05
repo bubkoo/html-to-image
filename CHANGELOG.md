@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/bubkoo/html-to-image/compare/v1.10.10...v1.11.0) (2022-12-05)
+
+
+### Features
+
+* support webp format ([#343](https://github.com/bubkoo/html-to-image/issues/343)) ([09d4810](https://github.com/bubkoo/html-to-image/commit/09d4810ce3084e43f039c63efd65ba500451b9df)), closes [#326](https://github.com/bubkoo/html-to-image/issues/326)
+
 ## [1.10.10](https://github.com/bubkoo/html-to-image/compare/v1.10.9...v1.10.10) (2022-12-03)
 
 
