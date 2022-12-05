@@ -46,4 +46,15 @@ describe('work with svg element', () => {
       .then(done)
       .catch(done)
   })
+
+  it('should render SVG use tags', function (done) {
+    bootstrap(
+      'svg-use-tag/node.html',
+      'svg-use-tag/style.css',
+      'svg-use-tag/image',
+    )
+      .then(renderAndCheck)
+      .then(done)
+      .catch(done)
+  })
 })
