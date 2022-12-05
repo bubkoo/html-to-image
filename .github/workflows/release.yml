@@ -47,9 +47,9 @@ jobs:
 
       - name: 🎉　Setup Node.js with GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://npm.pkg.github.com
           scope: bubkoo
 
