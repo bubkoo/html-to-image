@@ -128,6 +128,53 @@ function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
   return clonedNode
 }
 
+async function ensureSVGSymbols<T extends HTMLElement>(
+  clone: T,
+  options: Options,
+) {
+  const uses = clone.querySelectorAll ? clone.querySelectorAll('use') : []
+  if (uses.length === 0) {
+    return clone
+  }
+
+  const processedDefs: { [key: string]: HTMLElement } = {}
+  for (let i = 0; i < uses.length; i++) {
+    const use = uses[i]
+    const id = use.getAttribute('xlink:href')
+    if (id) {
+      const exist = clone.querySelector(id)
+      const definition = document.querySelector(id) as HTMLElement
+      if (!exist && definition && !processedDefs[id]) {
+        // eslint-disable-next-line no-await-in-loop
+        processedDefs[id] = (await cloneNode(definition, options, true))!
+      }
+    }
+  }
+
+  const nodes = Object.values(processedDefs)
+  if (nodes.length) {
+    const ns = 'http://www.w3.org/1999/xhtml'
+    const svg = document.createElementNS(ns, 'svg')
+    svg.setAttribute('xmlns', ns)
+    svg.style.position = 'absolute'
+    svg.style.width = '0'
+    svg.style.height = '0'
+    svg.style.overflow = 'hidden'
+    svg.style.display = 'none'
+
+    const defs = document.createElementNS(ns, 'defs')
+    svg.appendChild(defs)
+
+    for (let i = 0; i < nodes.length; i++) {
+      defs.appendChild(nodes[i])
+    }
+
+    clone.appendChild(svg)
+  }
+
+  return clone
+}
+
 export async function cloneNode<T extends HTMLElement>(
   node: T,
   options: Options,
@@ -141,4 +188,5 @@ export async function cloneNode<T extends HTMLElement>(
     .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
     .then((clonedNode) => cloneChildren(node, clonedNode, options))
     .then((clonedNode) => decorate(node, clonedNode))
+    .then((clonedNode) => ensureSVGSymbols(clonedNode, options))
 }
