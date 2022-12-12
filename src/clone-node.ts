@@ -1,6 +1,4 @@
 import type { Options } from './types'
-import { getMimeType } from './mimes'
-import { resourceToDataURL } from './dataurl'
 import { clonePseudoElements } from './clone-pseudos'
 import { createImage, toArray } from './util'
 
@@ -13,23 +11,46 @@ async function cloneCanvasElement(canvas: HTMLCanvasElement) {
   return createImage(dataURL)
 }
 
-async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
-  const poster = video.poster
-  const contentType = getMimeType(poster)
-  const dataURL = await resourceToDataURL(poster, contentType, options)
-  return createImage(dataURL)
+async function cloneVideoElement(video: HTMLVideoElement) {
+  const canvas = document.createElement('canvas')
+  const ctx = canvas.getContext('2d')
+
+  canvas.width = video.videoWidth
+  canvas.height = video.videoHeight
+  ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
+
+  return createImage(canvas.toDataURL())
+}
+
+async function cloneIFrameElement(iframe: HTMLIFrameElement) {
+  try {
+    if (iframe?.contentDocument?.body) {
+      return (await cloneNode(
+        iframe.contentDocument.body,
+        {},
+        true,
+      )) as HTMLBodyElement
+    }
+  } catch {
+    // Failed to clone iframe
+  }
+
+  return iframe.cloneNode(false) as HTMLIFrameElement
 }
 
 async function cloneSingleNode<T extends HTMLElement>(
   node: T,
-  options: Options,
 ): Promise<HTMLElement> {
   if (node instanceof HTMLCanvasElement) {
     return cloneCanvasElement(node)
   }
 
-  if (node instanceof HTMLVideoElement && node.poster) {
-    return cloneVideoElement(node, options)
+  if (node instanceof HTMLVideoElement) {
+    return cloneVideoElement(node)
+  }
+
+  if (node instanceof HTMLIFrameElement) {
+    return cloneIFrameElement(node)
   }
 
   return node.cloneNode(false) as T
@@ -185,7 +206,7 @@ export async function cloneNode<T extends HTMLElement>(
   }
 
   return Promise.resolve(node)
-    .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
+    .then((clonedNode) => cloneSingleNode(clonedNode) as Promise<T>)
     .then((clonedNode) => cloneChildren(node, clonedNode, options))
     .then((clonedNode) => decorate(node, clonedNode))
     .then((clonedNode) => ensureSVGSymbols(clonedNode, options))
