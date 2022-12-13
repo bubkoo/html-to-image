@@ -1,3 +1,11 @@
+## [1.11.2](https://github.com/bubkoo/html-to-image/compare/v1.11.1...v1.11.2) (2022-12-13)
+
+
+### Bug Fixes
+
+* fallback to `poster` when `currentSrc` of video is null ([5d79666](https://github.com/bubkoo/html-to-image/commit/5d7966691a0dae64de8fb2bf9e56be7d274cef83))
+* use frames for video capture & add iframes ([#346](https://github.com/bubkoo/html-to-image/issues/346)) ([e316c61](https://github.com/bubkoo/html-to-image/commit/e316c610364d6a774b736e36e310be79d0085d60))
+
 ## [1.11.1](https://github.com/bubkoo/html-to-image/compare/v1.11.0...v1.11.1) (2022-12-05)
 
 
