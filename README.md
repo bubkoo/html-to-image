@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/bubkoo/html-to-image/actions/workflows/ci.yml"><img alt="build" src="https://img.shields.io/github/workflow/status/bubkoo/html-to-image/%F0%9F%91%B7%E3%80%80CI/master?logo=github&style=flat-square"></a>
+<a href="https://github.com/bubkoo/html-to-image/actions/workflows/ci.yml"><img alt="build" src="https://img.shields.io/github/actions/workflow/status/bubkoo/html-to-image/ci.yml?branch=master&logo=github&style=flat-square"></a>
 <a href="https://app.codecov.io/gh/bubkoo/html-to-image"><img alt="coverage" src="https://img.shields.io/codecov/c/gh/bubkoo/html-to-image?logo=codecov&style=flat-square&token=BWweeU2uNX"></a>
 <a href="https://lgtm.com/projects/g/bubkoo/html-to-image/context:javascript" rel="nofollow"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/bubkoo/html-to-image.svg?logo=lgtm&style=flat-square" /></a>
 <a href="https://www.npmjs.com/package/html-to-image" rel="nofollow"><img alt="NPM Package" src="https://img.shields.io/npm/v/html-to-image.svg?style=flat-square" /></a>
