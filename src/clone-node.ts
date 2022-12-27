@@ -1,6 +1,17 @@
 import type { Options } from './types'
 import { clonePseudoElements } from './clone-pseudos'
-import { createImage, toArray } from './util'
+import {
+  createImage,
+  toArray,
+  isElement,
+  isSlotElement,
+  isHTMLCanvasElement,
+  isHTMLVideoElement,
+  isHTMLIFrameElement,
+  isHTMLTextAreaElement,
+  isHTMLInputElement,
+  isHTMLSelectElement,
+} from './util'
 import { getMimeType } from './mimes'
 import { resourceToDataURL } from './dataurl'
 
@@ -29,55 +40,47 @@ async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
   return createImage(dataURL)
 }
 
-async function cloneIFrameElement(iframe: HTMLIFrameElement) {
-  try {
-    if (iframe?.contentDocument?.body) {
-      return (await cloneNode(
-        iframe.contentDocument.body,
-        {},
-        true,
-      )) as HTMLBodyElement
-    }
-  } catch {
-    // Failed to clone iframe
-  }
-
-  return iframe.cloneNode(false) as HTMLIFrameElement
+async function cloneIFrameElement() {
+  return document.createElement('div')
 }
 
 async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
 ): Promise<HTMLElement> {
-  if (node instanceof HTMLCanvasElement) {
+  if (isHTMLCanvasElement(node)) {
     return cloneCanvasElement(node)
   }
 
-  if (node instanceof HTMLVideoElement) {
+  if (isHTMLVideoElement(node)) {
     return cloneVideoElement(node, options)
   }
 
-  if (node instanceof HTMLIFrameElement) {
-    return cloneIFrameElement(node)
+  if (isHTMLIFrameElement(node)) {
+    return cloneIFrameElement()
   }
 
   return node.cloneNode(false) as T
 }
-
-const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
-  node.tagName != null && node.tagName.toUpperCase() === 'SLOT'
 
 async function cloneChildren<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  const children =
-    isSlotElement(nativeNode) && nativeNode.assignedNodes
-      ? toArray<T>(nativeNode.assignedNodes())
-      : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
+  let children: T[] = []
+  if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
+    children = toArray<T>(nativeNode.assignedNodes())
+  } else if (
+    isHTMLIFrameElement(nativeNode) &&
+    nativeNode?.contentDocument?.body?.childNodes
+  ) {
+    children = toArray<T>(nativeNode.contentDocument.body.childNodes)
+  } else {
+    children = toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
+  }
 
-  if (children.length === 0 || nativeNode instanceof HTMLVideoElement) {
+  if (children.length === 0 || isHTMLVideoElement(nativeNode)) {
     return clonedNode
   }
 
@@ -114,6 +117,13 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
         value = `${reducedFont}px`
       }
+      if (
+        isHTMLIFrameElement(nativeNode) &&
+        name === 'display' &&
+        value === 'inline'
+      ) {
+        value = 'block'
+      }
       targetStyle.setProperty(
         name,
         value,
@@ -124,17 +134,17 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (nativeNode instanceof HTMLTextAreaElement) {
+  if (isHTMLTextAreaElement(nativeNode)) {
     clonedNode.innerHTML = nativeNode.value
   }
 
-  if (nativeNode instanceof HTMLInputElement) {
+  if (isHTMLInputElement(nativeNode)) {
     clonedNode.setAttribute('value', nativeNode.value)
   }
 }
 
 function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (nativeNode instanceof HTMLSelectElement) {
+  if (isHTMLSelectElement(nativeNode)) {
     const clonedSelect = clonedNode as any as HTMLSelectElement
     const selectedOption = Array.from(clonedSelect.children).find(
       (child) => nativeNode.value === child.getAttribute('value'),
@@ -147,7 +157,7 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
-  if (clonedNode instanceof Element) {
+  if (isElement(clonedNode)) {
     cloneCSSStyle(nativeNode, clonedNode)
     clonePseudoElements(nativeNode, clonedNode)
     cloneInputValue(nativeNode, clonedNode)

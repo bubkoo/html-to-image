@@ -1,6 +1,11 @@
 import { Options } from './types'
 import { embedResources } from './embed-resources'
-import { toArray } from './util'
+import {
+  toArray,
+  isHTMLImageElement,
+  isSVGImageElement,
+  isElement,
+} from './util'
 import { isDataUrl, resourceToDataURL } from './dataurl'
 import { getMimeType } from './mimes'
 
@@ -24,19 +29,15 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   options: Options,
 ) {
   if (
-    !(clonedNode instanceof HTMLImageElement && !isDataUrl(clonedNode.src)) &&
-    !(
-      clonedNode instanceof SVGImageElement &&
-      !isDataUrl(clonedNode.href.baseVal)
-    )
+    !(isHTMLImageElement(clonedNode) && !isDataUrl(clonedNode.src)) &&
+    !(isSVGImageElement(clonedNode) && !isDataUrl(clonedNode.href.baseVal))
   ) {
     return
   }
 
-  const url =
-    clonedNode instanceof HTMLImageElement
-      ? clonedNode.src
-      : clonedNode.href.baseVal
+  const url = isHTMLImageElement(clonedNode)
+    ? clonedNode.src
+    : clonedNode.href.baseVal
 
   const dataURL = await resourceToDataURL(url, getMimeType(url), options)
   await new Promise((resolve, reject) => {
@@ -48,7 +49,7 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       image.decode = resolve as any
     }
 
-    if (clonedNode instanceof HTMLImageElement) {
+    if (isHTMLImageElement(clonedNode)) {
       clonedNode.srcset = ''
       clonedNode.src = dataURL
     } else {
@@ -70,7 +71,7 @@ export async function embedImages<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ) {
-  if (clonedNode instanceof Element) {
+  if (isElement(clonedNode)) {
     await embedBackground(clonedNode, options)
     await embedImageNode(clonedNode, options)
     await embedChildren(clonedNode, options)

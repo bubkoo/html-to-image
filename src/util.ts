@@ -223,3 +223,34 @@ export async function nodeToDataURL(
 
   return svgToDataURL(svg)
 }
+
+export const isElement = (node: Element) => !!(node && node.nodeType === 1)
+
+export const isHTMLCanvasElement = (node: Element): node is HTMLCanvasElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'CANVAS'
+
+export const isHTMLVideoElement = (node: Element): node is HTMLVideoElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'VIDEO'
+
+export const isHTMLIFrameElement = (node: Element): node is HTMLIFrameElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'IFRAME'
+
+export const isHTMLTextAreaElement = (
+  node: Element,
+): node is HTMLTextAreaElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'TEXTAREA'
+
+export const isHTMLInputElement = (node: Element): node is HTMLInputElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'INPUT'
+
+export const isHTMLSelectElement = (node: Element): node is HTMLSelectElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'SELECT'
+
+export const isHTMLImageElement = (node: Element): node is HTMLImageElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'IMG'
+
+export const isSVGImageElement = (node: Element): node is SVGImageElement =>
+  isElement(node) && node.tagName.toUpperCase() === 'IMAGE'
+
+export const isSlotElement = (node: Element): node is HTMLSlotElement =>
+  node.tagName != null && node.tagName.toUpperCase() === 'SLOT'
