@@ -223,3 +223,21 @@ export async function nodeToDataURL(
 
   return svgToDataURL(svg)
 }
+
+export const isInstanceOfElement = <
+  T extends typeof Element | typeof HTMLElement | typeof SVGImageElement,
+>(
+  node: Element | HTMLElement | SVGImageElement,
+  instance: T,
+): node is T['prototype'] => {
+  if (node instanceof instance) return true
+
+  const nodePrototype = Object.getPrototypeOf(node)
+
+  if (nodePrototype === null) return false
+
+  return (
+    nodePrototype.constructor.name === instance.name ||
+    isInstanceOfElement(nodePrototype, instance)
+  )
+}
