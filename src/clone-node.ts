@@ -1,23 +1,48 @@
 import type { Options } from './types'
-import { getMimeType } from './mimes'
-import { resourceToDataURL } from './dataurl'
 import { clonePseudoElements } from './clone-pseudos'
 import { createImage, toArray } from './util'
+import { getMimeType } from './mimes'
+import { resourceToDataURL } from './dataurl'
 
 async function cloneCanvasElement(canvas: HTMLCanvasElement) {
   const dataURL = canvas.toDataURL()
   if (dataURL === 'data:,') {
     return canvas.cloneNode(false) as HTMLCanvasElement
   }
-
   return createImage(dataURL)
 }
 
 async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
+  if (video.currentSrc) {
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    canvas.width = video.clientWidth
+    canvas.height = video.clientHeight
+    ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
+    const dataURL = canvas.toDataURL()
+    return createImage(dataURL)
+  }
+
   const poster = video.poster
   const contentType = getMimeType(poster)
   const dataURL = await resourceToDataURL(poster, contentType, options)
   return createImage(dataURL)
+}
+
+async function cloneIFrameElement(iframe: HTMLIFrameElement) {
+  try {
+    if (iframe?.contentDocument?.body) {
+      return (await cloneNode(
+        iframe.contentDocument.body,
+        {},
+        true,
+      )) as HTMLBodyElement
+    }
+  } catch {
+    // Failed to clone iframe
+  }
+
+  return iframe.cloneNode(false) as HTMLIFrameElement
 }
 
 async function cloneSingleNode<T extends HTMLElement>(
@@ -28,8 +53,12 @@ async function cloneSingleNode<T extends HTMLElement>(
     return cloneCanvasElement(node)
   }
 
-  if (node instanceof HTMLVideoElement && node.poster) {
+  if (node instanceof HTMLVideoElement) {
     return cloneVideoElement(node, options)
+  }
+
+  if (node instanceof HTMLIFrameElement) {
+    return cloneIFrameElement(node)
   }
 
   return node.cloneNode(false) as T
@@ -56,7 +85,7 @@ async function cloneChildren<T extends HTMLElement>(
     (deferred, child) =>
       deferred
         .then(() => cloneNode(child, options))
-        .then((clonedChild) => {
+        .then((clonedChild: HTMLElement | null) => {
           if (clonedChild) {
             clonedNode.appendChild(clonedChild)
           }
@@ -67,63 +96,34 @@ async function cloneChildren<T extends HTMLElement>(
   return clonedNode
 }
 
-/** DOM in which we can deduce the default value of properties without being polluted by the global namespace */
-let shadowDom: ShadowRoot | null = null
-
-export function tryInitShadowDom() {
-  if (shadowDom == null) {
-    let shadowContainer = document.createElement('div')
-    shadowContainer.style.display = 'none'
-    shadowDom = shadowContainer.attachShadow({ mode: 'open' })
-    const shadowStyle = document.createElement('style')
-    shadowStyle.innerHTML = ':host{all:initial;} *{all:initial;}'
-    shadowDom.appendChild(shadowStyle)
-    document.body.appendChild(shadowContainer)
-  }
-}
-
-function cloneCSSStyle<T extends HTMLElement>(
-  nativeNode: T,
-  clonedNode: T,
-  defaultZone: ShadowRoot,
-) {
+function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   const targetStyle = clonedNode.style
   if (!targetStyle) {
     return
   }
 
   const sourceStyle = window.getComputedStyle(nativeNode)
-  const defaultElement = document.createElement(nativeNode.tagName)
-  defaultZone.appendChild(defaultElement) // we need to add it to the page to get the default computed styles (otherwise it's empty)
-  const defaultStyle = window.getComputedStyle(defaultElement)
   if (sourceStyle.cssText) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
     toArray<string>(sourceStyle).forEach((name) => {
-      if (name.startsWith('--')) {
-        // No need to add those. CSS variables will be replaced by the engine.
-        return
-      }
       let value = sourceStyle.getPropertyValue(name)
-      const defaultValue = defaultStyle.getPropertyValue(name)
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
-        if (reducedFont >= 0) {
-          value = `${reducedFont}px`
-        }
+        value = `${reducedFont}px`
       }
-      if (defaultValue != value && value != 'initial') {
-        targetStyle.setProperty(
-          name,
-          value,
-          sourceStyle.getPropertyPriority(name),
-        )
+      if (name === 'd' && clonedNode.getAttribute('d')) {
+        value = `path(${clonedNode.getAttribute('d')})`
       }
+      targetStyle.setProperty(
+        name,
+        value,
+        sourceStyle.getPropertyPriority(name),
+      )
     })
   }
-  defaultZone.removeChild(defaultElement)
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
@@ -151,7 +151,7 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 
 function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
   if (clonedNode instanceof Element) {
-    cloneCSSStyle(nativeNode, clonedNode, shadowDom!) // shadowDom should be initilized in every entry function
+    cloneCSSStyle(nativeNode, clonedNode)
     clonePseudoElements(nativeNode, clonedNode)
     cloneInputValue(nativeNode, clonedNode)
     cloneSelectValue(nativeNode, clonedNode)
@@ -160,29 +160,65 @@ function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
   return clonedNode
 }
 
+async function ensureSVGSymbols<T extends HTMLElement>(
+  clone: T,
+  options: Options,
+) {
+  const uses = clone.querySelectorAll ? clone.querySelectorAll('use') : []
+  if (uses.length === 0) {
+    return clone
+  }
+
+  const processedDefs: { [key: string]: HTMLElement } = {}
+  for (let i = 0; i < uses.length; i++) {
+    const use = uses[i]
+    const id = use.getAttribute('xlink:href')
+    if (id) {
+      const exist = clone.querySelector(id)
+      const definition = document.querySelector(id) as HTMLElement
+      if (!exist && definition && !processedDefs[id]) {
+        // eslint-disable-next-line no-await-in-loop
+        processedDefs[id] = (await cloneNode(definition, options, true))!
+      }
+    }
+  }
+
+  const nodes = Object.values(processedDefs)
+  if (nodes.length) {
+    const ns = 'http://www.w3.org/1999/xhtml'
+    const svg = document.createElementNS(ns, 'svg')
+    svg.setAttribute('xmlns', ns)
+    svg.style.position = 'absolute'
+    svg.style.width = '0'
+    svg.style.height = '0'
+    svg.style.overflow = 'hidden'
+    svg.style.display = 'none'
+
+    const defs = document.createElementNS(ns, 'defs')
+    svg.appendChild(defs)
+
+    for (let i = 0; i < nodes.length; i++) {
+      defs.appendChild(nodes[i])
+    }
+
+    clone.appendChild(svg)
+  }
+
+  return clone
+}
+
 export async function cloneNode<T extends HTMLElement>(
   node: T,
   options: Options,
   isRoot?: boolean,
-): Promise<HTMLElement | null> {
+): Promise<T | null> {
   if (!isRoot && options.filter && !options.filter(node)) {
     return null
   }
 
   return Promise.resolve(node)
-    .then((clonedNode) => cloneSingleNode(clonedNode, options))
+    .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
     .then((clonedNode) => cloneChildren(node, clonedNode, options))
-    .then((clonedNode) => {
-      const everyStyle = options.everyStyle
-      if (everyStyle !== undefined && node.style !== undefined) {
-        Object.keys(everyStyle).forEach((cssPropertyName) => {
-          clonedNode.style.setProperty(
-            cssPropertyName,
-            everyStyle[cssPropertyName],
-            node.style.getPropertyPriority(cssPropertyName),
-          )
-        })
-      }
-      return decorate(node, clonedNode)
-    })
+    .then((clonedNode) => decorate(node, clonedNode))
+    .then((clonedNode) => ensureSVGSymbols(clonedNode, options))
 }

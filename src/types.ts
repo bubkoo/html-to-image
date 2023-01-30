@@ -84,12 +84,11 @@ export interface Options {
    * A string indicating the image format. The default type is image/png; that type is also used if the given type isn't supported.
    */
   type?: string
+
   /**
-   * The second parameter of window.fetch (Promise<Response> fetch(input[, init]))
+   *
+   *the second parameter of  window.fetch (Promise<Response> fetch(input[, init]))
+   *
    */
   fetchRequestInit?: RequestInit
-  /**
-   * An object whose properties to be copied to every node. If you have styles set with `*` (like `* { margin: 0 }`) you should put them here because they can't be copied by htmlToImage
-   */
-  everyStyle?: { [prop: string]: string }
 }

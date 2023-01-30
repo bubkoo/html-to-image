@@ -37,7 +37,7 @@ export async function fetchAsDataURL<T>(
   })
 }
 
-const cache: { [url: string]: string | undefined } = {}
+const cache: { [url: string]: string } = {}
 
 function getCacheKey(
   url: string,
@@ -69,9 +69,8 @@ export async function resourceToDataURL(
     options.includeQueryParams,
   )
 
-  const cached = cache[cacheKey]
-  if (cached != undefined) {
-    return cached
+  if (cache[cacheKey] != null) {
+    return cache[cacheKey]
   }
 
   // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
@@ -96,8 +95,15 @@ export async function resourceToDataURL(
     dataURL = makeDataUrl(content, contentType!)
   } catch (error) {
     dataURL = options.imagePlaceholder || ''
-    const msg = `Failed to fetch resource: ${resourceUrl}`
-    console.warn(msg, error)
+
+    let msg = `Failed to fetch resource: ${resourceUrl}`
+    if (error) {
+      msg = typeof error === 'string' ? error : error.message
+    }
+
+    if (msg) {
+      console.warn(msg)
+    }
   }
 
   cache[cacheKey] = dataURL
