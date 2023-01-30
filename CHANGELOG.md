@@ -1,3 +1,14 @@
+## [1.11.5](https://github.com/bubkoo/html-to-image/compare/v1.11.4...v1.11.5) (2023-01-30)
+
+
+### Bug Fixes
+
+* **cloneCSSStyle:** rounded values of d attr fix ([#358](https://github.com/bubkoo/html-to-image/issues/358)) ([6d28bdb](https://github.com/bubkoo/html-to-image/commit/6d28bdb96f15877666b222067bfb082da300f355)), closes [#357](https://github.com/bubkoo/html-to-image/issues/357)
+* include source in npm package ([#316](https://github.com/bubkoo/html-to-image/issues/316)) ([b609415](https://github.com/bubkoo/html-to-image/commit/b6094151fb199fad699e74d93a8cef14089dda71))
+* switch lazy loading images to eager ([#359](https://github.com/bubkoo/html-to-image/issues/359)) ([f7c311b](https://github.com/bubkoo/html-to-image/commit/f7c311b5285d4ca8383c5fe7c3dfb0c9fbc6f630))
+
+## [1.11.4](https://github.com/bubkoo/html-to-image/compare/v1.11.3...v1.11.4) (2023-01-01)
+
 ## [1.11.3](https://github.com/bubkoo/html-to-image/compare/v1.11.2...v1.11.3) (2022-12-16)
 
 ## [1.11.2](https://github.com/bubkoo/html-to-image/compare/v1.11.1...v1.11.2) (2022-12-13)

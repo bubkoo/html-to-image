@@ -220,7 +220,6 @@ export async function nodeToDataURL(
 
   svg.appendChild(foreignObject)
   foreignObject.appendChild(node)
-
   return svgToDataURL(svg)
 }
 
