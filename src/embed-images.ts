@@ -1,6 +1,6 @@
 import { Options } from './types'
 import { embedResources } from './embed-resources'
-import { toArray } from './util'
+import { toArray, isInstanceOfElement } from './util'
 import { isDataUrl, resourceToDataURL } from './dataurl'
 import { getMimeType } from './mimes'
 
@@ -38,20 +38,19 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   clonedNode: T,
   options: Options,
 ) {
+  const isImageElement = isInstanceOfElement(clonedNode, HTMLImageElement)
+
   if (
-    !(clonedNode instanceof HTMLImageElement && !isDataUrl(clonedNode.src)) &&
+    !(isImageElement && !isDataUrl(clonedNode.src)) &&
     !(
-      clonedNode instanceof SVGImageElement &&
+      isInstanceOfElement(clonedNode, SVGImageElement) &&
       !isDataUrl(clonedNode.href.baseVal)
     )
   ) {
     return
   }
 
-  const url =
-    clonedNode instanceof HTMLImageElement
-      ? clonedNode.src
-      : clonedNode.href.baseVal
+  const url = isImageElement ? clonedNode.src : clonedNode.href.baseVal
 
   const dataURL = await resourceToDataURL(url, getMimeType(url), options)
   await new Promise((resolve, reject) => {
@@ -67,7 +66,7 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       image.loading = 'eager'
     }
 
-    if (clonedNode instanceof HTMLImageElement) {
+    if (isImageElement) {
       clonedNode.srcset = ''
       clonedNode.src = dataURL
     } else {
@@ -89,7 +88,7 @@ export async function embedImages<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ) {
-  if (clonedNode instanceof Element) {
+  if (isInstanceOfElement(clonedNode, Element)) {
     await embedBackground(clonedNode, options)
     await embedImageNode(clonedNode, options)
     await embedChildren(clonedNode, options)

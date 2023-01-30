@@ -1,6 +1,6 @@
 import type { Options } from './types'
 import { clonePseudoElements } from './clone-pseudos'
-import { createImage, toArray } from './util'
+import { createImage, toArray, isInstanceOfElement } from './util'
 import { getMimeType } from './mimes'
 import { resourceToDataURL } from './dataurl'
 
@@ -49,15 +49,15 @@ async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
 ): Promise<HTMLElement> {
-  if (node instanceof HTMLCanvasElement) {
+  if (isInstanceOfElement(node, HTMLCanvasElement)) {
     return cloneCanvasElement(node)
   }
 
-  if (node instanceof HTMLVideoElement) {
+  if (isInstanceOfElement(node, HTMLVideoElement)) {
     return cloneVideoElement(node, options)
   }
 
-  if (node instanceof HTMLIFrameElement) {
+  if (isInstanceOfElement(node, HTMLIFrameElement)) {
     return cloneIFrameElement(node)
   }
 
@@ -72,12 +72,23 @@ async function cloneChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  const children =
-    isSlotElement(nativeNode) && nativeNode.assignedNodes
-      ? toArray<T>(nativeNode.assignedNodes())
-      : toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
+  let children: T[] = []
 
-  if (children.length === 0 || nativeNode instanceof HTMLVideoElement) {
+  if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
+    children = toArray<T>(nativeNode.assignedNodes())
+  } else if (
+    isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
+    nativeNode.contentDocument?.body
+  ) {
+    children = toArray<T>(nativeNode.contentDocument.body.childNodes)
+  } else {
+    children = toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
+  }
+
+  if (
+    children.length === 0 ||
+    isInstanceOfElement(nativeNode, HTMLVideoElement)
+  ) {
     return clonedNode
   }
 
@@ -114,9 +125,19 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
         value = `${reducedFont}px`
       }
+
+      if (
+        isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
+        name === 'display' &&
+        value === 'inline'
+      ) {
+        value = 'block'
+      }
+      
       if (name === 'd' && clonedNode.getAttribute('d')) {
         value = `path(${clonedNode.getAttribute('d')})`
       }
+      
       targetStyle.setProperty(
         name,
         value,
@@ -127,17 +148,17 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (nativeNode instanceof HTMLTextAreaElement) {
+  if (isInstanceOfElement(nativeNode, HTMLTextAreaElement)) {
     clonedNode.innerHTML = nativeNode.value
   }
 
-  if (nativeNode instanceof HTMLInputElement) {
+  if (isInstanceOfElement(nativeNode, HTMLInputElement)) {
     clonedNode.setAttribute('value', nativeNode.value)
   }
 }
 
 function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (nativeNode instanceof HTMLSelectElement) {
+  if (isInstanceOfElement(nativeNode, HTMLSelectElement)) {
     const clonedSelect = clonedNode as any as HTMLSelectElement
     const selectedOption = Array.from(clonedSelect.children).find(
       (child) => nativeNode.value === child.getAttribute('value'),
@@ -150,7 +171,7 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
-  if (clonedNode instanceof Element) {
+  if (isInstanceOfElement(clonedNode, Element)) {
     cloneCSSStyle(nativeNode, clonedNode)
     clonePseudoElements(nativeNode, clonedNode)
     cloneInputValue(nativeNode, clonedNode)
