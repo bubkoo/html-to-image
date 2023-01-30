@@ -1,3 +1,10 @@
+## [1.11.6](https://github.com/bubkoo/html-to-image/compare/v1.11.5...v1.11.6) (2023-01-30)
+
+
+### Bug Fixes
+
+* clone iframe nodes better ([#352](https://github.com/bubkoo/html-to-image/issues/352)) ([bc6b865](https://github.com/bubkoo/html-to-image/commit/bc6b8652f0504cf5be19ed77f9c88b986e7aaeed))
+
 ## [1.11.5](https://github.com/bubkoo/html-to-image/compare/v1.11.4...v1.11.5) (2023-01-30)
 
 
