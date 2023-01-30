@@ -48,6 +48,10 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       image.decode = resolve as any
     }
 
+    if (image.loading === 'lazy') {
+      image.loading = 'eager'
+    }
+
     if (clonedNode instanceof HTMLImageElement) {
       clonedNode.srcset = ''
       clonedNode.src = dataURL
