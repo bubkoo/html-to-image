@@ -11,33 +11,56 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - name: ⤵️　Checkout
-        uses: actions/checkout@v2
-      - name: 🎉　Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v3
+
+      - name: 🎉　Setup nodejs
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: 🚧　Install
-        run: yarn install
+          node-version: 16.x
+
+      - name: 🎉　Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+
+      - name: 🌱　Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: 🚸　Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🚧　Install dependencies
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
+
       - name: 📦　Build
-        run: yarn build
+        run: pnpm run build
+
       - name: ✅　Test
-        run: yarn test
+        run: pnpm run test
+
       - name: 🔑　Generate Token
-        uses: bubkoo/use-app-token@v1
+        uses: wow-actions/use-app-token@v2
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
-          env_name: bot_token
+
       - name: 💡　Coveralls
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ env.bot_token }}
+          github-token: ${{ env.BOT_TOKEN }}
           path-to-lcov: ./test/coverage/lcov.info
+
       - name: 💡　Codecov
         uses: codecov/codecov-action@v1
         with:

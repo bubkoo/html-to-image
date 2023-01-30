@@ -16,10 +16,10 @@ We will confirm the purpose of the issue, replace more accurate labels for it, i
 ### Pull Request Guide
 
 1. [Fork][fork] and clone the repository
-2. Configure and install the dependencies `yarn`
-3. Make sure the tests pass on your machine `yarn test`, note: these tests also run the TypeScript compiler (`tsc`) to check for type errors, so there's no need to run these commands separately.
+2. Configure and install the dependencies `pnpm`
+3. Make sure the tests pass on your machine `pnpm test`, note: these tests also run the TypeScript compiler (`tsc`) to check for type errors, so there's no need to run these commands separately.
 4. Create a new branch `git checkout -b my-branch-name` for development. The name of branch should be semantic, avoiding words like 'update' or 'tmp'. We suggest to use `'feature/xxx'`, if the modification is about to implement a new feature.
-5. Run the test `yarn test` after you finish your modification. Add new test cases or change old ones if you feel necessary.
+5. Run the test `pnpm test` after you finish your modification. Add new test cases or change old ones if you feel necessary.
 6. Push to your fork and [submit a pull request][pr]
 7. Pat your self on the back and wait for your pull request to be reviewed and merged.
 
@@ -32,7 +32,7 @@ No one can guarantee how much will be remembered about certain PR after some tim
 
 ### Style Guide
 
-tslint can help to identify styling issues that may exist in your code. Your code is required to pass the test from tslint. Run the test locally by `$ yarn lint`.
+tslint can help to identify styling issues that may exist in your code. Your code is required to pass the test from tslint. Run the test locally by `$ pnpm lint`.
 
 ### Commit Message Format
 

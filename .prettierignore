@@ -25,3 +25,4 @@ yarn.lock
 yarn-error.log
 npm-debug.log
 lerna-debug.log
+pnpm-lock.yaml

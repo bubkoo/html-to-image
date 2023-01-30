@@ -23,6 +23,7 @@
     "svg"
   ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
     "clean": "rimraf dist es lib",
     "build:esm": "tsc --module esnext --target es2017 --outDir ./es",
