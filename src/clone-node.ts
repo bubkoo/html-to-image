@@ -114,6 +114,9 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
         value = `${reducedFont}px`
       }
+      if (name === 'd' && clonedNode.getAttribute('d')) {
+        value = `path(${clonedNode.getAttribute('d')})`
+      }
       targetStyle.setProperty(
         name,
         value,
