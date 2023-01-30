@@ -30,7 +30,7 @@ jobs:
           private_key: ${{ secrets.PRIVATE_KEY }}
 
       - name: 📦　Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         id: semantic
         with:
           extends: '@bubkoo/semantic-release-config'
