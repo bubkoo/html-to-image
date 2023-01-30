@@ -154,12 +154,12 @@ async function getCSSRules(
                   inline.insertRule(rule, sheet.cssRules.length)
                 }),
               )
-              .catch((err) => {
-                console.error('Error loading remote stylesheet', err.toString())
+              .catch((err: unknown) => {
+                console.error('Error loading remote stylesheet', err)
               }),
           )
         }
-        console.error('Error inlining remote css file', e.toString())
+        console.error('Error inlining remote css file', e)
       }
     }
   })
@@ -173,10 +173,7 @@ async function getCSSRules(
             ret.push(item)
           })
         } catch (e) {
-          console.error(
-            `Error while reading CSS rules from ${sheet.href}`,
-            e.toString(),
-          )
+          console.error(`Error while reading CSS rules from ${sheet.href}`, e)
         }
       }
     })
