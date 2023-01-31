@@ -1,3 +1,10 @@
+## [1.11.8](https://github.com/bubkoo/html-to-image/compare/v1.11.7...v1.11.8) (2023-01-31)
+
+
+### Bug Fixes
+
+* specify plugins ([d90ec23](https://github.com/bubkoo/html-to-image/commit/d90ec23daca23cda0d515cd7dda8d80cdf75546b))
+
 ## [1.11.7](https://github.com/bubkoo/html-to-image/compare/v1.11.6...v1.11.7) (2023-01-30)
 
 ## [1.11.6](https://github.com/bubkoo/html-to-image/compare/v1.11.5...v1.11.6) (2023-01-30)
