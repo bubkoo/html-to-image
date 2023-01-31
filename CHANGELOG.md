@@ -1,3 +1,10 @@
+## [1.11.9](https://github.com/bubkoo/html-to-image/compare/v1.11.8...v1.11.9) (2023-01-31)
+
+
+### Bug Fixes
+
+* use "secrets.GITHUB_TOKEN" to publish to GPR ([2652288](https://github.com/bubkoo/html-to-image/commit/2652288af04f6a4775cf107981f3292b0a231973))
+
 ## [1.11.8](https://github.com/bubkoo/html-to-image/compare/v1.11.7...v1.11.8) (2023-01-31)
 
 
