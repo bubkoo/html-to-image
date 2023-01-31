@@ -28,6 +28,14 @@ module.exports = function (config) {
       'src/**/*.ts',
       'test/spec/**/*.ts',
     ],
+    plugins: [
+      'jasmine-core',
+      'karma-jasmine',
+      'karma-typescript',
+      'karma-spec-reporter',
+      'karma-chrome-launcher',
+    ],
+
     frameworks: ['jasmine', 'karma-typescript'],
     preprocessors: {
       '**/*.ts': ['karma-typescript'],
