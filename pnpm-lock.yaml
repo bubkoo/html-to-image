@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@bubkoo/commitlint-config': ^1.0.2
   '@bubkoo/eslint-config': ^1.3.1
-  '@bubkoo/rollup-config': ^1.2.0
+  '@bubkoo/rollup-config': ^1.2.1
   '@bubkoo/semantic-release-config': ^1.6.1
   '@bubkoo/tsconfig': ^1.0.0
   '@fortawesome/fontawesome-free': ^6.1.2
@@ -32,7 +32,7 @@ specifiers:
 devDependencies:
   '@bubkoo/commitlint-config': 1.0.2
   '@bubkoo/eslint-config': 1.3.1_ixt4l6ptf47gmhhuxcve5dmsda
-  '@bubkoo/rollup-config': 1.2.0_rhlcksimi4ycfgwevqw3afkobq
+  '@bubkoo/rollup-config': 1.2.1_rhlcksimi4ycfgwevqw3afkobq
   '@bubkoo/semantic-release-config': 1.6.1
   '@bubkoo/tsconfig': 1.1.0_typescript@4.9.5
   '@fortawesome/fontawesome-free': 6.2.1
@@ -355,8 +355,8 @@ packages:
       - supports-color
     dev: true
 
-  /@bubkoo/rollup-config/1.2.0_rhlcksimi4ycfgwevqw3afkobq:
-    resolution: {integrity: sha512-o0VxJaO+5VaFaoneGu3A7Iy/18cfeE4lqfnE/h3PFcfBKevT5MqjoJ+qXyS/EYPmlXXXmuI8f6UDL+ufmx99dg==}
+  /@bubkoo/rollup-config/1.2.1_rhlcksimi4ycfgwevqw3afkobq:
+    resolution: {integrity: sha512-NRB3FFyGVNDkUWiB61q+fXzY884eXeWykip9RCTOKScfJLDOltDjA8vnIhCn1Q8EM6t9LK0/STbevoyRM4OyJQ==}
     peerDependencies:
       rollup: '>=2.56.0'
       tslib: '>=2.4.0'
