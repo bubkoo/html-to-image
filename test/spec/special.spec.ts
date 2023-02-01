@@ -3,7 +3,7 @@
 import '../spec/setup'
 import { toPng } from '../../src'
 import { delay } from '../../src/util'
-import { bootstrap, renderAndCheck } from '../spec/helper'
+import { assertTextRendered, bootstrap, renderAndCheck } from '../spec/helper'
 
 describe('special cases', () => {
   xit('should not crash when loading external stylesheet causes error', (done) => {
@@ -51,5 +51,12 @@ describe('special cases', () => {
         })
         .catch(done),
     )
+  })
+
+  it('should caputre lazy loading images', (done) => {
+    bootstrap('images/loading.html', 'images/style.css')
+      .then(assertTextRendered(['PNG', 'JPG']))
+      .then(done)
+      .catch(done)
   })
 })
