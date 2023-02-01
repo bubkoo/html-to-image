@@ -1,3 +1,10 @@
+## [1.11.10](https://github.com/bubkoo/html-to-image/compare/v1.11.9...v1.11.10) (2023-02-01)
+
+
+### Bug Fixes
+
+* revert the change in the pre-install hook ([ed7db4d](https://github.com/bubkoo/html-to-image/commit/ed7db4d090c600da632c2c7ef9319ed033d9c3e5)), closes [#365](https://github.com/bubkoo/html-to-image/issues/365)
+
 ## [1.11.9](https://github.com/bubkoo/html-to-image/compare/v1.11.8...v1.11.9) (2023-01-31)
 
 
