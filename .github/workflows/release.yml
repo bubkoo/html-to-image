@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: ⤵️　Checkout
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: 🎉　Setup nodejs
         uses: actions/setup-node@v3
