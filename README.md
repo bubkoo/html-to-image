@@ -293,6 +293,22 @@ When supplied, the toCanvas function will return a blob matching the given image
 
 Defaults to `image/png`  
 
+### includedPseudoElements
+
+A list of pseudo elements which will be included when capture the image. `::before` and `::after` are included by default.
+
+```javascript
+htmlToImage.toPng(document.getElementById('my-node'), { 
+  /* this will include the Chrome scrollbar pseudo elements */
+  includedPseudoElements: [
+    '::-webkit-scrollbar',
+    '::-webkit-scrollbar-thumb'
+  ]
+}).then(function (dataUrl) {
+  /* do something */
+});
+```
+
 ## Browsers
 
 Only standard lib is currently used, but make sure your browser supports:

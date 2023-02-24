@@ -9,6 +9,7 @@ import {
   getSvgDocument,
   compareToRefImage,
   assertTextRendered,
+  renderAndCheck,
 } from './helper'
 import { toPng, toSvg } from '../../src'
 
@@ -170,6 +171,24 @@ describe('work with options', () => {
   it('should support cache busting', (done) => {
     bootstrap('images/node.html', 'images/style.css')
       .then(assertTextRendered(['PNG', 'JPG'], { cacheBust: true }))
+      .then(done)
+      .catch(done)
+  })
+
+  it('should preserve content of pseudo elements in includedPseudoElements list', (done) => {
+    bootstrap(
+      'included-pseudo-elements/node.html',
+      'included-pseudo-elements/style.css',
+      'included-pseudo-elements/image',
+    )
+      .then((node) =>
+        renderAndCheck(node, {
+          includedPseudoElements: [
+            '::-webkit-scrollbar',
+            '::-webkit-scrollbar-thumb',
+          ],
+        }),
+      )
       .then(done)
       .catch(done)
   })
