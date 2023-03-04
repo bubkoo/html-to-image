@@ -1,4 +1,4 @@
-import { uuid, toArray } from './util'
+import { uuid, toArray } from './util.js'
 
 type Pseudo = ':before' | ':after'
 

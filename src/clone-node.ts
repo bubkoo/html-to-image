@@ -1,8 +1,8 @@
-import type { Options } from './types'
-import { clonePseudoElements } from './clone-pseudos'
-import { createImage, toArray, isInstanceOfElement } from './util'
-import { getMimeType } from './mimes'
-import { resourceToDataURL } from './dataurl'
+import type { Options } from './types.js'
+import { clonePseudoElements } from './clone-pseudos.js'
+import { createImage, toArray, isInstanceOfElement } from './util.js'
+import { getMimeType } from './mimes.js'
+import { resourceToDataURL } from './dataurl.js'
 
 async function cloneCanvasElement(canvas: HTMLCanvasElement) {
   const dataURL = canvas.toDataURL()
@@ -133,11 +133,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
       ) {
         value = 'block'
       }
-      
+
       if (name === 'd' && clonedNode.getAttribute('d')) {
         value = `path(${clonedNode.getAttribute('d')})`
       }
-      
+
       targetStyle.setProperty(
         name,
         value,
