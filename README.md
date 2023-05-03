@@ -228,6 +228,11 @@ A number between `0` and `1` indicating image quality (e.g. `0.92` => `92%`) of 
 
 Defaults to `1.0` (`100%`)
 
+### cacheDisable
+
+Set to true to set the fetch cache option to 'no-cache'
+
+Defaults to `false`
 ### cacheBust
 
 Set to true to append the current time as a query string to URL requests to enable cache busting.
