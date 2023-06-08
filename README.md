@@ -279,6 +279,14 @@ html2Image.toSVG(element1, { fontEmbedCss });
 html2Image.toSVG(element2, { fontEmbedCss });
 ```
 
+### extraStyleContent
+
+When supplied, the library will add the given css definitions to the style tag from resulting svg.
+For example the following code will change the color from scrollbars to green:
+```javascript
+htmlToImage.toPng(node, { extraStyleContent: '*::-webkit-scrollbar {background-color: green;}'});
+```
+
 ### skipAutoScale
 
 When supplied, the library will skip the process of scaling extra large doms into the canvas object.
