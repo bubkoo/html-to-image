@@ -47,10 +47,8 @@ export async function toCanvas<T extends HTMLElement>(
   }
   canvas.style.width = `${canvasWidth}`
   canvas.style.height = `${canvasHeight}`
-  canvas.setAttribute('width', `${canvasWidth}`)  
+  canvas.setAttribute('width', `${canvasWidth}`)
   canvas.setAttribute('height', `${canvasHeight}`)
-  console.log(canvas)
-
 
   if (options.backgroundColor) {
     context.fillStyle = options.backgroundColor
