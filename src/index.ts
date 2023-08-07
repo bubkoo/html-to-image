@@ -55,6 +55,7 @@ export async function toCanvas<T extends HTMLElement>(
 
   context.drawImage(img, 0, 0, canvas.width, canvas.height)
 
+  await new Promise(resolve => setTimeout(resolve, 0)); // iOS fix
   return canvas
 }
 
