@@ -37,7 +37,7 @@ export async function fetchAsDataURL<T>(
   })
 }
 
-const cache: { [url: string]: string } = {}
+const cache: { [url: string]: Promise<string> } = {}
 
 function getCacheKey(
   url: string,
@@ -56,6 +56,41 @@ function getCacheKey(
   }
 
   return contentType ? `[${contentType}]${key}` : key
+}
+
+async function fetchAndMakeDataURL(
+  resourceUrl: string,
+  contentType: string | undefined,
+  options: Options,
+) {
+  let dataURL: string
+  try {
+    const content = await fetchAsDataURL(
+      resourceUrl,
+      options.fetchRequestInit,
+      ({ res, result }) => {
+        if (!contentType) {
+          // eslint-disable-next-line no-param-reassign
+          contentType = res.headers.get('Content-Type') || ''
+        }
+        return getContentFromDataUrl(result)
+      },
+    )
+    dataURL = makeDataUrl(content, contentType!)
+    return dataURL
+  } catch (error) {
+    dataURL = options.imagePlaceholder || ''
+
+    let msg = `Failed to fetch resource: ${resourceUrl}`
+    if (error) {
+      msg = typeof error === 'string' ? error : error.message
+    }
+
+    if (msg) {
+      console.warn(msg)
+    }
+    return dataURL
+  }
 }
 
 export async function resourceToDataURL(
@@ -79,33 +114,6 @@ export async function resourceToDataURL(
     resourceUrl += (/\?/.test(resourceUrl) ? '&' : '?') + new Date().getTime()
   }
 
-  let dataURL: string
-  try {
-    const content = await fetchAsDataURL(
-      resourceUrl,
-      options.fetchRequestInit,
-      ({ res, result }) => {
-        if (!contentType) {
-          // eslint-disable-next-line no-param-reassign
-          contentType = res.headers.get('Content-Type') || ''
-        }
-        return getContentFromDataUrl(result)
-      },
-    )
-    dataURL = makeDataUrl(content, contentType!)
-  } catch (error) {
-    dataURL = options.imagePlaceholder || ''
-
-    let msg = `Failed to fetch resource: ${resourceUrl}`
-    if (error) {
-      msg = typeof error === 'string' ? error : error.message
-    }
-
-    if (msg) {
-      console.warn(msg)
-    }
-  }
-
-  cache[cacheKey] = dataURL
-  return dataURL
+  cache[cacheKey] = fetchAndMakeDataURL(resourceUrl, contentType, options)
+  return cache[cacheKey]
 }
