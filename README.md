@@ -41,6 +41,7 @@ All the top level functions accept DOM node and rendering options, and return a 
 - [toPng](#toPng)
 - [toSvg](#toSvg)
 - [toJpeg](#toJpeg)
+- [toWebp](#toWebp)
 - [toBlob](#toBlob)
 - [toCanvas](#toCanvas)
 - [toPixelData](#toPixelData)
@@ -95,6 +96,19 @@ htmlToImage.toJpeg(document.getElementById('my-node'), { quality: 0.95 })
   .then(function (dataUrl) {
     var link = document.createElement('a');
     link.download = 'my-image-name.jpeg';
+    link.href = dataUrl;
+    link.click();
+  });
+```
+
+#### toWebp
+Save and download a compressed WebP image:
+
+```js
+htmlToImage.toWebp(document.getElementById('my-node'), { quality: 0.95 })
+  .then(function (dataUrl) {
+    var link = document.createElement('a');
+    link.download = 'my-image-name.webp';
     link.href = dataUrl;
     link.click();
   });

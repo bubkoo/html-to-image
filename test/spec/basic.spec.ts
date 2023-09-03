@@ -63,6 +63,22 @@ describe('basic usage', () => {
       .catch(done)
   })
 
+  it('should render to webp', (done) => {
+    bootstrap('small/node.html', 'small/style.css', 'small/image-webp')
+      .then((node) => htmlToImage.toWebp(node))
+      .then(check)
+      .then(done)
+      .catch(done)
+  })
+
+  it('should use quality parameter when rendering to webp', (done) => {
+    bootstrap('small/node.html', 'small/style.css', 'small/image-webp-low')
+      .then((node) => htmlToImage.toWebp(node, { quality: 0.5 }))
+      .then(check)
+      .then(done)
+      .catch(done)
+  })
+
   it('should convert an element to an array of pixels', (done) => {
     bootstrap('pixeldata/node.html', 'pixeldata/style.css')
       .then((node) =>
