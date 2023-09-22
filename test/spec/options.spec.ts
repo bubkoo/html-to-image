@@ -67,6 +67,18 @@ describe('work with options', () => {
       .catch(done)
   })
 
+  it('should only clone specified style properties when includeStyleProperties is provided', (done) => {
+    bootstrap('style/node.html', 'style/style.css', 'style/image-include-style')
+      .then((node) => {
+        return toPng(node, {
+          includeStyleProperties: ['width', 'height'],
+        })
+      })
+      .then(check)
+      .then(done)
+      .catch(done)
+  })
+
   it('should combine dimensions and style', (done) => {
     bootstrap('scale/node.html', 'scale/style.css', 'scale/image')
       .then((node) => {
