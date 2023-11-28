@@ -274,9 +274,9 @@ instead using this value. This is useful when combined with `getFontEmbedCSS()` 
 embedding process a single time across multiple calls to library functions.
 
 ```javascript
-const fontEmbedCss = await htmlToImage.getFontEmbedCSS(element1);
-html2Image.toSVG(element1, { fontEmbedCss });
-html2Image.toSVG(element2, { fontEmbedCss });
+const fontEmbedCSS = await htmlToImage.getFontEmbedCSS(element1);
+html2Image.toSVG(element1, { fontEmbedCSS });
+html2Image.toSVG(element2, { fontEmbedCSS });
 ```
 
 ### skipAutoScale
