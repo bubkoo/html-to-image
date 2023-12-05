@@ -91,4 +91,10 @@ export interface Options {
    *
    */
   fetchRequestInit?: RequestInit
+  /**
+   *
+   *the second parameter of  window.fetch (Promise<Response> fetch(input[, init]))
+   * This would be used for fonts, thereby making it different from the Image urls of the parent project.
+   */
+   fetchFontRequestInit?: RequestInit
 }
