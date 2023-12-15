@@ -81,9 +81,12 @@ export async function resourceToDataURL(
 
   let dataURL: string
   try {
+    const requestInit = options.fetchRequestInit
+      ? options.fetchRequestInit
+      : options.fetchRequestInitGenerator?.(resourceUrl)
     const content = await fetchAsDataURL(
       resourceUrl,
-      options.fetchRequestInit,
+      requestInit,
       ({ res, result }) => {
         if (!contentType) {
           // eslint-disable-next-line no-param-reassign
