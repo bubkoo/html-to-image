@@ -55,18 +55,15 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   const dataURL = await resourceToDataURL(url, getMimeType(url), options)
   await new Promise((resolve, reject) => {
     clonedNode.onload = resolve
-    clonedNode.onerror = async (...params) => {
-      if (clonedNode.onerror) {
-        try {
-          const result = await clonedNode.onerror(...params)
-          resolve(result)
-        } catch (error) {
-          reject(error)
+    clonedNode.onerror = options.onImageErrorHandler
+      ? (...attributes) => {
+          try {
+            resolve(options.onImageErrorHandler!(...attributes))
+          } catch (error) {
+            reject(error)
+          }
         }
-      } else {
-        reject(new Error('Image failed to load'))
-      }
-    }
+      : reject
 
     const image = clonedNode as HTMLImageElement
     if (image.decode) {
