@@ -151,7 +151,7 @@ async function getCSSRules(
               .then((metadata) => embedFonts(metadata, options))
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
-                  inline.insertRule(rule, sheet.cssRules.length)
+                  inline.insertRule(rule, inline.cssRules.length)
                 }),
               )
               .catch((err: unknown) => {
