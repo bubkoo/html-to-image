@@ -26,12 +26,12 @@ async function embedBackground<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ) {
-  if (!(await embedProp('background', clonedNode, options))) {
-    await embedProp('background-image', clonedNode, options)
-  }
-  if (!(await embedProp('mask', clonedNode, options))) {
-    await embedProp('mask-image', clonedNode, options)
-  }
+  ;(await embedProp('background', clonedNode, options)) ||
+    (await embedProp('background-image', clonedNode, options))
+  ;(await embedProp('mask', clonedNode, options)) ||
+    (await embedProp('-webkit-mask', clonedNode, options)) ||
+    (await embedProp('mask-image', clonedNode, options)) ||
+    (await embedProp('-webkit-mask-image', clonedNode, options))
 }
 
 async function embedImageNode<T extends HTMLElement | SVGImageElement>(
