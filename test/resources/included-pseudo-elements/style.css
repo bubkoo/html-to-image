@@ -1,0 +1,22 @@
+.pseudo {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
+.pseudo > div {
+  height: 200px;
+}
+.pseudo::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+}
+.pseudo::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+#dom-node {
+  height: 200px;
+  width: 200px;
+  background-color: #fff;
+}
