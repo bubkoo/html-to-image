@@ -1,4 +1,4 @@
-import { Options } from './types'
+import { Options } from './types.js'
 
 export function applyStyle<T extends HTMLElement>(
   node: T,
