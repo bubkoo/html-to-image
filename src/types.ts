@@ -91,4 +91,12 @@ export interface Options {
    *
    */
   fetchRequestInit?: RequestInit
+
+  /**
+   * Function that generates a RequestInit based on a given URL.
+   * This function is intended to provide a convenient way to customize the RequestInit configuration for
+   * fetching the data from a specific URL.
+   *
+   */
+  fetchRequestInitGenerator?: (url: string) => RequestInit | undefined
 }

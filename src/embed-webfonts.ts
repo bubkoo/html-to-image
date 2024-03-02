@@ -35,14 +35,13 @@ async function embedFonts(data: Metadata, options: Options): Promise<string> {
       url = new URL(url, data.url).href
     }
 
-    return fetchAsDataURL<[string, string]>(
-      url,
-      options.fetchRequestInit,
-      ({ result }) => {
-        cssText = cssText.replace(loc, `url(${result})`)
-        return [loc, result]
-      },
-    )
+    const requestInit = options.fetchRequestInit
+      ? options.fetchRequestInit
+      : options.fetchRequestInitGenerator?.(url)
+    return fetchAsDataURL<[string, string]>(url, requestInit, ({ result }) => {
+      cssText = cssText.replace(loc, `url(${result})`)
+      return [loc, result]
+    })
   })
 
   return Promise.all(loadFonts).then(() => cssText)
