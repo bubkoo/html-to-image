@@ -133,11 +133,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
       ) {
         value = 'block'
       }
-      
+
       if (name === 'd' && clonedNode.getAttribute('d')) {
         value = `path(${clonedNode.getAttribute('d')})`
       }
-      
+
       targetStyle.setProperty(
         name,
         value,
@@ -193,13 +193,45 @@ async function ensureSVGSymbols<T extends HTMLElement>(
   const processedDefs: { [key: string]: HTMLElement } = {}
   for (let i = 0; i < uses.length; i++) {
     const use = uses[i]
-    const id = use.getAttribute('xlink:href')
+    const href =
+      use.getAttribute('href') ?? // check href first as this is preferred and will be used if both are set
+      use.getAttribute('xlink:href')
+
+    if (!href) continue // skip blank hrefs
+
+    const [svgUrl, id] = href.split('#')
+
     if (id) {
-      const exist = clone.querySelector(id)
-      const definition = document.querySelector(id) as HTMLElement
-      if (!exist && definition && !processedDefs[id]) {
+      const query = `#${id}`
+      // const definition = ownerDocument?.querySelector(`svg ${ query }`)
+      const exist = clone.querySelector(query)
+      const definition = document.querySelector(query) as HTMLElement
+
+      if (svgUrl) {
+        // change the href attribute to use a local symbol on this cloned use-node
+        use.setAttribute('href', query)
+        // No need to set xlink:href since this is ignored when href is set
+      }
+
+      if (exist || processedDefs[query]) continue // already exists in defs
+
+      if (definition) {
+        // found local embedded definition
         // eslint-disable-next-line no-await-in-loop
         processedDefs[id] = (await cloneNode(definition, options, true))!
+      } else if (svgUrl) {
+        // no local definition but found an url
+        // try to fetch the svg and append it to the svgDefsElement
+        try {
+          // wrapped in try/catch since this is network calls that is likely to fail
+          // eslint-disable-next-line no-await-in-loop
+          const response = await fetch(svgUrl)
+          // eslint-disable-next-line no-await-in-loop
+          const svgData = await response.text()
+          clone.insertAdjacentHTML('beforeend', svgData)
+        } catch (error) {
+          // TODO log errors here?
+        }
       }
     }
   }
