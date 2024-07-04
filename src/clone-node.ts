@@ -76,11 +76,6 @@ async function cloneChildren<T extends HTMLElement>(
 
   if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
     children = toArray<T>(nativeNode.assignedNodes())
-  } else if (
-    isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
-    nativeNode.contentDocument?.body
-  ) {
-    children = toArray<T>(nativeNode.contentDocument.body.childNodes)
   } else {
     children = toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
   }
@@ -133,11 +128,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
       ) {
         value = 'block'
       }
-      
+
       if (name === 'd' && clonedNode.getAttribute('d')) {
         value = `path(${clonedNode.getAttribute('d')})`
       }
-      
+
       targetStyle.setProperty(
         name,
         value,
@@ -171,7 +166,10 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
 }
 
 function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T): T {
-  if (isInstanceOfElement(clonedNode, Element)) {
+  if (
+    isInstanceOfElement(clonedNode, Element) &&
+    !isInstanceOfElement(nativeNode, HTMLIFrameElement)
+  ) {
     cloneCSSStyle(nativeNode, clonedNode)
     clonePseudoElements(nativeNode, clonedNode)
     cloneInputValue(nativeNode, clonedNode)
