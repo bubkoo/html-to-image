@@ -240,3 +240,7 @@ export const isInstanceOfElement = <
     isInstanceOfElement(nodePrototype, instance)
   )
 }
+
+export const deduplicate = <T>(list: T[]): T[] => {
+  return list.sort().filter((item, i) => !i || item !== list[i - 1])
+}
