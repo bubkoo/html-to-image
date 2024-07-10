@@ -77,6 +77,11 @@ export interface Options {
    */
   fontEmbedCSS?: string
   /**
+   * A CSS string to specify additional custom style content. It will be
+   * added to the style-tag.
+   */
+  extraStyleContent?: string
+  /**
    * A boolean to turn off auto scaling for truly massive images..
    */
   skipAutoScale?: boolean
