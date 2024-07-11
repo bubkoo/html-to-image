@@ -293,6 +293,25 @@ When supplied, the toCanvas function will return a blob matching the given image
 
 Defaults to `image/png`  
 
+### fetchRequestInitGenerator
+
+```ts
+(url: string) => RequestInit | undefined
+```
+
+This function is intended to provide a convenient way to customize the RequestInit configuration for fetching data from a specific URL.
+For example,
+
+```ts
+htmlToImage.toCanvas(node, { 
+  fetchRequestInitGenerator: (url: string) => {
+    url.includes('/internal')
+    ? { credentials: 'include' }
+    : undefined
+  }
+});
+```
+
 ## Browsers
 
 Only standard lib is currently used, but make sure your browser supports:
