@@ -113,6 +113,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
     return
   }
 
+  if (nativeNode instanceof SVGElement) {
+    targetStyle.cssText = nativeNode.getAttribute('style') || ''
+    return
+  }
+
   const sourceStyle = window.getComputedStyle(nativeNode)
   if (sourceStyle.cssText) {
     targetStyle.cssText = sourceStyle.cssText
@@ -133,11 +138,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
       ) {
         value = 'block'
       }
-      
+
       if (name === 'd' && clonedNode.getAttribute('d')) {
         value = `path(${clonedNode.getAttribute('d')})`
       }
-      
+
       targetStyle.setProperty(
         name,
         value,
@@ -195,8 +200,8 @@ async function ensureSVGSymbols<T extends HTMLElement>(
     const use = uses[i]
     const id = use.getAttribute('xlink:href')
     if (id) {
-      const exist = clone.querySelector(id)
-      const definition = document.querySelector(id) as HTMLElement
+      const exist = clone.querySelector(CSS.escape(id))
+      const definition = document.querySelector(CSS.escape(id)) as HTMLElement
       if (!exist && definition && !processedDefs[id]) {
         // eslint-disable-next-line no-await-in-loop
         processedDefs[id] = (await cloneNode(definition, options, true))!
