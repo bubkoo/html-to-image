@@ -11,3 +11,5 @@ dist
 es
 lib
 test/coverage
+
+.env
