@@ -1,5 +1,5 @@
 {
-  "name": "html-to-image",
+  "name": "dom-to-image",
   "version": "1.11.11",
   "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
   "main": "lib/index.js",
@@ -89,5 +89,8 @@
     "rollup": "^3.7.4",
     "tslib": "^2.4.0",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "auto": "^11.2.0"
   }
 }
