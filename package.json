@@ -36,7 +36,8 @@
     "coveralls": "cat ./test/coverage/lcov.info | coveralls",
     "pretest": "rimraf ./test/coverage",
     "prepare": "is-ci || husky install .husky",
-    "auto": "auto"
+    "auto": "auto",
+    "type:check": "tsc --project tsconfig.json --pretty --noEmit --skipLibCheck"
   },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
