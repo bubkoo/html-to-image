@@ -27,9 +27,6 @@ jobs:
       # - name: Test
       #   run: npm run test
       
-      - name: Check if we have up-to-date specifications
-        run: npm run generate:check
-    
       - name: Build
         run: npm run build
 

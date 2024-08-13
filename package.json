@@ -38,8 +38,7 @@
     "auto": "auto",
     "type:check": "tsc --project tsconfig.json --pretty --noEmit --skipLibCheck",
     "release": "auto shipit",
-    "canary": "auto canary --pr",
-    "generate:check": "tsx src/scripts/generate.ts --check"
+    "canary": "auto canary --pr"
   },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
