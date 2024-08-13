@@ -1,4 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx @commitlint/cli --extends @bubkoo/commitlint-config --edit "$1"

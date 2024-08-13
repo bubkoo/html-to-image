@@ -1,6 +1,8 @@
-<h1 align="center">html-to-image</h1>
+<h1 align="center">@celtra/html-to-image</h1>
 
 <p align="center"><strong>✂️ Generates an image from a DOM node using HTML5 canvas and SVG.</strong></p>
+
+<p align="center">Fork from <a href="https://github.com/bubkoo/html-to-image" rel="nofollow">bubkoo's html-to-image</a> with even more maintainable code and some bugfixes.</p>
 
 <p align="center">Fork from <a href="https://github.com/tsayen/dom-to-image" rel="nofollow">dom-to-image</a> with more maintainable code and some new features.</p>
 
@@ -22,7 +24,7 @@
 ## Install
 
 ```shell
-npm install --save html-to-image
+npm install --save @celtra/html-to-image
 ```
 
 ## Usage
