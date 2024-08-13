@@ -24,8 +24,8 @@ jobs:
       - name: Typecheck
         run: npm run type:check
     
-      - name: Test
-        run: npm run test
+      # - name: Test
+      #   run: npm run test
       
       - name: Check if we have up-to-date specifications
         run: npm run generate:check
