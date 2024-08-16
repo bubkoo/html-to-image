@@ -209,8 +209,10 @@ export async function nodeToDataURL(
   const svg = document.createElementNS(xmlns, 'svg')
   const foreignObject = document.createElementNS(xmlns, 'foreignObject')
 
-  svg.setAttribute('width', `${width}`)
-  svg.setAttribute('height', `${height}`)
+  // fix: if ratio=2 and style.border='1px', in html it is actually rendered to 1px, but in <img src="svg"> it is rendered to 2px. Then height is different and the bottom 1px is lost, 10 nodes will lost 10px.
+  var ratio = self.devicePixelRatio;
+  svg.setAttribute('width', `${width / ratio}`)
+  svg.setAttribute('height', `${height / ratio}`)
   svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
 
   foreignObject.setAttribute('width', '100%')
@@ -226,6 +228,7 @@ export async function nodeToDataURL(
     style.innerHTML = await getStyles()
     svg.insertBefore(style, foreignObject)
   }
+
   return svgToDataURL(svg)
 }
 
