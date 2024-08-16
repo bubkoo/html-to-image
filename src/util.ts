@@ -203,6 +203,7 @@ export async function nodeToDataURL(
   node: HTMLElement,
   width: number,
   height: number,
+  usePageCss?: boolean,
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
   const svg = document.createElementNS(xmlns, 'svg')
@@ -220,6 +221,11 @@ export async function nodeToDataURL(
 
   svg.appendChild(foreignObject)
   foreignObject.appendChild(node)
+  if (usePageCss) {
+    const style = document.createElementNS(xmlns, 'style')
+    style.innerHTML = await getStyles()
+    svg.insertBefore(style, foreignObject)
+  }
   return svgToDataURL(svg)
 }
 
@@ -239,4 +245,25 @@ export const isInstanceOfElement = <
     nodePrototype.constructor.name === instance.name ||
     isInstanceOfElement(nodePrototype, instance)
   )
+}
+
+export function getStyles() {
+  const styles = document.querySelectorAll('style,link[rel="stylesheet"]')
+  const ps: Array<Promise<string>> = []
+  toArray(styles).forEach((el) => {
+    const e = el as Element
+    if (e.tagName === 'LINK') {
+      const href = e.getAttribute('href')
+      if (href) ps.push(getCssText(href).catch(() => ''))
+    } else {
+      ps.push(Promise.resolve(e.innerHTML))
+    }
+  })
+  return Promise.all(ps).then((arr) => {
+    return arr.join('\n\n')
+  })
+
+  function getCssText(url: string) {
+    return fetch(url).then((r) => r.text())
+  }
 }

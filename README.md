@@ -292,6 +292,15 @@ A string indicating the image format. The default type is image/png; that type i
 When supplied, the toCanvas function will return a blob matching the given image type and quality. 
 
 Defaults to `image/png`  
+  
+
+### usePageCss
+
+Use `true` to add a `<style>` tag in svg content which imports all styles of current html page, and do not add computed styles to every node any more(this make svg content so large that Firefox throw errors while load svg as image).
+This will make the svg content much smaller, to resolve problems which caused by html that has large amount of sub nodes.
+
+
+Defaults to `false`  
 
 ## Browsers
 

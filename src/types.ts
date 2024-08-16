@@ -91,4 +91,9 @@ export interface Options {
    *
    */
   fetchRequestInit?: RequestInit
+  /*
+   * Use a <style> in svg to import all styles of current html page, and do not add computed styles to every node any more.
+   * This will make the svg content very small, to resolve problems when html has large amount of sub nodes.
+   * */
+  usePageCss?: boolean
 }
