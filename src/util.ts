@@ -252,7 +252,7 @@ export async function nodeToDataURL(
   const svg = document.createElementNS(xmlns, 'svg')
   const foreignObject = document.createElementNS(xmlns, 'foreignObject')
 
-  // fix: if ratio=2 and style.border='1px', in html it is actually rendered to 1px, but in <img src="svg"> it is rendered to 2px. Then height is different and the bottom 1px is lost, 10 nodes will lost 10px.
+  // fix: if ratio=2 and style.border='1px', in html it is actually rendered to 1px, but in <img src="svg" alt="i"> it is rendered to 2px. Then height is different and the bottom 1px is lost, 10 nodes will lost 10px.
   const ratio = getPixelRatio()
   svg.setAttribute('width', `${width / ratio}`)
   svg.setAttribute('height', `${height / ratio}`)
