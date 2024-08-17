@@ -129,16 +129,59 @@ export function checkCanvasDimensions(canvas: HTMLCanvasElement) {
         canvas.height *= canvasDimensionLimit / canvas.width
         canvas.width = canvasDimensionLimit
       } else {
-        canvas.width *= canvasDimensionLimit / canvas.height
-        canvas.height = canvasDimensionLimit
+        const height1 = getMaxCanvasHeight(canvas.width)
+        canvas.width *= height1 / canvas.height
+        canvas.height = height1
       }
     } else if (canvas.width > canvasDimensionLimit) {
       canvas.height *= canvasDimensionLimit / canvas.width
       canvas.width = canvasDimensionLimit
     } else {
-      canvas.width *= canvasDimensionLimit / canvas.height
-      canvas.height = canvasDimensionLimit
+      const height = getMaxCanvasHeight(canvas.width)
+      canvas.width *= height / canvas.height
+      canvas.height = height
     }
+  }
+}
+
+export function getDimensionLimit(): number {
+  return canvasDimensionLimit
+}
+
+const dimenstionLimitCache: { [width: number]: number } = {}
+
+export function getMaxCanvasHeight(width: number): number {
+  let val = dimenstionLimitCache[width]
+  if (val) return val
+  val = test()
+  dimenstionLimitCache[width] = val
+  return val
+
+  function test(): number {
+    const heights = [
+      // Chrome 83 (Mac, Win)
+      65535,
+      // Chrome 70 (Mac, Win)
+      // Chrome 68 (Android 4.4-9)
+      // Firefox 63 (Mac, Win)
+      32767,
+      // Edge 17 (Win)
+      // IE11 (Win)
+      // 16384,
+    ]
+    for (let i = 0; i < heights.length; i++) {
+      try {
+        const canvas = document.createElement('canvas')
+        canvas.width = width
+        canvas.height = heights[i]
+        const ctx = canvas.getContext('2d')!
+        ctx.drawImage(new Image(), 0, 0) // check
+        return heights[i]
+      } catch (e) {
+        // ignore
+      }
+    }
+    return canvasDimensionLimit
   }
 }
 
@@ -210,7 +253,7 @@ export async function nodeToDataURL(
   const foreignObject = document.createElementNS(xmlns, 'foreignObject')
 
   // fix: if ratio=2 and style.border='1px', in html it is actually rendered to 1px, but in <img src="svg"> it is rendered to 2px. Then height is different and the bottom 1px is lost, 10 nodes will lost 10px.
-  var ratio = getPixelRatio();
+  const ratio = getPixelRatio()
   svg.setAttribute('width', `${width / ratio}`)
   svg.setAttribute('height', `${height / ratio}`)
   svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
@@ -252,21 +295,22 @@ export const isInstanceOfElement = <
 
 export function getStyles() {
   const styles = document.querySelectorAll('style,link[rel="stylesheet"]')
-  const ps: Array<Promise<string>> = []
+  const promises: Array<Promise<string>> = []
   toArray(styles).forEach((el) => {
     const e = el as Element
     if (e.tagName === 'LINK') {
       const href = e.getAttribute('href')
-      if (href) ps.push(getCssText(href).catch(() => ''))
+      if (href)
+        promises.push(
+          fetch(href)
+            .then((r) => r.text())
+            .catch(() => ''),
+        )
     } else {
-      ps.push(Promise.resolve(e.innerHTML))
+      promises.push(Promise.resolve(e.innerHTML))
     }
   })
-  return Promise.all(ps).then((arr) => {
+  return Promise.all(promises).then((arr) => {
     return arr.join('\n\n')
   })
-
-  function getCssText(url: string) {
-    return fetch(url).then((r) => r.text())
-  }
 }
