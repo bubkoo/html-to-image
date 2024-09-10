@@ -1,8 +1,8 @@
 import { Options } from './types'
 import { cloneNode } from './clone-node'
-import { embedImages } from './embed-images'
+//import { embedImages } from './embed-images'
 import { applyStyle } from './apply-style'
-import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
+//import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
 import {
   getImageSize,
   getPixelRatio,
@@ -19,8 +19,8 @@ export async function toSvg<T extends HTMLElement>(
 ): Promise<string> {
   const { width, height } = getImageSize(node, options)
   const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
-  await embedWebFonts(clonedNode, options)
-  await embedImages(clonedNode, options)
+  //await embedWebFonts(clonedNode, options)
+  //await embedImages(clonedNode, options)
   applyStyle(clonedNode, options)
   const datauri = await nodeToDataURL(clonedNode, width, height, options.usePageCss)
   return datauri
@@ -143,9 +143,9 @@ export async function toBlob<T extends HTMLElement>(
   return blob
 }
 
-export async function getFontEmbedCSS<T extends HTMLElement>(
-  node: T,
-  options: Options = {},
-): Promise<string> {
-  return getWebFontCSS(node, options)
-}
+// export async function getFontEmbedCSS<T extends HTMLElement>(
+//   node: T,
+//   options: Options = {},
+// ): Promise<string> {
+//   return getWebFontCSS(node, options)
+// }
