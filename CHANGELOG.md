@@ -1,3 +1,15 @@
+# v1.11.13 (Fri Sep 13 2024)
+
+#### 🐛 Bug Fix
+
+- Don't report errors when there aren't any [DEV-223] [#5](https://github.com/celtra/html-to-image/pull/5) ([@UsajMarko](https://github.com/UsajMarko))
+
+#### Authors: 1
+
+- [@UsajMarko](https://github.com/UsajMarko)
+
+---
+
 # v1.11.12 (Tue Aug 13 2024)
 
 #### 🐛 Bug Fix
