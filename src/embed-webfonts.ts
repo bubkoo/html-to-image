@@ -48,14 +48,9 @@ async function embedFonts(data: Metadata, options: Options): Promise<string> {
   return Promise.all(loadFonts).then(() => cssText)
 }
 
-function parseCSS(source: string) {
-  if (source == null) {
-    return []
-  }
-
+function parseCSS(source: string): Promise<CSSStyleSheet> {
   const styles = new CSSStyleSheet()
-  styles.replaceSync(source)
-  return toArray<CSSRule>(styles.cssRules).map((rule) => rule.cssText)
+  return styles.replace(source || '')
 }
 
 async function getCSSRules(
@@ -66,7 +61,7 @@ async function getCSSRules(
   const deferreds: Promise<number | void>[] = []
 
   // First loop inlines imports
-  styleSheets.forEach((sheet) => {
+  styleSheets.forEach((sheet, sheetIdx) => {
     if ('cssRules' in sheet) {
       try {
         toArray<CSSRule>(sheet.cssRules || []).forEach((item, index) => {
@@ -75,48 +70,48 @@ async function getCSSRules(
             const url = (item as CSSImportRule).href
             const deferred = fetchCSS(url)
               .then((metadata) => embedFonts(metadata, options))
-              .then((cssText) =>
-                parseCSS(cssText).forEach((rule) => {
-                  try {
-                    sheet.insertRule(
-                      rule,
-                      rule.startsWith('@import')
-                        ? (importIndex += 1)
-                        : sheet.cssRules.length,
-                    )
-                  } catch (error) {
-                    console.error('Error inserting rule from remote css', {
-                      rule,
-                      error,
-                    })
-                  }
-                }),
-              )
+              .then((cssText) => parseCSS(cssText))
+              .then((importedSheet) => {
+                toArray<CSSRule>(importedSheet.cssRules)
+                  .map((rule) => rule.cssText)
+                  .forEach((ruleText) => {
+                    try {
+                      sheet.insertRule(
+                        ruleText,
+                        ruleText.startsWith('@import')
+                          ? (importIndex += 1)
+                          : sheet.cssRules.length,
+                      )
+                    } catch (error) {
+                      console.error('Error inserting rule from remote css', {
+                        ruleText,
+                        error,
+                      })
+                    }
+                  })
+              })
               .catch((e) => {
                 console.error('Error loading remote css', e.toString())
               })
-
             deferreds.push(deferred)
           }
         })
       } catch (e) {
-        const inline =
-          styleSheets.find((a) => a.href == null) || document.styleSheets[0]
         if (sheet.href != null) {
           deferreds.push(
             fetchCSS(sheet.href)
               .then((metadata) => embedFonts(metadata, options))
-              .then((cssText) =>
-                parseCSS(cssText).forEach((rule) => {
-                  inline.insertRule(rule, inline.cssRules.length)
-                }),
-              )
+              .then((cssText) => parseCSS(cssText))
+              .then((importedSheet) => {
+                styleSheets[sheetIdx] = importedSheet
+              })
               .catch((err: unknown) => {
                 console.error('Error loading remote stylesheet', err)
               }),
           )
+        } else {
+          console.error('Cannot inline remote CSS', e)
         }
-        console.error('Error inlining remote css file', e)
       }
     }
   })
