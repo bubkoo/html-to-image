@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eu -o pipefail
+
+# Switch to $HOME, because `npm set` can only be done outside of a workspace.
+pushd $HOME > /dev/null
+
+# Since we use Nexus registry with auth by default,
+# $NPM_TOKEN is not used with `lerna` (used by `auto`),
+# so we need to manually set auth token.
+npm set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"

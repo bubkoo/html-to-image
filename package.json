@@ -97,5 +97,9 @@
     "plugins": [
       "npm"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "restricted"
   }
 }

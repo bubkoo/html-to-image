@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eu -o pipefail
+
+MODULE_ROOT=$(dirname $(dirname $(readlink -e $0)))
+cd "$MODULE_ROOT"
+
+if [ -z "$GH_TOKEN" ]; then
+  echo "GH_TOKEN is not set"
+  exit 1
+fi
+
+"${MODULE_ROOT}/bin/set-npm-auth-token"
+
+npm run release

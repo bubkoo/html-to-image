@@ -35,8 +35,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROTECTED_BRANCH_REVIEWER_TOKEN: ${{ secrets.CELTRA_DEPLOYER_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run canary
+          NPM_TOKEN: ${{ secrets.NPMJS_WRITE_TOKEN }}
+        run: bin/release-canary
       
       - name: Prepare repository
         if: github.ref == 'refs/heads/master'
@@ -47,5 +47,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROTECTED_BRANCH_REVIEWER_TOKEN: ${{ secrets.CELTRA_DEPLOYER_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run release
+          NPM_TOKEN: ${{ secrets.NPMJS_WRITE_TOKEN }}
+        run: bin/release-packages
