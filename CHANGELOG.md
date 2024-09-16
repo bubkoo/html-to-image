@@ -1,3 +1,15 @@
+# v1.11.14 (Mon Sep 16 2024)
+
+#### 🐛 Bug Fix
+
+- DEV-229 Push to NPMJS [#6](https://github.com/celtra/html-to-image/pull/6) ([@bogdanpetrovic0](https://github.com/bogdanpetrovic0))
+
+#### Authors: 1
+
+- [@bogdanpetrovic0](https://github.com/bogdanpetrovic0)
+
+---
+
 # v1.11.13 (Fri Sep 13 2024)
 
 #### 🐛 Bug Fix
