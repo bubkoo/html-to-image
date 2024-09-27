@@ -164,7 +164,7 @@ export async function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
     .then((str) => new window.DOMParser().parseFromString(str, 'text/xml'))
 }
 
-const PASS_TEXT_MATCH = true
+const PASS_TEXT_MATCH = false
 
 export function assertTextRendered(lines: string[], options?: Options) {
   return (node: HTMLDivElement = getCaptureNode()) =>

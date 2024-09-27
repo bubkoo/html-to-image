@@ -40,6 +40,17 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
 ) {
   const isImageElement = isInstanceOfElement(clonedNode, HTMLImageElement)
 
+  // Skip images with empty sources. Note that reading the src property of an HTMLImageElement (or href of SVGImageElement)
+  // which has an empty value will return the current URL.
+  // This is a workaround to prevent the loading of current page URL as an image when there are empty images in the DOM.
+  if (
+    (isImageElement && clonedNode.getAttribute('src') === '') ||
+    (isInstanceOfElement(clonedNode, SVGImageElement) &&
+      clonedNode.getAttribute('href') === '')
+  ) {
+    return
+  }
+
   if (
     !(isImageElement && !isDataUrl(clonedNode.src)) &&
     !(

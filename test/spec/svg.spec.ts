@@ -47,6 +47,17 @@ describe('work with svg element', () => {
       .catch(done)
   })
 
+  it('should not fail on empty href in svg `<image>`', (done) => {
+    bootstrap(
+      'svg-image/node-empty.html',
+      'svg-image/style.css',
+      'svg-image/image',
+    )
+      .then(renderAndCheck)
+      .then(done)
+      .catch(done)
+  })
+
   it('should render SVG use tags', function (done) {
     bootstrap(
       'svg-use-tag/node.html',

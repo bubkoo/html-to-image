@@ -183,6 +183,18 @@ describe('basic usage', () => {
       .catch(done)
   })
 
+  it('should not fail on empty images', (done) => {
+    bootstrap(
+      'images/node-empty.html',
+      'images/style.css',
+      'images/node-empty-png',
+    )
+      .then(delay(500))
+      .then(assertTextRendered(['PNG']))
+      .then(done)
+      .catch(done)
+  })
+
   it('should render webp images', (done) => {
     bootstrap('webp/node.html', 'webp/style.css')
       .then(delay(500))
