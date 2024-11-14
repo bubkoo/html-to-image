@@ -237,11 +237,21 @@ export function createImage(url: string): Promise<HTMLImageElement> {
 
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
-    .then(() => new XMLSerializer().serializeToString(svg))
+    .then(async function () {
+      // svg中的图片地址无法离线下载，需要先转成dataUrl
+      const imgs = svg.querySelectorAll('img')
+      return Promise.all(
+        [].slice.call(imgs, 0).map((img: HTMLImageElement) => {
+          return urlToDataUrl(img.src).then((dataUrl) => (img.src = dataUrl))
+        }),
+      ).then(() => {
+        const xml = new XMLSerializer().serializeToString(svg)
+        // open('about:blank').document.write('<plaintext>' + xml); //for debug
+        return xml
+      })
+    })
     .then(encodeURIComponent)
     .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
-  // @ts-ignore
-  //.then(s => $('body').prepend(svg) && s)
 }
 
 export async function nodeToDataURL(
@@ -277,8 +287,9 @@ export async function nodeToDataURL(
   return svgToDataURL(svg)
 }
 
-export const isInstanceOfElement = <T extends typeof Element | typeof HTMLElement | typeof SVGImageElement,
-  >(
+export const isInstanceOfElement = <
+  T extends typeof Element | typeof HTMLElement | typeof SVGImageElement,
+>(
   node: Element | HTMLElement | SVGImageElement,
   instance: T,
 ): node is T['prototype'] => {
@@ -305,11 +316,13 @@ export function getStyles() {
         promises.push(
           fetch(href)
             .then((r) => r.text())
-            .then(tx => transRelPath(href, tx))
+            .then((tx) => transRelPath(href, tx))
             .catch(() => ''),
         )
     } else {
-      promises.push(Promise.resolve(e.innerHTML))
+      promises.push(
+        Promise.resolve(transRelPath(window.location.href, e.innerHTML)),
+      )
     }
   })
   return Promise.all(promises).then((arr) => {
@@ -320,36 +333,40 @@ export function getStyles() {
 function transRelPath(cssPath: string, cssText: string): Promise<string> {
   const quotReg = /^\s*(['"])(.+?)\1/
   const map: { [url: string]: string } = {}
-  //css中的图片路径是相对于css文件的，要改为相对于当前html文件
-  let css = cssText.replace(/url\(\s*(.+?)\s*\)/ig, (m, path) => {
-    path = path.replace(quotReg, '$2')
+  // css中的图片路径是相对于css文件的，要改为相对于当前html文件
+  let css = cssText.replace(/url\(\s*(.+?)\s*\)/gi, (m, path0) => {
+    if (path0.substring(0, 5) === 'data:') return m
+    const path = path0.replace(quotReg, '$2')
     const sUrl = toRelative(cssPath, path)
-    const ret = 'url(' + sUrl + ')'
+    const ret = `url(${sUrl})`
     map[sUrl] = ret
     return ret
   })
-  //css中的图片在svg中访问失败，需要转换为dataUrl
-  const promises = Object.keys(map).map(url => {
-    return urlToDataUrl(url).then(dataUrl => {
+  // css中的图片在svg中访问失败，需要转换为dataUrl
+  const promises = Object.keys(map).map((url) => {
+    return urlToDataUrl(url).then((dataUrl) => {
       let p: number
       while ((p = css.indexOf(map[url])) > -1) {
-        css = css.substring(0, p) + 'url(' + dataUrl + ')' + css.substring(p + map[url].length)
+        css = `${css.substring(0, p)}url(${dataUrl})${css.substring(
+          p + map[url].length,
+        )}`
       }
     })
   })
-  return Promise.all(promises).then(_ => css)
+  return Promise.all(promises).then(() => css)
 }
 
 function toRelative(compareTo: string, path: string): string {
   if (path[0] === '/' || path.match(/^data:|:\/\//i)) return path
-  const pos = compareTo.lastIndexOf('/')
+  const compareTo0 = compareTo.split('#')[0]
+  const pos = compareTo0.lastIndexOf('/')
   if (pos > -1) {
-    const dir = compareTo.substring(0, pos)
-    const arr = (dir + '/' + path).split('/').filter(i => i !== '.')
+    const dir = compareTo0.substring(0, pos)
+    const arr = `${dir}/${path}`.split('/').filter((i) => i !== '.')
     for (let i = arr.length - 1; i > 0; i--) {
       if (arr[i] === '..' && arr[i - 1] !== '..') {
         arr.splice(i - 1, 2)
-        i--
+        i -= 1
       }
     }
     return arr.join('/')
@@ -359,11 +376,14 @@ function toRelative(compareTo: string, path: string): string {
 
 function urlToDataUrl(url: string): Promise<string> {
   return fetch(url)
-    .then(response => response.blob()) // 将响应转换为Blob
-    .then(blob => new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onload = () => resolve('' + reader.result)
-      reader.onerror = error => resolve('')
-      reader.readAsDataURL(blob) // 转换Blob为DataURL
-    }))
+    .then((response) => response.blob()) // 将响应转换为Blob
+    .then(
+      (blob) =>
+        new Promise((resolve) => {
+          const reader = new FileReader()
+          reader.onload = () => resolve(`${reader.result}`)
+          reader.onerror = () => resolve('')
+          reader.readAsDataURL(blob) // 转换Blob为DataURL
+        }),
+    )
 }
