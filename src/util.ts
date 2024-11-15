@@ -274,7 +274,7 @@ export async function nodeToDataURL(
   foreignObject.appendChild(node)
   if (usePageCss) {
     const style = document.createElementNS(xmlns, 'style')
-    style.innerHTML = await getStyles()
+    style.insertAdjacentText('beforeend', await getStyles())
     svg.insertBefore(style, foreignObject)
   }
 
@@ -315,7 +315,9 @@ export function getStyles() {
         )
     } else {
       promises.push(
-        Promise.resolve(transRelPath(window.location.href, (e as HTMLStyleElement).innerText)),
+        Promise.resolve(
+          transRelPath(window.location.href, (e as HTMLStyleElement).innerText),
+        ),
       )
     }
   })
@@ -324,7 +326,8 @@ export function getStyles() {
   })
 }
 
-function transRelPath(cssPath: string, cssText: string): Promise<string> {
+function transRelPath(cssPath: string, cssTextIn: string): Promise<string> {
+  const cssText = cssTextIn.replace(/\/\*[\s\S]*?\*\//g, '')
   const quotReg = /^\s*(['"])(.+?)\1/
   const map: { [url: string]: string } = {}
   // css中的图片路径是相对于css文件的，要改为相对于当前html文件
