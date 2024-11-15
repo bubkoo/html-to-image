@@ -165,10 +165,7 @@ export function getMaxCanvasHeight(width: number): number {
     ]
     for (let i = 0; i < heights.length; i++) {
       try {
-        const canvas = document.createElement('canvas')
-        canvas.width = width
-        canvas.height = heights[i]
-        const ctx = canvas.getContext('2d')!
+        const ctx = get2dCtx(width, heights[i])
         ctx.drawImage(new Image(), 0, 0) // check
         return heights[i]
       } catch (e) {
@@ -177,6 +174,13 @@ export function getMaxCanvasHeight(width: number): number {
     }
     return canvasDimensionLimit
   }
+}
+
+function get2dCtx(width: number, height: number) {
+  const canvas = document.createElement('canvas')
+  canvas.width = width
+  canvas.height = height
+  return canvas.getContext('2d')!
 }
 
 export function canvasToBlob(
@@ -217,21 +221,66 @@ export function canvasToBlob(
   })
 }
 
-export function createImage(url: string): Promise<HTMLImageElement> {
-  return new Promise((resolve, reject) => {
-    const img = new Image()
-    img.decode = () => resolve(img) as any
-    img.onload = () => resolve(img)
-    img.onerror = reject
-    img.crossOrigin = 'anonymous'
-    img.decoding = 'async'
-    img.src = url
-  })
+export function createImage(urlIn: string) {
+  //var win = open('about:blank');
+  return checkImg(1)
+  //svg中css的解释逻辑与html中不完全相同，会导致svg中的高度高于实际html的高度。
+  //原因诸如：4k屏的1px在html中为0.51px，而在svg中为1px；又如 overflow-y 在svg中失效；background定位不兼容等。
+  //为了避免图像底部不完整的情况，这里每次额外增加60px高度，并寻找是否存在底部标志颜色（BCheckColor），直到已存在，说明已经到达底部。
+  function checkImg(i: number): Promise<HTMLImageElement> {
+    var url = replaceHeight(urlIn, BCheckHeight * i)
+    return urlToImg(url).then(function(img: HTMLImageElement): Promise<HTMLImageElement> | HTMLImageElement {
+      var ctx = get2dCtx(1, BCheckHeight)
+      ctx.drawImage(img, Math.floor(img.width / 2), img.height - BCheckHeight, 1, BCheckHeight, 0, 0, 1, BCheckHeight)
+      //win.document.write(i + '<img src="' + ctx.canvas.toDataURL() + '" style="width:10px" />'); //debug
+      var dat = ctx.getImageData(0, 0, 1, BCheckHeight).data
+      let color = padx(dat[dat.length - 4]) + padx(dat[dat.length - 3]) + padx(dat[dat.length - 2])
+      if (color !== BCheckColor && i < 50) {
+        return checkImg(i + 1)
+      }
+      //每4个字节为1像素，共4字节，rgba
+      for (let j = dat.length - 8; j >= 0; j -= 4) {
+        color = padx(dat[j]) + padx(dat[j + 1]) + padx(dat[j + 2])
+        if (color !== BCheckColor) {
+          url = replaceHeight(urlIn, BCheckHeight * (i - 1) + (j / 4) / getPixelRatio());
+          return urlToImg(url)
+        }
+      }
+      return img
+    })
+  }
+
+  function urlToImg(url: string): Promise<HTMLImageElement> {
+    return new Promise(function(resolve, reject) {
+      var img = new Image()
+      img.decode = function() {
+        return resolve(img)
+      } as any
+      img.onload = function() {
+        return resolve(img)
+      }
+      img.onerror = reject
+      img.crossOrigin = 'anonymous'
+      img.decoding = 'async'
+      img.src = url
+    })
+  }
+
+  function replaceHeight(url: string, delta: number) {
+    return url.replace(/(viewBox%3D%220%200%20[\d.]+%20)([\d.]+)%22/, function(_, m1, m2) {
+      return m1 + (parseInt(m2) + delta) + '%22'
+    })
+  }
+
+  function padx(i: number) {
+    var r = i.toString(16)
+    return r.length === 1 ? '0' + r : r
+  }
 }
 
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
-    .then(async function () {
+    .then(async function() {
       // svg中的图片地址无法离线下载，需要先转成dataUrl
       const imgs = svg.querySelectorAll('img')
       return Promise.all(
@@ -247,6 +296,9 @@ export async function svgToDataURL(svg: SVGElement): Promise<string> {
     .then(encodeURIComponent)
     .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
 }
+
+const BCheckColor = '010201'
+const BCheckHeight = 60
 
 export async function nodeToDataURL(
   node: HTMLElement,
@@ -272,6 +324,10 @@ export async function nodeToDataURL(
 
   svg.appendChild(foreignObject)
   foreignObject.appendChild(node)
+  foreignObject.insertAdjacentHTML(
+    'beforeend',
+    `<div style="background: #${BCheckColor};height:${BCheckHeight * 2}px"></div>`,
+  )
   if (usePageCss) {
     const style = document.createElementNS(xmlns, 'style')
     style.insertAdjacentText('beforeend', await getStyles())
@@ -281,9 +337,8 @@ export async function nodeToDataURL(
   return svgToDataURL(svg)
 }
 
-export const isInstanceOfElement = <
-  T extends typeof Element | typeof HTMLElement | typeof SVGImageElement,
->(
+export const isInstanceOfElement = <T extends typeof Element | typeof HTMLElement | typeof SVGImageElement,
+  >(
   node: Element | HTMLElement | SVGImageElement,
   instance: T,
 ): node is T['prototype'] => {
