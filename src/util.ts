@@ -56,13 +56,7 @@ export function delay<T>(ms: number) {
 }
 
 export function toArray<T>(arrayLike: any): T[] {
-  const arr: T[] = []
-
-  for (let i = 0, l = arrayLike.length; i < l; i++) {
-    arr.push(arrayLike[i])
-  }
-
-  return arr
+  return [].slice.call(arrayLike, 0)
 }
 
 function px(node: HTMLElement, styleProperty: string) {
@@ -321,7 +315,7 @@ export function getStyles() {
         )
     } else {
       promises.push(
-        Promise.resolve(transRelPath(window.location.href, e.innerHTML)),
+        Promise.resolve(transRelPath(window.location.href, (e as HTMLStyleElement).innerText)),
       )
     }
   })
