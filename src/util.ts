@@ -253,7 +253,7 @@ export function svgUrlToImg(urlIn: string, opt: Options = {}) {
         1,
         canvasHeight,
       )
-      // win.document.write(i + '<img src="' + ctx.canvas.toDataURL() + '" style="width:10px" />'); //debug
+      // win.document.write(i + '<img src="' + ctx.canvas.toDataURL() + '" style="width:10px" alt="img"/>'); //debug
       const dat = ctx.getImageData(0, 0, 1, canvasHeight).data
       let color =
         padx(dat[dat.length - 4]) +
