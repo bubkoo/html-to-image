@@ -170,7 +170,11 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 }
 
-function decorate<T extends HTMLElement>(nativeNode: T, clonedNode: T, usePageCss?: boolean): T {
+function decorate<T extends HTMLElement>(
+  nativeNode: T,
+  clonedNode: T,
+  usePageCss?: boolean,
+): T {
   if (isInstanceOfElement(clonedNode, Element)) {
     if (!usePageCss) cloneCSSStyle(nativeNode, clonedNode)
     if (!usePageCss) clonePseudoElements(nativeNode, clonedNode)

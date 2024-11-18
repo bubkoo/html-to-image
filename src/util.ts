@@ -77,9 +77,15 @@ function getNodeHeight(node: HTMLElement) {
   return node.clientHeight + topBorder + bottomBorder
 }
 
-export function getImageSize(targetNode: HTMLElement, options: Options = {}) {
+export function getImageSize(
+  targetNode: HTMLElement,
+  options: Options = {},
+  svgImg: HTMLImageElement | undefined = undefined,
+) {
   const width = options.width || getNodeWidth(targetNode)
-  const height = options.height || getNodeHeight(targetNode)
+  const height =
+    options.height ||
+    (svgImg ? svgImg.height * getPixelRatio() : getNodeHeight(targetNode))
 
   return { width, height }
 }
@@ -221,61 +227,85 @@ export function canvasToBlob(
   })
 }
 
-export function createImage(urlIn: string) {
-  //var win = open('about:blank');
-  return checkImg(1)
-  //svg中css的解释逻辑与html中不完全相同，会导致svg中的高度高于实际html的高度。
-  //原因诸如：4k屏的1px在html中为0.51px，而在svg中为1px；又如 overflow-y 在svg中失效；background定位不兼容等。
-  //为了避免图像底部不完整的情况，这里每次额外增加60px高度，并寻找是否存在底部标志颜色（BCheckColor），直到已存在，说明已经到达底部。
+export function svgUrlToImg(urlIn: string, opt: Options = {}) {
+  if (!opt.checkTail) return createImage(urlIn)
+  const deviceRatio = getPixelRatio()
+  // var win = open('about:blank');
+  return checkImg(0)
+  // svg中css的解释逻辑与html中不完全相同，会导致svg中的高度高于实际html的高度。
+  // 原因诸如：4k屏的1px在html中为0.51px，而在svg中为1px；又如 overflow-y 在svg中失效；background定位不兼容等。
+  // 为了避免图像底部不完整的情况，这里每次额外增加60px高度，并寻找是否存在底部标志颜色（TailColor），直到已存在，说明已经到达底部。
   function checkImg(i: number): Promise<HTMLImageElement> {
-    var url = replaceHeight(urlIn, BCheckHeight * i)
-    return urlToImg(url).then(function(img: HTMLImageElement): Promise<HTMLImageElement> | HTMLImageElement {
-      var ctx = get2dCtx(1, BCheckHeight)
-      ctx.drawImage(img, Math.floor(img.width / 2), img.height - BCheckHeight, 1, BCheckHeight, 0, 0, 1, BCheckHeight)
-      //win.document.write(i + '<img src="' + ctx.canvas.toDataURL() + '" style="width:10px" />'); //debug
-      var dat = ctx.getImageData(0, 0, 1, BCheckHeight).data
-      let color = padx(dat[dat.length - 4]) + padx(dat[dat.length - 3]) + padx(dat[dat.length - 2])
-      if (color !== BCheckColor && i < 50) {
+    let url = replaceHeight(urlIn, TailHeight * i)
+    return createImage(url).then(function(img) {
+      const prePx = 3
+      const canvasHeight = (TailHeight * 2) / deviceRatio + prePx
+      const ctx = get2dCtx(1, canvasHeight)
+      // 截取底部1px宽，2倍TailColor多一点图像
+      ctx.drawImage(
+        img,
+        Math.floor(img.width / 2),
+        img.height - canvasHeight,
+        1,
+        canvasHeight,
+        0,
+        0,
+        1,
+        canvasHeight,
+      )
+      // win.document.write(i + '<img src="' + ctx.canvas.toDataURL() + '" style="width:10px" />'); //debug
+      const dat = ctx.getImageData(0, 0, 1, canvasHeight).data
+      let color =
+        padx(dat[dat.length - 4]) +
+        padx(dat[dat.length - 3]) +
+        padx(dat[dat.length - 2])
+      // 最底部一条线的颜色不是TailColor时，还没有到达原图底部
+      if (color !== TailColor && i < 50) {
         return checkImg(i + 1)
       }
-      //每4个字节为1像素，共4字节，rgba
+      // 已经到达底部，去掉多余的TailColor部分。每4个字节为1像素，共4字节，rgba
       for (let j = dat.length - 8; j >= 0; j -= 4) {
         color = padx(dat[j]) + padx(dat[j + 1]) + padx(dat[j + 2])
-        if (color !== BCheckColor) {
-          url = replaceHeight(urlIn, BCheckHeight * (i - 1) + (j / 4) / getPixelRatio());
-          return urlToImg(url)
+        if (color !== TailColor) {
+          // 分界点位置
+          const posY = -(canvasHeight - j / 4) * deviceRatio
+          var url1 = replaceHeight(url, posY)
+          return createImage(url1)
         }
       }
       return img
     })
   }
 
-  function urlToImg(url: string): Promise<HTMLImageElement> {
-    return new Promise(function(resolve, reject) {
-      var img = new Image()
-      img.decode = function() {
-        return resolve(img)
-      } as any
-      img.onload = function() {
-        return resolve(img)
-      }
-      img.onerror = reject
-      img.crossOrigin = 'anonymous'
-      img.decoding = 'async'
-      img.src = url
-    })
-  }
-
   function replaceHeight(url: string, delta: number) {
-    return url.replace(/(viewBox%3D%220%200%20[\d.]+%20)([\d.]+)%22/, function(_, m1, m2) {
-      return m1 + (parseInt(m2) + delta) + '%22'
-    })
+    return url
+      .replace(
+        /(viewBox%3D%220%200%20[\d.]+%20)([\d.]+)%22/,
+        function(_, m1, vpHeight) {
+          return `${m1 + (+vpHeight + delta)}%22`
+        },
+      )
+      .replace(/(%20height%3D%22)([\d.]+)%22/, function(_, m1, height) {
+        return `${m1 + (+height + delta / deviceRatio)}%22`
+      })
   }
 
-  function padx(i: number) {
-    var r = i.toString(16)
-    return r.length === 1 ? '0' + r : r
+  function padx(i: number): string {
+    const r = i.toString(16)
+    return r.length === 1 ? `0${r}` : r
   }
+}
+
+export function createImage(url: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.decode = () => resolve(img) as any
+    img.onload = () => resolve(img)
+    img.onerror = reject
+    img.crossOrigin = 'anonymous'
+    img.decoding = 'async'
+    img.src = url
+  })
 }
 
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
@@ -297,24 +327,25 @@ export async function svgToDataURL(svg: SVGElement): Promise<string> {
     .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
 }
 
-const BCheckColor = '010201'
-const BCheckHeight = 60
+const TailColor = 'fefffd'
+const TailHeight = 60
 
 export async function nodeToDataURL(
   node: HTMLElement,
   width: number,
   height: number,
-  usePageCss?: boolean,
+  opt: Options = {},
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
   const svg = document.createElementNS(xmlns, 'svg')
   const foreignObject = document.createElementNS(xmlns, 'foreignObject')
-
+  // add a tail for check ending
+  const heightWithTail = height + TailHeight * 2
   // fix: if ratio=2 and style.border='1px', in html it is actually rendered to 1px, but in <img src="svg" alt="i"> it is rendered to 2px. Then height is different and the bottom 1px is lost, 10 nodes will lost 10px.
   const ratio = getPixelRatio()
   svg.setAttribute('width', `${width / ratio}`)
-  svg.setAttribute('height', `${height / ratio}`)
-  svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
+  svg.setAttribute('height', `${heightWithTail / ratio}`)
+  svg.setAttribute('viewBox', `0 0 ${width} ${heightWithTail}`)
 
   foreignObject.setAttribute('width', '100%')
   foreignObject.setAttribute('height', '100%')
@@ -324,11 +355,13 @@ export async function nodeToDataURL(
 
   svg.appendChild(foreignObject)
   foreignObject.appendChild(node)
-  foreignObject.insertAdjacentHTML(
-    'beforeend',
-    `<div style="background: #${BCheckColor};height:${BCheckHeight * 2}px"></div>`,
-  )
-  if (usePageCss) {
+  if (opt.checkTail) {
+    foreignObject.insertAdjacentHTML(
+      'beforeend',
+      `<div style="background: #${TailColor};height:${TailHeight * 2}px"></div>`,
+    )
+  }
+  if (opt.usePageCss) {
     const style = document.createElementNS(xmlns, 'style')
     style.insertAdjacentText('beforeend', await getStyles())
     svg.insertBefore(style, foreignObject)
@@ -387,7 +420,7 @@ function transRelPath(cssPath: string, cssTextIn: string): Promise<string> {
   const map: { [url: string]: string } = {}
   // css中的图片路径是相对于css文件的，要改为相对于当前html文件
   let css = cssText.replace(/url\(\s*(.+?)\s*\)/gi, (m, path0) => {
-    if (path0.substring(0, 5) === 'data:') return m
+    if (path0.match(/^['"\s]?data:/)) return m
     const path = path0.replace(quotReg, '$2')
     const sUrl = toRelative(cssPath, path)
     const ret = `url(${sUrl})`

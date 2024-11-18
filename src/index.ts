@@ -1,16 +1,16 @@
 import { Options } from './types'
 import { cloneNode } from './clone-node'
-//import { embedImages } from './embed-images'
+// import { embedImages } from './embed-images'
 import { applyStyle } from './apply-style'
-//import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
+// import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
 import {
   getImageSize,
   getPixelRatio,
-  createImage,
   canvasToBlob,
   nodeToDataURL,
   checkCanvasDimensions,
   getDimensionLimit,
+  svgUrlToImg,
 } from './util'
 
 export async function toSvg<T extends HTMLElement>(
@@ -19,10 +19,15 @@ export async function toSvg<T extends HTMLElement>(
 ): Promise<string> {
   const { width, height } = getImageSize(node, options)
   const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
-  //await embedWebFonts(clonedNode, options)
-  //await embedImages(clonedNode, options)
+  // await embedWebFonts(clonedNode, options)
+  // await embedImages(clonedNode, options)
   applyStyle(clonedNode, options)
-  const datauri = await nodeToDataURL(clonedNode, width, height, options.usePageCss)
+  const datauri = await nodeToDataURL(
+    clonedNode,
+    width,
+    height,
+    options,
+  )
   return datauri
 }
 
@@ -31,7 +36,7 @@ export async function toImage<T extends HTMLElement>(
   options: Options = {},
 ): Promise<HTMLImageElement> {
   const svg = await toSvg(node, options)
-  return createImage(svg)
+  return svgUrlToImg(svg, options)
 }
 
 export async function toCanvas<T extends HTMLElement>(
@@ -39,7 +44,7 @@ export async function toCanvas<T extends HTMLElement>(
   options: Options = {},
 ): Promise<HTMLCanvasElement> {
   const img = await toImage(node, options)
-  const { width, height } = getImageSize(node, options)
+  const { width, height } = getImageSize(node, options, img)
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('2d')!
   const ratio = options.pixelRatio || getPixelRatio()
@@ -70,7 +75,7 @@ export async function toCanvasList<T extends HTMLElement>(
   options: Options = {},
 ): Promise<Array<HTMLCanvasElement>> {
   const img = await toImage(node, options)
-  const { width, height } = getImageSize(node, options)
+  const { width, height } = getImageSize(node, options, img)
   const ratio = options.pixelRatio || getPixelRatio()
   let canvasWidth = (options.canvasWidth || width) * ratio
   let canvasHeight = (options.canvasHeight || height) * ratio
