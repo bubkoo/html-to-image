@@ -186,7 +186,7 @@ function get2dCtx(width: number, height: number) {
   const canvas = document.createElement('canvas')
   canvas.width = width
   canvas.height = height
-  return canvas.getContext('2d')!
+  return canvas.getContext('2d', { willReadFrequently: true })!
 }
 
 export function canvasToBlob(
