@@ -44,9 +44,10 @@ async function prepareNode(node: HTMLElement, options: Options = {}) {
 
 export async function toOfflineHtml(node: HTMLElement, options: Options = {}) {
   var node = await prepareNode(node, options)
+  var style = await getStyles()
   return '<!DOCTYPE html><html>' +
     '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">' +
-    '<body><style>' + getStyles() + '</style>\n' + node.outerHTML + '</body></html>'
+    '<body><style>' + style + '</style>\n' + node.outerHTML + '</body></html>'
 }
 
 export async function toImage<T extends HTMLElement>(
