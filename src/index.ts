@@ -64,7 +64,7 @@ export async function toCanvas<T extends HTMLElement>(
   const img = await toImage(node, options)
   const { width, height } = getImageSize(node, options, img)
   const canvas = document.createElement('canvas')
-  const context = canvas.getContext('2d')!
+  const context = canvas.getContext('2d', { willReadFrequently: true })!
   const ratio = options.pixelRatio || getPixelRatio()
   const canvasWidth = options.canvasWidth || width
   const canvasHeight = options.canvasHeight || height
@@ -107,7 +107,7 @@ export async function toCanvasList<T extends HTMLElement>(
   const scale = canvasWidth / img.width
   for (let curY = 0; curY < canvasHeight; curY += dimensionLimit) {
     const canvas = document.createElement('canvas')
-    const context = canvas.getContext('2d')!
+    const context = canvas.getContext('2d', { willReadFrequently: true })!
     const height1 = Math.min(canvasHeight - curY, dimensionLimit)
     canvas.width = canvasWidth
     canvas.height = height1
