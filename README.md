@@ -323,7 +323,7 @@ Use `true` to add a `<style>` tag in svg content which imports all styles of cur
 This will make the svg content much smaller, to resolve problems which caused by html that has large amount of sub nodes.
 
 
-Defaults to `false`  
+Defaults to `true`  
 
 ## Browsers
 

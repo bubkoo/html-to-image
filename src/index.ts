@@ -11,14 +11,17 @@ import {
   checkCanvasDimensions,
   getDimensionLimit,
   svgUrlToImg,
+  getStyles,
+  setImgDataUrl,
 } from './util'
+
 
 export async function toSvg<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<string> {
   const { width, height } = getImageSize(node, options)
-  const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
+  const clonedNode = (await prepareNode(node, options)) as HTMLElement
   // await embedWebFonts(clonedNode, options)
   // await embedImages(clonedNode, options)
   applyStyle(clonedNode, options)
@@ -29,6 +32,21 @@ export async function toSvg<T extends HTMLElement>(
     options,
   )
   return datauri
+}
+
+async function prepareNode(node: HTMLElement, options: Options = {}) {
+  if (!('usePageCss' in options)) options.usePageCss = true
+  const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
+  // svg中的图片地址无法离线下载，需要先转成dataUrl
+  setImgDataUrl(clonedNode)
+  return clonedNode
+}
+
+export async function toOfflineHtml(node: HTMLElement, options: Options = {}) {
+  var node = await prepareNode(node, options)
+  return '<!DOCTYPE html><html>' +
+    '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">' +
+    '<body><style>' + getStyles() + '</style>\n' + node.outerHTML + '</body></html>'
 }
 
 export async function toImage<T extends HTMLElement>(

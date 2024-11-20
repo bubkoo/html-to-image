@@ -311,20 +311,21 @@ export function createImage(url: string): Promise<HTMLImageElement> {
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
     .then(async function() {
-      // svg中的图片地址无法离线下载，需要先转成dataUrl
-      const imgs = svg.querySelectorAll('img')
-      return Promise.all(
-        [].slice.call(imgs, 0).map((img: HTMLImageElement) => {
-          return urlToDataUrl(img.src).then((dataUrl) => (img.src = dataUrl))
-        }),
-      ).then(() => {
-        const xml = new XMLSerializer().serializeToString(svg)
-        // open('about:blank').document.write('<plaintext>' + xml); //for debug
-        return xml
-      })
+      const xml = new XMLSerializer().serializeToString(svg)
+      // open('about:blank').document.write('<plaintext>' + xml); //for debug
+      return xml
     })
     .then(encodeURIComponent)
     .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
+}
+
+export function setImgDataUrl(el: Element) {
+  const imgs = el.querySelectorAll('img')
+  return Promise.all(
+    [].slice.call(imgs, 0).map((img: HTMLImageElement) => {
+      return urlToDataUrl(img.src).then((dataUrl) => (img.src = dataUrl))
+    }),
+  )
 }
 
 const TailColor = 'fefffd'
@@ -398,13 +399,13 @@ export function getStyles() {
         promises.push(
           fetch(href)
             .then((r) => r.text())
-            .then((tx) => transRelPath(href, tx))
+            .then((tx) => srcToDataUrl(href, tx))
             .catch(() => ''),
         )
     } else {
       promises.push(
         Promise.resolve(
-          transRelPath(window.location.href, (e as HTMLStyleElement).innerText),
+          srcToDataUrl(window.location.href, (e as HTMLStyleElement).innerText),
         ),
       )
     }
@@ -414,7 +415,7 @@ export function getStyles() {
   })
 }
 
-function transRelPath(cssPath: string, cssTextIn: string): Promise<string> {
+function srcToDataUrl(cssPath: string, cssTextIn: string): Promise<string> {
   const cssText = cssTextIn.replace(/\/\*[\s\S]*?\*\//g, '')
   const quotReg = /^\s*(['"])(.+?)\1/
   const map: { [url: string]: string } = {}
