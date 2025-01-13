@@ -15,7 +15,6 @@ import {
   setImgDataUrl,
 } from './util'
 
-
 export async function toSvg<T extends HTMLElement>(
   node: T,
   options: Options = {},
@@ -25,12 +24,7 @@ export async function toSvg<T extends HTMLElement>(
   // await embedWebFonts(clonedNode, options)
   // await embedImages(clonedNode, options)
   applyStyle(clonedNode, options)
-  const datauri = await nodeToDataURL(
-    clonedNode,
-    width,
-    height,
-    options,
-  )
+  const datauri = await nodeToDataURL(clonedNode, width, height, options)
   return datauri
 }
 
@@ -43,11 +37,13 @@ async function prepareNode(node: HTMLElement, options: Options = {}) {
 }
 
 export async function toOfflineHtml(node: HTMLElement, options: Options = {}) {
-  var node = await prepareNode(node, options)
-  var style = await getStyles()
-  return '<!DOCTYPE html><html>' +
-    '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">' +
-    '<body><style>' + style + '</style>\n' + node.outerHTML + '</body></html>'
+  const node1 = await prepareNode(node, options)
+  const style = await getStyles()
+  return (
+    `<!DOCTYPE html><html>` +
+    `<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">` +
+    `<body><style>${style}</style>\n${node1.outerHTML}</body></html>`
+  )
 }
 
 export async function toImage<T extends HTMLElement>(

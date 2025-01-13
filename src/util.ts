@@ -236,8 +236,8 @@ export function svgUrlToImg(urlIn: string, opt: Options = {}) {
   // 原因诸如：4k屏的1px在html中为0.51px，而在svg中为1px；又如 overflow-y 在svg中失效；background定位不兼容等。
   // 为了避免图像底部不完整的情况，这里每次额外增加60px高度，并寻找是否存在底部标志颜色（TailColor），直到已存在，说明已经到达底部。
   function checkImg(i: number): Promise<HTMLImageElement> {
-    let url = replaceHeight(urlIn, TailHeight * i)
-    return createImage(url).then(function(img) {
+    const url = replaceHeight(urlIn, TailHeight * i)
+    return createImage(url).then(function (img) {
       const prePx = 3
       const canvasHeight = (TailHeight * 2) / deviceRatio + prePx
       const ctx = get2dCtx(1, canvasHeight)
@@ -269,7 +269,7 @@ export function svgUrlToImg(urlIn: string, opt: Options = {}) {
         if (color !== TailColor) {
           // 分界点位置
           const posY = -(canvasHeight - j / 4) * deviceRatio
-          var url1 = replaceHeight(url, posY)
+          const url1 = replaceHeight(url, posY)
           return createImage(url1)
         }
       }
@@ -281,11 +281,11 @@ export function svgUrlToImg(urlIn: string, opt: Options = {}) {
     return url
       .replace(
         /(viewBox%3D%220%200%20[\d.]+%20)([\d.]+)%22/,
-        function(_, m1, vpHeight) {
+        function (_, m1, vpHeight) {
           return `${m1 + (+vpHeight + delta)}%22`
         },
       )
-      .replace(/(%20height%3D%22)([\d.]+)%22/, function(_, m1, height) {
+      .replace(/(%20height%3D%22)([\d.]+)%22/, function (_, m1, height) {
         return `${m1 + (+height + delta / deviceRatio)}%22`
       })
   }
@@ -310,7 +310,7 @@ export function createImage(url: string): Promise<HTMLImageElement> {
 
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
-    .then(async function() {
+    .then(async function () {
       const xml = new XMLSerializer().serializeToString(svg)
       // open('about:blank').document.write('<plaintext>' + xml); //for debug
       return xml
@@ -360,7 +360,9 @@ export async function nodeToDataURL(
   if (opt.checkTail) {
     foreignObject.insertAdjacentHTML(
       'beforeend',
-      `<div style="background: #${TailColor};height:${TailHeight * 2}px"></div>`,
+      `<div style="background: #${TailColor};height:${
+        TailHeight * 2
+      }px"></div>`,
     )
   }
   if (opt.usePageCss) {
@@ -372,8 +374,9 @@ export async function nodeToDataURL(
   return svgToDataURL(svg)
 }
 
-export const isInstanceOfElement = <T extends typeof Element | typeof HTMLElement | typeof SVGImageElement,
-  >(
+export const isInstanceOfElement = <
+  T extends typeof Element | typeof HTMLElement | typeof SVGImageElement,
+>(
   node: Element | HTMLElement | SVGImageElement,
   instance: T,
 ): node is T['prototype'] => {
