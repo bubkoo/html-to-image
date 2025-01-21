@@ -1,15 +1,18 @@
 import { Options } from './types'
 import { cloneNode } from './clone-node'
-import { embedImages } from './embed-images'
+// import { embedImages } from './embed-images'
 import { applyStyle } from './apply-style'
-import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
+// import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
 import {
   getImageSize,
   getPixelRatio,
-  createImage,
   canvasToBlob,
   nodeToDataURL,
   checkCanvasDimensions,
+  getDimensionLimit,
+  svgUrlToImg,
+  getStyles,
+  setImgDataUrl,
 } from './util'
 
 export async function toSvg<T extends HTMLElement>(
@@ -17,24 +20,48 @@ export async function toSvg<T extends HTMLElement>(
   options: Options = {},
 ): Promise<string> {
   const { width, height } = getImageSize(node, options)
-  const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
-  await embedWebFonts(clonedNode, options)
-  await embedImages(clonedNode, options)
+  const clonedNode = (await prepareNode(node, options)) as HTMLElement
+  // await embedWebFonts(clonedNode, options)
+  // await embedImages(clonedNode, options)
   applyStyle(clonedNode, options)
-  const datauri = await nodeToDataURL(clonedNode, width, height)
+  const datauri = await nodeToDataURL(clonedNode, width, height, options)
   return datauri
+}
+
+async function prepareNode(node: HTMLElement, options: Options = {}) {
+  if (!('usePageCss' in options)) options.usePageCss = true
+  const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
+  // svg中的图片地址无法离线下载，需要先转成dataUrl
+  await setImgDataUrl(clonedNode)
+  return clonedNode
+}
+
+export async function toOfflineHtml(node: HTMLElement, options: Options = {}) {
+  const node1 = await prepareNode(node, options)
+  const style = await getStyles()
+  return (
+    `<!DOCTYPE html><html>` +
+    `<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">` +
+    `<body><style>${style}</style>\n${node1.outerHTML}</body></html>`
+  )
+}
+
+export async function toImage<T extends HTMLElement>(
+  node: T,
+  options: Options = {},
+): Promise<HTMLImageElement> {
+  const svg = await toSvg(node, options)
+  return svgUrlToImg(svg, options)
 }
 
 export async function toCanvas<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<HTMLCanvasElement> {
-  const { width, height } = getImageSize(node, options)
-  const svg = await toSvg(node, options)
-  const img = await createImage(svg)
-
+  const img = await toImage(node, options)
+  const { width, height } = getImageSize(node, options, img)
   const canvas = document.createElement('canvas')
-  const context = canvas.getContext('2d')!
+  const context = canvas.getContext('2d', { willReadFrequently: true })!
   const ratio = options.pixelRatio || getPixelRatio()
   const canvasWidth = options.canvasWidth || width
   const canvasHeight = options.canvasHeight || height
@@ -56,6 +83,49 @@ export async function toCanvas<T extends HTMLElement>(
   context.drawImage(img, 0, 0, canvas.width, canvas.height)
 
   return canvas
+}
+
+export async function toCanvasList<T extends HTMLElement>(
+  node: T,
+  options: Options = {},
+): Promise<Array<HTMLCanvasElement>> {
+  const img = await toImage(node, options)
+  const { width, height } = getImageSize(node, options, img)
+  const ratio = options.pixelRatio || getPixelRatio()
+  let canvasWidth = (options.canvasWidth || width) * ratio
+  let canvasHeight = (options.canvasHeight || height) * ratio
+  const dimensionLimit = getDimensionLimit()
+  if (canvasWidth > dimensionLimit) {
+    canvasHeight *= dimensionLimit / canvasWidth
+    canvasWidth = dimensionLimit
+  }
+
+  const result: Array<HTMLCanvasElement> = []
+  const scale = canvasWidth / img.width
+  for (let curY = 0; curY < canvasHeight; curY += dimensionLimit) {
+    const canvas = document.createElement('canvas')
+    const context = canvas.getContext('2d', { willReadFrequently: true })!
+    const height1 = Math.min(canvasHeight - curY, dimensionLimit)
+    canvas.width = canvasWidth
+    canvas.height = height1
+    if (options.backgroundColor) {
+      context.fillStyle = options.backgroundColor
+      context.fillRect(0, 0, canvas.width, canvas.height)
+    }
+    context.drawImage(
+      img,
+      0,
+      curY / scale,
+      canvasWidth / scale,
+      height1 / scale,
+      0,
+      0,
+      canvasWidth,
+      height1,
+    )
+    result.push(canvas)
+  }
+  return result
 }
 
 export async function toPixelData<T extends HTMLElement>(
@@ -93,9 +163,9 @@ export async function toBlob<T extends HTMLElement>(
   return blob
 }
 
-export async function getFontEmbedCSS<T extends HTMLElement>(
-  node: T,
-  options: Options = {},
-): Promise<string> {
-  return getWebFontCSS(node, options)
-}
+// export async function getFontEmbedCSS<T extends HTMLElement>(
+//   node: T,
+//   options: Options = {},
+// ): Promise<string> {
+//   return getWebFontCSS(node, options)
+// }
