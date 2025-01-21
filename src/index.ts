@@ -32,7 +32,7 @@ async function prepareNode(node: HTMLElement, options: Options = {}) {
   if (!('usePageCss' in options)) options.usePageCss = true
   const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
   // svg中的图片地址无法离线下载，需要先转成dataUrl
-  setImgDataUrl(clonedNode)
+  await setImgDataUrl(clonedNode)
   return clonedNode
 }
 

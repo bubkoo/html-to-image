@@ -323,6 +323,7 @@ export function setImgDataUrl(el: Element) {
   const imgs = el.querySelectorAll('img')
   return Promise.all(
     [].slice.call(imgs, 0).map((img: HTMLImageElement) => {
+      if (/^data:/.test(img.src)) return Promise.resolve()
       return urlToDataUrl(img.src).then((dataUrl) => (img.src = dataUrl))
     }),
   )
