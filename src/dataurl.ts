@@ -1,4 +1,4 @@
-import { Options } from './types'
+import { Options } from './types.js'
 
 function getContentFromDataUrl(dataURL: string) {
   return dataURL.split(/,/)[1]

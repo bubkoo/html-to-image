@@ -1,4 +1,4 @@
-import type { Options } from './types'
+import type { Options } from './types.js'
 
 export function resolveUrl(url: string, baseUrl: string | null): string {
   // url is absolute already
