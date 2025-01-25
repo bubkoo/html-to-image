@@ -1,6 +1,5 @@
-import { uuid, toArray } from './util'
-
-type Pseudo = ':before' | ':after'
+import { Pseudo } from './types'
+import { uuid, toArray, deduplicate } from './util'
 
 function formatCSSText(style: CSSStyleDeclaration) {
   const content = style.getPropertyValue('content')
@@ -23,7 +22,7 @@ function getPseudoElementStyle(
   pseudo: Pseudo,
   style: CSSStyleDeclaration,
 ): Text {
-  const selector = `.${className}:${pseudo}`
+  const selector = `.${className}${pseudo}`
   const cssText = style.cssText
     ? formatCSSText(style)
     : formatCSSProperties(style)
@@ -57,7 +56,9 @@ function clonePseudoElement<T extends HTMLElement>(
 export function clonePseudoElements<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
+  includedPseudoElements: Pseudo[] = [],
 ) {
-  clonePseudoElement(nativeNode, clonedNode, ':before')
-  clonePseudoElement(nativeNode, clonedNode, ':after')
+  deduplicate(['::before', '::after', ...includedPseudoElements]).forEach(
+    (pseudo: Pseudo) => clonePseudoElement(nativeNode, clonedNode, pseudo),
+  )
 }
