@@ -173,4 +173,19 @@ describe('work with options', () => {
       .then(done)
       .catch(done)
   })
+
+  it('should support fetchRequestInitGenerator', (done) => {
+    bootstrap('images/node.html', 'images/style.css')
+      .then(
+        assertTextRendered(['PNG', 'JPG'], {
+          fetchRequestInitGenerator: (url: string) => {
+            return url.includes("/test")
+              ? { credentials: 'include' } as RequestInit
+              : undefined
+          },
+        }),
+      )
+      .then(done)
+      .catch(done)
+  })
 })
