@@ -110,7 +110,11 @@ htmlToImage.toBlob(document.getElementById('my-node'))
       window.saveAs(blob, 'my-node.png');
     } else {
      FileSaver.saveAs(blob, 'my-node.png');
-   }
+    }
+    
+    // or is need open in new tab
+    var fileURL = URL.createObjectURL(blob)
+    window.open(fileURL)
   });
 ```
 
