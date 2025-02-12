@@ -69,14 +69,15 @@ export async function resourceToDataURL(
     options.includeQueryParams,
   )
 
-  if (cache[cacheKey] != null) {
-    return cache[cacheKey]
-  }
-
+  
   // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
   if (options.cacheBust) {
     // eslint-disable-next-line no-param-reassign
     resourceUrl += (/\?/.test(resourceUrl) ? '&' : '?') + new Date().getTime()
+  }else{
+    if (cache[cacheKey] != null) {
+      return cache[cacheKey]
+    }
   }
 
   let dataURL: string
