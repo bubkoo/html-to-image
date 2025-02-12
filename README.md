@@ -51,26 +51,25 @@ Go with the following examples.
 Get a PNG image base64-encoded data URL and display it right away:
 
 ```js
-var node = document.getElementById('my-node');
+const node = document.getElementById('my-node');
 
 htmlToImage.toPng(node)
-  .then(function (dataUrl) {
-    var img = new Image();
+  .then((dataUrl) => {
+    const img = new Image();
     img.src = dataUrl;
     document.body.appendChild(img);
   })
-  .catch(function (error) {
-    console.error('oops, something went wrong!', error);
+  .catch((err) => {
+    console.error('oops, something went wrong!', err);
   });
 ```
 
 Get a PNG image base64-encoded data URL and download it (using [download](https://github.com/rndme/download)):
 
 ```js
-htmlToImage.toPng(document.getElementById('my-node'))
-  .then(function (dataUrl) {
-    download(dataUrl, 'my-node.png');
-  });
+htmlToImage
+  .toPng(document.getElementById('my-node'))
+  .then((dataUrl) => download(dataUrl, 'my-node.png'));
 ```
 
 #### toSvg
