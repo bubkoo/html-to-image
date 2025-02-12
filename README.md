@@ -42,7 +42,9 @@ All the top level functions accept DOM node and rendering options, and return a 
 - [toSvg](#toSvg)
 - [toJpeg](#toJpeg)
 - [toBlob](#toBlob)
+- [toImage](#toImage)
 - [toCanvas](#toCanvas)
+- [toCanvasList](#toCanvasList)
 - [toPixelData](#toPixelData)
 
 Go with the following examples.
@@ -114,6 +116,16 @@ htmlToImage.toBlob(document.getElementById('my-node'))
   });
 ```
 
+#### toImage
+Get a HTMLImageElement, which is a svg image that you can scale it to a big size and it will not blurred.
+
+```js
+htmlToImage.toImage(document.getElementById('my-node'))
+  .then(function (img) {
+    document.body.appendChild(img);
+  });
+```
+
 #### toCanvas
 Get a HTMLCanvasElement, and display it right away:
 
@@ -121,6 +133,17 @@ Get a HTMLCanvasElement, and display it right away:
 htmlToImage.toCanvas(document.getElementById('my-node'))
   .then(function (canvas) {
     document.body.appendChild(canvas);
+  });
+```
+
+#### toCanvasList
+Get a array of HTMLCanvasElement. Not like `toCanvas` which is limited by [canvas size](https://jhildenbiddle.github.io/canvas-size/#/?id=test-results),
+ `toCanvasList` can get rid of the limitation of canvas size, so this can export a very large html:
+
+```js
+htmlToImage.toCanvasList(document.getElementById('my-node'))
+  .then(function (canvasList) {
+    canvasList.map(canvas => document.body.appendChild(canvas));
   });
 ```
 
@@ -292,6 +315,15 @@ A string indicating the image format. The default type is image/png; that type i
 When supplied, the toCanvas function will return a blob matching the given image type and quality. 
 
 Defaults to `image/png`  
+  
+
+### usePageCss
+
+Use `true` to add a `<style>` tag in svg content which imports all styles of current html page, and do not add computed styles to every node any more(this make svg content so large that Firefox throw errors while load svg as image).
+This will make the svg content much smaller, to resolve problems which caused by html that has large amount of sub nodes.
+
+
+Defaults to `true`  
 
 ## Browsers
 

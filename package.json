@@ -1,7 +1,7 @@
 {
-  "name": "html-to-image",
-  "version": "1.11.11",
-  "description": "Generates an image from a DOM node using HTML5 canvas and SVG.",
+  "name": "html-to-image-big",
+  "version": "1.11.15",
+  "description": "Generates an image from a DOM node using HTML5 canvas and SVG. Support big html page.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/html-to-image.js",
@@ -23,7 +23,7 @@
     "svg"
   ],
   "scripts": {
-    "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
+    "lint": "eslint src/**/*.{js,ts} --fix",
     "clean": "rimraf dist es lib",
     "build:esm": "tsc --module esnext --target es2017 --outDir ./es",
     "build:cjs": "tsc --module commonjs --target es5 --outDir ./lib",
