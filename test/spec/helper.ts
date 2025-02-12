@@ -140,6 +140,17 @@ export async function logDataUrl(node: HTMLDivElement = getCaptureNode()) {
     })
 }
 
+export async function renderAndCheckWithLog(
+  node: HTMLDivElement = getCaptureNode(),
+  options: Options = {},
+) {
+  return toPng(node, options).then((dataUrl) => {
+    // eslint-disable-next-line no-console
+    console.log(dataUrl)
+    check(dataUrl)
+  })
+}
+
 export async function renderAndCheck(
   node: HTMLDivElement = getCaptureNode(),
   options: Options = {},
