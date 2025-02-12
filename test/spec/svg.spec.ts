@@ -2,7 +2,12 @@
 
 import '../spec/setup'
 import { toSvg } from '../../src'
-import { bootstrap, renderAndCheck, getSvgDocument } from '../spec/helper'
+import {
+  bootstrap,
+  renderAndCheck,
+  getSvgDocument,
+  renderAndCheckWithLog,
+} from '../spec/helper'
 
 describe('work with svg element', () => {
   it('should render nested svg with broken namespace', (done) => {
@@ -21,7 +26,7 @@ describe('work with svg element', () => {
 
   it('should render svg `<rect>` with applied css styles', (done) => {
     bootstrap('svg-color/node.html', 'svg-color/style.css', 'svg-color/image')
-      .then(renderAndCheck)
+      .then(renderAndCheckWithLog)
       .then(done)
       .catch(done)
   })
