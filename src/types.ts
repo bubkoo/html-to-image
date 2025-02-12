@@ -91,4 +91,8 @@ export interface Options {
    *
    */
   fetchRequestInit?: RequestInit
+  /**
+   * An event handler for the error event when any image in html has problem with loading.
+   */
+  onImageErrorHandler?: OnErrorEventHandler
 }
