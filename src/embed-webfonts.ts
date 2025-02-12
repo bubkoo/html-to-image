@@ -202,16 +202,46 @@ async function parseWebFontRules<T extends HTMLElement>(
   return getWebFontRules(cssRules)
 }
 
+function normalizeFontFamily(font: string) {
+  return font.trim().replace(/["']/g, '')
+}
+
+function getUsedFonts(node: HTMLElement) {
+  const fonts = new Set<string>()
+  function traverse(node: HTMLElement) {
+    const fontFamily =
+      node.style.fontFamily || getComputedStyle(node).fontFamily
+    fontFamily.split(',').forEach((font) => {
+      fonts.add(normalizeFontFamily(font))
+    })
+
+    Array.from(node.children).forEach((child) => {
+      if (child instanceof HTMLElement) {
+        traverse(child)
+      }
+    })
+  }
+  traverse(node)
+  return fonts
+}
+
 export async function getWebFontCSS<T extends HTMLElement>(
   node: T,
   options: Options,
 ): Promise<string> {
   const rules = await parseWebFontRules(node, options)
+  const usedFonts = getUsedFonts(node)
   const cssTexts = await Promise.all(
-    rules.map((rule) => {
-      const baseUrl = rule.parentStyleSheet ? rule.parentStyleSheet.href : null
-      return embedResources(rule.cssText, baseUrl, options)
-    }),
+    rules
+      .filter((rule) =>
+        usedFonts.has(normalizeFontFamily(rule.style.fontFamily)),
+      )
+      .map((rule) => {
+        const baseUrl = rule.parentStyleSheet
+          ? rule.parentStyleSheet.href
+          : null
+        return embedResources(rule.cssText, baseUrl, options)
+      }),
   )
 
   return cssTexts.join('\n')
