@@ -1,3 +1,18 @@
+## [1.11.12](https://github.com/bubkoo/html-to-image/compare/v1.11.11...v1.11.12) (2025-02-12)
+
+
+### Bug Fixes
+
+* add possibility to use own handling of onerror which will not en… ([#453](https://github.com/bubkoo/html-to-image/issues/453)) ([04160c3](https://github.com/bubkoo/html-to-image/commit/04160c3e77f55e95082cbd4879847d0afda92883))
+* ensure images are totally prcoessed before using them (ios) ([#478](https://github.com/bubkoo/html-to-image/issues/478)) ([51fb98f](https://github.com/bubkoo/html-to-image/commit/51fb98f69b6eef6c391a5a7859711a5f0601f467))
+* Fix `fontEmbedCSS ` incorrect sizing ([#422](https://github.com/bubkoo/html-to-image/issues/422)) ([7020162](https://github.com/bubkoo/html-to-image/commit/702016256cc03b5637e75645f3d70131ddd0e45f))
+
+
+### Performance Improvements
+
+* embed only used fonts ([#476](https://github.com/bubkoo/html-to-image/issues/476)) ([09bee44](https://github.com/bubkoo/html-to-image/commit/09bee442c27bde2af06442417f4269e763e6b6cd))
+* svg cloning optimized using deep clone ([#462](https://github.com/bubkoo/html-to-image/issues/462)) ([9aac2fd](https://github.com/bubkoo/html-to-image/commit/9aac2fd11333ca302d10f2c438cd16be07a1429d))
+
 ## [1.11.11](https://github.com/bubkoo/html-to-image/compare/v1.11.10...v1.11.11) (2023-02-01)
 
 ## [1.11.10](https://github.com/bubkoo/html-to-image/compare/v1.11.9...v1.11.10) (2023-02-01)
