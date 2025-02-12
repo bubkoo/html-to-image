@@ -61,17 +61,24 @@ async function cloneSingleNode<T extends HTMLElement>(
     return cloneIFrameElement(node)
   }
 
-  return node.cloneNode(false) as T
+  return node.cloneNode(isSVGElement(node)) as T
 }
 
 const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
   node.tagName != null && node.tagName.toUpperCase() === 'SLOT'
+
+const isSVGElement = (node: HTMLElement): node is HTMLSlotElement =>
+  node.tagName != null && node.tagName.toUpperCase() === 'SVG'
 
 async function cloneChildren<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
 ): Promise<T> {
+  if (isSVGElement(clonedNode)) {
+    return clonedNode
+  }
+
   let children: T[] = []
 
   if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
@@ -133,11 +140,11 @@ function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
       ) {
         value = 'block'
       }
-      
+
       if (name === 'd' && clonedNode.getAttribute('d')) {
         value = `path(${clonedNode.getAttribute('d')})`
       }
-      
+
       targetStyle.setProperty(
         name,
         value,
