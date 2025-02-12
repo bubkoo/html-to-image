@@ -90,7 +90,8 @@ htmlToImage.toSvg(document.getElementById('my-node'), { filter: filter })
 Save and download a compressed JPEG image:
 
 ```js
-htmlToImage.toJpeg(document.getElementById('my-node'), { quality: 0.95 })
+htmlToImage
+  .toJpeg(document.getElementById('my-node'), { quality: 0.95 })
   .then(function (dataUrl) {
     var link = document.createElement('a');
     link.download = 'my-image-name.jpeg';
@@ -103,7 +104,8 @@ htmlToImage.toJpeg(document.getElementById('my-node'), { quality: 0.95 })
 Get a PNG image blob and download it (using [FileSaver](https://github.com/eligrey/FileSaver.js)):
 
 ```js
-htmlToImage.toBlob(document.getElementById('my-node'))
+htmlToImage
+  .toBlob(document.getElementById('my-node'))
   .then(function (blob) {
     if (window.saveAs) {
       window.saveAs(blob, 'my-node.png');
@@ -117,7 +119,8 @@ htmlToImage.toBlob(document.getElementById('my-node'))
 Get a HTMLCanvasElement, and display it right away:
 
 ```js
-htmlToImage.toCanvas(document.getElementById('my-node'))
+htmlToImage
+  .toCanvas(document.getElementById('my-node'))
   .then(function (canvas) {
     document.body.appendChild(canvas);
   });
@@ -129,7 +132,8 @@ Get the raw pixel data as a [Uint8Array](https://developer.mozilla.org/en-US/doc
 ```js
 var node = document.getElementById('my-node');
 
-htmlToImage.toPixelData(node)
+htmlToImage
+  .toPixelData(node)
   .then(function (pixels) {
     for (var y = 0; y < node.scrollHeight; ++y) {
       for (var x = 0; x < node.scrollWidth; ++x) {
