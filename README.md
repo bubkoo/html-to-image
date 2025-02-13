@@ -294,7 +294,11 @@ Defaults to `false`
 A string indicating the image format. The default type is image/png; that type is also used if the given type isn't supported.
 When supplied, the toCanvas function will return a blob matching the given image type and quality. 
 
-Defaults to `image/png`  
+Defaults to `image/png`
+
+### includeStyleProperties
+
+An array of style property names. Can be used to manually specify which style properties are included when cloning nodes. This can be useful for performance-critical scenarios.
 
 ## Browsers
 
