@@ -53,7 +53,8 @@ Get a PNG image base64-encoded data URL and display it right away:
 ```js
 const node = document.getElementById('my-node');
 
-htmlToImage.toPng(node)
+htmlToImage
+  .toPng(node)
   .then((dataUrl) => {
     const img = new Image();
     img.src = dataUrl;
@@ -80,7 +81,8 @@ function filter (node) {
   return (node.tagName !== 'i');
 }
 
-htmlToImage.toSvg(document.getElementById('my-node'), { filter: filter })
+htmlToImage
+  .toSvg(document.getElementById('my-node'), { filter: filter })
   .then(function (dataUrl) {
     /* do something */
   });
