@@ -1,3 +1,10 @@
+## [1.11.13](https://github.com/bubkoo/html-to-image/compare/v1.11.12...v1.11.13) (2025-02-14)
+
+
+### Bug Fixes
+
+* **mask:** add support for -webkit-mask and -webkit-mask-image ([#382](https://github.com/bubkoo/html-to-image/issues/382)) ([5bdfda7](https://github.com/bubkoo/html-to-image/commit/5bdfda75cc41248f4e161ea434bbfc535e72f95e))
+
 ## [1.11.12](https://github.com/bubkoo/html-to-image/compare/v1.11.11...v1.11.12) (2025-02-12)
 
 
