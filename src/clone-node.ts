@@ -213,14 +213,14 @@ async function ensureSVGSymbols<T extends HTMLElement>(
   const processedDefs: { [key: string]: HTMLElement } = {}
   for (let i = 0; i < uses.length; i++) {
     const use = uses[i]
-    const id = use.getAttribute('xlink:href')
-    if (id) {
-      const exist = clone.querySelector(id)
-      const definition = document.querySelector(id) as HTMLElement
-      if (!exist && definition && !processedDefs[id]) {
-        // eslint-disable-next-line no-await-in-loop
-        processedDefs[id] = (await cloneNode(definition, options, true))!
-      }
+    const id = use.getAttribute('href') ?? use.getAttribute('xlink:href')
+    if (!id) return
+
+    const exist = clone.querySelector(id)
+    const definition = document.querySelector(id) as HTMLElement
+    if (!exist && definition && !processedDefs[id]) {
+      // eslint-disable-next-line no-await-in-loop
+      processedDefs[id] = (await cloneNode(definition, options, true))!
     }
   }
 
