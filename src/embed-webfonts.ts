@@ -3,6 +3,8 @@ import { toArray } from './util'
 import { fetchAsDataURL } from './dataurl'
 import { shouldEmbed, embedResources } from './embed-resources'
 
+const PROPERTY_FONT_FAMILY = 'font-family'
+
 interface Metadata {
   url: string
   cssText: string
@@ -202,7 +204,8 @@ async function parseWebFontRules<T extends HTMLElement>(
   return getWebFontRules(cssRules)
 }
 
-function normalizeFontFamily(font: string) {
+function normalizeFontFamily(font?: string) {
+  if (font === undefined) return ''
   return font.trim().replace(/["']/g, '')
 }
 
@@ -210,7 +213,8 @@ function getUsedFonts(node: HTMLElement) {
   const fonts = new Set<string>()
   function traverse(node: HTMLElement) {
     const fontFamily =
-      node.style.fontFamily || getComputedStyle(node).fontFamily
+      node.style.getPropertyValue(PROPERTY_FONT_FAMILY) ||
+      getComputedStyle(node).getPropertyValue(PROPERTY_FONT_FAMILY)
     fontFamily.split(',').forEach((font) => {
       fonts.add(normalizeFontFamily(font))
     })
@@ -234,7 +238,11 @@ export async function getWebFontCSS<T extends HTMLElement>(
   const cssTexts = await Promise.all(
     rules
       .filter((rule) =>
-        usedFonts.has(normalizeFontFamily(rule.style.fontFamily)),
+        usedFonts.has(
+          normalizeFontFamily(
+            rule.style.getPropertyValue(PROPERTY_FONT_FAMILY),
+          ),
+        ),
       )
       .map((rule) => {
         const baseUrl = rule.parentStyleSheet
