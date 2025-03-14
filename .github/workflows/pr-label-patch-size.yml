@@ -10,7 +10,7 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
           variable_name: bot_token
-      - uses: pascalgn/size-label-action@v0.1.1
+      - uses: pascalgn/size-label-action@v0.5.5
         env:
           GITHUB_TOKEN: "${{ env.bot_token }}"
           IGNORED: "!.gitignore\npnpm-lock.yaml"
