@@ -302,6 +302,13 @@ Defaults to `image/png`
 
 An array of style property names. Can be used to manually specify which style properties are included when cloning nodes. This can be useful for performance-critical scenarios.
 
+### skipFontSizeShrink
+
+When supplied, the library will skip the process of shrinking the font size.
+You may experience the text breaking on the last word.
+
+Defaults to `false`
+
 ## Browsers
 
 Only standard lib is currently used, but make sure your browser supports:
