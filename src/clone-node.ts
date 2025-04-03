@@ -72,7 +72,7 @@ async function cloneSingleNode<T extends HTMLElement>(
 const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
   node.tagName != null && node.tagName.toUpperCase() === 'SLOT'
 
-const isSVGElement = (node: HTMLElement): node is SVGElement =>
+const isSVGElement = (node: Element): node is SVGElement =>
   node.tagName != null && node.tagName.toUpperCase() === 'SVG'
 
 async function cloneChildren<T extends HTMLElement>(
