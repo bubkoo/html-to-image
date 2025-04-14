@@ -9,15 +9,15 @@ describe('font embedding', () => {
       try {
         root.innerHTML = `
           <style>
-              @font-face { 
+              @font-face {
                   font-family: 'Font 0';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
-              @font-face { 
+              @font-face {
                   font-family: 'Font 1';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
-              @font-face { 
+              @font-face {
                   font-family: 'Font 2';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
@@ -40,15 +40,15 @@ describe('font embedding', () => {
       try {
         root.innerHTML = `
           <style>
-              @font-face { 
+              @font-face {
                   font-family: 'Font 0';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
-              @font-face { 
+              @font-face {
                   font-family: 'Font 1';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
-              @font-face { 
+              @font-face {
                   font-family: 'Font 2';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
@@ -72,15 +72,15 @@ describe('font embedding', () => {
       try {
         root.innerHTML = `
           <style>
-              @font-face { 
+              @font-face {
                   font-family: 'Font 0';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
-              @font-face { 
+              @font-face {
                   font-family: 'Font 1';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
-              @font-face { 
+              @font-face {
                   font-family: 'Font 2';
                   src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
               }
@@ -99,6 +99,53 @@ describe('font embedding', () => {
         expect(style.textContent).toContain('Font 1')
         expect(style.textContent).not.toContain('Font 0')
         expect(style.textContent).not.toContain('Font 2')
+      } finally {
+        root.remove()
+      }
+    })
+    it('should embed font defined in CSS grouping rule', async () => {
+      const root = document.createElement('div')
+      document.body.append(root)
+      try {
+        root.innerHTML = `
+          <style>
+              @layer layer1;
+
+              @layer layer1 {
+                @font-face {
+                  font-family: 'Font 0';
+                  src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
+                }
+              }
+
+              @media screen {
+                @font-face {
+                  font-family: 'Font 1';
+                  src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
+                }
+              }
+
+              @font-face {
+                font-family: 'Font 2';
+                src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2');
+              }
+          </style>
+          <p style="font-family: 'Font 0'">Hello world</p>
+          <p style="font-family: 'Font 1'">Hello world</p>
+        `
+        const svg = await htmlToImage.toSvg(root)
+        const doc = await getSvgDocument(svg)
+        const [style] = Array.from(doc.getElementsByTagName('style'))
+
+        expect(style.textContent).toContain(
+          'font-family: "Font 0"; src: url("data:application/font-woff;base64,',
+        )
+        expect(style.textContent).toContain(
+          'font-family: "Font 1"; src: url("data:application/font-woff;base64,',
+        )
+        expect(style.textContent).not.toContain(
+          'font-family: "Font 2"; src: url("data:application/font-woff;base64,',
+        )
       } finally {
         root.remove()
       }
