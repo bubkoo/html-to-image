@@ -139,7 +139,7 @@ htmlToImage
   .then(function (pixels) {
     for (var y = 0; y < node.scrollHeight; ++y) {
       for (var x = 0; x < node.scrollWidth; ++x) {
-        pixelAtXYOffset = (4 * y * node.scrollHeight) + (4 * x);
+        pixelAtXYOffset = (4 * y * node.scrollWidth) + (4 * x);
         /* pixelAtXY is a Uint8Array[4] containing RGBA values of the pixel at (x, y) in the range 0..255 */
         pixelAtXY = pixels.slice(pixelAtXYOffset, pixelAtXYOffset + 4);
       }
