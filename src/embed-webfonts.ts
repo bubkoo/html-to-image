@@ -104,11 +104,11 @@ function parseCSS(source: string) {
 async function getCSSRules(
   styleSheets: CSSStyleSheet[],
   options: Options,
-): Promise<CSSStyleRule[]> {
-  const ret: CSSStyleRule[] = []
+): Promise<CSSRule[]> {
+  const ret: CSSRule[] = []
   const deferreds: Promise<number | void>[] = []
 
-  // First loop inlines imports
+  // replace @import rules with target stylesheet
   styleSheets.forEach((sheet) => {
     if ('cssRules' in sheet) {
       try {
@@ -164,34 +164,45 @@ async function getCSSRules(
     }
   })
 
-  return Promise.all(deferreds).then(() => {
-    // Second loop parses rules
-    styleSheets.forEach((sheet) => {
-      if ('cssRules' in sheet) {
-        try {
-          toArray<CSSStyleRule>(sheet.cssRules || []).forEach((item) => {
-            ret.push(item)
-          })
-        } catch (e) {
-          console.error(`Error while reading CSS rules from ${sheet.href}`, e)
-        }
-      }
-    })
+  await Promise.all(deferreds)
 
-    return ret
-  })
+  const rulesCollections = toArray<{ cssRules: CSSRuleList }>(styleSheets)
+
+  while (rulesCollections.length) {
+    const rulesCollection = rulesCollections.pop()
+
+    if (!rulesCollection) {
+      continue
+    }
+
+    try {
+      toArray<CSSRule>(rulesCollection.cssRules || []).forEach((rule) => {
+        ret.push(rule)
+
+        if ('cssRules' in rule) {
+          rulesCollections.unshift(rule as { cssRules: CSSRuleList })
+        }
+      })
+    } catch (e) {
+      console.error(`Error while reading CSS rules`, e)
+    }
+  }
+
+  return ret
 }
 
-function getWebFontRules(cssRules: CSSStyleRule[]): CSSStyleRule[] {
+function getWebFontRules(cssRules: CSSRule[]): CSSFontFaceRule[] {
   return cssRules
-    .filter((rule) => rule.type === CSSRule.FONT_FACE_RULE)
+    .filter(
+      (rule): rule is CSSFontFaceRule => rule.type === CSSRule.FONT_FACE_RULE,
+    )
     .filter((rule) => shouldEmbed(rule.style.getPropertyValue('src')))
 }
 
 async function parseWebFontRules<T extends HTMLElement>(
   node: T,
   options: Options,
-) {
+): Promise<CSSFontFaceRule[]> {
   if (node.ownerDocument == null) {
     throw new Error('Provided element is not within a Document')
   }
