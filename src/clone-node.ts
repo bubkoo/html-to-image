@@ -136,7 +136,11 @@ function cloneCSSStyle<T extends HTMLElement>(
   } else {
     getStyleProperties(options).forEach((name) => {
       let value = sourceStyle.getPropertyValue(name)
-      if (name === 'font-size' && value.endsWith('px')) {
+      if (
+        !options.skipFontSizeShrink &&
+        name === 'font-size' &&
+        value.endsWith('px')
+      ) {
         const reducedFont =
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
         value = `${reducedFont}px`
