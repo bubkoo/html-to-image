@@ -80,10 +80,6 @@ async function cloneChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  if (isSVGElement(clonedNode)) {
-    return clonedNode
-  }
-
   let children: T[] = []
 
   if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
