@@ -1,4 +1,4 @@
-import { Options } from './types'
+export { Options } from './types'
 import { cloneNode } from './clone-node'
 import { embedImages } from './embed-images'
 import { applyStyle } from './apply-style'
