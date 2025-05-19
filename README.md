@@ -291,6 +291,13 @@ You may experience loss of parts of the image if set to `true` and you are expor
 
 Defaults to `false`  
 
+### waitForAnimationFrameAcquired
+
+When supplied, the library will wait for the next animation frame to be acquired before rendering the image.
+This is useful when you want to achieve a smooth transition when rendering the image.
+
+Defaults to `false`
+
 ### type
 
 A string indicating the image format. The default type is image/png; that type is also used if the given type isn't supported.

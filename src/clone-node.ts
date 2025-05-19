@@ -9,12 +9,12 @@ import {
 import { getMimeType } from './mimes'
 import { resourceToDataURL } from './dataurl'
 
-async function cloneCanvasElement(canvas: HTMLCanvasElement) {
+async function cloneCanvasElement(canvas: HTMLCanvasElement, options: Options) {
   const dataURL = canvas.toDataURL()
   if (dataURL === 'data:,') {
     return canvas.cloneNode(false) as HTMLCanvasElement
   }
-  return createImage(dataURL)
+  return createImage(dataURL, options)
 }
 
 async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
@@ -25,13 +25,13 @@ async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
     canvas.height = video.clientHeight
     ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
     const dataURL = canvas.toDataURL()
-    return createImage(dataURL)
+    return createImage(dataURL, options)
   }
 
   const poster = video.poster
   const contentType = getMimeType(poster)
   const dataURL = await resourceToDataURL(poster, contentType, options)
-  return createImage(dataURL)
+  return createImage(dataURL, options)
 }
 
 async function cloneIFrameElement(iframe: HTMLIFrameElement, options: Options) {
@@ -55,7 +55,7 @@ async function cloneSingleNode<T extends HTMLElement>(
   options: Options,
 ): Promise<HTMLElement> {
   if (isInstanceOfElement(node, HTMLCanvasElement)) {
-    return cloneCanvasElement(node)
+    return cloneCanvasElement(node, options)
   }
 
   if (isInstanceOfElement(node, HTMLVideoElement)) {
