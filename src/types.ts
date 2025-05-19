@@ -41,6 +41,10 @@ export interface Options {
    */
   quality?: number
   /**
+   * Cache bypass so we don't have CORS issues with cached images in the browser
+   */
+  cacheDisable?: boolean
+  /**
    * Set to `true` to append the current time as a query string to URL
    * requests to enable cache busting.
    */
