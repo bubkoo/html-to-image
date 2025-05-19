@@ -21,8 +21,8 @@ async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
   if (video.currentSrc) {
     const canvas = document.createElement('canvas')
     const ctx = canvas.getContext('2d')
-    canvas.width = video.clientWidth
-    canvas.height = video.clientHeight
+    canvas.width = video.videoWidth
+    canvas.height = video.videoHeight
     ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
     const dataURL = canvas.toDataURL()
     return createImage(dataURL)
