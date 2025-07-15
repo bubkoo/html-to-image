@@ -65,7 +65,7 @@ export async function toPixelData<T extends HTMLElement>(
   const { width, height } = getImageSize(node, options)
   const canvas = await toCanvas(node, options)
   const ctx = canvas.getContext('2d')!
-  return ctx.getImageData(0, 0, width, height).data
+  return ctx.getImageData(0, 0, canvas.width, canvas.height).data
 }
 
 export async function toPng<T extends HTMLElement>(
