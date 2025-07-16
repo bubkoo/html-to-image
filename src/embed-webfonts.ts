@@ -234,7 +234,11 @@ export async function getWebFontCSS<T extends HTMLElement>(
   const cssTexts = await Promise.all(
     rules
       .filter((rule) =>
-        usedFonts.has(normalizeFontFamily(rule.style.fontFamily)),
+        usedFonts.has(
+          normalizeFontFamily(
+            rule.style.fontFamily || rule.style.getPropertyValue('fontFamily'),
+          ),
+        ),
       )
       .map((rule) => {
         const baseUrl = rule.parentStyleSheet
