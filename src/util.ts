@@ -196,15 +196,41 @@ export function canvasToBlob(
   })
 }
 
-export function createImage(url: string): Promise<HTMLImageElement> {
+export function createImage(
+  url: string,
+  signal?: AbortSignal,
+): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
+    // Check for abort signal before starting image loading
+    if (signal?.aborted) {
+      reject(new Error('Operation aborted'))
+      return
+    }
+
     const img = new Image()
+
+    const onAbort = () => {
+      reject(new Error('Operation aborted'))
+    }
+
+    if (signal) {
+      signal.addEventListener('abort', onAbort)
+    }
+
     img.onload = () => {
+      if (signal) {
+        signal.removeEventListener('abort', onAbort)
+      }
       img.decode().then(() => {
         requestAnimationFrame(() => resolve(img))
       })
     }
-    img.onerror = reject
+    img.onerror = (error) => {
+      if (signal) {
+        signal.removeEventListener('abort', onAbort)
+      }
+      reject(error)
+    }
     img.crossOrigin = 'anonymous'
     img.decoding = 'async'
     img.src = url

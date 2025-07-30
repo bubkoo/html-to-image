@@ -107,7 +107,13 @@ async function cloneChildren<T extends HTMLElement>(
   await children.reduce(
     (deferred, child) =>
       deferred
-        .then(() => cloneNode(child, options))
+        .then(() => {
+          // Check for abort signal in each iteration
+          if (options.signal?.aborted) {
+            throw new Error('Operation aborted')
+          }
+          return cloneNode(child, options)
+        })
         .then((clonedChild: HTMLElement | null) => {
           if (clonedChild) {
             clonedNode.appendChild(clonedChild)
@@ -253,6 +259,11 @@ export async function cloneNode<T extends HTMLElement>(
   options: Options,
   isRoot?: boolean,
 ): Promise<T | null> {
+  // Check for abort signal at the beginning
+  if (options.signal?.aborted) {
+    throw new Error('Operation aborted')
+  }
+
   if (!isRoot && options.filter && !options.filter(node)) {
     return null
   }

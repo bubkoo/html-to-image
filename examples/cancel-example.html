@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML to Image - Cancel Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .content {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 10px;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .controls {
+        margin: 20px 0;
+      }
+      button {
+        background: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #45a049;
+      }
+      button:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+      }
+      .cancel-btn {
+        background: #f44336;
+      }
+      .cancel-btn:hover {
+        background: #da190b;
+      }
+      .status {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .status.processing {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeaa7;
+      }
+      .status.success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .status.error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .status.cancelled {
+        background: #e2e3e5;
+        color: #383d41;
+        border: 1px solid #d6d8db;
+      }
+      .result {
+        margin: 20px 0;
+      }
+      .result img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML to Image - Cancel Example</h1>
+
+    <div class="content" id="capture-target">
+      <h2>This content will be captured as an image</h2>
+      <p>This is a sample content with gradient background and styled text.</p>
+      <p>
+        You can cancel the image generation process at any time using the cancel
+        button.
+      </p>
+      <div style="font-size: 24px; margin: 20px 0">🎨 📸 ✂️</div>
+    </div>
+
+    <div class="controls">
+      <button id="generate-btn">Generate PNG Image</button>
+      <button id="cancel-btn" class="cancel-btn" disabled>Cancel</button>
+    </div>
+
+    <div id="status" class="status" style="display: none"></div>
+
+    <div class="result" id="result"></div>
+
+    <script type="module">
+      import { toPng } from '../src/index.js'
+
+      let currentController = null
+
+      function showStatus(message, type) {
+        const statusEl = document.getElementById('status')
+        statusEl.textContent = message
+        statusEl.className = `status ${type}`
+        statusEl.style.display = 'block'
+      }
+
+      function clearResult() {
+        document.getElementById('result').innerHTML = ''
+      }
+
+      function setButtonsState(generating) {
+        document.getElementById('generate-btn').disabled = generating
+        document.getElementById('cancel-btn').disabled = !generating
+      }
+
+      document
+        .getElementById('generate-btn')
+        .addEventListener('click', async () => {
+          const target = document.getElementById('capture-target')
+
+          // Create a new AbortController for this operation
+          currentController = new AbortController()
+
+          // Update UI
+          setButtonsState(true)
+          clearResult()
+          showStatus('Generating image...', 'processing')
+
+          try {
+            const dataUrl = await toPng(target, {
+              signal: currentController.signal,
+              cacheBust: true,
+            })
+
+            // Check if operation was cancelled
+            if (currentController.signal.aborted) {
+              return
+            }
+
+            // Display the result
+            const resultEl = document.getElementById('result')
+            const img = document.createElement('img')
+            img.src = dataUrl
+            img.alt = 'Generated image'
+            resultEl.appendChild(img)
+
+            showStatus('Image generated successfully!', 'success')
+          } catch (error) {
+            if (error.message === 'Operation aborted') {
+              showStatus('Operation was cancelled by user.', 'cancelled')
+            } else {
+              showStatus(`Error: ${error.message}`, 'error')
+            }
+          } finally {
+            setButtonsState(false)
+            currentController = null
+          }
+        })
+
+      document.getElementById('cancel-btn').addEventListener('click', () => {
+        if (currentController) {
+          currentController.abort()
+          showStatus('Cancelling operation...', 'processing')
+        }
+      })
+    </script>
+  </body>
+</html>

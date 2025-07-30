@@ -54,16 +54,43 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
 
   const dataURL = await resourceToDataURL(url, getMimeType(url), options)
   await new Promise((resolve, reject) => {
-    clonedNode.onload = resolve
+    // Check for abort signal before starting image loading
+    if (options.signal?.aborted) {
+      reject(new Error('Operation aborted'))
+      return
+    }
+
+    const onAbort = () => {
+      reject(new Error('Operation aborted'))
+    }
+
+    if (options.signal) {
+      options.signal.addEventListener('abort', onAbort)
+    }
+
+    clonedNode.onload = () => {
+      if (options.signal) {
+        options.signal.removeEventListener('abort', onAbort)
+      }
+      resolve(undefined)
+    }
     clonedNode.onerror = options.onImageErrorHandler
       ? (...attributes) => {
+          if (options.signal) {
+            options.signal.removeEventListener('abort', onAbort)
+          }
           try {
             resolve(options.onImageErrorHandler!(...attributes))
           } catch (error) {
             reject(error)
           }
         }
-      : reject
+      : (error) => {
+          if (options.signal) {
+            options.signal.removeEventListener('abort', onAbort)
+          }
+          reject(error)
+        }
 
     const image = clonedNode as HTMLImageElement
     if (image.decode) {
@@ -89,6 +116,12 @@ async function embedChildren<T extends HTMLElement>(
 ) {
   const children = toArray<HTMLElement>(clonedNode.childNodes)
   const deferreds = children.map((child) => embedImages(child, options))
+
+  // Check for abort signal before Promise.all
+  if (options.signal?.aborted) {
+    throw new Error('Operation aborted')
+  }
+
   await Promise.all(deferreds).then(() => clonedNode)
 }
 
@@ -96,6 +129,11 @@ export async function embedImages<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ) {
+  // Check for abort signal at the beginning
+  if (options.signal?.aborted) {
+    throw new Error('Operation aborted')
+  }
+
   if (isInstanceOfElement(clonedNode, Element)) {
     await embedBackground(clonedNode, options)
     await embedImageNode(clonedNode, options)

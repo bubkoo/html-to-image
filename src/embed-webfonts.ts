@@ -10,13 +10,13 @@ interface Metadata {
 
 const cssFetchCache: { [href: string]: Metadata } = {}
 
-async function fetchCSS(url: string) {
+async function fetchCSS(url: string, signal?: AbortSignal) {
   let cache = cssFetchCache[url]
   if (cache != null) {
     return cache
   }
 
-  const res = await fetch(url)
+  const res = await fetch(url, { signal })
   const cssText = await res.text()
   cache = { url, cssText }
 
@@ -42,6 +42,7 @@ async function embedFonts(data: Metadata, options: Options): Promise<string> {
         cssText = cssText.replace(loc, `url(${result})`)
         return [loc, result]
       },
+      options.signal,
     )
   })
 
@@ -116,7 +117,7 @@ async function getCSSRules(
           if (item.type === CSSRule.IMPORT_RULE) {
             let importIndex = index + 1
             const url = (item as CSSImportRule).href
-            const deferred = fetchCSS(url)
+            const deferred = fetchCSS(url, options.signal)
               .then((metadata) => embedFonts(metadata, options))
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
@@ -136,6 +137,10 @@ async function getCSSRules(
                 }),
               )
               .catch((e) => {
+                // Check if the error is due to abort
+                if (e instanceof Error && e.name === 'AbortError') {
+                  throw e
+                }
                 console.error('Error loading remote css', e.toString())
               })
 
@@ -147,7 +152,7 @@ async function getCSSRules(
           styleSheets.find((a) => a.href == null) || document.styleSheets[0]
         if (sheet.href != null) {
           deferreds.push(
-            fetchCSS(sheet.href)
+            fetchCSS(sheet.href, options.signal)
               .then((metadata) => embedFonts(metadata, options))
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
@@ -155,6 +160,10 @@ async function getCSSRules(
                 }),
               )
               .catch((err: unknown) => {
+                // Check if the error is due to abort
+                if (err instanceof Error && err.name === 'AbortError') {
+                  throw err
+                }
                 console.error('Error loading remote stylesheet', err)
               }),
           )
@@ -231,12 +240,23 @@ export async function getWebFontCSS<T extends HTMLElement>(
 ): Promise<string> {
   const rules = await parseWebFontRules(node, options)
   const usedFonts = getUsedFonts(node)
+
+  // Check for abort signal before Promise.all
+  if (options.signal?.aborted) {
+    throw new Error('Operation aborted')
+  }
+
   const cssTexts = await Promise.all(
     rules
       .filter((rule) =>
         usedFonts.has(normalizeFontFamily(rule.style.fontFamily)),
       )
-      .map((rule) => {
+      .map(async (rule) => {
+        // Check for abort signal before each font embedding
+        if (options.signal?.aborted) {
+          throw new Error('Operation aborted')
+        }
+
         const baseUrl = rule.parentStyleSheet
           ? rule.parentStyleSheet.href
           : null
@@ -251,6 +271,11 @@ export async function embedWebFonts<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ) {
+  // Check for abort signal at the beginning
+  if (options.signal?.aborted) {
+    throw new Error('Operation aborted')
+  }
+
   const cssText =
     options.fontEmbedCSS != null
       ? options.fontEmbedCSS

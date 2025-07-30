@@ -78,6 +78,11 @@ export async function embedResources(
   baseUrl: string | null,
   options: Options,
 ): Promise<string> {
+  // Check for abort signal at the beginning
+  if (options.signal?.aborted) {
+    throw new Error('Operation aborted')
+  }
+
   if (!shouldEmbed(cssText)) {
     return cssText
   }
@@ -86,7 +91,13 @@ export async function embedResources(
   const urls = parseURLs(filteredCSSText)
   return urls.reduce(
     (deferred, url) =>
-      deferred.then((css) => embed(css, url, baseUrl, options)),
+      deferred.then((css) => {
+        // Check for abort signal in each iteration
+        if (options.signal?.aborted) {
+          throw new Error('Operation aborted')
+        }
+        return embed(css, url, baseUrl, options)
+      }),
     Promise.resolve(filteredCSSText),
   )
 }

@@ -16,8 +16,14 @@ export async function fetchAsDataURL<T>(
   url: string,
   init: RequestInit | undefined,
   process: (data: { result: string; res: Response }) => T,
+  signal?: AbortSignal,
 ): Promise<T> {
-  const res = await fetch(url, init)
+  const fetchInit = { ...init }
+  if (signal) {
+    fetchInit.signal = signal
+  }
+
+  const res = await fetch(url, fetchInit)
   if (res.status === 404) {
     throw new Error(`Resource "${res.url}" not found`)
   }
@@ -91,9 +97,15 @@ export async function resourceToDataURL(
         }
         return getContentFromDataUrl(result)
       },
+      options.signal,
     )
     dataURL = makeDataUrl(content, contentType!)
   } catch (error) {
+    // Check if the error is due to abort
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw error
+    }
+
     dataURL = options.imagePlaceholder || ''
 
     let msg = `Failed to fetch resource: ${resourceUrl}`

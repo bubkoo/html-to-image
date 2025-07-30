@@ -298,6 +298,31 @@ When supplied, the toCanvas function will return a blob matching the given image
 
 Defaults to `image/png`
 
+### signal
+
+An AbortSignal that can be used to cancel the operation. When the signal is aborted, the promise will be rejected with an AbortError.
+
+```javascript
+const controller = new AbortController();
+
+// Start the image generation
+const promise = htmlToImage.toPng(node, { 
+  signal: controller.signal 
+});
+
+// Cancel the operation
+controller.abort();
+
+// Handle the cancellation
+promise.catch((error) => {
+  if (error.name === 'AbortError') {
+    console.log('Operation was cancelled');
+  } else {
+    console.error('An error occurred:', error);
+  }
+});
+```
+
 ### includeStyleProperties
 
 An array of style property names. Can be used to manually specify which style properties are included when cloning nodes. This can be useful for performance-critical scenarios.

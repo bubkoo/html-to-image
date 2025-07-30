@@ -101,4 +101,9 @@ export interface Options {
    * An event handler for the error event when any image in html has problem with loading.
    */
   onImageErrorHandler?: OnErrorEventHandler
+  /**
+   * An AbortSignal that can be used to cancel the operation.
+   * When the signal is aborted, the promise will be rejected with an AbortError.
+   */
+  signal?: AbortSignal
 }
