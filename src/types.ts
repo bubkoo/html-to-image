@@ -102,3 +102,7 @@ export interface Options {
    */
   onImageErrorHandler?: OnErrorEventHandler
 }
+
+export interface PrivateOptions extends Options {
+  reCanvasDrawCount?: number
+}
