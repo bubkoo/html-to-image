@@ -207,7 +207,7 @@ export function createImage(url: string): Promise<HTMLImageElement> {
     }
     img.onerror = reject
     img.crossOrigin = 'anonymous'
-    img.decoding = 'async'
+    img.decoding = 'sync'
     img.src = url
   })
 }
