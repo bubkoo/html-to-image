@@ -62,6 +62,9 @@ describe('work with svg element', () => {
     // Regression test for: SVG deep-clone skips cloneCSSStyle for descendants,
     // leaving CSS var() unresolved in exported image.
     // Fix in clone-node.ts: walk native/cloned descendant pairs, call cloneCSSStyle.
+    // The CSS defines: :root { --rect-fill: rgb(0, 128, 0); } and .var-rect { fill: var(--rect-fill); }
+    // Without the fix: the cloned rect has no inline style (deep-clone skips descendants).
+    // With the fix: the cloned rect has fill: rgb(0, 128, 0) as an inline style.
     bootstrap('svg-css-var/node.html', 'svg-css-var/style.css')
       .then(toSvg)
       .then(getSvgDocument)
@@ -69,9 +72,12 @@ describe('work with svg element', () => {
         const rect = doc.querySelector('.var-rect') as SVGRectElement | null
         expect(rect).not.toBeNull()
         // After the fix, cloneCSSStyle copies computed styles onto the cloned rect.
-        // The serialized SVG must NOT contain an unresolved var() reference.
+        // The inline style must contain a resolved fill color (not a var() reference).
         const inlineStyle = rect?.getAttribute('style') ?? ''
         expect(inlineStyle).not.toContain('var(')
+        // Positive assertion: the fill property must be present and resolved to rgb(0, 128, 0).
+        // This fails without the fix (style would be empty since descendants are skipped).
+        expect(inlineStyle).toMatch(/fill\s*:\s*rgb\(\s*0\s*,\s*128\s*,\s*0\s*\)/)
       })
       .then(done)
       .catch(done)
