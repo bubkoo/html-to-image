@@ -1,0 +1,12 @@
+#dom-node {
+  width: 100px;
+  overflow: hidden;
+}
+
+:root {
+  --rect-fill: rgb(0, 128, 0);
+}
+
+.var-rect {
+  fill: var(--rect-fill);
+}

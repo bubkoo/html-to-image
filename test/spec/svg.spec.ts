@@ -57,4 +57,23 @@ describe('work with svg element', () => {
       .then(done)
       .catch(done)
   })
+
+  it('should resolve CSS custom properties (var()) in SVG descendants', (done) => {
+    // Regression test for: SVG deep-clone skips cloneCSSStyle for descendants,
+    // leaving CSS var() unresolved in exported image.
+    // Fix in clone-node.ts: walk native/cloned descendant pairs, call cloneCSSStyle.
+    bootstrap('svg-css-var/node.html', 'svg-css-var/style.css')
+      .then(toSvg)
+      .then(getSvgDocument)
+      .then((doc) => {
+        const rect = doc.querySelector('.var-rect') as SVGRectElement | null
+        expect(rect).not.toBeNull()
+        // After the fix, cloneCSSStyle copies computed styles onto the cloned rect.
+        // The serialized SVG must NOT contain an unresolved var() reference.
+        const inlineStyle = rect?.getAttribute('style') ?? ''
+        expect(inlineStyle).not.toContain('var(')
+      })
+      .then(done)
+      .catch(done)
+  })
 })
