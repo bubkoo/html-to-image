@@ -8,7 +8,7 @@ interface Metadata {
   cssText: string
 }
 
-const cssFetchCache: { [href: string]: Metadata } = {}
+let cssFetchCache: { [href: string]: Metadata } = {}
 
 async function fetchCSS(url: string) {
   let cache = cssFetchCache[url]
@@ -23,6 +23,10 @@ async function fetchCSS(url: string) {
   cssFetchCache[url] = cache
 
   return cache
+}
+
+export function clearCache() {
+  cssFetchCache = {}
 }
 
 async function embedFonts(data: Metadata, options: Options): Promise<string> {

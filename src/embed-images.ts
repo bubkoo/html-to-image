@@ -4,6 +4,8 @@ import { toArray, isInstanceOfElement } from './util'
 import { isDataUrl, resourceToDataURL } from './dataurl'
 import { getMimeType } from './mimes'
 
+export { clearCache } from './dataurl'
+
 async function embedProp(
   propName: string,
   node: HTMLElement,
