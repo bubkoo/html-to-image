@@ -119,6 +119,87 @@ async function cloneChildren<T extends HTMLElement>(
   return clonedNode
 }
 
+function localizeClipPathUrl(value: string): string {
+  const urlMatch = value.match(/^url\(\s*(['"]?)(.*?)\1\s*\)$/i)
+  if (!urlMatch) {
+    return value
+  }
+
+  const urlRef = urlMatch[2].trim()
+  if (!urlRef) {
+    return value
+  }
+
+  if (urlRef.startsWith('#')) {
+    return `url(${urlRef})`
+  }
+
+  try {
+    const targetUrl = new URL(urlRef, document.baseURI)
+    const currentUrl = new URL(document.baseURI)
+
+    if (
+      targetUrl.origin === currentUrl.origin &&
+      targetUrl.pathname === currentUrl.pathname &&
+      targetUrl.search === currentUrl.search &&
+      targetUrl.hash
+    ) {
+      return `url(${targetUrl.hash})`
+    }
+  } catch {
+    // Invalid URL, leave as-is
+  }
+
+  return value
+}
+
+function hasStyle(
+  element: Element,
+): element is Element & ElementCSSInlineStyle {
+  return 'style' in element
+}
+
+function normalizeClipPathForClone<T extends HTMLElement>(clonedNode: T): T {
+  if (!isInstanceOfElement(clonedNode, Element)) {
+    return clonedNode
+  }
+
+  const elements = [
+    clonedNode,
+    ...Array.from(clonedNode.querySelectorAll('[clip-path], [style]')),
+  ]
+
+  elements.forEach((element) => {
+    const clipPathAttr = element.getAttribute('clip-path')
+    if (clipPathAttr) {
+      const localizedAttr = localizeClipPathUrl(clipPathAttr)
+      if (localizedAttr !== clipPathAttr) {
+        element.setAttribute('clip-path', localizedAttr)
+      }
+    }
+
+    if (!hasStyle(element)) {
+      return
+    }
+
+    const clipPath = element.style.getPropertyValue('clip-path')
+    if (!clipPath) {
+      return
+    }
+
+    const localizedStyle = localizeClipPathUrl(clipPath)
+    if (localizedStyle !== clipPath) {
+      element.style.setProperty(
+        'clip-path',
+        localizedStyle,
+        element.style.getPropertyPriority('clip-path'),
+      )
+    }
+  })
+
+  return clonedNode
+}
+
 function cloneCSSStyle<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
@@ -261,5 +342,6 @@ export async function cloneNode<T extends HTMLElement>(
     .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
     .then((clonedNode) => cloneChildren(node, clonedNode, options))
     .then((clonedNode) => decorate(node, clonedNode, options))
+    .then((clonedNode) => normalizeClipPathForClone(clonedNode))
     .then((clonedNode) => ensureSVGSymbols(clonedNode, options))
 }
