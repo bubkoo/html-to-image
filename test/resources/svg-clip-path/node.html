@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>SVG clip-path cases</title>
+	</head>
+	<body>
+		<svg width="680" height="180" viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<clipPath id="clip1">
+					<circle cx="80" cy="90" r="65" />
+				</clipPath>
+				<clipPath id="clip2">
+					<circle cx="305" cy="90" r="65" />
+				</clipPath>
+				<clipPath id="clip3">
+					<circle cx="530" cy="90" r="65" />
+				</clipPath>
+			</defs>
+
+
+			<!-- Case 2: clip-path from inline style -->
+			<rect
+				x="235"
+				y="25"
+				width="210"
+				height="130"
+				fill="#ef6c00"
+				style="clip-path: url('/context.html#clip2');"
+			/>
+
+			<!-- Case 3: clip-path from SVG presentation attribute -->
+			<rect
+				x="460"
+				y="25"
+				width="210"
+				height="130"
+				fill="#2e7d32"
+				clip-path="url('/context.html#clip3')"
+			/>
+		</svg>
+	</body>
+</html>
