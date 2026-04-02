@@ -87,6 +87,11 @@ export interface Options {
    */
   skipAutoScale?: boolean
   /**
+   * An option for rendering the image only when the image is visible on the frame.
+   * This might be useful for performance reasons when rendering a large number of images.
+   */
+  waitForAnimationFrameAcquired?: boolean
+  /**
    * A string indicating the image format. The default type is image/png; that type is also used if the given type isn't supported.
    */
   type?: string
