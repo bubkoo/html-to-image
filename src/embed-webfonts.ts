@@ -216,8 +216,9 @@ function getUsedFonts(node: HTMLElement) {
     })
 
     Array.from(node.children).forEach((child) => {
-      if (child instanceof HTMLElement) {
-        traverse(child)
+      if (Object.prototype.toString.call(child).includes('HTML') &&
+        child.nodeType === 1) {
+        traverse(child as HTMLElement)
       }
     })
   }
