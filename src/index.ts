@@ -31,7 +31,7 @@ export async function toCanvas<T extends HTMLElement>(
 ): Promise<HTMLCanvasElement> {
   const { width, height } = getImageSize(node, options)
   const svg = await toSvg(node, options)
-  const img = await createImage(svg)
+  const img = await createImage(svg, options)
 
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('2d')!
