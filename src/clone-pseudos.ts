@@ -1,5 +1,5 @@
-import type { Options } from './types'
-import { uuid, getStyleProperties } from './util'
+import type { Options } from './types.js'
+import { uuid, getStyleProperties } from './util.js'
 
 type Pseudo = ':before' | ':after'
 
