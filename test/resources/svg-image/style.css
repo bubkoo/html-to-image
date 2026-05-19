@@ -1,5 +1,12 @@
 #dom-node {
+  position: relative;
   height: 200px;
   width: 200px;
   background-color: #fff;
+}
+
+.svg-dom {
+  position: relative;
+  width: 200px;
+  height: 200px;
 }
