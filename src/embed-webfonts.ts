@@ -206,9 +206,9 @@ function normalizeFontFamily(font: string) {
   return font.trim().replace(/["']/g, '')
 }
 
-function getUsedFonts(node: HTMLElement) {
+function getUsedFonts(node: HTMLElement | SVGElement) {
   const fonts = new Set<string>()
-  function traverse(node: HTMLElement) {
+  function traverse(node: HTMLElement | SVGElement) {
     const fontFamily =
       node.style.fontFamily || getComputedStyle(node).fontFamily
     fontFamily.split(',').forEach((font) => {
@@ -216,7 +216,7 @@ function getUsedFonts(node: HTMLElement) {
     })
 
     Array.from(node.children).forEach((child) => {
-      if (child instanceof HTMLElement) {
+      if (child instanceof HTMLElement || child instanceof SVGElement) {
         traverse(child)
       }
     })
