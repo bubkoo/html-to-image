@@ -47,11 +47,22 @@ describe('work with svg element', () => {
       .catch(done)
   })
 
-  it('should render SVG use tags', function (done) {
+  it('should render embedded SVG use tags', function (done) {
     bootstrap(
       'svg-use-tag/node.html',
       'svg-use-tag/style.css',
       'svg-use-tag/image',
+    )
+      .then(renderAndCheck)
+      .then(done)
+      .catch(done)
+  })
+
+  it('should render external SVG use tags', function (done) {
+    bootstrap(
+      'svg-use-tag-external/node.html',
+      'svg-use-tag-external/style.css',
+      'svg-use-tag-external/image',
     )
       .then(renderAndCheck)
       .then(done)
