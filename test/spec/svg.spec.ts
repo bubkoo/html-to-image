@@ -57,4 +57,11 @@ describe('work with svg element', () => {
       .then(done)
       .catch(done)
   })
+
+  it('should render SVG with clip-path', function (done) {
+    bootstrap('svg-clip-path/node.html', undefined, 'svg-clip-path/image')
+      .then(renderAndCheck)
+      .then(done)
+      .catch(done)
+  })
 })
