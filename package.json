@@ -23,7 +23,7 @@
     "svg"
   ],
   "scripts": {
-    "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
+    "lint": "eslint \"src/**/*.{js,ts}?(x)\" --fix",
     "clean": "rimraf dist es lib",
     "build:esm": "tsc --module esnext --target es2017 --outDir ./es",
     "build:cjs": "tsc --module commonjs --target es5 --outDir ./lib",
@@ -72,7 +72,7 @@
     "@types/pixelmatch": "^5.2.4",
     "coveralls": "^3.1.1",
     "eslint": "^8.22.0",
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "jasmine-core": "^4.3.0",
     "karma": "^6.4.0",

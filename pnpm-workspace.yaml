@@ -1,0 +1,9 @@
+allowBuilds:
+  '@bubkoo/tsconfig': true
+  '@fortawesome/fontawesome-free': true
+
+autoInstallPeers: true
+
+publicHoistPattern:
+  - '*eslint*'
+  - '*typescript-eslint*'

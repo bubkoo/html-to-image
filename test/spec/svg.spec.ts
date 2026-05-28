@@ -26,6 +26,13 @@ describe('work with svg element', () => {
       .catch(done)
   })
 
+  it('should render svg `<text>` with applied font', (done) => {
+    bootstrap('svg-font/node.html', 'svg-font/style.css', 'svg-font/image')
+      .then(renderAndCheck)
+      .then(done)
+      .catch(done)
+  })
+
   it('should include a viewBox attribute', (done) => {
     bootstrap('small/node.html', 'small/style.css', 'small/image')
       .then(toSvg)
