@@ -1,4 +1,5 @@
-import type { Options } from './types'
+import { isSafari } from './browser'
+import type { Options, PrivateOptions } from './types'
 
 export function resolveUrl(url: string, baseUrl: string | null): string {
   // url is absolute already
@@ -200,13 +201,13 @@ export function createImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image()
     img.onload = () => {
-      img.decode().then(() => {
+      img.decode().finally(() => {
         requestAnimationFrame(() => resolve(img))
       })
     }
     img.onerror = reject
     img.crossOrigin = 'anonymous'
-    img.decoding = 'async'
+    img.decoding = 'sync'
     img.src = url
   })
 }
@@ -258,4 +259,33 @@ export const isInstanceOfElement = <
     nodePrototype.constructor.name === instance.name ||
     isInstanceOfElement(nodePrototype, instance)
   )
+}
+
+export const setReCanvasDrawCount = (option: PrivateOptions) => {
+  if (!isSafari()) return
+  option.reCanvasDrawCount ??= 0
+  option.reCanvasDrawCount += 1
+}
+
+export const reCanvasDraw = async (
+  option: PrivateOptions,
+  img: HTMLImageElement,
+  canvas: HTMLCanvasElement,
+  ctx: CanvasRenderingContext2D,
+) => {
+  if (!isSafari()) return
+
+  for (let i = 0; i < (option.reCanvasDrawCount ?? 0); i++) {
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise<void>((resolve) => {
+      setTimeout(() => {
+        // safari preloading
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+        resolve()
+      }, 100)
+    })
+  }
+
+  Reflect.deleteProperty(option, 'reCanvasDrawCount')
 }

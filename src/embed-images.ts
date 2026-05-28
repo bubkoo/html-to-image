@@ -1,6 +1,6 @@
 import { Options } from './types'
 import { embedResources } from './embed-resources'
-import { toArray, isInstanceOfElement } from './util'
+import { toArray, isInstanceOfElement, setReCanvasDrawCount } from './util'
 import { isDataUrl, resourceToDataURL } from './dataurl'
 import { getMimeType } from './mimes'
 
@@ -67,7 +67,14 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
 
     const image = clonedNode as HTMLImageElement
     if (image.decode) {
-      image.decode = resolve as any
+      image.onload = () => {
+        image.decode().finally(() => {
+          requestAnimationFrame(resolve)
+          // fix safari blank image bug
+          setReCanvasDrawCount(options)
+        })
+      }
+      image.decoding = 'sync'
     }
 
     if (image.loading === 'lazy') {
