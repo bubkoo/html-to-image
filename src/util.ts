@@ -196,19 +196,35 @@ export function canvasToBlob(
   })
 }
 
-export function createImage(url: string): Promise<HTMLImageElement> {
-  return new Promise((resolve, reject) => {
-    const img = new Image()
-    img.onload = () => {
-      img.decode().then(() => {
-        requestAnimationFrame(() => resolve(img))
-      })
-    }
+export async function createImage(url: string): Promise<HTMLImageElement> {
+  const img = new Image()
+  img.crossOrigin = 'anonymous'
+  img.decoding = 'async'
+
+  const loadPromise = new Promise<HTMLImageElement>((resolve, reject) => {
     img.onerror = reject
-    img.crossOrigin = 'anonymous'
-    img.decoding = 'async'
-    img.src = url
+    img.onload = async () => {
+      try {
+        if (img.decode) {
+          await img.decode()
+
+          return new Promise<void>((resolve) => {
+            requestAnimationFrame(() => resolve())
+          })
+            .then(() => resolve(img))
+            .catch(reject)
+        }
+
+        resolve(img)
+      } catch (error) {
+        reject(error)
+      }
+    }
   })
+
+  img.src = url
+
+  return loadPromise
 }
 
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
