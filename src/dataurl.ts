@@ -79,6 +79,13 @@ export async function resourceToDataURL(
     resourceUrl += (/\?/.test(resourceUrl) ? '&' : '?') + new Date().getTime()
   }
 
+  if (options.cacheDisable) {
+    options.fetchRequestInit = {
+      ...options.fetchRequestInit,
+      cache: 'no-cache',
+    }
+  }
+
   let dataURL: string
   try {
     const content = await fetchAsDataURL(
