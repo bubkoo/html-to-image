@@ -2,6 +2,7 @@
 
 import '../spec/setup'
 import { toPng } from '../../src'
+import { cloneNode } from '../../src/clone-node'
 import { delay } from '../../src/util'
 import { assertTextRendered, bootstrap, renderAndCheck } from '../spec/helper'
 
@@ -56,6 +57,43 @@ describe('special cases', () => {
   it('should caputre lazy loading images', (done) => {
     bootstrap('images/loading.html', 'images/style.css')
       .then(assertTextRendered(['PNG', 'JPG']))
+      .then(done)
+      .catch(done)
+  })
+
+  it('should not duplicate iframe content when cloning', (done) => {
+    // Regression test for: cloneChildren() re-appended iframe body childNodes
+    // after cloneSingleNode() → cloneIFrameElement() had already recursively
+    // cloned the full iframe body, causing every child to appear twice.
+    bootstrap('iframe-content/node.html')
+      .then((node) => {
+        const iframe = node.querySelector('iframe') as HTMLIFrameElement
+        // Poll until srcdoc iframe body is accessible (async load)
+        return new Promise<HTMLDivElement>((resolve, reject) => {
+          let attempts = 0
+          const poll = () => {
+            attempts++
+            const ready =
+              iframe.contentDocument?.body?.querySelector('.iframe-para')
+            if (ready) {
+              resolve(node)
+            } else if (attempts > 30) {
+              reject(new Error('iframe did not load in time'))
+            } else {
+              setTimeout(poll, 100)
+            }
+          }
+          poll()
+        })
+      })
+      .then((node) => cloneNode(node, {}, true))
+      .then((clonedNode) => {
+        expect(clonedNode).not.toBeNull()
+        // With the bug: two .iframe-para elements appear (duplicate children).
+        // With the fix: exactly one .iframe-para appears.
+        const paras = clonedNode!.querySelectorAll('.iframe-para')
+        expect(paras.length).toBe(1)
+      })
       .then(done)
       .catch(done)
   })
