@@ -1,8 +1,12 @@
 import { Options } from './types'
 import { cloneNode } from './clone-node'
-import { embedImages } from './embed-images'
+import { embedImages, clearCache as clearImagesCache } from './embed-images'
 import { applyStyle } from './apply-style'
-import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
+import {
+  embedWebFonts,
+  getWebFontCSS,
+  clearCache as clearWebfontsCache,
+} from './embed-webfonts'
 import {
   getImageSize,
   getPixelRatio,
@@ -98,4 +102,20 @@ export async function getFontEmbedCSS<T extends HTMLElement>(
   options: Options = {},
 ): Promise<string> {
   return getWebFontCSS(node, options)
+}
+
+export enum CacheType {
+  IMAGES,
+  FONTS,
+}
+
+export function clearCaches(kind?: CacheType) {
+  const cacheToWiperMap = {
+    [CacheType.IMAGES]: clearImagesCache,
+    [CacheType.FONTS]: clearWebfontsCache,
+  }
+  const cachesToClear =
+    kind === undefined ? [CacheType.FONTS, CacheType.IMAGES] : [kind]
+
+  cachesToClear.forEach((c) => cacheToWiperMap[c]())
 }

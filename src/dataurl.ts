@@ -37,7 +37,7 @@ export async function fetchAsDataURL<T>(
   })
 }
 
-const cache: { [url: string]: string } = {}
+let cache: { [url: string]: string } = {}
 
 function getCacheKey(
   url: string,
@@ -56,6 +56,10 @@ function getCacheKey(
   }
 
   return contentType ? `[${contentType}]${key}` : key
+}
+
+export function clearCache() {
+  cache = {}
 }
 
 export async function resourceToDataURL(

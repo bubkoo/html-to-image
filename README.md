@@ -147,6 +147,23 @@ htmlToImage
   });
 ```
 
+#### clearCaches
+For single-page applications that rely heavily on image generation, you can use the `clearCaches` method between navigations to free up memory held by cached resources.
+
+```js
+// all caches
+htmlToImage
+  .clearCaches();
+
+// images cache only
+htmlToImage
+  .clearCaches(htmlToImage.CacheType.IMAGES);
+
+// fonts cache only
+htmlToImage
+  .clearCaches(htmlToImage.CacheType.FONTS);
+```
+
 #### React
 ```tsx
 import React, { useCallback, useRef } from 'react';
@@ -193,7 +210,7 @@ const App: React.FC = () => {
 
 A function taking DOM node as argument. Should return true if passed node should be included in the output. Excluding node means excluding it's children as well.
 
-You can add filter to every image function. For example, 
+You can add filter to every image function. For example,
 
 ```ts
 const filter = (node: HTMLElement) => {
@@ -289,12 +306,12 @@ html2Image.toSVG(element2, { fontEmbedCSS });
 When supplied, the library will skip the process of scaling extra large doms into the canvas object.
 You may experience loss of parts of the image if set to `true` and you are exporting a very large image.
 
-Defaults to `false`  
+Defaults to `false`
 
 ### type
 
 A string indicating the image format. The default type is image/png; that type is also used if the given type isn't supported.
-When supplied, the toCanvas function will return a blob matching the given image type and quality. 
+When supplied, the toCanvas function will return a blob matching the given image type and quality.
 
 Defaults to `image/png`
 
@@ -320,7 +337,7 @@ There might some day exist (or maybe already exists?) a simple and standard way 
 This library uses a feature of SVG that allows having arbitrary HTML content inside of the `<foreignObject>` tag. So, in order to render that DOM node for you, following steps are taken:
 
 1. Clone the original DOM node recursively
-2. Compute the style for the node and each sub-node and copy it to corresponding clone 
+2. Compute the style for the node and each sub-node and copy it to corresponding clone
    - and don't forget to recreate pseudo-elements, as they are not cloned in any way, of course
 3. Embed web fonts
    - find all the `@font-face` declarations that might represent web fonts
