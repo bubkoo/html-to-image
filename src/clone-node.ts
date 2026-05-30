@@ -80,7 +80,23 @@ async function cloneChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  if (isSVGElement(clonedNode)) {
+  if (isSVGElement(nativeNode)) {
+    // SVG was deep-cloned for performance, but CSS custom properties (var())
+    // defined in external stylesheets won't be available in the exported image.
+    // We resolve them by copying getComputedStyle() values — which resolves
+    // var() to their actual computed values — onto each cloned descendant.
+    const nativeDescendants = Array.from(
+      nativeNode.querySelectorAll<HTMLElement>('*'),
+    )
+    const clonedDescendants = Array.from(
+      clonedNode.querySelectorAll<HTMLElement>('*'),
+    )
+    nativeDescendants.forEach((native, i) => {
+      const cloned = clonedDescendants[i]
+      if (cloned) {
+        cloneCSSStyle(native, cloned, options)
+      }
+    })
     return clonedNode
   }
 
