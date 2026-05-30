@@ -1,7 +1,7 @@
-import type { Options } from './types'
-import { toArray } from './util'
-import { fetchAsDataURL } from './dataurl'
-import { shouldEmbed, embedResources } from './embed-resources'
+import type { Options } from './types.js'
+import { toArray } from './util.js'
+import { fetchAsDataURL } from './dataurl.js'
+import { shouldEmbed, embedResources } from './embed-resources.js'
 
 interface Metadata {
   url: string
