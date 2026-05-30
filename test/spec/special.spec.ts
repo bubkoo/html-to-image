@@ -59,4 +59,11 @@ describe('special cases', () => {
       .then(done)
       .catch(done)
   })
+
+  it('should render iframe content', (done) => {
+    bootstrap('iframe/node.html')
+      .then(assertTextRendered(['SOME TEXT', 'SOME MORE TEXT']))
+      .then(done)
+      .catch(done)
+  })
 })
