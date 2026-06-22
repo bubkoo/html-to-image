@@ -428,7 +428,7 @@ export function getStyles() {
 }
 
 function srcToDataUrl(cssPath: string, cssTextIn: string): Promise<string> {
-  const cssText = cssTextIn.replace(/\/\*[\s\S]*?\*\//g, '')
+  const cssText = (cssTextIn || '').replace(/\/\*[\s\S]*?\*\//g, '')
   const quotReg = /^\s*(['"])(.+?)\1/
   const map: { [url: string]: string } = {}
   // css中的图片路径是相对于css文件的，要改为相对于当前html文件
