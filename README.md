@@ -16,24 +16,30 @@
 <p align="center">
 <a href="/LICENSE"><img src="https://img.shields.io/github/license/bubkoo/html-to-image?style=for-the-badge" alt="MIT License"></a>
 <a href="https://www.typescriptlang.org"><img alt="Language" src="https://img.shields.io/badge/language-TypeScript-blue.svg?style=for-the-badge"></a>
-<a href="https://github.com/bubkoo/html-to-image/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge"></a>
+<a href="https://github.com/hzsrc/html-to-image/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge"></a>
 </p>
+
+
+## About
+
+This a fork of https://github.com/bubkoo/html-to-image, to support big html content which has large page size by the `toCanvasList` method.
+Also have some other optimization‌s.
 
 ## Install
 
 ```shell
-npm install --save html-to-image
+npm install --save html-to-image-big
 ```
 
 ## Usage
 
 ```js
 /* ES6 */
-import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import * as htmlToImage from 'html-to-image-big';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image-big';
 
 /* ES5 */
-var htmlToImage = require('html-to-image');
+var htmlToImage = require('html-to-image-big');
 ```
 
 All the top level functions accept DOM node and rendering options, and return a promise fulfilled with corresponding dataURL:
@@ -168,7 +174,7 @@ htmlToImage.toPixelData(node)
 #### React
 ```tsx
 import React, { useCallback, useRef } from 'react';
-import { toPng } from 'html-to-image';
+import { toPng } from 'html-to-image-big';
 
 const App: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -366,11 +372,11 @@ This library uses a feature of SVG that allows having arbitrary HTML content ins
 
 ## Contributing
 
-Please let us know how can we help. Do check out [issues](https://github.com/bubkoo/html-to-image/issues) for bug reports or suggestions first.
+Please let us know how can we help. Do check out [issues](https://github.com/hzsrc/html-to-image/issues) for bug reports or suggestions first.
 
 To become a contributor, please follow our [contributing guide](/CONTRIBUTING.md).
 
-<a href="https://github.com/bubkoo/html-to-image/graphs/contributors">
+<a href="https://github.com/hzsrc/html-to-image/graphs/contributors">
   <img src="/CONTRIBUTORS.svg" alt="Contributors" width="740" />
 </a>
 
