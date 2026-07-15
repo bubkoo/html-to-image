@@ -66,7 +66,7 @@ async function cloneSingleNode<T extends HTMLElement>(
     return cloneIFrameElement(node, options)
   }
 
-  return node.cloneNode(isSVGElement(node)) as T
+  return node.cloneNode(options.filter === undefined && isSVGElement(node)) as T
 }
 
 const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
@@ -80,7 +80,7 @@ async function cloneChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  if (isSVGElement(clonedNode)) {
+  if (options.filter === undefined && isSVGElement(clonedNode)) {
     return clonedNode
   }
 

@@ -131,6 +131,27 @@ describe('work with options', () => {
       .catch(done)
   })
 
+  it('should apply filter inside svg nodes', (done) => {
+    bootstrap(
+      'filter-svg/node.html',
+      'filter-svg/style.css',
+      'filter-svg/image',
+    )
+      .then((node) =>
+        toPng(node, {
+          filter(node) {
+            if (node.classList) {
+              return node.classList.contains('include')
+            }
+            return false
+          },
+        }),
+      )
+      .then(check)
+      .then(done)
+      .catch(done)
+  })
+
   it('should only use fontEmbedCss if it is supplied', (done) => {
     const testCss = `
         @font-face {
