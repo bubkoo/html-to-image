@@ -1,3 +1,40 @@
+# 2.0.0
+
+### BREAKING CHANGES
+
+* **filter:** `filter` now runs for the root and every descendant element and must return `keep`, `unwrap`, or `remove`; boolean callbacks no longer exclude nodes.
+* **background:** remove the standalone `backgroundColor` option; use `style.backgroundColor` instead.
+* **rendering:** measure output dimensions from the styled and filtered clone. Consumer-provided `width`, `height`, and layout-changing `style` values now affect layout before capture, and filtering can change the resulting bounds.
+* **cache:** remove the module-global resource and stylesheet caches. Cross-render reuse is now opt-in through a caller-owned `Cache`, and `includeQueryParams` now defaults to `true`.
+
+### Features
+
+* **cache:** export a reusable, caller-owned `Cache` for images, fonts, stylesheets, and external SVG resources without retaining fetched resource data globally for the application lifecycle.
+* **filter:** add tri-state filtering, including `unwrap` for removing an element while preserving its children.
+* **svg:** inline external SVG `use` definitions and their referenced dependencies.
+* **rendering:** capture browser-computed styles from a live off-screen clone before serialization.
+
+### Bug Fixes
+
+* **ios:** wait for WebKit rendering to settle, then clear and redraw canvas-based output on a later frame to prevent images or other elements from being omitted by the first draw.
+* **ios:** use traversal compatible with older iOS versions when collecting SVG definitions and dependencies.
+* **sizing:** honor consumer-provided dimensions and layout-changing styles before measuring the clone, including reflow when only one dimension is supplied.
+* **canvas:** preserve logical dimensions and the full rendered image at high pixel ratios and after automatic canvas scaling.
+* **video:** preserve computed width, height, `object-fit`, and other styles when video frames or posters are replaced with images.
+* **images:** wait for image readiness, treat a handled image load error as recovered, and propagate exceptions or rejected promises from `onImageErrorHandler`.
+* **resources:** apply caller fetch options consistently, reject non-successful HTTP responses, and keep cache busting independent from cache reuse.
+* **svg:** avoid separately inlining descendant styles inside SVG elements and preserve namespaced references.
+* **fonts:** improve cross-browser font-face detection and used-font matching.
+* **select:** remove clone-time font-size alteration so selected options render using their actual computed styles.
+
+### Performance Improvements
+
+* **styles:** collect computed styles before applying them in a batched write pass to reduce layout thrashing.
+
+### Maintenance
+
+* support pnpm 11.11 with a compatible lockfile, workspace configuration, and pinned Node.js type definitions.
+
 ## [1.11.13](https://github.com/bubkoo/html-to-image/compare/v1.11.12...v1.11.13) (2025-02-14)
 
 

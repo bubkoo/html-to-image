@@ -57,4 +57,19 @@ describe('work with svg element', () => {
       .then(done)
       .catch(done)
   })
+
+  it('should inline external SVG use definitions and dependencies', async () => {
+    const node = await bootstrap('svg-use-external/node.html')
+    const sourceUse = node.querySelector('use')
+    const sourceHref = sourceUse?.getAttribute('href')
+
+    const dataUrl = await toSvg(node)
+    const document = await getSvgDocument(dataUrl)
+    const clonedUse = document.querySelector('use')
+
+    expect(clonedUse?.getAttribute('href')).toBe('#icon')
+    expect(document.querySelector('defs #icon')).not.toBeNull()
+    expect(document.querySelector('defs #paint')).not.toBeNull()
+    expect(sourceUse?.getAttribute('href')).toBe(sourceHref)
+  })
 })

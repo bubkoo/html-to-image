@@ -1,6 +1,7 @@
 import type { Options } from './types'
 import { toArray } from './util'
-import { fetchAsDataURL } from './dataurl'
+import { fontToDataUrl } from './dataurl'
+import { fetchResource } from './fetch'
 import { shouldEmbed, embedResources } from './embed-resources'
 
 interface Metadata {
@@ -8,21 +9,11 @@ interface Metadata {
   cssText: string
 }
 
-const cssFetchCache: { [href: string]: Metadata } = {}
+const PROPERTY_FONT_FAMILY = 'font-family'
 
-async function fetchCSS(url: string) {
-  let cache = cssFetchCache[url]
-  if (cache != null) {
-    return cache
-  }
-
-  const res = await fetch(url)
-  const cssText = await res.text()
-  cache = { url, cssText }
-
-  cssFetchCache[url] = cache
-
-  return cache
+async function fetchCSS(url: string, options: Options) {
+  const response = await fetchResource(url, undefined, options)
+  return { url, cssText: response.asString() }
 }
 
 async function embedFonts(data: Metadata, options: Options): Promise<string> {
@@ -35,14 +26,9 @@ async function embedFonts(data: Metadata, options: Options): Promise<string> {
       url = new URL(url, data.url).href
     }
 
-    return fetchAsDataURL<[string, string]>(
-      url,
-      options.fetchRequestInit,
-      ({ result }) => {
-        cssText = cssText.replace(loc, `url(${result})`)
-        return [loc, result]
-      },
-    )
+    const { dataUrl } = await fontToDataUrl(url, undefined, options)
+    cssText = cssText.replace(loc, dataUrl)
+    return [loc, dataUrl]
   })
 
   return Promise.all(loadFonts).then(() => cssText)
@@ -116,7 +102,7 @@ async function getCSSRules(
           if (item.type === CSSRule.IMPORT_RULE) {
             let importIndex = index + 1
             const url = (item as CSSImportRule).href
-            const deferred = fetchCSS(url)
+            const deferred = fetchCSS(url, options)
               .then((metadata) => embedFonts(metadata, options))
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
@@ -147,7 +133,7 @@ async function getCSSRules(
           styleSheets.find((a) => a.href == null) || document.styleSheets[0]
         if (sheet.href != null) {
           deferreds.push(
-            fetchCSS(sheet.href)
+            fetchCSS(sheet.href, options)
               .then((metadata) => embedFonts(metadata, options))
               .then((cssText) =>
                 parseCSS(cssText).forEach((rule) => {
@@ -184,7 +170,12 @@ async function getCSSRules(
 
 function getWebFontRules(cssRules: CSSStyleRule[]): CSSStyleRule[] {
   return cssRules
-    .filter((rule) => rule.type === CSSRule.FONT_FACE_RULE)
+    .filter(
+      (rule) =>
+        rule.type === CSSRule.FONT_FACE_RULE ||
+        rule.constructor.name === CSSFontFaceRule.name ||
+        rule instanceof CSSFontFaceRule,
+    )
     .filter((rule) => shouldEmbed(rule.style.getPropertyValue('src')))
 }
 
@@ -210,7 +201,9 @@ function getUsedFonts(node: HTMLElement) {
   const fonts = new Set<string>()
   function traverse(node: HTMLElement) {
     const fontFamily =
-      node.style.fontFamily || getComputedStyle(node).fontFamily
+      node.style.getPropertyValue(PROPERTY_FONT_FAMILY) ||
+      window.getComputedStyle(node).getPropertyValue(PROPERTY_FONT_FAMILY) ||
+      node.style.fontFamily
     fontFamily.split(',').forEach((font) => {
       fonts.add(normalizeFontFamily(font))
     })
@@ -234,7 +227,11 @@ export async function getWebFontCSS<T extends HTMLElement>(
   const cssTexts = await Promise.all(
     rules
       .filter((rule) =>
-        usedFonts.has(normalizeFontFamily(rule.style.fontFamily)),
+        usedFonts.has(
+          normalizeFontFamily(
+            rule.style.getPropertyValue(PROPERTY_FONT_FAMILY),
+          ),
+        ),
       )
       .map((rule) => {
         const baseUrl = rule.parentStyleSheet

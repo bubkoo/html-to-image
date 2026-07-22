@@ -1,7 +1,7 @@
 import { Options } from './types'
 import { resolveUrl } from './util'
 import { getMimeType } from './mimes'
-import { isDataUrl, makeDataUrl, resourceToDataURL } from './dataurl'
+import { isDataUrl, makeDataUrl, imageToDataUrl } from './dataurl'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
 const URL_WITH_FORMAT_REGEX = /url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g
@@ -39,7 +39,7 @@ export async function embed(
       const content = await getContentFromUrl(resolvedURL)
       dataURL = makeDataUrl(content, contentType)
     } else {
-      dataURL = await resourceToDataURL(resolvedURL, contentType, options)
+      dataURL = await imageToDataUrl(resolvedURL, contentType, options)
     }
     return cssText.replace(toRegex(resourceURL), `$1${dataURL}$3`)
   } catch (error) {

@@ -30,13 +30,22 @@ npm install --save html-to-image
 ```js
 /* ES6 */
 import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import {
+  Cache,
+  getFontEmbedCSS,
+  toBlob,
+  toCanvas,
+  toJpeg,
+  toPixelData,
+  toPng,
+  toSvg,
+} from 'html-to-image';
 
 /* ES5 */
 var htmlToImage = require('html-to-image');
 ```
 
-All the top level functions accept DOM node and rendering options, and return a promise fulfilled with corresponding dataURL:
+The rendering functions below accept a DOM node and rendering options, and return a promise with the corresponding output:
 
 - [toPng](#toPng)
 - [toSvg](#toSvg)
@@ -77,8 +86,8 @@ htmlToImage
 Get an SVG data URL, but filter out all the `<i>` elements:
 
 ```js
-function filter (node) {
-  return (node.tagName !== 'i');
+function filter(node) {
+  return node.tagName === 'I' ? 'remove' : 'keep';
 }
 
 htmlToImage
@@ -183,49 +192,57 @@ const App: React.FC = () => {
 }
 ```
 
+## Migration notes
+
+- `filter` now runs for the root and every descendant element and must return `keep`, `unwrap`, or `remove`. Boolean callbacks no longer exclude nodes.
+- The standalone `backgroundColor` option has been removed. Use `style: { backgroundColor: '...' }`.
+- Output bounds are measured from the styled and filtered clone. Consumer-provided dimensions and layout-changing styles can therefore change the output size, and filtering can reduce it.
+- Resource caching is now opt-in and caller-owned. The library no longer retains fetched resources in a module-global cache for the application lifecycle, and `includeQueryParams` now defaults to `true`.
+
 ## Options
 
 ### filter
 
 ```ts
-(domNode: HTMLElement) => boolean
+(domNode: HTMLElement) => 'keep' | 'unwrap' | 'remove'
 ```
 
-A function taking DOM node as argument. Should return true if passed node should be included in the output. Excluding node means excluding it's children as well.
+A function invoked for the root node and every descendant element. Return `keep` to preserve the node and process its descendants, `unwrap` to omit only the node while preserving its descendants, or `remove` to omit the node and its entire subtree.
 
-You can add filter to every image function. For example, 
+You can add a filter to every image function. For example:
 
 ```ts
 const filter = (node: HTMLElement) => {
   const exclusionClasses = ['remove-me', 'secret-div'];
-  return !exclusionClasses.some((classname) => node.classList?.contains(classname));
+  return exclusionClasses.some((classname) => node.classList?.contains(classname))
+    ? 'remove'
+    : 'keep';
 }
 
-htmlToImage.toJpeg(node, { quality: 0.95, filter: filter});
+htmlToImage.toJpeg(node, { quality: 0.95, filter });
 ```
-or
-
-```js
-htmlToImage.toPng(node, {filter:filter})
-```
-
-Not called on the root node.
-
-### backgroundColor
-
-A string value for the background color, any valid CSS color value.
 
 ### width, height
 
-Width and height in pixels to be applied to node before rendering.
+Width and height in CSS pixels applied to the cloned root before layout and computed-style capture. They determine the logical SVG or canvas output size without modifying the original DOM node. If only one dimension is supplied, the other is measured after the clone has reflowed.
 
 ### canvasWidth, canvasHeight
 
-Allows to scale the canva's size including the elements inside to a given width and height (in pixels).
+Scale the final canvas, including its contents, to the given logical width and height in pixels. These options do not change the cloned node's layout; use `width` and `height` for that.
 
 ### style
 
-An object whose properties to be copied to node's style before rendering. You might want to check [this reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) for JavaScript names of CSS properties.
+An object whose properties are applied to the cloned root before layout and output-size measurement. Layout-changing properties such as `width` and `height` therefore affect the capture bounds. The original DOM node is not modified.
+
+To set the output background, provide it through `style`:
+
+```js
+htmlToImage.toPng(node, {
+  style: { backgroundColor: '#fff' },
+});
+```
+
+See the [CSS properties reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) for JavaScript property names.
 
 ### quality
 
@@ -235,22 +252,39 @@ Defaults to `1.0` (`100%`)
 
 ### cacheBust
 
-Set to true to append the current time as a query string to URL requests to enable cache busting.
+Set to `true` to append the current time as a query string to resource requests. Cache-busted requests bypass reads and writes for a caller-provided `Cache`.
 
 Defaults to `false`
+
+### cache
+
+A caller-owned resource cache. Resource caching is opt-in: when `cache` is omitted, fetched images, fonts, stylesheets, and external SVG definitions are not retained between render calls. The library does not create a module-global resource cache that remains alive for the application lifecycle.
+
+```js
+import { Cache, toPng } from 'html-to-image';
+
+const cache = new Cache();
+await toPng(firstNode, { cache });
+await toPng(secondNode, { cache });
+```
+
+Reuse the same instance to reuse fetched resources. Create a new instance, or stop retaining the old one, to start with an empty cache and allow its entries to be released.
 
 ### includeQueryParams
 
-Set false to use all URL as cache key.
-If the value has falsy value, it will exclude query params from the provided URL.
+Controls resource cache keys when `cache` is supplied. `true` keeps the query string, so `/image.png?v=1` and `/image.png?v=2` use different entries. `false` strips the query string before constructing the key, so those URLs share an entry. The requested URL is never changed by this option.
 
-Defaults to `false`
+Defaults to `true`
 
 ### imagePlaceholder
 
 A data URL for a placeholder image that will be used when fetching an image fails.
 
 Defaults to an empty string and will render empty areas for failed images.
+
+### onImageErrorHandler
+
+An error handler called when an embedded image fails to load. If the handler completes successfully, the image error is considered handled and a later decode failure is ignored. Errors thrown by the handler, including rejected promises it returns, are propagated to the rendering call.
 
 ### pixelRatio
 
@@ -304,12 +338,20 @@ An array of style property names. Can be used to manually specify which style pr
 
 ## Browsers
 
-Only standard lib is currently used, but make sure your browser supports:
+Only standard browser APIs are used, but make sure your browser supports:
 
 - [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - SVG `<foreignObject>` tag
+- `HTMLImageElement.decode()`
+- `TextDecoder`
+- `CSS.escape()`
+- `String.prototype.matchAll()`
 
-It's tested on latest Chrome, Firefox and Safari (49, 45 and 16 respectively at the time of writing), with Chrome performing significantly better on big DOM trees, possibly due to it's more performant SVG support, and the fact that it supports `CSSStyleDeclaration.cssText` property.
+The automated test suite runs in Chrome. The library targets modern Chrome, Firefox, and Safari, with Chrome generally performing better on large DOM trees.
+
+### iOS/WebKit
+
+For canvas-based outputs, iOS waits for rendering to settle and draws the generated SVG to the canvas a second time on a later frame. This is an automatic workaround for a WebKit issue where images or other elements can be missing from the first canvas draw. iPadOS devices using a desktop-style user agent are detected as well.
 
 *Internet Explorer is not (and will not be) supported, as it does not support SVG `<foreignObject>` tag.*
 
@@ -319,21 +361,22 @@ There might some day exist (or maybe already exists?) a simple and standard way 
 
 This library uses a feature of SVG that allows having arbitrary HTML content inside of the `<foreignObject>` tag. So, in order to render that DOM node for you, following steps are taken:
 
-1. Clone the original DOM node recursively
-2. Compute the style for the node and each sub-node and copy it to corresponding clone 
+1. Clone the original DOM node recursively and apply the configured filter. External SVG `<use>` definitions and their referenced dependencies are copied into the clone. Video frames and posters are replaced with images while preserving the computed video styles.
+2. Apply consumer-provided dimensions and styles, attach the clone to an off-screen container, and wait for browser layout and paint work to settle.
+3. Read browser-computed styles, then apply them to the clone in a batched write pass. Measure the output from this styled and filtered clone.
    - and don't forget to recreate pseudo-elements, as they are not cloned in any way, of course
-3. Embed web fonts
+4. Embed images
+   - embed image URLs in `<img>` elements
+   - inline images used in `background` CSS property, in a fashion similar to fonts
+5. Embed web fonts
    - find all the `@font-face` declarations that might represent web fonts
    - parse file URLs, download corresponding files
    - base64-encode and inline content as dataURLs
    - concatenate all the processed CSS rules and put them into one `<style>` element, then attach it to the clone
-4. Embed images
-   - embed image URLs in `<img>` elements
-   - inline images used in `background` CSS property, in a fashion similar to fonts
-5. Serialize the cloned node to XML
-6. Wrap XML into the `<foreignObject>` tag, then into the SVG, then make it a data URL
-7. Optionally, to get PNG content or raw pixel data as a Uint8Array, create an Image element with the SVG as a source, and render it on an off-screen canvas, that you have also created, then read the content from the canvas
-8. Done!
+6. Serialize the cloned node to XML
+7. Wrap XML into the `<foreignObject>` tag, then into the SVG, then make it a data URL
+8. Optionally, to get PNG content or raw pixel data as a Uint8Array, create an Image element with the SVG as a source, render it on an off-screen canvas, and read the content from the canvas. On iOS, clear and redraw the same canvas on a later frame to avoid incomplete first draws.
+9. Done!
 
 
 ## Things to watch out for

@@ -69,6 +69,7 @@
     "@bubkoo/tsconfig": "^1.0.0",
     "@fortawesome/fontawesome-free": "^6.1.2",
     "@types/jasmine": "^4.3.1",
+    "@types/node": "18.11.18",
     "@types/pixelmatch": "^5.2.4",
     "coveralls": "^3.1.1",
     "eslint": "^8.22.0",
@@ -89,5 +90,6 @@
     "rollup": "^3.7.4",
     "tslib": "^2.4.0",
     "typescript": "^4.9.5"
-  }
+  },
+  "packageManager": "pnpm@11.11.0+sha512.4463f65fd80ed80d69bc1d4bf163ee94f605c7380fc318bb5b2ebe15f8cd12d49c51a4d59e951b401e764d3b6ca751cbf51bc50ed7001a6bcb4935e684c34882"
 }

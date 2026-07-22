@@ -1,7 +1,7 @@
 import { Options } from './types'
 import { embedResources } from './embed-resources'
 import { toArray, isInstanceOfElement } from './util'
-import { isDataUrl, resourceToDataURL } from './dataurl'
+import { isDataUrl, imageToDataUrl } from './dataurl'
 import { getMimeType } from './mimes'
 
 async function embedProp(
@@ -52,27 +52,33 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
 
   const url = isImageElement ? clonedNode.src : clonedNode.href.baseVal
 
-  const dataURL = await resourceToDataURL(url, getMimeType(url), options)
+  const dataURL = await imageToDataUrl(url, getMimeType(url), options)
+  let imageErrorHandled = false
   await new Promise((resolve, reject) => {
     clonedNode.onload = resolve
-    clonedNode.onerror = options.onImageErrorHandler
-      ? (...attributes) => {
-          try {
-            resolve(options.onImageErrorHandler!(...attributes))
-          } catch (error) {
-            reject(error)
-          }
+    clonedNode.onerror = (...args: Parameters<OnErrorEventHandlerNonNull>) => {
+      if (!options.onImageErrorHandler) {
+        const imageLoadError = new Error('image load failed') as Error & {
+          cause: unknown
         }
-      : reject
+        imageLoadError.cause = args
+        reject(imageLoadError)
+        return
+      }
 
-    const image = clonedNode as HTMLImageElement
-    if (image.decode) {
-      image.decode = resolve as any
+      try {
+        imageErrorHandled = true
+        resolve(options.onImageErrorHandler(...args))
+      } catch (error) {
+        reject(error)
+      }
     }
 
+    const image = clonedNode as HTMLImageElement
     if (image.loading === 'lazy') {
       image.loading = 'eager'
     }
+    image.decoding = 'sync'
 
     if (isImageElement) {
       clonedNode.srcset = ''
@@ -81,6 +87,10 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       clonedNode.href.baseVal = dataURL
     }
   })
+
+  if (!imageErrorHandled) {
+    await (clonedNode as HTMLImageElement).decode()
+  }
 }
 
 async function embedChildren<T extends HTMLElement>(

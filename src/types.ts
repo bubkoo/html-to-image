@@ -1,3 +1,5 @@
+import type { Cache } from './cache'
+
 export interface Options {
   /**
    * Width in pixels to be applied to node before rendering.
@@ -7,10 +9,6 @@ export interface Options {
    * Height in pixels to be applied to node before rendering.
    */
   height?: number
-  /**
-   * A string value for the background color, any valid CSS color value.
-   */
-  backgroundColor?: string
   /**
    * Width in pixels to be applied to canvas on export.
    */
@@ -30,11 +28,11 @@ export interface Options {
    */
   includeStyleProperties?: string[]
   /**
-   * A function taking DOM node as argument. Should return `true` if passed
-   * node should be included in the output. Excluding node means excluding
-   * it's children as well.
+   * A function taking a DOM node as its argument. Return `keep` to preserve
+   * the node, `unwrap` to remove only the node while preserving its children,
+   * or `remove` to remove the node and all of its children.
    */
-  filter?: (domNode: HTMLElement) => boolean
+  filter?: (domNode: HTMLElement) => 'keep' | 'unwrap' | 'remove'
   /**
    * A number between `0` and `1` indicating image quality (e.g. 0.92 => 92%)
    * of the JPEG image.
@@ -46,8 +44,8 @@ export interface Options {
    */
   cacheBust?: boolean
   /**
-   * Set false to use all URL as cache key.
-   * Default: false | undefined - which strips away the query parameters
+   * Whether query parameters are included in resource cache keys. Set to
+   * `false` to strip them from cache keys. Defaults to `true`.
    */
   includeQueryParams?: boolean
   /**
@@ -101,4 +99,9 @@ export interface Options {
    * An event handler for the error event when any image in html has problem with loading.
    */
   onImageErrorHandler?: OnErrorEventHandler
+  /**
+   * A caller-owned cache for resources fetched while rendering. Reusing a
+   * cache across calls avoids downloading the same resources more than once.
+   */
+  cache?: Cache
 }

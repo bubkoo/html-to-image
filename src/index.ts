@@ -1,7 +1,7 @@
 import { Options } from './types'
 import { cloneNode } from './clone-node'
 import { embedImages } from './embed-images'
-import { applyStyle } from './apply-style'
+import { applyStyle, inlineCSSStyle } from './style'
 import { embedWebFonts, getWebFontCSS } from './embed-webfonts'
 import {
   getImageSize,
@@ -10,28 +10,55 @@ import {
   canvasToBlob,
   nodeToDataURL,
   checkCanvasDimensions,
+  waitForNextFrame,
+  addHiddenDomElement,
+  isIOS,
 } from './util'
+
+async function renderSvg<T extends HTMLElement>(
+  node: T,
+  options: Options,
+): Promise<{
+  svg: string
+  width: number
+  height: number
+}> {
+  const clonedNode = (await cloneNode(node, options)) as HTMLElement
+  applyStyle(clonedNode, options)
+
+  const removeElement = addHiddenDomElement(clonedNode)
+  try {
+    await waitForNextFrame()
+    inlineCSSStyle(clonedNode, options)
+    const { width, height } = getImageSize(clonedNode, options)
+
+    removeElement()
+    await embedImages(clonedNode, options)
+    await embedWebFonts(clonedNode, options)
+
+    const svg = await nodeToDataURL(clonedNode, width, height)
+    return { svg, width, height }
+  } catch (error) {
+    removeElement()
+    throw error
+  }
+}
 
 export async function toSvg<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<string> {
-  const { width, height } = getImageSize(node, options)
-  const clonedNode = (await cloneNode(node, options, true)) as HTMLElement
-  await embedWebFonts(clonedNode, options)
-  await embedImages(clonedNode, options)
-  applyStyle(clonedNode, options)
-  const datauri = await nodeToDataURL(clonedNode, width, height)
-  return datauri
+  const { svg } = await renderSvg(node, options)
+  return svg
 }
 
 export async function toCanvas<T extends HTMLElement>(
   node: T,
   options: Options = {},
 ): Promise<HTMLCanvasElement> {
-  const { width, height } = getImageSize(node, options)
-  const svg = await toSvg(node, options)
+  const { svg, width, height } = await renderSvg(node, options)
   const img = await createImage(svg)
+  await waitForNextFrame()
 
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('2d')!
@@ -45,15 +72,28 @@ export async function toCanvas<T extends HTMLElement>(
   if (!options.skipAutoScale) {
     checkCanvasDimensions(canvas)
   }
-  canvas.style.width = `${canvasWidth}`
-  canvas.style.height = `${canvasHeight}`
 
-  if (options.backgroundColor) {
-    context.fillStyle = options.backgroundColor
-    context.fillRect(0, 0, canvas.width, canvas.height)
+  const scaleX = canvasWidth ? canvas.width / canvasWidth : 1
+  const scaleY = canvasHeight ? canvas.height / canvasHeight : 1
+  context.setTransform(scaleX, 0, 0, scaleY, 0, 0)
+
+  canvas.style.width = `${canvasWidth}px`
+  canvas.style.height = `${canvasHeight}px`
+  canvas.style.minWidth = `${canvasWidth}px`
+  canvas.style.maxWidth = `${canvasWidth}px`
+
+  if (options.style?.backgroundColor) {
+    context.fillStyle = options.style.backgroundColor
+    context.fillRect(0, 0, canvasWidth, canvasHeight)
   }
 
-  context.drawImage(img, 0, 0, canvas.width, canvas.height)
+  context.drawImage(img, 0, 0, canvasWidth, canvasHeight)
+
+  if (isIOS()) {
+    await waitForNextFrame()
+    context.clearRect(0, 0, canvasWidth, canvasHeight)
+    context.drawImage(img, 0, 0, canvasWidth, canvasHeight)
+  }
 
   return canvas
 }
@@ -99,3 +139,5 @@ export async function getFontEmbedCSS<T extends HTMLElement>(
 ): Promise<string> {
   return getWebFontCSS(node, options)
 }
+
+export { Cache } from './cache'
