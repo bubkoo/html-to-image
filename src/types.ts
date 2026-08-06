@@ -101,4 +101,16 @@ export interface Options {
    * An event handler for the error event when any image in html has problem with loading.
    */
   onImageErrorHandler?: OnErrorEventHandler
+  /**
+   * When greater than 1, repeats the capture until two consecutive results are
+   * identical and returns the last one, taking at most this many captures.
+   * Defaults to 1 (a single capture).
+   *
+   * WebKit (iOS/Safari) can rasterize the intermediate SVG before its large
+   * embedded images have finished decoding, which leaves them blank in the
+   * output. A single retry is not reliable either - consecutive captures have
+   * to be compared until they agree. Subtrees with genuinely dynamic content
+   * never produce two identical captures and will take all attempts.
+   */
+  stabilizationAttempts?: number
 }

@@ -25,9 +25,9 @@ export async function toSvg<T extends HTMLElement>(
   return datauri
 }
 
-export async function toCanvas<T extends HTMLElement>(
+async function captureCanvas<T extends HTMLElement>(
   node: T,
-  options: Options = {},
+  options: Options,
 ): Promise<HTMLCanvasElement> {
   const { width, height } = getImageSize(node, options)
   const svg = await toSvg(node, options)
@@ -54,6 +54,34 @@ export async function toCanvas<T extends HTMLElement>(
   }
 
   context.drawImage(img, 0, 0, canvas.width, canvas.height)
+
+  return canvas
+}
+
+export async function toCanvas<T extends HTMLElement>(
+  node: T,
+  options: Options = {},
+): Promise<HTMLCanvasElement> {
+  const attempts = Math.max(1, options.stabilizationAttempts || 1)
+  let canvas = await captureCanvas(node, options)
+  if (attempts === 1) {
+    return canvas
+  }
+
+  // WebKit can rasterize the intermediate SVG before its large embedded images
+  // have decoded, leaving them blank - and a re-capture can come back blank
+  // again, so captures repeat until two consecutive results agree.
+  let previous = canvas.toDataURL()
+  for (let attempt = 1; attempt < attempts; attempt += 1) {
+    // sequential on purpose - every capture is compared against the previous one
+    // eslint-disable-next-line no-await-in-loop
+    canvas = await captureCanvas(node, options)
+    const current = canvas.toDataURL()
+    if (current === previous) {
+      break
+    }
+    previous = current
+  }
 
   return canvas
 }
