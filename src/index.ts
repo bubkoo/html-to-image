@@ -25,9 +25,9 @@ export async function toSvg<T extends HTMLElement>(
   return datauri
 }
 
-export async function toCanvas<T extends HTMLElement>(
+async function captureCanvas<T extends HTMLElement>(
   node: T,
-  options: Options = {},
+  options: Options,
 ): Promise<HTMLCanvasElement> {
   const { width, height } = getImageSize(node, options)
   const svg = await toSvg(node, options)
@@ -54,6 +54,57 @@ export async function toCanvas<T extends HTMLElement>(
   }
 
   context.drawImage(img, 0, 0, canvas.width, canvas.height)
+
+  return canvas
+}
+
+function resolveStabilizationAttempts(options: Options): number {
+  const attempts = options.stabilizationAttempts || 1
+  // a non-finite value would make the stabilization loop unbounded
+  if (!Number.isFinite(attempts)) {
+    return 1
+  }
+  return Math.max(1, Math.floor(attempts))
+}
+
+// A tainted canvas throws on toDataURL(); returning null lets the stabilization
+// loop degrade to single-capture behavior instead of throwing where a plain
+// capture would have returned the (tainted but usable) canvas.
+function tryCanvasToDataUrl(canvas: HTMLCanvasElement): string | null {
+  try {
+    return canvas.toDataURL()
+  } catch (error) {
+    return null
+  }
+}
+
+export async function toCanvas<T extends HTMLElement>(
+  node: T,
+  options: Options = {},
+): Promise<HTMLCanvasElement> {
+  const attempts = resolveStabilizationAttempts(options)
+  let canvas = await captureCanvas(node, options)
+  if (attempts === 1) {
+    return canvas
+  }
+
+  // WebKit can rasterize the intermediate SVG before its large embedded images
+  // have decoded, leaving them blank - and a re-capture can come back blank
+  // again, so captures repeat until two consecutive results agree.
+  let previous = tryCanvasToDataUrl(canvas)
+  if (previous === null) {
+    return canvas
+  }
+  for (let attempt = 1; attempt < attempts; attempt += 1) {
+    // sequential on purpose - every capture is compared against the previous one
+    // eslint-disable-next-line no-await-in-loop
+    canvas = await captureCanvas(node, options)
+    const current = tryCanvasToDataUrl(canvas)
+    if (current === null || current === previous) {
+      break
+    }
+    previous = current
+  }
 
   return canvas
 }
