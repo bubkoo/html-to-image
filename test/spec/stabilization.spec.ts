@@ -12,18 +12,37 @@ describe('stabilizationAttempts option', () => {
       .catch(done.fail)
   })
 
-  it('should return the same image as a single capture for stable content', (done) => {
+  it('should produce the same pixels as a single capture for stable content', (done) => {
     bootstrap('small/node.html', 'small/style.css', 'small/image')
       .then((node) =>
-        htmlToImage.toPng(node).then((singleCapture) =>
+        htmlToImage.toPixelData(node).then((singlePixels) =>
           htmlToImage
-            .toPng(node, { stabilizationAttempts: 3 })
-            .then((stabilizedCapture) => {
-              expect(stabilizedCapture).toBe(singleCapture)
+            .toPixelData(node, { stabilizationAttempts: 3 })
+            .then((stabilizedPixels) => {
+              expect(stabilizedPixels.length).toBe(singlePixels.length)
+              let differingBytes = 0
+              for (let i = 0; i < singlePixels.length; i += 1) {
+                if (singlePixels[i] !== stabilizedPixels[i]) {
+                  differingBytes += 1
+                }
+              }
+              expect(differingBytes).toBe(0)
             }),
         ),
       )
       .then(done)
+      .catch(done.fail)
+  })
+
+  it('should not loop unboundedly for a non-finite attempts value', (done) => {
+    bootstrap('small/node.html', 'small/style.css', 'small/image')
+      .then((node) =>
+        htmlToImage.toPng(node, { stabilizationAttempts: Infinity }),
+      )
+      .then((dataUrl) => {
+        expect(dataUrl.length).toBeGreaterThan(0)
+        done()
+      })
       .catch(done.fail)
   })
 
