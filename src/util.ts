@@ -200,9 +200,15 @@ export function createImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image()
     img.onload = () => {
-      img.decode().then(() => {
-        requestAnimationFrame(() => resolve(img))
-      })
+      img
+        .decode()
+        // Safari can reject decode() under memory pressure even though the image
+        // has loaded successfully and is usable - proceed instead of leaving the
+        // promise pending forever.
+        .catch(() => {})
+        .then(() => {
+          requestAnimationFrame(() => resolve(img))
+        })
     }
     img.onerror = reject
     img.crossOrigin = 'anonymous'
