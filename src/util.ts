@@ -167,7 +167,7 @@ export function canvasToBlob(
       canvas.toBlob(
         resolve,
         options.type ? options.type : 'image/png',
-        options.quality ? options.quality : 1,
+        options.quality ?? 1,
       )
     })
   }
@@ -175,10 +175,7 @@ export function canvasToBlob(
   return new Promise((resolve) => {
     const binaryString = window.atob(
       canvas
-        .toDataURL(
-          options.type ? options.type : undefined,
-          options.quality ? options.quality : undefined,
-        )
+        .toDataURL(options.type ? options.type : undefined, options.quality)
         .split(',')[1],
     )
     const len = binaryString.length

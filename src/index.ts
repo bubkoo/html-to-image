@@ -89,7 +89,7 @@ export async function toBlob<T extends HTMLElement>(
   options: Options = {},
 ): Promise<Blob | null> {
   const canvas = await toCanvas(node, options)
-  const blob = await canvasToBlob(canvas)
+  const blob = await canvasToBlob(canvas, options)
   return blob
 }
 
