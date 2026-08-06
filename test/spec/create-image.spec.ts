@@ -1,3 +1,5 @@
+/* eslint-disable promise/no-callback-in-promise */
+
 import { createImage } from '../../src/util'
 import './setup'
 
