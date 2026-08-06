@@ -1,12 +1,10 @@
 /* eslint-disable promise/no-callback-in-promise */
 
 import * as htmlToImage from '../../src'
-import { clean, bootstrap, renderAndCheck } from './helper'
+import { bootstrap, renderAndCheck } from './helper'
 import './setup'
 
 describe('stabilizationAttempts option', () => {
-  afterAll(clean)
-
   it('should render correctly with stabilization enabled', (done) => {
     bootstrap('small/node.html', 'small/style.css', 'small/image')
       .then((node) => renderAndCheck(node, { stabilizationAttempts: 3 }))
