@@ -196,13 +196,40 @@ export function canvasToBlob(
   })
 }
 
+/**
+ * Resolves once the image is ready to be painted.
+ *
+ * `decode()` waits for a pending load as well, and unlike the `load` event it
+ * can be awaited for an image that finished loading before we got here. It is
+ * allowed to reject for images the browser is still able to paint, so a
+ * rejection must never fail the capture.
+ */
+export async function decodeImage(image: HTMLImageElement): Promise<void> {
+  if (typeof image.decode === 'function') {
+    try {
+      await image.decode()
+      return
+    } catch {
+      // Fall back to the load state below.
+    }
+  }
+
+  if (image.complete) {
+    return
+  }
+
+  await new Promise((resolve) => {
+    image.onload = resolve
+    image.onerror = resolve
+  })
+}
+
 export function createImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image()
-    img.onload = () => {
-      img.decode().then(() => {
-        requestAnimationFrame(() => resolve(img))
-      })
+    img.onload = async () => {
+      await decodeImage(img)
+      requestAnimationFrame(() => resolve(img))
     }
     img.onerror = reject
     img.crossOrigin = 'anonymous'
