@@ -1,6 +1,6 @@
 import { Options } from './types'
 import { embedResources } from './embed-resources'
-import { toArray, isInstanceOfElement } from './util'
+import { toArray, isInstanceOfElement, decodeImage } from './util'
 import { isDataUrl, resourceToDataURL } from './dataurl'
 import { getMimeType } from './mimes'
 
@@ -47,6 +47,13 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       !isDataUrl(clonedNode.href.baseVal)
     )
   ) {
+    // There is nothing to inline for a data url, but the clone still has to
+    // finish loading it. The images end up as subresources of the svg we build,
+    // which the browser loads asynchronously and rasterises without the ones
+    // that are not ready yet.
+    if (isImageElement) {
+      await decodeImage(clonedNode)
+    }
     return
   }
 
@@ -66,10 +73,6 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       : reject
 
     const image = clonedNode as HTMLImageElement
-    if (image.decode) {
-      image.decode = resolve as any
-    }
-
     if (image.loading === 'lazy') {
       image.loading = 'eager'
     }
@@ -81,6 +84,11 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
       clonedNode.href.baseVal = dataURL
     }
   })
+
+  // The load event tells us the data is there, not that it can be painted.
+  if (isImageElement) {
+    await decodeImage(clonedNode)
+  }
 }
 
 async function embedChildren<T extends HTMLElement>(
