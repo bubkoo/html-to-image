@@ -212,10 +212,15 @@ export function createImage(url: string): Promise<HTMLImageElement> {
 }
 
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
-  return Promise.resolve()
-    .then(() => new XMLSerializer().serializeToString(svg))
-    .then(encodeURIComponent)
-    .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
+  return (
+    Promise.resolve()
+      .then(() => new XMLSerializer().serializeToString(svg))
+      // XML 1.0 disallows these control characters in text and attributes.
+      // eslint-disable-next-line no-control-regex
+      .then((html) => html.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, ''))
+      .then(encodeURIComponent)
+      .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
+  )
 }
 
 export async function nodeToDataURL(
