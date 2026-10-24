@@ -133,6 +133,20 @@ function cloneCSSStyle<T extends HTMLElement>(
   if (sourceStyle.cssText) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
+    // Re-apply background-image explicitly: some browsers normalise gradient
+    // stop-positions when round-tripping through cssText serialisation, which
+    // causes a repeating-linear-gradient to lose its repeating behaviour and
+    // render identically to a plain linear-gradient.  Fetching the value via
+    // getPropertyValue bypasses the shorthand serialiser and returns the exact
+    // computed value as the browser resolved it.
+    const bgImage = sourceStyle.getPropertyValue('background-image')
+    if (bgImage && bgImage !== 'none') {
+      targetStyle.setProperty(
+        'background-image',
+        bgImage,
+        sourceStyle.getPropertyPriority('background-image'),
+      )
+    }
   } else {
     getStyleProperties(options).forEach((name) => {
       let value = sourceStyle.getPropertyValue(name)

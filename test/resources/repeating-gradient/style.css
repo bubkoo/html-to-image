@@ -1,0 +1,13 @@
+/* Regression test for: repeating-linear-gradient treated as linear-gradient.
+ * The gradient tile is 20px (0 → 10px → 20px), which creates a visible stripe
+ * pattern. Without the fix the repeating- prefix may be lost during CSS cloning,
+ * causing the gradient to stretch across the full element height instead. */
+.gradient-box {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(255, 0, 0) 0px,
+    rgb(255, 0, 0) 10px,
+    rgb(0, 0, 255) 10px,
+    rgb(0, 0, 255) 20px
+  );
+}

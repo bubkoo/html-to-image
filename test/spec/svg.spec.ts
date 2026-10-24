@@ -2,6 +2,7 @@
 
 import '../spec/setup'
 import { toSvg } from '../../src'
+import { cloneNode } from '../../src/clone-node'
 import { bootstrap, renderAndCheck, getSvgDocument } from '../spec/helper'
 
 describe('work with svg element', () => {
@@ -54,6 +55,29 @@ describe('work with svg element', () => {
       'svg-use-tag/image',
     )
       .then(renderAndCheck)
+      .then(done)
+      .catch(done)
+  })
+
+  it('should preserve repeating-linear-gradient in cloned element style', (done) => {
+    // Regression test for: repeating-linear-gradient treated as linear-gradient.
+    // The cssText serialisation path (Firefox/Safari) normalises gradient stop
+    // positions to 0%/100%, making the gradient visually indistinguishable from
+    // a plain linear-gradient.  The fix explicitly re-applies background-image
+    // via getPropertyValue after cssText assignment.
+    bootstrap('repeating-gradient/node.html', 'repeating-gradient/style.css')
+      .then((node) => cloneNode(node, {}, true))
+      .then((clonedNode) => {
+        expect(clonedNode).not.toBeNull()
+        const box = clonedNode!.querySelector(
+          '.gradient-box',
+        ) as HTMLElement | null
+        expect(box).not.toBeNull()
+        // The cloned element must have an inline background-image that preserves
+        // the repeating-linear-gradient function name (not normalised away).
+        const bgImage = box!.style.backgroundImage
+        expect(bgImage).toContain('repeating-linear-gradient')
+      })
       .then(done)
       .catch(done)
   })
