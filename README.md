@@ -302,6 +302,24 @@ Defaults to `image/png`
 
 An array of style property names. Can be used to manually specify which style properties are included when cloning nodes. This can be useful for performance-critical scenarios.
 
+### onCloneNode
+
+An optional synchronous callback `(original, copy) => void` for modifying an element's detached copy. It runs after that element's children, computed styles, pseudo-elements, and form values are copied. Modify `copy` to leave the live document unchanged.
+
+```javascript
+htmlToImage.toPng(node, {
+  onCloneNode(original, copy) {
+    if (original === node) {
+      copy.style.backgroundColor = 'white';
+    }
+  },
+});
+```
+
+The callback follows the existing recursive clone pipeline: visited children run before their parent, and filtered-out nodes and text nodes do not trigger it. SVG subtrees are deep-cloned as units, so their descendants do not receive individual callbacks. Canvas and video copies may be image elements rather than the original element type.
+
+The callback runs before SVG symbol completion, font/image embedding, and root `style`/size options are applied. Later steps can modify the copy. It is not a notification that the entire capture is finished. Returned promises are not awaited; thrown errors reject the capture promise. Omitting this option preserves existing behavior.
+
 ## Browsers
 
 Only standard lib is currently used, but make sure your browser supports:

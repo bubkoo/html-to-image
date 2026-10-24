@@ -196,6 +196,7 @@ function decorate<T extends HTMLElement>(
     clonePseudoElements(nativeNode, clonedNode, options)
     cloneInputValue(nativeNode, clonedNode)
     cloneSelectValue(nativeNode, clonedNode)
+    options.onCloneNode?.(nativeNode, clonedNode)
   }
 
   return clonedNode
