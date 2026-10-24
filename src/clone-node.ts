@@ -130,7 +130,7 @@ function cloneCSSStyle<T extends HTMLElement>(
   }
 
   const sourceStyle = window.getComputedStyle(nativeNode)
-  if (sourceStyle.cssText) {
+  if (sourceStyle.cssText && !options.includeStyleProperties) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
@@ -192,8 +192,14 @@ function decorate<T extends HTMLElement>(
   options: Options,
 ): T {
   if (isInstanceOfElement(clonedNode, Element)) {
-    cloneCSSStyle(nativeNode, clonedNode, options)
-    clonePseudoElements(nativeNode, clonedNode, options)
+    const nodeOptions = options.stylePropertiesForNode
+      ? {
+          ...options,
+          includeStyleProperties: options.stylePropertiesForNode(nativeNode),
+        }
+      : options
+    cloneCSSStyle(nativeNode, clonedNode, nodeOptions)
+    clonePseudoElements(nativeNode, clonedNode, nodeOptions)
     cloneInputValue(nativeNode, clonedNode)
     cloneSelectValue(nativeNode, clonedNode)
   }

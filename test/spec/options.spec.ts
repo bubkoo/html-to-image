@@ -68,13 +68,21 @@ describe('work with options', () => {
   })
 
   it('should only clone specified style properties when includeStyleProperties is provided', (done) => {
-    bootstrap('style/node.html', 'style/style.css', 'style/image-include-style')
+    bootstrap('style/node.html', 'style/style.css')
       .then((node) => {
-        return toPng(node, {
+        return toSvg(node, {
           includeStyleProperties: ['width', 'height'],
         })
       })
-      .then(check)
+      .then(getSvgDocument)
+      .then((svg) => {
+        const root = svg.querySelector('foreignObject > div') as HTMLElement
+        const child = root.querySelector('.child') as HTMLElement
+        expect(root.style.width).toBe('100px')
+        expect(root.style.height).toBe('100px')
+        expect(root.style.backgroundColor).toBe('')
+        expect(child.style.backgroundColor).toBe('')
+      })
       .then(done)
       .catch(done)
   })

@@ -67,12 +67,11 @@ export function toArray<T>(arrayLike: any): T[] {
 
 let styleProps: string[] | null = null
 export function getStyleProperties(options: Options = {}): string[] {
-  if (styleProps) {
-    return styleProps
+  if (options.includeStyleProperties) {
+    return options.includeStyleProperties
   }
 
-  if (options.includeStyleProperties) {
-    styleProps = options.includeStyleProperties
+  if (styleProps) {
     return styleProps
   }
 

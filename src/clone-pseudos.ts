@@ -26,9 +26,10 @@ function getPseudoElementStyle(
   options: Options,
 ): Text {
   const selector = `.${className}:${pseudo}`
-  const cssText = style.cssText
-    ? formatCSSText(style)
-    : formatCSSProperties(style, options)
+  const cssText =
+    style.cssText && !options.includeStyleProperties
+      ? formatCSSText(style)
+      : formatCSSProperties(style, options)
 
   return document.createTextNode(`${selector}{${cssText}}`)
 }

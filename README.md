@@ -302,6 +302,25 @@ Defaults to `image/png`
 
 An array of style property names. Can be used to manually specify which style properties are included when cloning nodes. This can be useful for performance-critical scenarios.
 
+### stylePropertiesForNode
+
+An optional synchronous callback `(node) => string[] | undefined` that selects computed style property names separately for each element visited by the clone pipeline. The selection also applies to that element's generated pseudo-element styles.
+
+```javascript
+htmlToImage.toPng(node, {
+  stylePropertiesForNode(element) {
+    if (element.matches('.capture-layout-only')) {
+      return ['display', 'width', 'height'];
+    }
+    return undefined;
+  },
+});
+```
+
+When the callback is present, its result overrides `includeStyleProperties` for that element. Return `undefined` to copy the full computed property list, or `[]` to copy no computed properties. An empty list does not remove inline styles already copied from the source DOM. Without this callback, `includeStyleProperties` keeps its existing role.
+
+Selections remain local to each element and do not mutate the supplied options or arrays. Explicit lists are honored even when computed styles expose a nonempty `cssText`. Include `content` in a restricted list when it is needed to render a pseudo-element. Existing SVG subtrees are deep-cloned as units, so the callback does not visit each SVG descendant individually. Later root `style` and size options can add or override styles. Thrown errors reject the capture promise; return an array or `undefined`, not a promise.
+
 ## Browsers
 
 Only standard lib is currently used, but make sure your browser supports:

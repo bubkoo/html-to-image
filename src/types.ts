@@ -30,6 +30,13 @@ export interface Options {
    */
   includeStyleProperties?: string[]
   /**
+   * Select computed style properties for each visited element and its pseudos.
+   * When present, overrides includeStyleProperties for that element. Returning
+   * undefined copies all computed properties; an empty array copies none.
+   * Existing inline styles are preserved. This callback is synchronous.
+   */
+  stylePropertiesForNode?: (node: HTMLElement) => string[] | undefined
+  /**
    * A function taking DOM node as argument. Should return `true` if passed
    * node should be included in the output. Excluding node means excluding
    * it's children as well.
