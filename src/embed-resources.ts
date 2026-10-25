@@ -21,7 +21,7 @@ export function parseURLs(cssText: string): string[] {
     return raw
   })
 
-  return urls.filter((url) => !isDataUrl(url))
+  return urls.filter((url) => !isDataUrl(url) && !url.startsWith('#'))
 }
 
 export async function embed(

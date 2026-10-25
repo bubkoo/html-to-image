@@ -20,6 +20,21 @@ describe('embeding', () => {
         'foo.com',
       ])
     })
+
+    it('should keep local SVG fragments out of resource fetching', () => {
+      expect(
+        embeding.parseURLs(
+          'clip-path: url(#clip); filter: url("#filter"); mask: url(\'#mask\'); background: url(image.svg#icon)',
+        ),
+      ).toEqual(['image.svg#icon'])
+    })
+  })
+
+  it('should preserve fragment styles without making a fetch request', async () => {
+    const fetchSpy = spyOn(window, 'fetch')
+    const css = 'clip-path: url(#clip); filter: url("#filter")'
+    expect(await embeding.embedResources(css, null, {})).toBe(css)
+    expect(fetchSpy).not.toHaveBeenCalled()
   })
 
   describe('embed', () => {
