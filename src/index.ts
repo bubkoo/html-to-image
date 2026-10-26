@@ -10,6 +10,7 @@ import {
   canvasToBlob,
   nodeToDataURL,
   checkCanvasDimensions,
+  reCanvasDraw,
 } from './util'
 
 export async function toSvg<T extends HTMLElement>(
@@ -54,6 +55,8 @@ export async function toCanvas<T extends HTMLElement>(
   }
 
   context.drawImage(img, 0, 0, canvas.width, canvas.height)
+  // fix safari blank image bug
+  await reCanvasDraw(options, img, canvas, context)
 
   return canvas
 }
