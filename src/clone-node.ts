@@ -1,13 +1,13 @@
-import type { Options } from './types'
-import { clonePseudoElements } from './clone-pseudos'
+import type { Options } from './types.js'
+import { clonePseudoElements } from './clone-pseudos.js'
 import {
   createImage,
   toArray,
   isInstanceOfElement,
   getStyleProperties,
-} from './util'
-import { getMimeType } from './mimes'
-import { resourceToDataURL } from './dataurl'
+} from './util.js'
+import { getMimeType } from './mimes.js'
+import { resourceToDataURL } from './dataurl.js'
 
 async function cloneCanvasElement(canvas: HTMLCanvasElement) {
   const dataURL = canvas.toDataURL()

@@ -1,7 +1,7 @@
-import { Options } from './types'
-import { resolveUrl } from './util'
-import { getMimeType } from './mimes'
-import { isDataUrl, makeDataUrl, resourceToDataURL } from './dataurl'
+import { Options } from './types.js'
+import { resolveUrl } from './util.js'
+import { getMimeType } from './mimes.js'
+import { isDataUrl, makeDataUrl, resourceToDataURL } from './dataurl.js'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
 const URL_WITH_FORMAT_REGEX = /url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g
