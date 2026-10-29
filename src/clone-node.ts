@@ -167,15 +167,15 @@ function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 }
 
-function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  if (isInstanceOfElement(nativeNode, HTMLSelectElement)) {
-    const clonedSelect = clonedNode as any as HTMLSelectElement
-    const selectedOption = Array.from(clonedSelect.children).find(
-      (child) => nativeNode.value === child.getAttribute('value'),
-    )
-
-    if (selectedOption) {
-      selectedOption.setAttribute('selected', '')
+function cloneOptionSelection<T extends HTMLElement>(
+  nativeNode: T,
+  clonedNode: T,
+) {
+  if (isInstanceOfElement(nativeNode, HTMLOptionElement)) {
+    if (nativeNode.selected) {
+      clonedNode.setAttribute('selected', '')
+    } else {
+      clonedNode.removeAttribute('selected')
     }
   }
 }
@@ -237,7 +237,7 @@ function decorate<T extends HTMLElement>(
     cloneCSSStyle(nativeNode, clonedNode, options)
     clonePseudoElements(nativeNode, clonedNode, options)
     cloneInputValue(nativeNode, clonedNode)
-    cloneSelectValue(nativeNode, clonedNode)
+    cloneOptionSelection(nativeNode, clonedNode)
     cloneScrollState(nativeNode, clonedNode)
   }
 

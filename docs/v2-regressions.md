@@ -29,11 +29,13 @@ successful Promise alone is insufficient.
 | CI testing the wrong revision | `ci.yml`: runtime checkout SHA assertion before build and tests |
 | Test harness silently accepts broken fixtures or blank PNG | `helper.spec.ts`: missing fixture, invalid image and mismatched size reject; `test/browser/package.spec.ts`: decoded PNG and UMD center pixels, plus large-image markers |
 | Visual comparison ignores too much of a small image | `helper.spec.ts`: 20/1000 differing pixels reject, one differing pixel passes; `helper.ts` caps differences at both 100 pixels and 1% of image area |
+| Select visual baseline changes with platform font rendering | `select.sepc.ts`: each fixture checks serialized selected option and nonblank pixels; the runtime selection test compares two exports made in the same browser |
+| Runtime select changes and duplicate option values are lost during cloning | `select.sepc.ts`: changed `selectedIndex` updates SVG and PNG pixels without changing the source; duplicate values and filtered earlier options preserve the exact selected option |
 | Previously skipped canvas, Shadow DOM and CSS failure cases | `basic.spec.ts`, `canvas.spec.ts`, `special.spec.ts`: actual pixels, SVG serialization and failed stylesheet; `test/browser-unit/capture.test.ts`: custom element on three engines |
 | Cross-origin stylesheet cannot be read through CSSOM or fetch | `test/browser/package.spec.ts`: second local origin, CSSOM denied, output pixel and warning verified in three engines |
 | Two nested scrollers lose combined visible position | `test/browser-unit/capture.test.ts`: combined visible green pixel and unchanged source offsets in three engines |
 | A direct sticky header blocks scroll correction for all siblings | `test/browser-unit/capture.test.ts`: source header position, exported red header and green scrolled content in three engines; initially failed with a blue content pixel |
 
-The CI revision assertion still requires a real pull-request run; no local test
-can establish remote GitHub event provenance. Real iOS and other complex
+The CI revision assertion was observed in the PR #600 `pull_request` run; the
+full run still needs a green result after the select test correction. Real iOS and other complex
 sticky/fixed scrolling layouts remain release gates.
