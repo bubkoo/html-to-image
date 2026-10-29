@@ -36,6 +36,6 @@ successful Promise alone is insufficient.
 | Two nested scrollers lose combined visible position | `test/browser-unit/capture.test.ts`: combined visible green pixel and unchanged source offsets in three engines |
 | A direct sticky header blocks scroll correction for all siblings | `test/browser-unit/capture.test.ts`: source header position, exported red header and green scrolled content in three engines; initially failed with a blue content pixel |
 
-The CI revision assertion was observed in the PR #600 `pull_request` run; the
-full run still needs a green result after the select test correction. Real iOS and other complex
+The CI revision assertion and complete test sequence passed in PR #600's
+`pull_request` run for commit `853d76f`. Real iOS and other complex
 sticky/fixed scrolling layouts remain release gates.
