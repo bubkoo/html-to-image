@@ -103,7 +103,8 @@ htmlToImage
 ```
 
 #### toBlob
-Get a PNG image blob and download it (using [FileSaver](https://github.com/eligrey/FileSaver.js)):
+Get an image blob and download it (using [FileSaver](https://github.com/eligrey/FileSaver.js)):
+Defaults to a PNG blob, but can also export other image types by passing an options object `toBlob(div, { type : 'image/jpg' })`
 
 ```js
 htmlToImage
