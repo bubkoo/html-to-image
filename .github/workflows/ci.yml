@@ -11,6 +11,9 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: ⤵️　Checkout
         uses: actions/checkout@v4
@@ -20,6 +23,11 @@ jobs:
           actual_sha="$(git rev-parse HEAD)"
           test "$actual_sha" = "$GITHUB_SHA"
           echo "Tested checkout: $actual_sha"
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            actual_head="$(git rev-parse HEAD^2)"
+            test "$actual_head" = "${{ github.event.pull_request.head.sha }}"
+            echo "PR head in tested merge: $actual_head"
+          fi
 
       - name: 🎉　Setup pnpm
         uses: pnpm/action-setup@v4
@@ -85,8 +93,9 @@ jobs:
           path-to-lcov: ./test/coverage/lcov.info
 
       - name: 💡　Codecov
-        if: github.event_name == 'push'
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v6
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
           files: ./test/coverage/lcov.info
+          disable_search: true
+          fail_ci_if_error: true
+          use_oidc: true
