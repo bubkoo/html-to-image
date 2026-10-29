@@ -1,4 +1,5 @@
-import type { Options } from './types'
+import type { Options } from './types.js'
+import { getTask } from './task.js'
 
 export function resolveUrl(url: string, baseUrl: string | null): string {
   // url is absolute already
@@ -65,20 +66,13 @@ export function toArray<T>(arrayLike: any): T[] {
   return arr
 }
 
-let styleProps: string[] | null = null
-export function getStyleProperties(options: Options = {}): string[] {
-  if (styleProps) {
-    return styleProps
-  }
-
-  if (options.includeStyleProperties) {
-    styleProps = options.includeStyleProperties
-    return styleProps
-  }
-
-  styleProps = toArray(window.getComputedStyle(document.documentElement))
-
-  return styleProps
+export function getStyleProperties(
+  options: Options = {},
+  style: CSSStyleDeclaration | undefined = undefined,
+): string[] {
+  return options.includeStyleProperties != null
+    ? options.includeStyleProperties
+    : toArray(style || window.getComputedStyle(document.documentElement))
 }
 
 function px(node: HTMLElement, styleProperty: string) {
@@ -167,7 +161,7 @@ export function canvasToBlob(
       canvas.toBlob(
         resolve,
         options.type ? options.type : 'image/png',
-        options.quality ? options.quality : 1,
+        options.quality ?? 1,
       )
     })
   }
@@ -177,7 +171,7 @@ export function canvasToBlob(
       canvas
         .toDataURL(
           options.type ? options.type : undefined,
-          options.quality ? options.quality : undefined,
+          options.quality ?? undefined,
         )
         .split(',')[1],
     )
@@ -196,15 +190,55 @@ export function canvasToBlob(
   })
 }
 
-export function createImage(url: string): Promise<HTMLImageElement> {
+export function createImage(
+  url: string,
+  options: Options,
+  image?: HTMLImageElement,
+): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
-    const img = new Image()
-    img.onload = () => {
-      img.decode().then(() => {
-        requestAnimationFrame(() => resolve(img))
-      })
+    const img = image || new Image()
+    const signal = getTask(options)?.context.signal || options.signal
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const clean = () => {
+      if (timer != null) clearTimeout(timer)
+      img.onload = null
+      img.onerror = null
+      signal?.removeEventListener('abort', abort)
     }
-    img.onerror = reject
+    const fail = (error: unknown) => {
+      clean()
+      img.src = ''
+      reject(error)
+    }
+    const abort = () =>
+      fail(
+        signal?.reason || new DOMException('Image load aborted', 'AbortError'),
+      )
+    if (signal?.aborted) {
+      abort()
+      return
+    }
+    signal?.addEventListener('abort', abort, { once: true })
+    const timeout = options.timeout ?? 30000
+    if (timeout > 0)
+      timer = setTimeout(
+        () => fail(new DOMException('Image load timed out', 'TimeoutError')),
+        timeout,
+      )
+    img.onload = () => {
+      Promise.resolve()
+        .then(() =>
+          typeof img.decode === 'function' ? img.decode() : undefined,
+        )
+        .catch(() => {
+          if (!img.naturalWidth) throw new Error('Image could not be decoded')
+        })
+        .then(() => {
+          clean()
+          resolve(img)
+        }, fail)
+    }
+    img.onerror = () => fail(new Error('Image could not be loaded'))
     img.crossOrigin = 'anonymous'
     img.decoding = 'async'
     img.src = url
@@ -214,6 +248,10 @@ export function createImage(url: string): Promise<HTMLImageElement> {
 export async function svgToDataURL(svg: SVGElement): Promise<string> {
   return Promise.resolve()
     .then(() => new XMLSerializer().serializeToString(svg))
+    .then((xml) =>
+      // eslint-disable-next-line no-control-regex
+      xml.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, ''),
+    )
     .then(encodeURIComponent)
     .then((html) => `data:image/svg+xml;charset=utf-8,${html}`)
 }
@@ -224,8 +262,11 @@ export async function nodeToDataURL(
   height: number,
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
-  const svg = document.createElementNS(xmlns, 'svg')
-  const foreignObject = document.createElementNS(xmlns, 'foreignObject')
+  const svg = node.ownerDocument.createElementNS(xmlns, 'svg')
+  const foreignObject = node.ownerDocument.createElementNS(
+    xmlns,
+    'foreignObject',
+  )
 
   svg.setAttribute('width', `${width}`)
   svg.setAttribute('height', `${height}`)

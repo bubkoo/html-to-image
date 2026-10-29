@@ -1,273 +1,208 @@
-import type { Options } from './types'
-import { toArray } from './util'
-import { fetchAsDataURL } from './dataurl'
-import { shouldEmbed, embedResources } from './embed-resources'
+import type { Options } from './types.js'
+import { getResourceLoader } from './dataurl.js'
+import { embedResources, shouldEmbed } from './embed-resources.js'
+import { getTask } from './task.js'
 
-interface Metadata {
-  url: string
+interface FontRule {
   cssText: string
-}
-
-const cssFetchCache: { [href: string]: Metadata } = {}
-
-async function fetchCSS(url: string) {
-  let cache = cssFetchCache[url]
-  if (cache != null) {
-    return cache
-  }
-
-  const res = await fetch(url)
-  const cssText = await res.text()
-  cache = { url, cssText }
-
-  cssFetchCache[url] = cache
-
-  return cache
-}
-
-async function embedFonts(data: Metadata, options: Options): Promise<string> {
-  let cssText = data.cssText
-  const regexUrl = /url\(["']?([^"')]+)["']?\)/g
-  const fontLocs = cssText.match(/url\([^)]+\)/g) || []
-  const loadFonts = fontLocs.map(async (loc: string) => {
-    let url = loc.replace(regexUrl, '$1')
-    if (!url.startsWith('https://')) {
-      url = new URL(url, data.url).href
-    }
-
-    return fetchAsDataURL<[string, string]>(
-      url,
-      options.fetchRequestInit,
-      ({ result }) => {
-        cssText = cssText.replace(loc, `url(${result})`)
-        return [loc, result]
-      },
-    )
-  })
-
-  return Promise.all(loadFonts).then(() => cssText)
-}
-
-function parseCSS(source: string) {
-  if (source == null) {
-    return []
-  }
-
-  const result: string[] = []
-  const commentsRegex = /(\/\*[\s\S]*?\*\/)/gi
-  // strip out comments
-  let cssText = source.replace(commentsRegex, '')
-
-  // eslint-disable-next-line prefer-regex-literals
-  const keyframesRegex = new RegExp(
-    '((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})',
-    'gi',
-  )
-
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const matches = keyframesRegex.exec(cssText)
-    if (matches === null) {
-      break
-    }
-    result.push(matches[0])
-  }
-  cssText = cssText.replace(keyframesRegex, '')
-
-  const importRegex = /@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi
-  // to match css & media queries together
-  const combinedCSSRegex =
-    '((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]' +
-    '*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})'
-  // unified regex
-  const unifiedRegex = new RegExp(combinedCSSRegex, 'gi')
-
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    let matches = importRegex.exec(cssText)
-    if (matches === null) {
-      matches = unifiedRegex.exec(cssText)
-      if (matches === null) {
-        break
-      } else {
-        importRegex.lastIndex = unifiedRegex.lastIndex
-      }
-    } else {
-      unifiedRegex.lastIndex = importRegex.lastIndex
-    }
-    result.push(matches[0])
-  }
-
-  return result
-}
-
-async function getCSSRules(
-  styleSheets: CSSStyleSheet[],
-  options: Options,
-): Promise<CSSStyleRule[]> {
-  const ret: CSSStyleRule[] = []
-  const deferreds: Promise<number | void>[] = []
-
-  // First loop inlines imports
-  styleSheets.forEach((sheet) => {
-    if ('cssRules' in sheet) {
-      try {
-        toArray<CSSRule>(sheet.cssRules || []).forEach((item, index) => {
-          if (item.type === CSSRule.IMPORT_RULE) {
-            let importIndex = index + 1
-            const url = (item as CSSImportRule).href
-            const deferred = fetchCSS(url)
-              .then((metadata) => embedFonts(metadata, options))
-              .then((cssText) =>
-                parseCSS(cssText).forEach((rule) => {
-                  try {
-                    sheet.insertRule(
-                      rule,
-                      rule.startsWith('@import')
-                        ? (importIndex += 1)
-                        : sheet.cssRules.length,
-                    )
-                  } catch (error) {
-                    console.error('Error inserting rule from remote css', {
-                      rule,
-                      error,
-                    })
-                  }
-                }),
-              )
-              .catch((e) => {
-                console.error('Error loading remote css', e.toString())
-              })
-
-            deferreds.push(deferred)
-          }
-        })
-      } catch (e) {
-        const inline =
-          styleSheets.find((a) => a.href == null) || document.styleSheets[0]
-        if (sheet.href != null) {
-          deferreds.push(
-            fetchCSS(sheet.href)
-              .then((metadata) => embedFonts(metadata, options))
-              .then((cssText) =>
-                parseCSS(cssText).forEach((rule) => {
-                  inline.insertRule(rule, inline.cssRules.length)
-                }),
-              )
-              .catch((err: unknown) => {
-                console.error('Error loading remote stylesheet', err)
-              }),
-          )
-        }
-        console.error('Error inlining remote css file', e)
-      }
-    }
-  })
-
-  return Promise.all(deferreds).then(() => {
-    // Second loop parses rules
-    styleSheets.forEach((sheet) => {
-      if ('cssRules' in sheet) {
-        try {
-          toArray<CSSStyleRule>(sheet.cssRules || []).forEach((item) => {
-            ret.push(item)
-          })
-        } catch (e) {
-          console.error(`Error while reading CSS rules from ${sheet.href}`, e)
-        }
-      }
-    })
-
-    return ret
-  })
-}
-
-function getWebFontRules(cssRules: CSSStyleRule[]): CSSStyleRule[] {
-  return cssRules
-    .filter((rule) => rule.type === CSSRule.FONT_FACE_RULE)
-    .filter((rule) => shouldEmbed(rule.style.getPropertyValue('src')))
-}
-
-async function parseWebFontRules<T extends HTMLElement>(
-  node: T,
-  options: Options,
-) {
-  if (node.ownerDocument == null) {
-    throw new Error('Provided element is not within a Document')
-  }
-
-  const styleSheets = toArray<CSSStyleSheet>(node.ownerDocument.styleSheets)
-  const cssRules = await getCSSRules(styleSheets, options)
-
-  return getWebFontRules(cssRules)
+  family: string
+  baseURL: string
 }
 
 function normalizeFontFamily(font: string) {
   return font.trim().replace(/["']/g, '')
 }
 
-function getUsedFonts(node: HTMLElement) {
+function getUsedFonts(node: Element) {
   const fonts = new Set<string>()
-  function traverse(node: HTMLElement) {
-    const fontFamily =
-      node.style.fontFamily || getComputedStyle(node).fontFamily
-    fontFamily.split(',').forEach((font) => {
-      fonts.add(normalizeFontFamily(font))
-    })
-
-    Array.from(node.children).forEach((child) => {
-      if (child instanceof HTMLElement) {
-        traverse(child)
+  const visit = (element: Element) => {
+    const view = element.ownerDocument.defaultView || window
+    const inline = (element as HTMLElement).style?.getPropertyValue(
+      'font-family',
+    )
+    const family =
+      inline || view.getComputedStyle(element).getPropertyValue('font-family')
+    family.split(',').forEach((font) => fonts.add(normalizeFontFamily(font)))
+    Array.from(element.children).forEach(visit)
+    if (element.shadowRoot)
+      Array.from(element.shadowRoot.children).forEach(visit)
+  }
+  visit(node)
+  // Pseudo styles are serialized as detached <style> nodes by the cloner.
+  node.querySelectorAll('style').forEach((element) => {
+    const sheet = new CSSStyleSheet()
+    sheet.replaceSync(element.textContent || '')
+    Array.from(sheet.cssRules).forEach((rule) => {
+      if (rule.type === CSSRule.STYLE_RULE) {
+        const family = (rule as CSSStyleRule).style.getPropertyValue(
+          'font-family',
+        )
+        family
+          .split(',')
+          .forEach((font) => fonts.add(normalizeFontFamily(font)))
       }
     })
-  }
-  traverse(node)
+  })
   return fonts
+}
+
+async function collectFontRules(node: Element, options: Options) {
+  const ownerDocument = node.ownerDocument
+  const loader = getResourceLoader(options)
+  const rules: FontRule[] = []
+  const visited = new Set<CSSStyleSheet>()
+  const fetched = new Set<string>()
+
+  const report = (url: string, error: unknown) => {
+    getTask(options)?.check()
+    // A custom resolver failure is a caller error, not a missing font.
+    if (error instanceof Error && error.name === 'ResourceResolverError')
+      throw error
+    loader.warn(
+      Object.freeze({
+        code: 'resource-error',
+        resource: url,
+        message: error instanceof Error ? error.message : String(error),
+      }),
+    )
+  }
+
+  const visitRules = async (
+    items: CSSRuleList,
+    baseURL: string,
+  ): Promise<void> => {
+    for (let i = 0; i < items.length; i += 1) {
+      getTask(options)?.check()
+      const rule = items[i]
+      if (rule.type === CSSRule.FONT_FACE_RULE) {
+        const style = (rule as CSSFontFaceRule).style
+        if (shouldEmbed(style.getPropertyValue('src'))) {
+          rules.push({
+            cssText: rule.cssText,
+            family: normalizeFontFamily(style.getPropertyValue('font-family')),
+            baseURL,
+          })
+        }
+      } else if (rule.type === CSSRule.IMPORT_RULE) {
+        const imported = rule as CSSImportRule
+        // eslint-disable-next-line no-await-in-loop
+        if (imported.styleSheet) await visitSheet(imported.styleSheet, baseURL)
+        // eslint-disable-next-line no-await-in-loop
+        else await visitRemote(new URL(imported.href, baseURL).href)
+      } else if ('cssRules' in rule) {
+        // Grouping rules include @media, @supports and @layer.
+        // eslint-disable-next-line no-await-in-loop
+        await visitRules((rule as CSSGroupingRule).cssRules, baseURL)
+      }
+    }
+  }
+
+  const visitRemote = async (url: string): Promise<void> => {
+    if (fetched.has(url)) return
+    fetched.add(url)
+    try {
+      const css = await (await loader.load(url, 'stylesheet')).text()
+      getTask(options)?.check()
+      // Constructed sheets are detached: never insert rules into the live page.
+      const sheet = new CSSStyleSheet()
+      const imports: string[] = []
+      const text = css.replace(
+        /@import\s+(?:url\(\s*(['"]?)(.*?)\1\s*\)|(['"])(.*?)\3)[^;]*;/gi,
+        (match, quote, path, stringQuote, stringPath) => {
+          imports.push(new URL(path || stringPath, url).href)
+          return ''
+        },
+      )
+      sheet.replaceSync(text)
+      await visitRules(sheet.cssRules, url)
+      for (let i = 0; i < imports.length; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await visitRemote(imports[i])
+      }
+    } catch (error) {
+      report(url, error)
+    }
+  }
+
+  const visitSheet = async (
+    sheet: CSSStyleSheet,
+    baseURL: string,
+  ): Promise<void> => {
+    if (visited.has(sheet)) return
+    visited.add(sheet)
+    const base = sheet.href || baseURL
+    let items: CSSRuleList
+    try {
+      items = sheet.cssRules
+    } catch (error) {
+      if (sheet.href) await visitRemote(sheet.href)
+      else report(base, error)
+      return
+    }
+    await visitRules(items, base)
+  }
+
+  const sheets = new Set<CSSStyleSheet>(Array.from(ownerDocument.styleSheets))
+  Array.from(ownerDocument.adoptedStyleSheets || []).forEach((sheet) =>
+    sheets.add(sheet),
+  )
+  // Source shadow roots are flattened by the cloner; gather their font rules too.
+  const collectShadowSheets = (element: Element) => {
+    const shadow = element.shadowRoot
+    if (shadow) {
+      Array.from(shadow.adoptedStyleSheets || []).forEach((sheet) =>
+        sheets.add(sheet),
+      )
+      shadow.querySelectorAll('style,link').forEach((element) => {
+        const sheet = (element as HTMLStyleElement).sheet
+        if (sheet) sheets.add(sheet)
+      })
+      Array.from(shadow.children).forEach(collectShadowSheets)
+    }
+    Array.from(element.children).forEach(collectShadowSheets)
+  }
+  collectShadowSheets(node)
+  const collected = Array.from(sheets)
+  for (let i = 0; i < collected.length; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    await visitSheet(collected[i], ownerDocument.baseURI)
+  }
+  return rules
 }
 
 export async function getWebFontCSS<T extends HTMLElement>(
   node: T,
   options: Options,
+  styleSource: Element = node,
 ): Promise<string> {
-  const rules = await parseWebFontRules(node, options)
+  if (!node.ownerDocument)
+    throw new Error('Provided element is not within a Document')
   const usedFonts = getUsedFonts(node)
+  const rules = await collectFontRules(styleSource, options)
   const cssTexts = await Promise.all(
     rules
-      .filter((rule) =>
-        usedFonts.has(normalizeFontFamily(rule.style.fontFamily)),
-      )
-      .map((rule) => {
-        const baseUrl = rule.parentStyleSheet
-          ? rule.parentStyleSheet.href
-          : null
-        return embedResources(rule.cssText, baseUrl, options)
-      }),
+      .filter((rule) => usedFonts.has(rule.family))
+      .map((rule) =>
+        embedResources(rule.cssText, rule.baseURL, options, 'font'),
+      ),
   )
-
   return cssTexts.join('\n')
 }
 
 export async function embedWebFonts<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
+  styleSource: Element = clonedNode,
 ) {
   const cssText =
     options.fontEmbedCSS != null
       ? options.fontEmbedCSS
       : options.skipFonts
       ? null
-      : await getWebFontCSS(clonedNode, options)
-
+      : await getWebFontCSS(clonedNode, options, styleSource)
   if (cssText) {
-    const styleNode = document.createElement('style')
-    const sytleContent = document.createTextNode(cssText)
-
-    styleNode.appendChild(sytleContent)
-
-    if (clonedNode.firstChild) {
-      clonedNode.insertBefore(styleNode, clonedNode.firstChild)
-    } else {
-      clonedNode.appendChild(styleNode)
-    }
+    const style = clonedNode.ownerDocument.createElement('style')
+    style.textContent = cssText
+    clonedNode.insertBefore(style, clonedNode.firstChild)
   }
 }

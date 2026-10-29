@@ -1,7 +1,7 @@
-import { Options } from './types'
-import { resolveUrl } from './util'
-import { getMimeType } from './mimes'
-import { isDataUrl, makeDataUrl, resourceToDataURL } from './dataurl'
+import type { Options, ResourceKind } from './types.js'
+import { resolveUrl } from './util.js'
+import { getMimeType } from './mimes.js'
+import { isDataUrl, makeDataUrl, resourceToDataURL } from './dataurl.js'
 
 const URL_REGEX = /url\((['"]?)([^'"]+?)\1\)/g
 const URL_WITH_FORMAT_REGEX = /url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g
@@ -21,7 +21,7 @@ export function parseURLs(cssText: string): string[] {
     return raw
   })
 
-  return urls.filter((url) => !isDataUrl(url))
+  return urls.filter((url) => !isDataUrl(url) && !url.trim().startsWith('#'))
 }
 
 export async function embed(
@@ -30,22 +30,18 @@ export async function embed(
   baseURL: string | null,
   options: Options,
   getContentFromUrl?: (url: string) => Promise<string>,
+  kind: ResourceKind = 'image',
 ): Promise<string> {
-  try {
-    const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
-    const contentType = getMimeType(resourceURL)
-    let dataURL: string
-    if (getContentFromUrl) {
-      const content = await getContentFromUrl(resolvedURL)
-      dataURL = makeDataUrl(content, contentType)
-    } else {
-      dataURL = await resourceToDataURL(resolvedURL, contentType, options)
-    }
-    return cssText.replace(toRegex(resourceURL), `$1${dataURL}$3`)
-  } catch (error) {
-    // pass
+  const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL
+  const contentType = getMimeType(resourceURL)
+  let dataURL: string
+  if (getContentFromUrl) {
+    const content = await getContentFromUrl(resolvedURL)
+    dataURL = makeDataUrl(content, contentType)
+  } else {
+    dataURL = await resourceToDataURL(resolvedURL, contentType, options, kind)
   }
-  return cssText
+  return cssText.replace(toRegex(resourceURL), `$1${dataURL}$3`)
 }
 
 function filterPreferredFontFormat(
@@ -77,6 +73,7 @@ export async function embedResources(
   cssText: string,
   baseUrl: string | null,
   options: Options,
+  kind: ResourceKind = 'image',
 ): Promise<string> {
   if (!shouldEmbed(cssText)) {
     return cssText
@@ -86,7 +83,9 @@ export async function embedResources(
   const urls = parseURLs(filteredCSSText)
   return urls.reduce(
     (deferred, url) =>
-      deferred.then((css) => embed(css, url, baseUrl, options)),
+      deferred.then((css) =>
+        embed(css, url, baseUrl, options, undefined, kind),
+      ),
     Promise.resolve(filteredCSSText),
   )
 }

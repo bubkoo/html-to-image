@@ -223,20 +223,23 @@ describe('basic usage', () => {
       .catch(done)
   })
 
-  xit('should render content from <canvas>', (done) => {
-    const text = 'AB2哈'
-    bootstrap('canvas/node.html', 'canvas/style.css')
-      .then((node) => {
-        const canvas = node.querySelector('#content') as HTMLCanvasElement
-        const ctx = canvas.getContext('2d')!
-        ctx.fillStyle = '#ffffff'
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
-        ctx.fillStyle = '#000000'
-        ctx.font = '40px serif'
-        ctx.fillText(text, 40, 40)
-      })
-      .then(assertTextRendered([text]) as any)
-      .then(done)
-      .catch(done)
+  it('should render canvas pixels inside a parent node', async () => {
+    const node = await bootstrap('canvas/node.html', 'canvas/style.css')
+    const canvas = node.querySelector('#content') as HTMLCanvasElement
+    const ctx = canvas.getContext('2d')!
+    ctx.fillStyle = 'red'
+    ctx.fillRect(0, 0, 150, 150)
+    ctx.fillStyle = 'blue'
+    ctx.fillRect(150, 0, 150, 150)
+
+    const image = await htmlToImage.toImageData(node, {
+      pixelRatio: 1,
+      skipFonts: true,
+    })
+    const pixel = (x: number) =>
+      Array.from(image.data.slice(4 * (50 * image.width + x), 4 * (50 * image.width + x) + 4))
+    expect([image.width, image.height]).toEqual([200, 100])
+    expect(pixel(50)).toEqual([255, 0, 0, 255])
+    expect(pixel(150)).toEqual([0, 0, 255, 255])
   })
 })

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>html-to-image browser smoke</title>
+  <style>
+    body {
+      font: 16px system-ui;
+    }
+    .case {
+      margin: 12px;
+      padding: 4px;
+    }
+  </style>
+  <h1>Browser smoke</h1>
+  <pre id="results">Running...</pre>
+  <script type="module">
+    import { toImageData, toPng } from '../../es/index.js'
+
+    const results = document.querySelector('#results')
+    const verdicts = []
+    const selectedCase = new URLSearchParams(location.search).get('case')
+    const pixel = (image, x, y) =>
+      Array.from(
+        image.data.slice(
+          4 * (y * image.width + x),
+          4 * (y * image.width + x) + 4,
+        ),
+      )
+
+    async function test(name, run) {
+      if (selectedCase && selectedCase !== name) return
+      try {
+        await run()
+        verdicts.push(`PASS ${name}`)
+      } catch (error) {
+        verdicts.push(`FAIL ${name}: ${error.message}`)
+      }
+      results.textContent = verdicts.join('\n')
+    }
+
+    await test('ESM import and basic PNG', async () => {
+      const node = document.createElement('div')
+      node.className = 'case'
+      node.style.cssText =
+        'width:32px;height:32px;background:rgb(255,0,0);padding:0;margin:0'
+      document.body.append(node)
+      const png = await toPng(node, { pixelRatio: 1, skipFonts: true })
+      if (!png.startsWith('data:image/png'))
+        throw new Error('PNG data URL missing')
+      const decoded = new Image()
+      decoded.src = png
+      await decoded.decode()
+      if (decoded.naturalWidth !== 32 || decoded.naturalHeight !== 32)
+        throw new Error(`PNG dimensions ${decoded.naturalWidth}x${decoded.naturalHeight}`)
+      const canvas = document.createElement('canvas')
+      canvas.width = canvas.height = 32
+      const context = canvas.getContext('2d')
+      context.drawImage(decoded, 0, 0)
+      const pngPixel = Array.from(context.getImageData(16, 16, 1, 1).data)
+      if (pngPixel.join(',') !== '255,0,0,255')
+        throw new Error(`PNG center pixel ${pngPixel}`)
+      const image = await toImageData(node, { pixelRatio: 1, skipFonts: true })
+      if (pixel(image, 16, 16).join(',') !== '255,0,0,255') {
+        throw new Error(`center pixel ${pixel(image, 16, 16)}`)
+      }
+    })
+
+    await test('nested visible scroll position', async () => {
+      const scene = document.createElement('div')
+      scene.style.cssText = 'width:40px;height:40px;padding:0;margin:0'
+      const panel = document.createElement('div')
+      panel.style.cssText =
+        'width:40px;height:40px;overflow:auto;padding:0;margin:0'
+      panel.innerHTML =
+        '<div style="height:40px;background:red"></div>' +
+        '<div style="height:40px;background:green"></div>'
+      scene.append(panel)
+      document.body.append(scene)
+      panel.scrollTop = 40
+      const image = await toImageData(scene, { pixelRatio: 1, skipFonts: true })
+      const color = pixel(image, 20, 20)
+      if (color[1] < 100 || color[0] > 30) {
+        throw new Error(`expected green visible row, got ${color}`)
+      }
+      if (panel.scrollTop !== 40)
+        throw new Error('source scroll position changed')
+    })
+
+    await test('cross-origin stylesheet fallback', async () => {
+      const url = 'http://127.0.0.1:4174/test/browser/cross-origin.css'
+      const node = document.createElement('div')
+      node.id = 'cross-origin-target'
+      node.style.cssText = 'width:32px;height:32px'
+      document.body.append(node)
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      try {
+        await new Promise((resolve, reject) => {
+          link.onload = resolve
+          link.onerror = () => reject(new Error('cross-origin CSS did not load'))
+          document.head.append(link)
+        })
+        let blocked = false
+        try {
+          void link.sheet.cssRules
+        } catch {
+          blocked = true
+        }
+        if (!blocked) throw new Error('CSSOM was not cross-origin blocked')
+        const warnings = []
+        const image = await toImageData(node, {
+          pixelRatio: 1,
+          onEvent: (event) => {
+            if (event.type === 'warning') warnings.push(event.diagnostic)
+          },
+        })
+        const color = pixel(image, 16, 16)
+        if (color.join(',') !== '255,0,0,255')
+          throw new Error(`cross-origin styled pixel ${color}`)
+        if (!warnings.some((item) => item.resource === url && item.code === 'resource-error'))
+          throw new Error(`expected cross-origin resource diagnostic, got ${JSON.stringify(warnings)}`)
+      } finally {
+        link.remove()
+        node.remove()
+      }
+    })
+
+    await test('large embedded data image', async () => {
+      const source = document.createElement('canvas')
+      source.width = 800
+      source.height = 800
+      const context = source.getContext('2d')
+      const data = context.createImageData(800, 800)
+      let seed = (Math.random() * 0xffffffff) >>> 0
+      for (let i = 0; i < data.data.length; i += 4) {
+        seed = (seed * 1664525 + 1013904223) >>> 0
+        data.data[i] = seed & 255
+        data.data[i + 1] = (seed >>> 8) & 255
+        data.data[i + 2] = (seed >>> 16) & 255
+        data.data[i + 3] = 255
+      }
+      context.putImageData(data, 0, 0)
+      context.fillStyle = '#ff0000'
+      context.fillRect(16, 16, 32, 32)
+      context.fillStyle = '#0000ff'
+      context.fillRect(736, 16, 32, 32)
+      context.fillStyle = '#ffff00'
+      context.fillRect(736, 736, 32, 32)
+      context.fillStyle = '#00ff00'
+      context.fillRect(384, 384, 32, 32)
+      const image = document.createElement('img')
+      image.className = 'case'
+      image.style.cssText =
+        'display:block;width:800px;height:800px;padding:0;margin:0'
+      image.src = source.toDataURL('image/png')
+      document.body.append(image)
+      await image.decode()
+      const baseline = await toImageData(image, {
+        pixelRatio: 2,
+        skipFonts: true,
+      })
+      const baselineColor = pixel(baseline, 800, 800)
+      const result = await toImageData(image, {
+        pixelRatio: 2,
+        skipFonts: true,
+        stabilizationAttempts: 3,
+      })
+      const color = pixel(result, 800, 800)
+      verdicts.push(
+        `INFO large-image first=${baselineColor} stabilized=${color}`,
+      )
+      if (color[1] < 200 || color[0] > 30 || color[2] > 30) {
+        throw new Error(`expected green marker, got ${color}`)
+      }
+      for (const [x, y, expected] of [
+        [32, 32, [255, 0, 0, 255]],
+        [752, 32, [0, 0, 255, 255]],
+        [752, 752, [255, 255, 0, 255]],
+      ]) {
+        const actual = pixel(result, x * 2 + 1, y * 2 + 1)
+        if (actual.join(',') !== expected.join(','))
+          throw new Error(`large image pixel ${x},${y}: expected ${expected}, got ${actual}`)
+      }
+    })
+
+    window.__htmlToImageSmoke = verdicts
+    results.textContent += '\nDONE'
+  </script>
+</html>

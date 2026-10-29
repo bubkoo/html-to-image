@@ -1,5 +1,5 @@
 import pixelmatch from 'pixelmatch'
-import { toPng } from '../../src'
+import { toPng, toSvg } from '../../src'
 import { Options } from '../../src/types'
 import { getPixelRatio } from '../../src/util'
 
@@ -65,14 +65,17 @@ export async function bootstrap(
 async function fetchFile(fileName: string) {
   const url = BASE_URL + fileName
   const res = await fetch(url)
+  if (!res.ok) {
+    throw new Error(`Test fixture request failed (${res.status}): ${url}`)
+  }
   return res.text()
 }
 
 function makeImage(src: string) {
-  // console.log(src)
-  return new Promise<HTMLImageElement>((resolve) => {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
     const image = new Image()
     image.onload = () => resolve(image)
+    image.onerror = () => reject(new Error('Test image failed to load'))
     image.src = src
   })
 }
@@ -150,11 +153,46 @@ export async function renderAndCheck(
 export function compareToRefImage(sourceData: ImageData, threshold = 0.1) {
   const ref = getReferenceImage()
   const refData = drawImg(ref)
-  expect(
-    pixelmatch(sourceData.data, refData.data, null, ref.width, ref.height, {
-      threshold,
-    }),
-  ).toBeLessThan(100)
+  assertVisualMatch(sourceData, refData, threshold)
+}
+
+export function assertVisualMatch(
+  sourceData: ImageData,
+  refData: ImageData,
+  threshold = 0.1,
+) {
+  if (sourceData.width !== refData.width || sourceData.height !== refData.height) {
+    throw new Error(
+      `Capture size ${sourceData.width}x${sourceData.height} differs from reference ${refData.width}x${refData.height}`,
+    )
+  }
+  const opaquePixels = (data: ImageData) => {
+    let count = 0
+    for (let i = 3; i < data.data.length; i += 4) {
+      if (data.data[i] > 0) count += 1
+    }
+    return count
+  }
+  if (opaquePixels(refData) > 0) {
+    if (opaquePixels(sourceData) === 0) {
+      throw new Error('Capture is blank but reference is visible')
+    }
+  }
+  const difference = pixelmatch(
+    sourceData.data,
+    refData.data,
+    null,
+    refData.width,
+    refData.height,
+    { threshold },
+  )
+  const pixels = refData.width * refData.height
+  const allowed = Math.min(100, pixels * 0.01)
+  if (difference >= allowed) {
+    throw new Error(
+      `Capture differs at ${difference}/${pixels} pixels; allowed fewer than ${allowed}`,
+    )
+  }
 }
 
 export async function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
@@ -164,55 +202,26 @@ export async function getSvgDocument(dataUrl: string): Promise<XMLDocument> {
     .then((str) => new window.DOMParser().parseFromString(str, 'text/xml'))
 }
 
-const PASS_TEXT_MATCH = true
-
 export function assertTextRendered(lines: string[], options?: Options) {
-  return (node: HTMLDivElement = getCaptureNode()) =>
-    PASS_TEXT_MATCH
-      ? expect(true).toBe(true)
-      : recognizeImage(node, options).then((text) => {
-          expect(lines.every((line) => text.includes(line))).toBe(true)
-        })
-}
-
-export async function recognizeImage(node: HTMLDivElement, options?: Options) {
-  return toPng(node, options)
-    .then(drawDataUrl)
-    .then(() => recognize(getCanvasNode().toDataURL()))
-}
-
-// see: https://ocr.space/OCRAPI
-async function recognize(dataUrl: string) {
-  const data = new FormData()
-  data.append('base64Image', dataUrl)
-
-  // You may only perform this action upto maximum 180 number of times within
-  // 3600 seconds.
-  // data.append('apikey', 'aa8c3d7de088957')
-  data.append('apikey', 'K89675126388957')
-
-  return window
-    .fetch('https://api.ocr.space/parse/image', {
-      method: 'post',
-      body: data,
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      const result: string[] = []
-      if (!data.IsErroredOnProcessing) {
-        // console.log(JSON.stringify(data.ParsedResults))
-        data.ParsedResults.forEach(({ ParsedText }: any) => {
-          if (ParsedText) {
-            result.push(ParsedText)
-          }
-        })
-      }
-      const text = result.join('\n').trim().replace('\r\n', '\n')
-      // console.log(`recognized text: ${text}`)
-      return text
-    })
-    .catch(() => {
-      // console.log(`text recognize error: ${err}`)
-      return ''
-    })
+  return async (node: HTMLDivElement = getCaptureNode()) => {
+    const svg = await getSvgDocument(await toSvg(node, options))
+    const serialized = new XMLSerializer().serializeToString(svg)
+    const images = node.querySelectorAll('img')
+    if (images.length) {
+      const embedded = svg.querySelectorAll('img[src^="data:"]')
+      expect(embedded.length).toBe(images.length)
+    } else if (node.querySelector('.with-background')) {
+      expect(serialized).toContain('data:image/jpeg')
+    } else if (node.querySelector('i.fa-apper')) {
+      expect(serialized).toContain('data:font')
+    } else {
+      lines.forEach((line) => expect(serialized).toContain(line))
+    }
+    const bitmap = await drawDataUrl(await toPng(node, options))
+    let visible = 0
+    for (let i = 3; i < bitmap.data.length; i += 4) {
+      if (bitmap.data[i] > 0) visible += 1
+    }
+    expect(visible).toBeGreaterThan(0)
+  }
 }
