@@ -12,7 +12,7 @@
 PR #598 的 CI run 36932597879 / job 110605311820 日志显示：检出 master 的 ad4ff590fd39d6bc9ef574c45449f38e68e310c4，执行 51 个测试（另跳过 4 个），随后 Codecov 使用 -C de69c418a9cd432bc6725ad3c2741a25a5900e4b -P 598 上传。实际被测提交与覆盖率归属提交不同。当前 ci.yml 同时监听 pull_request 和 pull_request_target，checkout 未显式指定 ref。
 
 ### Suggested Action
-CI 已移除分支内的 `pull_request_target`，PR 验证改用 `pull_request` 检出；安装器改为与 lockfile v6 匹配的 pnpm 8 和 frozen lockfile。PR #600 的 `pull_request` run 40830152086 对包含 `853d76f` 的测试合并提交完成全部测试；主分支的旧 `pull_request_target` 工作流仍并行运行。进一步核对日志发现 checkout 是测试合并提交，不是 PR head 本身，因此工作流已增加第二父提交与 PR head 的核对。旧工作流向 Codecov 上传主分支覆盖率、此前新工作流未上传 PR 覆盖率，造成误导性的 patch 检查；新工作流已改为用 OIDC 上传实测覆盖率，等待远端验证。
+CI 已移除分支内的 `pull_request_target`，PR 验证改用 `pull_request` 检出；安装器改为与 lockfile v6 匹配的 pnpm 8 和 frozen lockfile。PR #600 的 run 40830985559 对测试合并提交完成全部测试，并确认第二父提交为 PR head；主分支的旧 `pull_request_target` 工作流仍并行运行。旧工作流向 Codecov 上传主分支覆盖率、此前新工作流未上传 PR 覆盖率，造成误导性的 patch 检查；新工作流用 OIDC 上传实测报告后，Codecov patch/project 检查均通过。父提交校验需要 `actions/checkout` 的 `fetch-depth: 2`。
 
 ### Metadata
 - Source: investigation
@@ -23,9 +23,9 @@ CI 已移除分支内的 `pull_request_target`，PR 验证改用 `pull_request` 
 - Scope: html-to-image 当前工作流；本地 master e842e84cf68493f39dcb76f0a879d02d174b3edb
 - Authority: 实际 CI job 日志及当前工作流源文件
 - Revalidation: 工作流、checkout 或覆盖率上传配置变更后，核对新 run 的真实日志
-- Validation: verified（历史 run 的错配及 PR #600 新工作流完整测试；第二父提交和 Codecov 上传待远端验证）
+- Validation: verified（历史 run 的错配；PR #600 新工作流完整测试、父提交校验与 Codecov 上传）
 - Last-Validated: 2026-10-29
-- Evidence: https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820 ; https://github.com/bubkoo/html-to-image/actions/runs/40830152086
+- Evidence: https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820 ; https://github.com/bubkoo/html-to-image/actions/runs/40830985559
 
 ## [LRN-20261028-002] knowledge_gap
 

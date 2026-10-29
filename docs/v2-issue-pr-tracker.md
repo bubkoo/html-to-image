@@ -4,7 +4,7 @@
 
 “本地覆盖”只表示所列场景在当前分支有对应回归并通过本地验证；“部分覆盖”表示不能按原帖的全部范围宣称解决。回复前应重新核对分支代码、测试结果和远端 CI。
 
-当前草稿为 [PR #600](https://github.com/bubkoo/html-to-image/pull/600)。首次 `pull_request` CI 对包含 `ebe06a2` 的测试合并提交运行，因下拉框固定参考图的 Linux 字体差异失败；修复后的 `853d76f` 在 [run 40830152086](https://github.com/bubkoo/html-to-image/actions/runs/40830152086) 完整通过 Karma、三浏览器行为和构建产物测试。`pull_request` 默认检出测试合并提交；核对其第二父提交时首次遇到 checkout 默认浅克隆缺少父提交，已将检出深度设为 2，等待重跑。
+当前草稿为 [PR #600](https://github.com/bubkoo/html-to-image/pull/600)。首次 `pull_request` CI 对包含 `ebe06a2` 的测试合并提交运行，因下拉框固定参考图的 Linux 字体差异失败；修复后在 [run 40830985559](https://github.com/bubkoo/html-to-image/actions/runs/40830985559) 完整通过 PR head 校验、Karma、三浏览器行为、构建产物与 Codecov 上传。`pull_request` 默认检出测试合并提交，校验确认其第二父提交是 PR head。
 
 | 对应讨论 | 原问题与根因 | 当前分支已做的事 | 证据和回复边界 |
 | --- | --- | --- | --- |
@@ -34,6 +34,6 @@
 ## 回复前的证据闸门
 
 - 当前本地结果：旧 Chrome Headless 套件 **104 通过、0 跳过**；新浏览器行为测试 **15 通过**、构建产物测试 **15 通过**（两者均覆盖 Chromium、Firefox、WebKit）；构建、`test:package` 和新测试文件的 lint 通过。构建产物测试验证 UMD 浏览器渲染、PNG 解码像素和真实跨源 CSS 权限失败后的回退；旧参考图对比增加 1% 面积上限。此前 `foreignObject` 用例首次运行同时遇到一次既有视频对图测试失败，重跑通过，视频路径的偶发性尚未定位。Playwright WebKit 与原生 Safari/iOS 是不同验证环境。
-- CI 已改用 `pull_request`，在测试前核对实际检出 SHA；[历史 PR #598 的 job 日志](https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820) 显示测试主分支、覆盖率却归给 PR。[PR #600 的新工作流](https://github.com/bubkoo/html-to-image/actions/runs/40830152086) 对包含 `853d76f` 的测试合并提交完整通过。`master` 上旧 `pull_request_target` 工作流也会运行，不能将其同名 `ci` 检查当作 PR 代码的测试结果。旧工作流仍在上传主分支覆盖率，而 PR 工作流原先没有上传，导致 Codecov 对 PR #600 报出 64.88% 的改动行覆盖率及与主分支完全相同的项目覆盖率；新工作流将使用 OIDC 上传实际 PR 覆盖率，待远端验证。
-- [首次父提交校验失败](https://github.com/bubkoo/html-to-image/actions/runs/40830886954) 的原因是 `actions/checkout` 默认浅克隆只含当前提交。检出深度已设为 2；需在下一次 CI 验证校验及覆盖率上传。
+- CI 已改用 `pull_request`，在测试前核对实际检出 SHA 和测试合并提交的第二父提交；[历史 PR #598 的 job 日志](https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820) 显示测试主分支、覆盖率却归给 PR。[PR #600 的新工作流](https://github.com/bubkoo/html-to-image/actions/runs/40830985559) 对包含当前 PR head 的测试合并提交完整通过。`master` 上旧 `pull_request_target` 工作流也会运行，不能将其同名 `ci` 检查当作 PR 代码的测试结果。
+- 旧工作流仍在上传主分支覆盖率，而 PR 工作流原先没有上传，导致 Codecov 曾报出 64.88% 的改动行覆盖率及与主分支相同的项目覆盖率。新工作流用 OIDC 上传实测报告后，Codecov 两项检查均通过，改动行覆盖率为 80.00%、项目覆盖率约 78.8%。[首次父提交校验失败](https://github.com/bubkoo/html-to-image/actions/runs/40830886954) 是因为 `actions/checkout` 默认浅克隆缺少父提交；深度 2 已在后续 CI 验证通过。
 - 回复时写清“当前分支已实现/本地验证”，附对应测试和未覆盖场景；在实际合并、发布及目标环境复测前，不写“已在发布版本修复”或 `Closes #...`。
