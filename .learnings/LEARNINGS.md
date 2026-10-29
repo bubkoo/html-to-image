@@ -12,7 +12,7 @@
 PR #598 的 CI run 36932597879 / job 110605311820 日志显示：检出 master 的 ad4ff590fd39d6bc9ef574c45449f38e68e310c4，执行 51 个测试（另跳过 4 个），随后 Codecov 使用 -C de69c418a9cd432bc6725ad3c2741a25a5900e4b -P 598 上传。实际被测提交与覆盖率归属提交不同。当前 ci.yml 同时监听 pull_request 和 pull_request_target，checkout 未显式指定 ref。
 
 ### Suggested Action
-CI 已移除 `pull_request_target`，PR 验证改用 `pull_request` 检出；使用凭证的覆盖率上传只在 push 上执行。安装器改为与 lockfile v6 匹配的 pnpm 8 和 frozen lockfile。推送后仍需核对新 run 的实际 checkout SHA 与覆盖率归属。
+CI 已移除分支内的 `pull_request_target`，PR 验证改用 `pull_request` 检出；使用凭证的覆盖率上传只在 push 上执行。安装器改为与 lockfile v6 匹配的 pnpm 8 和 frozen lockfile。PR #600 的新 `pull_request` run 40830152086 核对了检出的 `853d76f` 并完成全部测试；主分支的旧 `pull_request_target` 工作流仍并行运行，不能混同。
 
 ### Metadata
 - Source: investigation
@@ -23,9 +23,9 @@ CI 已移除 `pull_request_target`，PR 验证改用 `pull_request` 检出；使
 - Scope: html-to-image 当前工作流；本地 master e842e84cf68493f39dcb76f0a879d02d174b3edb
 - Authority: 实际 CI job 日志及当前工作流源文件
 - Revalidation: 工作流、checkout 或覆盖率上传配置变更后，核对新 run 的真实日志
-- Validation: verified（历史 run 的错配；本地工作流已修改，尚无远端 run）
-- Last-Validated: 2026-10-28
-- Evidence: https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820
+- Validation: verified（历史 run 的错配；PR #600 新工作流已验证检出提交和完整测试）
+- Last-Validated: 2026-10-29
+- Evidence: https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820 ; https://github.com/bubkoo/html-to-image/actions/runs/40830152086
 
 ## [LRN-20261028-002] knowledge_gap
 
@@ -70,7 +70,7 @@ ESM 发布入口必须从实际构建包导入验证，TypeScript 编译成功�
 原 `es/index.js` 保留无扩展名相对导入，Node ESM 报 `Cannot find module .../es/renderer`。源码相对导入使用 `.js` 说明符，构建后在 `es/package.json` 标明模块类型，并以条件导出区分 ESM/CJS。原 CJS/UMD 产物仍可加载。
 
 ### Suggested Action
-每次改发布入口后运行构建与 `test:package`：实际 `npm pack`，离线安装到临时项目，再从该项目检查 ESM/CJS/UMD 和 TypeScript 类型。远端 CI 首次运行还需核对实际检出提交。
+每次改发布入口后运行构建与 `test:package`：实际 `npm pack`，离线安装到临时项目，再从该项目检查 ESM/CJS/UMD 和 TypeScript 类型。PR #600 的 `pull_request` CI 已执行该检查。
 
 ### Metadata
 - Source: investigation
@@ -81,7 +81,7 @@ ESM 发布入口必须从实际构建包导入验证，TypeScript 编译成功�
 - Scope: html-to-image 当前 v2 分支、Node 22/24 本地验证
 - Authority: 实际压缩包的隔离安装、Node import/require、TypeScript NodeNext 编译与包文件清单
 - Revalidation: 构建器、导出映射、支持的 Node 版本或发布配置改变后重跑
-- Validation: verified（本地构建和消费检查；远端 CI 待跑）
+- Validation: verified（本地及 PR #600 CI 的构建和包消费检查）
 - Last-Validated: 2026-10-29
 - Evidence: ../scripts/check-package.mjs
 
