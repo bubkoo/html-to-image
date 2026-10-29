@@ -1,20 +1,21 @@
-import type { Options } from './types'
-import { clonePseudoElements } from './clone-pseudos'
+import type { Options } from './types.js'
+import { clonePseudoElements } from './clone-pseudos.js'
 import {
   createImage,
   toArray,
   isInstanceOfElement,
   getStyleProperties,
-} from './util'
-import { getMimeType } from './mimes'
-import { resourceToDataURL } from './dataurl'
+} from './util.js'
+import { getMimeType } from './mimes.js'
+import { resourceToDataURL } from './dataurl.js'
+import { getTask } from './task.js'
 
-async function cloneCanvasElement(canvas: HTMLCanvasElement) {
+async function cloneCanvasElement(canvas: HTMLCanvasElement, options: Options) {
   const dataURL = canvas.toDataURL()
   if (dataURL === 'data:,') {
     return canvas.cloneNode(false) as HTMLCanvasElement
   }
-  return createImage(dataURL)
+  return createImage(dataURL, options)
 }
 
 async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
@@ -25,13 +26,13 @@ async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
     canvas.height = video.clientHeight
     ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
     const dataURL = canvas.toDataURL()
-    return createImage(dataURL)
+    return createImage(dataURL, options)
   }
 
   const poster = video.poster
   const contentType = getMimeType(poster)
   const dataURL = await resourceToDataURL(poster, contentType, options)
-  return createImage(dataURL)
+  return createImage(dataURL, options)
 }
 
 async function cloneIFrameElement(iframe: HTMLIFrameElement, options: Options) {
@@ -55,7 +56,7 @@ async function cloneSingleNode<T extends HTMLElement>(
   options: Options,
 ): Promise<HTMLElement> {
   if (isInstanceOfElement(node, HTMLCanvasElement)) {
-    return cloneCanvasElement(node)
+    return cloneCanvasElement(node, options)
   }
 
   if (isInstanceOfElement(node, HTMLVideoElement)) {
@@ -66,33 +67,24 @@ async function cloneSingleNode<T extends HTMLElement>(
     return cloneIFrameElement(node, options)
   }
 
-  return node.cloneNode(isSVGElement(node)) as T
+  return node.cloneNode(false) as T
 }
 
 const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
   node.tagName != null && node.tagName.toUpperCase() === 'SLOT'
-
-const isSVGElement = (node: HTMLElement): node is HTMLSlotElement =>
-  node.tagName != null && node.tagName.toUpperCase() === 'SVG'
 
 async function cloneChildren<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  if (isSVGElement(clonedNode)) {
-    return clonedNode
-  }
-
   let children: T[] = []
 
   if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
     children = toArray<T>(nativeNode.assignedNodes())
-  } else if (
-    isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
-    nativeNode.contentDocument?.body
-  ) {
-    children = toArray<T>(nativeNode.contentDocument.body.childNodes)
+  } else if (isInstanceOfElement(nativeNode, HTMLIFrameElement)) {
+    // The iframe adapter has already cloned its body and descendants.
+    return clonedNode
   } else {
     children = toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
   }
@@ -129,12 +121,14 @@ function cloneCSSStyle<T extends HTMLElement>(
     return
   }
 
-  const sourceStyle = window.getComputedStyle(nativeNode)
-  if (sourceStyle.cssText) {
+  const sourceStyle = (
+    nativeNode.ownerDocument.defaultView || window
+  ).getComputedStyle(nativeNode)
+  if (sourceStyle.cssText && options.includeStyleProperties == null) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
-    getStyleProperties(options).forEach((name) => {
+    getStyleProperties(options, sourceStyle).forEach((name) => {
       let value = sourceStyle.getPropertyValue(name)
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
@@ -165,7 +159,7 @@ function cloneCSSStyle<T extends HTMLElement>(
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   if (isInstanceOfElement(nativeNode, HTMLTextAreaElement)) {
-    clonedNode.innerHTML = nativeNode.value
+    clonedNode.textContent = nativeNode.value
   }
 
   if (isInstanceOfElement(nativeNode, HTMLInputElement)) {
@@ -186,6 +180,54 @@ function cloneSelectValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   }
 }
 
+function cloneScrollState<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
+  const { scrollLeft, scrollTop } = nativeNode
+  if (!scrollLeft && !scrollTop) return
+  const children = Array.from(clonedNode.children)
+  const hasDirectText = Array.from(clonedNode.childNodes).some(
+    (child) => child.nodeType === Node.TEXT_NODE && child.textContent?.trim(),
+  )
+  const isSupportedSticky = (child: Element, index: number) => {
+    const style = (child as HTMLElement).style
+    return (
+      index === 0 &&
+      scrollLeft === 0 &&
+      style.position === 'sticky' &&
+      parseFloat(style.top) === 0 &&
+      (!style.bottom || style.bottom === 'auto')
+    )
+  }
+  const hasUnsupportedPosition = children.some((child, index) => {
+    const style = (child as HTMLElement).style
+    return (
+      style.position === 'fixed' ||
+      (style.position === 'sticky' && !isSupportedSticky(child, index)) ||
+      style.display === 'inline'
+    )
+  })
+  if (hasDirectText || hasUnsupportedPosition) return
+  const x = -scrollLeft
+  const y = -scrollTop
+  children.forEach((child, index) => {
+    const element = child as HTMLElement
+    if (isSupportedSticky(child, index)) {
+      // Transformed siblings become stacking contexts; keep the sticky header
+      // above the normal-flow content as it appears in the live scroller.
+      if (!element.style.zIndex || element.style.zIndex === 'auto') {
+        element.style.zIndex = '1'
+      }
+      return
+    }
+    const transform = element.style.transform
+    element.style.transform = `translate(${x}px, ${y}px) ${
+      transform && transform !== 'none' ? transform : ''
+    }`.trim()
+  })
+  // SVG foreignObject serialization loses the live scroll offset. Preserve
+  // the source viewport by clipping the shifted copy instead.
+  clonedNode.style.overflow = 'hidden'
+}
+
 function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
@@ -196,6 +238,7 @@ function decorate<T extends HTMLElement>(
     clonePseudoElements(nativeNode, clonedNode, options)
     cloneInputValue(nativeNode, clonedNode)
     cloneSelectValue(nativeNode, clonedNode)
+    cloneScrollState(nativeNode, clonedNode)
   }
 
   return clonedNode
@@ -253,6 +296,14 @@ export async function cloneNode<T extends HTMLElement>(
   options: Options,
   isRoot?: boolean,
 ): Promise<T | null> {
+  getTask(options)?.check()
+  if (
+    !isRoot &&
+    node.nodeType === 1 &&
+    options.exclude?.some((selector) => node.matches(selector))
+  ) {
+    return null
+  }
   if (!isRoot && options.filter && !options.filter(node)) {
     return null
   }

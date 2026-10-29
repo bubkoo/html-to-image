@@ -1,56 +1,50 @@
 /* eslint-disable promise/no-callback-in-promise */
 
 import '../spec/setup'
-import { toPng } from '../../src'
-import { delay } from '../../src/util'
-import { assertTextRendered, bootstrap, renderAndCheck } from '../spec/helper'
+import { toImageData, toSvg } from '../../src'
+import { assertTextRendered, bootstrap, getSvgDocument } from '../spec/helper'
 
 describe('special cases', () => {
-  xit('should not crash when loading external stylesheet causes error', (done) => {
-    bootstrap('ext-css/node.html', 'ext-css/style.css')
-      .then(delay(1000))
-      .then((node) => {
-        toPng(node)
+  it('renders after an external stylesheet fails to load', async () => {
+    const node = await bootstrap('small/node.html', 'ext-css/style.css')
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = '/base/test/resources/ext-css/missing-for-test.css'
+    try {
+      await new Promise<void>((resolve, reject) => {
+        link.onerror = () => resolve()
+        link.onload = () => reject(new Error('Expected stylesheet load failure'))
+        document.head.appendChild(link)
       })
-      .then(done)
-      .catch(done)
+      const image = await toImageData(node, { pixelRatio: 1 })
+      const offset = 4 * (95 * image.width + 95)
+      expect(Array.from(image.data.slice(offset, offset + 4))).toEqual([
+        0, 0, 0, 255,
+      ])
+    } finally {
+      link.remove()
+    }
   })
 
-  xit('should render content from shadow node of custom element', (done) => {
-    const link = document.createElement('link')
-    const script = document.createElement('script')
-    script.src = 'https://unpkg.com/mathlive/dist/mathlive.min.js'
-    link.rel = 'stylesheet'
-    link.crossOrigin = 'anonymous'
-    link.href = 'https://unpkg.com/mathlive/dist/mathlive-fonts.css'
-    const tasks = [
-      new Promise((resolve, reject) => {
-        script.onload = resolve
-        script.onerror = reject
-      }),
-      new Promise((resolve, reject) => {
-        link.onload = resolve
-        link.onerror = reject
-      }),
-    ]
-    document.head.append(script, link)
-
-    Promise.all(tasks).then(() =>
-      // eslint-disable-next-line promise/no-nesting
-      bootstrap(
-        'custom-element/node.html',
-        'custom-element/style.css',
-        'custom-element/image',
-      )
-        .then(delay(1000))
-        .then(renderAndCheck)
-        .then(() => {
-          link.remove()
-          script.remove()
-          done()
-        })
-        .catch(done),
-    )
+  it('renders an open shadow root', async () => {
+    const host = document.createElement('div')
+    host.attachShadow({ mode: 'open' })
+    host.style.cssText = 'display:block;width:40px;height:20px'
+    host.shadowRoot!.innerHTML =
+      '<div style="width:40px;height:20px;background:rgb(0,128,0)">shadow content</div>'
+    document.body.appendChild(host)
+    try {
+      const svg = await getSvgDocument(await toSvg(host, { skipFonts: true }))
+      expect(svg.documentElement.textContent).toContain('shadow content')
+      const image = await toImageData(host, { pixelRatio: 1, skipFonts: true })
+      const offset = 4 * (18 * image.width + 38)
+      expect(Array.from(image.data.slice(offset, offset + 4))).toEqual([
+        0, 128, 0, 255,
+      ])
+      expect(host.shadowRoot!.textContent).toContain('shadow content')
+    } finally {
+      host.remove()
+    }
   })
 
   it('should caputre lazy loading images', (done) => {

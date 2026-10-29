@@ -11,3 +11,6 @@ dist
 es
 lib
 test/coverage
+playwright-report
+test-results
+.vitest

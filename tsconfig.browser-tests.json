@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2022",
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "vitest.browser.config.mts",
+    "playwright.config.ts",
+    "test/browser-unit/**/*.ts",
+    "test/browser/**/*.ts"
+  ]
+}
