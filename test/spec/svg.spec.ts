@@ -1,7 +1,7 @@
 /* eslint-disable promise/no-callback-in-promise */
 
 import '../spec/setup'
-import { toSvg } from '../../src'
+import { toImageData, toSvg } from '../../src'
 import { bootstrap, renderAndCheck, getSvgDocument } from '../spec/helper'
 
 describe('work with svg element', () => {
@@ -19,11 +19,16 @@ describe('work with svg element', () => {
       .catch(done)
   })
 
-  it('should render svg `<rect>` with applied css styles', (done) => {
-    bootstrap('svg-color/node.html', 'svg-color/style.css', 'svg-color/image')
-      .then(renderAndCheck)
-      .then(done)
-      .catch(done)
+  it('should render svg `<rect>` with applied css styles', async () => {
+    const node = await bootstrap('svg-color/node.html', 'svg-color/style.css')
+    const svg = await getSvgDocument(await toSvg(node))
+    const rect = svg.querySelector('rect') as SVGRectElement
+    expect(rect.style.fill).toBe('rgb(0, 0, 0)')
+    const image = await toImageData(node, { pixelRatio: 1 })
+    const offset = 4 * (70 * image.width + 70)
+    expect(Array.from(image.data.slice(offset, offset + 4))).toEqual([
+      0, 0, 0, 255,
+    ])
   })
 
   it('should include a viewBox attribute', (done) => {

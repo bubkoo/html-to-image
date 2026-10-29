@@ -1,11 +1,13 @@
-import { Options } from './types'
-
-function getContentFromDataUrl(dataURL: string) {
-  return dataURL.split(/,/)[1]
-}
+import type { Options, ResourceKind } from './types.js'
+import { getTask } from './task.js'
+import {
+  blobToDataURL,
+  ResourceLoader,
+  ResourceResolverError,
+} from './resource-loader.js'
 
 export function isDataUrl(url: string) {
-  return url.search(/^(data:)/) !== -1
+  return /^data:/i.test(url)
 }
 
 export function makeDataUrl(content: string, mimeType: string) {
@@ -18,94 +20,44 @@ export async function fetchAsDataURL<T>(
   process: (data: { result: string; res: Response }) => T,
 ): Promise<T> {
   const res = await fetch(url, init)
-  if (res.status === 404) {
-    throw new Error(`Resource "${res.url}" not found`)
-  }
-  const blob = await res.blob()
-  return new Promise<T>((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onerror = reject
-    reader.onloadend = () => {
-      try {
-        resolve(process({ res, result: reader.result as string }))
-      } catch (error) {
-        reject(error)
-      }
-    }
-
-    reader.readAsDataURL(blob)
-  })
+  if (!res.ok)
+    throw new Error(`Resource request failed (${res.status}): ${url}`)
+  return process({ res, result: await blobToDataURL(await res.blob()) })
 }
 
-const cache: { [url: string]: string } = {}
-
-function getCacheKey(
-  url: string,
-  contentType: string | undefined,
-  includeQueryParams: boolean | undefined,
-) {
-  let key = url.replace(/\?.*/, '')
-
-  if (includeQueryParams) {
-    key = url
-  }
-
-  // font resource
-  if (/ttf|otf|eot|woff2?/i.test(key)) {
-    key = key.replace(/.*\//, '')
-  }
-
-  return contentType ? `[${contentType}]${key}` : key
+export function getResourceLoader(options: Options) {
+  return (
+    getTask(options)?.resources ||
+    new ResourceLoader(options, {
+      signal: options.signal || new AbortController().signal,
+    })
+  )
 }
 
 export async function resourceToDataURL(
   resourceUrl: string,
   contentType: string | undefined,
   options: Options,
+  kind: ResourceKind = 'image',
 ) {
-  const cacheKey = getCacheKey(
-    resourceUrl,
-    contentType,
-    options.includeQueryParams,
-  )
-
-  if (cache[cacheKey] != null) {
-    return cache[cacheKey]
-  }
-
-  // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
-  if (options.cacheBust) {
-    // eslint-disable-next-line no-param-reassign
-    resourceUrl += (/\?/.test(resourceUrl) ? '&' : '?') + new Date().getTime()
-  }
-
-  let dataURL: string
+  const loader = getResourceLoader(options)
   try {
-    const content = await fetchAsDataURL(
-      resourceUrl,
-      options.fetchRequestInit,
-      ({ res, result }) => {
-        if (!contentType) {
-          // eslint-disable-next-line no-param-reassign
-          contentType = res.headers.get('Content-Type') || ''
-        }
-        return getContentFromDataUrl(result)
-      },
+    const blob = await loader.load(resourceUrl, kind, contentType)
+    // Response MIME types are authoritative; extension guesses are a fallback.
+    return await blobToDataURL(
+      blob.type || !contentType ? blob : blob.slice(0, blob.size, contentType),
     )
-    dataURL = makeDataUrl(content, contentType!)
   } catch (error) {
-    dataURL = options.imagePlaceholder || ''
-
-    let msg = `Failed to fetch resource: ${resourceUrl}`
-    if (error) {
-      msg = typeof error === 'string' ? error : error.message
-    }
-
-    if (msg) {
-      console.warn(msg)
-    }
+    const signal = getTask(options)?.context.signal || options.signal
+    if (signal?.aborted) throw signal.reason
+    if (error instanceof ResourceResolverError) throw error
+    loader.warn(
+      Object.freeze({
+        code: 'resource-error',
+        message: error instanceof Error ? error.message : String(error),
+        resource: resourceUrl,
+      }),
+    )
+    return options.imagePlaceholder || ''
   }
-
-  cache[cacheKey] = dataURL
-  return dataURL
 }

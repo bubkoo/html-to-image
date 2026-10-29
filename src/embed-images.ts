@@ -1,8 +1,9 @@
-import { Options } from './types'
-import { embedResources } from './embed-resources'
-import { toArray, isInstanceOfElement } from './util'
-import { isDataUrl, resourceToDataURL } from './dataurl'
-import { getMimeType } from './mimes'
+import { Options } from './types.js'
+import { embedResources } from './embed-resources.js'
+import { toArray, isInstanceOfElement, createImage } from './util.js'
+import { getTask } from './task.js'
+import { isDataUrl, resourceToDataURL } from './dataurl.js'
+import { getMimeType } from './mimes.js'
 
 async function embedProp(
   propName: string,
@@ -11,7 +12,7 @@ async function embedProp(
 ) {
   const propValue = node.style?.getPropertyValue(propName)
   if (propValue) {
-    const cssString = await embedResources(propValue, null, options)
+    const cssString = await embedResources(propValue, node.baseURI, options)
     node.style.setProperty(
       propName,
       cssString,
@@ -39,48 +40,36 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   options: Options,
 ) {
   const isImageElement = isInstanceOfElement(clonedNode, HTMLImageElement)
-
-  if (
-    !(isImageElement && !isDataUrl(clonedNode.src)) &&
-    !(
-      isInstanceOfElement(clonedNode, SVGImageElement) &&
-      !isDataUrl(clonedNode.href.baseVal)
-    )
-  ) {
-    return
-  }
-
-  const url = isImageElement ? clonedNode.src : clonedNode.href.baseVal
-
-  const dataURL = await resourceToDataURL(url, getMimeType(url), options)
-  await new Promise((resolve, reject) => {
-    clonedNode.onload = resolve
-    clonedNode.onerror = options.onImageErrorHandler
-      ? (...attributes) => {
-          try {
-            resolve(options.onImageErrorHandler!(...attributes))
-          } catch (error) {
-            reject(error)
-          }
-        }
-      : reject
-
+  const isSVGImage = isInstanceOfElement(clonedNode, SVGImageElement)
+  if (!isImageElement && !isSVGImage) return
+  const url = isImageElement
+    ? clonedNode.src
+    : (clonedNode as SVGImageElement).href.baseVal
+  const dataURL = isDataUrl(url)
+    ? url
+    : await resourceToDataURL(url, getMimeType(url), options)
+  if (isImageElement) {
     const image = clonedNode as HTMLImageElement
-    if (image.decode) {
-      image.decode = resolve as any
+    image.loading = 'eager'
+    image.srcset = ''
+  }
+  try {
+    await createImage(
+      dataURL,
+      options,
+      isImageElement ? (clonedNode as HTMLImageElement) : undefined,
+    )
+  } catch (error) {
+    getTask(options)?.check()
+    if (options.onImageErrorHandler) {
+      options.onImageErrorHandler.call(clonedNode, new Event('error'))
+      return
     }
-
-    if (image.loading === 'lazy') {
-      image.loading = 'eager'
-    }
-
-    if (isImageElement) {
-      clonedNode.srcset = ''
-      clonedNode.src = dataURL
-    } else {
-      clonedNode.href.baseVal = dataURL
-    }
-  })
+    throw error
+  }
+  if (!isImageElement) {
+    ;(clonedNode as SVGImageElement).href.baseVal = dataURL
+  }
 }
 
 async function embedChildren<T extends HTMLElement>(

@@ -1,4 +1,20 @@
 export interface Options {
+  /** Exclude matching elements and their descendants from the copy. */
+  exclude?: readonly string[]
+  /** Transform the detached copy before its resources are discovered. */
+  onClone?: CloneTransform
+  /** Resource configuration scoped to this capture. */
+  resources?: ResourceOptions
+  /** Extensions run in registration order. Duplicate names are rejected. */
+  plugins?: readonly CapturePlugin[]
+  /** Cancel capture creation and subsequent output operations. */
+  signal?: AbortSignal
+  /** Timeout per operation in milliseconds; 0 disables it. Default: 30000. */
+  timeout?: number
+  /** Rasterize the frozen SVG this many times and use the last result. Default: 1. */
+  stabilizationAttempts?: number
+  /** Observe capture stages and resource diagnostics. */
+  onEvent?: (event: CaptureEvent) => void
   /**
    * Width in pixels to be applied to node before rendering.
    */
@@ -45,10 +61,7 @@ export interface Options {
    * requests to enable cache busting.
    */
   cacheBust?: boolean
-  /**
-   * Set false to use all URL as cache key.
-   * Default: false | undefined - which strips away the query parameters
-   */
+  /** Full URL is the resource identity by default. Set false for legacy query stripping. */
   includeQueryParams?: boolean
   /**
    * A data URL for a placeholder image that will be used when fetching
@@ -101,4 +114,91 @@ export interface Options {
    * An event handler for the error event when any image in html has problem with loading.
    */
   onImageErrorHandler?: OnErrorEventHandler
+}
+
+export type CaptureNode = HTMLElement | SVGElement
+
+export interface ExtensionContext {
+  readonly signal: AbortSignal
+}
+
+export interface CloneContext extends ExtensionContext {
+  readonly root: CaptureNode
+}
+
+export type CloneTransform = (context: CloneContext) => void | Promise<void>
+
+export type ResourceKind = 'image' | 'font' | 'stylesheet'
+
+export interface ResourceRequest {
+  readonly url: string
+  readonly kind: ResourceKind
+  readonly contentType?: string
+}
+
+export type ResourceResolver = (
+  request: ResourceRequest,
+  context: ExtensionContext,
+) => Blob | undefined | Promise<Blob | undefined>
+
+export interface ResourceOptions {
+  /** Return undefined to continue with plugins and then the default fetch. */
+  resolve?: ResourceResolver
+}
+
+export interface CapturePlugin {
+  readonly name: string
+  readonly transformClone?: CloneTransform
+  readonly resolveResource?: ResourceResolver
+}
+
+export interface CaptureDiagnostic {
+  readonly code: 'resource-error'
+  readonly message: string
+  readonly resource: string
+}
+
+export type CaptureStage =
+  | 'clone'
+  | 'transform'
+  | 'resources'
+  | 'serialize'
+  | 'render'
+
+export type CaptureEvent =
+  | { readonly type: 'stage'; readonly stage: CaptureStage }
+  | { readonly type: 'warning'; readonly diagnostic: CaptureDiagnostic }
+
+export interface EncodingOptions {
+  type?: string
+  quality?: number
+}
+
+export interface Capture {
+  readonly width: number
+  readonly height: number
+  readonly diagnostics: readonly CaptureDiagnostic[]
+  toSvg(): Promise<string>
+  /** Returns an independently writable canvas. */
+  toCanvas(): Promise<HTMLCanvasElement>
+  toPng(): Promise<string>
+  toJpeg(options?: Pick<EncodingOptions, 'quality'>): Promise<string>
+  toBlob(options?: EncodingOptions): Promise<Blob | null>
+  toImageData(): Promise<ImageData>
+  toPixelData(): Promise<Uint8ClampedArray>
+  dispose(): void
+}
+
+export interface Renderer {
+  capture(node: CaptureNode, options?: Options): Promise<Capture>
+  toSvg(node: CaptureNode, options?: Options): Promise<string>
+  toCanvas(node: CaptureNode, options?: Options): Promise<HTMLCanvasElement>
+  toPng(node: CaptureNode, options?: Options): Promise<string>
+  toJpeg(node: CaptureNode, options?: Options): Promise<string>
+  toBlob(node: CaptureNode, options?: Options): Promise<Blob | null>
+  toPixelData(node: CaptureNode, options?: Options): Promise<Uint8ClampedArray>
+  toImageData(node: CaptureNode, options?: Options): Promise<ImageData>
+  getFontEmbedCSS(node: CaptureNode, options?: Options): Promise<string>
+  /** Cancels outstanding work and disposes captures owned by this renderer. */
+  dispose(): void
 }
