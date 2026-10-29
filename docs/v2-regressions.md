@@ -37,7 +37,7 @@ successful Promise alone is insufficient.
 | A direct sticky header blocks scroll correction for all siblings | `test/browser-unit/capture.test.ts`: source header position, exported red header and green scrolled content in three engines; initially failed with a blue content pixel |
 
 The complete test sequence passed in PR #600's `pull_request` run for a test
-merge containing `853d76f`. The checkout assertion now also checks that the
-merge's second parent is the PR head. The coverage upload must be verified in
-a new run. Real iOS and other complex
+merge containing `e3137cc`. The checkout assertion checks that the merge's
+second parent is the PR head. The measured coverage upload succeeded, and both
+Codecov checks passed. Real iOS and other complex
 sticky/fixed scrolling layouts remain release gates.
