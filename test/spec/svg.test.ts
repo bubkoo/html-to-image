@@ -1,4 +1,3 @@
-/* eslint-disable promise/no-callback-in-promise */
 
 import '../spec/setup'
 import { toImageData, toSvg } from '../../src'

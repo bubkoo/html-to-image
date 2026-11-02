@@ -6,7 +6,7 @@
     "moduleResolution": "nodenext",
     "target": "es2022",
     "skipLibCheck": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "node"]
   },
   "include": [
     "src/**/*.ts",

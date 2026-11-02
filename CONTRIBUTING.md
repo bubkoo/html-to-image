@@ -16,8 +16,8 @@ We will confirm the purpose of the issue, replace more accurate labels for it, i
 ### Pull Request Guide
 
 1. [Fork][fork] and clone the repository
-2. Configure and install the dependencies `pnpm`
-3. Make sure the tests pass on your machine `pnpm test`, note: these tests also run the TypeScript compiler (`tsc`) to check for type errors, so there's no need to run these commands separately.
+2. Use Node.js 22.14+ (22.x) or 24.10+ and the pnpm version pinned in `package.json` (`corepack enable`), then install dependencies with `pnpm install --frozen-lockfile`.
+3. Run `pnpm run test:browser` to check lint, types, the source browser tests, and the built package. `pnpm test` runs the source browser tests only.
 4. Create a new branch `git checkout -b my-branch-name` for development. The name of branch should be semantic, avoiding words like 'update' or 'tmp'. We suggest to use `'feature/xxx'`, if the modification is about to implement a new feature.
 5. Every bug fix must include a regression case that fails before the fix and passes after it. Assert the exported content, pixels, request flow, or package consumer behavior relevant to the bug; a resolved Promise alone is not enough. Run `pnpm test` after the change. For package-entry changes, also run `pnpm run build` and `pnpm run test:package`.
    Browser-facing fixes also require `pnpm run test:browser:source`; after a build, run `pnpm run test:browser:package` for changes to emitted code or browser loading. `pnpm run test:browser` builds and runs both browser layers. See [test architecture](docs/test-architecture.md) for setup and coverage boundaries.
@@ -33,7 +33,7 @@ No one can guarantee how much will be remembered about certain PR after some tim
 
 ### Style Guide
 
-tslint can help to identify styling issues that may exist in your code. Your code is required to pass the test from tslint. Run the test locally by `$ pnpm lint`.
+ESLint checks source, browser tests, and build tools using `eslint.config.mjs`. Run `pnpm run lint:check` to check without modifying files, or `pnpm lint` to fix source issues. Prettier formats staged files through the local Husky/lint-staged hook.
 
 ### Commit Message Format
 

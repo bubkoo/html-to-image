@@ -1,4 +1,3 @@
-/* eslint-disable promise/no-callback-in-promise */
 
 import * as embeding from '../../src/embed-resources'
 

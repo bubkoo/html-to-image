@@ -8,7 +8,7 @@ V2 的主要风险发生在浏览器真实渲染和发布包解析阶段。Karma
 | 浏览器行为 | `pnpm run test:browser:source` | 23 个 Vitest Browser Mode 用例在 Chromium、Firefox、WebKit 中直接导入源码，检查 DOM/SVG/像素行为。 |
 | 构建产物 | `pnpm run test:package` 和 `pnpm run test:browser:package` | Node 中实际打包并离线安装到临时项目，检查 ESM/CJS/UMD、类型和打包清单；Playwright 经原样静态服务器加载构建后的 ESM 和 UMD，检查浏览器真正得到的产物和像素。 |
 
-开发机运行浏览器测试前，先用 Node 22.12+ 或 24 安装依赖，执行 `pnpm exec playwright install`。`pnpm test` 运行 Chromium 的完整源码覆盖率与三引擎行为测试；`pnpm run test:browser` 还检查 lint、构建、类型和发布包。单独运行 `test:browser:package` 时要先构建。CI 使用 Node 24、固定 pnpm 8 和冻结锁文件，在 `pull_request` 上顺序运行以上检查，并在测试前核对检出 SHA。Codecov 与 Coveralls 均使用 Vitest 生成的同一份 LCOV。
+开发机运行浏览器测试前，先用 Node 22.14+（22.x）或 24.10+ 和 `package.json` 固定的 pnpm 10 安装依赖，执行 `pnpm exec playwright install`。`pnpm test` 运行 Chromium 的完整源码覆盖率与三引擎行为测试；`pnpm run test:browser` 还检查 lint、构建、类型和发布包。单独运行 `test:browser:package` 时要先构建。CI 使用 Node 24、冻结锁文件，并在 `pull_request` 上顺序运行以上检查及核对检出 SHA。Codecov 与 Coveralls 均使用 Vitest 生成的同一份 LCOV。
 
 旧用例保留原 fixture、断言和文件归属；回调式完成信号已改成原生 `async`，Jasmine spy 与异步匹配器已改为 Vitest API。测试入口统一为 `*.test.ts`。旧回归只在 Chromium 运行，因为其固定 PNG 参考图与字体、浏览器像素实现耦合；跨浏览器风险由独立的语义、关键像素和发布包用例验证。`vitest.browser.config.mts` 预优化 `pixelmatch`，防止首次冷启动时依赖优化重载测试页。
 
@@ -20,7 +20,7 @@ Playwright 的 Linux WebKit 并非 Apple Safari；本机 Safari 与真实 iOS �
 
 主分支切换的实际闸门、真实 iOS 验收页与 npm 分离发布顺序见 [V2 release readiness](v2-release-readiness.md)。Release 工作流通过手动触发复用本 CI，并在发布前再次检查构建包和预期版本。
 
-迁移前的 TypeScript 5.5.4 试验曾使 `karma-typescript` 执行 0 个用例并报 `exports is not defined`。本次移除 Karma 后，TypeScript 与构建工具的升级仍应单独进行，以便定位新工具链的兼容性问题。覆盖率提供方从 Karma Istanbul 切换到 Vitest V8，行与分支的统计口径不同，不能仅比较两个报告的总百分比；远端 Codecov 的 patch/project 结果仍须按最终 PR SHA 验收。
+迁移前的 TypeScript 5.5.4 试验曾使 `karma-typescript` 执行 0 个用例并报 `exports is not defined`。移除 Karma 后，构建工具已升级至 TypeScript 5.9、Rollup 4 与 ESLint 10；`test:package` 对实际压缩包同时运行 TypeScript 4.9 和 5.9 的消费端类型检查，不跳过库声明文件。覆盖率提供方从 Karma Istanbul 切换到 Vitest V8，行与分支的统计口径不同，不能仅比较两个报告的总百分比；远端 Codecov 的 patch/project 结果仍须按最终 PR SHA 验收。
 
 ## 同类项目对照与本项目核验（2026-10-28）
 

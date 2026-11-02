@@ -1,4 +1,3 @@
-/* eslint-disable promise/no-callback-in-promise */
 
 import * as htmlToImage from '../../src'
 import { delay } from '../../src/util'
@@ -54,7 +53,6 @@ describe('basic usage', () => {
   it('should convert an element to an array of pixels', async () => {
     await bootstrap('pixeldata/node.html', 'pixeldata/style.css')
       .then((node) =>
-        // eslint-disable-next-line promise/no-nesting
         htmlToImage.toPixelData(node).then((pixels) => ({ node, pixels })),
       )
       .then(({ node, pixels }) => {

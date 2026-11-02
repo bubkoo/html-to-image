@@ -1,5 +1,28 @@
 {
- "extends": "@bubkoo/tsconfig",
+  "exclude": [
+    "node_modules",
+    "**/es",
+    "**/lib"
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "target": "es5",
+    "lib": [
+      "DOM",
+      "ES2020"
+    ],
+    "types": ["node"]
+  },
   "include": [
     "src/**/*.ts"
   ]

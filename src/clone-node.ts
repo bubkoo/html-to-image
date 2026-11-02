@@ -80,7 +80,7 @@ async function cloneChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
 ): Promise<T> {
-  let children: T[] = []
+  let children: T[]
 
   if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
     children = toArray<T>(nativeNode.assignedNodes())
