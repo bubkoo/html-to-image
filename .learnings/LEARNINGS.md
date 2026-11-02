@@ -498,7 +498,7 @@ PR #603 初次远端 CI 与 CodeQL 均通过，但 Codecov patch 为 78.87%，�
 WebKit 能正确读取源 canvas 和克隆出的 PNG，却可能把包含异步解码图片的 SVG 栅格化成透明图；内部快照图片改用同步解码提示后，小 canvas 的最终像素稳定。
 
 ### Details
-新增实际 UMD 构建包用例，在 Chromium、Firefox、WebKit 导出红蓝 canvas。修复前 WebKit 两个输出像素透明，源 canvas 和克隆 PNG 的相同位置均有颜色；将 `createImage` 的 `decoding` 从 `async` 改为 `sync` 后，默认一次栅格化的 WebKit 用例连续五次通过，旧 canvas 与视频 WebKit 用例通过，完整本地构建包 36/36 通过。单独增加 `stabilizationAttempts: 3` 曾仍然失败，不能以重试代替解码时序修复。
+新增实际 UMD 构建包用例，在 Chromium、Firefox、WebKit 导出红蓝 canvas。修复前 WebKit 两个输出像素透明，源 canvas 和克隆 PNG 的相同位置均有颜色；将 `createImage` 的 `decoding` 从 `async` 改为 `sync` 后，默认一次栅格化的 WebKit 用例连续五次通过，旧 canvas 与视频 WebKit 用例通过，完整本地构建包 39/39 通过。单独增加 `stabilizationAttempts: 3` 曾仍然失败，不能以重试代替解码时序修复。移动端冒烟页也增加了 canvas 像素场景，等待真实 Safari 验收。
 
 ### Suggested Action
 遇到 WebKit 图片空白时分段检查源像素、克隆图片、序列化 SVG 和最终画布，并在实际构建包中断言关键像素；不要只断言 data URL 非空或 Promise 成功。

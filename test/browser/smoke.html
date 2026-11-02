@@ -88,6 +88,30 @@
         throw new Error(`UMD center pixel ${color}`)
     })
 
+    await test('canvas snapshot pixels', async () => {
+      const canvas = document.createElement('canvas')
+      canvas.width = 16
+      canvas.height = 8
+      canvas.style.cssText = 'display:block;width:32px;height:16px'
+      const context = canvas.getContext('2d')
+      context.fillStyle = 'red'
+      context.fillRect(0, 0, 8, 8)
+      context.fillStyle = 'blue'
+      context.fillRect(8, 0, 8, 8)
+      document.body.append(canvas)
+      const image = await toImageData(canvas, { pixelRatio: 1, skipFonts: true })
+      if (image.width !== 32 || image.height !== 16)
+        throw new Error(`canvas dimensions ${image.width}x${image.height}`)
+      for (const [x, expected] of [
+        [8, '255,0,0,255'],
+        [24, '0,0,255,255'],
+      ]) {
+        const color = pixel(image, x, 8).join(',')
+        if (color !== expected)
+          throw new Error(`canvas pixel ${x},8: expected ${expected}, got ${color}`)
+      }
+    })
+
     await test('per-node customization', async () => {
       const node = document.createElement('div')
       node.style.cssText = 'width:20px;height:20px;background:red'
