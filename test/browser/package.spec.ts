@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { readFile } from 'node:fs/promises'
 
 const cases = [
   'ESM import and basic PNG',
@@ -27,11 +28,26 @@ test('the full mobile smoke page completes without a hidden failure', async ({
 }) => {
   await page.goto('/test/browser/smoke.html')
   const results = page.locator('#results')
-  await expect(results).toContainText('DONE', { timeout: 90000 })
+  await expect(results).toContainText('REPORT SAVED', { timeout: 90000 })
   const text = await results.textContent()
   cases.forEach((name) => expect(text).toContain(`PASS ${name}`))
   expect(text).not.toContain('FAIL')
   expect(text).toContain('DPR=')
+  const id = text?.match(/REPORT SAVED ([a-f0-9-]{36})/)?.[1]
+  expect(id).toBeDefined()
+  const report = JSON.parse(
+    await readFile(`test-results/mobile-smoke-reports/${id}.json`, 'utf8'),
+  )
+  expect(report.id).toBe(id)
+  expect(report.complete).toBe(true)
+  expect(report.userAgent).toBeTruthy()
+  expect(report.gitHead).toMatch(/^[a-f0-9]{40}$/)
+  expect(report.verdicts).toHaveLength(cases.length + 2)
+  const rejected = await page.request.post(
+    '/test/browser/mobile-smoke-report',
+    { data: { complete: true } },
+  )
+  expect(rejected.status()).toBe(403)
 })
 
 test('built UMD global renders pixels in a browser', async ({ page }) => {
