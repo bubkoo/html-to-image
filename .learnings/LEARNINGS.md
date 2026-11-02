@@ -425,3 +425,35 @@ V2 的 `onClone` 可以改整份副本，但无法可靠地把源元素映射回
 
 ### Resolution
 报告回传链路已具备自动测试；真实 iOS 的报告仍需实际设备刷新生成。
+
+## [LRN-20261102-016] solution
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: high
+**Status**: resolved
+**Area**: test-infrastructure
+
+### Summary
+CI 中 Codecov 上传步骤成功，不代表独立的 `codecov/patch` 与 `codecov/project` 检查通过；本地“改动源码行已命中”的统计也不能代替远端对部分分支和项目总覆盖率的计算。
+
+### Details
+PR #603 初次远端 CI 与 CodeQL 均通过，但 Codecov patch 为 78.87%，低于 79.23% 门槛，project 为 78.70%，比 `master` 低 0.54 个百分点。GitHub check-run 的报告指出 `src/clone-node.ts` 有 4 行未覆盖、11 处部分覆盖；此前只看本地 LCOV 的改动行比例会漏掉部分分支。针对异常 `<use>` URL、错误片段转义、外部 SVG 缺失符号、外部 `xlink:href` 增加实际行为回归后，Karma 115/115；最新远端 Codecov patch 88.73%，project 79.41%（比基线高 0.17 个百分点），两项检查均通过。首次本机 Karma 全套运行另遇到既有视频对图偶发空白，复跑 115/115 通过；新增 SVG 用例在两次运行都通过。
+
+### Suggested Action
+对 PR 以最终 head SHA 核对独立 Codecov check-run 的结论和缺口明细；针对缺少的实际行为补测试，再判断覆盖率。不要只凭上传步骤为绿或本地行覆盖率宣布门槛通过。
+
+### Metadata
+- Source: PR #603 CI and Codecov check-run investigation
+- Related Files: ../.github/workflows/ci.yml, ../test/spec/svg.spec.ts, ../src/clone-node.ts
+- Pattern-Key: ci.codecov-upload-vs-checks
+
+### Context Maintenance
+- Scope: 本项目 PR #603 的 Karma LCOV 上传与 Codecov patch/project 检查
+- Authority: 最新提交 `61d3ddf` 的远端 CI、Codecov check-run；本机 Karma 115/115
+- Revalidation: 覆盖率提供方、上传源或阈值调整后重新核对
+- Validation: verified locally and in PR checks
+- Last-Validated: 2026-11-02
+- Evidence: https://github.com/bubkoo/html-to-image/pull/603
+
+### Resolution
+补齐资源引用的异常与旧式属性回归后，两项远端覆盖率检查由失败转为通过。
