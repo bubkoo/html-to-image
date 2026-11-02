@@ -236,3 +236,32 @@ CI 的 lint 检查应有显式步骤，不能隐含依赖包管理器运行 `pre
 
 ### Resolution
 限定形态的 sticky 标题保留原位与绘制层级；其余直接子元素照常位移，其他布局保守回退。
+
+## [LRN-20261102-009] knowledge_gap
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: rendering
+
+### Summary
+把 DOM 序列化为 data URL SVG 时，同文档的绝对 `clip-path` URL 需要在副本中改成本地片段；不能把其他文档的同名片段一起改掉。
+
+### Details
+Issue #579 的最小浏览器用例在修复前显示：SVG 属性、内联样式与根相对引用保留源页面 URL，三项断言失败。克隆步骤会复制 SVG 属性，也会把计算后的 CSS `clip-path` 写入副本样式；因此需要在这两处处理。解析相对 URL 时用源文档的 `baseURI`，判断同文档时用源 `Document.URL`，比较去掉片段后的完整 URL（含查询）。匹配时仅改副本为 `url(#id)`，外部 origin、其他路径和其他查询参数保持不变。修复后的 SVG 内容和裁剪像素在 Chromium、Firefox、WebKit 通过，构建 ESM 的三浏览器像素测试也通过。
+
+### Suggested Action
+处理序列化后会改变 URL 基址的 CSS/SVG 引用时，先区分本地定义与外部资源；既验证输出引用，也验证实际像素和源 DOM 未变。不要仅用同 origin 或同 pathname 判断“同文档”。
+
+### Metadata
+- Source: investigation
+- Related Files: ../src/clone-node.ts, ../test/browser-unit/clip-path.test.ts, ../test/browser/package.spec.ts
+- Pattern-Key: rendering.same-document-fragment-serialization
+
+### Context Maintenance
+- Scope: html-to-image v2 分支的 `clip-path` SVG 属性与 CSS 计算样式
+- Authority: 修复前 Chromium 失败对照；修复后三浏览器源码和构建 ESM 测试
+- Revalidation: 资源基址、SVG 序列化或浏览器 CSSOM 处理改变后重跑
+- Validation: verified（本地；PR CI 待跑）
+- Last-Validated: 2026-11-02
+- Evidence: ../test/browser-unit/clip-path.test.ts ; ../test/browser/smoke.html
