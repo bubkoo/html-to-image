@@ -161,7 +161,10 @@ export function assertVisualMatch(
   refData: ImageData,
   threshold = 0.1,
 ) {
-  if (sourceData.width !== refData.width || sourceData.height !== refData.height) {
+  if (
+    sourceData.width !== refData.width ||
+    sourceData.height !== refData.height
+  ) {
     throw new Error(
       `Capture size ${sourceData.width}x${sourceData.height} differs from reference ${refData.width}x${refData.height}`,
     )

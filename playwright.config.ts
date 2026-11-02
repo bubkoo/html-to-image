@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: './test/browser',
-  testMatch: 'package.spec.ts',
+  testMatch: 'package.test.ts',
   timeout: 90000,
   forbidOnly: Boolean(process.env.CI),
   workers: 1,

@@ -162,6 +162,29 @@ test('duplicate Content-Type values still embed image and CSS resources', async 
   expect(background.style.backgroundImage).toContain('asset:background')
 })
 
+test('a failed image request uses the configured placeholder without changing the source', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:20px;height:20px'
+  const image = document.createElement('img')
+  image.width = 20
+  image.height = 20
+  image.src = '/base/test/resources/missing-for-placeholder.png'
+  root.append(image)
+  const placeholder = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="red"/></svg>',
+  )}`
+
+  const output = await toImageData(root, {
+    pixelRatio: 1,
+    skipFonts: true,
+    imagePlaceholder: placeholder,
+  })
+  expect(pixel(output, 10, 10)).toEqual([255, 0, 0, 255])
+  expect(image.getAttribute('src')).toBe(
+    '/base/test/resources/missing-for-placeholder.png',
+  )
+})
+
 test('per-node clone callback changes output pixels but leaves the source alone', async () => {
   const root = attach(document.createElement('div'))
   root.style.cssText = 'width:40px;height:20px;background:red'

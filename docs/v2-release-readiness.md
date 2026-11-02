@@ -2,6 +2,8 @@
 
 本页记录可复核的切换条件和执行结果。通过验收的 V2 已于 2026-11-02 合并为 `master`；npm 另行发布，发布命令仅在单独的手动工作流中执行。真实 iPhone Safari 在切换前通过。
 
+下面的表格保留切换 `master` 当时的证据。后续 `codex/test-architecture-v2` 分支已将原有 115 项回归迁到 Vitest Chromium，移除 Karma/Jasmine；Vitest V8 的 LCOV 成为唯一覆盖率来源。该后续变更须以自身的 PR CI、Codecov patch/project 和发布包检查验收，不能继承旧候选提交的验收结论。详见 [测试架构](test-architecture.md)。
+
 ## 版本身份
 
 - 当前 npm `latest`：`html-to-image@1.11.13`；发布源码由 `v1.11.13` 标记，提交为 `995728147e4459a58188af51b5fcc3f8a7010207`。
@@ -18,7 +20,7 @@
 | 真实 Apple 移动端 | 用户确认的 iPhone 16 Pro 在 Safari 中对最终候选 `ba99c76` 完成 8/8 项，ESM、UMD、滚动、裁剪、跨源 CSS、重复响应头和大图均通过；自动报告 ID `268bced9-b6c1-4eab-9b43-d9959d6dcd56`。浏览器 UA 报 iOS 18.7、Safari `Version/26.6.1`，DPR 3。 | 已通过；合并后的 `master` 文件树与该候选完全一致。 |
 | 性能与资源 | [400 节点基线复核](v2-performance.md)显示三引擎 PNG 像素和尺寸正确；Chromium 约慢 12–18%，Firefox/WebKit 多轮接近基线；Chromium 垃圾回收后 20 与 100 次导出的 JS 堆增量相近。真实 iPhone 16 Pro 的随机大图首次中心像素为空，稳定化后为预期的 `0,255,0,255`，四角标记断言通过。 | 若后续稳定出现大幅退化，先定位根因；当前大图可用性已通过。 |
 | 发布流程 | `release.yml` 改为手动触发，复用完整 CI，发布前校验实际 npm 包、`master` SHA、预期版本和 npm 前一版本；旧自动发布入口已移除。合并推送没有触发 Release，npm `latest` 仍是 1.11.13。 | master 切换已完成；手动发布工作流尚未实际触发。npm 发布前审阅 semantic-release dry run 的预期 `2.0.0` 和版本说明。 |
-| 依赖审计 | 公共 npm registry 的 `pnpm audit --prod` 对当前包报告 0 项；完整开发锁文件报告 140 项，其中 12 项严重。直接升至 TypeScript 5.5.4 会使旧 Karma 模块打包失效，试验已撤回。用户选择旧 Karma 回归并行运行，迁移另行推进。 | 发布前复核最终锁文件及开发工具链告警；旧 Karma 109 项与新浏览器测试必须继续同时通过。 |
+| 依赖审计 | 切换当日公共 npm registry 的 `pnpm audit --prod` 报告 0 项；当时完整开发锁文件报告 140 项，其中 12 项严重。直接升至 TypeScript 5.5.4 曾使旧 Karma 模块打包失效，试验已撤回。 | 发布前复核最终锁文件及开发工具链告警；后续测试链升级以该分支自己的 Vitest 回归和三浏览器结果为准。 |
 
 ## 切换和发布顺序
 

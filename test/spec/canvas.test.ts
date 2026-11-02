@@ -18,9 +18,17 @@ describe('work with canvas element', () => {
     try {
       const svg = await getSvgDocument(await toSvg(canvas, { skipFonts: true }))
       expect(svg.querySelector('img[src^="data:image/png"]')).not.toBeNull()
-      const image = await toImageData(canvas, { pixelRatio: 1, skipFonts: true })
+      const image = await toImageData(canvas, {
+        pixelRatio: 1,
+        skipFonts: true,
+      })
       const pixel = (x: number) =>
-        Array.from(image.data.slice(4 * (8 * image.width + x), 4 * (8 * image.width + x) + 4))
+        Array.from(
+          image.data.slice(
+            4 * (8 * image.width + x),
+            4 * (8 * image.width + x) + 4,
+          ),
+        )
       expect([image.width, image.height]).toEqual([32, 16])
       expect(pixel(8)).toEqual([255, 0, 0, 255])
       expect(pixel(24)).toEqual([0, 0, 255, 255])

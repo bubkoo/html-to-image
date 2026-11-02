@@ -240,7 +240,9 @@ export function createImage(
     }
     img.onerror = () => fail(new Error('Image could not be loaded'))
     img.crossOrigin = 'anonymous'
-    img.decoding = 'async'
+    // WebKit can paint a nested image inside the exported SVG before an
+    // async-decoded data URL is ready, leaving canvas and video pixels blank.
+    img.decoding = 'sync'
     img.src = url
   })
 }

@@ -23,8 +23,8 @@ describe('embeding', () => {
   })
 
   describe('embed', () => {
-    it('should embed url', (done) => {
-      embeding
+    it('should embed url', async () => {
+      await embeding
         .embed(
           'url(http://acme.com/image.png), url(foo.com)',
           'http://acme.com/image.png',
@@ -35,12 +35,10 @@ describe('embeding', () => {
         .then((result) => {
           expect(result).toEqual('url(data:image/png;base64,AAA), url(foo.com)')
         })
-        .then(done)
-        .catch(done)
     })
 
-    it('should resolve urls if base url given', (done) => {
-      embeding
+    it('should resolve urls if base url given', async () => {
+      await embeding
         .embed(
           'url(images/image.png)',
           'images/image.png',
@@ -58,8 +56,6 @@ describe('embeding', () => {
         .then((result) => {
           expect(result).toEqual('url(data:image/png;base64,AAA)')
         })
-        .then(done)
-        .catch(done)
     })
   })
 })

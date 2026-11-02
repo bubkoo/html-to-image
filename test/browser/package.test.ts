@@ -80,3 +80,54 @@ test('built UMD global renders pixels in a browser', async ({ page }) => {
   })
   expect(result).toEqual({ width: 32, height: 32, pixel: [255, 0, 0, 255] })
 })
+
+test('built UMD preserves canvas pixels inside the exported image', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const pixels = await page.evaluate(async () => {
+    const source = document.createElement('canvas')
+    source.width = 16
+    source.height = 8
+    source.style.cssText = 'display:block;width:32px;height:16px'
+    const context = source.getContext('2d')!
+    context.fillStyle = 'red'
+    context.fillRect(0, 0, 8, 8)
+    context.fillStyle = 'blue'
+    context.fillRect(8, 0, 8, 8)
+    document.body.append(source)
+    const api = (
+      window as typeof window & {
+        htmlToImage?: {
+          toImageData: (
+            node: HTMLElement,
+            options: { pixelRatio: number; skipFonts: boolean },
+          ) => Promise<ImageData>
+        }
+      }
+    ).htmlToImage
+    if (!api) throw new Error('UMD global missing')
+    const image = await api.toImageData(source, {
+      pixelRatio: 1,
+      skipFonts: true,
+    })
+    const pixel = (x: number) =>
+      Array.from(
+        image.data.slice(
+          4 * (8 * image.width + x),
+          4 * (8 * image.width + x) + 4,
+        ),
+      )
+    return {
+      size: [image.width, image.height],
+      red: pixel(8),
+      blue: pixel(24),
+    }
+  })
+  expect(pixels).toEqual({
+    size: [32, 16],
+    red: [255, 0, 0, 255],
+    blue: [0, 0, 255, 255],
+  })
+})
