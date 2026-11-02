@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises'
 const cases = [
   'ESM import and basic PNG',
   'UMD global and pixels',
+  'canvas snapshot pixels',
   'per-node customization',
   'nested visible scroll position',
   'same-document clip path',

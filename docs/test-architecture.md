@@ -12,7 +12,7 @@ V2 的主要风险发生在浏览器真实渲染和发布包解析阶段。Karma
 
 旧用例保留原 fixture、断言和文件归属；回调式完成信号已改成原生 `async`，Jasmine spy 与异步匹配器已改为 Vitest API。测试入口统一为 `*.test.ts`。旧回归只在 Chromium 运行，因为其固定 PNG 参考图与字体、浏览器像素实现耦合；跨浏览器风险由独立的语义、关键像素和发布包用例验证。`vitest.browser.config.mts` 预优化 `pixelmatch`，防止首次冷启动时依赖优化重载测试页。
 
-首批迁移的高风险场景：原生 ESM 导入、嵌套滚动的可见位置、大尺寸 data URL 图片的稳定化输出，以及 SVG `foreignObject` 的过滤。`test/browser/smoke.html` 无参数时运行全部场景并把结果保存到 Mac 的 `test-results/mobile-smoke-reports/`；`?case=` 让 Playwright 为每个场景使用独立页面。完整页面及报告回传在三种桌面浏览器自动检查，真实 iOS 仍须单独验收。
+首批迁移的高风险场景：原生 ESM 导入、嵌套滚动的可见位置、大尺寸 data URL 图片的稳定化输出、canvas 快照像素，以及 SVG `foreignObject` 的过滤。`test/browser/smoke.html` 无参数时运行全部场景并把结果保存到 Mac 的 `test-results/mobile-smoke-reports/`；`?case=` 让 Playwright 为每个场景使用独立页面。完整页面及报告回传在三种桌面浏览器自动检查，真实 iOS 仍须单独验收。
 
 测试断言优先检查输出像素、SVG 内容、资源请求和源 DOM 是否保持不变。大图使用随机内容避免缓存掩盖首次加载问题，固定中心绿色标记用于像素断言。不要仅以 Promise 成功或非空 data URL 判断图片正确。整图快照仅适合字体、浏览器版本和运行系统都固定的少量场景。
 
