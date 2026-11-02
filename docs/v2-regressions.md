@@ -12,9 +12,11 @@ successful Promise alone is insufficient.
 | Style-property options leaking between captures | `renderer.spec.ts`: concurrent style selections and frozen options |
 | Pseudo-element property selection leaking between captures | `renderer.spec.ts`: independent `::before` CSS declarations for two captures |
 | Resource request deduplication and query identity | `renderer.spec.ts`: pending requests, separate captures, query variants |
+| Repeated response `Content-Type` corrupts embedded data URLs | `renderer.spec.ts`: failing-before-fix Blob and repeated `Response` header; `test/browser-unit/capture.test.ts`: image and extensionless CSS background pixels across three engines; `test/browser/package.spec.ts`: built ESM with an HTTP server sending duplicate header fields, checking joined header, embedded MIME, pixels and unchanged source |
 | `cacheBust` bypassing a previous capture | `renderer.spec.ts`: fetches again for each capture |
 | Blob MIME/quality and full scaled pixel buffer | `renderer.spec.ts`: Blob MIME with zero quality; non-unit pixel ratio |
 | Clone transforms, exclusions, SVG descendant filtering | `renderer.spec.ts`: asynchronous transforms, excluded subtree, SVG styles and `filter`, including `foreignObject`; `test/browser-unit/capture.test.ts` cross-browser filter case |
+| Per-node clone and computed-style customization | `renderer.spec.ts`: child-first callback order, excluded nodes, SVG descendants, source immutability, style list/empty/full, pseudo styles and errors; `test/browser-unit/capture.test.ts`: clone output pixel and selected CSS in three engines; built ESM smoke and installed tarball type smoke |
 | Iframe body cloned twice | `renderer.spec.ts`: same-origin iframe body exactly once |
 | Relative CSS image URL and local fragment URL | `renderer.spec.ts`: relative CSS URL; fragment-only reference |
 | Absolute or root-relative same-document clip-path URL breaks after SVG serialization | `renderer.spec.ts`: copied attribute/style and unchanged source; `test/browser-unit/clip-path.test.ts`: SVG attribute, inline style and stylesheet cases check serialized local fragment, output pixels and unchanged source across three engines; different path/query/origin stay unchanged; `test/browser/package.spec.ts` checks built ESM pixels across three engines |
@@ -22,6 +24,7 @@ successful Promise alone is insufficient.
 | Image embedding error behavior | `on-image-error-handler.spec.ts`: awaited error callback and rejection without a handler |
 | Font collection without live CSSOM mutation | `webfont.spec.ts`: used font and source stylesheet; grouped adopted stylesheet |
 | Image decode rejection and animation-frame delay | `renderer.spec.ts`: usable decode rejection without animation frame |
+| Data URL image resolves before decode is ready | `renderer.spec.ts`: deferred `decode()` keeps `embedImages` pending, then completes without replacing the image method; built-package random large-image pixels cover the real raster path |
 | XML-invalid controls and literal textarea content | `renderer.spec.ts`: control characters; textarea markup |
 | Nested vertical/horizontal scroll viewport | `scroll.spec.ts`: green visible row and unchanged source offsets; `test/browser-unit/capture.test.ts` and `test/browser/package.spec.ts` cross-browser pixel cases |
 | Existing child transform lost during scroll correction | `scroll.spec.ts`: transformed green row visible and original transform retained |

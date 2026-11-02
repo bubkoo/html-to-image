@@ -128,3 +128,77 @@ test('a custom element with an open shadow root renders its content', async () =
   expect(pixel(image, 38, 18)).toEqual([0, 128, 0, 255])
   expect(host.shadowRoot!.textContent).toContain('shadow content')
 })
+
+test('duplicate Content-Type values still embed image and CSS resources', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:20px;display:flex'
+  const image = document.createElement('img')
+  image.src = 'asset:foreground'
+  image.width = 20
+  image.height = 20
+  const background = document.createElement('div')
+  background.style.cssText =
+    'width:20px;height:20px;background-image:url(asset:background)'
+  root.append(image, background)
+
+  const output = await toImageData(root, {
+    pixelRatio: 1,
+    skipFonts: true,
+    resources: {
+      resolve: ({ url }) =>
+        new Blob(
+          [
+            `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="${
+              url.endsWith('foreground') ? 'red' : 'green'
+            }"/></svg>`,
+          ],
+          { type: 'image/svg+xml, image/svg+xml' },
+        ),
+    },
+  })
+  expect(pixel(output, 10, 10)).toEqual([255, 0, 0, 255])
+  expect(pixel(output, 30, 10)).toEqual([0, 128, 0, 255])
+  expect(image.src).toBe('asset:foreground')
+  expect(background.style.backgroundImage).toContain('asset:background')
+})
+
+test('per-node clone callback changes output pixels but leaves the source alone', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:20px;background:red'
+  const image = await toImageData(root, {
+    pixelRatio: 1,
+    skipFonts: true,
+    onCloneNode: (original, copy) => {
+      if (original === root) (copy as HTMLElement).style.background = 'green'
+    },
+  })
+  expect(pixel(image, 20, 10)).toEqual([0, 128, 0, 255])
+  expect(root.style.background).toBe('red')
+})
+
+test('per-node style selection overrides the global computed-style list', async () => {
+  const sheet = document.createElement('style')
+  sheet.textContent = '.style-child { background: green; color: blue }'
+  document.head.append(sheet)
+  nodes.push(sheet)
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:20px'
+  const child = document.createElement('div')
+  child.className = 'style-child'
+  child.style.cssText = 'width:40px;height:20px'
+  root.append(child)
+
+  const dataURL = await toSvg(root, {
+    skipFonts: true,
+    includeStyleProperties: ['color'],
+    stylePropertiesForNode: (original) =>
+      original === child ? ['background-color'] : undefined,
+  })
+  const source = await fetch(dataURL).then((response) => response.text())
+  const svg = new DOMParser().parseFromString(source, 'image/svg+xml')
+  const copy = svg.querySelector('.style-child') as HTMLElement
+  expect(copy.style.backgroundColor).toBe('rgb(0, 128, 0)')
+  expect(copy.style.color).toBe('')
+  expect(child.style.backgroundColor).toBe('')
+  expect(child.style.color).toBe('')
+})

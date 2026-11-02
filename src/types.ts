@@ -3,6 +3,10 @@ export interface Options {
   exclude?: readonly string[]
   /** Transform the detached copy before its resources are discovered. */
   onClone?: CloneTransform
+  /** Synchronously edit each detached element after its children and styles are copied. */
+  onCloneNode?: (original: CaptureNode, copy: CaptureNode) => void
+  /** Select computed properties for one element and its pseudo-elements. */
+  stylePropertiesForNode?: (node: CaptureNode) => readonly string[] | undefined
   /** Resource configuration scoped to this capture. */
   resources?: ResourceOptions
   /** Extensions run in registration order. Duplicate names are rejected. */

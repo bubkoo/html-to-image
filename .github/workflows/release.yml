@@ -1,69 +1,105 @@
 name: 🚀　Release
+
+# A master merge must not publish npm before the V2 release gates are reviewed.
 on:
-  push:
-    branches:
-      - master
-      - next
-      - next-major
-      - alpha
-      - beta
+  workflow_dispatch:
+    inputs:
+      expected_version:
+        description: Version expected from semantic-release, for example 2.0.0
+        required: true
+        type: string
+
+concurrency:
+  group: npm-release-master
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write
+
 jobs:
-  run:
+  verify:
+    if: github.ref == 'refs/heads/master'
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    needs: verify
     runs-on: ubuntu-latest
     steps:
-      - name: ⤵️　Checkout
-        uses: actions/checkout@v3
+      - name: ⤵️　Checkout exact verified revision
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
+          ref: ${{ github.sha }}
 
-      - name: 🎉　Setup nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
+      - name: 🧾　Verify master has not moved
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/master | cut -f1)" = "$GITHUB_SHA"
 
       - name: 🎉　Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 7
+          version: 8.15.9
           run_install: false
 
-      - name: 🌱　Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: 🚸　Setup pnpm cache
-        uses: actions/cache@v3
+      - name: 🎉　Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 24
+          cache: pnpm
 
       - name: 🚧　Install dependencies
-        run: pnpm install --no-frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
-      - name: 📦　Build
+      - name: 📦　Build the package to publish
         run: pnpm run build
 
-      - name: ✅　Test
-        run: pnpm run test
+      - name: 🔎　Verify the actual npm tarball
+        run: pnpm run test:package
 
-      - name: 🔑　Generate Token
+      - name: 🔑　Generate bot token
         uses: wow-actions/use-app-token@v2
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
 
-      - name: 📦　Semantic Release
-        uses: cycjimmy/semantic-release-action@v3
-        id: semantic
+      - name: 🧮　Plan release without publishing
+        id: plan
+        uses: cycjimmy/semantic-release-action@v4
         with:
-          extends: '@bubkoo/semantic-release-config'
+          dry_run: true
+          semantic_version: 24.2.9
+          extends: '@bubkoo/semantic-release-config@1.6.1'
           extra_plugins: |
-            @semantic-release/changelog
-            @semantic-release/git
+            @semantic-release/changelog@6
+            @semantic-release/git@10
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
+
+      - name: 🧾　Verify planned version and npm predecessor
+        env:
+          EXPECTED_VERSION: ${{ inputs.expected_version }}
+          PLANNED_VERSION: ${{ steps.plan.outputs.new_release_version }}
+          PREVIOUS_VERSION: ${{ steps.plan.outputs.last_release_version }}
+        run: |
+          test -n "$PLANNED_VERSION"
+          test "$PLANNED_VERSION" = "$EXPECTED_VERSION"
+          test "$(npm view html-to-image version --registry=https://registry.npmjs.org)" = "$PREVIOUS_VERSION"
+          test "$(git ls-remote origin refs/heads/master | cut -f1)" = "$GITHUB_SHA"
+
+      - name: 📦　Publish npm and GitHub release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          semantic_version: 24.2.9
+          extends: '@bubkoo/semantic-release-config@1.6.1'
+          extra_plugins: |
+            @semantic-release/changelog@6
+            @semantic-release/git@10
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
@@ -72,15 +108,15 @@ jobs:
           GIT_COMMITTER_NAME: ${{ env.BOT_NAME }}[bot]
           GIT_COMMITTER_EMAIL: ${{ env.BOT_NAME }}[bot]@users.noreply.github.com
 
-      - name: 🎉　Setup Node.js with GitHub Package Registry
+      - name: 🎉　Setup GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 24
           registry-url: https://npm.pkg.github.com
           scope: bubkoo
 
-      - name: 🔀　Publish To GitHub Package Registry
+      - name: 🔀　Publish to GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           sed -i 's/\("name"\:[[:space:]]*"\)\(html-to-image"\)/\1@bubkoo\/\2/' package.json

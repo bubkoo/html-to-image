@@ -1,0 +1,17 @@
+# V2 性能复核
+
+2026-11-02 本机初测。基线是从公共 npm registry 下载并解包的 `html-to-image@1.11.13` UMD；候选是当前 V2 构建的 UMD。环境：macOS 26.5.2 / arm64、Playwright 1.64.1 的 Chromium、Firefox、WebKit。
+
+使用 [benchmark-capture.mjs](../scripts/benchmark-capture.mjs) 在独立浏览器页中生成 400 个 40×20 的节点，连续导出 4 次 40×8000 PNG。每次检查尺寸和左上角像素；丢弃首次耗时，取后三次中位数。重复运行三轮，得到：
+
+| 引擎 | npm 1.11.13 中位数范围 | V2 中位数范围 | V2 / 基线 |
+| --- | ---: | ---: | ---: |
+| Chromium | 181–184 ms | 209–213 ms | 1.15–1.18 |
+| Firefox | 151–166 ms | 165–169 ms | 0.99–1.09 |
+| WebKit | 157–162 ms | 163–164 ms | 1.01–1.04 |
+
+第一次独立运行曾得到 Firefox 2.10 倍；随后四轮未重现，三轮稳定结果如上。V2 的阶段事件显示克隆是主要耗时段，但尚不能将 Chromium 约 15% 的差距归因于某一具体函数。此数据只覆盖无外部资源、固定布局和本机浏览器；不能推断其他 DOM、iOS 或压力下的表现。
+
+Chromium 在垃圾回收后额外重复 20 次导出，JS 堆增量约为基线 22 KB、V2 50 KB；重复 100 次时分别约为 20 KB、45 KB，未见随次数线性增长。这是当前固定 fixture 的 JS 堆证据，不能证明其他资源或真实 iOS 无泄漏。切换前还需真实 iOS 的大图和内存压力结果。
+
+运行方法：先 `pnpm run build`，将 npm 1.11.13 压缩包解压到临时目录，然后执行 `node scripts/benchmark-capture.mjs <解压目录>/package/dist/html-to-image.js`。脚本输出每个引擎的 4 次耗时、V2 各阶段时刻、比值及 Chromium 的垃圾回收后堆差；`HTML_TO_IMAGE_HEAP_RUNS` 可改变内存复核的重复次数。

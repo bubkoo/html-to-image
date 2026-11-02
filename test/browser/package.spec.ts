@@ -2,10 +2,13 @@ import { expect, test } from '@playwright/test'
 
 const cases = [
   'ESM import and basic PNG',
+  'UMD global and pixels',
+  'per-node customization',
   'nested visible scroll position',
   'same-document clip path',
   'large embedded data image',
   'cross-origin stylesheet fallback',
+  'repeated Content-Type embeds image and CSS',
 ]
 
 cases.forEach((name) => {

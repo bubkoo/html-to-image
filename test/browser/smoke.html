@@ -19,6 +19,7 @@
     const results = document.querySelector('#results')
     const verdicts = []
     const selectedCase = new URLSearchParams(location.search).get('case')
+    verdicts.push(`INFO ${navigator.userAgent} DPR=${devicePixelRatio}`)
     const pixel = (image, x, y) =>
       Array.from(
         image.data.slice(
@@ -63,6 +64,47 @@
       if (pixel(image, 16, 16).join(',') !== '255,0,0,255') {
         throw new Error(`center pixel ${pixel(image, 16, 16)}`)
       }
+    })
+
+    await test('UMD global and pixels', async () => {
+      if (!window.htmlToImage) {
+        const script = document.createElement('script')
+        script.src = '/dist/html-to-image.js'
+        await new Promise((resolve, reject) => {
+          script.onload = resolve
+          script.onerror = () => reject(new Error('UMD script did not load'))
+          document.head.append(script)
+        })
+      }
+      const node = document.createElement('div')
+      node.style.cssText = 'width:20px;height:20px;background:rgb(255,0,0)'
+      document.body.append(node)
+      const image = await window.htmlToImage.toImageData(node, {
+        pixelRatio: 1,
+        skipFonts: true,
+      })
+      const color = pixel(image, 10, 10)
+      if (color.join(',') !== '255,0,0,255')
+        throw new Error(`UMD center pixel ${color}`)
+    })
+
+    await test('per-node customization', async () => {
+      const node = document.createElement('div')
+      node.style.cssText = 'width:20px;height:20px;background:red'
+      document.body.append(node)
+      const image = await toImageData(node, {
+        pixelRatio: 1,
+        skipFonts: true,
+        stylePropertiesForNode: () => ['background-color'],
+        onCloneNode: (original, copy) => {
+          if (original === node) copy.style.background = 'green'
+        },
+      })
+      const color = pixel(image, 10, 10)
+      if (color.join(',') !== '0,128,0,255')
+        throw new Error(`customized pixel ${color}`)
+      if (node.style.background !== 'red')
+        throw new Error('source style changed')
     })
 
     await test('nested visible scroll position', async () => {
@@ -123,7 +165,9 @@
     })
 
     await test('cross-origin stylesheet fallback', async () => {
-      const url = 'http://127.0.0.1:4174/test/browser/cross-origin.css'
+      const endpoint = new URL('/test/browser/cross-origin.css', location.href)
+      endpoint.port = '4174'
+      const url = endpoint.href
       const node = document.createElement('div')
       node.id = 'cross-origin-target'
       node.style.cssText = 'width:32px;height:32px'
@@ -160,6 +204,36 @@
         link.remove()
         node.remove()
       }
+    })
+
+    await test('repeated Content-Type embeds image and CSS', async () => {
+      const url = '/test/browser/duplicate-content-type'
+      const response = await fetch(url)
+      const types = response.headers.get('Content-Type')?.split(',').map((type) => type.trim())
+      if (types?.length !== 2 || types.some((type) => type !== 'image/svg+xml'))
+        throw new Error(`duplicate response header missing: ${response.headers.get('Content-Type')}`)
+      const node = document.createElement('div')
+      node.style.cssText = 'width:40px;height:20px;display:flex'
+      const image = document.createElement('img')
+      image.src = url
+      image.width = 20
+      image.height = 20
+      const background = document.createElement('div')
+      background.style.cssText = `width:20px;height:20px;background-image:url(${url})`
+      node.append(image, background)
+      document.body.append(node)
+      const options = { pixelRatio: 1, skipFonts: true }
+      const svg = await fetch(await toSvg(node, options)).then((res) => res.text())
+      if (!svg.includes('data:image/svg+xml;base64,'))
+        throw new Error('repeated media type was not normalized')
+      const output = await toImageData(node, options)
+      for (const x of [10, 30]) {
+        const color = pixel(output, x, 10)
+        if (color.join(',') !== '255,0,0,255')
+          throw new Error(`embedded pixel ${x},10: ${color}`)
+      }
+      if (image.src !== new URL(url, location.href).href)
+        throw new Error('source image URL changed')
     })
 
     await test('large embedded data image', async () => {

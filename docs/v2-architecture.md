@@ -24,6 +24,12 @@ multiple times and returns the last bitmap; it never re-clones the source DOM.
 ## Customization contract
 
 For a single capture, `onClone({ root, signal })` may edit the detached root.
+`onCloneNode(original, copy)` can edit each element's detached copy after its
+children and styles have been copied; it runs child-first, before `onClone`.
+`stylePropertiesForNode(original)` selects computed CSS properties for that
+element and its pseudo elements before copying; its `undefined` result means
+all properties, even when `includeStyleProperties` is set. These per-element
+callbacks are synchronous and do not touch the source DOM.
 For repeated captures, `plugins: [{ name, transformClone, resolveResource }]`
 adds named behavior. Registration order is deterministic: `onClone`, then each
 `transformClone`; only then are fonts and images discovered. Duplicate plugin

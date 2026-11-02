@@ -3,6 +3,8 @@ import { createRenderer, toBlob, toImageData, toSvg } from '../../src'
 import type { CaptureEvent, CapturePlugin, Options, Renderer } from '../../src'
 import { createImage } from '../../src/util'
 import { fetchAsDataURL } from '../../src/dataurl'
+import { blobToDataURL } from '../../src/resource-loader'
+import { embedImages } from '../../src/embed-images'
 import { getSvgDocument } from './helper'
 
 function imageBlob(color = 'red') {
@@ -247,6 +249,89 @@ describe('renderer and capture architecture', () => {
     expect(node.querySelector('img')).toBeNull()
   })
 
+  it('allows per-node clone edits before the whole-copy transform', async () => {
+    const node = element(
+      '<span class="omit">secret</span><span class="edit">live</span><svg width="8" height="8"><rect width="8" height="8"/></svg>',
+    )
+    const order: string[] = []
+    const svg = await getSvgDocument(
+      await renderer({
+        exclude: ['.omit'],
+        onCloneNode: (original, copy) => {
+          order.push(original.tagName.toLowerCase())
+          if (original.classList.contains('edit')) copy.textContent = 'copy'
+          if (original.tagName.toLowerCase() === 'rect')
+            copy.setAttribute('fill', 'green')
+        },
+        onClone: ({ root }) => {
+          order.push('whole')
+          expect(root.textContent).toContain('copy')
+        },
+      }).toSvg(node),
+    )
+    expect(order).toEqual(['span', 'rect', 'svg', 'div', 'whole'])
+    expect(svg.documentElement.textContent).toContain('copy')
+    expect(svg.documentElement.textContent).not.toContain('secret')
+    expect(svg.querySelector('rect')!.getAttribute('fill')).toBe('green')
+    expect(node.querySelector('.edit')!.textContent).toBe('live')
+    expect(node.querySelector('rect')!.hasAttribute('fill')).toBeFalse()
+    await expectAsync(
+      renderer({
+        onCloneNode: () => {
+          throw new Error('node edit failed')
+        },
+      }).toSvg(node),
+    ).toBeRejectedWithError('node edit failed')
+  })
+
+  it('selects computed styles per node without changing source styles', async () => {
+    const sheet = document.createElement('style')
+    sheet.textContent =
+      '.node-root { color: red } .node-child { color: green } .node-child::before { content: "marker"; color: blue }'
+    document.head.appendChild(sheet)
+    nodes.push(sheet)
+    const node = element('<span class="node-child">child</span>')
+    node.className = 'node-root'
+    const child = node.querySelector('span')!
+    const selection = Object.freeze(['color'])
+    const calls: string[] = []
+    const svg = await getSvgDocument(
+      await renderer({
+        includeStyleProperties: ['background-color'],
+        stylePropertiesForNode: (original) => {
+          calls.push(original.tagName.toLowerCase())
+          return original === node ? selection : undefined
+        },
+      }).toSvg(node),
+    )
+    const rootCopy = svg.querySelector('foreignObject > div') as HTMLElement
+    const childCopy = rootCopy.querySelector('span')!
+    expect(calls).toEqual(['span', 'div'])
+    expect(rootCopy.style.color).toBe('rgb(255, 0, 0)')
+    expect(rootCopy.style.backgroundColor).toBe('red')
+    expect(childCopy.style.color).toBe('rgb(0, 128, 0)')
+    expect(svg.querySelector('foreignObject style')!.textContent).toContain(
+      'color: rgb(0, 0, 255)',
+    )
+    expect(node.hasAttribute('style')).toBeTrue()
+    expect(child.hasAttribute('style')).toBeFalse()
+    expect(selection).toEqual(['color'])
+
+    const empty = await getSvgDocument(
+      await renderer({ stylePropertiesForNode: () => [] }).toSvg(node),
+    )
+    const emptyRoot = empty.querySelector('foreignObject > div') as HTMLElement
+    expect(emptyRoot.style.color).toBe('')
+    expect(emptyRoot.style.backgroundColor).toBe('red')
+    await expectAsync(
+      renderer({
+        stylePropertiesForNode: () => {
+          throw new Error('style selection failed')
+        },
+      }).toSvg(node),
+    ).toBeRejectedWithError('style selection failed')
+  })
+
   it('excludes subtrees without applying the legacy filter to the root', async () => {
     const node = element(
       '<span class="private">secret</span><span>visible</span>',
@@ -344,6 +429,72 @@ describe('renderer and capture architecture', () => {
       (svg.querySelector('foreignObject > div') as HTMLElement).style
         .backgroundImage,
     ).toContain('data:image/svg+xml')
+  })
+
+  it('keeps one valid MIME type when a response repeats Content-Type', async () => {
+    const duplicate = new Blob(['payload'], {
+      type: 'image/png, image/png',
+    })
+    expect(await blobToDataURL(duplicate)).toBe(
+      'data:image/png;base64,cGF5bG9hZA==',
+    )
+    expect(
+      await blobToDataURL(
+        new Blob(['payload'], { type: 'text/plain; note="a,b"' }),
+      ),
+    ).toBe('data:text/plain; note="a,b";base64,cGF5bG9hZA==')
+
+    const originalFetch = window.fetch.bind(window)
+    spyOn(window, 'fetch').and.callFake((input, init) =>
+      String(input).startsWith('asset:')
+        ? Promise.resolve(
+            new Response(imageBlob(), {
+              status: 200,
+              headers: { 'Content-Type': 'image/svg+xml, image/svg+xml' },
+            }),
+          )
+        : originalFetch(input, init),
+    )
+    const node = element('<img src="asset:pixel" width="8" height="8">')
+    const svg = await getSvgDocument(await renderer().toSvg(node))
+    const image = svg.querySelector('foreignObject img') as HTMLImageElement
+    expect(image.src).toMatch(/^data:image\/svg\+xml;base64,[^,]+$/)
+  })
+
+  it('waits for a data URL image decode without replacing its decode method', async () => {
+    const canvas = document.createElement('canvas')
+    canvas.width = canvas.height = 8
+    canvas.getContext('2d')!.fillRect(0, 0, 8, 8)
+    const image = document.createElement('img')
+    image.src = canvas.toDataURL()
+    let startDecode!: () => void
+    const decodingStarted = new Promise<void>((resolve) => {
+      startDecode = resolve
+    })
+    let finishDecode!: () => void
+    const decoding = new Promise<void>((resolve) => {
+      finishDecode = resolve
+    })
+    spyOn(HTMLImageElement.prototype, 'decode').and.callFake(() => {
+      startDecode()
+      return decoding
+    })
+    let completed = false
+    const embedding = embedImages(image, {}).then(() => {
+      completed = true
+    })
+    await Promise.race([
+      decodingStarted,
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('decode was not called')), 1000),
+      ),
+    ])
+    expect(completed).toBeFalse()
+    finishDecode()
+    await embedding
+    expect(completed).toBeTrue()
+    expect(typeof image.decode).toBe('function')
+    expect(image.naturalWidth).toBe(8)
   })
 
   it('deduplicates pending requests within a capture without sharing state across captures', async () => {

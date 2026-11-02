@@ -13,12 +13,30 @@ export class ResourceResolverError extends Error {
   }
 }
 
+function firstMediaType(type: string): string {
+  let quoted = false
+  let escaped = false
+  for (let i = 0; i < type.length; i += 1) {
+    const char = type[i]
+    if (escaped) escaped = false
+    else if (quoted && char === '\\') escaped = true
+    else if (char === '"') quoted = !quoted
+    else if (char === ',' && !quoted) return type.slice(0, i).trim()
+  }
+  return type
+}
+
 export function blobToDataURL(blob: Blob): Promise<string> {
   return new Promise((resolve, reject) => {
+    // FileReader copies Blob.type into the data URL. A repeated Content-Type
+    // header may arrive as "image/png, image/png", which is not a data URL MIME.
+    const mediaType = firstMediaType(blob.type)
+    const readable =
+      mediaType === blob.type ? blob : blob.slice(0, blob.size, mediaType)
     const reader = new FileReader()
     reader.onerror = () => reject(reader.error)
     reader.onload = () => resolve(reader.result as string)
-    reader.readAsDataURL(blob)
+    reader.readAsDataURL(readable)
   })
 }
 
