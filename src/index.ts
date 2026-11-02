@@ -50,7 +50,7 @@ export function toBlob<T extends CaptureNode>(node: T, options: Options = {}) {
 export function toPixelData<T extends CaptureNode>(
   node: T,
   options: Options = {},
-) {
+): Promise<Uint8ClampedArray> {
   return renderer.toPixelData(node, options)
 }
 

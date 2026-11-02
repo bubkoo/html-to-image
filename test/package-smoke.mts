@@ -1,4 +1,9 @@
-import { createRenderer, toPng, type CapturePlugin } from 'html-to-image'
+import {
+  createRenderer,
+  toPng,
+  toPixelData,
+  type CapturePlugin,
+} from 'html-to-image'
 
 const plugin: CapturePlugin = {
   name: 'typed-plugin',
@@ -20,6 +25,7 @@ const renderer = createRenderer({
 })
 const node = document.createElement('div')
 void toPng(node)
+void toPixelData(node).then((pixels: Uint8ClampedArray) => pixels.slice(0, 4))
 void renderer.capture(node).then(async (capture) => {
   const image = await capture.toImageData()
   image.data[0] = 255

@@ -97,24 +97,27 @@ assert.notEqual(esm.toPng, cjs.toPng, 'installed ESM resolved to CJS')
     join(isolated, 'consumer.mts'),
     await readFile(join(workspace, 'test/package-smoke.mts')),
   )
-  run(
-    process.execPath,
-    [
-      require.resolve('typescript/bin/tsc'),
-      '--noEmit',
-      '--module',
-      'nodenext',
-      '--moduleResolution',
-      'nodenext',
-      '--target',
-      'es2017',
-      '--skipLibCheck',
-      'consumer.mts',
-    ],
-    isolated,
-  )
+  for (const compiler of ['typescript', 'typescript-compat']) {
+    run(
+      process.execPath,
+      [
+        require.resolve(`${compiler}/bin/tsc`),
+        '--noEmit',
+        '--module',
+        'nodenext',
+        '--moduleResolution',
+        'nodenext',
+        '--target',
+        'es2017',
+        'consumer.mts',
+      ],
+      isolated,
+    )
+  }
 
-  console.log('Package smoke passed: installed tarball ESM, CJS, UMD, types')
+  console.log(
+    'Package smoke passed: installed tarball ESM, CJS, UMD, types (TS 4.9 and current)',
+  )
 } finally {
   await rm(isolated, { recursive: true, force: true })
 }

@@ -22,6 +22,10 @@
 | 发布流程 | `release.yml` 改为手动触发，复用完整 CI，发布前校验实际 npm 包、`master` SHA、预期版本和 npm 前一版本；旧自动发布入口已移除。合并推送没有触发 Release，npm `latest` 仍是 1.11.13。 | master 切换已完成；手动发布工作流尚未实际触发。npm 发布前审阅 semantic-release dry run 的预期 `2.0.0` 和版本说明。 |
 | 依赖审计 | 切换当日公共 npm registry 的 `pnpm audit --prod` 报告 0 项；当时完整开发锁文件报告 140 项，其中 12 项严重。直接升至 TypeScript 5.5.4 曾使旧 Karma 模块打包失效，试验已撤回。 | 发布前复核最终锁文件及开发工具链告警；后续测试链升级以该分支自己的 Vitest 回归和三浏览器结果为准。 |
 
+## 2026-11-02 后续工具链升级
+
+切换 `master` 后，旧检出目录中的工具链升级试验已选择性移入现行 Vitest 测试链。保留 TypeScript 5.9、Rollup 4、ESLint 10、pnpm 10 和真实压缩包的 TypeScript 4.9/5.9 双版本类型检查；旧 Karma/Jasmine 打包、插桩和适配器均未恢复。公开 `toPixelData` 返回值显式标为 `Promise<Uint8ClampedArray>`，避免新编译器生成旧消费端无法解析的泛型声明。本地验证：覆盖率回归 138/138、三引擎源码行为 69/69、三引擎构建包 39/39，lint、构建、浏览器测试类型检查和隔离安装的压缩包检查通过；当次完整开发锁文件的 `pnpm audit --json` 报告 0 项。该记录是后续提交的本地结果，不能代替其远端 CI 或真实 iOS 对后续提交的复验。
+
 ## 切换和发布顺序
 
 1. 已完成：最终候选通过，PR #600 解除草稿并采用 rebase 合并；`BREAKING CHANGE` 信息保留。手动发布工作流会用输入的预期版本阻止版本不符的发布。
