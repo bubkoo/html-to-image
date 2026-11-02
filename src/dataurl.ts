@@ -12,6 +12,33 @@ export function makeDataUrl(content: string, mimeType: string) {
   return `data:${mimeType};base64,${content}`
 }
 
+// A response that sends Content-Type more than once reaches fetch() with the values
+// joined into one header, e.g. "image/png, image/png", and the response blob carries
+// the same string (.NET MAUI's BlazorWebView on Android does this for every static
+// file it serves). Keep the first media type.
+function getFirstMediaType(contentType: string) {
+  return contentType.split(',')[0].trim()
+}
+
+const BASE64_MARKER = ';base64,'
+
+function withSingleMediaType(dataURL: string) {
+  const markerIndex = dataURL.indexOf(BASE64_MARKER)
+  if (markerIndex === -1) {
+    return dataURL
+  }
+
+  const mediaType = dataURL.slice('data:'.length, markerIndex)
+  if (!mediaType.includes(',')) {
+    return dataURL
+  }
+
+  return makeDataUrl(
+    dataURL.slice(markerIndex + BASE64_MARKER.length),
+    getFirstMediaType(mediaType),
+  )
+}
+
 export async function fetchAsDataURL<T>(
   url: string,
   init: RequestInit | undefined,
@@ -27,7 +54,12 @@ export async function fetchAsDataURL<T>(
     reader.onerror = reject
     reader.onloadend = () => {
       try {
-        resolve(process({ res, result: reader.result as string }))
+        resolve(
+          process({
+            res,
+            result: withSingleMediaType(reader.result as string),
+          }),
+        )
       } catch (error) {
         reject(error)
       }
@@ -87,7 +119,7 @@ export async function resourceToDataURL(
       ({ res, result }) => {
         if (!contentType) {
           // eslint-disable-next-line no-param-reassign
-          contentType = res.headers.get('Content-Type') || ''
+          contentType = getFirstMediaType(res.headers.get('Content-Type') || '')
         }
         return getContentFromDataUrl(result)
       },
