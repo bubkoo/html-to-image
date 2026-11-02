@@ -15,8 +15,8 @@
 | 架构契约与兼容入口 | `createRenderer` / `capture` 的冻结、复用、释放、插件顺序和资源隔离已有源码回归；旧 `toPng` 等入口保留。 | 用实际应用 fixture 复核 SVG、Shadow DOM、iframe、滚动与字体；明确不支持的布局和异常行为。 |
 | 每项修复的回归 | [变更与测试映射](v2-regressions.md) 记录了当前已修复项；Issue #601 有失败对照和跨浏览器像素验证。 | 所有新纳入 V2 的缺陷先补失败用例，再修复并更新 [Issue/PR 台账](v2-issue-pr-tracker.md)。 |
 | 三引擎及发布包 | 本地 Karma 109、Vitest Browser Mode 45、构建包 Playwright 30 均通过；实际 npm 压缩包的 ESM/CJS/UMD/类型检查通过。完整移动端验收页也在三种桌面浏览器自动运行并检查全部八项结果。[PR #600 CI](https://github.com/bubkoo/html-to-image/actions/runs/41381953888)、[CodeQL v4](https://github.com/bubkoo/html-to-image/actions/runs/41381953847) 和 Codecov 两项检查已在 `4b17399` 通过。 | 最终切换提交的自动 CI 与安全检查也须通过。 |
-| 真实 Apple 移动端 | 目前只有桌面 WebKit 和本机 Safari 的局部证据。 | 在真实 iPhone/iPad Safari 对最终构建的 ESM/UMD 跑图片、滚动、裁剪、大图空白、重复响应头等用例，记录机型、iOS/Safari 版本、结果与截图或日志。模拟器不替代此项。 |
-| 性能与资源 | [400 节点基线复核](v2-performance.md)显示三引擎 PNG 像素和尺寸正确；Chromium 约慢 12–18%，Firefox/WebKit 多轮接近基线；Chromium 垃圾回收后 20 与 100 次导出的 JS 堆增量相近。 | 核对真实 iOS 的大图/压力表现；若稳定出现大幅退化，先定位根因。 |
+| 真实 Apple 移动端 | 用户确认的 iPhone 16 Pro 在 Safari 中对 `0d64c5b` 构建完成 8/8 项，ESM、UMD、滚动、裁剪、跨源 CSS、重复响应头和大图均通过；自动报告 ID `b1dd0fd0-bd63-4dca-b3ef-987461a5aa2b`。浏览器 UA 报 iOS 18.7、Safari `Version/26.6.1`，DPR 3。 | 文档记录提交后，在最终候选 SHA 上再刷新一次，核对报告 SHA 和完整结果。 |
+| 性能与资源 | [400 节点基线复核](v2-performance.md)显示三引擎 PNG 像素和尺寸正确；Chromium 约慢 12–18%，Firefox/WebKit 多轮接近基线；Chromium 垃圾回收后 20 与 100 次导出的 JS 堆增量相近。真实 iPhone 16 Pro 的随机大图首次中心像素为空，稳定化后为预期的 `0,255,0,255`，四角标记断言通过。 | 若后续稳定出现大幅退化，先定位根因；当前大图可用性已通过。 |
 | 发布流程 | `release.yml` 改为手动触发，复用完整 CI，发布前校验实际 npm 包、`master` SHA、预期版本和 npm 前一版本；旧自动发布入口已移除。 | GitHub 验证新工作流；切换时确认 `master` 推送只运行 CI/安全检查而不发布。npm 发布前审阅 semantic-release dry run 的预期 `2.0.0` 和版本说明。 |
 | 依赖审计 | 公共 npm registry 的 `pnpm audit --prod` 对当前包报告 0 项；完整开发锁文件报告 140 项，其中 12 项严重。直接升至 TypeScript 5.5.4 会使旧 Karma 模块打包失效，试验已撤回。用户选择旧 Karma 回归并行运行，迁移另行推进。 | 发布前复核最终锁文件及开发工具链告警；旧 Karma 109 项与新浏览器测试必须继续同时通过。 |
 
@@ -27,6 +27,12 @@
 3. 单独决定 npm 发布时，在 `master` 手动运行 Release 工作流并输入预期版本；工作流重测同一 SHA、试算版本并核对 npm 前一版本，然后才发布。发布后核对 npm tarball、GitHub tag 和实际安装消费。
 
 现在未达到第 1 步；不要提前更新 `master` 或声称 Issue 已在 npm 版本修复。
+
+## 真实设备验收记录
+
+2026-11-02，用户确认设备为 iPhone 16 Pro，并在 Safari 打开本机验收页。服务端收到的报告记录候选提交 `0d64c5bb5ca75950446a687069ebd2b779d9b9e2`、设备 UA `iPhone; CPU iPhone OS 18_7`、Safari `Version/26.6.1`、DPR 3、视口 980×1741。八项均为 `PASS`，无 `FAIL`；随机大图中心首次为 `0,0,0,0`，稳定化后为 `0,255,0,255`。原始 JSON 位于本机被 Git 忽略的 `test-results/mobile-smoke-reports/b1dd0fd0-bd63-4dca-b3ef-987461a5aa2b.json`。报告自动附加服务端时间、提交 SHA 与请求地址；UA 和设备型号分别来自浏览器与设备持有人，不能当成设备硬件的加密证明。
+
+旧 `master` 的 `pull_request_target` 工作流仍会检出 `e842e84`，曾在旧视频参考图上失败。该结果不能代表 V2；V2 的有效 CI 证据应使用 `pull_request` 事件，核对其 merge commit 的 PR head 与本分支 SHA。切换后旧工作流触发器不再存在。
 
 ## 真实 iOS 验收页
 
