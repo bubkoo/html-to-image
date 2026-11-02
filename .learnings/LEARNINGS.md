@@ -265,3 +265,99 @@ Issue #579 的最小浏览器用例在修复前显示：SVG 属性、内联样�
 - Validation: verified（本地及 PR #600 run 41379640499 的三浏览器与构建产物测试）
 - Last-Validated: 2026-11-02
 - Evidence: ../test/browser-unit/clip-path.test.ts ; ../test/browser/smoke.html
+
+## [LRN-20261102-010] unexpected_behavior
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: high
+**Status**: resolved
+**Area**: resources
+
+### Summary
+重复的 HTTP `Content-Type` 在不同浏览器中会以带逗号的 Blob.type 进入 `FileReader`，直接生成无效 data URL；Firefox 合并头字段时不一定在逗号后加空格。
+
+### Details
+Issue #601 的失败对照产生 `data:image/png, image/png;base64,...`。V2 的图片、CSS 背景和字体都共用 `blobToDataURL`，因此在入口修正 Blob 的媒体类型即可覆盖三个路径；只截取引号之外的第一个逗号，避免破坏合法引号参数。Karma 用例在修复前失败；修复后本地 Karma、三浏览器源码和经真实重复 HTTP 头的构建 ESM 像素回归通过。响应头断言需按逗号拆分并 trim，不能要求固定空格。
+
+### Suggested Action
+资源嵌入故障先检查原始响应头、`Response.blob().type`、生成的 data URL 和最终像素，并在实际构建包的 HTTP 路径验证。
+
+### Metadata
+- Source: investigation
+- Related Files: ../src/resource-loader.ts, ../test/spec/renderer.spec.ts, ../test/browser-unit/capture.test.ts, ../test/browser/server.mjs
+- Pattern-Key: resources.duplicate-content-type-dataurl
+
+### Context Maintenance
+- Scope: html-to-image V2 的 Blob 转 data URL 路径；Android MAUI WebView 原场景未复测
+- Authority: 本地失败对照、Karma 106、三浏览器源码 39、构建包 24 通过
+- Revalidation: Blob/FileReader 行为、资源加载路径或浏览器版本变化后重跑
+- Validation: verified locally
+- Last-Validated: 2026-11-02
+- Evidence: ../test/browser/package.spec.ts ; ../test/browser/smoke.html
+
+### Resolution
+共用资源转换入口先修正重复 MIME，再交给 `FileReader`；源响应和源 DOM 不变。
+
+## [LRN-20261102-011] project_pattern
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: high
+**Status**: active
+**Area**: release
+
+### Summary
+本项目旧 `master` 不是当前 npm 包的精确发布源码，而且旧发布工作流会在任何 `master` 推送后自动运行；V2 切换必须分别保存两种版本身份并隔离 npm 发布。
+
+### Details
+公共 npm registry 的 `html-to-image@1.11.13` 指向 `gitHead=9957281`，与 Git 标签 `v1.11.13` 一致；切换前 `master=e842e84`，中间 26 个提交。已将原 `master` 原样归档到远端 `archive/pre-v2-master`。旧共享 semantic-release 配置按普通 `feat` 规划次版本，只有带 `BREAKING CHANGE` 的提交会规划主版本；旧 release workflow 在推送 `master` 时自动发布且只跑旧测试。V2 工作流已改为手动发布，发布前复用 CI、核对主分支 SHA、实际压缩包、试算版本与 npm 前一版本。真正的远端手动发布路径要在切换后验证。
+
+### Suggested Action
+主分支迁移先核对 npm `gitHead`、发布标签和主分支各自的 SHA；保存旧主分支，再让发布工作流独立于合并触发，并在发布前强制检查预期版本。
+
+### Metadata
+- Source: investigation
+- Related Files: ../.github/workflows/ci.yml, ../.github/workflows/release.yml, ../docs/v2-release-readiness.md
+- Pattern-Key: release.archive-master-separate-npm
+
+### Context Maintenance
+- Scope: html-to-image 从 1.11.13 迁移到 V2 的主分支切换
+- Authority: 公共 npm registry 元数据、本地 Git 标签与历史、远端归档分支指针、共享发布配置
+- Revalidation: npm latest、master 指针或发布工作流变化时重查
+- Validation: archive verified; release workflow statically validated, remote dispatch pending
+- Last-Validated: 2026-11-02
+- Evidence: ../docs/v2-release-readiness.md
+
+### Resolution
+原 `master` 已归档；V2 通过验收后才切换；npm 另行手动发布。
+
+## [LRN-20261102-012] project_pattern
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: customization
+
+### Summary
+逐节点定制需要两个不同的时点：计算样式复制前选择属性，子节点与样式复制后修改副本；同一次属性选择还必须传给伪元素。
+
+### Details
+V2 的 `onClone` 可以改整份副本，但无法可靠地把源元素映射回各副本。`onCloneNode` 在递归装饰末尾运行，子先于父，便于按源元素修改 copy；`stylePropertiesForNode` 在复制计算样式前运行一次，结果同时传给主元素与 `::before`/`::after`。显式 `[]` 保留 inline 但不拷贝计算属性；`undefined` 表示完整计算列表，覆盖全局限制。带非空 `cssText` 的快速路径只在没有显式列表时可用。修复前两个新用例失败，修复后 Karma、三引擎源码及构建包通过。
+
+### Suggested Action
+扩展克隆流水线时先定义回调时点、遍历顺序、源 DOM 不变性和伪元素继承规则，再提供公共选项；用输出内容和像素共同检验。
+
+### Metadata
+- Source: investigation
+- Related Files: ../src/clone-node.ts, ../src/clone-pseudos.ts, ../src/types.ts, ../test/spec/renderer.spec.ts
+- Pattern-Key: customization.per-node-stage-contract
+
+### Context Maintenance
+- Scope: V2 的逐节点定制与样式选择，PR #597/#598 的独立实现
+- Authority: 修复前失败对照、Karma 108、三浏览器源码 45、构建包 27 和类型测试
+- Revalidation: 克隆顺序、CSSStyleDeclaration 路径或公开选项语义变化后重跑
+- Validation: verified locally
+- Last-Validated: 2026-11-02
+- Evidence: ../test/browser-unit/capture.test.ts ; ../test/browser/package.spec.ts
+
+### Resolution
+按阶段暴露两个同步入口，并保持每个节点的样式选择与伪元素一致。

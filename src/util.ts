@@ -67,11 +67,11 @@ export function toArray<T>(arrayLike: any): T[] {
 }
 
 export function getStyleProperties(
-  options: Options = {},
-  style: CSSStyleDeclaration | undefined = undefined,
-): string[] {
-  return options.includeStyleProperties != null
-    ? options.includeStyleProperties
+  style?: CSSStyleDeclaration,
+  selected?: readonly string[],
+): readonly string[] {
+  return selected != null
+    ? selected
     : toArray(style || window.getComputedStyle(document.documentElement))
 }
 

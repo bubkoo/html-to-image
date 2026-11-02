@@ -1,4 +1,3 @@
-import type { Options } from './types.js'
 import { uuid, getStyleProperties } from './util.js'
 
 type Pseudo = ':before' | ':after'
@@ -8,8 +7,11 @@ function formatCSSText(style: CSSStyleDeclaration) {
   return `${style.cssText} content: '${content.replace(/'|"/g, '')}';`
 }
 
-function formatCSSProperties(style: CSSStyleDeclaration, options: Options) {
-  return getStyleProperties(options, style)
+function formatCSSProperties(
+  style: CSSStyleDeclaration,
+  selected?: readonly string[],
+) {
+  return getStyleProperties(style, selected)
     .map((name) => {
       const value = style.getPropertyValue(name)
       const priority = style.getPropertyPriority(name)
@@ -23,13 +25,13 @@ function getPseudoElementStyle(
   className: string,
   pseudo: Pseudo,
   style: CSSStyleDeclaration,
-  options: Options,
+  selected?: readonly string[],
 ): Text {
   const selector = `.${className}:${pseudo}`
   const cssText =
-    style.cssText && options.includeStyleProperties == null
+    style.cssText && selected == null
       ? formatCSSText(style)
-      : formatCSSProperties(style, options)
+      : formatCSSProperties(style, selected)
 
   return document.createTextNode(`${selector}{${cssText}}`)
 }
@@ -38,7 +40,7 @@ function clonePseudoElement<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   pseudo: Pseudo,
-  options: Options,
+  selected?: readonly string[],
 ) {
   const style = (
     nativeNode.ownerDocument.defaultView || window
@@ -57,7 +59,7 @@ function clonePseudoElement<T extends HTMLElement>(
 
   const styleElement = document.createElement('style')
   styleElement.appendChild(
-    getPseudoElementStyle(className, pseudo, style, options),
+    getPseudoElementStyle(className, pseudo, style, selected),
   )
   clonedNode.appendChild(styleElement)
 }
@@ -65,8 +67,8 @@ function clonePseudoElement<T extends HTMLElement>(
 export function clonePseudoElements<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
-  options: Options,
+  selected?: readonly string[],
 ) {
-  clonePseudoElement(nativeNode, clonedNode, ':before', options)
-  clonePseudoElement(nativeNode, clonedNode, ':after', options)
+  clonePseudoElement(nativeNode, clonedNode, ':before', selected)
+  clonePseudoElement(nativeNode, clonedNode, ':after', selected)
 }

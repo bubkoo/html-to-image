@@ -9,7 +9,15 @@ const plugin: CapturePlugin = {
   },
 }
 
-const renderer = createRenderer({ plugins: [plugin], pixelRatio: 1 })
+const renderer = createRenderer({
+  plugins: [plugin],
+  pixelRatio: 1,
+  onCloneNode: (original, copy) => {
+    if (original.tagName === 'DIV') copy.setAttribute('data-copied', 'yes')
+  },
+  stylePropertiesForNode: (original) =>
+    original.tagName === 'DIV' ? ['color'] : undefined,
+})
 const node = document.createElement('div')
 void toPng(node)
 void renderer.capture(node).then(async (capture) => {

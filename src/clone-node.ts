@@ -114,7 +114,7 @@ async function cloneChildren<T extends HTMLElement>(
 function cloneCSSStyle<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
-  options: Options,
+  selected?: readonly string[],
 ) {
   const targetStyle = clonedNode.style
   if (!targetStyle) {
@@ -124,11 +124,11 @@ function cloneCSSStyle<T extends HTMLElement>(
   const sourceStyle = (
     nativeNode.ownerDocument.defaultView || window
   ).getComputedStyle(nativeNode)
-  if (sourceStyle.cssText && options.includeStyleProperties == null) {
+  if (sourceStyle.cssText && selected == null) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
-    getStyleProperties(options, sourceStyle).forEach((name) => {
+    getStyleProperties(sourceStyle, selected).forEach((name) => {
       let value = sourceStyle.getPropertyValue(name)
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
@@ -288,12 +288,16 @@ function decorate<T extends HTMLElement>(
   options: Options,
 ): T {
   if (isInstanceOfElement(clonedNode, Element)) {
-    cloneCSSStyle(nativeNode, clonedNode, options)
-    clonePseudoElements(nativeNode, clonedNode, options)
+    const selected = options.stylePropertiesForNode
+      ? options.stylePropertiesForNode(nativeNode)
+      : options.includeStyleProperties
+    cloneCSSStyle(nativeNode, clonedNode, selected)
+    clonePseudoElements(nativeNode, clonedNode, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
     cloneClipPathReferences(nativeNode, clonedNode)
     cloneScrollState(nativeNode, clonedNode)
+    options.onCloneNode?.(nativeNode, clonedNode)
   }
 
   return clonedNode

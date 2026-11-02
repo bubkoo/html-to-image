@@ -87,6 +87,28 @@ const renderer = createRenderer({
 })
 ```
 
+For a change tied to each source element, use `onCloneNode(original, copy)`.
+It runs synchronously after that element's children, computed styles, pseudo
+elements and form state have been copied. Children run before parents. It runs
+before `onClone`, plugins, and resource embedding, so edit `copy`, not
+`original`. Filtered nodes and text nodes do not call it. A thrown error rejects
+the capture.
+
+```ts
+const png = await htmlToImage.toPng(node, {
+  onCloneNode(original, copy) {
+    if (original.matches('[data-private]')) copy.textContent = 'Hidden'
+  },
+})
+```
+
+`stylePropertiesForNode(source)` chooses computed CSS properties before they
+are copied. Its array applies to that element and its pseudo elements; `[]`
+copies none, and `undefined` copies the full computed style even when a global
+`includeStyleProperties` list exists. Inline styles already on the DOM clone
+remain. Include `content` if a selected pseudo element needs its generated
+text. The callback runs synchronously and must return an array or `undefined`.
+
 Each capture has its own cancellation signal and resource cache. `capture.dispose()`
 releases the snapshot; `renderer.dispose()` cancels outstanding work and releases
 its captures. Per-call `signal` and `timeout` are supported. `exclude` accepts
@@ -360,6 +382,10 @@ Defaults to `image/png`
 ### includeStyleProperties
 
 An array of style property names. Can be used to manually specify which style properties are included when cloning nodes. This can be useful for performance-critical scenarios.
+
+### stylePropertiesForNode
+
+A synchronous callback that selects computed style property names for each source element and its pseudo elements. Returning `[]` copies no computed properties; returning `undefined` copies all of them, overriding `includeStyleProperties` for that element. Existing inline styles on the copy remain.
 
 ## Browsers
 
