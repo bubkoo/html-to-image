@@ -63,6 +63,9 @@ Potentially observable changes:
 - `onClone` and plugin transforms see a detached DOM copy. Edits to the
   original DOM after capture completion are absent from the snapshot.
 - A zero-sized DOM may be serialized as SVG but cannot become a raster image.
+- A `clip-path` URL that resolves to the source document and has a fragment is
+  localized to `url(#id)` on the detached copy; other documents' URLs remain
+  unchanged. The source DOM is not edited.
 - Scrolled HTML element children are translated inside a clipped detached copy
   so the visible viewport survives serialization. Direct text children and
   sticky/fixed descendants need further fixture coverage.

@@ -629,6 +629,24 @@ describe('renderer and capture architecture', () => {
     ).toContain('#clip')
   })
 
+  it('localizes same-document clip-path references on the copy', async () => {
+    const node = element(
+      '<svg width="16" height="12"><defs><clipPath id="clip"><rect width="8" height="12"/></clipPath></defs><rect class="clipped" width="16" height="12" fill="red"/></svg>',
+    )
+    const original = node.querySelector('.clipped') as SVGRectElement
+    const reference = `${document.URL.split('#')[0]}#clip`
+    original.setAttribute('clip-path', `url("${reference}")`)
+    original.style.clipPath = `url("${reference}")`
+
+    const svg = await getSvgDocument(await renderer().toSvg(node))
+    const copy = svg.querySelector('.clipped') as SVGRectElement
+    expect(copy.getAttribute('clip-path')).toBe('url(#clip)')
+    expect(copy.style.clipPath).toContain('#clip')
+    expect(copy.style.clipPath).not.toContain(reference)
+    expect(original.getAttribute('clip-path')).toBe(`url("${reference}")`)
+    expect(original.style.clipPath).toContain(reference)
+  })
+
   it('serializes invalid XML controls without mutating the source text', async () => {
     const node = element()
     node.textContent = `a${String.fromCharCode(1)}b`

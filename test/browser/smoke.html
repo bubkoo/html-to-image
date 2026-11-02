@@ -14,7 +14,7 @@
   <h1>Browser smoke</h1>
   <pre id="results">Running...</pre>
   <script type="module">
-    import { toImageData, toPng } from '../../es/index.js'
+    import { toImageData, toPng, toSvg } from '../../es/index.js'
 
     const results = document.querySelector('#results')
     const verdicts = []
@@ -84,6 +84,42 @@
       }
       if (panel.scrollTop !== 40)
         throw new Error('source scroll position changed')
+    })
+
+    await test('same-document clip path', async () => {
+      const namespace = 'http://www.w3.org/2000/svg'
+      const scene = document.createElement('div')
+      scene.style.cssText = 'width:40px;height:40px;background:green'
+      const svg = document.createElementNS(namespace, 'svg')
+      svg.setAttribute('width', '40')
+      svg.setAttribute('height', '40')
+      const defs = document.createElementNS(namespace, 'defs')
+      const clip = document.createElementNS(namespace, 'clipPath')
+      clip.id = 'package-clip'
+      const clipRect = document.createElementNS(namespace, 'rect')
+      clipRect.setAttribute('width', '20')
+      clipRect.setAttribute('height', '40')
+      clip.append(clipRect)
+      defs.append(clip)
+      const rect = document.createElementNS(namespace, 'rect')
+      rect.setAttribute('width', '40')
+      rect.setAttribute('height', '40')
+      rect.setAttribute('fill', 'red')
+      const reference = `${location.href}#package-clip`
+      rect.setAttribute('clip-path', `url("${reference}")`)
+      svg.append(defs, rect)
+      scene.append(svg)
+      document.body.append(scene)
+      const svgText = await fetch(await toSvg(scene, { skipFonts: true })).then((response) => response.text())
+      if (!svgText.includes('clip-path="url(#package-clip)"'))
+        throw new Error('same-document clip path was not localized')
+      if (rect.getAttribute('clip-path') !== `url("${reference}")`)
+        throw new Error('source clip path changed')
+      const image = await toImageData(scene, { pixelRatio: 1, skipFonts: true })
+      if (pixel(image, 10, 20).join(',') !== '255,0,0,255')
+        throw new Error(`clipped region pixel ${pixel(image, 10, 20)}`)
+      if (pixel(image, 30, 20).join(',') !== '0,128,0,255')
+        throw new Error(`outside region pixel ${pixel(image, 30, 20)}`)
     })
 
     await test('cross-origin stylesheet fallback', async () => {

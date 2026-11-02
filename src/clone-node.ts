@@ -180,6 +180,60 @@ function cloneOptionSelection<T extends HTMLElement>(
   }
 }
 
+function normalizeClipPathURLs(
+  value: string,
+  sourceDocument: Document,
+): string {
+  return value.replace(
+    /url\(\s*(?:(["'])(.*?)\1|([^'"\s)]+))\s*\)/gi,
+    (
+      original,
+      _quote,
+      quoted: string | undefined,
+      bare: string | undefined,
+    ) => {
+      const reference = quoted ?? bare
+      if (!reference || reference.startsWith('#')) return original
+      try {
+        const target = new URL(reference, sourceDocument.baseURI)
+        if (!target.hash) return original
+        const source = new URL(sourceDocument.URL)
+        source.hash = ''
+        const fragment = target.hash
+        target.hash = ''
+        return target.href === source.href ? `url(${fragment})` : original
+      } catch {
+        return original
+      }
+    },
+  )
+}
+
+function cloneClipPathReferences<T extends HTMLElement>(
+  nativeNode: T,
+  clonedNode: T,
+) {
+  const sourceDocument = nativeNode.ownerDocument
+  const attribute = clonedNode.getAttribute('clip-path')
+  if (attribute && /url\(/i.test(attribute)) {
+    const normalized = normalizeClipPathURLs(attribute, sourceDocument)
+    if (normalized !== attribute)
+      clonedNode.setAttribute('clip-path', normalized)
+  }
+  const style = clonedNode.style
+  const value = style?.getPropertyValue('clip-path')
+  if (value?.includes('url(')) {
+    const normalized = normalizeClipPathURLs(value, sourceDocument)
+    if (normalized !== value) {
+      style.setProperty(
+        'clip-path',
+        normalized,
+        style.getPropertyPriority('clip-path'),
+      )
+    }
+  }
+}
+
 function cloneScrollState<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   const { scrollLeft, scrollTop } = nativeNode
   if (!scrollLeft && !scrollTop) return
@@ -238,6 +292,7 @@ function decorate<T extends HTMLElement>(
     clonePseudoElements(nativeNode, clonedNode, options)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
+    cloneClipPathReferences(nativeNode, clonedNode)
     cloneScrollState(nativeNode, clonedNode)
   }
 

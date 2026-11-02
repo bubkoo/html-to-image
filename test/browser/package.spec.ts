@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test'
 const cases = [
   'ESM import and basic PNG',
   'nested visible scroll position',
+  'same-document clip path',
   'large embedded data image',
   'cross-origin stylesheet fallback',
 ]

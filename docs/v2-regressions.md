@@ -17,6 +17,7 @@ successful Promise alone is insufficient.
 | Clone transforms, exclusions, SVG descendant filtering | `renderer.spec.ts`: asynchronous transforms, excluded subtree, SVG styles and `filter`, including `foreignObject`; `test/browser-unit/capture.test.ts` cross-browser filter case |
 | Iframe body cloned twice | `renderer.spec.ts`: same-origin iframe body exactly once |
 | Relative CSS image URL and local fragment URL | `renderer.spec.ts`: relative CSS URL; fragment-only reference |
+| Absolute or root-relative same-document clip-path URL breaks after SVG serialization | `renderer.spec.ts`: copied attribute/style and unchanged source; `test/browser-unit/clip-path.test.ts`: SVG attribute, inline style and stylesheet cases check serialized local fragment, output pixels and unchanged source across three engines; different path/query/origin stay unchanged; `test/browser/package.spec.ts` checks built ESM pixels across three engines |
 | Non-404 HTTP failures and resource diagnostics | `renderer.spec.ts`: status 500 rejection; missing resource warning |
 | Image embedding error behavior | `on-image-error-handler.spec.ts`: awaited error callback and rejection without a handler |
 | Font collection without live CSSOM mutation | `webfont.spec.ts`: used font and source stylesheet; grouped adopted stylesheet |
