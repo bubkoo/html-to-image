@@ -262,6 +262,6 @@ Issue #579 的最小浏览器用例在修复前显示：SVG 属性、内联样�
 - Scope: html-to-image v2 分支的 `clip-path` SVG 属性与 CSS 计算样式
 - Authority: 修复前 Chromium 失败对照；修复后三浏览器源码和构建 ESM 测试
 - Revalidation: 资源基址、SVG 序列化或浏览器 CSSOM 处理改变后重跑
-- Validation: verified（本地；PR CI 待跑）
+- Validation: verified（本地及 PR #600 run 41379640499 的三浏览器与构建产物测试）
 - Last-Validated: 2026-11-02
 - Evidence: ../test/browser-unit/clip-path.test.ts ; ../test/browser/smoke.html
