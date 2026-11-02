@@ -162,4 +162,109 @@ describe('work with svg element', () => {
       root.remove()
     }
   })
+
+  it('ignores invalid SVG use URLs and malformed fragment escapes', async () => {
+    const root = document.createElement('div')
+    root.style.cssText = 'width:20px;height:20px'
+    root.innerHTML =
+      '<svg width="20" height="20"><use href="http://["/>' +
+      '<use href="#%ZZ"/><use/></svg>'
+    document.body.append(root)
+    const requests: string[] = []
+    try {
+      await toSvg(root, {
+        skipFonts: true,
+        resources: {
+          resolve: ({ url }) => {
+            requests.push(url)
+            return undefined
+          },
+        },
+      })
+      expect(requests).toEqual([])
+      expect(
+        Array.from(root.querySelectorAll('use')).map((use) =>
+          use.getAttribute('href'),
+        ),
+      ).toEqual(['http://[', '#%ZZ', null])
+    } finally {
+      root.remove()
+    }
+  })
+
+  it('reports an external SVG whose referenced symbol is missing', async () => {
+    const root = document.createElement('div')
+    root.style.cssText = 'width:20px;height:20px'
+    root.innerHTML =
+      '<svg width="20" height="20"><use href="https://assets.example.test/icons.svg#missing"/></svg>'
+    document.body.append(root)
+    const warnings: string[] = []
+    try {
+      await toSvg(root, {
+        skipFonts: true,
+        resources: {
+          resolve: () =>
+            new Blob(
+              [
+                '<svg xmlns="http://www.w3.org/2000/svg"><symbol id="other"/></svg>',
+              ],
+              { type: 'image/svg+xml' },
+            ),
+        },
+        onEvent: (event) => {
+          if (event.type === 'warning')
+            warnings.push(event.diagnostic.message)
+        },
+      })
+      expect(warnings.length).toBe(1)
+      expect(warnings[0]).toContain('SVG symbol not found')
+      expect(root.querySelector('use')!.getAttribute('href')).toContain(
+        '#missing',
+      )
+    } finally {
+      root.remove()
+    }
+  })
+
+  it('localizes an external xlink:href on the copy only', async () => {
+    const namespace = 'http://www.w3.org/2000/svg'
+    const xlink = 'http://www.w3.org/1999/xlink'
+    const reference = 'https://assets.example.test/icons.svg#icon'
+    const root = document.createElement('div')
+    root.style.cssText = 'width:20px;height:20px'
+    const svg = document.createElementNS(namespace, 'svg')
+    svg.setAttribute('width', '20')
+    svg.setAttribute('height', '20')
+    const use = document.createElementNS(namespace, 'use')
+    use.setAttributeNS(xlink, 'xlink:href', reference)
+    use.setAttribute('width', '20')
+    use.setAttribute('height', '20')
+    svg.append(use)
+    root.append(svg)
+    document.body.append(root)
+    try {
+      const output = await getSvgDocument(
+        await toSvg(root, {
+          skipFonts: true,
+          resources: {
+            resolve: () =>
+              new Blob(
+                [
+                  '<svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon" viewBox="0 0 20 20"><rect width="20" height="20" fill="blue"/></symbol></svg>',
+                ],
+                { type: 'image/svg+xml' },
+              ),
+          },
+        }),
+      )
+      const copied = output.querySelector('use')!
+      expect(copied.getAttribute('href')).toMatch(/^#u/)
+      expect(copied.getAttributeNS(xlink, 'href')).toBe(
+        copied.getAttribute('href'),
+      )
+      expect(use.getAttributeNS(xlink, 'href')).toBe(reference)
+    } finally {
+      root.remove()
+    }
+  })
 })

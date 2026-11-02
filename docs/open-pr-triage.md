@@ -1,8 +1,8 @@
 # 开放 PR 处理台账
 
-更新于 2026-11-02。按当日 GitHub 上 52 个开放 PR 编号逐一登记。`master` 已包含 V2，但 npm `latest` 仍是 1.11.13。下列“关闭”均为**建议动作**，并不表示已向贡献者回复、关闭或合并 PR。关闭前应附当前代码的回归证据，并清楚说明未发布到 npm。旧分支的补丁不能因 CI 变绿就直接合并到 V2。
+更新于 2026-11-02。按创建 [PR #603](https://github.com/bubkoo/html-to-image/pull/603) 前的 52 个开放 PR 编号逐一登记。`master` 已包含 V2，但 npm `latest` 仍是 1.11.13。已向下节 22 个 PR 回复具体证据并关闭；无关的 #517 也已说明后关闭。其余“关闭”仍为建议动作，不能当作已完成。旧分支的补丁不能因 CI 变绿就直接合并到 V2。
 
-## 已有对应实现：核对证据后回复并关闭旧 PR
+## 已有对应实现：已回复并关闭的 22 个旧 PR
 
 | PR | 对应结果与回复边界 |
 | --- | --- |
@@ -50,6 +50,6 @@
 | PR | 处理 |
 | --- | --- |
 | [#574](https://github.com/bubkoo/html-to-image/pull/574), [#540](https://github.com/bubkoo/html-to-image/pull/540) | 旧锁文件上的 Dependabot 单包更新；在当前主分支核对依赖树及安全公告，再重建补丁与锁文件，不直接合并旧分支。 |
-| [#517](https://github.com/bubkoo/html-to-image/pull/517) | Reservation 页面与 DOM 转图片库无关；建议说明范围后关闭。 |
+| [#517](https://github.com/bubkoo/html-to-image/pull/517) | Reservation 页面与 DOM 转图片库无关；已说明范围后关闭。 |
 
 合计：22 个已有对应实现、6 个本轮补齐、1 个部分覆盖、20 个待复现或设计、2 个依赖维护、1 个无关内容，共 52 个。
