@@ -16,6 +16,8 @@ V2 的主要风险发生在浏览器真实渲染和发布包解析阶段。当�
 
 Playwright 的 Linux WebKit 并非 Apple Safari；本机 Safari 与真实 iOS 的确认仍是发布前的独立验收。旧套件的 4 项跳过已替换为实际运行的 canvas、Shadow DOM 和 CSS 加载失败回归，当前没有跳过项。迁移完成后再考虑把 `pnpm test` 切换到新入口。
 
+主分支切换的实际闸门、真实 iOS 验收页与 npm 分离发布顺序见 [V2 release readiness](v2-release-readiness.md)。Release 工作流通过手动触发复用本 CI，并在发布前再次检查构建包和预期版本。
+
 ## 同类项目对照与本项目核验（2026-10-28）
 
 - [html2canvas 的 Playwright reftests](https://github.com/html2canvas/html2canvas/blob/master/tests/visual/reftests.spec.ts) 遍历 HTML fixture，等待字体，检查画布可读，再比较各浏览器的 PNG 基线；其 [配置](https://github.com/html2canvas/html2canvas/blob/master/playwright.config.ts) 固定视口和比较阈值。适合覆盖整体排版，但基线依赖运行系统、字体和浏览器版本。
