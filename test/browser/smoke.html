@@ -296,5 +296,25 @@
 
     window.__htmlToImageSmoke = verdicts
     results.textContent += '\nDONE'
+    if (!selectedCase) {
+      try {
+        const response = await fetch('/test/browser/mobile-smoke-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            complete: true,
+            userAgent: navigator.userAgent,
+            dpr: devicePixelRatio,
+            viewport: { width: innerWidth, height: innerHeight },
+            verdicts,
+          }),
+        })
+        if (!response.ok) throw new Error(`HTTP ${response.status}`)
+        const receipt = await response.json()
+        results.textContent += `\nREPORT SAVED ${receipt.id}`
+      } catch (error) {
+        results.textContent += `\nREPORT FAILED ${error.message}`
+      }
+    }
   </script>
 </html>

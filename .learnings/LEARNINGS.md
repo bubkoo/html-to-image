@@ -393,3 +393,35 @@ V2 的 `onClone` 可以改整份副本，但无法可靠地把源元素映射回
 
 ### Resolution
 本轮依赖升级已撤回，主分支候选继续使用经验证的锁文件。用户决定在 V2 切换期间保留旧 Karma 回归与新浏览器测试并行运行，测试迁移另行推进；迁移与等价覆盖是升级 TS5 的前置条件。
+
+## [LRN-20261102-014] solution
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: release-validation
+
+### Summary
+真实设备冒烟页只把结果写在屏幕上，会把上传长截图变成验收前置工作；应由页面向同源测试服务器回传结构化结果，并在服务器侧标记候选提交。
+
+### Details
+原验收页有 User-Agent、DPR、逐项 `PASS`/`FAIL` 和大图首次/稳定化像素，但 Mac 侧无法读取。新增仅在测试服务器 4173 端口接受的同源 JSON POST，限制正文大小与字段，保存 `test-results/mobile-smoke-reports/<id>.json`。服务器补充接收时间、请求地址和 `git rev-parse HEAD`；页面显示 `REPORT SAVED <id>` 或收集错误。Playwright 在 Chromium、Firefox、WebKit 中完整运行页面，验证收据和实际落盘文件；无同源 Origin 的 POST 返回 403。浏览器 User-Agent 不能精确证明设备机型，仍需设备持有人确认。
+
+### Suggested Action
+真实 iOS 验收时，在最终候选提交的服务上刷新页面，读取自动报告并核对全部断言和提交 SHA；不要只根据用户说“打开了”判定通过。
+
+### Metadata
+- Source: real-device acceptance workflow
+- Related Files: ../test/browser/smoke.html, ../test/browser/server.mjs, ../test/browser/package.spec.ts
+- Pattern-Key: validation.mobile-smoke-report
+
+### Context Maintenance
+- Scope: 本项目真实设备验收页及本地测试服务器
+- Authority: 三浏览器完整页面测试、落盘 JSON 与无 Origin 请求的 403
+- Revalidation: 服务器或冒烟页修改后重新运行完整页面测试
+- Validation: verified locally
+- Last-Validated: 2026-11-02
+- Evidence: ../docs/v2-release-readiness.md
+
+### Resolution
+报告回传链路已具备自动测试；真实 iOS 的报告仍需实际设备刷新生成。

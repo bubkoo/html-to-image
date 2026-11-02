@@ -10,7 +10,7 @@ V2 的主要风险发生在浏览器真实渲染和发布包解析阶段。当�
 
 开发机运行浏览器测试前，先用 Node 22.12+ 或 24 安装依赖，执行 `pnpm exec playwright install`。`pnpm run test:browser` 会检查 lint、构建并运行两层浏览器测试；单独运行 `test:browser:package` 时要先构建。CI 使用 Node 24、固定 pnpm 8 和冻结锁文件，在 `pull_request` 上顺序运行以上全部检查，并在测试前核对检出 SHA。
 
-首批迁移的高风险场景：原生 ESM 导入、嵌套滚动的可见位置、大尺寸 data URL 图片的稳定化输出，以及 SVG `foreignObject` 的过滤。`test/browser/smoke.html` 保留无参数时的人工冒烟；`?case=` 让 Playwright 为每个场景使用独立页面。
+首批迁移的高风险场景：原生 ESM 导入、嵌套滚动的可见位置、大尺寸 data URL 图片的稳定化输出，以及 SVG `foreignObject` 的过滤。`test/browser/smoke.html` 无参数时运行全部场景并把结果保存到 Mac 的 `test-results/mobile-smoke-reports/`；`?case=` 让 Playwright 为每个场景使用独立页面。完整页面及报告回传在三种桌面浏览器自动检查，真实 iOS 仍须单独验收。
 
 测试断言优先检查输出像素、SVG 内容、资源请求和源 DOM 是否保持不变。大图使用随机内容避免缓存掩盖首次加载问题，固定中心绿色标记用于像素断言。不要仅以 Promise 成功或非空 data URL 判断图片正确。整图快照仅适合字体、浏览器版本和运行系统都固定的少量场景。
 
