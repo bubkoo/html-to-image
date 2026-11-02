@@ -361,3 +361,35 @@ V2 的 `onClone` 可以改整份副本，但无法可靠地把源元素映射回
 
 ### Resolution
 按阶段暴露两个同步入口，并保持每个节点的样式选择与伪元素一致。
+
+## [LRN-20261102-013] failed_attempt
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: high
+**Status**: resolved
+**Area**: test-infrastructure
+
+### Summary
+直接把共享构建配置和 TypeScript 升至 5.5.4 会使旧 Karma 测试的 CommonJS 文件失去浏览器包装，报 `exports is not defined`；新浏览器测试和产物检查通过不能替代 109 个旧回归。
+
+### Details
+试验升级 `typescript@5.5.4`、`@bubkoo/rollup-config@2.0.0`、`@bubkoo/tsconfig@2.0.0`，并分别试过 `karma-typescript@5.5.4` 与 5.5.3。两种 Karma 插件版本均能编译 30 个文件，但日志没有原来的 “Bundled imports”，Chrome Headless 执行 0 个用例并从 `src/apply-style.js` 等位置报 `exports is not defined`。同一试验的构建、Vitest 三引擎、实际 npm 压缩包和类型检查通过。恢复原锁文件与 TypeScript 4.9.5 后 Karma 109/109 通过。当前证据定位在旧 Karma 打包链与 TS5 输出的组合；未证明插件内部的具体失效语句。
+
+### Suggested Action
+先将旧套件迁移到新的浏览器运行器并保留等价回归，再升级 TypeScript 与共享构建配置；不要靠仅检查构建包成功来宣称测试迁移完成。
+
+### Metadata
+- Source: failed local upgrade experiment
+- Related Files: ../karma.conf.js, ../tsconfig.json, ../docs/test-architecture.md
+- Pattern-Key: infra.karma-typescript-ts5-bundling
+
+### Context Maintenance
+- Scope: 本项目 Karma/karma-typescript 5.5.x、TypeScript 5.5.4 与共享构建配置 2.0.0
+- Authority: 升级后 Karma 0/0 和 `exports is not defined` 日志；还原后 Karma 109/109
+- Revalidation: 旧测试迁移或 Karma 打包器修复后重试升级
+- Validation: verified failure and rollback
+- Last-Validated: 2026-11-02
+- Evidence: ../docs/test-architecture.md
+
+### Resolution
+本轮依赖升级已撤回，主分支候选继续使用经验证的锁文件。用户决定在 V2 切换期间保留旧 Karma 回归与新浏览器测试并行运行，测试迁移另行推进；迁移与等价覆盖是升级 TS5 的前置条件。

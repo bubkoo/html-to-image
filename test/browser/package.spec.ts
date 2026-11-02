@@ -22,6 +22,18 @@ cases.forEach((name) => {
   })
 })
 
+test('the full mobile smoke page completes without a hidden failure', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/smoke.html')
+  const results = page.locator('#results')
+  await expect(results).toContainText('DONE', { timeout: 90000 })
+  const text = await results.textContent()
+  cases.forEach((name) => expect(text).toContain(`PASS ${name}`))
+  expect(text).not.toContain('FAIL')
+  expect(text).toContain('DPR=')
+})
+
 test('built UMD global renders pixels in a browser', async ({ page }) => {
   await page.goto('/test/browser/umd.html')
   await page.addScriptTag({ url: '/dist/html-to-image.js' })
