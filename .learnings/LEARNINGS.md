@@ -309,7 +309,7 @@ Issue #601 的失败对照产生 `data:image/png, image/png;base64,...`。V2 的
 本项目旧 `master` 不是当前 npm 包的精确发布源码，而且旧发布工作流会在任何 `master` 推送后自动运行；V2 切换必须分别保存两种版本身份并隔离 npm 发布。
 
 ### Details
-公共 npm registry 的 `html-to-image@1.11.13` 指向 `gitHead=9957281`，与 Git 标签 `v1.11.13` 一致；切换前 `master=e842e84`，中间 26 个提交。已将原 `master` 原样归档到远端 `archive/pre-v2-master`。旧共享 semantic-release 配置按普通 `feat` 规划次版本，只有带 `BREAKING CHANGE` 的提交会规划主版本；旧 release workflow 在推送 `master` 时自动发布且只跑旧测试。V2 工作流已改为手动发布，发布前复用 CI、核对主分支 SHA、实际压缩包、试算版本与 npm 前一版本。真正的远端手动发布路径要在切换后验证。
+公共 npm registry 的 `html-to-image@1.11.13` 指向 `gitHead=9957281`，与 Git 标签 `v1.11.13` 一致；切换前 `master=e842e84`，中间 26 个提交。已将原 `master` 原样归档到远端分支 `archive/v1.11.13`；这个分支不是 npm 发布源码的标签。旧共享 semantic-release 配置按普通 `feat` 规划次版本，只有带 `BREAKING CHANGE` 的提交会规划主版本；旧 release workflow 在推送 `master` 时自动发布且只跑旧测试。V2 工作流已改为手动发布，发布前复用 CI、核对主分支 SHA、实际压缩包、试算版本与 npm 前一版本。真正的远端手动发布路径要在切换后验证。
 
 ### Suggested Action
 主分支迁移先核对 npm `gitHead`、发布标签和主分支各自的 SHA；保存旧主分支，再让发布工作流独立于合并触发，并在发布前强制检查预期版本。

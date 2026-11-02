@@ -5,7 +5,7 @@
 ## 版本身份
 
 - 当前 npm `latest`：`html-to-image@1.11.13`；发布源码由 `v1.11.13` 标记，提交为 `995728147e4459a58188af51b5fcc3f8a7010207`。
-- 原 `master`：`e842e84cf68493f39dcb76f0a879d02d174b3edb`，比 npm 发布源码多 26 个提交（主要是贡献者/文档更新）；已原样保存在远端 `archive/pre-v2-master`。切换前后都要核对该分支不变。
+- 原 `master`：`e842e84cf68493f39dcb76f0a879d02d174b3edb`，比 npm 发布源码多 26 个提交（主要是贡献者/文档更新）；已原样保存在远端归档分支 `archive/v1.11.13`。该分支名按当时 npm 最新版本命名，指向的是发布后的原 `master`，与发布源码标签 `v1.11.13` 的提交不同。
 - V2 源分支：`codex/v2-capture-architecture`，已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 以 rebase 方式合并。合并后 `master` 为 `874bcac7956cad76735ec529294bc926d00a1ec0`，文件树与已验收的 PR head `ba99c76` 完全一致；`BREAKING CHANGE` 提交信息保留。
 
 ## 必须通过的条件
