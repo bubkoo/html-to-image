@@ -1,6 +1,6 @@
 # V2 Issue / PR 回应台账
 
-更新于 2026-11-02。用途是准备后续 Issue 和 PR 回复；这里记录**当前 `master` 的事实**。V2 已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 合并到 `master`，npm `latest` 仍为 1.11.13，不能把合并等同于发布。测试与修复项的完整对应关系见 [v2-regressions.md](v2-regressions.md)。
+更新于 2026-11-02。用途是准备后续 Issue 和 PR 回复；这里记录**当前 `master` 的事实**。V2 已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 合并到 `master`，npm `latest` 仍为 1.11.13，不能把合并等同于发布。测试与修复项的完整对应关系见 [v2-regressions.md](v2-regressions.md)；52 个开放 PR 的逐项处理建议见 [open-pr-triage.md](open-pr-triage.md)。
 
 “本地覆盖”只表示所列场景在 `master` 有对应回归并通过验证；“部分覆盖”表示不能按原帖的全部范围宣称解决。回复前应重新核对主分支代码、测试结果和远端 CI。
 

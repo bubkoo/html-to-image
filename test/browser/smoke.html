@@ -164,6 +164,47 @@
         throw new Error(`outside region pixel ${pixel(image, 30, 20)}`)
     })
 
+    await test('SVG use local and external symbols', async () => {
+      const ns = 'http://www.w3.org/2000/svg'
+      const reference = 'https://assets.example.test/icons.svg#icon'
+      const node = document.createElement('div')
+      node.style.cssText = 'width:20px;height:20px'
+      const svg = document.createElementNS(ns, 'svg')
+      svg.setAttribute('width', '20')
+      svg.setAttribute('height', '20')
+      const use = document.createElementNS(ns, 'use')
+      use.setAttribute('href', reference)
+      use.setAttribute('width', '20')
+      use.setAttribute('height', '20')
+      svg.append(use)
+      node.append(svg)
+      document.body.append(node)
+      const options = {
+        pixelRatio: 1,
+        skipFonts: true,
+        resources: {
+          resolve: () =>
+            new Blob(
+              [
+                '<svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon" viewBox="0 0 20 20"><rect width="20" height="20" fill="green"/></symbol></svg>',
+              ],
+              { type: 'image/svg+xml' },
+            ),
+        },
+      }
+      const source = await fetch(await toSvg(node, options)).then((res) =>
+        res.text(),
+      )
+      if (!source.includes('fill="green"') || source.includes(reference))
+        throw new Error('external symbol was not localized')
+      const image = await toImageData(node, options)
+      const color = pixel(image, 10, 10)
+      if (color.join(',') !== '0,128,0,255')
+        throw new Error(`external symbol pixel ${color}`)
+      if (use.getAttribute('href') !== reference)
+        throw new Error('source use href changed')
+    })
+
     await test('cross-origin stylesheet fallback', async () => {
       const endpoint = new URL('/test/browser/cross-origin.css', location.href)
       endpoint.port = '4174'
