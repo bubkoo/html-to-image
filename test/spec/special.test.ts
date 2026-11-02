@@ -13,7 +13,8 @@ describe('special cases', () => {
     try {
       await new Promise<void>((resolve, reject) => {
         link.onerror = () => resolve()
-        link.onload = () => reject(new Error('Expected stylesheet load failure'))
+        link.onload = () =>
+          reject(new Error('Expected stylesheet load failure'))
         document.head.appendChild(link)
       })
       const image = await toImageData(node, { pixelRatio: 1 })
@@ -47,10 +48,9 @@ describe('special cases', () => {
     }
   })
 
-  it('should caputre lazy loading images', (done) => {
-    bootstrap('images/loading.html', 'images/style.css')
-      .then(assertTextRendered(['PNG', 'JPG']))
-      .then(done)
-      .catch(done)
+  it('should caputre lazy loading images', async () => {
+    await bootstrap('images/loading.html', 'images/style.css').then(
+      assertTextRendered(['PNG', 'JPG']),
+    )
   })
 })

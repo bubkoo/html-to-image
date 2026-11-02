@@ -457,3 +457,61 @@ PR #603 初次远端 CI 与 CodeQL 均通过，但 Codecov patch 为 78.87%，�
 
 ### Resolution
 补齐资源引用的异常与旧式属性回归后，两项远端覆盖率检查由失败转为通过。
+
+## [LRN-20261102-017] solution
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: high
+**Status**: resolved
+**Area**: test-infrastructure
+
+### Summary
+迁移 Jasmine 回调用例时，Vitest 会把调用 `done()` 的用例列为通过，却另外报告未处理异常；首次加载 `pixelmatch` 时，Vite 的依赖优化还会重载测试页并使用例数变成 0。
+
+### Details
+把原有 `(done)` 用例改成原生 `async` 并等待完整 Promise 链；把 spy 和异步匹配器改为 Vitest API，开启 `restoreMocks`。旧 fixture 由测试服务器按原 `/base/test/resources/` 路径提供，不改 fixture 内容。`optimizeDeps.include` 显式包含 `pixelmatch` 后，冷启动不再触发测试页重载。本机 115 项原回归在 Chromium 下通过，合并新用例后的覆盖率运行有 138 项。
+
+### Suggested Action
+迁移测试运行器时检查未处理异常、实际用例数与冷启动；不能仅凭测试摘要中的“passed”判定回调式用例已正确等待。
+
+### Metadata
+- Source: local Vitest migration and cold-start failure
+- Related Files: ../vitest.browser.config.mts, ../test/spec/basic.test.ts, ../test/spec/renderer.test.ts
+- Pattern-Key: test.vitest-legacy-async-and-optimizer
+
+### Context Maintenance
+- Scope: 本项目 Jasmine/Karma 到 Vitest Browser Mode 的迁移
+- Authority: 回调迁移前 Vitest 报 4 passed 加 2 unhandled errors；预优化前出现 0 test 与页面重载；修复后 115/115 与 138/138
+- Revalidation: 升级 Vitest/Vite 或改变 fixture/依赖优化配置后重跑冷启动和完整回归
+- Validation: verified locally
+- Last-Validated: 2026-11-02
+- Evidence: ../docs/test-architecture.md
+
+## [LRN-20261102-018] solution
+
+**Logged**: 2026-11-02 (Asia/Shanghai)
+**Priority**: high
+**Status**: resolved
+**Area**: browser-rendering
+
+### Summary
+WebKit 能正确读取源 canvas 和克隆出的 PNG，却可能把包含异步解码图片的 SVG 栅格化成透明图；内部快照图片改用同步解码提示后，小 canvas 的最终像素稳定。
+
+### Details
+新增实际 UMD 构建包用例，在 Chromium、Firefox、WebKit 导出红蓝 canvas。修复前 WebKit 两个输出像素透明，源 canvas 和克隆 PNG 的相同位置均有颜色；将 `createImage` 的 `decoding` 从 `async` 改为 `sync` 后，默认一次栅格化的 WebKit 用例连续五次通过，旧 canvas 与视频 WebKit 用例通过，完整本地构建包 36/36 通过。单独增加 `stabilizationAttempts: 3` 曾仍然失败，不能以重试代替解码时序修复。
+
+### Suggested Action
+遇到 WebKit 图片空白时分段检查源像素、克隆图片、序列化 SVG 和最终画布，并在实际构建包中断言关键像素；不要只断言 data URL 非空或 Promise 成功。
+
+### Metadata
+- Source: built-package cross-browser regression
+- Related Files: ../src/util.ts, ../test/browser/package.test.ts, ../test/spec/canvas.test.ts
+- Pattern-Key: webkit.foreignobject-nested-image-decode
+
+### Context Maintenance
+- Scope: 本项目 V2 的 canvas/video 克隆图片和 SVG 栅格化
+- Authority: 修复前 WebKit 透明输出与源 PNG 有色的分段诊断；修复后五次 WebKit 和全套本地测试
+- Revalidation: 更换 WebKit/Playwright 版本或修改 `createImage` 时重跑构建包 canvas 用例
+- Validation: verified locally
+- Last-Validated: 2026-11-02
+- Evidence: ../docs/v2-regressions.md

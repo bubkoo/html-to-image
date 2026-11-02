@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises'
+import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
 
@@ -6,16 +8,84 @@ const selected = process.env.TEST_BROWSER
 if (selected && !names.includes(selected as (typeof names)[number])) {
   throw new Error(`Unsupported TEST_BROWSER: ${selected}`)
 }
+const suite = process.env.TEST_SUITE || 'browser'
+if (!['browser', 'regression', 'coverage'].includes(suite)) {
+  throw new Error(`Unsupported TEST_SUITE: ${suite}`)
+}
+
+const fixtureTypes: Record<string, string> = {
+  '.css': 'text/css',
+  '.html': 'text/html',
+  '.jpeg': 'image/jpeg',
+  '.jpg': 'image/jpeg',
+  '.mp4': 'video/mp4',
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+  '.webm': 'video/webm',
+  '.webp': 'image/webp',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+}
+const root = process.cwd()
 
 export default defineConfig({
+  optimizeDeps: { include: ['pixelmatch'] },
+  plugins: [
+    {
+      name: 'serve-legacy-fixtures',
+      configureServer(server) {
+        server.middlewares.use(async (request, response, next) => {
+          const pathname = new URL(request.url || '/', 'http://localhost')
+            .pathname
+          if (
+            !pathname.startsWith('/base/test/resources/') &&
+            !pathname.startsWith(
+              '/base/node_modules/@fortawesome/fontawesome-free/',
+            )
+          ) {
+            return next()
+          }
+          const fileName = resolve(root, pathname.slice('/base/'.length))
+          if (!fileName.startsWith(root + sep)) return next()
+          try {
+            const body = await readFile(fileName)
+            response.writeHead(200, {
+              'Content-Type': fixtureTypes[extname(fileName)] || 'text/plain',
+            })
+            response.end(body)
+          } catch {
+            response.writeHead(404).end()
+          }
+        })
+      },
+    },
+  ],
   test: {
-    include: ['test/browser-unit/**/*.test.ts'],
+    globals: true,
+    restoreMocks: true,
+    include:
+      suite === 'browser'
+        ? ['test/browser-unit/**/*.test.ts']
+        : suite === 'regression'
+        ? ['test/spec/**/*.test.ts']
+        : ['test/browser-unit/**/*.test.ts', 'test/spec/**/*.test.ts'],
     testTimeout: 30000,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text-summary', 'lcov'],
+      reportsDirectory: 'test/coverage',
+      include: ['src/**/*.ts'],
+    },
     browser: {
       enabled: true,
       headless: true,
       provider: playwright(),
-      instances: (selected ? [selected] : names).map((browser) => ({
+      instances: (selected
+        ? [selected]
+        : suite === 'browser'
+        ? names
+        : ['chromium']
+      ).map((browser) => ({
         browser: browser as (typeof names)[number],
       })),
     },

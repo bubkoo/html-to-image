@@ -11,15 +11,15 @@ describe('legacy test fixture failures', () => {
   afterEach(clean)
 
   it('rejects a missing fixture instead of treating its 404 body as HTML', async () => {
-    await expectAsync(bootstrap('missing-fixture-for-test.html')).toBeRejectedWithError(
-      /Test fixture request failed \(404\)/,
-    )
+    await expect(
+      bootstrap('missing-fixture-for-test.html'),
+    ).rejects.toThrowError(/Test fixture request failed \(404\)/)
   })
 
   it('rejects an invalid image instead of waiting for onload forever', async () => {
-    await expectAsync(drawDataUrl('data:image/png;base64,invalid')).toBeRejectedWithError(
-      /Test image failed to load/,
-    )
+    await expect(
+      drawDataUrl('data:image/png;base64,invalid'),
+    ).rejects.toThrowError(/Test image failed to load/)
   })
 
   it('rejects a reference comparison with mismatched output dimensions', async () => {

@@ -5,7 +5,7 @@ describe('Error Handling in resourceToDataURL', () => {
     const handlers = {
       onError: () => {},
     }
-    spyOn(handlers, 'onError')
+    vi.spyOn(handlers, 'onError')
     const options = { onImageErrorHandler: handlers.onError }
     const node = document.createElement('img')
     node.src = 'invalid_url'
@@ -18,6 +18,6 @@ describe('Error Handling in resourceToDataURL', () => {
     const options = {}
     const node = document.createElement('img')
     node.src = 'invalid_url'
-    await expectAsync(embedImages(node, options)).toBeRejected()
+    await expect(embedImages(node, options)).rejects.toThrow()
   })
 })

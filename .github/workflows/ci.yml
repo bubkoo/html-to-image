@@ -59,14 +59,11 @@ jobs:
       - name: 🔎　Check browser test types
         run: pnpm run test:browser:types
 
-      - name: ✅　Test
-        run: pnpm run test
-
       - name: 🌐　Install browser engines
         run: pnpm exec playwright install --with-deps
 
-      - name: 🧪　Test browser behavior
-        run: pnpm run test:browser:source
+      - name: 🧪　Test migrated regressions and browser behavior
+        run: pnpm run test
 
       - name: 📦　Test built package in browsers
         run: pnpm run test:browser:package
@@ -79,6 +76,7 @@ jobs:
           path: |
             playwright-report/
             test-results/
+            .vitest/attachments/
           if-no-files-found: ignore
 
       - name: 🔑　Generate Token

@@ -5,18 +5,20 @@ import { toImageData, toSvg } from '../../src'
 import { bootstrap, renderAndCheck, getSvgDocument } from '../spec/helper'
 
 describe('work with svg element', () => {
-  it('should render nested svg with broken namespace', (done) => {
-    bootstrap('svg-ns/node.html', 'svg-ns/style.css', 'svg-ns/image')
-      .then(renderAndCheck)
-      .then(done)
-      .catch(done)
+  it('should render nested svg with broken namespace', async () => {
+    await bootstrap(
+      'svg-ns/node.html',
+      'svg-ns/style.css',
+      'svg-ns/image',
+    ).then(renderAndCheck)
   })
 
-  it('should render svg `<rect>` with width and heigth', (done) => {
-    bootstrap('svg-rect/node.html', 'svg-rect/style.css', 'svg-rect/image')
-      .then(renderAndCheck)
-      .then(done)
-      .catch(done)
+  it('should render svg `<rect>` with width and heigth', async () => {
+    await bootstrap(
+      'svg-rect/node.html',
+      'svg-rect/style.css',
+      'svg-rect/image',
+    ).then(renderAndCheck)
   })
 
   it('should render svg `<rect>` with applied css styles', async () => {
@@ -31,8 +33,8 @@ describe('work with svg element', () => {
     ])
   })
 
-  it('should include a viewBox attribute', (done) => {
-    bootstrap('small/node.html', 'small/style.css', 'small/image')
+  it('should include a viewBox attribute', async () => {
+    await bootstrap('small/node.html', 'small/style.css', 'small/image')
       .then(toSvg)
       .then(getSvgDocument)
       .then((doc) => {
@@ -41,26 +43,22 @@ describe('work with svg element', () => {
         const viewBox = doc.documentElement.getAttribute('viewBox')
         expect(viewBox).toEqual(`0 0 ${width} ${height}`)
       })
-      .then(done)
-      .catch(done)
   })
 
-  it('should render svg `<image>` with href', (done) => {
-    bootstrap('svg-image/node.html', 'svg-image/style.css', 'svg-image/image')
-      .then(renderAndCheck)
-      .then(done)
-      .catch(done)
+  it('should render svg `<image>` with href', async () => {
+    await bootstrap(
+      'svg-image/node.html',
+      'svg-image/style.css',
+      'svg-image/image',
+    ).then(renderAndCheck)
   })
 
-  it('should render SVG use tags', function (done) {
-    bootstrap(
+  it('should render SVG use tags', async function () {
+    await bootstrap(
       'svg-use-tag/node.html',
       'svg-use-tag/style.css',
       'svg-use-tag/image',
-    )
-      .then(renderAndCheck)
-      .then(done)
-      .catch(done)
+    ).then(renderAndCheck)
   })
 
   it('copies a modern local use symbol with a CSS-special ID', async () => {
@@ -75,14 +73,18 @@ describe('work with svg element', () => {
       '<svg width="20" height="20"><use href="#icon:local" width="20" height="20"/></svg>'
     document.body.append(sprite, root)
     try {
-      const output = await getSvgDocument(await toSvg(root, { skipFonts: true }))
+      const output = await getSvgDocument(
+        await toSvg(root, { skipFonts: true }),
+      )
       expect(output.querySelector('symbol[id="icon:local"]')).not.toBeNull()
       const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
       const offset = 4 * (10 * image.width + 10)
       expect(Array.from(image.data.slice(offset, offset + 4))).toEqual([
         255, 0, 0, 255,
       ])
-      expect(root.querySelector('use')!.getAttribute('href')).toBe('#icon:local')
+      expect(root.querySelector('use')!.getAttribute('href')).toBe(
+        '#icon:local',
+      )
     } finally {
       sprite.remove()
       root.remove()
@@ -114,12 +116,12 @@ describe('work with svg element', () => {
           },
         },
       })
-      for (const x of [10, 30]) {
+      ;[10, 30].forEach((x) => {
         const offset = 4 * (10 * image.width + x)
         expect(Array.from(image.data.slice(offset, offset + 4))).toEqual([
           0, 0, 255, 255,
         ])
-      }
+      })
       expect(requests).toEqual(['https://assets.example.test/icons.svg'])
       expect(root.querySelector('use')!.getAttribute('href')).toBe(reference)
     } finally {
@@ -145,7 +147,7 @@ describe('work with svg element', () => {
         },
       })
       expect(warnings).toEqual(['resource-error'])
-      await expectAsync(
+      await expect(
         toSvg(root, {
           skipFonts: true,
           resources: {
@@ -154,7 +156,7 @@ describe('work with svg element', () => {
             },
           },
         }),
-      ).toBeRejectedWithError(/Custom resource resolver failed/)
+      ).rejects.toThrowError(/Custom resource resolver failed/)
       expect(root.querySelector('use')!.getAttribute('href')).toContain(
         'bad.svg#icon',
       )
@@ -212,8 +214,7 @@ describe('work with svg element', () => {
             ),
         },
         onEvent: (event) => {
-          if (event.type === 'warning')
-            warnings.push(event.diagnostic.message)
+          if (event.type === 'warning') warnings.push(event.diagnostic.message)
         },
       })
       expect(warnings.length).toBe(1)

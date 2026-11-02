@@ -5,13 +5,15 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "target": "es2022",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["vitest/globals"]
   },
   "include": [
     "src/**/*.ts",
     "vitest.browser.config.mts",
     "playwright.config.ts",
     "test/browser-unit/**/*.ts",
-    "test/browser/**/*.ts"
+    "test/browser/**/*.ts",
+    "test/spec/**/*.ts"
   ]
 }

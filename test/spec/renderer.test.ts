@@ -69,7 +69,7 @@ describe('renderer and capture architecture', () => {
       capture.toBlob({ type: 'image/jpeg' }),
       capture.toCanvas(),
     ])
-    expect(png.startsWith('data:image/png')).toBeTrue()
+    expect(png.startsWith('data:image/png')).toBe(true)
     expect(blob!.type).toBe('image/jpeg')
     expect(
       events.filter(
@@ -95,9 +95,9 @@ describe('renderer and capture architecture', () => {
     const image = await capture.toImageData()
     expect(Array.from(image.data.slice(0, 4))).toEqual([255, 0, 0, 255])
     expect(clones).toBe(1)
-    await expectAsync(
+    await expect(
       renderer({ stabilizationAttempts: Infinity }).capture(node),
-    ).toBeRejectedWithError(/stabilizationAttempts/)
+    ).rejects.toThrowError(/stabilizationAttempts/)
   })
 
   it('recovers when the first browser draw is blank', async () => {
@@ -107,9 +107,10 @@ describe('renderer and capture architecture', () => {
       draws += 1
       if (draws > 1) Reflect.apply(original, this, args)
     }
-    spyOn(CanvasRenderingContext2D.prototype, 'drawImage').and.callFake(
-      draw as typeof original,
-    )
+    vi.spyOn(
+      CanvasRenderingContext2D.prototype,
+      'drawImage',
+    ).mockImplementation(draw as typeof original)
     const image = await renderer({ stabilizationAttempts: 3 }).toImageData(
       element(),
     )
@@ -131,15 +132,12 @@ describe('renderer and capture architecture', () => {
   it('forwards Blob MIME and zero JPEG quality through the legacy facade', async () => {
     const original = HTMLCanvasElement.prototype.toBlob
     const qualities: (number | undefined)[] = []
-    spyOn(HTMLCanvasElement.prototype, 'toBlob').and.callFake(function (
-      this: HTMLCanvasElement,
-      callback,
-      type,
-      quality,
-    ) {
-      qualities.push(quality)
-      original.call(this, callback, type, quality)
-    })
+    vi.spyOn(HTMLCanvasElement.prototype, 'toBlob').mockImplementation(
+      function (this: HTMLCanvasElement, callback, type, quality) {
+        qualities.push(quality)
+        original.call(this, callback, type, quality)
+      },
+    )
     const blob = await toBlob(element(), {
       skipFonts: true,
       type: 'image/jpeg',
@@ -244,7 +242,7 @@ describe('renderer and capture architecture', () => {
         .querySelector('img')!
         .getAttribute('src')!
         .startsWith('data:image/svg+xml'),
-    ).toBeTrue()
+    ).toBe(true)
     expect(node.textContent).toBe('original')
     expect(node.querySelector('img')).toBeNull()
   })
@@ -274,14 +272,14 @@ describe('renderer and capture architecture', () => {
     expect(svg.documentElement.textContent).not.toContain('secret')
     expect(svg.querySelector('rect')!.getAttribute('fill')).toBe('green')
     expect(node.querySelector('.edit')!.textContent).toBe('live')
-    expect(node.querySelector('rect')!.hasAttribute('fill')).toBeFalse()
-    await expectAsync(
+    expect(node.querySelector('rect')!.hasAttribute('fill')).toBe(false)
+    await expect(
       renderer({
         onCloneNode: () => {
           throw new Error('node edit failed')
         },
       }).toSvg(node),
-    ).toBeRejectedWithError('node edit failed')
+    ).rejects.toThrowError('node edit failed')
   })
 
   it('selects computed styles per node without changing source styles', async () => {
@@ -313,8 +311,8 @@ describe('renderer and capture architecture', () => {
     expect(svg.querySelector('foreignObject style')!.textContent).toContain(
       'color: rgb(0, 0, 255)',
     )
-    expect(node.hasAttribute('style')).toBeTrue()
-    expect(child.hasAttribute('style')).toBeFalse()
+    expect(node.hasAttribute('style')).toBe(true)
+    expect(child.hasAttribute('style')).toBe(false)
     expect(selection).toEqual(['color'])
 
     const empty = await getSvgDocument(
@@ -323,13 +321,13 @@ describe('renderer and capture architecture', () => {
     const emptyRoot = empty.querySelector('foreignObject > div') as HTMLElement
     expect(emptyRoot.style.color).toBe('')
     expect(emptyRoot.style.backgroundColor).toBe('red')
-    await expectAsync(
+    await expect(
       renderer({
         stylePropertiesForNode: () => {
           throw new Error('style selection failed')
         },
       }).toSvg(node),
-    ).toBeRejectedWithError('style selection failed')
+    ).rejects.toThrowError('style selection failed')
   })
 
   it('excludes subtrees without applying the legacy filter to the root', async () => {
@@ -445,7 +443,7 @@ describe('renderer and capture architecture', () => {
     ).toBe('data:text/plain; note="a,b";base64,cGF5bG9hZA==')
 
     const originalFetch = window.fetch.bind(window)
-    spyOn(window, 'fetch').and.callFake((input, init) =>
+    vi.spyOn(window, 'fetch').mockImplementation((input, init) =>
       String(input).startsWith('asset:')
         ? Promise.resolve(
             new Response(imageBlob(), {
@@ -475,7 +473,7 @@ describe('renderer and capture architecture', () => {
     const decoding = new Promise<void>((resolve) => {
       finishDecode = resolve
     })
-    spyOn(HTMLImageElement.prototype, 'decode').and.callFake(() => {
+    vi.spyOn(HTMLImageElement.prototype, 'decode').mockImplementation(() => {
       startDecode()
       return decoding
     })
@@ -485,14 +483,14 @@ describe('renderer and capture architecture', () => {
     })
     await Promise.race([
       decodingStarted,
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('decode was not called')), 1000),
-      ),
+      new Promise((_resolve, reject) => {
+        setTimeout(() => reject(new Error('decode was not called')), 1000)
+      }),
     ])
-    expect(completed).toBeFalse()
+    expect(completed).toBe(false)
     finishDecode()
     await embedding
-    expect(completed).toBeTrue()
+    expect(completed).toBe(true)
     expect(typeof image.decode).toBe('function')
     expect(image.naturalWidth).toBe(8)
   })
@@ -533,7 +531,7 @@ describe('renderer and capture architecture', () => {
 
   it('fetches again for each capture when cacheBust is enabled', async () => {
     const requests: string[] = []
-    spyOn(window, 'fetch').and.callFake((input) => {
+    vi.spyOn(window, 'fetch').mockImplementation((input) => {
       requests.push(String(input))
       return Promise.resolve(new Response(imageBlob(), { status: 200 }))
     })
@@ -548,7 +546,7 @@ describe('renderer and capture architecture', () => {
   it('reports missing resources and lets the image handler continue', async () => {
     const events: CaptureEvent[] = []
     let imageErrors = 0
-    spyOn(window, 'fetch').and.returnValue(
+    vi.spyOn(window, 'fetch').mockReturnValue(
       Promise.resolve(new Response('', { status: 404 })),
     )
     const result = await renderer({
@@ -560,16 +558,16 @@ describe('renderer and capture architecture', () => {
     expect(imageErrors).toBe(1)
     expect(result.diagnostics.length).toBe(1)
     expect(result.diagnostics[0].resource).toBe('asset:missing')
-    expect(events.some((event) => event.type === 'warning')).toBeTrue()
+    expect(events.some((event) => event.type === 'warning')).toBe(true)
   })
 
   it('rejects non-404 HTTP failures in the exported fetch helper', async () => {
-    spyOn(window, 'fetch').and.returnValue(
+    vi.spyOn(window, 'fetch').mockReturnValue(
       Promise.resolve(new Response('', { status: 500 })),
     )
-    await expectAsync(
+    await expect(
       fetchAsDataURL('asset:broken', undefined, ({ result }) => result),
-    ).toBeRejectedWithError(/500/)
+    ).rejects.toThrowError(/500/)
   })
 
   it('allows a resource resolver to decline and falls through in order', async () => {
@@ -609,7 +607,7 @@ describe('renderer and capture architecture', () => {
   })
 
   it('propagates resolver failures instead of silently replacing resources', async () => {
-    await expectAsync(
+    await expect(
       renderer({
         resources: {
           resolve: () => {
@@ -617,22 +615,22 @@ describe('renderer and capture architecture', () => {
           },
         },
       }).toSvg(element('<img src="asset:pixel">')),
-    ).toBeRejectedWithError('Custom resource resolver failed')
+    ).rejects.toThrowError('Custom resource resolver failed')
   })
 
   it('propagates transform errors and rejects duplicate plugin names', async () => {
     const node = element()
-    await expectAsync(
+    await expect(
       renderer({
         onClone: () => {
           throw new Error('transform failed')
         },
       }).toSvg(node),
-    ).toBeRejectedWithError('transform failed')
+    ).rejects.toThrowError('transform failed')
     const plugin: CapturePlugin = { name: 'duplicate' }
-    await expectAsync(
+    await expect(
       renderer({ plugins: [plugin, plugin] }).toSvg(node),
-    ).toBeRejectedWithError(/unique/)
+    ).rejects.toThrowError(/unique/)
   })
 
   it('copies renderer defaults instead of reading later caller mutations', async () => {
@@ -663,15 +661,15 @@ describe('renderer and capture architecture', () => {
     const controller = new AbortController()
     controller.abort()
     let called = false
-    await expectAsync(
+    await expect(
       renderer({
         signal: controller.signal,
         onClone: () => {
           called = true
         },
       }).toSvg(element()),
-    ).toBeRejected()
-    expect(called).toBeFalse()
+    ).rejects.toThrow()
+    expect(called).toBe(false)
   })
 
   it('cancels a pending resolver independently of other captures', async () => {
@@ -693,8 +691,8 @@ describe('renderer and capture architecture', () => {
     })
     await ready
     controller.abort()
-    await expectAsync(pending).toBeRejected()
-    await expectAsync(instance.toSvg(element())).toBeResolved()
+    await expect(pending).rejects.toThrow()
+    await expect(instance.toSvg(element())).resolves.toBeDefined()
   })
 
   it('times out a transform that never settles', async () => {
@@ -704,7 +702,7 @@ describe('renderer and capture architecture', () => {
     }).toSvg(element())
     try {
       await pending
-      fail('Expected a timeout')
+      throw new Error('Expected a timeout')
     } catch (error) {
       expect((error as DOMException).name).toBe('TimeoutError')
     }
@@ -726,11 +724,9 @@ describe('renderer and capture architecture', () => {
     await ready
     instance.dispose()
     instance.dispose()
-    await expectAsync(pending).toBeRejected()
-    await expectAsync(capture.toSvg()).toBeRejectedWithError(/disposed/)
-    await expectAsync(instance.capture(element())).toBeRejectedWithError(
-      /disposed/,
-    )
+    await expect(pending).rejects.toThrow()
+    await expect(capture.toSvg()).rejects.toThrowError(/disposed/)
+    await expect(instance.capture(element())).rejects.toThrowError(/disposed/)
   })
 
   it('keeps the renderer usable after an individual capture is disposed', async () => {
@@ -739,22 +735,22 @@ describe('renderer and capture architecture', () => {
     const capture = await instance.capture(node)
     capture.dispose()
     capture.dispose()
-    await expectAsync(capture.toCanvas()).toBeRejectedWithError(/disposed/)
-    await expectAsync(instance.toPng(node)).toBeResolved()
+    await expect(capture.toCanvas()).rejects.toThrowError(/disposed/)
+    await expect(instance.toPng(node)).resolves.toBeDefined()
   })
 
   it('does not depend on animation frames and tolerates usable image decode rejection', async () => {
-    spyOn(window, 'requestAnimationFrame').and.callFake(() => {
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation(() => {
       throw new Error('Unexpected animation frame')
     })
-    spyOn(HTMLImageElement.prototype, 'decode').and.callFake(() =>
+    vi.spyOn(HTMLImageElement.prototype, 'decode').mockImplementation(() =>
       Promise.reject(new Error('decode rejected')),
     )
     const source = URL.createObjectURL(imageBlob())
     try {
       const image = await createImage(source, {})
       expect(image.naturalWidth).toBe(8)
-      await expectAsync(renderer().toPng(element())).toBeResolved()
+      await expect(renderer().toPng(element())).resolves.toBeDefined()
     } finally {
       URL.revokeObjectURL(source)
     }
@@ -822,6 +818,6 @@ describe('renderer and capture architecture', () => {
     const capture = await renderer().capture(node)
     const svg = await getSvgDocument(await capture.toSvg())
     expect(svg.documentElement.getAttribute('height')).toBe('0')
-    await expectAsync(capture.toPng()).toBeRejectedWithError(/zero-sized/)
+    await expect(capture.toPng()).rejects.toThrowError(/zero-sized/)
   })
 })
