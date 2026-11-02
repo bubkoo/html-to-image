@@ -323,7 +323,7 @@ Issue #601 的失败对照产生 `data:image/png, image/png;base64,...`。V2 的
 - Scope: html-to-image 从 1.11.13 迁移到 V2 的主分支切换
 - Authority: 公共 npm registry 元数据、本地 Git 标签与历史、远端归档分支指针、共享发布配置
 - Revalidation: npm latest、master 指针或发布工作流变化时重查
-- Validation: archive verified; release workflow statically validated, remote dispatch pending
+- Validation: archive verified; release workflow statically validated and PR CI passed, remote dispatch pending
 - Last-Validated: 2026-11-02
 - Evidence: ../docs/v2-release-readiness.md
 

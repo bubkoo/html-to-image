@@ -34,7 +34,7 @@
 
 ## 回复前的证据闸门
 
-- 当前本地结果：旧 Chrome Headless 套件 **109 通过、0 跳过**；新浏览器行为测试 **45 通过**、构建产物测试 **27 通过**（两者均覆盖 Chromium、Firefox、WebKit）；构建、`test:package`、类型及 lint 通过。Issue #601 的 Blob MIME 用例及逐节点定制用例在修复前失败，修复后旧套件、三浏览器源码及构建产物通过；修复后的远端 CI 尚待本次推送核对。此前 Issue #579 的[远端 CI](https://github.com/bubkoo/html-to-image/actions/runs/41379640499)、CodeQL、Codecov 检查均通过。此前 `foreignObject` 用例首次运行同时遇到一次既有视频对图测试失败，重跑通过，视频路径的偶发性尚未定位。Playwright WebKit 与原生 Safari/iOS 是不同验证环境。
+- 当前本地结果：旧 Chrome Headless 套件 **109 通过、0 跳过**；新浏览器行为测试 **45 通过**、构建产物测试 **27 通过**（两者均覆盖 Chromium、Firefox、WebKit）；构建、`test:package`、类型及 lint 通过。Issue #601 的 Blob MIME 用例及逐节点定制用例在修复前失败，修复后旧套件、三浏览器源码及构建产物通过；[PR #600 本次 CI](https://github.com/bubkoo/html-to-image/actions/runs/41381570219)、[CodeQL v4](https://github.com/bubkoo/html-to-image/actions/runs/41381570186)、Codecov 均在提交 `f72704e` 通过。此前 `foreignObject` 用例首次运行同时遇到一次既有视频对图测试失败，重跑通过，视频路径的偶发性尚未定位。Playwright WebKit 与原生 Safari/iOS 是不同验证环境。
 - CI 已改用 `pull_request`，在测试前核对实际检出 SHA 和测试合并提交的第二父提交；[历史 PR #598 的 job 日志](https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820) 显示测试主分支、覆盖率却归给 PR。[PR #600 的新工作流](https://github.com/bubkoo/html-to-image/actions/runs/40830985559) 对包含当前 PR head 的测试合并提交完整通过。`master` 上旧 `pull_request_target` 工作流也会运行，不能将其同名 `ci` 检查当作 PR 代码的测试结果。
 - 旧工作流仍在上传主分支覆盖率，而 PR 工作流原先没有上传，导致 Codecov 曾报出 64.88% 的改动行覆盖率及与主分支相同的项目覆盖率。新工作流用 OIDC 上传实测报告后，Codecov 两项检查均通过，改动行覆盖率为 80.00%、项目覆盖率约 78.8%。[首次父提交校验失败](https://github.com/bubkoo/html-to-image/actions/runs/40830886954) 是因为 `actions/checkout` 默认浅克隆缺少父提交；深度 2 已在后续 CI 验证通过。
 - 回复时写清“当前分支已实现/本地验证”，附对应测试和未覆盖场景；在实际合并、发布及目标环境复测前，不写“已在发布版本修复”或 `Closes #...`。
