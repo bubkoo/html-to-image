@@ -5,10 +5,12 @@ import {
   toArray,
   isInstanceOfElement,
   getStyleProperties,
+  uuid,
 } from './util.js'
 import { getMimeType } from './mimes.js'
-import { resourceToDataURL } from './dataurl.js'
+import { getResourceLoader, resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
+import { ResourceResolverError } from './resource-loader.js'
 
 async function cloneCanvasElement(canvas: HTMLCanvasElement, options: Options) {
   const dataURL = canvas.toDataURL()
@@ -304,6 +306,7 @@ function decorate<T extends HTMLElement>(
 }
 
 async function ensureSVGSymbols<T extends HTMLElement>(
+  source: T,
   clone: T,
   options: Options,
 ) {
@@ -312,39 +315,105 @@ async function ensureSVGSymbols<T extends HTMLElement>(
     return clone
   }
 
-  const processedDefs: { [key: string]: HTMLElement } = {}
-  for (let i = 0; i < uses.length; i++) {
-    const use = uses[i]
-    const id = use.getAttribute('xlink:href')
-    if (id) {
-      const exist = clone.querySelector(id)
-      const definition = document.querySelector(id) as HTMLElement
-      if (!exist && definition && !processedDefs[id]) {
-        // eslint-disable-next-line no-await-in-loop
-        processedDefs[id] = (await cloneNode(definition, options, true))!
-      }
+  const sourceDocument = source.ownerDocument
+  const svgNamespace = 'http://www.w3.org/2000/svg'
+  const copied = new Map<string, string>()
+  let definitions: SVGDefsElement | undefined
+  const findById = (root: Element, id: string) =>
+    root.getAttribute('id') === id
+      ? root
+      : Array.from(root.querySelectorAll('[id]')).find(
+          (element) => element.getAttribute('id') === id,
+        )
+  const appendDefinition = (definition: Element) => {
+    if (!definitions) {
+      const holder = sourceDocument.createElementNS(svgNamespace, 'svg')
+      holder.setAttribute('width', '0')
+      holder.setAttribute('height', '0')
+      holder.style.position = 'absolute'
+      holder.style.overflow = 'hidden'
+      definitions = sourceDocument.createElementNS(svgNamespace, 'defs')
+      holder.append(definitions)
+      clone.append(holder)
     }
+    definitions.append(definition)
   }
 
-  const nodes = Object.values(processedDefs)
-  if (nodes.length) {
-    const ns = 'http://www.w3.org/1999/xhtml'
-    const svg = document.createElementNS(ns, 'svg')
-    svg.setAttribute('xmlns', ns)
-    svg.style.position = 'absolute'
-    svg.style.width = '0'
-    svg.style.height = '0'
-    svg.style.overflow = 'hidden'
-    svg.style.display = 'none'
-
-    const defs = document.createElementNS(ns, 'defs')
-    svg.appendChild(defs)
-
-    for (let i = 0; i < nodes.length; i++) {
-      defs.appendChild(nodes[i])
+  for (let i = 0; i < uses.length; i++) {
+    getTask(options)?.check()
+    const use = uses[i]
+    const href = use.getAttribute('href') || use.getAttribute('xlink:href')
+    if (!href) continue
+    let target: URL
+    try {
+      target = new URL(href, sourceDocument.baseURI)
+    } catch {
+      continue
     }
-
-    clone.appendChild(svg)
+    let id: string
+    try {
+      id = decodeURIComponent(target.hash.slice(1))
+    } catch {
+      continue
+    }
+    if (!id) continue
+    target.hash = ''
+    const sourceURL = new URL(sourceDocument.URL)
+    sourceURL.hash = ''
+    const local = href.startsWith('#') || target.href === sourceURL.href
+    if (local) {
+      if (findById(clone, id) || copied.has(`local:${id}`)) continue
+      const definition = sourceDocument.getElementById(id)
+      if (!definition || definition.namespaceURI !== svgNamespace) continue
+      // eslint-disable-next-line no-await-in-loop
+      const copy = await cloneNode(
+        definition as HTMLElement,
+        options,
+        true,
+        false,
+      )
+      if (copy) {
+        appendDefinition(copy)
+        copied.set(`local:${id}`, id)
+      }
+      continue
+    }
+    const key = `${target.href}#${id}`
+    let alias = copied.get(key)
+    if (!alias) {
+      try {
+        const loader = getResourceLoader(options)
+        // eslint-disable-next-line no-await-in-loop
+        const resource = await loader.load(target.href, 'image')
+        // eslint-disable-next-line no-await-in-loop
+        const body = await resource.text()
+        const xml = new DOMParser().parseFromString(body, 'image/svg+xml')
+        if (xml.querySelector('parsererror'))
+          throw new Error(`Invalid SVG resource: ${target.href}`)
+        const definition = findById(xml.documentElement, id)
+        if (!definition || definition.namespaceURI !== svgNamespace)
+          throw new Error(`SVG symbol not found: ${key}`)
+        alias = uuid()
+        const copy = sourceDocument.importNode(definition, true)
+        copy.setAttribute('id', alias)
+        appendDefinition(copy)
+        copied.set(key, alias)
+      } catch (error) {
+        getTask(options)?.check()
+        if (error instanceof ResourceResolverError) throw error
+        getResourceLoader(options).warn(
+          Object.freeze({
+            code: 'resource-error',
+            resource: target.href,
+            message: error instanceof Error ? error.message : String(error),
+          }),
+        )
+        continue
+      }
+    }
+    use.setAttribute('href', `#${alias}`)
+    if (use.hasAttribute('xlink:href'))
+      use.setAttribute('xlink:href', `#${alias}`)
   }
 
   return clone
@@ -354,6 +423,7 @@ export async function cloneNode<T extends HTMLElement>(
   node: T,
   options: Options,
   isRoot?: boolean,
+  resolveSymbols = true,
 ): Promise<T | null> {
   getTask(options)?.check()
   if (
@@ -371,5 +441,9 @@ export async function cloneNode<T extends HTMLElement>(
     .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
     .then((clonedNode) => cloneChildren(node, clonedNode, options))
     .then((clonedNode) => decorate(node, clonedNode, options))
-    .then((clonedNode) => ensureSVGSymbols(clonedNode, options))
+    .then((clonedNode) =>
+      isRoot && resolveSymbols
+        ? ensureSVGSymbols(node, clonedNode, options)
+        : clonedNode,
+    )
 }

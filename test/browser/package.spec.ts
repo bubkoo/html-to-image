@@ -7,6 +7,7 @@ const cases = [
   'per-node customization',
   'nested visible scroll position',
   'same-document clip path',
+  'SVG use local and external symbols',
   'large embedded data image',
   'cross-origin stylesheet fallback',
   'repeated Content-Type embeds image and CSS',
