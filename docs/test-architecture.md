@@ -18,6 +18,8 @@ Playwright 的 Linux WebKit 并非 Apple Safari；本机 Safari 与真实 iOS �
 
 主分支切换的实际闸门、真实 iOS 验收页与 npm 分离发布顺序见 [V2 release readiness](v2-release-readiness.md)。Release 工作流通过手动触发复用本 CI，并在发布前再次检查构建包和预期版本。
 
+2026-11-02 的工具链升级试验表明：TypeScript 5.5.4 下旧 `karma-typescript` 5.5.3/5.5.4 虽能编译，却没有完成原来的模块打包，Chrome Headless 对生成文件报 `exports is not defined`，执行 0 个用例；同次构建、Vitest 和压缩包检查通过。已恢复原依赖并确认 Karma 109/109。用户决定在 V2 切换期间保留旧回归并行运行，迁移另行推进；升级 TypeScript 与构建配置须等新入口有等价断言和覆盖率。完整移动端冒烟页已在桌面 Chromium、Firefox、WebKit 自动运行，构建包测试现为 30/30；此结果不能替代真实 iOS Safari 验收。
+
 ## 同类项目对照与本项目核验（2026-10-28）
 
 - [html2canvas 的 Playwright reftests](https://github.com/html2canvas/html2canvas/blob/master/tests/visual/reftests.spec.ts) 遍历 HTML fixture，等待字体，检查画布可读，再比较各浏览器的 PNG 基线；其 [配置](https://github.com/html2canvas/html2canvas/blob/master/playwright.config.ts) 固定视口和比较阈值。适合覆盖整体排版，但基线依赖运行系统、字体和浏览器版本。
