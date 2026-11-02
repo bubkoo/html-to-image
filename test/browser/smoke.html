@@ -166,7 +166,7 @@
 
     await test('SVG use local and external symbols', async () => {
       const ns = 'http://www.w3.org/2000/svg'
-      const reference = 'https://assets.example.test/icons.svg#icon'
+      const reference = './sprites.svg#icon'
       const node = document.createElement('div')
       node.style.cssText = 'width:20px;height:20px'
       const svg = document.createElementNS(ns, 'svg')
@@ -179,19 +179,7 @@
       svg.append(use)
       node.append(svg)
       document.body.append(node)
-      const options = {
-        pixelRatio: 1,
-        skipFonts: true,
-        resources: {
-          resolve: () =>
-            new Blob(
-              [
-                '<svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon" viewBox="0 0 20 20"><rect width="20" height="20" fill="green"/></symbol></svg>',
-              ],
-              { type: 'image/svg+xml' },
-            ),
-        },
-      }
+      const options = { pixelRatio: 1, skipFonts: true }
       const source = await fetch(await toSvg(node, options)).then((res) =>
         res.text(),
       )
