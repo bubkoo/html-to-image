@@ -394,7 +394,12 @@ Only standard lib is currently used, but make sure your browser supports:
 - [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - SVG `<foreignObject>` tag
 
-It's tested on latest Chrome, Firefox and Safari (49, 45 and 16 respectively at the time of writing), with Chrome performing significantly better on big DOM trees, possibly due to it's more performant SVG support, and the fact that it supports `CSSStyleDeclaration.cssText` property.
+The V2 branch runs source and built-package browser tests in Chromium, Firefox,
+and Playwright WebKit on every pull request. Playwright WebKit is not a real
+iPhone/iPad Safari device. See the [test architecture](docs/test-architecture.md)
+and [release readiness](docs/v2-release-readiness.md) for the exact validation
+scope. Large DOM performance varies by browser and fixture; the measured V2
+comparison is recorded [here](docs/v2-performance.md).
 
 *Internet Explorer is not (and will not be) supported, as it does not support SVG `<foreignObject>` tag.*
 
