@@ -124,8 +124,9 @@ function cloneCSSStyle<T extends HTMLElement>(
     return
   }
 
-  const view = nativeNode.ownerDocument.defaultView || window
-  const sourceStyle = view.getComputedStyle(nativeNode)
+  const sourceStyle = (
+    nativeNode.ownerDocument.defaultView || window
+  ).getComputedStyle(nativeNode)
   if (sourceStyle.cssText && selected == null) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
@@ -144,7 +145,9 @@ function cloneCSSStyle<T extends HTMLElement>(
       let value = sourceStyle.getPropertyValue(name)
       if (selected == null && parent && name.startsWith('--')) {
         // Equal inherited variables are already available from the copied ancestor.
-        inheritedStyle ||= view.getComputedStyle(parent)
+        inheritedStyle ||= (
+          nativeNode.ownerDocument.defaultView || window
+        ).getComputedStyle(parent)
         if (value === inheritedStyle.getPropertyValue(name)) return
       }
       if (name === 'font-size' && value.endsWith('px')) {
