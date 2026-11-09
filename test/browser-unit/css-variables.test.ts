@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { toImageData, toSvg } from '../../src'
+import { cloneNode } from '../../src/clone-node'
 
 function pixel(image: ImageData, x: number, y: number) {
   const offset = 4 * (y * image.width + x)
@@ -92,3 +93,22 @@ test.each(['shadow child', 'slotted child'])(
     }
   },
 )
+
+test('a detached document keeps its own CSS variables', async () => {
+  const sourceDocument = document.implementation.createHTMLDocument('capture')
+  const root = sourceDocument.createElement('div')
+  root.style.setProperty('--fill', 'rgb(0,128,0)')
+  const child = sourceDocument.createElement('div')
+  root.append(child)
+  sourceDocument.body.append(root)
+
+  const copy = await cloneNode(root, {}, true)
+  expect(copy?.style.getPropertyValue('--fill')).toBe('rgb(0,128,0)')
+  expect((copy?.firstElementChild as HTMLElement).style.getPropertyValue('--fill'))
+    .toBe('')
+
+  const orphan = sourceDocument.createElement('div')
+  orphan.style.setProperty('--fill', 'blue')
+  const orphanCopy = await cloneNode(orphan, {}, false)
+  expect(orphanCopy?.style.getPropertyValue('--fill')).toBe('blue')
+})

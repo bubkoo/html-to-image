@@ -132,15 +132,12 @@ function cloneCSSStyle<T extends HTMLElement>(
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
     let inheritedStyle: CSSStyleDeclaration | undefined
-    const sourceRoot = nativeNode.getRootNode()
+    const shadowHost = (nativeNode.getRootNode() as ShadowRoot).host
     const parent = isRoot
       ? null
       : nativeNode.assignedSlot ||
         nativeNode.parentElement ||
-        (sourceRoot.nodeType === Node.DOCUMENT_FRAGMENT_NODE &&
-        'host' in sourceRoot
-          ? (sourceRoot.host as Element)
-          : null)
+        shadowHost
     getStyleProperties(sourceStyle, selected).forEach((name) => {
       let value = sourceStyle.getPropertyValue(name)
       if (selected == null && parent && name.startsWith('--')) {
