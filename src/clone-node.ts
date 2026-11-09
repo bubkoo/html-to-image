@@ -445,7 +445,11 @@ export async function cloneNode<T extends HTMLElement>(
   isRoot?: boolean,
   resolveSymbols = true,
 ): Promise<T | null> {
-  getTask(options)?.check()
+  const task = getTask(options)
+  task?.check()
+  const yieldToBrowser = task?.maybeYieldClone()
+  if (yieldToBrowser) await yieldToBrowser
+  task?.check()
   // HTML permits comment contents that XML forbids; comments have no pixels.
   if (node.nodeType === Node.COMMENT_NODE) return null
   if (

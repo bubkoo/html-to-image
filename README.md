@@ -115,6 +115,11 @@ its captures. Per-call `signal` and `timeout` are supported. `exclude` accepts
 CSS selectors for subtrees. See [v2 architecture](docs/v2-architecture.md) for
 extension order, migration details, and current limits.
 
+Cloning large trees yields to browser tasks after roughly 16 ms of work so the
+page can respond during capture. Set `cloneTimeSliceMs` to another non-negative
+number to adjust this interval, or `0` to disable yielding. Keep the source
+DOM stable until capture finishes if other page tasks can modify it.
+
 On WebKit, a large embedded image can be blank on the first rasterization.
 If affected, opt into repeated rasterization of the same snapshot:
 
@@ -337,6 +342,13 @@ Rasterize the frozen SVG this many times and use the last result. This can
 help when Safari/WebKit produces a blank embedded image on an initial draw.
 Set an integer from `1` to `10`; the default is `1`. It does not re-read the
 source DOM. Extra attempts cost time and remain subject to `timeout`.
+
+### cloneTimeSliceMs
+
+Maximum uninterrupted clone time in milliseconds. The default is `16`;
+`0` disables yielding. Smaller values improve page responsiveness but may
+increase total capture time. This applies to DOM cloning, not SVG serialization
+or rasterization.
 
 ### preferredFontFormat
 
