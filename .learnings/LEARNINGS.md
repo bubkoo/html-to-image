@@ -603,3 +603,25 @@ Promise 微任务不会让浏览器处理计时器或绘制；大型 DOM 克隆�
 - Related Files: ../src/task.ts, ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../docs/v2-performance.md
 - Pattern-Key: html-to-svg.cooperative-clone-scheduling
 - Validation: verified locally; original heavy-DOM freezes and full serialization responsiveness remain unverified
+
+## [LRN-20261110-024] solution
+
+**Logged**: 2026-11-10 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: browser-rendering
+
+### Summary
+滚动容器有直接 fixed 子元素时，不应放弃整个容器的滚动修正；位移正常内容后还要保留 fixed 的叠放顺序。
+
+### Details
+三浏览器对照中，源页面的 fixed 蓝色覆盖层与滚动后的绿色内容可见，旧导出却在内容区显示未滚动的红色。根因是 `cloneScrollState` 一看到直接 fixed 子元素就整体退出。仅跳过 fixed 的位移后，绿色内容出现但蓝色覆盖层被变换后的兄弟元素压住；这些兄弟元素形成了新的 stacking context。为自动层级的 fixed 副本设置层级后，两处像素均正确。额外验证 fixed 子元素在滚动容器视口外仍可见、RTL 负 `scrollLeft` 保持正确，源 DOM 不变。深层 fixed/sticky 组合仍需单独验证。
+
+### Suggested Action
+滚动副本的正常流内容、固定层和叠放顺序要分别对照像素；只检查滚动后内容颜色会漏掉覆盖层回归。
+
+### Metadata
+- Source: Issue #594 follow-up and failing-before-fix cross-browser pixel regression
+- Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/package.test.ts
+- Pattern-Key: html-to-svg.fixed-child-scroll-viewport
+- Validation: verified locally in three browser engines; original Windows fixture and nested fixed layouts remain unverified

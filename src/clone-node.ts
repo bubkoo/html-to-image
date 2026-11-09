@@ -275,7 +275,6 @@ function cloneScrollState<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   const hasUnsupportedPosition = children.some((child, index) => {
     const style = (child as HTMLElement).style
     return (
-      style.position === 'fixed' ||
       (style.position === 'sticky' && !isSupportedSticky(child, index)) ||
       style.display === 'inline'
     )
@@ -285,6 +284,13 @@ function cloneScrollState<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   const y = -scrollTop
   children.forEach((child, index) => {
     const element = child as HTMLElement
+    if (element.style.position === 'fixed') {
+      // Translated siblings create stacking contexts above an auto-z fixed child.
+      if (!element.style.zIndex || element.style.zIndex === 'auto') {
+        element.style.zIndex = '1'
+      }
+      return
+    }
     if (isSupportedSticky(child, index)) {
       // Transformed siblings become stacking contexts; keep the sticky header
       // above the normal-flow content as it appears in the live scroller.
