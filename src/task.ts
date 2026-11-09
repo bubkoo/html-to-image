@@ -45,6 +45,11 @@ export class CaptureTask {
 
   readonly diagnostics: CaptureDiagnostic[] = []
 
+  private inheritedStyles = new WeakMap<
+    Element,
+    { style: CSSStyleDeclaration; values: Map<string, string> }
+  >()
+
   private cleanups: (() => void)[] = []
 
   private disposed = false
@@ -97,6 +102,27 @@ export class CaptureTask {
         new DOMException('Capture aborted', 'AbortError')
       )
     }
+  }
+
+  getInheritedStyleValue(node: Element, name: string): string {
+    let cached = this.inheritedStyles.get(node)
+    if (!cached) {
+      cached = {
+        style: (node.ownerDocument.defaultView || window).getComputedStyle(
+          node,
+        ),
+        values: new Map(),
+      }
+      this.inheritedStyles.set(node, cached)
+    }
+    if (!cached.values.has(name)) {
+      cached.values.set(name, cached.style.getPropertyValue(name))
+    }
+    return cached.values.get(name)!
+  }
+
+  clearInheritedStyles() {
+    this.inheritedStyles = new WeakMap()
   }
 
   stage(stage: CaptureStage) {
@@ -154,6 +180,7 @@ export class CaptureTask {
     this.controller.abort(new DOMException('Capture disposed', 'AbortError'))
     this.cleanups.forEach((cleanup) => cleanup())
     this.cleanups = []
+    this.clearInheritedStyles()
     this.resources.clear()
     // Weak entries expire with options. Pending async stages still need to see
     // this disposed task so they cannot resume work after cancellation.

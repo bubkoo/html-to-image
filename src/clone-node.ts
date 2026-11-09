@@ -116,6 +116,7 @@ async function cloneChildren<T extends HTMLElement>(
 function cloneCSSStyle<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
+  options: Options,
   selected?: readonly string[],
   isRoot?: boolean,
 ) {
@@ -132,20 +133,23 @@ function cloneCSSStyle<T extends HTMLElement>(
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
     let inheritedStyle: CSSStyleDeclaration | undefined
+    const task = getTask(options)
     const shadowHost = (nativeNode.getRootNode() as ShadowRoot).host
     const parent = isRoot
       ? null
-      : nativeNode.assignedSlot ||
-        nativeNode.parentElement ||
-        shadowHost
+      : nativeNode.assignedSlot || nativeNode.parentElement || shadowHost
     getStyleProperties(sourceStyle, selected).forEach((name) => {
       let value = sourceStyle.getPropertyValue(name)
       if (selected == null && parent && name.startsWith('--')) {
         // Equal inherited variables are already available from the copied ancestor.
-        inheritedStyle ||= (
-          nativeNode.ownerDocument.defaultView || window
-        ).getComputedStyle(parent)
-        if (value === inheritedStyle.getPropertyValue(name)) return
+        if (task) {
+          if (value === task.getInheritedStyleValue(parent, name)) return
+        } else {
+          inheritedStyle ||= (
+            nativeNode.ownerDocument.defaultView || window
+          ).getComputedStyle(parent)
+          if (value === inheritedStyle.getPropertyValue(name)) return
+        }
       }
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
@@ -309,7 +313,7 @@ function decorate<T extends HTMLElement>(
     const selected = options.stylePropertiesForNode
       ? options.stylePropertiesForNode(nativeNode)
       : options.includeStyleProperties
-    cloneCSSStyle(nativeNode, clonedNode, selected, isRoot)
+    cloneCSSStyle(nativeNode, clonedNode, options, selected, isRoot)
     clonePseudoElements(nativeNode, clonedNode, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)

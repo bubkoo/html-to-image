@@ -46,6 +46,7 @@ export async function createCapture(
 
       task.stage('clone')
       const root = (await cloneNode(node as HTMLElement, options, true))!
+      task.clearInheritedStyles()
       applyStyle(root, options)
       task.stage('transform')
       const context = Object.freeze({ root, signal: task.context.signal })
