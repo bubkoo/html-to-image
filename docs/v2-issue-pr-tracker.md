@@ -1,8 +1,8 @@
 # V2 Issue / PR 回应台账
 
-更新于 2026-11-02。用途是准备后续 Issue 和 PR 回复；这里记录**当前 `master` 的事实**。V2 已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 合并到 `master`，npm `latest` 仍为 1.11.13，不能把合并等同于发布。测试与修复项的完整对应关系见 [v2-regressions.md](v2-regressions.md)；52 个开放 PR 的逐项处理建议见 [open-pr-triage.md](open-pr-triage.md)。
+更新于 2026-11-10。用途是准备后续 Issue 和 PR 回复；已合并与后续修复候选应按各行证据分别核对。V2 已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 合并到 `master`，npm `latest` 仍为 1.11.13，不能把合并等同于发布。测试与修复项的完整对应关系见 [v2-regressions.md](v2-regressions.md)；开放 PR 的逐项处理建议见 [open-pr-triage.md](open-pr-triage.md)。
 
-“本地覆盖”只表示所列场景在 `master` 有对应回归并通过验证；“部分覆盖”表示不能按原帖的全部范围宣称解决。回复前应重新核对主分支代码、测试结果和远端 CI。
+“本地覆盖”只表示所列场景有对应回归并通过验证；“部分覆盖”表示不能按原帖的全部范围宣称解决。后续修复候选须合并后才能称为 `master` 已修复。回复前应重新核对主分支代码、测试结果和远端 CI。
 
 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 已在 2026-11-02 用 rebase 方式合并，保留 V2 的 `BREAKING CHANGE` 记录。首次 `pull_request` CI 对包含 `ebe06a2` 的测试合并提交运行，因下拉框固定参考图的 Linux 字体差异失败；修复后在 [run 40830985559](https://github.com/bubkoo/html-to-image/actions/runs/40830985559) 完整通过 PR head 校验、Karma、三浏览器行为、构建产物与 Codecov 上传。最终 PR head `ba99c76` 的三浏览器 CI、CodeQL 和 Codecov 也通过；`pull_request` 校验确认测试合并提交的第二父提交是 PR head。
 
@@ -12,6 +12,7 @@
 | [Issue #553](https://github.com/bubkoo/html-to-image/issues/553) | `toPixelData` 按 CSS 尺寸读取像素，高设备像素比时裁掉画布右侧和底部。 | 从实际画布宽高读取完整像素缓冲区；旧入口复用同一实现。 | **本地覆盖**：`renderer.test.ts` 的非 1 像素比尺寸、缓冲区长度和末端像素断言。原帖的 Mapbox/Firefox 场景未复测。 |
 | [Issue #543](https://github.com/bubkoo/html-to-image/issues/543) | iframe 的 body 在特殊克隆步骤和通用子节点步骤中各复制一次。 | iframe body 完成特殊克隆后不再进入第二次子节点递归。 | **本地覆盖**：`renderer.test.ts` 验证同源 `iframe.srcdoc` 的内容恰好出现一次。跨域 iframe 不在该结论内。 |
 | [Issue #578](https://github.com/bubkoo/html-to-image/issues/578) | HTML 文本中的 XML 1.0 非法控制字符进入 SVG，导致后续图像加载失败。 | SVG 序列化后移除非法控制字符，不改动源 DOM 文本。 | **本地覆盖**：`renderer.test.ts` 验证含 SOH 的输出可解析，源文本保留。原帖 Edge 环境尚未复测。 |
+| [Issue #570](https://github.com/bubkoo/html-to-image/issues/570) | HTML 注释可以包含 `--`，但复制到导出的 XML/SVG 后会触发解析错误。注释没有视觉内容。 | V2 后续稳定性修复在克隆入口跳过注释节点，保留源 DOM；不修改文本或元素内容。 | **修复前失败、修复后通过**：`xml-comments.test.ts` 在 Chromium 先得到 XML `parsererror`，修复后三浏览器源码与实际 UMD 构建包均验证 SVG 可解析、红色像素正确、源注释不变。合并和 npm 发布状态需分别核对后再回复。 |
 | [Issue #594](https://github.com/bubkoo/html-to-image/issues/594) | 嵌套滚动容器的 `scrollTop`/`scrollLeft` 是运行时状态，序列化的副本丢失可见位置。 | 在副本中表达内容位移和裁剪；保留源节点的滚动状态。直接位于顶部的 sticky 标题保留原位与绘制层级，普通内容仍按滚动量位移。 | **部分覆盖**：`scroll.test.ts` 验证纵向、横向、已有子元素变换和混合直接文本回退；新测试在 Chromium、Firefox、WebKit 核对单层、双层滚动与直接 sticky 标题的像素和源状态，本机 Safari 单层冒烟也通过。原帖完整 Windows 复现、RTL、其他 sticky/fixed 布局尚未验证。 |
 | [Issue #515](https://github.com/bubkoo/html-to-image/issues/515) / [PR #583](https://github.com/bubkoo/html-to-image/pull/583) | SVG 被整体深拷贝，`filter` 无法访问 `foreignObject` 等后代。 | SVG 后代也走可筛选的递归克隆。 | **本地覆盖**：`renderer.test.ts` 和跨浏览器新测试直接验证 `foreignObject` 后代被 `filter` 排除；尚未跑原帖的完整 SVG fixture。 |
 | [PR #595](https://github.com/bubkoo/html-to-image/pull/595) | 样式属性列表缓存在全局，首次捕获的选项泄漏到后续捕获。 | 样式选择归属单次捕获；显式空数组和伪元素选择按各次选项处理。 | **本地覆盖**：`renderer.test.ts` 的并发选项、冻结选项、伪元素 CSS 回归。此分支是独立实现，不应说已合并该 PR。 |
@@ -34,7 +35,7 @@
 
 ## 回复前的证据闸门
 
-- 当前结果：旧 Chrome Headless 套件 **109 通过、0 跳过**；新浏览器行为测试 **45 通过**、构建产物测试 **30 通过**（两者均覆盖 Chromium、Firefox、WebKit）；构建、`test:package`、类型及 lint 通过。真实 iPhone 16 Pro Safari 对候选 `ba99c76` 的完整验收页 8/8 项通过，大图首次为空、稳定化后中心像素正确；[设备报告摘要](v2-release-readiness.md)保留了浏览器信息和报告 ID。Issue #601 的 Blob MIME 用例及逐节点定制用例在修复前失败，修复后旧套件、三浏览器源码及构建产物通过；[PR #600 最终 CI](https://github.com/bubkoo/html-to-image/actions/runs/41383042526)、[CodeQL v4](https://github.com/bubkoo/html-to-image/actions/runs/41383042568)、Codecov 均在 `ba99c76` 通过。此前 `foreignObject` 用例首次运行同时遇到一次既有视频对图测试失败，重跑通过，视频路径的偶发性尚未定位。Playwright WebKit 与原生 Safari/iOS 是不同验证环境。
+- PR #600 当时的结果：旧 Chrome Headless 套件 **109 通过、0 跳过**；新浏览器行为测试 **45 通过**、构建产物测试 **30 通过**（两者均覆盖 Chromium、Firefox、WebKit）；构建、`test:package`、类型及 lint 通过。真实 iPhone 16 Pro Safari 对候选 `ba99c76` 的完整验收页 8/8 项通过，大图首次为空、稳定化后中心像素正确；[设备报告摘要](v2-release-readiness.md)保留了浏览器信息和报告 ID。Issue #601 的 Blob MIME 用例及逐节点定制用例在修复前失败，修复后旧套件、三浏览器源码及构建产物通过；[PR #600 最终 CI](https://github.com/bubkoo/html-to-image/actions/runs/41383042526)、[CodeQL v4](https://github.com/bubkoo/html-to-image/actions/runs/41383042568)、Codecov 均在 `ba99c76` 通过。此前 `foreignObject` 用例首次运行同时遇到一次既有视频对图测试失败，重跑通过，视频路径的偶发性尚未定位。Playwright WebKit 与原生 Safari/iOS 是不同验证环境。
 - CI 已改用 `pull_request`，在测试前核对实际检出 SHA 和测试合并提交的第二父提交；[历史 PR #598 的 job 日志](https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820) 显示测试主分支、覆盖率却归给 PR。[PR #600 的最终工作流](https://github.com/bubkoo/html-to-image/actions/runs/41383042526) 对包含最终 PR head 的测试合并提交完整通过。合并前旧 `master` 的 `pull_request_target` 工作流也曾运行并测试旧代码；V2 的新主分支不再启用该事件。
 - 旧工作流仍在上传主分支覆盖率，而 PR 工作流原先没有上传，导致 Codecov 曾报出 64.88% 的改动行覆盖率及与主分支相同的项目覆盖率。新工作流用 OIDC 上传实测报告后，Codecov 两项检查均通过，改动行覆盖率为 80.00%、项目覆盖率约 78.8%。[首次父提交校验失败](https://github.com/bubkoo/html-to-image/actions/runs/40830886954) 是因为 `actions/checkout` 默认浅克隆缺少父提交；深度 2 已在后续 CI 验证通过。
 - 回复时写清“已合并到 `master`、尚未发布到 npm”，附对应测试和未覆盖场景；在实际 npm 发布及目标环境复测前，不写“已在发布版本修复”或 `Closes #...`。

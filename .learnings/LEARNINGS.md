@@ -515,3 +515,25 @@ WebKit 能正确读取源 canvas 和克隆出的 PNG，却可能把包含异步�
 - Validation: verified locally
 - Last-Validated: 2026-11-02
 - Evidence: ../docs/v2-regressions.md
+
+## [LRN-20261110-020] solution
+
+**Logged**: 2026-11-10 (Asia/Shanghai)
+**Priority**: high
+**Status**: resolved
+**Area**: browser-rendering
+
+### Summary
+HTML 合法注释中的 `--` 会使复制出的 SVG 失去 XML 可解析性；注释没有视觉内容，应在克隆时丢弃。
+
+### Details
+Issue #570 的 `bad -- XML comment` 被旧克隆流程保留，Chromium 的新源码测试在修复前报 `parsererror: Unexpected token '--'`。在 `cloneNode` 的统一入口跳过注释后，源码测试和实际 UMD 构建包在 Chromium、Firefox、WebKit 均验证 SVG 可解析、红色像素正确、源注释不变。已有对非法文本控制字符的序列化清理仍独立工作。本地覆盖率回归 139/139、三引擎行为 72/72、构建包测试 42/42 均通过。
+
+### Suggested Action
+HTML DOM 进入 XML/SVG 快照时，先按节点的视觉语义处理注释；不要在序列化后的字符串上删除类似注释的片段，以免误伤文本或样式内容。
+
+### Metadata
+- Source: Issue #570 failing-before-fix and cross-browser package regression
+- Related Files: ../src/clone-node.ts, ../test/browser-unit/xml-comments.test.ts, ../test/browser/package.test.ts
+- Pattern-Key: html-to-svg.comment-node-xml-compatibility
+- Validation: verified locally; remote CI pending

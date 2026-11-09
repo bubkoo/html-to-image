@@ -82,6 +82,52 @@ test('built UMD global renders pixels in a browser', async ({ page }) => {
   expect(result).toEqual({ width: 32, height: 32, pixel: [255, 0, 0, 255] })
 })
 
+test('built UMD omits HTML comments that invalidate XML', async ({ page }) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const node = document.createElement('div')
+    node.style.cssText = 'width:20px;height:20px;background:red'
+    const comment = document.createComment('bad -- XML comment')
+    node.append(comment)
+    document.body.append(node)
+    try {
+      const api = (
+        window as typeof window & {
+          htmlToImage?: {
+            toSvg: (node: HTMLElement, options: object) => Promise<string>
+            toImageData: (
+              node: HTMLElement,
+              options: object,
+            ) => Promise<ImageData>
+          }
+        }
+      ).htmlToImage
+      if (!api) throw new Error('UMD global missing')
+      const options = { pixelRatio: 1, skipFonts: true }
+      const xml = await fetch(await api.toSvg(node, options)).then((response) =>
+        response.text(),
+      )
+      const parsed = new DOMParser().parseFromString(xml, 'image/svg+xml')
+      const image = await api.toImageData(node, options)
+      return {
+        parserError: Boolean(parsed.querySelector('parsererror')),
+        hasComments: xml.includes('<!--'),
+        pixel: Array.from(image.data.slice(0, 4)),
+        sourceComment: comment.data,
+      }
+    } finally {
+      node.remove()
+    }
+  })
+  expect(result).toEqual({
+    parserError: false,
+    hasComments: false,
+    pixel: [255, 0, 0, 255],
+    sourceComment: 'bad -- XML comment',
+  })
+})
+
 test('built UMD preserves canvas pixels inside the exported image', async ({
   page,
 }) => {

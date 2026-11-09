@@ -26,6 +26,7 @@ successful Promise alone is insufficient.
 | Image decode rejection and animation-frame delay | `renderer.test.ts`: usable decode rejection without animation frame |
 | Data URL image resolves before decode is ready | `renderer.test.ts`: deferred `decode()` keeps `embedImages` pending, then completes without replacing the image method; built-package random large-image pixels cover the real raster path |
 | XML-invalid controls and literal textarea content | `renderer.test.ts`: control characters; textarea markup |
+| [Issue #570](https://github.com/bubkoo/html-to-image/issues/570): HTML comments break XML serialization | `test/browser-unit/xml-comments.test.ts`: Chromium, Firefox, and WebKit parse the exported SVG, verify red pixels, and confirm source comments remain; `test/browser/package.test.ts`: the built UMD package checks the same observable result in all three engines. The new source test failed before the fix with XML `parsererror` on `--`. |
 | Nested vertical/horizontal scroll viewport | `scroll.test.ts`: green visible row and unchanged source offsets; `test/browser-unit/capture.test.ts` and `test/browser/package.test.ts` cross-browser pixel cases |
 | Existing child transform lost during scroll correction | `scroll.test.ts`: transformed green row visible and original transform retained |
 | Scroll layout outside the supported translation case | `scroll.test.ts`: mixed direct text remains unmodified |
@@ -43,7 +44,8 @@ successful Promise alone is insufficient.
 | Two nested scrollers lose combined visible position | `test/browser-unit/capture.test.ts`: combined visible green pixel and unchanged source offsets in three engines |
 | A direct sticky header blocks scroll correction for all siblings | `test/browser-unit/capture.test.ts`: source header position, exported red header and green scrolled content in three engines; initially failed with a blue content pixel |
 
-The complete sequence passed in [PR #600's `pull_request` run](https://github.com/bubkoo/html-to-image/actions/runs/41381570219)
+The original V2 sequence passed in [PR #600's `pull_request` run](https://github.com/bubkoo/html-to-image/actions/runs/41381570219)
 for a test merge containing `f72704e`. The checkout assertion checks that the
 merge's second parent is the PR head. CodeQL v4 and both Codecov checks passed.
-Real iOS and other complex sticky/fixed scrolling layouts remain release gates.
+Later regression rows require their own PR CI. Real iOS and other complex
+sticky/fixed scrolling layouts remain release gates.
