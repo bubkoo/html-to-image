@@ -24,6 +24,7 @@ successful Promise alone is insufficient.
 | Non-404 HTTP failures and resource diagnostics | `renderer.test.ts`: status 500 rejection; missing resource warning |
 | Image embedding error behavior | `on-image-error-handler.test.ts`: awaited error callback and rejection without a handler |
 | Font collection without live CSSOM mutation | `webfont.test.ts`: used font and source stylesheet; grouped adopted stylesheet |
+| [PR #568](https://github.com/bubkoo/html-to-image/pull/568): font use in a `srcdoc` iframe crosses DOM realms | `webfont.test.ts`: an iframe descendant fails the outer window's `instanceof HTMLElement` check; Chromium, Firefox, and WebKit still embed the used `@font-face` resource in SVG. V2 already uses realm-independent element traversal, so this is added coverage, not a new production fix. |
 | Image decode rejection and animation-frame delay | `renderer.test.ts`: usable decode rejection without animation frame |
 | Data URL image resolves before decode is ready | `renderer.test.ts`: deferred `decode()` keeps `embedImages` pending, then completes without replacing the image method; built-package random large-image pixels cover the real raster path |
 | XML-invalid controls and literal textarea content | `renderer.test.ts`: control characters; textarea markup |
