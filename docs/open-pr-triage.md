@@ -34,12 +34,13 @@
 | --- | --- |
 | [#591](https://github.com/bubkoo/html-to-image/pull/591) | V2 有可选的多次栅格化，并在真实 iPhone 16 Pro Safari 验证过首帧透明、重绘成功；它不是 PR 的“两次相同才停止”算法。原帖的全部图像组合及其他 iOS 场景尚未证明。 |
 | [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 使用 `Element` 遍历字体使用者，避免旧实现的跨 realm `instanceof HTMLElement` 判断。[PR #616](https://github.com/bubkoo/html-to-image/pull/616) 补充真实 `srcdoc` iframe 内后代使用 `@font-face` 的回归，Chromium、Firefox、WebKit 均能把字体资源嵌入 SVG。原 PR 未提供可运行 fixture；真实 iOS 尚未验证，回复时仅声明已覆盖此路径。 |
+| [#451](https://github.com/bubkoo/html-to-image/pull/451) | V2 复现了视频原始比例 960×540、显示区域 240×160 且 `object-fit: contain` 时的拉伸：修复前顶部留白变成视频画面。按视频原始宽高截取帧后，三引擎源码与构建 UMD 均导出正确的顶部留白与中心画面。原 PR 的截图页面、其他 `object-fit` 组合及高分辨率视频的资源成本尚未复测。 |
 
 ## 待复现和设计：拆成小问题处理，每个修复补回归
 
 | 优先级 | PR | 下一步 |
 | --- | --- | --- |
-| 高 | [#451](https://github.com/bubkoo/html-to-image/pull/451), [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | 分别复现视频画面宽高比、画布输出尺寸、滚动条位置；检查当前 V2 的可见尺寸与像素尺寸语义，再定修复。#408 的一般滚动已有部分覆盖，原场景仍需核对。 |
+| 高 | [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | 分别复现画布输出尺寸与滚动条位置；检查当前 V2 的可见尺寸与像素尺寸语义，再定修复。#408 的一般滚动已有部分覆盖，原场景仍需核对。 |
 | 高 | [#498](https://github.com/bubkoo/html-to-image/pull/498), [#442](https://github.com/bubkoo/html-to-image/pull/442), [#585](https://github.com/bubkoo/html-to-image/pull/585) | 用原 fixture 分离 iOS 资源获取和首次空白等根因；#585 是大范围替代实现，不整体移植。真实 iOS 回归需重新测目标场景。 |
 | 中 | [#401](https://github.com/bubkoo/html-to-image/pull/401), [#482](https://github.com/bubkoo/html-to-image/pull/482), [#504](https://github.com/bubkoo/html-to-image/pull/504), [#533](https://github.com/bubkoo/html-to-image/pull/533) | 对照 V2 的图片加载、解码和资源错误路径；先构造能失败的用例，避免重复修复或吞掉用户回调错误。 |
 | 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 单次捕获已有独立资源缓存；需确认仍需手动清缓存、跨调用请求复用、`no-cache` 或按 URL 的请求参数，再决定 API，避免重引入全局状态。 |
@@ -53,4 +54,4 @@
 | [#574](https://github.com/bubkoo/html-to-image/pull/574), [#540](https://github.com/bubkoo/html-to-image/pull/540) | 旧锁文件上的 Dependabot 单包更新；在当前主分支核对依赖树及安全公告，再重建补丁与锁文件，不直接合并旧分支。 |
 | [#517](https://github.com/bubkoo/html-to-image/pull/517) | Reservation 页面与 DOM 转图片库无关；已说明范围后关闭。 |
 
-合计：22 个已有对应实现、6 个本轮补齐、2 个部分覆盖、19 个待复现或设计、2 个依赖维护、1 个无关内容，共 52 个。
+合计：22 个已有对应实现、6 个本轮补齐、3 个部分覆盖、18 个待复现或设计、2 个依赖维护、1 个无关内容，共 52 个。
