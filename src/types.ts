@@ -15,6 +15,8 @@ export interface Options {
   signal?: AbortSignal
   /** Timeout per operation in milliseconds; 0 disables it. Default: 30000. */
   timeout?: number
+  /** Maximum uninterrupted clone time in milliseconds; 0 disables yielding. Default: 16. */
+  cloneTimeSliceMs?: number
   /** Rasterize the frozen SVG this many times and use the last result. Default: 1. */
   stabilizationAttempts?: number
   /** Observe capture stages and resource diagnostics. */
@@ -163,11 +165,7 @@ export interface CaptureDiagnostic {
 }
 
 export type CaptureStage =
-  | 'clone'
-  | 'transform'
-  | 'resources'
-  | 'serialize'
-  | 'render'
+  'clone' | 'transform' | 'resources' | 'serialize' | 'render'
 
 export type CaptureEvent =
   | { readonly type: 'stage'; readonly stage: CaptureStage }

@@ -54,6 +54,8 @@ export class CaptureTask {
 
   private disposed = false
 
+  private cloneSliceStartedAt?: number
+
   constructor(readonly options: Options) {
     const names = new Set<string>()
     options.plugins?.forEach(({ name }) => {
@@ -67,6 +69,13 @@ export class CaptureTask {
       (!Number.isFinite(options.timeout) || options.timeout < 0)
     ) {
       throw new Error('Capture timeout must be a finite, non-negative number')
+    }
+    if (
+      options.cloneTimeSliceMs != null &&
+      (!Number.isFinite(options.cloneTimeSliceMs) ||
+        options.cloneTimeSliceMs < 0)
+    ) {
+      throw new Error('cloneTimeSliceMs must be a finite, non-negative number')
     }
     if (
       options.stabilizationAttempts != null &&
@@ -123,6 +132,30 @@ export class CaptureTask {
 
   clearInheritedStyles() {
     this.inheritedStyles = new WeakMap()
+  }
+
+  maybeYieldClone(): Promise<void> | undefined {
+    const slice = this.options.cloneTimeSliceMs ?? 16
+    if (slice === 0) return undefined
+    const now = performance.now()
+    if (this.cloneSliceStartedAt == null) {
+      this.cloneSliceStartedAt = now
+      return undefined
+    }
+    if (now - this.cloneSliceStartedAt < slice) return undefined
+    // A message task yields to the event loop without a timer delay.
+    return new Promise<void>((resolve) => {
+      const channel = new MessageChannel()
+      channel.port1.onmessage = () => {
+        channel.port1.close()
+        channel.port2.close()
+        resolve()
+      }
+      channel.port2.postMessage(undefined)
+    }).then(() => {
+      this.check()
+      this.cloneSliceStartedAt = performance.now()
+    })
   }
 
   stage(stage: CaptureStage) {

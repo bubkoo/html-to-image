@@ -70,6 +70,10 @@ Potentially observable changes:
 - An image that cannot load or decode rejects the capture when no
   `onImageErrorHandler` handles it. Custom resolver errors also reject.
 - Operations default to a 30-second timeout. Set `timeout: 0` to disable it.
+- DOM cloning yields to browser tasks after about 16 ms by default. Set
+  `cloneTimeSliceMs: 0` to disable yielding, or a positive value to adjust the
+  interval. Source changes from other page tasks can be observed during a
+  time-sliced capture, so keep the source stable until capture completes.
 - `onClone` and plugin transforms see a detached DOM copy. Edits to the
   original DOM after capture completion are absent from the snapshot.
 - A zero-sized DOM may be serialized as SVG but cannot become a raster image.

@@ -581,3 +581,25 @@ Issue #542/#536 提到大 DOM 卡顿，但缺少可复现的原始页面，不�
 - Related Files: ../src/task.ts, ../src/clone-node.ts, ../test/browser-unit/css-variables.test.ts, ../docs/v2-performance.md
 - Pattern-Key: html-to-svg.inherited-style-read-cache
 - Validation: verified locally; reported heavy-DOM freezes remain unverified
+
+## [LRN-20261110-023] solution
+
+**Logged**: 2026-11-10 (Asia/Shanghai)
+**Priority**: high
+**Status**: resolved
+**Area**: browser-rendering-performance
+
+### Summary
+Promise 微任务不会让浏览器处理计时器或绘制；大型 DOM 克隆需要主动让出主线程。
+
+### Details
+400 和 2000 节点的合成页面中，旧克隆流程虽是异步 Promise 链，10 ms 计时器在整个导出期间仍无法执行。300 节点的三浏览器回归在修复前均失败；按约 16 ms 克隆时间片用 `MessageChannel` 浏览器任务让出后，计时器可在复制中途执行，SVG 节点数不变。2000 节点的最长停顿从约 0.8–1.0 秒降到约 0.19–0.24 秒，总耗时在不同单轮运行中接近；资源处理和 SVG 序列化仍有长任务。原 Issue #542/#536 页面缺失，不能认定已解决。
+
+### Suggested Action
+将主线程响应性与总耗时分开度量。对大型导出记录计时器最长间隔、各阶段耗时和输出语义；避免用微任务边界当作浏览器调度让出。
+
+### Metadata
+- Source: failing-before-fix cross-browser regression and local synthetic event-loop benchmark
+- Related Files: ../src/task.ts, ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../docs/v2-performance.md
+- Pattern-Key: html-to-svg.cooperative-clone-scheduling
+- Validation: verified locally; original heavy-DOM freezes and full serialization responsiveness remain unverified

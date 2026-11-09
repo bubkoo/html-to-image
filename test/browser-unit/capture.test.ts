@@ -199,6 +199,78 @@ test('per-node clone callback changes output pixels but leaves the source alone'
   expect(root.style.background).toBe('red')
 })
 
+test('large clones let browser tasks run between copied nodes', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:4px;height:300px'
+  for (let i = 0; i < 300; i += 1) {
+    const child = document.createElement('div')
+    child.style.cssText = 'width:4px;height:1px;background:green'
+    root.append(child)
+  }
+
+  let timerFired = false
+  let timerStarted = false
+  let observedDuringClone = false
+  const dataURL = await toSvg(root, {
+    skipFonts: true,
+    onCloneNode: (original) => {
+      if (original === root.firstElementChild && !timerStarted) {
+        timerStarted = true
+        setTimeout(() => {
+          timerFired = true
+        }, 0)
+      } else if (timerStarted && timerFired) {
+        observedDuringClone = true
+      }
+    },
+  })
+
+  expect(timerStarted).toBe(true)
+  expect(observedDuringClone).toBe(true)
+  const svg = new DOMParser().parseFromString(
+    await fetch(dataURL).then((response) => response.text()),
+    'image/svg+xml',
+  )
+  expect(svg.querySelectorAll('div')).toHaveLength(301)
+  expect(root.children).toHaveLength(300)
+})
+
+test('clone time slice rejects invalid values', async () => {
+  const root = attach(document.createElement('div'))
+  await expect(toSvg(root, { cloneTimeSliceMs: -1 })).rejects.toThrow(
+    /cloneTimeSliceMs/,
+  )
+  await expect(toSvg(root, { cloneTimeSliceMs: Infinity })).rejects.toThrow(
+    /cloneTimeSliceMs/,
+  )
+})
+
+test('clone time slicing can be disabled for a stable source', async () => {
+  const root = attach(document.createElement('div'))
+  for (let i = 0; i < 300; i += 1) {
+    root.append(document.createElement('div'))
+  }
+
+  let timerFired = false
+  let observedDuringClone = false
+  await toSvg(root, {
+    skipFonts: true,
+    cloneTimeSliceMs: 0,
+    onCloneNode: (original) => {
+      if (original === root.firstElementChild) {
+        setTimeout(() => {
+          timerFired = true
+        }, 0)
+      } else if (timerFired) {
+        observedDuringClone = true
+      }
+    },
+  })
+
+  expect(observedDuringClone).toBe(false)
+  expect(root.children).toHaveLength(300)
+})
+
 test('per-node style selection overrides the global computed-style list', async () => {
   const sheet = document.createElement('style')
   sheet.textContent = '.style-child { background: green; color: blue }'

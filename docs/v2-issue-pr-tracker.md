@@ -32,7 +32,7 @@
 | 对应讨论 | 当前边界 |
 | --- | --- |
 | [Issue #556](https://github.com/bubkoo/html-to-image/issues/556) / [Issue #569](https://github.com/bubkoo/html-to-image/issues/569) | iOS 下载/分享空白与笼统的 Safari 失效报告缺少同场景验证；本机 Safari 大图修复不能外推。 |
-| [Issue #542](https://github.com/bubkoo/html-to-image/issues/542) / [Issue #536](https://github.com/bubkoo/html-to-image/issues/536) | [PR #607](https://github.com/bubkoo/html-to-image/pull/607) 已合入 `master`：去掉子节点对继承 CSS 变量的重复序列化。[PR #609](https://github.com/bubkoo/html-to-image/pull/609) 又复现同级子节点重复读取父节点变量的问题，新增三引擎失败先行回归并按单次捕获缓存；20 个子节点从 21 次降到每次不超过 2 次，第二次捕获可读到更新值。两项改动都只证明合成场景的改善；实际大 DOM 冻结缺少同场景复现，仍不能宣称解决，npm 尚未发布。 |
+| [Issue #542](https://github.com/bubkoo/html-to-image/issues/542) / [Issue #536](https://github.com/bubkoo/html-to-image/issues/536) | [PR #607](https://github.com/bubkoo/html-to-image/pull/607) 与 [PR #609](https://github.com/bubkoo/html-to-image/pull/609) 已合入 `master`：去掉继承变量的重复序列化，并按单次捕获缓存同级子节点重复读取的父变量值；20 个子节点的父值读取从 21 次降到每次不超过 2 次。[PR #610](https://github.com/bubkoo/html-to-image/pull/610) 是待验收候选：三引擎复现 Promise 微任务克隆使主线程连续停顿，默认按 16 ms 时间片让出；本机 2000 节点合成场景的最长停顿约从 0.8–1.0 秒降到 0.19–0.24 秒，但资源与 SVG 序列化仍有长任务。上述改动只证明合成场景的改善；实际大 DOM 冻结缺少同场景复现，仍不能宣称解决，npm 尚未发布。 |
 
 ## 回复前的证据闸门
 
