@@ -69,6 +69,57 @@ describe('scrolled viewport capture', () => {
     expect(panel.scrollTop).toBe(50)
   })
 
+  it('does not fail when a scroller contains only a hidden sticky child', async () => {
+    const root = document.createElement('div')
+    root.style.cssText = 'width:40px;height:40px;background:white'
+    const style = document.createElement('style')
+    style.textContent =
+      '.hidden-sticky-scroller::after{content:"";display:block;height:100px}'
+    const panel = document.createElement('div')
+    panel.className = 'hidden-sticky-scroller'
+    panel.style.cssText = 'width:40px;height:40px;overflow:auto'
+    const hidden = document.createElement('div')
+    hidden.style.cssText = 'display:none;position:sticky;top:0'
+    panel.append(hidden)
+    root.append(style, panel)
+    document.body.append(root)
+    nodes.push(root)
+    panel.scrollTop = 50
+
+    const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+    expect(rgba(image, 20, 20)).toEqual([255, 255, 255, 255])
+    expect(panel.scrollTop).toBe(50)
+  })
+
+  ;(['inline', 'absolute'] as const).forEach((kind) => {
+    it(`keeps the ${kind} sticky-scroll layout outside the margin path`, async () => {
+      const { root, panel } = scene('vertical')
+      const unusual = document.createElement('span')
+      unusual.style.cssText =
+        kind === 'inline' ? 'display:inline' : 'position:absolute'
+      unusual.textContent = 'separate layout'
+      const header = document.createElement('div')
+      header.style.cssText =
+        'position:sticky;top:8px;width:40px;height:10px;background:red'
+      panel.insertBefore(unusual, panel.lastElementChild)
+      panel.insertBefore(header, panel.lastElementChild)
+      panel.scrollTop = 50
+      expect(panel.scrollTop).toBe(50)
+
+      const svg = await getSvgDocument(
+        await toSvg(root, { pixelRatio: 1, skipFonts: true }),
+      )
+      const copied = svg.querySelector(
+        'foreignObject > div > div',
+      ) as HTMLElement
+      expect(copied.style.overflow).not.toBe('hidden')
+      expect(
+        (copied.firstElementChild as HTMLElement).style.marginTop,
+      ).not.toContain('calc(')
+      expect(panel.scrollTop).toBe(50)
+    })
+  })
+
   it('leaves mixed direct text and elements untouched when it cannot shift both', async () => {
     const { root, panel } = scene('vertical')
     panel.insertBefore(document.createTextNode('direct text'), panel.firstChild)
