@@ -32,7 +32,7 @@
 | 对应讨论 | 当前边界 |
 | --- | --- |
 | [Issue #556](https://github.com/bubkoo/html-to-image/issues/556) / [Issue #569](https://github.com/bubkoo/html-to-image/issues/569) | iOS 下载/分享空白与笼统的 Safari 失效报告缺少同场景验证；本机 Safari 大图修复不能外推。 |
-| [Issue #542](https://github.com/bubkoo/html-to-image/issues/542) / [Issue #536](https://github.com/bubkoo/html-to-image/issues/536) | 后续优化候选去掉子节点对继承 CSS 变量的重复序列化，三引擎源码和 UMD 用例验证颜色与变量覆盖。100 节点、100 变量的本机合成场景中，单个变量由 101 份降为 1 份，SVG 约少 168 KB；实际大 DOM 冻结缺少同场景复现，仍不能宣称解决。 |
+| [Issue #542](https://github.com/bubkoo/html-to-image/issues/542) / [Issue #536](https://github.com/bubkoo/html-to-image/issues/536) | [PR #607](https://github.com/bubkoo/html-to-image/pull/607) 已合入 `master`：去掉子节点对继承 CSS 变量的重复序列化，三引擎源码和 UMD 用例验证颜色与变量覆盖；PR 与合并后的 CI、CodeQL 通过。100 节点、100 变量的本机合成场景中，单个变量由 101 份降为 1 份，SVG 约少 168 KB；实际大 DOM 冻结缺少同场景复现，仍不能宣称解决，npm 尚未发布。 |
 
 ## 回复前的证据闸门
 
