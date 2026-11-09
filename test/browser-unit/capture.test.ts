@@ -202,6 +202,33 @@ test('a custom element with an open shadow root renders its content', async () =
   expect(host.shadowRoot!.textContent).toContain('shadow content')
 })
 
+test('a shadow slot renders fallback content until a node is assigned', async () => {
+  const host = attach(document.createElement('div'))
+  host.style.cssText = 'display:block;width:40px;height:20px'
+  const shadow = host.attachShadow({ mode: 'open' })
+  shadow.innerHTML =
+    '<slot><div id="fallback" style="width:40px;height:20px;background:green">fallback</div></slot>'
+
+  const fallback = await toImageData(host, {
+    pixelRatio: 1,
+    skipFonts: true,
+  })
+  expect(pixel(fallback, 20, 10)).toEqual([0, 128, 0, 255])
+
+  const assigned = document.createElement('div')
+  assigned.id = 'assigned'
+  assigned.style.cssText = 'width:40px;height:20px;background:red'
+  host.append(assigned)
+  const assignedSvg = await fetch(await toSvg(host, { skipFonts: true })).then(
+    (response) => response.text(),
+  )
+  expect(assignedSvg).toContain('id="assigned"')
+  expect(assignedSvg).not.toContain('id="fallback"')
+  const output = await toImageData(host, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(output, 20, 10)).toEqual([255, 0, 0, 255])
+  expect(shadow.querySelector('#fallback')).not.toBeNull()
+})
+
 test('duplicate Content-Type values still embed image and CSS resources', async () => {
   const root = attach(document.createElement('div'))
   root.style.cssText = 'width:40px;height:20px;display:flex'

@@ -625,3 +625,25 @@ Promise 微任务不会让浏览器处理计时器或绘制；大型 DOM 克隆�
 - Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/package.test.ts
 - Pattern-Key: html-to-svg.fixed-child-scroll-viewport
 - Validation: verified locally in three browser engines; original Windows fixture and nested fixed layouts remain unverified
+
+## [LRN-20261110-026] solution
+
+**Logged**: 2026-11-10 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: browser-rendering
+
+### Summary
+Shadow DOM slot 没有分配节点时应显示 fallback；空 `assignedNodes()` 不代表没有可见内容。
+
+### Details
+Chromium、Firefox、WebKit 的 40×20 slot fallback 原本显示绿色，但旧导出三引擎均为透明。克隆器在 slot 上总是使用 `assignedNodes()`，空数组时直接结束递归。改为仅在有分配节点时使用该列表，否则克隆 slot 自身的 fallback 子节点。修复后绿色像素通过；加入分配节点后红色像素通过，SVG 不包含 fallback，源 Shadow DOM 仍保留 fallback。构建后 ESM 冒烟页的新增用例在三引擎通过，并会进入后续真实 Safari 自动报告。
+
+### Suggested Action
+Shadow DOM 测试要同时检查 slot 的分配与未分配状态，比较导出像素和源 DOM；只验证有内容的 open shadow root 无法覆盖 fallback 语义。
+
+### Metadata
+- Source: failing-before-fix three-browser pixel regression and built ESM smoke test
+- Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/smoke.html
+- Pattern-Key: html-to-svg.shadow-slot-fallback
+- Validation: verified locally in three browser engines; real iOS Safari pending

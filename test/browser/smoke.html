@@ -131,6 +131,32 @@
         throw new Error('source style changed')
     })
 
+    await test('shadow slot fallback and assignment', async () => {
+      const host = document.createElement('div')
+      host.style.cssText = 'display:block;width:40px;height:20px'
+      const shadow = host.attachShadow({ mode: 'open' })
+      shadow.innerHTML =
+        '<slot><div id="fallback" style="width:40px;height:20px;background:green"></div></slot>'
+      document.body.append(host)
+      try {
+        const options = { pixelRatio: 1, skipFonts: true }
+        const fallback = await toImageData(host, options)
+        if (pixel(fallback, 20, 10).join(',') !== '0,128,0,255')
+          throw new Error(`fallback pixel ${pixel(fallback, 20, 10)}`)
+        const assigned = document.createElement('div')
+        assigned.id = 'assigned'
+        assigned.style.cssText = 'width:40px;height:20px;background:red'
+        host.append(assigned)
+        const output = await toImageData(host, options)
+        if (pixel(output, 20, 10).join(',') !== '255,0,0,255')
+          throw new Error(`assigned pixel ${pixel(output, 20, 10)}`)
+        if (!shadow.querySelector('#fallback') || host.firstChild !== assigned)
+          throw new Error('source slot state changed')
+      } finally {
+        host.remove()
+      }
+    })
+
     await test('nested visible scroll position', async () => {
       const scene = document.createElement('div')
       scene.style.cssText = 'width:40px;height:40px;padding:0;margin:0'

@@ -83,7 +83,8 @@ async function cloneChildren<T extends HTMLElement>(
   let children: T[]
 
   if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
-    children = toArray<T>(nativeNode.assignedNodes())
+    const assigned = nativeNode.assignedNodes()
+    children = toArray<T>(assigned.length ? assigned : nativeNode.childNodes)
   } else if (isInstanceOfElement(nativeNode, HTMLIFrameElement)) {
     // The iframe adapter has already cloned its body and descendants.
     return clonedNode
