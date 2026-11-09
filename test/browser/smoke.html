@@ -157,6 +157,57 @@
       }
     })
 
+    await test('same-origin iframe viewport', async () => {
+      const root = document.createElement('div')
+      root.style.cssText = 'width:60px;height:40px;display:flex'
+      const spacer = document.createElement('div')
+      spacer.style.cssText = 'width:20px;height:40px;flex:none'
+      const frame = document.createElement('iframe')
+      frame.style.cssText =
+        'display:block;width:40px;height:40px;border:0;flex:none'
+      const loaded = new Promise((resolve) => { frame.onload = resolve })
+      frame.srcdoc =
+        '<style>html,body{margin:0}</style>' +
+        '<div style="position:fixed;top:0;left:0;width:40px;height:8px;background:blue"></div>' +
+        '<div style="width:40px;height:40px;background:red"></div>' +
+        '<div style="width:40px;height:40px;background:green"></div>'
+      root.append(spacer, frame)
+      document.body.append(root)
+      try {
+        await loaded
+        frame.contentWindow.scrollTo(0, 40)
+        const options = { pixelRatio: 1, skipFonts: true }
+        const vertical = await toImageData(root, options)
+        for (const [x, y, expected] of [
+          [10, 4, '0,0,0,0'],
+          [40, 4, '0,0,255,255'],
+          [40, 20, '0,128,0,255'],
+        ]) {
+          const actual = pixel(vertical, x, y).join(',')
+          if (actual !== expected)
+            throw new Error(`vertical iframe pixel ${x},${y}: ${actual}`)
+        }
+        if (frame.contentWindow.scrollY !== 40)
+          throw new Error('source iframe vertical scroll changed')
+
+        const reloaded = new Promise((resolve) => { frame.onload = resolve })
+        frame.srcdoc =
+          '<style>html,body{margin:0}body{width:80px;display:flex}</style>' +
+          '<div style="width:40px;height:40px;flex:none;background:red"></div>' +
+          '<div style="width:40px;height:40px;flex:none;background:green"></div>'
+        await reloaded
+        frame.contentWindow.scrollTo(40, 0)
+        const horizontal = await toImageData(root, options)
+        const color = pixel(horizontal, 40, 20).join(',')
+        if (color !== '0,128,0,255')
+          throw new Error(`horizontal iframe pixel ${color}`)
+        if (frame.contentWindow.scrollX !== 40)
+          throw new Error('source iframe horizontal scroll changed')
+      } finally {
+        root.remove()
+      }
+    })
+
     await test('nested visible scroll position', async () => {
       const scene = document.createElement('div')
       scene.style.cssText = 'width:40px;height:40px;padding:0;margin:0'
