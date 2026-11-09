@@ -15,3 +15,7 @@
 Chromium 在垃圾回收后额外重复 20 次导出，JS 堆增量约为基线 22 KB、V2 50 KB；重复 100 次时分别约为 20 KB、45 KB，未见随次数线性增长。这是当前固定 fixture 的 JS 堆证据，不能证明其他资源或真实 iOS 无泄漏。切换前还需真实 iOS 的大图和内存压力结果。
 
 运行方法：先 `pnpm run build`，将 npm 1.11.13 压缩包解压到临时目录，然后执行 `node scripts/benchmark-capture.mjs <解压目录>/package/dist/html-to-image.js`。脚本输出每个引擎的 4 次耗时、V2 各阶段时刻、比值及 Chromium 的垃圾回收后堆差；`HTML_TO_IMAGE_HEAP_RUNS` 可改变内存复核的重复次数。
+
+## 继承 CSS 变量的重复序列化
+
+2026-11-10 本机合成场景：一个根节点声明 100 个自定义属性，下面有 100 个同级子节点；直接调用构建后 UMD 的 `toSvg`，各引擎每个场景连续执行三次。复现脚本是 `node scripts/benchmark-css-variables.mjs`，可传入不同 UMD 路径对照。改动前同一个继承变量在输出里出现 101 次；改动后只在根节点出现一次。输出长度分别为 Chromium 883890→715890、Firefox 766819→598819、WebKit 888536→720536 个字符。无变量时的输出长度在改动前后相同。三次耗时的中位数在 Chromium 为 56→51 ms、Firefox 48→44 ms、WebKit 52→40 ms；这些短时数据受机器波动影响，只作为方向证据。源码与构建包的三引擎测试验证继承、覆盖及像素；Issue #542/#536 的真实重 DOM 卡顿尚未复现，不能据此宣称修复。
