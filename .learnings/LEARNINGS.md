@@ -656,13 +656,13 @@ Shadow DOM 测试要同时检查 slot 的分配与未分配状态，比较导出
 **Area**: browser-rendering
 
 ### Summary
-同源 iframe 的 body 克隆不包含文档的运行时滚动位置，导出会显示未滚动的内容。
+同源 iframe 的视口与 body 必须分别建模；只复制 body 会丢失文档滚动，合并两者又会破坏布局与 fixed 定位。
 
 ### Details
-Chromium、Firefox、WebKit 中，40×20 的 iframe 滚动 20 像素后，源视口显示绿色，但旧导出显示红色。克隆器将 iframe 替换成它的 body，只复制了 DOM 与计算样式；文档的 `scrollY` 不在 body 节点的 `scrollTop` 上。读取同源 `contentWindow.scrollX/Y`，用现有副本位移和裁剪逻辑表达可见视口后，三引擎源码与实际 UMD 构建包的绿色像素通过，源 iframe 仍保持滚动 20 像素。原 Issue #543 的重复 body 修复也继续通过；跨域 iframe 和复杂滚动布局仍需单独验证。
+Chromium、Firefox、WebKit 中，40×20 的 iframe 滚动 20 像素后，源视口显示绿色，但旧导出显示红色。克隆器将 iframe 替换成它的 body，只复制了 DOM 与计算样式；文档的 `scrollY` 不在 body 节点的 `scrollTop` 上。单纯把滚动量应用到这个 body 会覆盖原 body 的 `display:flex` 横向布局；把 body 包在视口里并整块位移，又会移走 fixed 子元素。最终用外层副本表示 iframe 视口、内层副本保留 body 布局，从 `contentWindow.scrollX/Y` 位移可滚动内容，外层裁剪并建立 fixed 后代的定位容器。三引擎源码回归验证纵向、横向、fixed 像素和源滚动不变；实际 UMD 构建包验证纵横滚动。原 Issue #543 的重复 body 修复继续通过；跨域 iframe 和复杂滚动布局仍需单独验证。
 
 ### Suggested Action
-对有运行时状态的嵌入文档，验证可见像素和源状态；仅检查 SVG 中存在一份内容无法发现滚动位置丢失。
+对有运行时状态的嵌入文档，分别验证视口、内部布局、定位层的可见像素和源状态；仅检查 SVG 中存在一份内容无法发现这些问题。
 
 ### Metadata
 - Source: failing-before-fix cross-browser pixel regression and UMD package test

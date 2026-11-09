@@ -279,6 +279,65 @@ test('a scrolled same-origin iframe exports its visible viewport', async () => {
   expect(frame.contentWindow!.scrollY).toBe(20)
 })
 
+test('a horizontally scrolled iframe preserves its body layout', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:20px'
+  const frame = document.createElement('iframe')
+  frame.style.cssText = 'display:block;width:40px;height:20px;border:0'
+  const loaded = new Promise<void>((resolve) => {
+    frame.onload = () => resolve()
+  })
+  frame.srcdoc =
+    '<style>html,body{margin:0}body{width:80px;display:flex}</style>' +
+    '<div style="width:40px;height:20px;flex:none;background:red"></div>' +
+    '<div style="width:40px;height:20px;flex:none;background:green"></div>'
+  root.append(frame)
+  await loaded
+  frame.contentWindow!.scrollTo(40, 0)
+  expect(frame.contentWindow!.scrollX).toBe(40)
+
+  const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(image, 20, 10)).toEqual([0, 128, 0, 255])
+  expect(frame.contentWindow!.scrollX).toBe(40)
+})
+
+test('a fixed child in a scrolled iframe stays over visible content', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:60px;height:40px;display:flex'
+  const spacer = document.createElement('div')
+  spacer.style.cssText = 'width:20px;height:40px;flex:none'
+  const frame = document.createElement('iframe')
+  frame.style.cssText =
+    'display:block;width:40px;height:40px;border:0;flex:none'
+  const loaded = new Promise<void>((resolve) => {
+    frame.onload = () => resolve()
+  })
+  frame.srcdoc =
+    '<style>html,body{margin:0}</style>' +
+    '<div style="position:fixed;top:0;left:0;width:40px;height:8px;background:blue"></div>' +
+    '<div style="width:40px;height:40px;background:red"></div>' +
+    '<div style="width:40px;height:40px;background:green"></div>'
+  root.append(spacer, frame)
+  await loaded
+  frame.contentWindow!.scrollTo(0, 40)
+  expect(frame.contentWindow!.scrollY).toBe(40)
+
+  const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(image, 10, 4)).toEqual([0, 0, 0, 0])
+  expect(pixel(image, 40, 4)).toEqual([0, 0, 255, 255])
+  expect(pixel(image, 40, 20)).toEqual([0, 128, 0, 255])
+  expect(frame.contentWindow!.scrollY).toBe(40)
+
+  frame.style.transform = 'translateX(2px)'
+  const transformed = await toImageData(root, {
+    pixelRatio: 1,
+    skipFonts: true,
+  })
+  expect(pixel(transformed, 42, 4)).toEqual([0, 0, 255, 255])
+  expect(pixel(transformed, 42, 20)).toEqual([0, 128, 0, 255])
+  expect(frame.style.transform).toBe('translateX(2px)')
+})
+
 test('duplicate Content-Type values still embed image and CSS resources', async () => {
   const root = attach(document.createElement('div'))
   root.style.cssText = 'width:40px;height:20px;display:flex'

@@ -40,11 +40,10 @@ async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
 async function cloneIFrameElement(iframe: HTMLIFrameElement, options: Options) {
   try {
     if (iframe?.contentDocument?.body) {
-      return (await cloneNode(
-        iframe.contentDocument.body,
-        options,
-        true,
-      )) as HTMLBodyElement
+      const body = await cloneNode(iframe.contentDocument.body, options, true)
+      const viewport = iframe.ownerDocument.createElement('div')
+      viewport.appendChild(body!)
+      return viewport
     }
   } catch {
     // Failed to clone iframe
@@ -256,19 +255,12 @@ function cloneClipPathReferences<T extends HTMLElement>(
   }
 }
 
-function cloneScrollState<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  let { scrollLeft, scrollTop } = nativeNode
-  if (
-    isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
-    clonedNode.tagName === 'BODY'
-  ) {
-    try {
-      scrollLeft = nativeNode.contentWindow!.scrollX
-      scrollTop = nativeNode.contentWindow!.scrollY
-    } catch {
-      // The frame may navigate or detach after its body was cloned.
-    }
-  }
+function cloneScrollState<T extends HTMLElement>(
+  nativeNode: T,
+  clonedNode: T,
+  scrollLeft = nativeNode.scrollLeft,
+  scrollTop = nativeNode.scrollTop,
+) {
   if (!scrollLeft && !scrollTop) return
   const children = Array.from(clonedNode.children)
   const hasDirectText = Array.from(clonedNode.childNodes).some(
@@ -336,7 +328,36 @@ function decorate<T extends HTMLElement>(
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
     cloneClipPathReferences(nativeNode, clonedNode)
-    cloneScrollState(nativeNode, clonedNode)
+    if (
+      isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
+      clonedNode.tagName === 'DIV'
+    ) {
+      let scrollLeft = 0
+      let scrollTop = 0
+      try {
+        scrollLeft = nativeNode.contentWindow!.scrollX
+        scrollTop = nativeNode.contentWindow!.scrollY
+      } catch {
+        // The frame may navigate or detach after its body was cloned.
+      }
+      cloneScrollState(
+        nativeNode,
+        clonedNode.firstElementChild as HTMLElement,
+        scrollLeft,
+        scrollTop,
+      )
+      // The iframe viewport clips its body even when it has not scrolled.
+      clonedNode.style.overflow = 'hidden'
+      // A transformed viewport anchors fixed descendants to this iframe.
+      if (
+        !clonedNode.style.transform ||
+        clonedNode.style.transform === 'none'
+      ) {
+        clonedNode.style.transform = 'translate(0px, 0px)'
+      }
+    } else {
+      cloneScrollState(nativeNode, clonedNode)
+    }
     options.onCloneNode?.(nativeNode, clonedNode)
   }
 
