@@ -33,7 +33,7 @@
 | PR | 剩余问题 |
 | --- | --- |
 | [#591](https://github.com/bubkoo/html-to-image/pull/591) | V2 有可选的多次栅格化，并在真实 iPhone 16 Pro Safari 验证过首帧透明、重绘成功；它不是 PR 的“两次相同才停止”算法。原帖的全部图像组合及其他 iOS 场景尚未证明。 |
-| [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 使用 `Element` 遍历字体使用者，避免旧实现的跨 realm `instanceof HTMLElement` 判断。新增真实 `srcdoc` iframe 内后代使用 `@font-face` 的回归，Chromium、Firefox、WebKit 均能把字体资源嵌入 SVG。原 PR 未提供可运行 fixture；尚未在真实 iOS 验证，待本测试 PR 合并与 CI 通过后再回复。 |
+| [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 使用 `Element` 遍历字体使用者，避免旧实现的跨 realm `instanceof HTMLElement` 判断。[PR #616](https://github.com/bubkoo/html-to-image/pull/616) 补充真实 `srcdoc` iframe 内后代使用 `@font-face` 的回归，Chromium、Firefox、WebKit 均能把字体资源嵌入 SVG。原 PR 未提供可运行 fixture；真实 iOS 尚未验证，回复时仅声明已覆盖此路径。 |
 
 ## 待复现和设计：拆成小问题处理，每个修复补回归
 
