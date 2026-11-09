@@ -164,3 +164,24 @@ test('siblings reuse parent CSS variable reads within a capture', async () => {
     root.remove()
   }
 })
+
+test('direct child cloning compares inherited and overridden variables', async () => {
+  const parent = document.createElement('div')
+  parent.style.setProperty('--fill', 'green')
+  const child = document.createElement('div')
+  child.style.background = 'var(--fill)'
+  parent.append(child)
+  document.body.append(parent)
+
+  try {
+    const inherited = await cloneNode(child, {}, false)
+    expect(inherited?.style.getPropertyValue('--fill')).toBe('')
+
+    child.style.setProperty('--fill', 'blue')
+    const overridden = await cloneNode(child, {}, false)
+    expect(overridden?.style.getPropertyValue('--fill')).toBe('blue')
+    expect(parent.style.getPropertyValue('--fill')).toBe('green')
+  } finally {
+    parent.remove()
+  }
+})
