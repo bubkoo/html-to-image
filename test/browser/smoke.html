@@ -327,7 +327,7 @@
 
     await test('cross-origin stylesheet fallback', async () => {
       const endpoint = new URL('/test/browser/cross-origin.css', location.href)
-      endpoint.port = '4174'
+      endpoint.port = String(Number(location.port) + 1)
       const url = endpoint.href
       const node = document.createElement('div')
       node.id = 'cross-origin-target'

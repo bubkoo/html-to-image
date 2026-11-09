@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { execFileSync } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 
 const cases = [
@@ -46,7 +47,9 @@ test('the full mobile smoke page completes without a hidden failure', async ({
   expect(report.id).toBe(id)
   expect(report.complete).toBe(true)
   expect(report.userAgent).toBeTruthy()
-  expect(report.gitHead).toMatch(/^[a-f0-9]{40}$/)
+  expect(report.gitHead).toBe(
+    execFileSync('git', ['rev-parse', 'HEAD']).toString().trim(),
+  )
   expect(report.verdicts).toHaveLength(cases.length + 2)
   const rejected = await page.request.post(
     '/test/browser/mobile-smoke-report',
@@ -352,4 +355,82 @@ test('built UMD preserves canvas pixels inside the exported image', async ({
     red: [255, 0, 0, 255],
     blue: [0, 0, 255, 255],
   })
+})
+
+test('built UMD preserves video letterboxing instead of stretching the frame', async ({
+  page,
+}) => {
+  await page.route('**/video-fixture.webm', async (route) => {
+    await route.fulfill({
+      body: await readFile('test/resources/video/flower.webm'),
+      contentType: 'video/webm',
+    })
+  })
+  await page.route('**/video-fixture.mp4', async (route) => {
+    await route.fulfill({
+      body: await readFile('test/resources/video/flower.mp4'),
+      contentType: 'video/mp4',
+    })
+  })
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const api = (
+      window as typeof window & {
+        htmlToImage?: {
+          toImageData: (
+            node: HTMLElement,
+            options: object,
+          ) => Promise<ImageData>
+        }
+      }
+    ).htmlToImage
+    if (!api) throw new Error('UMD global missing')
+    const root = document.createElement('div')
+    root.style.cssText = 'width:240px;height:160px'
+    const video = document.createElement('video')
+    video.style.cssText =
+      'display:block;width:240px;height:160px;object-fit:contain;background:rgb(255,0,255)'
+    video.preload = 'auto'
+    video.muted = true
+    video.innerHTML =
+      '<source src="/test/browser/video-fixture.webm" type="video/webm">' +
+      '<source src="/test/browser/video-fixture.mp4" type="video/mp4">'
+    root.append(video)
+    document.body.append(root)
+    try {
+      const loaded = new Promise<void>((resolve, reject) => {
+        video.addEventListener('loadeddata', () => resolve(), { once: true })
+        video.addEventListener(
+          'error',
+          () => reject(new Error('Video fixture failed to load')),
+          { once: true },
+        )
+      })
+      video.load()
+      await loaded
+      const image = await api.toImageData(root, {
+        pixelRatio: 1,
+        skipFonts: true,
+      })
+      const pixel = (y: number) =>
+        Array.from(
+          image.data.slice(
+            (y * image.width + 120) * 4,
+            (y * image.width + 121) * 4,
+          ),
+        )
+      return {
+        intrinsic: [video.videoWidth, video.videoHeight],
+        top: pixel(2),
+        center: pixel(80),
+      }
+    } finally {
+      video.pause()
+      root.remove()
+    }
+  })
+  expect(result.intrinsic).toEqual([960, 540])
+  expect(result.top).toEqual([255, 0, 255, 255])
+  expect(result.center).not.toEqual(result.top)
 })

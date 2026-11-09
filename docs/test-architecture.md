@@ -10,6 +10,8 @@ V2 的主要风险发生在浏览器真实渲染和发布包解析阶段。Karma
 
 开发机运行浏览器测试前，先用 Node 22.14+（22.x）或 24.10+ 和 `package.json` 固定的 pnpm 10 安装依赖，执行 `pnpm exec playwright install`。`pnpm test` 运行 Chromium 的完整源码覆盖率与三引擎行为测试；`pnpm run test:browser` 还检查 lint、构建、类型和发布包。单独运行 `test:browser:package` 时要先构建。CI 使用 Node 24、冻结锁文件，并在 `pull_request` 上顺序运行以上检查及核对检出 SHA。Codecov 与 Coveralls 均使用 Vitest 生成的同一份 LCOV。
 
+构建包浏览器测试自行启动服务，不复用已有端口上的进程；完整验收报告还要核对当前检出的 SHA。主分支给真实设备使用 4173/4174 时，隔离检出可运行 `HTML_TO_IMAGE_SMOKE_PORT=4273 pnpm run test:browser:package`，测试服务会使用 4273/4274，并由页面动态确定跨源端口。这样可避免测试误连其他检出的构建产物。
+
 旧用例保留原 fixture、断言和文件归属；回调式完成信号已改成原生 `async`，Jasmine spy 与异步匹配器已改为 Vitest API。测试入口统一为 `*.test.ts`。旧回归只在 Chromium 运行，因为其固定 PNG 参考图与字体、浏览器像素实现耦合；跨浏览器风险由独立的语义、关键像素和发布包用例验证。`vitest.browser.config.mts` 预优化 `pixelmatch`，防止首次冷启动时依赖优化重载测试页。
 
 首批迁移的高风险场景：原生 ESM 导入、嵌套滚动的可见位置、大尺寸 data URL 图片的稳定化输出、canvas 快照像素，以及 SVG `foreignObject` 的过滤。`test/browser/smoke.html` 无参数时运行全部场景并把结果保存到 Mac 的 `test-results/mobile-smoke-reports/`；`?case=` 让 Playwright 为每个场景使用独立页面。完整页面及报告回传在三种桌面浏览器自动检查，真实 iOS 仍须单独验收。

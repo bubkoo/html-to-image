@@ -6,6 +6,9 @@ import { extname, resolve, sep } from 'node:path'
 
 const root = process.cwd()
 const host = process.env.HTML_TO_IMAGE_SMOKE_HOST || '127.0.0.1'
+const port = Number(process.env.HTML_TO_IMAGE_SMOKE_PORT || 4173)
+if (!Number.isInteger(port) || port < 1 || port > 65534)
+  throw new Error('HTML_TO_IMAGE_SMOKE_PORT must allow two adjacent TCP ports')
 const reportDirectory = resolve(root, 'test-results/mobile-smoke-reports')
 const types = {
   '.html': 'text/html; charset=utf-8',
@@ -23,7 +26,7 @@ const serve = async (request, response) => {
   if (pathname === '/test/browser/mobile-smoke-report') {
     if (
       request.method !== 'POST' ||
-      request.socket.localPort !== 4173 ||
+      request.socket.localPort !== port ||
       request.headers.origin !== `http://${request.headers.host}` ||
       request.headers['content-type'] !== 'application/json'
     ) {
@@ -126,6 +129,6 @@ const serve = async (request, response) => {
   }
 }
 
-createServer(serve).listen(4173, host)
+createServer(serve).listen(port, host)
 // A distinct origin lets the package suite exercise browser CORS behavior.
-createServer(serve).listen(4174, host)
+createServer(serve).listen(port + 1, host)
