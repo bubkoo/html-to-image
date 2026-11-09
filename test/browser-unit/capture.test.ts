@@ -85,6 +85,33 @@ test('a sticky header stays visible while scrolled content advances', async () =
   expect(panel.scrollTop).toBe(40)
 })
 
+test.each([0, 8])(
+  'a sticky child after a spacer keeps its %ipx top offset',
+  async (top) => {
+    const root = attach(document.createElement('div'))
+    root.style.cssText = 'width:40px;height:40px;overflow:hidden'
+    const panel = document.createElement('div')
+    panel.style.cssText = 'width:40px;height:40px;overflow:auto'
+    const spacer = document.createElement('div')
+    spacer.style.cssText = 'width:40px;height:40px;background:blue'
+    const header = document.createElement('div')
+    header.style.cssText = `position:sticky;top:${top}px;width:40px;height:10px;background:red`
+    const content = document.createElement('div')
+    content.style.cssText = 'width:40px;height:80px;background:green'
+    panel.append(spacer, header, content)
+    root.append(panel)
+    panel.scrollTop = 50
+    expect(Math.round(header.getBoundingClientRect().top)).toBe(
+      Math.round(panel.getBoundingClientRect().top) + top,
+    )
+
+    const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+    expect(pixel(image, 20, top + 5)).toEqual([255, 0, 0, 255])
+    expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
+    expect(panel.scrollTop).toBe(50)
+  },
+)
+
 test('an RTL horizontal scroller keeps its negative visible offset', async () => {
   const root = attach(document.createElement('div'))
   root.style.cssText = 'width:40px;height:40px;overflow:hidden'

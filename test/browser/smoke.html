@@ -229,6 +229,35 @@
         throw new Error('source scroll position changed')
     })
 
+    await test('sticky child after spacer', async () => {
+      const scene = document.createElement('div')
+      scene.style.cssText = 'width:40px;height:40px;overflow:hidden'
+      const panel = document.createElement('div')
+      panel.style.cssText = 'width:40px;height:40px;overflow:auto'
+      panel.innerHTML =
+        '<div style="width:40px;height:40px;background:blue"></div>' +
+        '<div style="position:sticky;top:8px;width:40px;height:10px;background:red"></div>' +
+        '<div style="width:40px;height:80px;background:green"></div>'
+      scene.append(panel)
+      document.body.append(scene)
+      try {
+        panel.scrollTop = 50
+        const image = await toImageData(scene, {
+          pixelRatio: 1,
+          skipFonts: true,
+        })
+        const sticky = pixel(image, 20, 13).join(',')
+        const content = pixel(image, 20, 25).join(',')
+        if (sticky !== '255,0,0,255' || content !== '0,128,0,255') {
+          throw new Error(`sticky/content pixels ${sticky} / ${content}`)
+        }
+        if (panel.scrollTop !== 50)
+          throw new Error('source sticky scroll position changed')
+      } finally {
+        scene.remove()
+      }
+    })
+
     await test('same-document clip path', async () => {
       const namespace = 'http://www.w3.org/2000/svg'
       const scene = document.createElement('div')
