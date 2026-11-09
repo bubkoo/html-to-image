@@ -426,6 +426,8 @@ export async function cloneNode<T extends HTMLElement>(
   resolveSymbols = true,
 ): Promise<T | null> {
   getTask(options)?.check()
+  // HTML permits comment contents that XML forbids; comments have no pixels.
+  if (node.nodeType === Node.COMMENT_NODE) return null
   if (
     !isRoot &&
     node.nodeType === 1 &&

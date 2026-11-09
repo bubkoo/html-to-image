@@ -4,8 +4,8 @@ V2 的主要风险发生在浏览器真实渲染和发布包解析阶段。Karma
 
 | 层 | 入口 | 验证什么 |
 | --- | --- | --- |
-| 既有回归与覆盖率 | `pnpm run test:coverage` | Vitest Chromium 运行迁移后的 115 个回归及 23 个新行为用例，并生成唯一的 `test/coverage/lcov.info`。 |
-| 浏览器行为 | `pnpm run test:browser:source` | 23 个 Vitest Browser Mode 用例在 Chromium、Firefox、WebKit 中直接导入源码，检查 DOM/SVG/像素行为。 |
+| 既有回归与覆盖率 | `pnpm run test:coverage` | Vitest Chromium 运行迁移后的既有回归及新增行为用例，并生成唯一的 `test/coverage/lcov.info`。 |
+| 浏览器行为 | `pnpm run test:browser:source` | Vitest Browser Mode 在 Chromium、Firefox、WebKit 中直接导入源码，检查 DOM/SVG/像素行为。 |
 | 构建产物 | `pnpm run test:package` 和 `pnpm run test:browser:package` | Node 中实际打包并离线安装到临时项目，检查 ESM/CJS/UMD、类型和打包清单；Playwright 经原样静态服务器加载构建后的 ESM 和 UMD，检查浏览器真正得到的产物和像素。 |
 
 开发机运行浏览器测试前，先用 Node 22.14+（22.x）或 24.10+ 和 `package.json` 固定的 pnpm 10 安装依赖，执行 `pnpm exec playwright install`。`pnpm test` 运行 Chromium 的完整源码覆盖率与三引擎行为测试；`pnpm run test:browser` 还检查 lint、构建、类型和发布包。单独运行 `test:browser:package` 时要先构建。CI 使用 Node 24、冻结锁文件，并在 `pull_request` 上顺序运行以上检查及核对检出 SHA。Codecov 与 Coveralls 均使用 Vitest 生成的同一份 LCOV。
