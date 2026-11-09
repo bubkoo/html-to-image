@@ -647,3 +647,25 @@ Shadow DOM 测试要同时检查 slot 的分配与未分配状态，比较导出
 - Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/smoke.html
 - Pattern-Key: html-to-svg.shadow-slot-fallback
 - Validation: verified locally in three browser engines; real iOS Safari pending
+
+## [LRN-20261110-025] solution
+
+**Logged**: 2026-11-10 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: browser-rendering
+
+### Summary
+同源 iframe 的 body 克隆不包含文档的运行时滚动位置，导出会显示未滚动的内容。
+
+### Details
+Chromium、Firefox、WebKit 中，40×20 的 iframe 滚动 20 像素后，源视口显示绿色，但旧导出显示红色。克隆器将 iframe 替换成它的 body，只复制了 DOM 与计算样式；文档的 `scrollY` 不在 body 节点的 `scrollTop` 上。读取同源 `contentWindow.scrollX/Y`，用现有副本位移和裁剪逻辑表达可见视口后，三引擎源码与实际 UMD 构建包的绿色像素通过，源 iframe 仍保持滚动 20 像素。原 Issue #543 的重复 body 修复也继续通过；跨域 iframe 和复杂滚动布局仍需单独验证。
+
+### Suggested Action
+对有运行时状态的嵌入文档，验证可见像素和源状态；仅检查 SVG 中存在一份内容无法发现滚动位置丢失。
+
+### Metadata
+- Source: failing-before-fix cross-browser pixel regression and UMD package test
+- Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/package.test.ts
+- Pattern-Key: html-to-svg.iframe-document-scroll
+- Validation: verified locally in three browser engines; cross-origin and complex iframe layouts remain unverified

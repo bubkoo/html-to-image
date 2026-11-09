@@ -139,6 +139,55 @@ test('built UMD keeps a fixed child above scrolled content', async ({
   })
 })
 
+test('built UMD preserves a same-origin iframe scroll position', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const root = document.createElement('div')
+    root.style.cssText = 'width:40px;height:20px'
+    const frame = document.createElement('iframe')
+    frame.style.cssText = 'display:block;width:40px;height:20px;border:0'
+    const loaded = new Promise<void>((resolve) => {
+      frame.onload = () => resolve()
+    })
+    frame.srcdoc =
+      '<style>html,body{margin:0}</style>' +
+      '<div style="width:40px;height:20px;background:red"></div>' +
+      '<div style="width:40px;height:20px;background:green"></div>'
+    root.append(frame)
+    document.body.append(root)
+    try {
+      await loaded
+      frame.contentWindow!.scrollTo(0, 20)
+      const api = (
+        window as typeof window & {
+          htmlToImage?: {
+            toImageData: (
+              node: HTMLElement,
+              options: object,
+            ) => Promise<ImageData>
+          }
+        }
+      ).htmlToImage
+      if (!api) throw new Error('UMD global missing')
+      const image = await api.toImageData(root, {
+        pixelRatio: 1,
+        skipFonts: true,
+      })
+      const offset = 4 * (10 * image.width + 20)
+      return {
+        pixel: Array.from(image.data.slice(offset, offset + 4)),
+        scrollY: frame.contentWindow!.scrollY,
+      }
+    } finally {
+      root.remove()
+    }
+  })
+  expect(result).toEqual({ pixel: [0, 128, 0, 255], scrollY: 20 })
+})
+
 test('built UMD omits HTML comments that invalidate XML', async ({ page }) => {
   await page.goto('/test/browser/umd.html')
   await page.addScriptTag({ url: '/dist/html-to-image.js' })

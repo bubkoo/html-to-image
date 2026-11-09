@@ -229,6 +229,56 @@ test('a shadow slot renders fallback content until a node is assigned', async ()
   expect(shadow.querySelector('#fallback')).not.toBeNull()
 })
 
+test('a same-origin iframe renders one copy of its body across browsers', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:20px'
+  const frame = document.createElement('iframe')
+  frame.style.cssText = 'display:block;width:40px;height:20px;border:0'
+  const loaded = new Promise<void>((resolve) => {
+    frame.onload = () => resolve()
+  })
+  frame.srcdoc =
+    '<style>body{margin:0}</style>' +
+    '<div id="frame-content" style="width:40px;height:20px;background:green"></div>'
+  root.append(frame)
+  await loaded
+
+  const svgUrl = await toSvg(root, { skipFonts: true })
+  const svgText = await fetch(svgUrl).then((response) => response.text())
+  expect(
+    new DOMParser()
+      .parseFromString(svgText, 'image/svg+xml')
+      .querySelectorAll('#frame-content'),
+  ).toHaveLength(1)
+  const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(image, 20, 10)).toEqual([0, 128, 0, 255])
+  expect(
+    frame.contentDocument?.body.querySelectorAll('#frame-content'),
+  ).toHaveLength(1)
+})
+
+test('a scrolled same-origin iframe exports its visible viewport', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:20px'
+  const frame = document.createElement('iframe')
+  frame.style.cssText = 'display:block;width:40px;height:20px;border:0'
+  const loaded = new Promise<void>((resolve) => {
+    frame.onload = () => resolve()
+  })
+  frame.srcdoc =
+    '<style>html,body{margin:0}</style>' +
+    '<div style="width:40px;height:20px;background:red"></div>' +
+    '<div style="width:40px;height:20px;background:green"></div>'
+  root.append(frame)
+  await loaded
+  frame.contentWindow!.scrollTo(0, 20)
+  expect(frame.contentWindow!.scrollY).toBe(20)
+
+  const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(image, 20, 10)).toEqual([0, 128, 0, 255])
+  expect(frame.contentWindow!.scrollY).toBe(20)
+})
+
 test('duplicate Content-Type values still embed image and CSS resources', async () => {
   const root = attach(document.createElement('div'))
   root.style.cssText = 'width:40px;height:20px;display:flex'

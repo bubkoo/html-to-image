@@ -257,7 +257,18 @@ function cloneClipPathReferences<T extends HTMLElement>(
 }
 
 function cloneScrollState<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  const { scrollLeft, scrollTop } = nativeNode
+  let { scrollLeft, scrollTop } = nativeNode
+  if (
+    isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
+    clonedNode.tagName === 'BODY'
+  ) {
+    try {
+      scrollLeft = nativeNode.contentWindow?.scrollX ?? 0
+      scrollTop = nativeNode.contentWindow?.scrollY ?? 0
+    } catch {
+      // Cross-origin frames keep their native iframe fallback.
+    }
+  }
   if (!scrollLeft && !scrollTop) return
   const children = Array.from(clonedNode.children)
   const hasDirectText = Array.from(clonedNode.childNodes).some(
