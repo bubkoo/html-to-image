@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { toImageData, toSvg } from '../../src'
 import { cloneNode } from '../../src/clone-node'
 
@@ -104,11 +104,63 @@ test('a detached document keeps its own CSS variables', async () => {
 
   const copy = await cloneNode(root, {}, true)
   expect(copy?.style.getPropertyValue('--fill')).toBe('rgb(0,128,0)')
-  expect((copy?.firstElementChild as HTMLElement).style.getPropertyValue('--fill'))
-    .toBe('')
+  expect(
+    (copy?.firstElementChild as HTMLElement).style.getPropertyValue('--fill'),
+  ).toBe('')
 
   const orphan = sourceDocument.createElement('div')
   orphan.style.setProperty('--fill', 'blue')
   const orphanCopy = await cloneNode(orphan, {}, false)
   expect(orphanCopy?.style.getPropertyValue('--fill')).toBe('blue')
+})
+
+test('siblings reuse parent CSS variable reads within a capture', async () => {
+  const root = document.createElement('div')
+  root.style.cssText = 'width:20px;--fill:rgb(0,128,0)'
+  for (let i = 0; i < 20; i += 1) {
+    const child = document.createElement('div')
+    child.style.cssText = 'width:20px;height:2px;background:var(--fill)'
+    root.append(child)
+  }
+  document.body.append(root)
+
+  const getComputedStyle = window.getComputedStyle.bind(window)
+  let reads = 0
+  const spy = vi
+    .spyOn(window, 'getComputedStyle')
+    .mockImplementation((element, pseudo) => {
+      const style = getComputedStyle(element, pseudo)
+      if (element !== root || pseudo) return style
+      return new Proxy(style, {
+        get(target, property) {
+          if (property === 'getPropertyValue') {
+            return (name: string) => {
+              if (name === '--fill') reads += 1
+              return target.getPropertyValue(name)
+            }
+          }
+          const value = Reflect.get(target, property, target)
+          return typeof value === 'function' ? value.bind(target) : value
+        },
+      })
+    })
+
+  try {
+    const first = await fetch(await toSvg(root, { skipFonts: true })).then(
+      (response) => response.text(),
+    )
+    expect(first).toContain('rgb(0, 128, 0)')
+    expect(reads).toBeLessThanOrEqual(2)
+
+    root.style.setProperty('--fill', 'rgb(0,0,255)')
+    reads = 0
+    const second = await fetch(await toSvg(root, { skipFonts: true })).then(
+      (response) => response.text(),
+    )
+    expect(second).toContain('rgb(0, 0, 255)')
+    expect(reads).toBeLessThanOrEqual(2)
+  } finally {
+    spy.mockRestore()
+    root.remove()
+  }
 })

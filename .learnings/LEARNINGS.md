@@ -559,3 +559,25 @@ Issue #542/#536 提到大 DOM 卡顿，但缺少可复现的原始页面，不�
 - Related Files: ../src/clone-node.ts, ../test/browser-unit/css-variables.test.ts, ../test/browser/package.test.ts
 - Pattern-Key: html-to-svg.inherited-custom-property-duplication
 - Validation: verified locally; PR #607 and merged master CI passed; reported heavy-DOM freezes remain unverified
+
+## [LRN-20261110-022] solution
+
+**Logged**: 2026-11-10 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: browser-rendering-performance
+
+### Summary
+避免重复序列化继承变量后，还要检查比较过程是否对每个同级节点重复读取同一父节点的计算值。
+
+### Details
+20 个子节点的三浏览器受控回归在修复前均观察到父节点 `--fill` 被读取 21 次。按捕获任务缓存父节点的变量值后，每次不超过 2 次；缓存于克隆阶段结束即清理，下一次捕获源变量变化仍得到新值。400 节点、300 变量的本机计时变化较小，不能据此认定 Issue #542/#536 的真实冻结已解决。npm 旧版对捕获根节点特有变量可能漏复制，性能对照必须先检查输出语义。
+
+### Suggested Action
+性能回归先断言可观察的重复操作次数与输出正确性，再用合成计时判断量级；对照旧版时确认两端复制了同一批样式。
+
+### Metadata
+- Source: failing-before-fix cross-browser regression and local synthetic benchmark
+- Related Files: ../src/task.ts, ../src/clone-node.ts, ../test/browser-unit/css-variables.test.ts, ../docs/v2-performance.md
+- Pattern-Key: html-to-svg.inherited-style-read-cache
+- Validation: verified locally; reported heavy-DOM freezes remain unverified
