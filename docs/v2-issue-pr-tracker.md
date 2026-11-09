@@ -12,7 +12,7 @@
 | [Issue #553](https://github.com/bubkoo/html-to-image/issues/553) | `toPixelData` 按 CSS 尺寸读取像素，高设备像素比时裁掉画布右侧和底部。 | 从实际画布宽高读取完整像素缓冲区；旧入口复用同一实现。 | **本地覆盖**：`renderer.test.ts` 的非 1 像素比尺寸、缓冲区长度和末端像素断言。原帖的 Mapbox/Firefox 场景未复测。 |
 | [Issue #543](https://github.com/bubkoo/html-to-image/issues/543) | iframe 的 body 在特殊克隆步骤和通用子节点步骤中各复制一次。 | iframe body 完成特殊克隆后不再进入第二次子节点递归。 | **本地覆盖**：`renderer.test.ts` 验证同源 `iframe.srcdoc` 的内容恰好出现一次。跨域 iframe 不在该结论内。 |
 | [Issue #578](https://github.com/bubkoo/html-to-image/issues/578) | HTML 文本中的 XML 1.0 非法控制字符进入 SVG，导致后续图像加载失败。 | SVG 序列化后移除非法控制字符，不改动源 DOM 文本。 | **本地覆盖**：`renderer.test.ts` 验证含 SOH 的输出可解析，源文本保留。原帖 Edge 环境尚未复测。 |
-| [Issue #570](https://github.com/bubkoo/html-to-image/issues/570) | HTML 注释可以包含 `--`，但复制到导出的 XML/SVG 后会触发解析错误。注释没有视觉内容。 | V2 后续稳定性修复在克隆入口跳过注释节点，保留源 DOM；不修改文本或元素内容。 | **修复前失败、修复后通过**：`xml-comments.test.ts` 在 Chromium 先得到 XML `parsererror`，修复后三浏览器源码与实际 UMD 构建包均验证 SVG 可解析、红色像素正确、源注释不变。合并和 npm 发布状态需分别核对后再回复。 |
+| [Issue #570](https://github.com/bubkoo/html-to-image/issues/570) | HTML 注释可以包含 `--`，但复制到导出的 XML/SVG 后会触发解析错误。注释没有视觉内容。 | [PR #606](https://github.com/bubkoo/html-to-image/pull/606) 已合入 `master`：克隆入口跳过注释节点，保留源 DOM；不修改文本或元素内容。 | **修复前失败、修复后通过**：`xml-comments.test.ts` 在 Chromium 先得到 XML `parsererror`，修复后三浏览器源码与实际 UMD 构建包均验证 SVG 可解析、红色像素正确、源注释不变。PR 与合并后的 CI、CodeQL 通过；npm 尚未发布。 |
 | [Issue #594](https://github.com/bubkoo/html-to-image/issues/594) | 嵌套滚动容器的 `scrollTop`/`scrollLeft` 是运行时状态，序列化的副本丢失可见位置。 | 在副本中表达内容位移和裁剪；保留源节点的滚动状态。直接位于顶部的 sticky 标题保留原位与绘制层级，普通内容仍按滚动量位移。 | **部分覆盖**：`scroll.test.ts` 验证纵向、横向、已有子元素变换和混合直接文本回退；新测试在 Chromium、Firefox、WebKit 核对单层、双层滚动与直接 sticky 标题的像素和源状态，本机 Safari 单层冒烟也通过。原帖完整 Windows 复现、RTL、其他 sticky/fixed 布局尚未验证。 |
 | [Issue #515](https://github.com/bubkoo/html-to-image/issues/515) / [PR #583](https://github.com/bubkoo/html-to-image/pull/583) | SVG 被整体深拷贝，`filter` 无法访问 `foreignObject` 等后代。 | SVG 后代也走可筛选的递归克隆。 | **本地覆盖**：`renderer.test.ts` 和跨浏览器新测试直接验证 `foreignObject` 后代被 `filter` 排除；尚未跑原帖的完整 SVG fixture。 |
 | [PR #595](https://github.com/bubkoo/html-to-image/pull/595) | 样式属性列表缓存在全局，首次捕获的选项泄漏到后续捕获。 | 样式选择归属单次捕获；显式空数组和伪元素选择按各次选项处理。 | **本地覆盖**：`renderer.test.ts` 的并发选项、冻结选项、伪元素 CSS 回归。此分支是独立实现，不应说已合并该 PR。 |
@@ -32,6 +32,7 @@
 | 对应讨论 | 当前边界 |
 | --- | --- |
 | [Issue #556](https://github.com/bubkoo/html-to-image/issues/556) / [Issue #569](https://github.com/bubkoo/html-to-image/issues/569) | iOS 下载/分享空白与笼统的 Safari 失效报告缺少同场景验证；本机 Safari 大图修复不能外推。 |
+| [Issue #542](https://github.com/bubkoo/html-to-image/issues/542) / [Issue #536](https://github.com/bubkoo/html-to-image/issues/536) | 后续优化候选去掉子节点对继承 CSS 变量的重复序列化，三引擎源码和 UMD 用例验证颜色与变量覆盖。100 节点、100 变量的本机合成场景中，单个变量由 101 份降为 1 份，SVG 约少 168 KB；实际大 DOM 冻结缺少同场景复现，仍不能宣称解决。 |
 
 ## 回复前的证据闸门
 

@@ -1,4 +1,4 @@
-# Capture architecture (working v2 branch)
+# Capture architecture (V2)
 
 ## Decision
 
@@ -30,6 +30,10 @@ children and styles have been copied; it runs child-first, before `onClone`.
 element and its pseudo elements before copying; its `undefined` result means
 all properties, even when `includeStyleProperties` is set. These per-element
 callbacks are synchronous and do not touch the source DOM.
+Default style copying keeps inherited CSS custom properties on the nearest
+copied ancestor instead of repeating equal values on every descendant. A
+different descendant value is copied locally. An explicit style-property list
+still copies every requested property on each selected node.
 For repeated captures, `plugins: [{ name, transformClone, resolveResource }]`
 adds named behavior. Registration order is deterministic: `onClone`, then each
 `transformClone`; only then are fonts and images discovered. Duplicate plugin

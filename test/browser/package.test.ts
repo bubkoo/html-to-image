@@ -128,6 +128,47 @@ test('built UMD omits HTML comments that invalidate XML', async ({ page }) => {
   })
 })
 
+test('built UMD keeps inherited CSS variables without repeating them per child', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const root = document.createElement('div')
+    root.style.cssText = 'width:20px;height:20px;--fill:rgb(0,128,0)'
+    const child = document.createElement('div')
+    child.style.cssText = 'width:20px;height:20px;background:var(--fill)'
+    root.append(child)
+    document.body.append(root)
+    try {
+      const api = (
+        window as typeof window & {
+          htmlToImage?: {
+            toSvg: (node: HTMLElement, options: object) => Promise<string>
+            toImageData: (
+              node: HTMLElement,
+              options: object,
+            ) => Promise<ImageData>
+          }
+        }
+      ).htmlToImage
+      if (!api) throw new Error('UMD global missing')
+      const options = { skipFonts: true, pixelRatio: 1 }
+      const xml = await fetch(await api.toSvg(root, options)).then((response) =>
+        response.text(),
+      )
+      const image = await api.toImageData(root, options)
+      return {
+        variableCopies: (xml.match(/--fill:/g) || []).length,
+        pixel: Array.from(image.data.slice(0, 4)),
+      }
+    } finally {
+      root.remove()
+    }
+  })
+  expect(result).toEqual({ variableCopies: 1, pixel: [0, 128, 0, 255] })
+})
+
 test('built UMD preserves canvas pixels inside the exported image', async ({
   page,
 }) => {

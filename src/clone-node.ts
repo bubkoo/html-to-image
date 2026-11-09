@@ -117,21 +117,36 @@ function cloneCSSStyle<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   selected?: readonly string[],
+  isRoot?: boolean,
 ) {
   const targetStyle = clonedNode.style
   if (!targetStyle) {
     return
   }
 
-  const sourceStyle = (
-    nativeNode.ownerDocument.defaultView || window
-  ).getComputedStyle(nativeNode)
+  const view = nativeNode.ownerDocument.defaultView || window
+  const sourceStyle = view.getComputedStyle(nativeNode)
   if (sourceStyle.cssText && selected == null) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
   } else {
+    let inheritedStyle: CSSStyleDeclaration | undefined
+    const sourceRoot = nativeNode.getRootNode()
+    const parent = isRoot
+      ? null
+      : nativeNode.assignedSlot ||
+        nativeNode.parentElement ||
+        (sourceRoot.nodeType === Node.DOCUMENT_FRAGMENT_NODE &&
+        'host' in sourceRoot
+          ? (sourceRoot.host as Element)
+          : null)
     getStyleProperties(sourceStyle, selected).forEach((name) => {
       let value = sourceStyle.getPropertyValue(name)
+      if (selected == null && parent && name.startsWith('--')) {
+        // Equal inherited variables are already available from the copied ancestor.
+        inheritedStyle ||= view.getComputedStyle(parent)
+        if (value === inheritedStyle.getPropertyValue(name)) return
+      }
       if (name === 'font-size' && value.endsWith('px')) {
         const reducedFont =
           Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
@@ -288,12 +303,13 @@ function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
+  isRoot?: boolean,
 ): T {
   if (isInstanceOfElement(clonedNode, Element)) {
     const selected = options.stylePropertiesForNode
       ? options.stylePropertiesForNode(nativeNode)
       : options.includeStyleProperties
-    cloneCSSStyle(nativeNode, clonedNode, selected)
+    cloneCSSStyle(nativeNode, clonedNode, selected, isRoot)
     clonePseudoElements(nativeNode, clonedNode, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
@@ -442,7 +458,7 @@ export async function cloneNode<T extends HTMLElement>(
   return Promise.resolve(node)
     .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
     .then((clonedNode) => cloneChildren(node, clonedNode, options))
-    .then((clonedNode) => decorate(node, clonedNode, options))
+    .then((clonedNode) => decorate(node, clonedNode, options, isRoot))
     .then((clonedNode) =>
       isRoot && resolveSymbols
         ? ensureSVGSymbols(node, clonedNode, options)
