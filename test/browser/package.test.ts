@@ -172,20 +172,46 @@ test('built UMD preserves a same-origin iframe scroll position', async ({
         }
       ).htmlToImage
       if (!api) throw new Error('UMD global missing')
-      const image = await api.toImageData(root, {
+      const options = {
         pixelRatio: 1,
         skipFonts: true,
+      }
+      const vertical = await api.toImageData(root, options)
+      const verticalOffset = 4 * (10 * vertical.width + 20)
+      const verticalPixel = Array.from(
+        vertical.data.slice(verticalOffset, verticalOffset + 4),
+      )
+      const verticalScrollY = frame.contentWindow!.scrollY
+
+      const reloaded = new Promise<void>((resolve) => {
+        frame.onload = () => resolve()
       })
-      const offset = 4 * (10 * image.width + 20)
+      frame.srcdoc =
+        '<style>html,body{margin:0}body{width:80px;display:flex}</style>' +
+        '<div style="width:40px;height:20px;flex:none;background:red"></div>' +
+        '<div style="width:40px;height:20px;flex:none;background:green"></div>'
+      await reloaded
+      frame.contentWindow!.scrollTo(40, 0)
+      const horizontal = await api.toImageData(root, options)
+      const horizontalOffset = 4 * (10 * horizontal.width + 20)
       return {
-        pixel: Array.from(image.data.slice(offset, offset + 4)),
-        scrollY: frame.contentWindow!.scrollY,
+        verticalPixel,
+        verticalScrollY,
+        horizontalPixel: Array.from(
+          horizontal.data.slice(horizontalOffset, horizontalOffset + 4),
+        ),
+        horizontalScrollX: frame.contentWindow!.scrollX,
       }
     } finally {
       root.remove()
     }
   })
-  expect(result).toEqual({ pixel: [0, 128, 0, 255], scrollY: 20 })
+  expect(result).toEqual({
+    verticalPixel: [0, 128, 0, 255],
+    verticalScrollY: 20,
+    horizontalPixel: [0, 128, 0, 255],
+    horizontalScrollX: 40,
+  })
 })
 
 test('built UMD omits HTML comments that invalidate XML', async ({ page }) => {
