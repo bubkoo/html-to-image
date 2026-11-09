@@ -233,8 +233,9 @@
       const scene = document.createElement('div')
       scene.style.cssText = 'width:40px;height:40px;overflow:hidden'
       const panel = document.createElement('div')
-      panel.style.cssText = 'width:40px;height:40px;overflow:auto'
+      panel.style.cssText = 'width:40px;height:40px;overflow:auto;transform:translate(0,0)'
       panel.innerHTML =
+        '<div style="position:fixed;top:0;left:0;width:40px;height:4px;background:blue"></div>' +
         '<div style="width:40px;height:40px;background:blue"></div>' +
         '<div style="position:sticky;top:8px;width:40px;height:10px;background:red"></div>' +
         '<div style="width:40px;height:80px;background:green"></div>'
@@ -246,10 +247,11 @@
           pixelRatio: 1,
           skipFonts: true,
         })
+        const overlay = pixel(image, 20, 2).join(',')
         const sticky = pixel(image, 20, 13).join(',')
         const content = pixel(image, 20, 25).join(',')
-        if (sticky !== '255,0,0,255' || content !== '0,128,0,255') {
-          throw new Error(`sticky/content pixels ${sticky} / ${content}`)
+        if (overlay !== '0,0,255,255' || sticky !== '255,0,0,255' || content !== '0,128,0,255') {
+          throw new Error(`overlay/sticky/content pixels ${overlay} / ${sticky} / ${content}`)
         }
         if (panel.scrollTop !== 50)
           throw new Error('source sticky scroll position changed')

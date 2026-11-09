@@ -282,14 +282,13 @@ function cloneScrollState<T extends HTMLElement>(
       return (
         !display.startsWith('inline') &&
         display !== 'contents' &&
-        position !== 'absolute' &&
-        position !== 'fixed'
+        position !== 'absolute'
       )
     })
   ) {
     const firstFlowChild = children.find((child) => {
       const style = (child as HTMLElement).style
-      return style.display !== 'none'
+      return style.display !== 'none' && style.position !== 'fixed'
     }) as HTMLElement | undefined
     const margin = firstFlowChild?.style.marginTop || '0px'
     if (firstFlowChild && margin !== 'auto') {

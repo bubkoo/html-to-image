@@ -145,6 +145,41 @@ test.each([0, 8])(
   },
 )
 
+test.each(['first', 'last'])(
+  'a %s fixed overlay stays above a later sticky header and scrolled content',
+  async (placement) => {
+    const root = attach(document.createElement('div'))
+    root.style.cssText = 'width:40px;height:40px;overflow:hidden'
+    const panel = document.createElement('div')
+    panel.style.cssText =
+      'width:40px;height:40px;overflow:auto;transform:translate(0,0)'
+    const spacer = document.createElement('div')
+    spacer.style.cssText = 'width:40px;height:40px;background:blue'
+    const header = document.createElement('div')
+    header.style.cssText =
+      'position:sticky;top:8px;width:40px;height:10px;background:red'
+    const content = document.createElement('div')
+    content.style.cssText = 'width:40px;height:80px;background:green'
+    const fixed = document.createElement('div')
+    fixed.style.cssText =
+      'position:fixed;top:0;left:0;width:40px;height:4px;background:blue'
+    const hidden = document.createElement('div')
+    hidden.style.display = 'none'
+    if (placement === 'first')
+      panel.append(hidden, fixed, spacer, header, content)
+    else panel.append(spacer, header, content, fixed)
+    root.append(panel)
+    panel.scrollTop = 50
+
+    const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+    expect(pixel(image, 20, 2)).toEqual([0, 0, 255, 255])
+    expect(pixel(image, 20, 13)).toEqual([255, 0, 0, 255])
+    expect(pixel(image, 20, 25)).toEqual([0, 128, 0, 255])
+    expect(panel.scrollTop).toBe(50)
+    expect(fixed.style.transform).toBe('')
+  },
+)
+
 test('an RTL horizontal scroller keeps its negative visible offset', async () => {
   const root = attach(document.createElement('div'))
   root.style.cssText = 'width:40px;height:40px;overflow:hidden'

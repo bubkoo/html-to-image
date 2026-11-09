@@ -44,6 +44,31 @@ describe('scrolled viewport capture', () => {
     })
   })
 
+  it('keeps a fixed overlay, later sticky header and scrolled rows visible', async () => {
+    const { root, panel } = scene('vertical')
+    panel.style.transform = 'translate(0,0)'
+    const spacer = panel.firstElementChild as HTMLElement
+    spacer.style.background = 'blue'
+    const fixed = document.createElement('div')
+    fixed.style.cssText =
+      'position:fixed;top:0;left:0;width:40px;height:4px;background:blue'
+    const hidden = document.createElement('div')
+    hidden.style.display = 'none'
+    const header = document.createElement('div')
+    header.style.cssText =
+      'position:sticky;top:8px;width:40px;height:10px;background:red'
+    panel.prepend(hidden, fixed)
+    panel.insertBefore(header, panel.lastElementChild)
+    ;(panel.lastElementChild as HTMLElement).style.height = '80px'
+    panel.scrollTop = 50
+
+    const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+    expect(rgba(image, 20, 2)).toEqual([0, 0, 255, 255])
+    expect(rgba(image, 20, 13)).toEqual([255, 0, 0, 255])
+    expect(rgba(image, 20, 25)).toEqual([0, 128, 0, 255])
+    expect(panel.scrollTop).toBe(50)
+  })
+
   it('leaves mixed direct text and elements untouched when it cannot shift both', async () => {
     const { root, panel } = scene('vertical')
     panel.insertBefore(document.createTextNode('direct text'), panel.firstChild)
