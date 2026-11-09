@@ -266,6 +266,37 @@ function cloneScrollState<T extends HTMLElement>(
   const hasDirectText = Array.from(clonedNode.childNodes).some(
     (child) => child.nodeType === Node.TEXT_NODE && child.textContent?.trim(),
   )
+  // Moving every child with a transform prevents sticky positioning from
+  // using the scrollport. In a block scroller, shifting the first in-flow
+  // child's margin moves the flow while leaving sticky layout to the browser.
+  if (
+    scrollLeft === 0 &&
+    scrollTop > 0 &&
+    clonedNode.style.display === 'block' &&
+    !hasDirectText &&
+    children.some(
+      (child) => (child as HTMLElement).style.position === 'sticky',
+    ) &&
+    children.every((child) => {
+      const display = (child as HTMLElement).style.display
+      return !display.startsWith('inline') && display !== 'contents'
+    })
+  ) {
+    const firstFlowChild = children.find((child) => {
+      const style = (child as HTMLElement).style
+      return (
+        style.display !== 'none' &&
+        style.position !== 'absolute' &&
+        style.position !== 'fixed'
+      )
+    }) as HTMLElement | undefined
+    const margin = firstFlowChild?.style.marginTop || '0px'
+    if (firstFlowChild && margin !== 'auto') {
+      firstFlowChild.style.marginTop = `calc(${margin} - ${scrollTop}px)`
+      clonedNode.style.overflow = 'hidden'
+      return
+    }
+  }
   const isSupportedSticky = (child: Element, index: number) => {
     const style = (child as HTMLElement).style
     return (

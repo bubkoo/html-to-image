@@ -669,3 +669,25 @@ Chromium、Firefox、WebKit 中，40×20 的 iframe 滚动 20 像素后，源视
 - Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/package.test.ts
 - Pattern-Key: html-to-svg.iframe-document-scroll
 - Validation: verified locally in three browser engines; cross-origin and complex iframe layouts remain unverified
+
+## [LRN-20261110-027] solution
+
+**Logged**: 2026-11-10 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: browser-rendering
+
+### Summary
+sticky 子元素不能用逐子元素 transform 表达滚动；在受限的块级纵向容器中，用正常流边距表达滚动量可保留浏览器的 sticky 定位。
+
+### Details
+40×40 的容器向下滚动 50 像素，sticky 标题位于 40 像素蓝色 spacer 后。源页面标题贴在滚动视口上沿，旧克隆器因 sticky 不在第一个位置而跳过整个滚动修正，Chromium 修复前像素为蓝色而非红色。对垂直块级滚动且无直接文本、行内子元素的场景，将首个正常流子元素的现有上边距减去滚动量，并让副本裁剪溢出；布局引擎继续计算 sticky。三引擎源码测试验证 `top:0/8px`、后续绿色内容和源滚动不变，构建后 ESM 冒烟也通过。横向、混合文本或复杂布局仍由旧路径处理或保持明确边界。
+
+### Suggested Action
+滚动与 sticky 的组合要检查源元素实际位置和多个输出像素。新增布局表达法只扩展已复现的块级纵向范围，不要把这一结果推广到任意 CSS 布局。
+
+### Metadata
+- Source: failing-before-fix Chromium pixel regression and three-browser source/package verification
+- Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/smoke.html, ../docs/v2-regressions.md
+- Pattern-Key: html-to-svg.sticky-after-spacer-scroll
+- Validation: verified locally in three browser engines; real iOS Safari and original Issue #594 fixture pending
