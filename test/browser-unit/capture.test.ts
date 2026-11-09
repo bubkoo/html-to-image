@@ -1,5 +1,5 @@
 import { afterEach, expect, test } from 'vitest'
-import { toImageData, toSvg } from '../../src'
+import { toCanvas, toImageData, toSvg } from '../../src'
 
 const nodes: Element[] = []
 
@@ -34,6 +34,39 @@ test('a nested scroller exports its visible viewport without moving the source',
   const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
   expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
   expect(panel.scrollTop).toBe(40)
+})
+
+test('Issue #594 standalone panel keeps rows 5–8 in a 2x canvas', async () => {
+  const scene = attach(document.createElement('div'))
+  scene.style.cssText =
+    'width:430px;height:320px;box-sizing:border-box;padding:18px;border:1px solid #aaa;background:white;font:18px Arial,sans-serif'
+  const label = document.createElement('strong')
+  label.textContent = 'Example list panel'
+  const description = document.createElement('p')
+  description.textContent = 'Scrolled down to rows 5–8'
+  const panel = document.createElement('div')
+  panel.style.cssText = 'height:200px;overflow:auto;border:2px solid #526787'
+  for (let index = 0; index < 8; index += 1) {
+    const row = document.createElement('div')
+    row.style.cssText = `height:50px;box-sizing:border-box;padding:15px;background:${
+      index < 4 ? '#ffdfdf' : '#d8f5df'
+    }`
+    row.textContent = `Row ${index + 1}`
+    panel.append(row)
+  }
+  scene.append(label, description, panel)
+  panel.scrollTop = 200
+  const sceneRect = scene.getBoundingClientRect()
+  const panelRect = panel.getBoundingClientRect()
+  const x = Math.round((panelRect.left - sceneRect.left + 200) * 2)
+  const y = Math.round((panelRect.top - sceneRect.top + 25) * 2)
+
+  const canvas = await toCanvas(scene, { pixelRatio: 2, skipFonts: true })
+  expect([canvas.width, canvas.height]).toEqual([860, 640])
+  expect(
+    Array.from(canvas.getContext('2d')!.getImageData(x, y, 1, 1).data),
+  ).toEqual([216, 245, 223, 255])
+  expect(panel.scrollTop).toBe(200)
 })
 
 test('two nested scrollers preserve their combined visible viewport', async () => {
