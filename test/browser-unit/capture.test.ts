@@ -125,6 +125,15 @@ test('a fixed child stays visible while normal scrolled content advances', async
   expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
   expect(panel.scrollTop).toBe(40)
   expect(fixed.style.transform).toBe('')
+
+  fixed.style.zIndex = '2'
+  const explicitLayer = await toImageData(root, {
+    pixelRatio: 1,
+    skipFonts: true,
+  })
+  expect(pixel(explicitLayer, 20, 4)).toEqual([0, 0, 255, 255])
+  expect(pixel(explicitLayer, 20, 20)).toEqual([0, 128, 0, 255])
+  expect(fixed.style.zIndex).toBe('2')
 })
 
 test('a fixed child can remain visible outside its scroller viewport', async () => {
