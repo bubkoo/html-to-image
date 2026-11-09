@@ -6,6 +6,7 @@ const cases = [
   'UMD global and pixels',
   'canvas snapshot pixels',
   'per-node customization',
+  'shadow slot fallback and assignment',
   'nested visible scroll position',
   'same-document clip path',
   'SVG use local and external symbols',
