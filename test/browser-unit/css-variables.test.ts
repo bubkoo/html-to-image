@@ -61,3 +61,34 @@ test('inherited CSS variables are serialized once and overrides stay local', asy
     stylesheet.remove()
   }
 })
+
+test.each(['shadow child', 'slotted child'])(
+  '%s inherits a CSS variable from its copied host',
+  async (placement) => {
+    const host = document.createElement('div')
+    host.style.cssText = 'width:20px;height:20px;--fill:rgb(0,128,0)'
+    const shadow = host.attachShadow({ mode: 'open' })
+    const child = document.createElement('div')
+    child.style.cssText = 'width:20px;height:20px;background:var(--fill)'
+    if (placement === 'slotted child') {
+      shadow.append(document.createElement('slot'))
+      host.append(child)
+    } else {
+      shadow.append(child)
+    }
+    document.body.append(host)
+
+    try {
+      const options = { skipFonts: true, pixelRatio: 1 }
+      const output = await fetch(await toSvg(host, options)).then((response) =>
+        response.text(),
+      )
+      expect((output.match(/--fill:/g) || []).length).toBe(1)
+      const image = await toImageData(host, options)
+      expect(pixel(image, 10, 10)).toEqual([0, 128, 0, 255])
+      expect(child.style.getPropertyValue('--fill')).toBe('')
+    } finally {
+      host.remove()
+    }
+  },
+)
