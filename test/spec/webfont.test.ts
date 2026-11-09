@@ -2,6 +2,45 @@ import * as htmlToImage from '../../src'
 import { getSvgDocument } from './helper'
 
 describe('font embedding', () => {
+  it('embeds a font used by a descendant in a srcdoc iframe realm', async () => {
+    const frame = document.createElement('iframe')
+    frame.srcdoc = `
+      <style>
+        @font-face { font-family: FrameFont; src: url(asset:frame-font.woff2) format('woff2'); }
+      </style>
+      <div id="capture" style="width:80px;height:30px">
+        <span style="font-family:FrameFont">iframe font</span>
+      </div>
+    `
+    const loaded = new Promise<void>((resolve) => {
+      frame.addEventListener('load', () => resolve(), { once: true })
+    })
+    document.body.appendChild(frame)
+    try {
+      await loaded
+      const root = frame.contentDocument!.getElementById(
+        'capture',
+      ) as HTMLElement
+      expect(root.children[0] instanceof HTMLElement).toBe(false)
+      const requested: string[] = []
+      const svg = await htmlToImage.toSvg(root, {
+        resources: {
+          resolve: ({ url, kind }) => {
+            if (kind === 'font') requested.push(url)
+            return kind === 'font'
+              ? new Blob(['font bytes'], { type: 'font/woff2' })
+              : undefined
+          },
+        },
+      })
+      const doc = await getSvgDocument(svg)
+      expect(requested).toEqual(['asset:frame-font.woff2'])
+      expect(doc.documentElement.textContent).toContain('data:font/woff2')
+    } finally {
+      frame.remove()
+    }
+  })
+
   it('embeds a used font without changing the source stylesheet', async () => {
     const style = document.createElement('style')
     style.textContent =
