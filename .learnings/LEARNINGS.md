@@ -542,7 +542,7 @@ HTML DOM 进入 XML/SVG 快照时，先按节点的视觉语义处理注释；�
 
 **Logged**: 2026-11-10 (Asia/Shanghai)
 **Priority**: medium
-**Status**: candidate
+**Status**: resolved
 **Area**: browser-rendering-performance
 
 ### Summary
@@ -558,4 +558,4 @@ Issue #542/#536 提到大 DOM 卡顿，但缺少可复现的原始页面，不�
 - Source: Issue #542/#536 and failing-before-fix cross-browser regression
 - Related Files: ../src/clone-node.ts, ../test/browser-unit/css-variables.test.ts, ../test/browser/package.test.ts
 - Pattern-Key: html-to-svg.inherited-custom-property-duplication
-- Validation: verified locally; remote CI pending
+- Validation: verified locally; PR #607 and merged master CI passed; reported heavy-DOM freezes remain unverified
