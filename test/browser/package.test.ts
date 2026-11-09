@@ -82,6 +82,62 @@ test('built UMD global renders pixels in a browser', async ({ page }) => {
   expect(result).toEqual({ width: 32, height: 32, pixel: [255, 0, 0, 255] })
 })
 
+test('built UMD keeps a fixed child above scrolled content', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const root = document.createElement('div')
+    root.style.cssText = 'width:40px;height:40px;overflow:hidden'
+    const panel = document.createElement('div')
+    panel.style.cssText = 'width:40px;height:40px;overflow:auto'
+    const fixed = document.createElement('div')
+    fixed.style.cssText =
+      'position:fixed;top:0;left:0;width:40px;height:8px;background:blue'
+    const red = document.createElement('div')
+    red.style.cssText = 'width:40px;height:40px;background:red'
+    const green = document.createElement('div')
+    green.style.cssText = 'width:40px;height:40px;background:green'
+    panel.append(fixed, red, green)
+    root.append(panel)
+    document.body.append(root)
+    panel.scrollTop = 40
+    try {
+      const api = (
+        window as typeof window & {
+          htmlToImage?: {
+            toImageData: (
+              node: HTMLElement,
+              options: object,
+            ) => Promise<ImageData>
+          }
+        }
+      ).htmlToImage
+      if (!api) throw new Error('UMD global missing')
+      const image = await api.toImageData(root, {
+        pixelRatio: 1,
+        skipFonts: true,
+      })
+      const pixel = (y: number) =>
+        Array.from(
+          image.data.slice(
+            4 * (y * image.width + 20),
+            4 * (y * image.width + 20) + 4,
+          ),
+        )
+      return { top: pixel(4), content: pixel(20), scrollTop: panel.scrollTop }
+    } finally {
+      root.remove()
+    }
+  })
+  expect(result).toEqual({
+    top: [0, 0, 255, 255],
+    content: [0, 128, 0, 255],
+    scrollTop: 40,
+  })
+})
+
 test('built UMD omits HTML comments that invalidate XML', async ({ page }) => {
   await page.goto('/test/browser/umd.html')
   await page.addScriptTag({ url: '/dist/html-to-image.js' })

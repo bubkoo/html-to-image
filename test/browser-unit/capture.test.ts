@@ -85,6 +85,70 @@ test('a sticky header stays visible while scrolled content advances', async () =
   expect(panel.scrollTop).toBe(40)
 })
 
+test('an RTL horizontal scroller keeps its negative visible offset', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:40px;overflow:hidden'
+  const panel = document.createElement('div')
+  panel.style.cssText =
+    'width:40px;height:40px;overflow:auto;display:flex;direction:rtl'
+  ;['red', 'green'].forEach((color) => {
+    const child = document.createElement('div')
+    child.style.cssText = `width:40px;height:40px;flex:none;background:${color}`
+    panel.append(child)
+  })
+  root.append(panel)
+  panel.scrollLeft = -40
+
+  const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
+  expect(panel.scrollLeft).toBe(-40)
+})
+
+test('a fixed child stays visible while normal scrolled content advances', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:40px;overflow:hidden'
+  const panel = document.createElement('div')
+  panel.style.cssText = 'width:40px;height:40px;overflow:auto'
+  const fixed = document.createElement('div')
+  fixed.style.cssText =
+    'position:fixed;top:0;left:0;width:40px;height:8px;background:blue'
+  const first = document.createElement('div')
+  first.style.cssText = 'width:40px;height:40px;background:red'
+  const second = document.createElement('div')
+  second.style.cssText = 'width:40px;height:40px;background:green'
+  panel.append(fixed, first, second)
+  root.append(panel)
+  panel.scrollTop = 40
+
+  const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(image, 20, 4)).toEqual([0, 0, 255, 255])
+  expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
+  expect(panel.scrollTop).toBe(40)
+  expect(fixed.style.transform).toBe('')
+})
+
+test('a fixed child can remain visible outside its scroller viewport', async () => {
+  const root = attach(document.createElement('div'))
+  root.style.cssText = 'width:40px;height:80px;background:white'
+  const panel = document.createElement('div')
+  panel.style.cssText = 'width:40px;height:40px;overflow:auto'
+  const fixed = document.createElement('div')
+  fixed.style.cssText =
+    'position:fixed;top:50px;left:0;width:40px;height:8px;background:blue'
+  const first = document.createElement('div')
+  first.style.cssText = 'width:40px;height:40px;background:red'
+  const second = document.createElement('div')
+  second.style.cssText = 'width:40px;height:40px;background:green'
+  panel.append(fixed, first, second)
+  root.append(panel)
+  panel.scrollTop = 40
+
+  const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+  expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
+  expect(pixel(image, 20, 54)).toEqual([0, 0, 255, 255])
+  expect(panel.scrollTop).toBe(40)
+})
+
 test('SVG foreignObject children are individually filterable', async () => {
   const root = attach(document.createElement('div'))
   root.innerHTML =
