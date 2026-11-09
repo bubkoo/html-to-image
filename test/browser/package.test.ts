@@ -7,6 +7,7 @@ const cases = [
   'canvas snapshot pixels',
   'per-node customization',
   'shadow slot fallback and assignment',
+  'same-origin iframe viewport',
   'nested visible scroll position',
   'same-document clip path',
   'SVG use local and external symbols',
