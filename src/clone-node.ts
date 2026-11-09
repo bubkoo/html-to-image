@@ -263,10 +263,10 @@ function cloneScrollState<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
     clonedNode.tagName === 'BODY'
   ) {
     try {
-      scrollLeft = nativeNode.contentWindow?.scrollX ?? 0
-      scrollTop = nativeNode.contentWindow?.scrollY ?? 0
+      scrollLeft = nativeNode.contentWindow!.scrollX
+      scrollTop = nativeNode.contentWindow!.scrollY
     } catch {
-      // Cross-origin frames keep their native iframe fallback.
+      // The frame may navigate or detach after its body was cloned.
     }
   }
   if (!scrollLeft && !scrollTop) return
