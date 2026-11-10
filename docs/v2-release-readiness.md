@@ -95,3 +95,10 @@
 ## 2026-11-11 #623 合并复检
 
 [#623](https://github.com/bubkoo/html-to-image/pull/623) 已合入 master，提交 `a360c432c04c35f1d22295874aec5133b9265027`，src/test/README/包清单/锁文件/测试配置与最终真机候选相同。最终 [PR CI](https://github.com/bubkoo/html-to-image/actions/runs/42906552183)、[PR CodeQL](https://github.com/bubkoo/html-to-image/actions/runs/42906552119)、Codecov patch/project、[主分支 CI](https://github.com/bubkoo/html-to-image/actions/runs/42907108780) 和[主分支 CodeQL](https://github.com/bubkoo/html-to-image/actions/runs/42907108570) 全部通过；上述最后一节的“合并前核验”已完成。npm 未发布。
+
+
+## 2026-11-11 快照源文档释放验收
+
+源码 `6c7de8144d85a12c427dc9454e0eafc3aee7785d` 重新构建后，USB 连接的真实 iPhone Safari（iOS 18.7，Safari 26.6.1，DPR 3，非模拟器）完整 **22/22 通过**，[原始报告](evidence/ios-safari-capture-lifetime-6c7de81.json)已归档。新用例在源 iframe 移除后延迟输出 ESM/UMD canvas，核对所属文档、尺寸、互不影响的绿色像素和 dispose 后拒绝操作；此真机结果是输出验收，不包含 GC 断言。
+
+本地完整检查为覆盖率 208/208、三引擎源码 266 通过/1 项有界跳过、构建包 114/114；lint、构建、类型和 tarball ESM/CJS/UMD/双版本 TypeScript 均通过。最终定向回归旧源码 11 项失败、修复后 11 项通过；WebKit 无捕获 iframe 的原生回收对照不满足，因此该引擎只跳过原生 iframe GC，独立源文档 GC 与移除 iframe 后输出仍验证。[生命周期证据](evidence/capture-source-lifetime.json)保存候选 SHA、源文件 hash 和隔离结果。PR/主分支检查合并前另行核验，npm 未发布。

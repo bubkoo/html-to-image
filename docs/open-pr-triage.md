@@ -60,7 +60,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 本轮另复现了与全局资源缓存不同的引用问题：保留已 dispose 的快照对象时，延迟绘制函数仍持有源 ownerDocument；Chromium 中移除 iframe 后请求 GC，文档仍可经 WeakRef 读取，丢弃快照才消失。候选改由库所在 document 创建 canvas，并将任务释放函数绑定在捕获调用环境之外，避免 Firefox 通过内联释放回调间接保留源节点。
 
-最终定向回归在旧源码上 11 项全部失败，候选 11 项通过、1 项有界跳过：三引擎均验证独立源文档可回收、延迟绘制和已 dispose 快照，以及移除 iframe 后 canvas 的所属文档、像素和独立副本；Chromium/Firefox 另验证 iframe 文档可回收。WebKit 的无捕获 iframe 对照仍保留原生文档，因此不对它作该项 GC 承诺。本地完整检查 208/266/114、构建、类型及 tarball 均通过（源码另有 1 项上述有界跳过）；[定向证据](evidence/capture-source-lifetime.json)已归档。真机输出与远端检查待完成；不等于原 SPA 的完整内存压力场景已复测。
+最终定向回归在旧源码上 11 项全部失败，候选 11 项通过、1 项有界跳过：三引擎均验证独立源文档可回收、延迟绘制和已 dispose 快照，以及移除 iframe 后 canvas 的所属文档、像素和独立副本；Chromium/Firefox 另验证 iframe 文档可回收。WebKit 的无捕获 iframe 对照仍保留原生文档，因此不对它作该项 GC 承诺。本地完整检查 208/266/114、构建、类型及 tarball 均通过（源码另有 1 项上述有界跳过）；[定向证据](evidence/capture-source-lifetime.json)已归档。源码 `6c7de81` 真实 iPhone Safari 22/22 通过（ESM/UMD 输出，不声称真机 GC），[原始报告](evidence/ios-safari-capture-lifetime-6c7de81.json)已归档；远端检查待完成；不等于原 SPA 的完整内存压力场景已复测。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 

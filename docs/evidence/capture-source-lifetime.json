@@ -43,8 +43,14 @@
   "candidateSourceSha256": {
     "src/capture.ts": "dfc46730566949919dc5a4af0219c15d382340ad67cfdd40c1665d9e7626af75",
     "src/renderer.ts": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500",
-    "test/browser-unit/capture-lifetime.test.ts": "bd616a0d2ed7461419609560d61da4eb64ceadfb99c45b4ca4a8cd57120b0835"
+    "test/browser-unit/capture-lifetime.test.ts": "ed43263476cdc0708ecea60758fc71212fab0454ea567a00509ddf2bd93f45bd"
   },
-  "nativeIOS": "Output validation pending; no native GC result claimed",
-  "remote": "Pending"
+  "nativeIOS": {
+    "passed": 22,
+    "simulator": false,
+    "report": "ios-safari-capture-lifetime-6c7de81.json",
+    "scope": "ESM/UMD removed-iframe canvas ownership, independent pixels, disposed-state rejection and the complete existing smoke suite; no native GC claim"
+  },
+  "remote": "Pending",
+  "candidateRevision": "6c7de8144d85a12c427dc9454e0eafc3aee7785d"
 }
