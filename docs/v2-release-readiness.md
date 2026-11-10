@@ -47,3 +47,9 @@
 在最终候选提交上先运行 `pnpm run build`，然后在 Mac 执行 `HTML_TO_IMAGE_SMOKE_HOST=0.0.0.0 node test/browser/server.mjs`。将 iPhone/iPad 与 Mac 放在同一局域网，用设备 Safari 打开 `http://<Mac 局域网 IP>:4173/test/browser/smoke.html`。页面依次运行实际构建 ESM/UMD、Shadow DOM slot、同源 iframe 视口、滚动、同文档裁剪、跨源 CSS、重复响应头及随机大图；每项打印 `PASS` 或 `FAIL`，最后打印 `DONE`。完整运行会把 User-Agent、DPR、视口、各项结果和大图中心像素自动回传到 Mac 的 `test-results/mobile-smoke-reports/<id>.json`，同时记录服务器收到请求的地址、时间和候选提交 SHA。页面显示 `REPORT SAVED <id>` 才表示回传成功；`REPORT FAILED` 需要排查收集链路。两个端口 4173 和 4174 均需可达。
 
 验收记录至少包含候选提交 SHA、设备机型、iOS/Safari 版本、全部测试结果和首次大图与稳定化大图的中心像素。自动报告保存这些结果；精确机型如不能从浏览器信息识别，由设备持有人补充。任一项失败即保留为阻塞项，先复现并补回归后再重新验收。服务只开放测试页面、构建产物和受限报告接收路径，停止进程即关闭局域网访问。
+
+## 2026-11-11 图片错误回调候选真机验收
+
+候选源码 `2e8731e` 在修复异步图片错误回调后重新构建，通过 USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完成完整冒烟页 **14/14 通过**。新增路径等待异步回调替换失败图片，导出中心像素为绿色，源图片不变；回调返回的拒绝 Promise 按原始错误传播。原始报告记录 iOS 18.7、Safari 26.6.1、DPR 3，提交 SHA 与受测源码一致，大图首次及稳定化后中心均为 `0,255,0,255`。[原始报告](evidence/ios-safari-image-handler-2e8731e.json)已归档。此候选独立基于 `master`，不包含尺寸修复候选 #618，不能把两份候选报告当成合并后整体已验收。
+
+本地覆盖率回归 169/169、三引擎源码 150/150、实际构建包 69/69，lint、构建、浏览器测试类型及隔离安装 tarball 的 ESM/CJS/UMD/TypeScript 检查通过。真实设备报告归档提交只改动证据和文档，不改变受测源码；候选尚未合并，npm 未发布。
