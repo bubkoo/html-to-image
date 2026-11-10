@@ -4,7 +4,7 @@
 
 ## 2026-11-11 长期目标基线
 
-后续进展：尺寸修复已随 [#618](https://github.com/bubkoo/html-to-image/pull/618) 合入 `master`（`319da08`），CI、CodeQL 和 Codecov patch/project 全部通过。图片异步错误回调修复由 [#619](https://github.com/bubkoo/html-to-image/pull/619) 跟踪；该候选合入最新主分支后，真实 iPhone Safari 的组合验收为 15/15，报告对应源码 `841908f`，见 [发布验收记录](v2-release-readiness.md)。旧 #409/#504 的完整应用场景仍保留各自边界，npm 不发布。
+后续进展：尺寸修复已随 [#618](https://github.com/bubkoo/html-to-image/pull/618) 合入 `master`（`319da08`），CI、CodeQL 和 Codecov patch/project 全部通过。图片异步错误回调修复已随 [#619](https://github.com/bubkoo/html-to-image/pull/619) 合入 `master`（`de9136c`），PR 与主分支 CI、CodeQL、PR Codecov patch/project 通过；组合真机验收为 15/15，报告对应源码 `841908f`，见 [发布验收记录](v2-release-readiness.md)。旧 #409/#504 的完整应用场景仍保留各自边界，npm 不发布。
 
 GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581、#473、#482、#575、#393、#499、#427、#401、#451、#511、#568、#540、#560、#498、#533、#376、#408、#409、#574、#443、#442、#400、#407、#398。后续新增 PR 单独登记，不混入这份基线。
 
@@ -12,7 +12,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 逐项核对原始需求、V2 行为和回归证据，给出已等价解决、可复现缺陷修复、设计取舍或具体外部阻塞的结论。修复须先失败后通过，并完成三引擎、实际构建包和远端检查；涉及 iOS 行为时验证真机。保留未发布 npm 的边界；部分覆盖不作完整解决。
 
-- **#409：尺寸契约核对及新修复候选。** 原补丁在已设置像素尺寸后又把画布属性改回 CSS 尺寸，会覆盖 `pixelRatio`；不直接移植。V2 已分开设置 CSS 尺寸与像素缓冲区。核对中发现 `width`/`height` 的 `||` 回退吞掉显式 `0` 和 `NaN`，本分支改为仅对未指定尺寸使用源尺寸，副本样式也保留零值。三引擎修复前各 4 项尺寸回归失败、修复后通过，另有 1×/2× 源码和 2× UMD 像素验证。原关联项目缺精确设备信息，不把这一独立边界修复等同于复现其全部故障。
+- **#409：尺寸契约已核对，独立边界修复随 #618 合入。** 原补丁在已设置像素尺寸后又把画布属性改回 CSS 尺寸，会覆盖 `pixelRatio`；不直接移植。V2 已分开设置 CSS 尺寸与像素缓冲区。核对中发现 `width`/`height` 的 `||` 回退吞掉显式 `0` 和 `NaN`，本分支改为仅对未指定尺寸使用源尺寸，副本样式也保留零值。三引擎修复前各 4 项尺寸回归失败、修复后通过，另有 1×/2× 源码和 2× UMD 像素验证。原关联项目缺精确设备信息，不把这一独立边界修复等同于复现其全部故障。
 - **#408：部分覆盖，保留。** 当前已覆盖纵横滚动、已有变换、嵌套滚动及限定的 fixed/sticky 组合；混合直接文本、行内和复杂定位仍有限制。关联 #345 同时要求自定义滚动条外观，当前裁剪/隐藏滚动条不等于保留外观，不能宣称 #345 全部解决。
 - **#427/#499/#393、#575/#577/#581：已有实现已随 #603 合入主分支。** 下文“待本分支 CI”是历史状态；这些旧 PR 仍开放，后续按各自完整 fixture 和剩余边界决定处置。
 
@@ -53,7 +53,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 2026-11-11 图片路径复核：
 
-- **#504：发现新的异步错误处理回归。** V2 已等待图片解码并保留 `decode` 方法，但调用 `onImageErrorHandler` 后未等待其返回值，导致异步恢复前冻结快照、回调拒绝被忽略。本候选等待回调 Promise；三引擎修复前各 2 项失败、修复后恢复后的绿色像素和原始异常传播通过，源图片不变。原 PR 的整体重构与完整应用 fixture 未移植。
+- **#504：发现新的异步错误处理回归。** V2 已等待图片解码并保留 `decode` 方法，但调用 `onImageErrorHandler` 后未等待其返回值，导致异步恢复前冻结快照、回调拒绝被忽略。修复已随 #619 合入并等待回调 Promise；三引擎修复前各 2 项失败、修复后恢复后的绿色像素和原始异常传播通过，源图片不变。原 PR 的整体重构与完整应用 fixture 未移植。
 - **#482：不采用无条件吞掉错误的方案。** V2 有资源诊断、占位图和图片错误回调；资源解析器异常、用户回调异常与未处理图片错误仍须拒绝捕获，避免把缺失内容当成成功快照。异步图片回调的遗漏按上项独立修复。
 - **#401：当前解码等待路径已有覆盖。** `renderer.test.ts` 验证延迟 `decode()` 不被提前完成、不替换原方法，以及可用图像的 decode 拒绝不悬挂；构建包和真实设备另有 canvas/大图像素。尚未以原项目 fixture 证明全部问题解决。
 - **#533 / #502：V2 不再等待动画帧。** `renderer.test.ts` 令 `requestAnimationFrame` 抛错后仍能导出；不新增旧 PR 的等待开关。此断言只证明内部路径不依赖动画帧，不保证浏览器后台标签页不会被系统挂起。
@@ -68,7 +68,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 | 优先级 | PR | 下一步 |
 | --- | --- | --- |
-| 高 | [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | #409 的 CSS/像素尺寸分离已验证，核对中新增零值/NaN 修复候选，见上方基线；#408 为部分滚动覆盖，自定义滚动条外观及复杂布局仍需独立复现。 |
+| 高 | [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | #409 的 CSS/像素尺寸分离已验证，零值/NaN 修复已随 #618 合入，见上方基线；#408 为部分滚动覆盖，自定义滚动条外观及复杂布局仍需独立复现。 |
 | 高 | [#498](https://github.com/bubkoo/html-to-image/pull/498), [#442](https://github.com/bubkoo/html-to-image/pull/442), [#585](https://github.com/bubkoo/html-to-image/pull/585) | 用原 fixture 分离 iOS 资源获取和首次空白等根因；#585 是大范围替代实现，不整体移植。真实 iOS 回归需重新测目标场景。 |
 | 中 | [#401](https://github.com/bubkoo/html-to-image/pull/401), [#482](https://github.com/bubkoo/html-to-image/pull/482), [#504](https://github.com/bubkoo/html-to-image/pull/504), [#533](https://github.com/bubkoo/html-to-image/pull/533) | 对照 V2 的图片加载、解码和资源错误路径；先构造能失败的用例，避免重复修复或吞掉用户回调错误。 |
 | 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 单次捕获已有独立资源缓存；需确认仍需手动清缓存、跨调用请求复用、`no-cache` 或按 URL 的请求参数，再决定 API，避免重引入全局状态。 |

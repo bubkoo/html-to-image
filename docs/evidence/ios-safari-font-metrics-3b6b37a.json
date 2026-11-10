@@ -1,0 +1,33 @@
+{
+  "id": "89af2739-3e7f-4bb8-b25f-54065ce16c57",
+  "receivedAt": "2026-11-10T20:09:48.683Z",
+  "remoteAddress": "169.254.188.42",
+  "gitHead": "3b6b37a9fe4758f041e97f736f625b14f3b54527",
+  "complete": true,
+  "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+  "dpr": 3,
+  "viewport": {
+    "width": 980,
+    "height": 1741
+  },
+  "verdicts": [
+    "INFO Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1 DPR=3",
+    "PASS ESM import and basic PNG",
+    "PASS UMD global and pixels",
+    "PASS canvas snapshot pixels",
+    "PASS explicit dimensions and pixel ratio",
+    "PASS fractional fonts and tight last word",
+    "PASS per-node customization",
+    "PASS shadow slot fallback and assignment",
+    "PASS same-origin iframe viewport",
+    "PASS nested visible scroll position",
+    "PASS sticky child after spacer",
+    "PASS same-document clip path",
+    "PASS SVG use local and external symbols",
+    "PASS cross-origin stylesheet fallback",
+    "PASS repeated Content-Type embeds image and CSS",
+    "PASS asynchronous image error recovery",
+    "INFO large-image first=0,255,0,255 stabilized=0,255,0,255",
+    "PASS large embedded data image"
+  ]
+}
