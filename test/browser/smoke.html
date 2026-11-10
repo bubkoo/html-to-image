@@ -14,7 +14,7 @@
   <h1>Browser smoke</h1>
   <pre id="results">Running...</pre>
   <script type="module">
-    import { toImageData, toPng, toSvg } from '../../es/index.js'
+    import { createRenderer, toImageData, toPng, toSvg } from '../../es/index.js'
 
     const results = document.querySelector('#results')
     const verdicts = []
@@ -109,6 +109,47 @@
         const color = pixel(image, x, 8).join(',')
         if (color !== expected)
           throw new Error(`canvas pixel ${x},8: expected ${expected}, got ${color}`)
+      }
+    })
+
+    await test('explicit dimensions and pixel ratio', async () => {
+      const node = document.createElement('div')
+      node.style.cssText = 'width:16px;height:12px;background:red'
+      document.body.append(node)
+      const renderer = createRenderer({ skipFonts: true, pixelRatio: 2 })
+      try {
+        const canvas = await renderer.toCanvas(node, {
+          width: 24, height: 18, canvasWidth: 40, canvasHeight: 30,
+        })
+        if (canvas.width !== 80 || canvas.height !== 60 ||
+            canvas.style.width !== '40px' || canvas.style.height !== '30px')
+          throw new Error(`scaled dimensions ${canvas.width}x${canvas.height}, CSS ${canvas.style.cssText}`)
+        const color = Array.from(canvas.getContext('2d').getImageData(78, 58, 1, 1).data)
+        if (color.join(',') !== '255,0,0,255')
+          throw new Error(`scaled corner pixel ${color}`)
+        for (const dimension of ['width', 'height']) {
+          const capture = await renderer.capture(node, { [dimension]: 0 })
+          const svg = new DOMParser().parseFromString(
+            decodeURIComponent((await capture.toSvg()).split(',')[1]), 'image/svg+xml',
+          )
+          if (capture[dimension] !== 0 || svg.documentElement.getAttribute(dimension) !== '0' ||
+              svg.querySelector('foreignObject > div').style[dimension] !== '0px')
+            throw new Error(`zero ${dimension} was replaced`)
+          let rasterError = ''
+          try { await capture.toCanvas() } catch (error) { rasterError = error.message }
+          capture.dispose()
+          if (!rasterError.includes('zero-sized'))
+            throw new Error(`zero ${dimension} rasterized`)
+          let invalidError = ''
+          try { await renderer.capture(node, { [dimension]: NaN }) } catch (error) { invalidError = error.message }
+          if (!invalidError.includes('dimensions must be finite'))
+            throw new Error(`NaN ${dimension} was accepted`)
+        }
+        if (node.style.width !== '16px' || node.style.height !== '12px')
+          throw new Error('source dimensions changed')
+      } finally {
+        renderer.dispose()
+        node.remove()
       }
     })
 

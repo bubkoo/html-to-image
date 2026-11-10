@@ -1,6 +1,18 @@
 # 开放 PR 处理台账
 
-更新于 2026-11-10。按创建 [PR #603](https://github.com/bubkoo/html-to-image/pull/603) 前的 52 个开放 PR 编号逐一登记。`master` 已包含 V2，但 npm `latest` 仍是 1.11.13。已向下节 22 个 PR 回复具体证据并关闭；无关的 #517 也已说明后关闭。其余“关闭”仍为建议动作，不能当作已完成。旧分支的补丁不能因 CI 变绿就直接合并到 V2。
+更新于 2026-11-11。按创建 [PR #603](https://github.com/bubkoo/html-to-image/pull/603) 前的 52 个开放 PR 编号逐一登记。`master` 已包含 V2，尚未发布 V2 到 npm。已向下节 22 个 PR 回复具体证据并关闭；无关的 #517 也已说明后关闭。其余“关闭”仍为建议动作，不能当作已完成。旧分支的补丁不能因 CI 变绿就直接合并到 V2。
+
+## 2026-11-11 长期目标基线
+
+GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581、#473、#482、#575、#393、#499、#427、#401、#451、#511、#568、#540、#560、#498、#533、#376、#408、#409、#574、#443、#442、#400、#407、#398。后续新增 PR 单独登记，不混入这份基线。
+
+逐项核对原始需求、V2 行为和回归证据，给出已等价解决、可复现缺陷修复、设计取舍或具体外部阻塞的结论。修复须先失败后通过，并完成三引擎、实际构建包和远端检查；涉及 iOS 行为时验证真机。保留未发布 npm 的边界；部分覆盖不作完整解决。
+
+- **#409：尺寸契约核对及新修复候选。** 原补丁在已设置像素尺寸后又把画布属性改回 CSS 尺寸，会覆盖 `pixelRatio`；不直接移植。V2 已分开设置 CSS 尺寸与像素缓冲区。核对中发现 `width`/`height` 的 `||` 回退吞掉显式 `0` 和 `NaN`，本分支改为仅对未指定尺寸使用源尺寸，副本样式也保留零值。三引擎修复前各 4 项尺寸回归失败、修复后通过，另有 1×/2× 源码和 2× UMD 像素验证。原关联项目缺精确设备信息，不把这一独立边界修复等同于复现其全部故障。
+- **#408：部分覆盖，保留。** 当前已覆盖纵横滚动、已有变换、嵌套滚动及限定的 fixed/sticky 组合；混合直接文本、行内和复杂定位仍有限制。关联 #345 同时要求自定义滚动条外观，当前裁剪/隐藏滚动条不等于保留外观，不能宣称 #345 全部解决。
+- **#427/#499/#393、#575/#577/#581：已有实现已随 #603 合入主分支。** 下文“待本分支 CI”是历史状态；这些旧 PR 仍开放，后续按各自完整 fixture 和剩余边界决定处置。
+
+候选 `8103b7b` 本地完整检查：覆盖率回归 172/172、三引擎源码 159/159、实际压缩包 ESM/CJS/UMD/类型通过。新增冒烟项后构建包 69/69，真实 iPhone Safari 14/14，通过报告见 [发布验收记录](v2-release-readiness.md)。首轮定向运行还出现一次 WebKit 1× 像素透明，后续定向和完整运行未复现；尺寸回退修复不能作为该时序现象已解决的证据。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 
@@ -47,7 +59,7 @@
 
 | 优先级 | PR | 下一步 |
 | --- | --- | --- |
-| 高 | [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | 分别复现画布输出尺寸与滚动条位置；检查当前 V2 的可见尺寸与像素尺寸语义，再定修复。#408 的一般滚动已有部分覆盖，原场景仍需核对。 |
+| 高 | [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | #409 的 CSS/像素尺寸分离已验证，核对中新增零值/NaN 修复候选，见上方基线；#408 为部分滚动覆盖，自定义滚动条外观及复杂布局仍需独立复现。 |
 | 高 | [#498](https://github.com/bubkoo/html-to-image/pull/498), [#442](https://github.com/bubkoo/html-to-image/pull/442), [#585](https://github.com/bubkoo/html-to-image/pull/585) | 用原 fixture 分离 iOS 资源获取和首次空白等根因；#585 是大范围替代实现，不整体移植。真实 iOS 回归需重新测目标场景。 |
 | 中 | [#401](https://github.com/bubkoo/html-to-image/pull/401), [#482](https://github.com/bubkoo/html-to-image/pull/482), [#504](https://github.com/bubkoo/html-to-image/pull/504), [#533](https://github.com/bubkoo/html-to-image/pull/533) | 对照 V2 的图片加载、解码和资源错误路径；先构造能失败的用例，避免重复修复或吞掉用户回调错误。 |
 | 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 单次捕获已有独立资源缓存；需确认仍需手动清缓存、跨调用请求复用、`no-cache` 或按 URL 的请求参数，再决定 API，避免重引入全局状态。 |
