@@ -17,6 +17,7 @@
     import { createRenderer, toImageData, toPng, toSvg } from '../../es/index.js'
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
     import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
+    import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -167,6 +168,20 @@
 
     await test('iframe fonts and document scope', async () => {
       await checkIframeFonts({ createRenderer })
+    })
+
+    await test('capture source document lifetime', async () => {
+      await checkCaptureLifetime({ createRenderer })
+      if (!window.htmlToImage) {
+        const script = document.createElement('script')
+        script.src = '/dist/html-to-image.js'
+        await new Promise((resolve, reject) => {
+          script.onload = resolve
+          script.onerror = () => reject(new Error('UMD script did not load'))
+          document.head.append(script)
+        })
+      }
+      await checkCaptureLifetime(window.htmlToImage)
     })
 
     await test('resource cache lifetime', async () => {

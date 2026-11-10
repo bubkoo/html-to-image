@@ -83,6 +83,11 @@ export default defineConfig({
       enabled: true,
       headless: true,
       provider: playwright(),
+      commands: {
+        async collectGarbage({ page }) {
+          await page.requestGC()
+        },
+      },
       instances: (selected
         ? [selected]
         : suite === 'browser'
