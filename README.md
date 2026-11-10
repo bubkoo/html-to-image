@@ -331,6 +331,14 @@ A data URL for a placeholder image that will be used when fetching an image fail
 
 Defaults to an empty string and will render empty areas for failed images.
 
+### onImageErrorHandler
+
+Handle an image load or decode failure. The callback runs with the failed
+detached image as `this`; changes to that copy leave the source unchanged.
+Capture waits for a returned Promise before serializing the snapshot. A thrown
+error or rejected Promise rejects capture. Without a handler, image errors
+reject capture. Custom resource resolver errors also reject capture.
+
 ### pixelRatio
 
 The pixel ratio of the captured image. Default use the actual pixel ratio of the device. Set `1` to

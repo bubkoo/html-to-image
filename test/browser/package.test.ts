@@ -16,6 +16,7 @@ const cases = [
   'large embedded data image',
   'cross-origin stylesheet fallback',
   'repeated Content-Type embeds image and CSS',
+  'asynchronous image error recovery',
 ]
 
 cases.forEach((name) => {
@@ -433,4 +434,79 @@ test('built UMD preserves video letterboxing instead of stretching the frame', a
   expect(result.intrinsic).toEqual([960, 540])
   expect(result.top).toEqual([255, 0, 255, 255])
   expect(result.center).not.toEqual(result.top)
+})
+
+test('built UMD awaits image recovery and propagates rejected callbacks', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const api = (
+      window as typeof window & { htmlToImage: typeof import('../../src') }
+    ).htmlToImage
+    const root = document.createElement('div')
+    root.style.cssText = 'width:20px;height:20px'
+    root.innerHTML =
+      '<img src="data:image/png;base64,broken" width="20" height="20">'
+    document.body.append(root)
+    const source = root.firstChild
+    let enter!: () => void
+    let release!: () => void
+    const started = new Promise<void>((resolve) => {
+      enter = resolve
+    })
+    const gate = new Promise<void>((resolve) => {
+      release = resolve
+    })
+    const renderer = api.createRenderer({ skipFonts: true, pixelRatio: 1 })
+    const pending = renderer.capture(root, {
+      onImageErrorHandler: async function () {
+        enter()
+        await gate
+        const replacement = document.createElement('div')
+        replacement.style.cssText = 'width:20px;height:20px;background:green'
+        ;(this as unknown as HTMLImageElement).replaceWith(replacement)
+      },
+    })
+    try {
+      await started
+      const state = await Promise.race([
+        pending.then(() => 'finished'),
+        new Promise((resolve) => {
+          setTimeout(() => resolve('waiting'), 50)
+        }),
+      ])
+      release()
+      const capture = await pending
+      const image = await capture.toImageData()
+      const offset = 4 * (10 * image.width + 10)
+      const failure = new Error('recovery failed')
+      const rejected = Promise.reject(failure)
+      rejected.catch(() => {})
+      let originalError = false
+      try {
+        await renderer.capture(root, { onImageErrorHandler: () => rejected })
+      } catch (error) {
+        originalError = error === failure
+      }
+      return {
+        state,
+        color: Array.from(image.data.slice(offset, offset + 4)),
+        originalError,
+        sourceUnchanged: root.firstChild === source,
+      }
+    } finally {
+      release()
+      await pending.catch(() => {})
+      renderer.dispose()
+      root.remove()
+    }
+  })
+  expect(result).toEqual({
+    state: 'waiting',
+    color: [0, 128, 0, 255],
+    originalError: true,
+    sourceUnchanged: true,
+  })
 })

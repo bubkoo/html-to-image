@@ -397,6 +397,43 @@
         throw new Error('source image URL changed')
     })
 
+    await test('asynchronous image error recovery', async () => {
+      const node = document.createElement('div')
+      node.style.cssText = 'width:20px;height:20px'
+      node.innerHTML = '<img src="data:image/png;base64,broken" width="20" height="20">'
+      document.body.append(node)
+      const source = node.firstChild
+      try {
+        const image = await toImageData(node, {
+          skipFonts: true, pixelRatio: 1,
+          onImageErrorHandler: async function () {
+            await new Promise((resolve) => setTimeout(resolve, 30))
+            const replacement = document.createElement('div')
+            replacement.style.cssText = 'width:20px;height:20px;background:green'
+            this.replaceWith(replacement)
+          },
+        })
+        const color = pixel(image, 10, 10)
+        if (color.join(',') !== '0,128,0,255')
+          throw new Error(`recovery pixel ${color}`)
+        if (node.firstChild !== source)
+          throw new Error('error handler modified the source')
+        const rejected = Promise.reject(new Error('recovery failed'))
+        rejected.catch(() => {})
+        let message = ''
+        try {
+          await toSvg(node, {
+            skipFonts: true,
+            onImageErrorHandler: () => rejected,
+          })
+        } catch (error) { message = error.message }
+        if (message !== 'recovery failed')
+          throw new Error(`async handler failure was not propagated: ${message}`)
+      } finally {
+        node.remove()
+      }
+    })
+
     await test('large embedded data image', async () => {
       const source = document.createElement('canvas')
       source.width = 800

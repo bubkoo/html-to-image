@@ -40,6 +40,8 @@
 
 ## 回复前的证据闸门
 
+2026-11-11 图片路径候选（核对 #504/#482 时发现）：`onImageErrorHandler` 的异步返回值原本被丢弃，恢复前就冻结 SVG、拒绝值未传播。候选改为等待回调；三引擎修复前各 2 项失败，修复后验证等待受控异步恢复、绿色输出像素、原始同步/异步异常传播及源图片不变。构建 UMD 与 ESM 冒烟页增加对应路径。#482 的全局吞错方案不采用；不把本修复等同于原 PR 完整应用已复测。
+
 - PR #600 当时的结果：旧 Chrome Headless 套件 **109 通过、0 跳过**；新浏览器行为测试 **45 通过**、构建产物测试 **30 通过**（两者均覆盖 Chromium、Firefox、WebKit）；构建、`test:package`、类型及 lint 通过。真实 iPhone 16 Pro Safari 对候选 `ba99c76` 的完整验收页 8/8 项通过，大图首次为空、稳定化后中心像素正确；[设备报告摘要](v2-release-readiness.md)保留了浏览器信息和报告 ID。Issue #601 的 Blob MIME 用例及逐节点定制用例在修复前失败，修复后旧套件、三浏览器源码及构建产物通过；[PR #600 最终 CI](https://github.com/bubkoo/html-to-image/actions/runs/41383042526)、[CodeQL v4](https://github.com/bubkoo/html-to-image/actions/runs/41383042568)、Codecov 均在 `ba99c76` 通过。此前 `foreignObject` 用例首次运行同时遇到一次既有视频对图测试失败，重跑通过，视频路径的偶发性尚未定位。Playwright WebKit 与原生 Safari/iOS 是不同验证环境。
 - CI 已改用 `pull_request`，在测试前核对实际检出 SHA 和测试合并提交的第二父提交；[历史 PR #598 的 job 日志](https://github.com/bubkoo/html-to-image/actions/runs/36932597879/job/110605311820) 显示测试主分支、覆盖率却归给 PR。[PR #600 的最终工作流](https://github.com/bubkoo/html-to-image/actions/runs/41383042526) 对包含最终 PR head 的测试合并提交完整通过。合并前旧 `master` 的 `pull_request_target` 工作流也曾运行并测试旧代码；V2 的新主分支不再启用该事件。
 - 旧工作流仍在上传主分支覆盖率，而 PR 工作流原先没有上传，导致 Codecov 曾报出 64.88% 的改动行覆盖率及与主分支相同的项目覆盖率。新工作流用 OIDC 上传实测报告后，Codecov 两项检查均通过，改动行覆盖率为 80.00%、项目覆盖率约 78.8%。[首次父提交校验失败](https://github.com/bubkoo/html-to-image/actions/runs/40830886954) 是因为 `actions/checkout` 默认浅克隆缺少父提交；深度 2 已在后续 CI 验证通过。
