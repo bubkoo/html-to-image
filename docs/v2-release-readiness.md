@@ -67,3 +67,10 @@
 核对 #511/#415 后，候选源码 `3b6b37a` 移除了对计算字号取整并减 0.1px 的全局改写；重新构建后，USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完整冒烟页 **16/16 通过**。新增字体场景验证精确保留 20.75px、源段落第二行的红色像素、auto/normal/none 字距、8.75/13.75/20.75px 及 1×/2× 输出；源字体样式不变。测试字体由本仓库原创几何字形生成，不依赖系统字体或外部字体服务器。[原始报告](evidence/ios-safari-font-metrics-3b6b37a.json)记录相同源码 SHA、iOS 18.7、Safari 26.6.1、DPR 3；大图首次及稳定化后中心均为绿色。归档提交只修改文档和证据，受测源码仍为上述提交。
 
 本地完整检查为覆盖率 186/186、三引擎源码 201/201、实际构建包 81/81；lint、构建、测试类型和隔离 tarball 的 ESM/CJS/UMD/TypeScript 消费均通过。#132 原始 flex 结构的末词有三引擎源码回归；旧浏览器、原帖未提供的完整段落和所有字体组合不在此验收结论内。npm 不发布。
+
+
+## 2026-11-11 资源策略候选真机验收
+
+源码 `5cbf99ddd196c81cb33f092db029e5973e5214fb` 重建后的实际 ESM/UMD 页面，通过 USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完整 **20/20 通过**，无 FAIL。新增场景核对重复图片/背景共用一次库请求且原生额外请求为 0、新捕获读取红→蓝→绿响应、dispose 拒绝复用、HTTP no-cache 指令和更新像素、带 cookie 私有图片与无凭据公开图片/字体、相对 inline/transform/iframe HTML 及现代/旧式 SVG 地址的冻结内容和默认单次绘制像素，以及原始 iframe 回调错误。选项和源节点保持不变。[原始报告](evidence/ios-safari-resource-policy-5cbf99d.json)记录相同源码 SHA、iOS 18.7、Safari 26.6.1、DPR 3；大图首次及稳定化后中心均为绿色。
+
+本地完整检查：覆盖率 190/190、三引擎源码 213/213、构建包 105/105，以及 lint、构建、测试类型和隔离 tarball 的 ESM/CJS/UMD/TypeScript 4.9 与当前版消费检查。报告归档提交仅改文档和证据。此结论不证明浏览器缓存被清空、强制 GC、原 SPA 内存压力或 #361 的全部原应用 iOS 空白场景；npm 不发布。
