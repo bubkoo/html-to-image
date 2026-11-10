@@ -708,10 +708,11 @@ test('built UMD preserves document-local iframe fonts and reusable CSS', async (
       'reused-css',
       'quoted-family',
       'explicit-css',
+      'explicit-comment',
       'important-style',
     ].map((mode) => ({
       mode,
-      fonts: mode === 'explicit-css' ? 0 : mode === 'content' ? 1 : 2,
+      fonts: mode.startsWith('explicit-') ? 0 : mode === 'content' ? 1 : 2,
       pixels: true,
       sourceUnchanged: true,
     })),

@@ -369,6 +369,27 @@ function applyFontScopes(scopes: FontScope[]) {
   })
 }
 
+function declaredFontFamilies(cssText: string) {
+  const sheet = new CSSStyleSheet()
+  sheet.replaceSync(cssText)
+  const names = new Set<string>()
+  const visit = (rules: CSSRuleList) => {
+    Array.from(rules).forEach((rule) => {
+      if (rule.type === CSSRule.FONT_FACE_RULE) {
+        names.add(
+          normalizeFontFamily(
+            (rule as CSSFontFaceRule).style.getPropertyValue('font-family'),
+          ),
+        )
+      } else if ('cssRules' in rule) {
+        visit((rule as CSSGroupingRule).cssRules)
+      }
+    })
+  }
+  visit(sheet.cssRules)
+  return names
+}
+
 export async function getWebFontCSS<T extends HTMLElement>(
   node: T,
   options: Options,
@@ -389,12 +410,14 @@ export async function embedWebFonts<T extends HTMLElement>(
   let scopes: FontScope[]
   if (options.fontEmbedCSS != null) {
     cssText = options.fontEmbedCSS
+    const declared = declaredFontFamilies(cssText)
     scopes = collectFontScopes(clonedNode, styleSource, options)
     scopes.forEach((scope) => {
       if (scope.source.ownerDocument === styleSource.ownerDocument) return
       scope.used.forEach((family) => {
         const name = scopedFontName(scope.source.ownerDocument, family)
-        if (cssText.includes(name)) scope.names.set(family, name)
+        if (declared.has(normalizeFontFamily(name)))
+          scope.names.set(family, name)
       })
     })
   } else {

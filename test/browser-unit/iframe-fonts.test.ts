@@ -44,13 +44,14 @@ test.each([
   'reused-css',
   'quoted-family',
   'explicit-css',
+  'explicit-comment',
   'important-style',
 ])('preserves document-local font families and pixels for %s', async (mode) => {
   const moduleURL = '/test/browser/fixtures/iframe-fonts.mjs'
   const { checkIframeFonts } = await import(/* @vite-ignore */ moduleURL)
   expect(await checkIframeFonts(api, mode)).toEqual({
     mode,
-    fonts: mode === 'explicit-css' ? 0 : mode === 'content' ? 1 : 2,
+    fonts: mode.startsWith('explicit-') ? 0 : mode === 'content' ? 1 : 2,
     pixels: true,
     sourceUnchanged: true,
   })

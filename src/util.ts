@@ -239,13 +239,11 @@ export async function nodeToDataURL(
   node: HTMLElement,
   width: number,
   height: number,
+  ownerDocument: Document = node.ownerDocument,
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
-  const svg = node.ownerDocument.createElementNS(xmlns, 'svg')
-  const foreignObject = node.ownerDocument.createElementNS(
-    xmlns,
-    'foreignObject',
-  )
+  const svg = ownerDocument.createElementNS(xmlns, 'svg')
+  const foreignObject = ownerDocument.createElementNS(xmlns, 'foreignObject')
 
   svg.setAttribute('width', `${width}`)
   svg.setAttribute('height', `${height}`)

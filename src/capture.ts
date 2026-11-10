@@ -46,6 +46,9 @@ export async function createCapture(
 
       task.stage('clone')
       const root = (await cloneNode(node as HTMLElement, options, true))!
+      // Retain the inert document across async resource work. WebKit can lose
+      // a detached copy's document/base URL when only its nodes remain alive.
+      const cloneDocument = root.ownerDocument
       task.clearInheritedStyles()
       applyStyle(root, options)
       task.stage('transform')
@@ -65,7 +68,7 @@ export async function createCapture(
       task.stage('serialize')
       return fromSnapshot(
         {
-          svg: await nodeToDataURL(root, width, height),
+          svg: await nodeToDataURL(root, width, height, cloneDocument),
           width,
           height,
           canvasWidth,

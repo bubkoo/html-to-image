@@ -30,6 +30,7 @@ export async function checkIframeFonts(api, mode = 'all') {
       'reused-css',
       'quoted-family',
       'explicit-css',
+      'explicit-comment',
       'important-style',
     ]
     const results = []
@@ -40,6 +41,7 @@ export async function checkIframeFonts(api, mode = 'all') {
     }
     return results
   }
+  const explicit = mode.startsWith('explicit-')
   const family = JSON.stringify(
     mode === 'quoted-family' ? `Realm, O'Brien` : 'RealmShared',
   )
@@ -101,7 +103,12 @@ export async function checkIframeFonts(api, mode = 'all') {
     if (mode === 'reused-css') {
       options.fontEmbedCSS = await renderer.getFontEmbedCSS(target)
     }
-    if (mode === 'explicit-css') {
+    if (explicit) {
+      let comment = ''
+      if (mode === 'explicit-comment') {
+        comment = `/* ${await renderer.getFontEmbedCSS(target)} */`
+        requested.length = 0
+      }
       const blob = await (
         await fetch('/test/browser/fixtures/font-metrics.ttf')
       ).blob()
@@ -111,7 +118,7 @@ export async function checkIframeFonts(api, mode = 'all') {
         reader.onerror = () => reject(reader.error)
         reader.readAsDataURL(blob)
       })
-      options.fontEmbedCSS = `@font-face{font-family:${family};src:url("${data}")}`
+      options.fontEmbedCSS = `@font-face{font-family:${family};src:url("${data}")}${comment}`
     }
     const capture = await renderer.capture(target, Object.freeze(options))
     const svg = new DOMParser().parseFromString(
@@ -135,8 +142,8 @@ export async function checkIframeFonts(api, mode = 'all') {
     }
     assert(
       pixel(image, shift + 2) ===
-        (mode === 'explicit-css' ? '255,0,0,255' : '255,255,255,255'),
-      `iframe font lost its empty left half: ${pixel(image, shift + 2)}`,
+        (explicit ? '255,0,0,255' : '255,255,255,255'),
+      `iframe left glyph pixel differs from its selected font: ${pixel(image, shift + 2)}`,
     )
     assert(
       pixel(image, shift + 12) === '255,0,0,255',
@@ -148,13 +155,13 @@ export async function checkIframeFonts(api, mode = 'all') {
         `nested document font was overridden: ${pixel(image, shift + 22)}`,
       )
     }
-    if (mode !== 'explicit-css') {
+    if (!explicit) {
       assert(
         requested.some((url) => url.endsWith('/font-frame-metrics.ttf')),
         'iframe relative font URL was not requested',
       )
     }
-    const count = mode === 'explicit-css' ? 0 : mode === 'content' ? 1 : 2
+    const count = explicit ? 0 : mode === 'content' ? 1 : 2
     assert(
       requested.length === count,
       `unexpected font requests: ${JSON.stringify(requested)}`,
