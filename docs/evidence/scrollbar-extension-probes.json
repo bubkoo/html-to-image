@@ -1,0 +1,316 @@
+{
+  "runtimeRevision": "a360c432c04c35f1d22295874aec5133b9265027",
+  "fixture": "Original #376 node/style structure, built ESM; original serializer adapted through onCloneNode, not a checkout of historical library",
+  "fixtureSha256": "423a276df1020f243d62a3b5db173e6e652e1e0ab69e54c7c48dea4630e3b60a",
+  "results": [
+    {
+      "session": "hti-scroll-review",
+      "result": {
+        "baseline": {
+          "mode": "baseline",
+          "offset": 0,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 0,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [127, 127, 127, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": false,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+        },
+        "styled": {
+          "mode": "style",
+          "offset": 0,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 0,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 580,
+            "black": 1220,
+            "samples": [
+              [0, 0, 0, 255],
+              [255, 0, 0, 255],
+              [0, 0, 0, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+        },
+        "original": {
+          "mode": "original-serializer",
+          "offset": 0,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 0,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 580,
+            "black": 1220,
+            "samples": [
+              [0, 0, 0, 255],
+              [255, 0, 0, 255],
+              [0, 0, 0, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+        },
+        "scrolled": {
+          "mode": "style",
+          "offset": 50,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 50,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+        }
+      }
+    },
+    {
+      "session": "hti-scroll-firefox",
+      "result": {
+        "baseline": {
+          "mode": "baseline",
+          "offset": 0,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 0,
+            "barContent": "",
+            "barBackground": ""
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": false,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0"
+        },
+        "styled": {
+          "mode": "style",
+          "offset": 0,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 0,
+            "barContent": "",
+            "barBackground": ""
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0"
+        },
+        "original": {
+          "mode": "original-serializer",
+          "offset": 0,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 0,
+            "barContent": "",
+            "barBackground": ""
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": false,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0"
+        },
+        "scrolled": {
+          "mode": "style",
+          "offset": 50,
+          "source": {
+            "client": [100, 100],
+            "scroll": [100, 200],
+            "top": 50,
+            "barContent": "",
+            "barBackground": ""
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0"
+        }
+      }
+    },
+    {
+      "session": "hti-scroll-webkit",
+      "result": {
+        "baseline": {
+          "mode": "baseline",
+          "offset": 0,
+          "source": {
+            "client": [90, 90],
+            "scroll": [90, 200],
+            "top": 0,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": false,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+        },
+        "styled": {
+          "mode": "style",
+          "offset": 0,
+          "source": {
+            "client": [90, 90],
+            "scroll": [90, 200],
+            "top": 0,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 520,
+            "black": 1030,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+        },
+        "original": {
+          "mode": "original-serializer",
+          "offset": 0,
+          "source": {
+            "client": [90, 90],
+            "scroll": [90, 200],
+            "top": 0,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 520,
+            "black": 1030,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+        },
+        "scrolled": {
+          "mode": "style",
+          "offset": 50,
+          "source": {
+            "client": [90, 90],
+            "scroll": [90, 200],
+            "top": 50,
+            "barContent": "normal",
+            "barBackground": "rgb(255, 0, 0)"
+          },
+          "image": {
+            "width": 200,
+            "height": 200,
+            "red": 0,
+            "black": 0,
+            "samples": [
+              [255, 255, 255, 255],
+              [255, 255, 255, 255],
+              [255, 255, 255, 255]
+            ]
+          },
+          "svg": true,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+        }
+      }
+    }
+  ],
+  "fixtureFile": "scrollbar-extension-probe.html",
+  "replay": "Copy the fixture to test/browser/ and serve with the smoke server after building a360c43. Call probe for baseline/style/original-serializer at offset 0 and style at offset 50; results depend on recorded browser/platform behavior.",
+  "sourcePR": {
+    "number": 376,
+    "head": "f6363fcc11e3c8860ae78b77f3cb57396ede876d"
+  }
+}

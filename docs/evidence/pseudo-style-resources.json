@@ -47,10 +47,16 @@
     "inference": "Do not treat arbitrary page CSS as equivalent to frozen computed source styles"
   },
   "sourceSha256": {
-    "src/embed-images.ts": "996dac5e19e3b3c25cad0addb8cbe204343be1d8fd9d6dcf6bf479f8510f125f",
-    "test/browser/fixtures/pseudo-resources.mjs": "e489e1695b5f27f64d72d3014457f530a661e38b1217a41f1e3156beb7ecc811",
+    "src/embed-images.ts": "3995354ac34876abaa7b3ef1900aa367043033054ff1293948fd8f25f56c39a8",
+    "test/browser/fixtures/pseudo-resources.mjs": "e6c9ab839e2083b1285efac93d615658183e3abe7b0f4c1fef5c6107a9a32757",
     "test/browser-unit/pseudo-resources.test.ts": "81b3d6b6f6b12929e3cb8b329c9059dcf009f6e99946c27781664efc4fb3c838"
   },
-  "nativeIOS": "Pending",
-  "remote": "Pending"
+  "nativeIOS": {
+    "passed": 23,
+    "simulator": false,
+    "report": "ios-safari-pseudo-resources-58de76f.json",
+    "newCase": "ESM/UMD with default font processing and skipFonts; pixels, request deduplication, zero parser preloads and source immutability"
+  },
+  "remote": "Pending",
+  "candidateRevision": "58de76fedbdc7efa9cfc7fb751cf2074ca851cf1"
 }

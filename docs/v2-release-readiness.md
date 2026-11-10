@@ -105,3 +105,9 @@
 
 
 #625 已合入 master（`6b6bf2a`），上述快照源文档候选的 PR CI/CodeQL/Codecov patch/project 与主分支 CI/CodeQL 全部通过；具体运行编号见生命周期证据 JSON，合入后的源码树与受测候选一致。
+
+## 2026-11-11 伪元素与注入规则图片验收
+
+源码 `58de76fedbdc7efa9cfc7fb751cf2074ca851cf1` 重新构建后，真实 iPhone Safari（iOS 18.7，Safari 26.6.1，DPR 3，非模拟器）完整 **23/23 通过**，[原始报告](evidence/ios-safari-pseudo-resources-58de76f.json)已归档。新用例分别调用 ESM/UMD 的默认字体处理和 skipFonts：伪元素背景、嵌套分组中的注入遮罩均为绿色；重复相对/绝对 URL 只发一次带标记的库请求，解析器不产生额外原生请求；源 DOM 与样式不变。
+
+本地覆盖率 210/210、三引擎源码 272 通过/1 项既有 GC 跳过、构建包 117/117，以及 lint/构建/类型/tarball ESM/CJS/UMD/双版本 TypeScript 全部通过。旧源码重放最终回归为六项全部失败。[规则资源证据](evidence/pseudo-style-resources.json)记录候选与源文件 hash；不把背景/遮罩的直接 URL 扩大到所有 CSS 资源或原生滚动条外观。PR/主分支检查另行核验，npm 未发布。
