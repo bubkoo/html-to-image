@@ -62,7 +62,7 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   } catch (error) {
     getTask(options)?.check()
     if (options.onImageErrorHandler) {
-      options.onImageErrorHandler.call(clonedNode, new Event('error'))
+      await options.onImageErrorHandler.call(clonedNode, new Event('error'))
       return
     }
     throw error
