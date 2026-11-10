@@ -74,3 +74,10 @@
 源码 `5cbf99ddd196c81cb33f092db029e5973e5214fb` 重建后的实际 ESM/UMD 页面，通过 USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完整 **20/20 通过**，无 FAIL。新增场景核对重复图片/背景共用一次库请求且原生额外请求为 0、新捕获读取红→蓝→绿响应、dispose 拒绝复用、HTTP no-cache 指令和更新像素、带 cookie 私有图片与无凭据公开图片/字体、相对 inline/transform/iframe HTML 及现代/旧式 SVG 地址的冻结内容和默认单次绘制像素，以及原始 iframe 回调错误。选项和源节点保持不变。[原始报告](evidence/ios-safari-resource-policy-5cbf99d.json)记录相同源码 SHA、iOS 18.7、Safari 26.6.1、DPR 3；大图首次及稳定化后中心均为绿色。
 
 本地完整检查：覆盖率 190/190、三引擎源码 213/213、构建包 105/105，以及 lint、构建、测试类型和隔离 tarball 的 ESM/CJS/UMD/TypeScript 4.9 与当前版消费检查。报告归档提交仅改文档和证据。此结论不证明浏览器缓存被清空、强制 GC、原 SPA 内存压力或 #361 的全部原应用 iOS 空白场景；npm 不发布。
+
+
+## 2026-11-11 iframe 字体候选真机验收
+
+候选源码 `036f1db932c46deeaf29125f96f19fecdddd6eb9` 重新构建后，经 USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完成完整冒烟 **21/21 通过**，无 FAIL。新增场景使用两份原创几何字体，在外层及嵌套 iframe 中用相同家族名声明不同字形，验证直接捕获内容、frame 元素和祖先的字体像素、相对 URL、body/adopted 样式表、含逗号/撇号的家族名、important 样式、生成字体 CSS 复用及普通名称的显式覆盖。源 DOM 和样式保持不变。[原始报告](evidence/ios-safari-iframe-fonts-036f1db.json)记录相同源码 SHA、iOS 18.7、Safari 26.6.1、DPR 3；大图首次及稳定化后中心均为绿色。
+
+本地完整检查通过：覆盖率 203/203、三引擎源码 252/252、构建包 111/111，另有实际 tarball 的 ESM/CJS/UMD/TypeScript 4.9 与当前版、lint、构建和测试类型检查。最终字体平台名称表校正后，定向源码 39/39 和构建/完整页 9/9 复验通过；原始字体字节保持不变。旧源码回放最终用例为 24/39 失败。归档提交仅修改文档和证据，不改变受测源码；远端检查另行核验，npm 不发布。字体 CSS 在 frame 导航/替换或文档边界变化后要重新收集；纯 JS FontFace 字节、不可读跨源 iframe 及同一文档不同 ShadowRoot 的同名字体隔离未在本候选中证明。
