@@ -2,7 +2,7 @@
 
 **Logged**: 2026-11-11 (Asia/Shanghai)
 **Priority**: high
-**Status**: pending
+**Status**: resolved
 **Area**: browser-resource-loading
 
 ### Summary
@@ -23,7 +23,7 @@ WebKit 在活动文档中修改副本计算样式、loading/srcset/crossOrigin �
 - Scope: 当前 Chromium/Firefox/WebKit 的 HTML 图片、CSS 背景、iframe 与 SVG 图片，公开/私有双源资源
 - Authority: 修复前 UMD WebKit 额外原生请求为 3；私有文档实验为 0，HTTP 回归还验证相对地址去重、选项不变和源不变
 - Revalidation: 克隆文档、图片解码、资源键或浏览器版本改变时重跑实际 HTTP 和真机页
-- Validation: verified locally; pending device and remote checks
+- Validation: verified locally and on real iPhone; remote checks pending
 - Last-Validated: 2026-11-11
 - Evidence: ../docs/v2-regressions.md
 
@@ -34,7 +34,7 @@ WebKit 在活动文档中修改副本计算样式、loading/srcset/crossOrigin �
 
 **Logged**: 2026-11-11 (Asia/Shanghai)
 **Priority**: high
-**Status**: pending
+**Status**: resolved
 **Area**: iframe-adapter
 
 ### Summary
@@ -55,6 +55,10 @@ iframe 文档访问异常的回退必须仅包住访问，不可吞掉递归克�
 - Scope: 可访问的同源 iframe 内同步克隆回调
 - Authority: 修复前三引擎各 1 项失败；修复后原始错误对象断言
 - Revalidation: iframe 文档访问或克隆回调顺序改变后
-- Validation: verified locally; pending device and remote checks
+- Validation: verified locally and on real iPhone; remote checks pending
 - Last-Validated: 2026-11-11
 - Evidence: ../docs/v2-regressions.md
+
+
+### Resolution
+源码 `5cbf99d` 的完整本地检查 190/213/105 全部通过；真实 iPhone Safari 完整页 20/20，通过报告为 `docs/evidence/ios-safari-resource-policy-5cbf99d.json`，报告 SHA 与源码一致。相对 SVG 使用默认单次绘制，现代与旧属性均有冻结 SVG 和像素断言。远端 CI/CodeQL/Codecov 合并前另行核验。
