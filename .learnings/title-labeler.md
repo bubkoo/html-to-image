@@ -23,6 +23,9 @@ PR #619 标题命中 `error`，自动标签动作在 `obj.assignees.forEach` 崩
 - Scope: Naturalclar/issue-action@v2.0.1 的 title 规则与 pull_request_target 工作流
 - Authority: PR #619 失败日志及该动作 v2.0.1 的 setIssueAssignee 源码
 - Revalidation: 升级动作、更换规则或触发事件后，重新验证命中关键词的 PR
-- Validation: configuration verified; remote retry pending merge
+- Validation: verified in remote keyword-matching workflow
 - Last-Validated: 2026-11-11
 - Evidence: https://github.com/bubkoo/html-to-image/actions/runs/42888760805
+
+### Resolution
+配置修复随 #620 合入 `master` 后，重新打开标题仍含 `error` 的 #619；[远端任务 42889630751](https://github.com/bubkoo/html-to-image/actions/runs/42889630751) 通过并写入 `bug` 标签。修复前后的触发标题未被改名规避。
