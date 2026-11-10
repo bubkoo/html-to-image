@@ -20,15 +20,23 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 ## 2026-11-11 资源策略复核
 
-- **#430 / #429：V2 已按单次捕获缓存进行中的 Promise。** 同 URL 的两张图片和 CSS 背景只发一次库请求，同一冻结快照输出 PNG/像素不重新获取。复核同时发现 WebKit 在活动文档中改写脱离页面的副本会额外发送 3 次原生图片请求；本候选改用无窗口的私有文档，回归要求额外请求为 0。CSS 相对 URL 的锚点解析在 WebKit 产生不同缓存键，改用 URL 解析后同一资源只加载一次。SVG href.baseVal 在 WebKit 只更新旧 xlink 属性、留下有效的相对 href，现显式写入副本属性；现代和旧属性都验证冻结 SVG 与默认单次绘制像素。
+- **#430 / #429：V2 已按单次捕获缓存进行中的 Promise。** 同 URL 的两张图片和 CSS 背景只发一次库请求，同一冻结快照输出 PNG/像素不重新获取。复核同时发现 WebKit 在活动文档中改写脱离页面的副本会额外发送 3 次原生图片请求；修复已随 [#622](https://github.com/bubkoo/html-to-image/pull/622) 合入 `master`（`c742a11`），改用无窗口的私有文档，回归要求额外请求为 0。CSS 相对 URL 的锚点解析在 WebKit 产生不同缓存键，改用 URL 解析后同一资源只加载一次。SVG href.baseVal 在 WebKit 只更新旧 xlink 属性、留下有效的相对 href，现显式写入副本属性；现代和旧属性都验证冻结 SVG 与默认单次绘制像素。
 - **#560：不恢复全局缓存及手动清空接口。** 每次捕获独立；服务端红→蓝→绿的变化分别被同一 renderer 的新捕获及旧 facade 的新调用读取。`capture.dispose()` / `renderer.dispose()` 后拒绝复用。证据针对库持有引用与生命周期，不等于浏览器 HTTP 缓存已清空、强制 GC 或原 SPA 内存压力已复测。
 - **#400：已有 `fetchRequestInit: { cache: 'no-cache' }`，无需新增 `cacheDisable`。** 可缓存 HTTP fixture 改变内容后，三个引擎均须发出带重新验证指令的新请求并得到蓝色像素；默认请求是否缓存由浏览器决定，不强制假定会命中缓存。冻结的调用选项保持不变。
 - **#443 / #503：已有 `resources.resolve` 可按 URL 返回 Blob，`undefined` 使用正常 fetch。** 实际双源 fixture 验证带 cookie 的私有图片与省略凭据的公开图片/字体同时正确，负面对照全局 include 因 wildcard CORS 失败。不新增旧补丁的第二套 RequestInit 生成器；resolver 自行负责请求选项、状态检查和 signal。
 - **#442 / #361：受控的混合凭据需求可由上述 resolver 满足；保留原 iOS 故障边界。** include 不是所有 iOS 资源的统一要求，cacheBust 也不是凭据方案。原应用的资源 URL、CORS 响应和可运行 fixture 缺失，不能按该 Issue 的全部空白问题已解决关闭。
 
-本候选本地完整检查通过：覆盖率回归 190/190、三引擎源码 213/213、构建包 105/105，以及 lint、构建、测试类型和隔离 tarball 的 ESM/CJS/UMD/双版本 TypeScript 消费检查。源码 `5cbf99d` 真实 iPhone Safari 完整 20/20 通过，[原始报告](evidence/ios-safari-resource-policy-5cbf99d.json)已归档；远端检查待通过。
+本候选本地完整检查通过：覆盖率回归 190/190、三引擎源码 213/213、构建包 105/105，以及 lint、构建、测试类型和隔离 tarball 的 ESM/CJS/UMD/双版本 TypeScript 消费检查。源码 `5cbf99d` 真实 iPhone Safari 完整 20/20 通过，[原始报告](evidence/ios-safari-resource-policy-5cbf99d.json)已归档；#622 的 CI、CodeQL、Codecov patch/project 及主分支 CI/CodeQL 全部通过。
 
 本候选也修正同源 iframe 适配器过宽的 catch：仅访问不可读文档时回退，用户克隆回调抛错必须原样拒绝。修复前三个引擎均吞掉该错误，修复后回归核对同一 Error 对象。副本 `ownerDocument.defaultView` 现在为 null，迁移约定和创建新节点的方法已写入 README。
+
+## 2026-11-11 iframe 字体复核（#568）
+
+V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过后代的问题，本候选继续保留原始 `srcdoc` 验证，并增加实际几何字体和像素。发现独立缺陷：捕获 iframe 本身或它的祖先时，克隆已包含 frame body，字体收集却只查外层文档；不同文档同名字体也会在扁平副本中互相覆盖。
+
+候选按副本来源文档收集字体与相对地址，附加文档的字体只在副本中改为各自名字；源 DOM、普通和 adopted 样式表不变。支持嵌套 iframe、body 内字体规则、含逗号/撇号的家族名、重复捕获的字体 CSS、普通名称的显式覆盖、变换新增字体和 local-only 来源；过滤掉的 iframe 不下载它的同名字体。旧 #568 的字符串类型补丁不移植。
+
+在当前主分支源码上回放最终 39 项定向测试，三个引擎各 8 项失败（共 24 项）；修复后三引擎 39/39、本地覆盖率 203/203、源码 252/252、构建 ESM/UMD 111/111 通过。实际 tarball 的 ESM/CJS/UMD/双版本 TypeScript、lint、构建、浏览器测试类型也通过；真机与远端结果另行归档。复用含 iframe 的 fontEmbedCSS 要保留同一捕获子树及 frame 文档，导航或替换后重新收集。跨源不可读 iframe、纯 JavaScript FontFace 字节和同一文档内不同 ShadowRoot 的同名字体隔离不在此结论内。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 
@@ -73,7 +81,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 | PR | 剩余问题 |
 | --- | --- |
 | [#591](https://github.com/bubkoo/html-to-image/pull/591) | V2 有可选的多次栅格化，并在真实 iPhone 16 Pro Safari 验证过首帧透明、重绘成功；它不是 PR 的“两次相同才停止”算法。原帖的全部图像组合及其他 iOS 场景尚未证明。 |
-| [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 使用 `Element` 遍历字体使用者，避免旧实现的跨 realm `instanceof HTMLElement` 判断。[PR #616](https://github.com/bubkoo/html-to-image/pull/616) 补充真实 `srcdoc` iframe 内后代使用 `@font-face` 的回归，Chromium、Firefox、WebKit 均能把字体资源嵌入 SVG。原 PR 未提供可运行 fixture；真实 iOS 尚未验证，回复时仅声明已覆盖此路径。 |
+| [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 的跨 realm Element 遍历已存在；本候选另外复现并修复 iframe/祖先捕获漏收集 frame 字体及同名冲突，见上方 iframe 字体复核。三引擎有原始跨 realm、字体数据、真实字体像素、相对地址及源不变验证；真机与远端结果另行归档。 |
 | [#451](https://github.com/bubkoo/html-to-image/pull/451) | [PR #617](https://github.com/bubkoo/html-to-image/pull/617) 复现了视频原始比例 960×540、显示区域 240×160 且 `object-fit: contain` 时的拉伸：修复前顶部留白变成视频画面。按视频原始宽高截取帧后，三引擎源码与构建 UMD 均导出正确的顶部留白与中心画面。原 PR 的截图页面、其他 `object-fit` 组合及高分辨率视频的资源成本尚未复测。 |
 
 ## 待复现和设计：拆成小问题处理，每个修复补回归
@@ -83,7 +91,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 | 高 | [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | #409 的 CSS/像素尺寸分离已验证，零值/NaN 修复已随 #618 合入，见上方基线；#408 为部分滚动覆盖，自定义滚动条外观及复杂布局仍需独立复现。 |
 | 高 | [#498](https://github.com/bubkoo/html-to-image/pull/498), [#442](https://github.com/bubkoo/html-to-image/pull/442), [#585](https://github.com/bubkoo/html-to-image/pull/585) | 用原 fixture 分离 iOS 资源获取和首次空白等根因；#585 是大范围替代实现，不整体移植。真实 iOS 回归需重新测目标场景。 |
 | 中 | [#401](https://github.com/bubkoo/html-to-image/pull/401), [#482](https://github.com/bubkoo/html-to-image/pull/482), [#504](https://github.com/bubkoo/html-to-image/pull/504), [#533](https://github.com/bubkoo/html-to-image/pull/533) | 对照 V2 的图片加载、解码和资源错误路径；先构造能失败的用例，避免重复修复或吞掉用户回调错误。 |
-| 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 已有逐项结论与真实 HTTP fixture，见资源策略复核；本地 190/213/105 与真机 20/20 已通过，待远端检查。 |
+| 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 已有逐项结论与真实 HTTP fixture，见资源策略复核；已随 #622 合入；本地 190/213/105、真机 20/20、PR CI/CodeQL/Codecov 和主分支 CI/CodeQL 通过。 |
 | 中 | [#511](https://github.com/bubkoo/html-to-image/pull/511), [#376](https://github.com/bubkoo/html-to-image/pull/376), [#407](https://github.com/bubkoo/html-to-image/pull/407), [#473](https://github.com/bubkoo/html-to-image/pull/473) | #511 的字号缩小修复已随 #621 合入 master，真机 16/16，见字体复核；其余继续评估伪元素注入、附加 CSS 和大页面分片的实际输出语义及资源成本。 |
 | 低 | [#398](https://github.com/bubkoo/html-to-image/pull/398) | 核对示例中的实际 API、复数/单数和浏览器打开方式后更新文档。 |
 

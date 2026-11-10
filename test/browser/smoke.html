@@ -16,6 +16,7 @@
   <script type="module">
     import { createRenderer, toImageData, toPng, toSvg } from '../../es/index.js'
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
+    import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -162,6 +163,10 @@
 
     await test('fractional fonts and tight last word', async () => {
       await checkFontMetrics({ toSvg, toImageData })
+    })
+
+    await test('iframe fonts and document scope', async () => {
+      await checkIframeFonts({ createRenderer })
     })
 
     await test('resource cache lifetime', async () => {

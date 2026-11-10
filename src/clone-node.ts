@@ -575,9 +575,12 @@ export async function cloneNode<T extends HTMLElement>(
       (clonedNode) =>
         cloneSingleNode(clonedNode, options, copyDocument) as Promise<T>,
     )
-    .then((clonedNode) =>
-      cloneChildren(node, clonedNode, options, copyDocument),
-    )
+    .then((clonedNode) => {
+      if (isInstanceOfElement(node, Element)) {
+        task?.registerClone(clonedNode, node)
+      }
+      return cloneChildren(node, clonedNode, options, copyDocument)
+    })
     .then((clonedNode) => decorate(node, clonedNode, options, isRoot))
     .then((clonedNode) =>
       isRoot && resolveSymbols

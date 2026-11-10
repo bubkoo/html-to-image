@@ -36,3 +36,20 @@ addOpenTypeFeaturesFromString(builder.font, "feature kern { pos A space -300; po
 builder.font["head"].created = builder.font["head"].modified = 3406620153
 builder.font.recalcTimestamp = False
 builder.save(Path(__file__).with_name("font-metrics.ttf"))
+
+# A second original face makes document-local family collisions observable.
+# Its glyph only fills the right half, while advances and baselines stay equal.
+for glyph in builder.font["glyf"].glyphs.values():
+    if hasattr(glyph, "coordinates"):
+        for i, (x, y) in enumerate(glyph.coordinates):
+            if x == 0:
+                glyph.coordinates[i] = (400, y)
+for name in glyphs:
+    if name != "space":
+        builder.font["hmtx"].metrics[name] = (1000, 400)
+variant_names = {1: "Capture Frame Metrics", 3: "html-to-image Capture Frame Metrics 1", 4: "Capture Frame Metrics Regular", 6: "CaptureFrameMetrics-Regular"}
+# Keep both Macintosh and Windows name records distinct for CoreText too.
+for record in list(builder.font["name"].names):
+    if record.nameID in variant_names:
+        builder.font["name"].setName(variant_names[record.nameID], record.nameID, record.platformID, record.platEncID, record.langID)
+builder.save(Path(__file__).with_name("font-frame-metrics.ttf"))

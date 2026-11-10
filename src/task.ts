@@ -45,6 +45,20 @@ export class CaptureTask {
 
   readonly diagnostics: CaptureDiagnostic[] = []
 
+  private cloneSources = new WeakMap<Element, Element>()
+
+  registerClone(copy: Element, source: Element) {
+    this.cloneSources.set(copy, source)
+  }
+
+  getCloneSource(copy: Element) {
+    return this.cloneSources.get(copy)
+  }
+
+  clearCloneSources() {
+    this.cloneSources = new WeakMap()
+  }
+
   private inheritedStyles = new WeakMap<
     Element,
     { style: CSSStyleDeclaration; values: Map<string, string> }
@@ -214,6 +228,7 @@ export class CaptureTask {
     this.cleanups.forEach((cleanup) => cleanup())
     this.cleanups = []
     this.clearInheritedStyles()
+    this.clearCloneSources()
     this.resources.clear()
     // Weak entries expire with options. Pending async stages still need to see
     // this disposed task so they cannot resume work after cancellation.

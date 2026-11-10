@@ -59,6 +59,7 @@ export async function createCapture(
       }
       task.stage('resources')
       await embedWebFonts(root, options, node)
+      task.clearCloneSources()
       task.check()
       await embedImages(root, options)
       task.stage('serialize')
