@@ -7,6 +7,7 @@ const cases = [
   'UMD global and pixels',
   'canvas snapshot pixels',
   'explicit dimensions and pixel ratio',
+  'fractional fonts and tight last word',
   'per-node customization',
   'shadow slot fallback and assignment',
   'same-origin iframe viewport',
@@ -598,4 +599,27 @@ test('built UMD awaits image recovery and propagates rejected callbacks', async 
     originalError: true,
     sourceUnchanged: true,
   })
+})
+
+test('built UMD preserves fractional font size and text line metrics', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const api = (
+      window as typeof window & { htmlToImage: typeof import('../../src') }
+    ).htmlToImage
+    // Browser-native import exercises the checked-in fixture with the actual UMD API.
+    const fixtureURL = '/test/browser/fixtures/font-metrics.mjs'
+    const { checkFontMetrics } = await import(/* @vite-ignore */ fixtureURL)
+    return checkFontMetrics(api)
+  })
+  expect(result.fontSize).toBe('20.75px')
+  expect(result.sourceLines).toBe(2)
+  expect(result.sourceUnchanged).toBe(true)
+  expect(result.colors).toHaveLength(6)
+  result.colors.forEach((color: number[]) =>
+    expect(color).toEqual([255, 0, 0, 255]),
+  )
 })

@@ -151,12 +151,6 @@ function cloneCSSStyle<T extends HTMLElement>(
           if (value === inheritedStyle.getPropertyValue(name)) return
         }
       }
-      if (name === 'font-size' && value.endsWith('px')) {
-        const reducedFont =
-          Math.floor(parseFloat(value.substring(0, value.length - 2))) - 0.1
-        value = `${reducedFont}px`
-      }
-
       if (
         isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
         name === 'display' &&
