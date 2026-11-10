@@ -76,7 +76,9 @@ Potentially observable changes:
   time-sliced capture, so keep the source stable until capture completes.
 - `onClone` and plugin transforms see a detached DOM copy. Edits to the
   original DOM after capture completion are absent from the snapshot.
-- A zero-sized DOM may be serialized as SVG but cannot become a raster image.
+- A zero-sized DOM or explicit zero `width`/`height` may be serialized as SVG
+  but cannot become a raster image. Only omitted dimensions use source
+  measurements; negative or non-finite dimensions reject capture creation.
 - A `clip-path` URL that resolves to the source document and has a fragment is
   localized to `url(#id)` on the detached copy; other documents' URLs remain
   unchanged. The source DOM is not edited.

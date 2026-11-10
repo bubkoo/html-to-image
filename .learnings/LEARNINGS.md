@@ -691,3 +691,32 @@ sticky 子元素不能用逐子元素 transform 表达滚动；在受限的块�
 - Related Files: ../src/clone-node.ts, ../test/browser-unit/capture.test.ts, ../test/browser/smoke.html, ../docs/v2-regressions.md
 - Pattern-Key: html-to-svg.sticky-after-spacer-scroll
 - Validation: verified locally in three browser engines; real iOS Safari and original Issue #594 fixture pending
+
+## [LRN-20261111-001] best_practice
+
+**Logged**: 2026-11-11 (Asia/Shanghai)
+**Priority**: medium
+**Status**: resolved
+**Area**: capture-dimensions
+
+### Summary
+尺寸默认值只能对未指定值回退；用 `||` 会吞掉合法零值，也会让 NaN 绕过后续有限数校验。
+
+### Details
+核对旧 PR #409 时，三引擎各有 4 项失败：显式零宽/高被源尺寸替换，NaN 宽/高被接受。`getImageSize` 改用 `??`，`applyStyle` 用非空判断后，零尺寸 SVG 与副本样式保留 0，栅格化按既有契约拒绝，NaN 在克隆回调前拒绝。CSS 显示尺寸与 `pixelRatio` 放大的像素缓冲区须分开；旧 PR 再次写入 CSS 宽高到画布属性会覆盖缩放。原项目缺精确设备信息，不把这些独立回归等同于复现其全部故障。
+
+### Suggested Action
+尺寸链路同时检查缺省、零、非法数、CSS 尺寸、像素尺寸和末端像素；不要用重复设置画布属性修复输出大小差异。
+
+### Metadata
+- Source: investigation
+- Related Files: ../src/util.ts, ../src/apply-style.ts, ../test/browser-unit/dimensions.test.ts, ../test/browser/package.test.ts, ../test/browser/smoke.html
+- Pattern-Key: capture.dimensions-nullish-defaults-and-pixel-ratio
+
+### Context Maintenance
+- Scope: 本项目 V2 显式 width/height 和 canvasWidth/canvasHeight/pixelRatio
+- Authority: 三引擎失败对照、修复后定向 18/18、完整覆盖率 172/172、三引擎源码 159/159、构建包 69/69
+- Revalidation: 改动尺寸默认值、克隆样式或画布缩放后重跑同组回归
+- Validation: verified locally
+- Last-Validated: 2026-11-11
+- Evidence: ../docs/v2-issue-pr-tracker.md

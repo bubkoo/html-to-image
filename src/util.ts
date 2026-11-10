@@ -94,8 +94,8 @@ function getNodeHeight(node: HTMLElement) {
 }
 
 export function getImageSize(targetNode: HTMLElement, options: Options = {}) {
-  const width = options.width || getNodeWidth(targetNode)
-  const height = options.height || getNodeHeight(targetNode)
+  const width = options.width ?? getNodeWidth(targetNode)
+  const height = options.height ?? getNodeHeight(targetNode)
 
   return { width, height }
 }

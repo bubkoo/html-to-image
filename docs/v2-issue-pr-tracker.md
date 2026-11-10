@@ -1,6 +1,6 @@
 # V2 Issue / PR 回应台账
 
-更新于 2026-11-10。用途是准备后续 Issue 和 PR 回复；已合并与后续修复候选应按各行证据分别核对。V2 已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 合并到 `master`，npm `latest` 仍为 1.11.13，不能把合并等同于发布。测试与修复项的完整对应关系见 [v2-regressions.md](v2-regressions.md)；开放 PR 的逐项处理建议见 [open-pr-triage.md](open-pr-triage.md)。
+更新于 2026-11-11。用途是准备后续 Issue 和 PR 回复；已合并与后续修复候选应按各行证据分别核对。V2 已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 合并到 `master`，尚未发布 V2 到 npm，不能把合并等同于发布。测试与修复项的完整对应关系见 [v2-regressions.md](v2-regressions.md)；开放 PR 的逐项处理建议见 [open-pr-triage.md](open-pr-triage.md)。
 
 “本地覆盖”只表示所列场景有对应回归并通过验证；“部分覆盖”表示不能按原帖的全部范围宣称解决。后续修复候选须合并后才能称为 `master` 已修复。回复前应重新核对主分支代码、测试结果和远端 CI。
 
@@ -8,6 +8,8 @@
 
 | 对应讨论 | 原问题与根因 | 当前分支已做的事 | 证据和回复边界 |
 | --- | --- | --- | --- |
+| [PR #409](https://github.com/bubkoo/html-to-image/pull/409) 尺寸核对 | 原补丁把画布像素属性设回 CSS 尺寸，覆盖 `pixelRatio`。核对 V2 时发现独立边界缺陷：`width`/`height` 的 `||` 回退吞掉显式 `0` 和 `NaN`。 | 本分支只对未指定尺寸使用源尺寸，克隆样式保留显式零值；保留已有有限非负尺寸校验和零尺寸 SVG/栅格化语义。 | **修复候选**：三引擎在修复前各 4 项失败，修复后源码验证零尺寸 SVG、副本样式、栅格化拒绝、NaN 在克隆前拒绝及源尺寸不变；另验证 1×/2× CSS/像素尺寸、实际 UMD 的 2× 末端像素。ESM 冒烟页新增同组验收。原关联项目缺精确设备信息，不把独立边界修复等同于复现其全部故障。 |
+| [PR #408](https://github.com/bubkoo/html-to-image/pull/408) / [Issue #345](https://github.com/bubkoo/html-to-image/issues/345) | PR 尝试平移子节点并隐藏滚动条；Issue 同时要求自定义滚动条的颜色和宽度。 | V2 的可见滚动视口已有下方 #594 的限定覆盖；未实现滚动条外观的独立复制。 | **部分覆盖**：隐藏滚动条不能等同于保留外观；混合直接文本、行内及复杂定位仍有边界，#345 不按完整修复处理。 |
 | [Issue #562](https://github.com/bubkoo/html-to-image/issues/562) | 发布的 ESM 文件保留无扩展名相对导入，浏览器原生模块和 Node ESM 无法解析。 | 源码内部使用 `.js` 导入，生成 `es/package.json`，设置 ESM/CJS 条件导出。 | **本地覆盖**：`test:package` 将实际压缩包装进临时项目，验证 ESM、CJS、UMD、类型与文件清单；`test/browser/package.test.ts` 在 Chromium、Firefox、WebKit 加载构建后的 ESM 和 UMD，并核对输出像素。正式发布后的消费场景仍待验证。 |
 | [Issue #553](https://github.com/bubkoo/html-to-image/issues/553) | `toPixelData` 按 CSS 尺寸读取像素，高设备像素比时裁掉画布右侧和底部。 | 从实际画布宽高读取完整像素缓冲区；旧入口复用同一实现。 | **本地覆盖**：`renderer.test.ts` 的非 1 像素比尺寸、缓冲区长度和末端像素断言。原帖的 Mapbox/Firefox 场景未复测。 |
 | [Issue #543](https://github.com/bubkoo/html-to-image/issues/543) | iframe 的 body 在特殊克隆步骤和通用子节点步骤中各复制一次。后续三浏览器像素回归发现：同源 iframe 的运行时滚动位置被遗漏；把 iframe 视口与 body 合为一个副本，又会覆盖 body 的横向布局，并使 fixed 内容相对外层视口定位。 | iframe body 完成特殊克隆后不再进入第二次子节点递归；[PR #612](https://github.com/bubkoo/html-to-image/pull/612) 已合入 `master`：将视口裁剪与 body 布局分开表达，读取 `contentWindow.scrollX/Y`，只位移 body 中的滚动内容，并把 fixed 后代锚定到 iframe 视口。 | **部分覆盖**：`renderer.test.ts` 与三引擎 `capture.test.ts` 验证内容恰好一份；纵向、横向和 fixed 像素在修复前分别出现红色、透明或错误位置，修复后三引擎显示源视口的颜色且源滚动不变；实际构建 UMD 的三引擎纵横滚动像素测试通过。新增 ESM 移动端冒烟覆盖视口偏移、fixed、纵横滚动；真实 iOS 待复测。跨域 iframe 与更复杂的滚动布局不在该结论内。 |
