@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Native SVG style control</title>
+<body style="margin:16px;font:16px system-ui">
+<p>Native external SVG style control</p>
+<div id="scene" style="display:flex;width:60px;height:20px">
+<svg width="20" height="20"><use href="./fixtures/svg-styles/class.svg#icon" fill="green" width="20" height="20"/></svg>
+<svg width="20" height="20"><use href="./fixtures/svg-styles/other.svg#icon" width="20" height="20"/></svg>
+<svg width="20" height="20"><rect class="shared" fill="yellow" width="20" height="20"/></svg>
+</div>
+<script>
+if(new URLSearchParams(location.search).get('leak')==='1') {
+const style=document.createElement('style');style.textContent='.shared{fill:yellow!important}';document.head.append(style);
+}
+</script>
+</body>

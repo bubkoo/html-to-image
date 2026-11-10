@@ -1,0 +1,327 @@
+{
+  "checkedAt": "2026-11-10T23:50:27.408732+00:00",
+  "baselineRevision": "545ff83fe466ed056957765b2020d868220a108e",
+  "status": "Runtime fix unresolved; output-contract question pending. This file records native source/capture observations, not fixed regressions.",
+  "sourcePR": {
+    "number": 585,
+    "head": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb"
+  },
+  "method": "Real same-origin HTTP external use elements. Native source pixels come from screenshot of the live 60x20 DOM region through the Vitest Playwright frame; compare capture.toImageData pixels at centers 10/30/50. Snapshot DOM unchanged; yellow control checked. No expected library/native equality asserted by the observation collector.",
+  "desktopObservations": [
+    {
+      "name": "class",
+      "browser": "chromium",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 255, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "class",
+      "browser": "webkit",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "cascade",
+      "browser": "chromium",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 255, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "cascade",
+      "browser": "webkit",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "inheritance",
+      "browser": "chromium",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 255, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "inheritance",
+      "browser": "webkit",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "class",
+      "browser": "firefox",
+      "native": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "dependencies",
+      "browser": "chromium",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 255, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "dependencies",
+      "browser": "webkit",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "cascade",
+      "browser": "firefox",
+      "native": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "plain",
+      "browser": "chromium",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 255, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "plain",
+      "browser": "webkit",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "inheritance",
+      "browser": "firefox",
+      "native": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "dependencies",
+      "browser": "firefox",
+      "native": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [255, 255, 0, 255],
+        [255, 255, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    },
+    {
+      "name": "plain",
+      "browser": "firefox",
+      "native": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "capture": [
+        [0, 128, 0, 255],
+        [0, 0, 0, 255],
+        [255, 255, 0, 255]
+      ]
+    }
+  ],
+  "desktopCaseDefinitions": {
+    "class": "Sibling class rule; two external documents share class and icon ID; main document has yellow !important rule.",
+    "cascade": "ID rule competes with later class/attribute ID rules; same main document rule.",
+    "inheritance": "Source-only ancestor class should not be assumed to match all engines/use shadows; host use has green fill.",
+    "dependencies": "Paint and clip paths are referenced only through external sibling CSS.",
+    "plain": "Same class document without the main yellow rule; independent third rectangle still explicitly yellow."
+  },
+  "nativeIOS": {
+    "simulator": false,
+    "states": [
+      {
+        "x": 16,
+        "height": 20,
+        "y": 52,
+        "dpr": 3,
+        "width": 60,
+        "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+        "viewport": [402, 714],
+        "screenshotSize": [1206, 2622],
+        "scale": 3.0,
+        "rawRGBA16": [
+          [0, 32896, 0, 65535],
+          [0, 0, 0, 65535],
+          [65535, 65535, 0, 65535]
+        ],
+        "colorProfile": "sRGB IEC61966-2.1; verified with sips",
+        "sRGB8": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "yellowControlRows": [342, 401],
+        "sampling": "Locate the independent 20px yellow control to account for iOS WebDriver screenshot/viewport vertical offset; sample the three scene centers at that row.",
+        "nativeBrowserOnly": true,
+        "pageQuery": "?leak=1",
+        "screenshot": "ios-safari-svg-style-source.png",
+        "screenshotSha256": "703e46acd8a4f3272fafb07a9cca49d68228a57bd9e3b6fb476407bda9a17ba7"
+      },
+      {
+        "x": 16,
+        "height": 20,
+        "y": 52,
+        "dpr": 3,
+        "width": 60,
+        "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+        "viewport": [402, 714],
+        "screenshotSize": [1206, 2622],
+        "scale": 3.0,
+        "colorProfile": "sRGB IEC61966-2.1; verified with sips",
+        "rawRGBA16": [
+          [0, 32896, 0, 65535],
+          [0, 0, 0, 65535],
+          [65535, 65535, 0, 65535]
+        ],
+        "sRGB8": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "yellowControlRows": [342, 401],
+        "sampling": "Locate the independent 20px yellow control to account for iOS WebDriver screenshot/viewport vertical offset; sample the three scene centers at that row.",
+        "nativeBrowserOnly": true,
+        "pageQuery": "",
+        "screenshot": "ios-safari-svg-style-source.png",
+        "screenshotSha256": "703e46acd8a4f3272fafb07a9cca49d68228a57bd9e3b6fb476407bda9a17ba7"
+      }
+    ],
+    "note": "The with/without-main-CSS screenshots are byte-identical. Pixel sampling anchors to the independent 20px yellow control because iOS WebDriver screenshot height/vertical origin differ from innerHeight/getBoundingClientRect."
+  },
+  "discardedAssumptions": [
+    "Standalone inline SVG image is not a faithful universal expected result for live external use in every engine.",
+    "A prototype applying each external file stylesheet with scoped selectors produced green/blue; it diverged from eight of twelve live-source comparisons in Firefox/WebKit and was not merged.",
+    "An exploratory Blob SVG display/getBBox probe yielded the same widths in Firefox/WebKit even though their main-style color behavior differs; that probe alone is insufficient for a runtime policy.",
+    "No user answer is inferred from elapsed time; choosing native-page fidelity versus uniform file-style rendering remains pending."
+  ],
+  "nativeGeometryProbe": [
+    {
+      "browser": "chromium",
+      "widths": [1, 1]
+    },
+    {
+      "browser": "webkit",
+      "widths": [21, 21]
+    },
+    {
+      "browser": "firefox",
+      "widths": [21, 21]
+    }
+  ],
+  "decisionRequested": [
+    "Preserve each browser's live page output",
+    "Normalize output to the SVG file's own styles"
+  ],
+  "scope": "No runtime, public API, npm release or old PR status changed. External CSS/fonts, arbitrary stylesheet imports and complete #585 behavior remain unresolved.",
+  "inputSha256": {
+    "test/browser/svg-style-native-probe.html": "3c45f104169b7df01a67b5e1f01d69343fe590bd9437cc1647c4a38d3f2ed827",
+    "test/browser/fixtures/svg-styles/cascade.svg": "01c31dc8a3c80b38f741236caca52d01e384c2f290518b423d15651775607271",
+    "test/browser/fixtures/svg-styles/type.svg": "e9f5591f458617046655fcc1de6434517bf46ec6fe707b6837a5057a87bfcd3e",
+    "test/browser/fixtures/svg-styles/class.svg": "e3a6fd5b664d4e0646c6ba7827317c10cac7da2e4ee567c9da397b9a77ba3225",
+    "test/browser/fixtures/svg-styles/inheritance.svg": "6fb3ff11050aecffd8fb11885962b1f831e3f40d5dd493924ee1e2f542f7edec",
+    "test/browser/fixtures/svg-styles/dependencies.svg": "9f74fa3d7adc69e75d18d3a6f0d336d7657e98915dda62976726fd99d8ed8a26",
+    "test/browser/fixtures/svg-styles/other.svg": "30d15426dfde9b1fed542fe9f612ceaf5b87d74c11308203546520e2a4889d60",
+    "test/browser/fixtures/svg-styles/plain.svg": "e3a6fd5b664d4e0646c6ba7827317c10cac7da2e4ee567c9da397b9a77ba3225"
+  },
+  "replaySource": "svg-styles-native-observation.test.ts.txt"
+}

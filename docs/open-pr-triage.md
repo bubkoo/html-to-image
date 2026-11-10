@@ -76,9 +76,15 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 复核 #585 的外部 SVG 需求时，确认当前代码只复制被引用节点，漏掉旁边的渐变、裁剪、遮罩和其他符号。候选按原文档/ShadowRoot 建立依赖图，递归导入属性与行内样式中的引用；外部文档各自分配副本 ID，处理循环和重叠子树，复用单次捕获的资源加载器。相对 image/feImage 地址保留资源文档及 xml:base 的解析基准。SVG use 无片段时选择文档根元素，与 [SVG 2 use 规则](https://www.w3.org/TR/SVG2/struct.html#UseElement)一致。
 
-另修复现代 href 的空值被旧 xlink:href 覆盖、无 href 图片误请求当前页面，以及被筛掉的内部定义又被补回的问题。原始 DOM 不变；本地依赖仍走既有克隆回调。三引擎最终定向 42 项在旧源码上 29 项失败、13 项通过，候选全部通过。WebKit 蓝色的微小原生偏差及特殊编码 ID 均与同引擎独立 SVG 对照精确比较，没有放宽像素容差。[依赖证据](evidence/svg-reference-dependencies.json)记录范围和源文件 hash，本地完整检查 220/302/120（源码另 1 项既有 GC 跳过）、lint/构建/类型/tarball 均通过；源码 `180ff94` 真实 iPhone Safari **24/24 通过**，[原始报告](evidence/ios-safari-svg-dependencies-180ff94.json)已归档；远端待验。
+另修复现代 href 的空值被旧 xlink:href 覆盖、无 href 图片误请求当前页面，以及被筛掉的内部定义又被补回的问题。原始 DOM 不变；本地依赖仍走既有克隆回调。三引擎最终定向 42 项在旧源码上 29 项失败、13 项通过，候选全部通过。WebKit 蓝色的微小原生偏差及特殊编码 ID 均与同引擎独立 SVG 对照精确比较，没有放宽像素容差。[依赖证据](evidence/svg-reference-dependencies.json)记录范围和源文件 hash，本地完整检查 220/302/120（源码另 1 项既有 GC 跳过）、lint/构建/类型/tarball 均通过；源码 `180ff94` 真实 iPhone Safari **24/24 通过**，[原始报告](evidence/ios-safari-svg-dependencies-180ff94.json)已归档；#627 已合入 master（545ff83），PR/主分支 CI、CodeQL 与 PR Codecov 两项均通过。
 
 这不是 #585 的整体移植：外部兄弟样式表/字体、变换阶段新增引用及重定向后的基准 URL 尚未建立证据；其 live reflow、三态 filter、调用者缓存和通用 iOS 重绘方案仍分别核对。不能因此关闭整个 #585，也不能把 #498 的延时重绘视为通用根因修复。
+
+### 外部 SVG 样式：实际页面与独立图片对照的边界
+
+后续使用真实 HTTP external use 的页面截图重新核对，发现先前“独立 SVG 图片应为绿色/蓝色”的对照不足以证明各引擎页面截图一致。相同输入含两个外部图标、页面内黄色 !important 规则和独立黄色参照块：Chromium 原生为绿/蓝/黄，Firefox 为黄/黄/黄，WebKit 为绿/黑/黄；当前 master 导出三个引擎均为黄/黄/黄。去掉页面内规则后，Chromium 原生仍为绿/蓝/黄、导出为绿/黑/黄；Firefox/WebKit 的原生与导出都是绿/黑/黄。原生 iPhone Safari 在有/无页面规则两种状态都为绿/黑/黄，截图字节相同。
+
+[15 组完整像素记录](evidence/svg-styles-native-matrix.json)、[真机截图](evidence/ios-safari-svg-style-source.png)和[重放方法](evidence/svg-styles-native-replay.md)已保存。这些是差异观测，不是修复通过数。作用域样式原型能按文件产生绿/蓝，但与 Firefox/WebKit 的八组实际页面对照不一致，未合入。已明确提出决策：忠实保留各浏览器当前页面，或统一按外部 SVG 文件样式还原；尚未收到选择，相关运行时改动等待该契约。独立的 SVG 引用依赖修复 #627 保持已有验证范围，#585 仍未整体解决。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 
