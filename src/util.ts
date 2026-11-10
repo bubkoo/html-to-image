@@ -2,35 +2,12 @@ import type { Options } from './types.js'
 import { getTask } from './task.js'
 
 export function resolveUrl(url: string, baseUrl: string | null): string {
-  // url is absolute already
-  if (url.match(/^[a-z]+:\/\//i)) {
+  try {
+    return new URL(url, baseUrl || document.baseURI).href
+  } catch {
+    // Leave malformed references for the resource loader's recovery policy.
     return url
   }
-
-  // url is absolute already, without protocol
-  if (url.match(/^\/\//)) {
-    return window.location.protocol + url
-  }
-
-  // dataURI, mailto:, tel:, etc.
-  if (url.match(/^[a-z]+:/i)) {
-    return url
-  }
-
-  const doc = document.implementation.createHTMLDocument()
-  const base = doc.createElement('base')
-  const a = doc.createElement('a')
-
-  doc.head.appendChild(base)
-  doc.body.appendChild(a)
-
-  if (baseUrl) {
-    base.href = baseUrl
-  }
-
-  a.href = url
-
-  return a.href
 }
 
 export const uuid = (() => {

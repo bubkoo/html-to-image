@@ -3,6 +3,7 @@ import { randomUUID } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { extname, resolve, sep } from 'node:path'
+import { resourcePolicyServer } from './fixtures/resource-policy-server.mjs'
 
 const root = process.cwd()
 const host = process.env.HTML_TO_IMAGE_SMOKE_HOST || '127.0.0.1'
@@ -20,8 +21,10 @@ const types = {
   '.webp': 'image/webp',
   '.ttf': 'font/ttf',
 }
+const resourcePolicy = resourcePolicyServer(root)
 
 const serve = async (request, response) => {
+  if (await resourcePolicy(request, response)) return
   const pathname = decodeURIComponent(
     new URL(request.url || '/', 'http://127.0.0.1').pathname,
   )

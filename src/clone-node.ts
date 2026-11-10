@@ -12,6 +12,16 @@ import { getResourceLoader, resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
 import { ResourceResolverError } from './resource-loader.js'
 
+function createCloneDocument(source: Document) {
+  // A detached element in a browsing document can still load resources in
+  // WebKit when styles or image loading attributes change.
+  const copy = source.implementation.createHTMLDocument()
+  const base = copy.createElement('base')
+  base.href = source.baseURI
+  copy.head.append(base)
+  return copy
+}
+
 async function cloneCanvasElement(canvas: HTMLCanvasElement, options: Options) {
   const dataURL = canvas.toDataURL()
   if (dataURL === 'data:,') {
@@ -37,38 +47,66 @@ async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
   return createImage(dataURL, options)
 }
 
-async function cloneIFrameElement(iframe: HTMLIFrameElement, options: Options) {
+async function cloneIFrameElement(
+  iframe: HTMLIFrameElement,
+  options: Options,
+  targetDocument: Document,
+) {
+  let sourceBody: HTMLElement | null = null
   try {
-    if (iframe?.contentDocument?.body) {
-      const body = await cloneNode(iframe.contentDocument.body, options, true)
-      const viewport = iframe.ownerDocument.createElement('div')
-      viewport.appendChild(body!)
-      return viewport
-    }
+    sourceBody = iframe.contentDocument?.body || null
   } catch {
-    // Failed to clone iframe
+    // Reading an inaccessible document may fail; user clone failures must not.
+  }
+  if (sourceBody) {
+    const body = await cloneNode(
+      sourceBody,
+      options,
+      true,
+      true,
+      targetDocument,
+    )
+    const viewport = targetDocument.createElement('div')
+    viewport.appendChild(body!)
+    return viewport
   }
 
-  return iframe.cloneNode(false) as HTMLIFrameElement
+  return targetDocument.importNode(iframe, false)
 }
 
 async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
+  targetDocument: Document,
 ): Promise<HTMLElement> {
   if (isInstanceOfElement(node, HTMLCanvasElement)) {
-    return cloneCanvasElement(node, options)
+    return targetDocument.adoptNode(await cloneCanvasElement(node, options))
   }
 
   if (isInstanceOfElement(node, HTMLVideoElement)) {
-    return cloneVideoElement(node, options)
+    return targetDocument.adoptNode(await cloneVideoElement(node, options))
   }
 
   if (isInstanceOfElement(node, HTMLIFrameElement)) {
-    return cloneIFrameElement(node, options)
+    return cloneIFrameElement(node, options, targetDocument)
   }
 
-  return node.cloneNode(false) as T
+  const copy = targetDocument.importNode(node, false)
+  if (isInstanceOfElement(node, HTMLImageElement)) {
+    // Keep the source document's URL resolution when importing iframe content.
+    ;(copy as unknown as HTMLImageElement).src = node.src
+  } else if (isInstanceOfElement(node, SVGImageElement)) {
+    const href = node.getAttribute('href') || node.getAttribute('xlink:href')
+    if (href) {
+      try {
+        copy.setAttribute('href', new URL(href, node.baseURI).href)
+        copy.removeAttributeNS('http://www.w3.org/1999/xlink', 'href')
+      } catch {
+        // Keep malformed references for the normal resource error path.
+      }
+    }
+  }
+  return copy
 }
 
 const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
@@ -78,6 +116,7 @@ async function cloneChildren<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
+  targetDocument: Document,
 ): Promise<T> {
   let children: T[]
 
@@ -101,7 +140,7 @@ async function cloneChildren<T extends HTMLElement>(
   await children.reduce(
     (deferred, child) =>
       deferred
-        .then(() => cloneNode(child, options))
+        .then(() => cloneNode(child, options, false, true, targetDocument))
         .then((clonedChild: HTMLElement | null) => {
           if (clonedChild) {
             clonedNode.appendChild(clonedChild)
@@ -400,6 +439,7 @@ async function ensureSVGSymbols<T extends HTMLElement>(
   }
 
   const sourceDocument = source.ownerDocument
+  const targetDocument = clone.ownerDocument
   const svgNamespace = 'http://www.w3.org/2000/svg'
   const copied = new Map<string, string>()
   let definitions: SVGDefsElement | undefined
@@ -411,12 +451,12 @@ async function ensureSVGSymbols<T extends HTMLElement>(
         )
   const appendDefinition = (definition: Element) => {
     if (!definitions) {
-      const holder = sourceDocument.createElementNS(svgNamespace, 'svg')
+      const holder = targetDocument.createElementNS(svgNamespace, 'svg')
       holder.setAttribute('width', '0')
       holder.setAttribute('height', '0')
       holder.style.position = 'absolute'
       holder.style.overflow = 'hidden'
-      definitions = sourceDocument.createElementNS(svgNamespace, 'defs')
+      definitions = targetDocument.createElementNS(svgNamespace, 'defs')
       holder.append(definitions)
       clone.append(holder)
     }
@@ -455,6 +495,7 @@ async function ensureSVGSymbols<T extends HTMLElement>(
         options,
         true,
         false,
+        targetDocument,
       )
       if (copy) {
         appendDefinition(copy)
@@ -478,7 +519,7 @@ async function ensureSVGSymbols<T extends HTMLElement>(
         if (!definition || definition.namespaceURI !== svgNamespace)
           throw new Error(`SVG symbol not found: ${key}`)
         alias = uuid()
-        const copy = sourceDocument.importNode(definition, true)
+        const copy = targetDocument.importNode(definition, true)
         copy.setAttribute('id', alias)
         appendDefinition(copy)
         copied.set(key, alias)
@@ -508,6 +549,7 @@ export async function cloneNode<T extends HTMLElement>(
   options: Options,
   isRoot?: boolean,
   resolveSymbols = true,
+  targetDocument?: Document,
 ): Promise<T | null> {
   const task = getTask(options)
   task?.check()
@@ -527,9 +569,15 @@ export async function cloneNode<T extends HTMLElement>(
     return null
   }
 
+  const copyDocument = targetDocument || createCloneDocument(node.ownerDocument)
   return Promise.resolve(node)
-    .then((clonedNode) => cloneSingleNode(clonedNode, options) as Promise<T>)
-    .then((clonedNode) => cloneChildren(node, clonedNode, options))
+    .then(
+      (clonedNode) =>
+        cloneSingleNode(clonedNode, options, copyDocument) as Promise<T>,
+    )
+    .then((clonedNode) =>
+      cloneChildren(node, clonedNode, options, copyDocument),
+    )
     .then((clonedNode) => decorate(node, clonedNode, options, isRoot))
     .then((clonedNode) =>
       isRoot && resolveSymbols

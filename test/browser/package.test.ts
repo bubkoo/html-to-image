@@ -8,6 +8,10 @@ const cases = [
   'canvas snapshot pixels',
   'explicit dimensions and pixel ratio',
   'fractional fonts and tight last word',
+  'resource cache lifetime',
+  'native HTTP cache policy',
+  'per-URL resource credentials',
+  'relative clone resources and callback errors',
   'per-node customization',
   'shadow slot fallback and assignment',
   'same-origin iframe viewport',
@@ -622,4 +626,62 @@ test('built UMD preserves fractional font size and text line metrics', async ({
   result.colors.forEach((color: number[]) =>
     expect(color).toEqual([255, 0, 0, 255]),
   )
+})
+
+const resourceCases = [
+  {
+    name: 'relative clone resources and callback errors',
+    method: 'checkRelativeCloneAssets',
+    expected: {
+      relativeBackground: true,
+      insertedImage: true,
+      iframeImage: true,
+      originalError: true,
+      sourceUnchanged: true,
+    },
+  },
+  {
+    name: 'resource cache lifetime',
+    method: 'checkResourceCache',
+    expected: {
+      fetches: 3,
+      nativeDuplicates: 0,
+      disposed: true,
+      rendererDisposed: true,
+      sourceUnchanged: true,
+    },
+  },
+  {
+    name: 'native HTTP cache policy',
+    method: 'checkNativeCachePolicy',
+    expected: { revalidated: 'blue', requestRevalidated: true },
+  },
+  {
+    name: 'per-URL resource credentials',
+    method: 'checkResourceCredentials',
+    expected: {
+      negativeControl: true,
+      privateCredential: true,
+      publicCredential: false,
+      font: true,
+      publicImage: true,
+      sourceUnchanged: true,
+    },
+  },
+]
+
+resourceCases.forEach(({ name, method, expected }) => {
+  test(`built UMD: ${name}`, async ({ page }) => {
+    await page.goto('/test/browser/umd.html')
+    await page.addScriptTag({ url: '/dist/html-to-image.js' })
+    const result = await page.evaluate(async (methodName) => {
+      const moduleURL = '/test/browser/fixtures/resource-policy.mjs'
+      const fixture = await import(/* @vite-ignore */ moduleURL)
+      const api = (
+        window as typeof window & { htmlToImage: typeof import('../../src') }
+      ).htmlToImage
+      return fixture[methodName](api)
+    }, method)
+    expect(result).toMatchObject(expected)
+  })
 })

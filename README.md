@@ -102,6 +102,13 @@ const png = await htmlToImage.toPng(node, {
 })
 ```
 
+The copy belongs to a private document without a browsing window
+(`copy.ownerDocument.defaultView === null`). Create added nodes through
+`copy.ownerDocument`; read layout and computed styles from `original`.
+The private document prevents WebKit from making native image requests while
+styles and image attributes are copied. Relative image addresses are resolved
+before embedding, including images added by clone callbacks.
+
 `stylePropertiesForNode(source)` chooses computed CSS properties before they
 are copied. Its array applies to that element and its pseudo elements; `[]`
 copies none, and `undefined` copies the full computed style even when a global
@@ -114,6 +121,34 @@ releases the snapshot; `renderer.dispose()` cancels outstanding work and release
 its captures. Per-call `signal` and `timeout` are supported. `exclude` accepts
 CSS selectors for subtrees. See [v2 architecture](docs/v2-architecture.md) for
 extension order, migration details, and current limits.
+
+The library keeps resource promises only within each capture; a later capture
+fetches again subject to the browser's HTTP cache. To request revalidation,
+use `fetchRequestInit: { cache: 'no-cache' }`. Disposal releases library-owned
+references; it does not clear the browser's HTTP cache or force garbage collection.
+
+For different credentials by URL, let a resolver handle selected resources and
+return `undefined` for the normal fetch policy:
+
+```ts
+const renderer = createRenderer({
+  fetchRequestInit: { credentials: 'include' },
+  resources: {
+    resolve: async ({ url }, { signal }) => {
+      if (new URL(url).origin !== 'https://public-assets.example.com') {
+        return undefined
+      }
+      const response = await fetch(url, { credentials: 'omit', signal })
+      if (!response.ok) throw new Error(`Asset request failed: ${response.status}`)
+      return response.blob()
+    },
+  },
+})
+```
+
+Resolvers own their fetch options, status checks and cancellation. Global
+`fetchRequestInit` applies to the normal fetch path. Servers must permit the
+chosen CORS and credential policy; `include` is not a general Safari fix.
 
 Cloning large trees yields to browser tasks after roughly 16 ms of work so the
 page can respond during capture. Set `cloneTimeSliceMs` to another non-negative

@@ -53,7 +53,17 @@ captures cannot share a stale response or a mutable option cache. Full URLs,
 including query strings, distinguish resources by default. Set
 `includeQueryParams: false` for the legacy identity rule. `cacheBust: true`
 appends a new query value to the actual fetch URL. No process-wide cache is
-retained.
+retained. Browser HTTP caching is separate: `fetchRequestInit.cache` controls
+the normal fetch, and a resolver owns the options of its own requests.
+Disposal clears library references and cancels work, without forcing browser
+cache eviction or garbage collection.
+
+Clones belong to one private HTML document with a base URL and no browsing
+window. Styles and image attributes can therefore change without starting
+native image requests outside the resource loader. Source image URLs retain
+their original document resolution; embedding also resolves images introduced
+by transforms. Decoding uses a temporary image in the active document when
+the inert copy cannot decode itself. That image receives only embedded data.
 
 ## Migration and behavior changes
 
@@ -74,8 +84,13 @@ Potentially observable changes:
   `cloneTimeSliceMs: 0` to disable yielding, or a positive value to adjust the
   interval. Source changes from other page tasks can be observed during a
   time-sliced capture, so keep the source stable until capture completes.
-- `onClone` and plugin transforms see a detached DOM copy. Edits to the
+- `onClone`, `onCloneNode` and plugin transforms see a copy in a private
+  document whose `defaultView` is `null`. Create added nodes using
+  `copy.ownerDocument`; read source layout from `original`. Edits to the
   original DOM after capture completion are absent from the snapshot.
+- Access errors for inaccessible iframe documents use the iframe fallback;
+  errors from user clone callbacks inside accessible frames reject the capture
+  with the original error.
 - A zero-sized DOM or explicit zero `width`/`height` may be serialized as SVG
   but cannot become a raster image. Only omitted dimensions use source
   measurements; negative or non-finite dimensions reject capture creation.
