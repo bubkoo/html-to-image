@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:legacy="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="palette"><stop stop-color="green"/></linearGradient>
+    <linearGradient id="paint" legacy:href="#palette"/>
+    <rect id="left" width="12" height="20"/>
+    <clipPath id="clip"><use href="#left"/></clipPath>
+    <mask id="mask" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><rect width="20" height="20" fill="white"/></mask>
+    <filter id="filter"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter>
+    <filter id="image-filter" filterUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><feImage href="assets/tile.svg" x="0" y="0" width="20" height="20"/></filter>
+    <symbol id="filter-image" viewBox="0 0 20 20"><rect width="20" height="20" fill="red" filter="url(#image-filter)"/></symbol>
+    <symbol id="middle" viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#paint)" clip-path="url(#clip)" mask="url(#mask)" filter="url(#filter)"/></symbol>
+    <symbol id="nested" viewBox="0 0 20 20"><use href="./root.svg#middle" width="20" height="20"/></symbol>
+    <linearGradient id="cycle-a" href="#cycle-b"/>
+    <linearGradient id="cycle-b" href="#cycle-a"/>
+    <symbol id="cycle" viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#cycle-a) red"/></symbol>
+    <symbol id="image" viewBox="0 0 20 20" xml:base="assets/"><image href="tile.svg" width="20" height="20"/></symbol>
+    <symbol id="cross" viewBox="0 0 20 20"><use href="./alternate.svg#icon" width="20" height="20"/></symbol>
+    <g id="outer"><rect id="child" width="20" height="20" fill="green"/></g>
+  </defs>
+  <symbol id="icon" viewBox="0 0 20 20"><use href="#nested" width="20" height="20"/></symbol>
+</svg>

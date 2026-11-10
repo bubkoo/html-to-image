@@ -5,12 +5,11 @@ import {
   toArray,
   isInstanceOfElement,
   getStyleProperties,
-  uuid,
 } from './util.js'
 import { getMimeType } from './mimes.js'
-import { getResourceLoader, resourceToDataURL } from './dataurl.js'
+import { resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
-import { ResourceResolverError } from './resource-loader.js'
+import { embedSVGReferences, getSVGReference } from './svg-references.js'
 
 function createCloneDocument(source: Document) {
   // A detached element in a browsing document can still load resources in
@@ -96,7 +95,7 @@ async function cloneSingleNode<T extends HTMLElement>(
     // Keep the source document's URL resolution when importing iframe content.
     ;(copy as unknown as HTMLImageElement).src = node.src
   } else if (isInstanceOfElement(node, SVGImageElement)) {
-    const href = node.getAttribute('href') || node.getAttribute('xlink:href')
+    const href = getSVGReference(node)
     if (href) {
       try {
         copy.setAttribute('href', new URL(href, node.baseURI).href)
@@ -433,114 +432,15 @@ async function ensureSVGSymbols<T extends HTMLElement>(
   clone: T,
   options: Options,
 ) {
-  const uses = clone.querySelectorAll ? clone.querySelectorAll('use') : []
-  if (uses.length === 0) {
-    return clone
-  }
-
-  const sourceDocument = source.ownerDocument
-  const targetDocument = clone.ownerDocument
-  const svgNamespace = 'http://www.w3.org/2000/svg'
-  const copied = new Map<string, string>()
-  let definitions: SVGDefsElement | undefined
-  const findById = (root: Element, id: string) =>
-    root.getAttribute('id') === id
-      ? root
-      : Array.from(root.querySelectorAll('[id]')).find(
-          (element) => element.getAttribute('id') === id,
-        )
-  const appendDefinition = (definition: Element) => {
-    if (!definitions) {
-      const holder = targetDocument.createElementNS(svgNamespace, 'svg')
-      holder.setAttribute('width', '0')
-      holder.setAttribute('height', '0')
-      holder.style.position = 'absolute'
-      holder.style.overflow = 'hidden'
-      definitions = targetDocument.createElementNS(svgNamespace, 'defs')
-      holder.append(definitions)
-      clone.append(holder)
-    }
-    definitions.append(definition)
-  }
-
-  for (let i = 0; i < uses.length; i++) {
-    getTask(options)?.check()
-    const use = uses[i]
-    const href = use.getAttribute('href') || use.getAttribute('xlink:href')
-    if (!href) continue
-    let target: URL
-    try {
-      target = new URL(href, sourceDocument.baseURI)
-    } catch {
-      continue
-    }
-    let id: string
-    try {
-      id = decodeURIComponent(target.hash.slice(1))
-    } catch {
-      continue
-    }
-    if (!id) continue
-    target.hash = ''
-    const sourceURL = new URL(sourceDocument.URL)
-    sourceURL.hash = ''
-    const local = href.startsWith('#') || target.href === sourceURL.href
-    if (local) {
-      if (findById(clone, id) || copied.has(`local:${id}`)) continue
-      const definition = sourceDocument.getElementById(id)
-      if (!definition || definition.namespaceURI !== svgNamespace) continue
-      // eslint-disable-next-line no-await-in-loop
-      const copy = await cloneNode(
-        definition as HTMLElement,
-        options,
-        true,
-        false,
-        targetDocument,
-      )
-      if (copy) {
-        appendDefinition(copy)
-        copied.set(`local:${id}`, id)
-      }
-      continue
-    }
-    const key = `${target.href}#${id}`
-    let alias = copied.get(key)
-    if (!alias) {
-      try {
-        const loader = getResourceLoader(options)
-        // eslint-disable-next-line no-await-in-loop
-        const resource = await loader.load(target.href, 'image')
-        // eslint-disable-next-line no-await-in-loop
-        const body = await resource.text()
-        const xml = new DOMParser().parseFromString(body, 'image/svg+xml')
-        if (xml.querySelector('parsererror'))
-          throw new Error(`Invalid SVG resource: ${target.href}`)
-        const definition = findById(xml.documentElement, id)
-        if (!definition || definition.namespaceURI !== svgNamespace)
-          throw new Error(`SVG symbol not found: ${key}`)
-        alias = uuid()
-        const copy = targetDocument.importNode(definition, true)
-        copy.setAttribute('id', alias)
-        appendDefinition(copy)
-        copied.set(key, alias)
-      } catch (error) {
-        getTask(options)?.check()
-        if (error instanceof ResourceResolverError) throw error
-        getResourceLoader(options).warn(
-          Object.freeze({
-            code: 'resource-error',
-            resource: target.href,
-            message: error instanceof Error ? error.message : String(error),
-          }),
-        )
-        continue
-      }
-    }
-    use.setAttribute('href', `#${alias}`)
-    if (use.hasAttribute('xlink:href'))
-      use.setAttribute('xlink:href', `#${alias}`)
-  }
-
+  await embedSVGReferences(source, clone, options, (definition) =>
+    cloneNode(
+      definition as HTMLElement,
+      options,
+      true,
+      false,
+      clone.ownerDocument,
+    ),
+  )
   return clone
 }
 
@@ -563,9 +463,11 @@ export async function cloneNode<T extends HTMLElement>(
     node.nodeType === 1 &&
     options.exclude?.some((selector) => node.matches(selector))
   ) {
+    task?.excludeSource(node)
     return null
   }
   if (!isRoot && options.filter && !options.filter(node)) {
+    task?.excludeSource(node)
     return null
   }
 

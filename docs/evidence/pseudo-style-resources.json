@@ -57,6 +57,17 @@
     "report": "ios-safari-pseudo-resources-58de76f.json",
     "newCase": "ESM/UMD with default font processing and skipFonts; pixels, request deduplication, zero parser preloads and source immutability"
   },
-  "remote": "Pending",
+  "remote": {
+    "pr": 626,
+    "prHead": "4c730ea07a498ea3fc2f6864c85ea83691ddaebf",
+    "mergedRevision": "fd28e2c6fba87ebcb621c31a4878499d35f11448",
+    "prCI": 42916622551,
+    "prCodeQL": 42916622552,
+    "prCodecovPatch": "passed",
+    "prCodecovProject": "passed",
+    "masterCI": 42917341796,
+    "masterCodeQL": 42917341795,
+    "status": "all passed; merged tree matches checked PR head"
+  },
   "candidateRevision": "58de76fedbdc7efa9cfc7fb751cf2074ca851cf1"
 }

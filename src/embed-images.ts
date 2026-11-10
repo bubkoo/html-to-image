@@ -4,6 +4,7 @@ import { toArray, isInstanceOfElement, createImage } from './util.js'
 import { getTask } from './task.js'
 import { isDataUrl, resourceToDataURL } from './dataurl.js'
 import { getMimeType } from './mimes.js'
+import { getSVGReference, svgNamespace } from './svg-references.js'
 
 async function embedProp(
   propName: string,
@@ -91,13 +92,13 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   options: Options,
 ) {
   const isImageElement = isInstanceOfElement(clonedNode, HTMLImageElement)
-  const isSVGImage = isInstanceOfElement(clonedNode, SVGImageElement)
+  const isSVGImage =
+    isInstanceOfElement(clonedNode, SVGImageElement) ||
+    (clonedNode.namespaceURI === svgNamespace &&
+      clonedNode.localName === 'feImage')
   if (!isImageElement && !isSVGImage) return
-  let url = isImageElement
-    ? clonedNode.src
-    : clonedNode.getAttribute('href') ||
-      clonedNode.getAttribute('xlink:href') ||
-      ''
+  let url = isImageElement ? clonedNode.src : getSVGReference(clonedNode) || ''
+  if (isSVGImage && !url) return
   if (!isDataUrl(url)) {
     try {
       url = new URL(url, clonedNode.baseURI).href
