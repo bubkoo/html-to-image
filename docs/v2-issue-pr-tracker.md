@@ -8,7 +8,7 @@
 
 | 对应讨论 | 原问题与根因 | 当前分支已做的事 | 证据和回复边界 |
 | --- | --- | --- | --- |
-| [PR #376](https://github.com/bubkoo/html-to-image/pull/376) / [PR #407](https://github.com/bubkoo/html-to-image/pull/407) | 需要自定义伪元素及附加 CSS；默认伪元素的背景图也被漏过资源阶段。 | 附加 CSS 使用现有 onClone；候选补齐 CSS 样式规则内背景/遮罩直接 URL 的嵌入，不新增重复选项。 | **独立缺陷候选**：旧源码六项像素回归失败、候选六项通过，本地 210/272/117 与构建/类型/tarball 通过；grouped/relative URL、去重与源不变控制；import 不展开、字体策略不改，真机/远端待验。原生滚动条外观与滑块位置仍待产品契约选择，不能称 #345 全部修复。 |
+| [PR #376](https://github.com/bubkoo/html-to-image/pull/376) / [PR #407](https://github.com/bubkoo/html-to-image/pull/407) | 需要自定义伪元素及附加 CSS；默认伪元素的背景图也被漏过资源阶段。 | 附加 CSS 使用现有 onClone；候选补齐 CSS 样式规则内背景/遮罩直接 URL 的嵌入，不新增重复选项。 | **独立缺陷候选**：旧源码六项像素回归失败、候选六项通过，本地 210/272/117 与构建/类型/tarball 通过；grouped/relative URL、去重与源不变控制；import 不展开、字体策略不改；源码 `58de76f` 真实 iPhone Safari 23/23 通过，远端待验。原生滚动条外观与滑块位置仍待产品契约选择，不能称 #345 全部修复。 |
 | [PR #398](https://github.com/bubkoo/html-to-image/pull/398) | 需要用 Blob 快速查看导出结果；原例无 URL 释放，标题 toBlobs 与实际单数 API 不符。 | README 用现有 toBlob 生成可点击的 PNG 链接，返回删除链接及 revokeObjectURL 的清理函数；null Blob 拒绝。 | **本轮文档补齐**：原样 helper 的 Chrome/Firefox/WebKit 新标签 MIME/尺寸/像素、noopener 和清理验证通过。真机 96×60 PNG 生成/读回通过；自动输入无事件，新标签及清理仍待手动点击，见浏览器证据 JSON。 |
 | [PR #540](https://github.com/bubkoo/html-to-image/pull/540) | 旧 pnpm lock 的 pbkdf2 3.1.2 → 3.1.3。 | 现有 Vitest 工具链已移除该依赖，无需移植旧 lock。 | **已由现有工具链取代**：移除提交 e32e74c；当前 lock 无 pbkdf2、完整安装树无此包，见 maintenance-dependency-review.json。 |
 | [PR #574](https://github.com/bubkoo/html-to-image/pull/574) | 旧 lock 的 Rollup 3.12.0 → 3.30.0。 | 现有工具链仅安装 Rollup 4.67.4，高于两个官方公告对应的 4.x 修复版本，不改依赖锁文件。 | **已由现有工具链取代**：官方范围、lock hash、安装树及 currentScript IMG/SCRIPT 生成代码、越界输出拒绝结果见 maintenance-dependency-review.json；不宣称全依赖安全。 |

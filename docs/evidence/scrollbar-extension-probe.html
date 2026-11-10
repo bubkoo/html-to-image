@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8"><title>Scrollbar review</title><style>
+body {margin:0;background:white} #dom-node {height:200px;width:200px;background:#fff}
+.pseudo {width:100px;height:100px;overflow:scroll} .pseudo > div {height:200px}
+.pseudo::-webkit-scrollbar {height:10px;width:10px;background-color:red}
+.pseudo::-webkit-scrollbar-thumb {background:black}
+</style><div id="dom-node"><div class="pseudo"><div></div></div></div><pre id="status">Ready</pre>
+<script type="module">
+import * as htmlToImage from '/es/index.js';
+window.htmlToImage=htmlToImage;
+window.probe=async function(mode,offset=0){
+const node=document.querySelector('#dom-node'),scroller=node.querySelector('.pseudo');scroller.scrollTop=offset;
+const options={pixelRatio:1};
+if(mode==='original-serializer')options.onCloneNode=(source,copy)=>{if(!source.matches('.pseudo'))return;copy.classList.add('probe-pseudo');for(const pseudo of ['::-webkit-scrollbar','::-webkit-scrollbar-thumb']){const style=getComputedStyle(source,pseudo);if(style.content===''||style.content==='none')continue;const css=Array.from(style).map(name=>`${name}: ${style.getPropertyValue(name)}${style.getPropertyPriority(name)?' !important':''};`).join(' ');const sheet=copy.ownerDocument.createElement('style');sheet.textContent='.probe-pseudo'+pseudo+'{'+css+'}';copy.appendChild(sheet);}};
+if(mode==='style')options.onClone=({root})=>{const s=root.ownerDocument.createElement('style');s.textContent='.pseudo::-webkit-scrollbar {height:10px;width:10px;background-color:red} .pseudo::-webkit-scrollbar-thumb {background:black}';root.appendChild(s)};
+const svg=await htmlToImage.toSvg(node,options);const url=await htmlToImage.toPng(node,options);
+const image=new Image();image.src=url;await image.decode();const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const c=canvas.getContext('2d');c.drawImage(image,0,0);
+const sample=(x,y)=>Array.from(c.getImageData(x,y,1,1).data);const bytes=c.getImageData(0,0,200,200).data;let red=0,black=0;for(let i=0;i<bytes.length;i+=4){if(bytes[i]===255&&bytes[i+1]===0&&bytes[i+2]===0&&bytes[i+3]===255)red++;if(bytes[i]===0&&bytes[i+1]===0&&bytes[i+2]===0&&bytes[i+3]===255)black++;}
+return {mode,offset,source:{client:[scroller.clientWidth,scroller.clientHeight],scroll:[scroller.scrollWidth,scroller.scrollHeight],top:scroller.scrollTop,barContent:getComputedStyle(scroller,'::-webkit-scrollbar').content,barBackground:getComputedStyle(scroller,'::-webkit-scrollbar').backgroundColor},image:{width:image.width,height:image.height,red,black,samples:[sample(95,20),sample(95,80),sample(20,95)]},svg:decodeURIComponent(svg).includes('::-webkit-scrollbar'),userAgent:navigator.userAgent};};
+</script>

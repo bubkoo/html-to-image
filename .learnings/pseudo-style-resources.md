@@ -24,5 +24,5 @@
 - Scope: generated and transform-added style rules, background/mask direct URLs, existing image cache and font policy
 - Authority: six baseline pixel failures; grouped CSS, request counts and source immutability controls
 - Revalidation: stylesheet parsing, resource-stage recursion, CSS properties or parser document ownership changes
-- Validation: final targeted 6 passed; full local 210/272/117 with 1 inherited GC skip, lint/build/types/tarball passed; native and remote pending
+- Validation: final targeted 6 passed; full local 210/272/117 with 1 inherited GC skip, lint/build/types/tarball passed; real iPhone 23/23 passed on 58de76f; remote pending
 - Last-Validated: 2026-11-11
