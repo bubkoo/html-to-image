@@ -316,7 +316,6 @@
   "inputSha256": {
     "test/browser/svg-style-native-probe.html": "3c45f104169b7df01a67b5e1f01d69343fe590bd9437cc1647c4a38d3f2ed827",
     "test/browser/fixtures/svg-styles/cascade.svg": "01c31dc8a3c80b38f741236caca52d01e384c2f290518b423d15651775607271",
-    "test/browser/fixtures/svg-styles/type.svg": "e9f5591f458617046655fcc1de6434517bf46ec6fe707b6837a5057a87bfcd3e",
     "test/browser/fixtures/svg-styles/class.svg": "e3a6fd5b664d4e0646c6ba7827317c10cac7da2e4ee567c9da397b9a77ba3225",
     "test/browser/fixtures/svg-styles/inheritance.svg": "6fb3ff11050aecffd8fb11885962b1f831e3f40d5dd493924ee1e2f542f7edec",
     "test/browser/fixtures/svg-styles/dependencies.svg": "9f74fa3d7adc69e75d18d3a6f0d336d7657e98915dda62976726fd99d8ed8a26",
