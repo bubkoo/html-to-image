@@ -36,7 +36,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 候选按副本来源文档收集字体与相对地址，附加文档的字体只在副本中改为各自名字；源 DOM、普通和 adopted 样式表不变。支持嵌套 iframe、body 内字体规则、含逗号/撇号的家族名、重复捕获的字体 CSS、普通名称的显式覆盖、变换新增字体和 local-only 来源；过滤掉的 iframe 不下载它的同名字体。旧 #568 的字符串类型补丁不移植。
 
-在当前主分支源码上回放最终 39 项定向测试，三个引擎各 8 项失败（共 24 项）；修复后三引擎 39/39、本地覆盖率 203/203、源码 252/252、构建 ESM/UMD 111/111 通过。实际 tarball 的 ESM/CJS/UMD/双版本 TypeScript、lint、构建、浏览器测试类型也通过；真机与远端结果另行归档。复用含 iframe 的 fontEmbedCSS 要保留同一捕获子树及 frame 文档，导航或替换后重新收集。跨源不可读 iframe、纯 JavaScript FontFace 字节和同一文档内不同 ShadowRoot 的同名字体隔离不在此结论内。
+在当前主分支源码上回放最终 39 项定向测试，三个引擎各 8 项失败（共 24 项）；修复后三引擎 39/39、本地覆盖率 203/203、源码 252/252、构建 ESM/UMD 111/111 通过。实际 tarball 的 ESM/CJS/UMD/双版本 TypeScript、lint、构建、浏览器测试类型也通过；源码 `036f1db` 真实 iPhone Safari 21/21 通过，[原始报告](evidence/ios-safari-iframe-fonts-036f1db.json)已归档；远端检查待通过。复用含 iframe 的 fontEmbedCSS 要保留同一捕获子树及 frame 文档，导航或替换后重新收集。跨源不可读 iframe、纯 JavaScript FontFace 字节和同一文档内不同 ShadowRoot 的同名字体隔离不在此结论内。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 
@@ -81,7 +81,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 | PR | 剩余问题 |
 | --- | --- |
 | [#591](https://github.com/bubkoo/html-to-image/pull/591) | V2 有可选的多次栅格化，并在真实 iPhone 16 Pro Safari 验证过首帧透明、重绘成功；它不是 PR 的“两次相同才停止”算法。原帖的全部图像组合及其他 iOS 场景尚未证明。 |
-| [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 的跨 realm Element 遍历已存在；本候选另外复现并修复 iframe/祖先捕获漏收集 frame 字体及同名冲突，见上方 iframe 字体复核。三引擎有原始跨 realm、字体数据、真实字体像素、相对地址及源不变验证；真机与远端结果另行归档。 |
+| [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 的跨 realm Element 遍历已存在；本候选另外复现并修复 iframe/祖先捕获漏收集 frame 字体及同名冲突，见上方 iframe 字体复核。三引擎有原始跨 realm、字体数据、真实字体像素、相对地址及源不变验证；源码 `036f1db` 真实 iPhone Safari 21/21 通过，[原始报告](evidence/ios-safari-iframe-fonts-036f1db.json)已归档；远端检查待通过。 |
 | [#451](https://github.com/bubkoo/html-to-image/pull/451) | [PR #617](https://github.com/bubkoo/html-to-image/pull/617) 复现了视频原始比例 960×540、显示区域 240×160 且 `object-fit: contain` 时的拉伸：修复前顶部留白变成视频画面。按视频原始宽高截取帧后，三引擎源码与构建 UMD 均导出正确的顶部留白与中心画面。原 PR 的截图页面、其他 `object-fit` 组合及高分辨率视频的资源成本尚未复测。 |
 
 ## 待复现和设计：拆成小问题处理，每个修复补回归

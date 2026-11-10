@@ -2,7 +2,7 @@
 
 **Logged**: 2026-11-11 (Asia/Shanghai)
 **Priority**: high
-**Status**: pending
+**Status**: resolved
 **Area**: cross-document-fonts
 
 ### Summary
@@ -25,6 +25,10 @@ Firefox 不允许修改 CSSFontFaceRule 的描述符；应读取并构造新规�
 - Scope: 可访问的同源 iframe、CSS 定义字体及当前 Chromium/Firefox/WebKit；纯 JS FontFace 和不同 ShadowRoot 内的同名字体隔离未验证
 - Authority: 旧源码定向 24/39 失败，修复后 39/39；本地覆盖率 203、源码 252、构建包 111 全通过
 - Revalidation: 修改 iframe 扁平克隆、字体来源/别名、CSS 复用或浏览器版本时
-- Validation: verified locally; device and remote pending
+- Validation: verified locally and on real iPhone; remote pending
 - Last-Validated: 2026-11-11
 - Evidence: ../docs/v2-regressions.md
+
+
+### Resolution
+源码 `036f1db` 重建后真实 iPhone Safari 完整页 21/21 通过，报告归档为 `docs/evidence/ios-safari-iframe-fonts-036f1db.json`，提交 SHA 与源码一致。两份原创字体同时维护独立的 Macintosh/Windows 名称表，避免验证字形差异时混入平台内部字体名冲突；原始字体 SHA256 保持不变。远端 CI/CodeQL/Codecov 合并前另行核验。
