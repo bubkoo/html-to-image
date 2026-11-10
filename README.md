@@ -299,9 +299,15 @@ A string value for the background color, any valid CSS color value.
 
 Width and height in pixels to be applied to node before rendering.
 
+Omit a dimension to measure it from the source node. Explicit `0` is preserved
+in SVG output; raster output rejects zero-sized captures. Negative or non-finite
+dimensions reject capture creation.
+
 ### canvasWidth, canvasHeight
 
-Allows to scale the canva's size including the elements inside to a given width and height (in pixels).
+Scale the captured image to this canvas size in CSS pixels. The pixel buffer's
+width and height are multiplied by `pixelRatio` (and may be reduced by automatic
+canvas size limiting).
 
 ### style
 

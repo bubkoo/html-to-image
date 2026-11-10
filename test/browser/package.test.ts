@@ -6,6 +6,7 @@ const cases = [
   'ESM import and basic PNG',
   'UMD global and pixels',
   'canvas snapshot pixels',
+  'explicit dimensions and pixel ratio',
   'per-node customization',
   'shadow slot fallback and assignment',
   'same-origin iframe viewport',
@@ -86,6 +87,94 @@ test('built UMD global renders pixels in a browser', async ({ page }) => {
     }
   })
   expect(result).toEqual({ width: 32, height: 32, pixel: [255, 0, 0, 255] })
+})
+
+test('built UMD validates explicit dimensions and preserves the scaled pixel buffer', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const api = (
+      window as typeof window & {
+        htmlToImage: typeof import('../../src')
+      }
+    ).htmlToImage
+    const node = document.createElement('div')
+    node.style.cssText = 'width:16px;height:12px;background:red'
+    document.body.append(node)
+    const renderer = api.createRenderer({ skipFonts: true, pixelRatio: 2 })
+    try {
+      const canvas = await renderer.toCanvas(node, {
+        width: 24,
+        height: 18,
+        canvasWidth: 40,
+        canvasHeight: 30,
+      })
+      const zeros = []
+      const invalid = []
+      const dimensions = ['width', 'height'] as const
+      for (let i = 0; i < dimensions.length; i += 1) {
+        const dimension = dimensions[i]
+        // eslint-disable-next-line no-await-in-loop
+        const capture = await renderer.capture(node, { [dimension]: 0 })
+        let rasterError = ''
+        try {
+          // eslint-disable-next-line no-await-in-loop
+          await capture.toCanvas()
+        } catch (error) {
+          rasterError = (error as Error).message
+        }
+        // eslint-disable-next-line no-await-in-loop
+        const svgURL = await capture.toSvg()
+        const svg = new DOMParser().parseFromString(
+          decodeURIComponent(svgURL.split(',')[1]),
+          'image/svg+xml',
+        )
+        zeros.push({
+          size: capture[dimension],
+          svgSize: svg.documentElement.getAttribute(dimension),
+          copySize: (svg.querySelector('foreignObject > div') as HTMLElement)
+            .style[dimension],
+          rasterError,
+        })
+        capture.dispose()
+        try {
+          // eslint-disable-next-line no-await-in-loop
+          await renderer.capture(node, { [dimension]: NaN })
+          invalid.push('accepted')
+        } catch (error) {
+          invalid.push((error as Error).message)
+        }
+      }
+      return {
+        css: [canvas.style.width, canvas.style.height],
+        buffer: [canvas.width, canvas.height],
+        pixel: Array.from(
+          canvas.getContext('2d')!.getImageData(78, 58, 1, 1).data,
+        ),
+        zeros,
+        invalid,
+        source: [node.style.width, node.style.height],
+      }
+    } finally {
+      renderer.dispose()
+      node.remove()
+    }
+  })
+  expect(result.css).toEqual(['40px', '30px'])
+  expect(result.buffer).toEqual([80, 60])
+  expect(result.pixel).toEqual([255, 0, 0, 255])
+  expect(result.source).toEqual(['16px', '12px'])
+  expect(result.zeros).toHaveLength(2)
+  result.zeros.forEach((zero) => {
+    expect(zero).toMatchObject({ size: 0, svgSize: '0', copySize: '0px' })
+    expect(zero.rasterError).toMatch(/zero-sized/)
+  })
+  expect(result.invalid).toHaveLength(2)
+  result.invalid.forEach((error) =>
+    expect(error).toMatch(/dimensions must be finite/),
+  )
 })
 
 test('built UMD keeps a fixed child above scrolled content', async ({

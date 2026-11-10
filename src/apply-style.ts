@@ -10,11 +10,11 @@ export function applyStyle<T extends HTMLElement>(
     style.backgroundColor = options.backgroundColor
   }
 
-  if (options.width) {
+  if (options.width != null) {
     style.width = `${options.width}px`
   }
 
-  if (options.height) {
+  if (options.height != null) {
     style.height = `${options.height}px`
   }
 
