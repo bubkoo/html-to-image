@@ -25,10 +25,14 @@
 - Scope: 当前 WebKit 的异步图片嵌入，Chromium/Firefox 对照，以及已验证的 relative HTML/CSS/SVG 资源
 - Authority: PR #623 CI run 42904242209；去掉持有 2/36 失败、恢复后 36/36；请求键与 about:blank 有运行时追踪
 - Revalidation: 变更克隆文档创建/释放、异步资源阶段、序列化所有权或浏览器版本时
-- Validation: verified locally; verified locally and on real iPhone (204/255/111 + 21); remote pending
+- Validation: verified locally; verified locally and on real iPhone (204/255/111 + 21); PR/master CI and CodeQL plus PR Codecov passed
 - Last-Validated: 2026-11-11
 - Evidence: ../docs/v2-regressions.md
 
 
 ### Final candidate validation
 最终源码 `f4ab94e` 完整本地 204/255/111 与真实 iPhone Safari 21/21 通过，报告为 `docs/evidence/ios-safari-document-ownership-f4ab94e.json`；相对资源的文档 base URI、实际请求次数与八种字体场景均通过。受测源码 SHA 与报告一致，远端检查在合并前核验。
+
+
+### Integration
+#623 已合入 master（a360c43）；最终候选的 PR CI/CodeQL/Codecov 与主分支 CI/CodeQL 均通过。最终真机证据仍对应 f4ab94e，合入后源文件树一致。

@@ -90,3 +90,8 @@
 最终源码 `f4ab94e3ef470383250eba02eeb0000d69820c0c` 重新构建后，USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完整 **21/21 通过**，无 FAIL。共享字体用例增至八种，加入显式覆盖中带旧生成 CSS 注释的像素路径；相对资源用例额外断言异步加载后副本 base URI 保持初值，仍要求两个捕获共两次库请求。[原始报告](evidence/ios-safari-document-ownership-f4ab94e.json)记录相同源码 SHA、iOS 18.7、Safari 26.6.1、DPR 3；大图首次及稳定化后中心均为绿色。
 
 本地完整检查：覆盖率 204/204、三引擎源码 255/255、构建 ESM/UMD 111/111，lint、构建、浏览器测试类型及隔离 tarball 的 ESM/CJS/UMD/TypeScript 4.9 与当前版均通过。文档持有对照为去掉时 2/36 失败、恢复后 36/36；新增注释边界在初版三个引擎均失败，最终字体定向 42/42。归档提交仅修改文档和证据，不改变受测源码；远端 CI/CodeQL/Codecov 合并前另行核验，npm 不发布。
+
+
+## 2026-11-11 #623 合并复检
+
+[#623](https://github.com/bubkoo/html-to-image/pull/623) 已合入 master，提交 `a360c432c04c35f1d22295874aec5133b9265027`，src/test/README/包清单/锁文件/测试配置与最终真机候选相同。最终 [PR CI](https://github.com/bubkoo/html-to-image/actions/runs/42906552183)、[PR CodeQL](https://github.com/bubkoo/html-to-image/actions/runs/42906552119)、Codecov patch/project、[主分支 CI](https://github.com/bubkoo/html-to-image/actions/runs/42907108780) 和[主分支 CodeQL](https://github.com/bubkoo/html-to-image/actions/runs/42907108570) 全部通过；上述最后一节的“合并前核验”已完成。npm 未发布。

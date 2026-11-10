@@ -1,0 +1,135 @@
+{
+  "checkedAt": "2026-11-10T21:52:18.605044+00:00",
+  "runtimeRevision": "a360c432c04c35f1d22295874aec5133b9265027",
+  "runtime": "built repository ESM; not published npm",
+  "readmeHelperSha256": "a583c5a110e4b46024a815bef1451e1a4b53a1dbbf4060c6c11fce160b3bb55e",
+  "sourceCssSize": [32, 20],
+  "browsers": [
+    {
+      "browser": "chrome",
+      "link": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "dpr": 1,
+        "ready": "Preview link ready",
+        "blobURL": true,
+        "target": "_blank",
+        "noopener": true
+      },
+      "image": {
+        "mime": "image/png",
+        "width": 32,
+        "height": 20,
+        "left": [255, 0, 0, 255],
+        "right": [0, 0, 255, 255],
+        "openerIsNull": true
+      },
+      "cleanup": {
+        "removed": true,
+        "status": "Preview discarded",
+        "revoked": true,
+        "errorName": "TypeError"
+      }
+    },
+    {
+      "browser": "firefox",
+      "link": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "dpr": 1,
+        "ready": "Preview link ready",
+        "blobURL": true,
+        "target": "_blank",
+        "noopener": true
+      },
+      "image": {
+        "mime": "image/png",
+        "width": 32,
+        "height": 20,
+        "left": [255, 0, 0, 255],
+        "right": [0, 0, 255, 255],
+        "openerIsNull": true
+      },
+      "cleanup": {
+        "removed": true,
+        "status": "Preview discarded",
+        "revoked": true,
+        "errorName": "TypeError"
+      }
+    },
+    {
+      "browser": "webkit",
+      "link": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+        "dpr": 1,
+        "ready": "Preview link ready",
+        "blobURL": true,
+        "target": "_blank",
+        "noopener": true
+      },
+      "image": {
+        "mime": "image/png",
+        "width": 32,
+        "height": 20,
+        "left": [255, 0, 0, 255],
+        "right": [0, 0, 255, 255],
+        "openerIsNull": true
+      },
+      "cleanup": {
+        "removed": true,
+        "status": "Preview discarded",
+        "revoked": true,
+        "errorName": "TypeError"
+      }
+    }
+  ],
+  "ios": {
+    "status": "partial; manual new-tab activation pending",
+    "platform": "iOS",
+    "simulator": false,
+    "link": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+      "dpr": 3,
+      "blobURL": true,
+      "noopener": true,
+      "ready": "Preview link ready",
+      "target": "_blank"
+    },
+    "blobImageReadback": {
+      "mime": "image/png",
+      "height": 60,
+      "width": 96,
+      "left": [255, 0, 0, 255],
+      "right": [0, 0, 255, 255]
+    },
+    "newTabImage": null,
+    "cleanup": null,
+    "interactionLimitation": "WebDriver element click and touch actions returned success without a DOM click event. Link generation was invoked by script; a physical tap was requested for navigation."
+  },
+  "sourcePR": {
+    "number": 398,
+    "head": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
+    "files": ["README.md"]
+  },
+  "procedure": {
+    "helper": "Exact README createPreviewLink function; hash is UTF-8 bytes with no trailing newline.",
+    "fixture": "32 by 20 CSS pixel element, left half red rgb(255,0,0), right half blue rgb(0,0,255), no border; imports built /es/index.js.",
+    "desktop": "Invoke helper from a button. Click the returned anchor with browser input; inspect the opened image, close its tab, invoke the returned cleanup, and fetch the old URL.",
+    "ios": "Same fixture and helper with a mobile viewport. Link generation invoked by script, then PNG loaded into Image and pixel-read using canvas. New-tab navigation requires physical input because WebDriver click/touch did not dispatch DOM click."
+  },
+  "localValidation": {
+    "lint": "passed",
+    "browserTestTypes": "passed",
+    "coverageTests": 204,
+    "sourceBrowserTests": 255,
+    "builtPackageBrowserTests": 111,
+    "tarballEntries": [
+      "ESM",
+      "CJS",
+      "UMD",
+      "TypeScript 4.9",
+      "current TypeScript"
+    ],
+    "runtimeSourcesChanged": false,
+    "dependenciesChanged": false,
+    "build": "Reused verified a360c43 build; PR CI will rebuild from its checkout."
+  }
+}
