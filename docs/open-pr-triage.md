@@ -68,9 +68,17 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 #407 的附加 CSS 可由已有 onClone 在副本中插入 style 完成，不增加重复的 extraStyleContent 接口。#376 的非标准伪元素列表原补丁可用逐节点扩展复现，但不能把通用 CSS 注入等同于原生滚动条的完整截图：早期 a360c43 上的原 HTML/CSS 结构在 Chromium/WebKit 未滚动时可经注入显示红黑滚动条，scrollTop=50 后仍因 cloneScrollState 的隐藏/位移路径消失；Firefox 不支持那组 WebKit 专有规则。该测量是原序列化逻辑在 V2 hook 中的适配，不是历史分支完整构建回放。[早期测量及重放输入](evidence/scrollbar-extension-probes.json)已归档。当前原生滚动条外观契约已向用户提出两种具体选择，尚未确定。
 
-复核另发现独立的既有缺陷：默认 ::before/::after 背景图只进入生成的样式规则，资源阶段只读取行内 style，三个引擎输出红色底色。候选从无窗口解析文档的 CSSOM 读取规则背景/遮罩，复用现有嵌入流程；直接 URL、分组规则、变换新增遮罩、相对地址和缓存复用有真实 HTTP 回归，旧源码六项全部失败。@import 保留而不加载/展开，font-face 保留原策略，非 CSS style 块与生成内容中的 URL 字面文本不会被当成图片。本地 210/272/117（源码另有 1 项既有 GC 跳过）、lint/构建/类型/tarball 已通过，[证据](evidence/pseudo-style-resources.json)已归档；源码 `58de76f` 真实 iPhone Safari 23/23 通过，[原始报告](evidence/ios-safari-pseudo-resources-58de76f.json)已归档，远端待验。
+复核另发现独立的既有缺陷：默认 ::before/::after 背景图只进入生成的样式规则，资源阶段只读取行内 style，三个引擎输出红色底色。候选从无窗口解析文档的 CSSOM 读取规则背景/遮罩，复用现有嵌入流程；直接 URL、分组规则、变换新增遮罩、相对地址和缓存复用有真实 HTTP 回归，旧源码六项全部失败。@import 保留而不加载/展开，font-face 保留原策略，非 CSS style 块与生成内容中的 URL 字面文本不会被当成图片。本地 210/272/117（源码另有 1 项既有 GC 跳过）、lint/构建/类型/tarball 已通过，[证据](evidence/pseudo-style-resources.json)已归档；源码 `58de76f` 真实 iPhone Safari 23/23 通过，[原始报告](evidence/ios-safari-pseudo-resources-58de76f.json)已归档；#626 已合入 master（fd28e2c），PR/主分支 CI、CodeQL 与 PR Codecov 均通过。
 
 #473 的 usePageCss 不能仅凭更小体积替代计算样式：在当前 V2 hook 注入的受控对照中，@media(min-width:1px) 在 Firefox/WebKit 的 SVG 图像输出不生效，改为 all 后生效；这不是 #473 整体替代实现的运行结论。其分页函数先解码完整 SVG，再对宽度缩放、对高度分片，仍需分别度量 CSS 体积、完整图像解码和输出内存，不能声称已解决大 DOM 性能。
+
+## 2026-11-11 SVG 引用依赖复核（#585 / #427 / #499 / #393）
+
+复核 #585 的外部 SVG 需求时，确认当前代码只复制被引用节点，漏掉旁边的渐变、裁剪、遮罩和其他符号。候选按原文档/ShadowRoot 建立依赖图，递归导入属性与行内样式中的引用；外部文档各自分配副本 ID，处理循环和重叠子树，复用单次捕获的资源加载器。相对 image/feImage 地址保留资源文档及 xml:base 的解析基准。SVG use 无片段时选择文档根元素，与 [SVG 2 use 规则](https://www.w3.org/TR/SVG2/struct.html#UseElement)一致。
+
+另修复现代 href 的空值被旧 xlink:href 覆盖、无 href 图片误请求当前页面，以及被筛掉的内部定义又被补回的问题。原始 DOM 不变；本地依赖仍走既有克隆回调。三引擎最终定向 42 项在旧源码上 29 项失败、13 项通过，候选全部通过。WebKit 蓝色的微小原生偏差及特殊编码 ID 均与同引擎独立 SVG 对照精确比较，没有放宽像素容差。[依赖证据](evidence/svg-reference-dependencies.json)记录范围和源文件 hash，本地完整检查 220/302/120（源码另 1 项既有 GC 跳过）、lint/构建/类型/tarball 均通过；真机结果待补。
+
+这不是 #585 的整体移植：外部兄弟样式表/字体、变换阶段新增引用及重定向后的基准 URL 尚未建立证据；其 live reflow、三态 filter、调用者缓存和通用 iOS 重绘方案仍分别核对。不能因此关闭整个 #585，也不能把 #498 的延时重绘视为通用根因修复。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 

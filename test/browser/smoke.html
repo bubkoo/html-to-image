@@ -19,6 +19,7 @@
     import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
     import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
     import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
+    import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -199,6 +200,20 @@
       }
       await checkPseudoResources(window.htmlToImage, { skipFonts: true })
       await checkPseudoResources(window.htmlToImage, { skipFonts: false })
+    })
+
+    await test('SVG dependency graphs and reference precedence', async () => {
+      await checkSVGDependencies({ createRenderer })
+      if (!window.htmlToImage) {
+        const script = document.createElement('script')
+        script.src = '/dist/html-to-image.js'
+        await new Promise((resolve, reject) => {
+          script.onload = resolve
+          script.onerror = () => reject(new Error('UMD script did not load'))
+          document.head.append(script)
+        })
+      }
+      await checkSVGDependencies(window.htmlToImage)
     })
 
     await test('resource cache lifetime', async () => {

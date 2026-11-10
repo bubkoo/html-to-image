@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-11-10T23:26:35.372395+00:00",
+  "baselineRevision": "fd28e2c6fba87ebcb621c31a4878499d35f11448",
+  "scope": "Attribute and inline-style SVG reference dependency graphs, scoped IDs, relative image resources and href precedence; not a complete implementation of PR #585",
+  "sourcePRs": {
+    "585": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
+    "498": "91bec76c178a970acace1d117ffaa0f3adc4acc8"
+  },
+  "targeted": {
+    "baselineFailed": 29,
+    "baselinePassed": 13,
+    "candidatePassed": 42,
+    "engines": ["chromium", "firefox", "webkit"],
+    "note": "The shared graph test fails at its first nested dependency assertion on baseline; later assertions are candidate controls, not separately counted baseline failures."
+  },
+  "assertions": [
+    "Sibling gradients, gradient chains, nested uses, clipPath, mask and filter dependencies are copied recursively",
+    "Two external documents with the same original IDs retain separate green/blue pixels and unique imported IDs",
+    "Dependency cycles terminate; overlapping child-before-parent imports reuse one definition",
+    "Relative image with xml:base, cross-file use and feImage use existing resolver and capture cache",
+    "External use without a fragment selects the SVG document root",
+    "Modern href including an explicit empty value wins over deprecated XLink; missing image href does not fetch the page",
+    "Local and ShadowRoot out-of-subtree definitions preserve dependencies; excluded in-subtree definitions are not resurrected",
+    "Source DOM stays unchanged; a frozen snapshot ignores later source reference edits",
+    "Blue WebKit rounding and encoded special-ID output are compared to same-engine native SVG controls without widening pixel tolerance"
+  ],
+  "limitations": [
+    "External sibling CSS stylesheets and font dependencies have not been established",
+    "Transform-added references after clone-time resolution are not newly handled",
+    "Redirect-final-URL rebasing has not been established",
+    "PR #585 also changes filtering, live reflow, cache API and image scheduling; this fix does not transplant or resolve those requirements",
+    "The existing WebKit native iframe GC skip is unrelated"
+  ],
+  "sourceSha256": {
+    "src/svg-references.ts": "b9515b359c6f75fe3c455b30d6350f6c415745d2d98397d09bf7997b0e0b327f",
+    "src/clone-node.ts": "ddd1529770fa9d4e132d422ac24f0a0f6746b7c6ac1120c246d5569e31171169",
+    "src/embed-images.ts": "3281db7e66dd51fe2421b70838b89fa9559eb9de5b4c2af4314f9d0110d0e9c4",
+    "src/task.ts": "bf315553896507284c822e1d5265c84955529c19602a2a191e769c0b32313a3f",
+    "test/browser-unit/svg-use.test.ts": "4193fa8d94a7e1f0f18cd3cb1a6bd6821cee9f6de73ba1bd66d8109de45eca5b",
+    "test/browser-unit/svg-dependencies.test.ts": "da9e8c21256a2bae1ef84c8db67b9d0b693071c0ec8fd2ab54621c11d9106c6a",
+    "test/browser/fixtures/svg-dependencies.mjs": "a340feb5a6255c5e1dffcb61fad43bf31b817aa8abba7fb4a1cbed950044572d",
+    "test/browser/fixtures/svg-dependencies/root.svg": "13b1a54931a24b737427dcde59b9eab6732a3003fa435ec3d72e4f3e2f0a636c",
+    "test/browser/fixtures/svg-dependencies/alternate.svg": "68f6d9104a9fc4d8c0a22d766f23f5bbd117fa4825ba644df9fe99548dff5613",
+    "test/browser/fixtures/svg-dependencies/assets/tile.svg": "794f69cf3df35ccb6c18191d8d60675734e32f04e56b9f04d7d13585615efbcc"
+  },
+  "localValidation": {
+    "lint": "passed",
+    "build": "passed",
+    "browserTestTypes": "passed",
+    "coverageTests": 220,
+    "sourceBrowserTests": 302,
+    "sourceBrowserSkipped": 1,
+    "skipReason": "Inherited WebKit native iframe GC control",
+    "builtPackageBrowserTests": 120,
+    "builtFixture": "ESM and UMD in full smoke; three desktop engines",
+    "tarballEntries": [
+      "ESM",
+      "CJS",
+      "UMD",
+      "TypeScript 4.9",
+      "current TypeScript"
+    ]
+  },
+  "nativeIOS": "Pending",
+  "remote": "Pending"
+}

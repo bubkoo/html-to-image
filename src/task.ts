@@ -47,6 +47,21 @@ export class CaptureTask {
 
   private cloneSources = new WeakMap<Element, Element>()
 
+  private excludedSources = new WeakSet<Node>()
+
+  excludeSource(node: Node) {
+    this.excludedSources.add(node)
+  }
+
+  isExcludedSource(node: Node) {
+    let current: Node | null = node
+    while (current) {
+      if (this.excludedSources.has(current)) return true
+      current = current.parentNode || (current as ShadowRoot).host || null
+    }
+    return false
+  }
+
   registerClone(copy: Element, source: Element) {
     this.cloneSources.set(copy, source)
   }
@@ -57,6 +72,7 @@ export class CaptureTask {
 
   clearCloneSources() {
     this.cloneSources = new WeakMap()
+    this.excludedSources = new WeakSet()
   }
 
   private inheritedStyles = new WeakMap<

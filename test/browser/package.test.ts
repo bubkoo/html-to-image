@@ -11,6 +11,7 @@ const cases = [
   'iframe fonts and document scope',
   'capture source document lifetime',
   'pseudo background and injected mask resources',
+  'SVG dependency graphs and reference precedence',
   'resource cache lifetime',
   'native HTTP cache policy',
   'per-URL resource credentials',
