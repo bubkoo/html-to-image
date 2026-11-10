@@ -67,6 +67,13 @@ the inert copy cannot decode itself. That image receives only embedded data.
 
 ## Font ownership across documents
 
+The capture operation keeps a strong reference to its private clone document
+until serialization, and passes it to the SVG serializer. Holding detached nodes
+alone allowed WebKit to replace their document/base URI with `about:blank` during
+an asynchronous resource load; the same image then acquired relative and absolute
+cache identities. The document is released with the completed DOM stage, rather
+than retained by the frozen snapshot or a global cache.
+
 Cloning records each copy's source element only for the resource-discovery stage.
 The task clears this mapping after font embedding and on disposal. Font collection
 uses the copied tree to identify reachable source documents, so excluded iframe
@@ -88,6 +95,8 @@ response, source element or caller options. Family identifiers remain stable for
 `getFontEmbedCSS()` reuse with the same subtree and live iframe documents. Recollect
 that CSS after frame navigation/replacement or changing document boundaries.
 Explicit CSS using ordinary family names retains its global override semantics.
+Generated names are recognized from parsed font-face declarations, including
+nested rules; names occurring only in comments do not select document aliases.
 This covers CSS-defined faces; it does not extract bytes from arbitrary FontFace
 objects created only through JavaScript, or promise isolation between conflicting
 font definitions in separate shadow roots of the same document.

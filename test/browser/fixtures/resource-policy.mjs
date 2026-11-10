@@ -339,6 +339,8 @@ export async function checkResourceCredentials(api) {
 
 export async function checkRelativeCloneAssets(api) {
   const session = await fixture()
+  let copyRoot
+  let copyBase
   const root = document.createElement('div')
   root.style.cssText = `width:40px;height:20px;background:white url('${session.base}image') no-repeat;background-size:20px 20px`
   document.body.append(root)
@@ -355,7 +357,17 @@ export async function checkRelativeCloneAssets(api) {
       pixelRatio: 1,
       includeStyleProperties: [],
       fetchRequestInit: init(),
+      onEvent: (event) => {
+        if (event.type === 'stage' && event.stage === 'serialize') {
+          assert(
+            copyRoot.ownerDocument.baseURI === copyBase,
+            'clone document lost its base during resource embedding',
+          )
+        }
+      },
       onClone: ({ root: copy }) => {
+        copyRoot = copy
+        copyBase = copy.ownerDocument.baseURI
         const image = copy.ownerDocument.createElement('img')
         image.style.cssText =
           'display:block;margin-left:20px;width:20px;height:20px'
@@ -363,6 +375,7 @@ export async function checkRelativeCloneAssets(api) {
         copy.append(image)
       },
     })
+    const afterInserted = capturedImages(await session.stats())
     assert(
       pixel(inserted, 10, 10) === '255,0,0,255',
       'relative inline background failed',
@@ -409,6 +422,7 @@ export async function checkRelativeCloneAssets(api) {
     } finally {
       renderer.dispose()
     }
+    const afterFrame = capturedImages(await session.stats())
     assert(
       pixel(image, 10, 10) === '255,0,0,255',
       'iframe image lost its source base URL',
@@ -453,9 +467,11 @@ export async function checkRelativeCloneAssets(api) {
         .getAttribute('xlink:href') === 'image',
       'source legacy SVG image URL changed',
     )
+    const requests = await session.stats()
+    const total = capturedImages(requests)
     assert(
-      capturedImages(await session.stats()) === 2,
-      'relative copies did not share each capture resource',
+      total === 2,
+      `relative capture counts ${JSON.stringify({ stages: [afterInserted, afterFrame, total], requests: requests.map(({ action, marker, cacheControl }) => [action, marker, cacheControl]) })}`,
     )
     return {
       relativeBackground: true,

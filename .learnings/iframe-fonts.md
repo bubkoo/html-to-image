@@ -32,3 +32,7 @@ Firefox 不允许修改 CSSFontFaceRule 的描述符；应读取并构造新规�
 
 ### Resolution
 源码 `036f1db` 重建后真实 iPhone Safari 完整页 21/21 通过，报告归档为 `docs/evidence/ios-safari-iframe-fonts-036f1db.json`，提交 SHA 与源码一致。两份原创字体同时维护独立的 Macintosh/Windows 名称表，避免验证字形差异时混入平台内部字体名冲突；原始字体 SHA256 保持不变。远端 CI/CodeQL/Codecov 合并前另行核验。
+
+
+### Follow-up: explicit CSS declarations
+初版通过字符串 includes 识别已生成的字体名，会把注释中的旧 CSS 当成有效 face；新增真实像素回归在三个引擎各失败 1 项。改为 CSSOM 遍历实际 font-face 声明（含分组规则）后通过，保留普通家族名显式覆盖语义。八种共享场景的字体定向检查为 42/42；最终源代码验收另行记录。
