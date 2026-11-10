@@ -38,6 +38,8 @@
 
 2026-11-02，用户确认设备为 iPhone 16 Pro，并在 Safari 打开本机验收页。最终报告记录候选提交 `ba99c763eded8017a5748794a37ec6a7b291f4f8`、设备 UA `iPhone; CPU iPhone OS 18_7`、Safari `Version/26.6.1`、DPR 3、视口 980×1741。八项均为 `PASS`，无 `FAIL`；随机大图中心首次为 `0,0,0,0`，稳定化后为 `0,255,0,255`。原始 JSON 位于本机被 Git 忽略的 `test-results/mobile-smoke-reports/268bced9-b6c1-4eab-9b43-d9959d6dcd56.json`。报告自动附加服务端时间、提交 SHA 与请求地址；UA 和设备型号分别来自浏览器与设备持有人，不能当成设备硬件的加密证明。合并后 `master` 的文件树哈希同为 `a2601ccd980841533e68ededa2e1597ce8a6cb2b`。
 
+2026-11-11，对后续最终 `master` 源码提交 `172589f0d5cf4c11849f75d184512065d243fdb5` 重新构建后，通过 Mac 的 Safari WebDriver 接管 USB 连接的真实 iPhone，在设备 Safari 中运行验收页。自动保存的[原始报告](evidence/ios-safari-master-172589f.json)记录了提交 SHA、iPhone UA（iOS 18.7、Safari `Version/26.6.1`）、DPR 3、视口 980×1741，以及 13 项 `PASS`、0 项 `FAIL`；大图中心像素首次与稳定化后均为 `0,255,0,255`。WebDriver 会话确认设备类型为真实 iPhone（`safari:useSimulator=false`）；精确机型不由这份浏览器报告证明。本次文档提交仅归档验收证据，受测源码仍为上述 SHA。
+
 旧 `master` 的 `pull_request_target` 工作流曾检出 `e842e84` 并在旧视频参考图上失败。该结果不能代表 V2；V2 的有效 CI 证据使用 `pull_request` 事件，核对其测试合并提交的 PR head。切换后旧工作流触发器不再存在。
 
 ## 真实 iOS 验收页
