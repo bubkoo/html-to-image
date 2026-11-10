@@ -65,6 +65,33 @@ their original document resolution; embedding also resolves images introduced
 by transforms. Decoding uses a temporary image in the active document when
 the inert copy cannot decode itself. That image receives only embedded data.
 
+## Font ownership across documents
+
+Cloning records each copy's source element only for the resource-discovery stage.
+The task clears this mapping after font embedding and on disposal. Font collection
+uses the copied tree to identify reachable source documents, so excluded iframe
+subtrees do not contribute conflicting faces or fetches. Each document supplies its
+own stylesheets, adopted stylesheets and source shadow-root rules; relative URLs
+retain the owning document's base. Style nodes added by transforms are collected
+from the copy as well.
+
+Flattening iframe bodies otherwise makes equal family names from different
+documents collide. Faces from additional documents receive private family names;
+inline and pseudo/style rules in those copies reference the same names. Descriptors
+are read and serialized into new rules because Firefox face descriptors are
+read-only. Original face declarations are removed from copied style nodes after
+collection, leaving the embedded or explicit face definitions as their source;
+local-only sources are preserved. Source stylesheets are never rewritten.
+
+Only a weak document-to-identifier association survives captures. It stores no
+response, source element or caller options. Family identifiers remain stable for
+`getFontEmbedCSS()` reuse with the same subtree and live iframe documents. Recollect
+that CSS after frame navigation/replacement or changing document boundaries.
+Explicit CSS using ordinary family names retains its global override semantics.
+This covers CSS-defined faces; it does not extract bytes from arbitrary FontFace
+objects created only through JavaScript, or promise isolation between conflicting
+font definitions in separate shadow roots of the same document.
+
 ## Migration and behavior changes
 
 Existing imports and option names remain available. `toBlob` now respects

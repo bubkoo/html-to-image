@@ -8,6 +8,7 @@ const cases = [
   'canvas snapshot pixels',
   'explicit dimensions and pixel ratio',
   'fractional fonts and tight last word',
+  'iframe fonts and document scope',
   'resource cache lifetime',
   'native HTTP cache policy',
   'per-URL resource credentials',
@@ -684,4 +685,35 @@ resourceCases.forEach(({ name, method, expected }) => {
     }, method)
     expect(result).toMatchObject(expected)
   })
+})
+
+test('built UMD preserves document-local iframe fonts and reusable CSS', async ({
+  page,
+}) => {
+  await page.goto('/test/browser/umd.html')
+  await page.addScriptTag({ url: '/dist/html-to-image.js' })
+  const result = await page.evaluate(async () => {
+    const api = (
+      window as typeof window & { htmlToImage: typeof import('../../src') }
+    ).htmlToImage
+    const moduleURL = '/test/browser/fixtures/iframe-fonts.mjs'
+    const { checkIframeFonts } = await import(/* @vite-ignore */ moduleURL)
+    return checkIframeFonts(api)
+  })
+  expect(result).toEqual(
+    [
+      'content',
+      'frame',
+      'ancestor',
+      'reused-css',
+      'quoted-family',
+      'explicit-css',
+      'important-style',
+    ].map((mode) => ({
+      mode,
+      fonts: mode === 'explicit-css' ? 0 : mode === 'content' ? 1 : 2,
+      pixels: true,
+      sourceUnchanged: true,
+    })),
+  )
 })

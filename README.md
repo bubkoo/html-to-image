@@ -116,6 +116,17 @@ copies none, and `undefined` copies the full computed style even when a global
 remain. Include `content` if a selected pseudo element needs its generated
 text. The callback runs synchronously and must return an array or `undefined`.
 
+Accessible iframe documents keep their own CSS font faces when captured as an
+iframe or inside a larger subtree. Relative font URLs use the owning document's
+base URL, and document-local family names remain separate in the exported copy.
+Font faces introduced by clone transforms are collected too; source styles stay
+unchanged. Local-only `src: local(...)` faces retain their local lookup.
+
+`getFontEmbedCSS()` includes reachable iframe fonts. When its result contains
+iframe fonts, reuse it for the same capture subtree and live iframe documents;
+collect it again after frame navigation or replacement. Explicit custom
+`fontEmbedCSS` with ordinary family names continues to apply those names globally.
+
 Each capture has its own cancellation signal and resource cache. `capture.dispose()`
 releases the snapshot; `renderer.dispose()` cancels outstanding work and releases
 its captures. Per-call `signal` and `timeout` are supported. `exclude` accepts
