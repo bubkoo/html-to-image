@@ -36,3 +36,7 @@ Firefox 不允许修改 CSSFontFaceRule 的描述符；应读取并构造新规�
 
 ### Follow-up: explicit CSS declarations
 初版通过字符串 includes 识别已生成的字体名，会把注释中的旧 CSS 当成有效 face；新增真实像素回归在三个引擎各失败 1 项。改为 CSSOM 遍历实际 font-face 声明（含分组规则）后通过，保留普通家族名显式覆盖语义。八种共享场景的字体定向检查为 42/42；最终源代码验收另行记录。
+
+
+### Final candidate validation
+最终源码 `f4ab94e` 完整本地 204/255/111 与真实 iPhone Safari 21/21 通过，报告为 `docs/evidence/ios-safari-document-ownership-f4ab94e.json`；相对资源的文档 base URI、实际请求次数与八种字体场景均通过。受测源码 SHA 与报告一致，远端检查在合并前核验。

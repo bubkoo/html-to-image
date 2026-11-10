@@ -81,3 +81,12 @@
 候选源码 `036f1db932c46deeaf29125f96f19fecdddd6eb9` 重新构建后，经 USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完成完整冒烟 **21/21 通过**，无 FAIL。新增场景使用两份原创几何字体，在外层及嵌套 iframe 中用相同家族名声明不同字形，验证直接捕获内容、frame 元素和祖先的字体像素、相对 URL、body/adopted 样式表、含逗号/撇号的家族名、important 样式、生成字体 CSS 复用及普通名称的显式覆盖。源 DOM 和样式保持不变。[原始报告](evidence/ios-safari-iframe-fonts-036f1db.json)记录相同源码 SHA、iOS 18.7、Safari 26.6.1、DPR 3；大图首次及稳定化后中心均为绿色。
 
 本地完整检查通过：覆盖率 203/203、三引擎源码 252/252、构建包 111/111，另有实际 tarball 的 ESM/CJS/UMD/TypeScript 4.9 与当前版、lint、构建和测试类型检查。最终字体平台名称表校正后，定向源码 39/39 和构建/完整页 9/9 复验通过；原始字体字节保持不变。旧源码回放最终用例为 24/39 失败。归档提交仅修改文档和证据，不改变受测源码；远端检查另行核验，npm 不发布。字体 CSS 在 frame 导航/替换或文档边界变化后要重新收集；纯 JS FontFace 字节、不可读跨源 iframe 及同一文档不同 ShadowRoot 的同名字体隔离未在本候选中证明。
+
+
+## 2026-11-11 文档生命周期与 iframe 字体最终候选验收
+
+早期 iframe 字体候选 `036f1db` 的首轮 [PR #623 CI](https://github.com/bubkoo/html-to-image/actions/runs/42904242209) 发现 WebKit 的相对资源计数失败。运行时追踪确认副本文档在异步阶段变为 about:blank，根相对地址与先前绝对地址形成两个缓存键；候选补充显式持有 Document 至序列化结束。另补充 CSSOM 识别真正 font-face 声明，避免把注释中的生成字体名当成有效 face。此后的验收以本记录对应源码为准。
+
+最终源码 `f4ab94e3ef470383250eba02eeb0000d69820c0c` 重新构建后，USB 连接的真实 iPhone Safari WebDriver（`safari:useSimulator=false`）完整 **21/21 通过**，无 FAIL。共享字体用例增至八种，加入显式覆盖中带旧生成 CSS 注释的像素路径；相对资源用例额外断言异步加载后副本 base URI 保持初值，仍要求两个捕获共两次库请求。[原始报告](evidence/ios-safari-document-ownership-f4ab94e.json)记录相同源码 SHA、iOS 18.7、Safari 26.6.1、DPR 3；大图首次及稳定化后中心均为绿色。
+
+本地完整检查：覆盖率 204/204、三引擎源码 255/255、构建 ESM/UMD 111/111，lint、构建、浏览器测试类型及隔离 tarball 的 ESM/CJS/UMD/TypeScript 4.9 与当前版均通过。文档持有对照为去掉时 2/36 失败、恢复后 36/36；新增注释边界在初版三个引擎均失败，最终字体定向 42/42。归档提交仅修改文档和证据，不改变受测源码；远端 CI/CodeQL/Codecov 合并前另行核验，npm 不发布。
