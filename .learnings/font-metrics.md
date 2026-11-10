@@ -26,3 +26,6 @@
 - Validation: verified locally
 - Last-Validated: 2026-11-11
 - Evidence: ../docs/v2-regressions.md
+
+### Resolution
+候选 `3b6b37a` 重建后，真实 iPhone Safari 完整页 16/16 通过；字体场景含字号、字距、第二行和紧贴末词像素。原始报告归档于 `docs/evidence/ios-safari-font-metrics-3b6b37a.json`，提交 SHA 与源码一致。
