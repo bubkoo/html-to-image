@@ -1,0 +1,98 @@
+import { expect, test } from 'vitest'
+import { createRenderer } from '../../src'
+import { commands, server } from 'vitest/browser'
+
+declare module 'vitest/browser' {
+  interface BrowserCommands {
+    screenshotSVGSource: (selector: string) => Promise<string>
+  }
+}
+
+const cases = ['class', 'cascade', 'inheritance', 'dependencies', 'plain']
+
+async function nativeStylePolicy() {
+  const widths: number[] = []
+  for (let index = 0; index < 2; index += 1) {
+    const className = 'hti-probe-' + crypto.randomUUID().replace(/-/g, '')
+    const xml = `<svg xmlns="http://www.w3.org/2000/svg"><style>.${className}{display:none}</style><g id="probe"><rect class="${className}" width="10" height="10"/><rect x="20" width="1" height="1"/></g></svg>`
+    const url = URL.createObjectURL(new Blob([xml], { type: 'image/svg+xml' }))
+    const style = document.createElement('style')
+    if (index) style.textContent = `.${className}{display:block!important}`
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    svg.style.cssText = 'position:fixed;left:-9999px;visibility:hidden'
+    svg.innerHTML = `<use href="${url}#probe"/>`
+    document.head.append(style)
+    document.body.append(svg)
+    try {
+      let width = 0
+      for (let attempt = 0; attempt < 20; attempt += 1) {
+        width = svg.querySelector('use')!.getBBox().width
+        if (width > 0) break
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((resolve) => setTimeout(resolve, 25))
+      }
+      widths.push(width)
+    } finally {
+      svg.remove()
+      style.remove()
+      URL.revokeObjectURL(url)
+    }
+  }
+  return widths
+}
+
+cases.forEach((name) => {
+  test(`external SVG stylesheet ${name} records source and capture pixels`, async () => {
+    const root = document.createElement('div')
+    root.id = `native-external-${name}`
+    root.style.cssText = 'display:flex;width:60px;height:20px'
+    root.innerHTML = `<style>.shared { fill: yellow !important }</style><svg width="20" height="20"><use href="/test/browser/fixtures/svg-styles/${name}.svg#icon" fill="green" width="20" height="20"/></svg><svg width="20" height="20"><use href="/test/browser/fixtures/svg-styles/other.svg#icon" width="20" height="20"/></svg><svg width="20" height="20"><rect class="shared" fill="yellow" width="20" height="20"/></svg>`
+    if (name === 'plain') root.querySelector('style')!.remove()
+    document.body.append(root)
+    const source = root.outerHTML
+    const renderer = createRenderer({ pixelRatio: 1, skipFonts: true })
+    const pixel = (image: ImageData, x: number) =>
+      Array.from(
+        image.data.slice(
+          4 * (10 * image.width + x),
+          4 * (10 * image.width + x) + 4,
+        ),
+      )
+    try {
+      if (name === 'class')
+        console.error(
+          'SVG_STYLE_POLICY ' +
+            JSON.stringify({
+              browser: server.browser,
+              widths: await nativeStylePolicy(),
+            }),
+        )
+      await new Promise((resolve) => setTimeout(resolve, 250))
+      const screenshot = await commands.screenshotSVGSource(`#${root.id}`)
+      const decoded = new Image()
+      decoded.src = 'data:image/png;base64,' + screenshot
+      await decoded.decode()
+      const canvas = document.createElement('canvas')
+      canvas.width = 60
+      canvas.height = 20
+      const context = canvas.getContext('2d')!
+      context.drawImage(decoded, 0, 0)
+      const native = context.getImageData(0, 0, 60, 20)
+      expect(pixel(native, 50)).toEqual([255, 255, 0, 255])
+      const image = await renderer.toImageData(root)
+      console.error(
+        'SVG_STYLE_OBSERVATION ' +
+          JSON.stringify({
+            name,
+            browser: server.browser,
+            native: [10, 30, 50].map((x) => pixel(native, x)),
+            capture: [10, 30, 50].map((x) => pixel(image, x)),
+          }),
+      )
+      expect(root.outerHTML).toBe(source)
+    } finally {
+      renderer.dispose()
+      root.remove()
+    }
+  })
+})

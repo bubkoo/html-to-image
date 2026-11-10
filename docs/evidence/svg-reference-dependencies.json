@@ -67,6 +67,17 @@
     "report": "ios-safari-svg-dependencies-180ff94.json",
     "newCase": "ESM/UMD graph pixels, native blue control, scoped IDs, request deduplication, image/feImage bases, whole-file use, empty/missing href, exclusions and frozen output"
   },
-  "remote": "Pending",
+  "remote": {
+    "number": 627,
+    "checkedHead": "4ce36c01146ca7b2915fc75c369e5a2e0d3edcad",
+    "mergedRevision": "545ff83fe466ed056957765b2020d868220a108e",
+    "prCI": 42923611113,
+    "prCodeQL": 42923611006,
+    "prCodecovPatch": "passed",
+    "prCodecovProject": "passed",
+    "masterCI": 42924176778,
+    "masterCodeQL": 42924177293,
+    "masterStatus": "CI and CodeQL completed success on exact merged revision"
+  },
   "candidateRevision": "180ff9469e59b23063ede37c84738f21e0367d3c"
 }

@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg"><style>#shape { fill: green } .shared { fill: red } [id="shape"] { fill: red } :is(.absent, .shared) { stroke: none }</style><symbol id="icon" viewBox="0 0 20 20"><rect id="shape" class="shared" width="20" height="20"/></symbol></svg>
