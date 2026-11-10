@@ -9,6 +9,7 @@ const cases = [
   'explicit dimensions and pixel ratio',
   'fractional fonts and tight last word',
   'iframe fonts and document scope',
+  'capture source document lifetime',
   'resource cache lifetime',
   'native HTTP cache policy',
   'per-URL resource credentials',

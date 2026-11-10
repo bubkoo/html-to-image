@@ -8,6 +8,8 @@
 
 GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581、#473、#482、#575、#393、#499、#427、#401、#451、#511、#568、#540、#560、#498、#533、#376、#408、#409、#574、#443、#442、#400、#407、#398。后续新增 PR 单独登记，不混入这份基线。
 
+[#624](https://github.com/bubkoo/html-to-image/pull/624) 已合入 master（`8bddd81`）：Blob 预览示例与旧依赖结论已归档；PR CI/CodeQL 和主分支 CI/CodeQL 均通过。#398 真机新标签交互仍按证据保留未完成状态。
+
 本轮新增的仓库自动化缺陷已由 #620 合入 `master`：标题规则补齐 `assignees: []`，支持重新打开 PR 后重验。#619 在相同关键词标题下重新运行标签任务成功；该问题与图片运行时代码分开修复。
 
 逐项核对原始需求、V2 行为和回归证据，给出已等价解决、可复现缺陷修复、设计取舍或具体外部阻塞的结论。修复须先失败后通过，并完成三引擎、实际构建包和远端检查；涉及 iOS 行为时验证真机。保留未发布 npm 的边界；部分覆盖不作完整解决。
@@ -53,6 +55,12 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 | [#398](https://github.com/bubkoo/html-to-image/pull/398) | 原需求是通过 Blob 快速预览，实际 API 是单数 toBlob。README 新增生成预览链接、由用户点击打开新标签页、返回清理函数的例子；处理 null Blob、noopener 和显式 revoke，不新增 toBlobs API。 | 从 README 原样提取 helper，使用当前构建 ESM 在 Chrome/Firefox/WebKit 检查 PNG MIME、尺寸、红/蓝像素、opener 为空，以及关闭预览后清理链接、旧地址 fetch 拒绝。[浏览器记录](evidence/blob-preview-browser-checks.json)包含 helper hash。真实 iPhone 已生成并读取正确的 96×60 PNG；自动点击未产生 DOM 事件，新标签页交互及其后清理仍待一次手动点击，不计作真机全流程通过。 |
 | [#540](https://github.com/bubkoo/html-to-image/pull/540) | 已由工具链迁移取代，无需移植旧锁文件。 | 原 PR 仅改 pnpm-lock，将 pbkdf2 3.1.2 升到 3.1.3。迁移提交 e32e74c 移除了相关旧依赖；当前 lock 不含 pbkdf2，完整安装树也没有此包。不能为合并旧 bump 而重新引入已移除的测试链。 |
 | [#574](https://github.com/bubkoo/html-to-image/pull/574) | 当前 Rollup 4.67.4 已覆盖旧 bump 的目的，无需退回 3.x 锁文件。 | 原 PR 仅将锁文件中的 3.12.0 升到 3.30.0；官方 [DOM clobbering 公告](https://github.com/rollup/rollup/security/advisories/GHSA-gcx4-mw62-g8wm) 的 4.x 修复版为 4.22.4，[目录逃逸公告](https://github.com/rollup/rollup/security/advisories/GHSA-mw96-cpmx-2vgc) 为 4.59.0。当前安装树仅有 4.67.4；生成 UMD 的 IMG/SCRIPT currentScript 分支及隔离临时目录中的越界输出拒绝均实测通过。[依赖记录](evidence/maintenance-dependency-review.json)保存版本、lock hash、原 PR head 与行为结果；这不是整棵依赖树的安全审计。 |
+
+## 2026-11-11 源文档持有复核（#560）
+
+本轮另复现了与全局资源缓存不同的引用问题：保留已 dispose 的快照对象时，延迟绘制函数仍持有源 ownerDocument；Chromium 中移除 iframe 后请求 GC，文档仍可经 WeakRef 读取，丢弃快照才消失。候选改由库所在 document 创建 canvas，并将任务释放函数绑定在捕获调用环境之外，避免 Firefox 通过内联释放回调间接保留源节点。
+
+最终定向回归在旧源码上 11 项全部失败，候选 11 项通过、1 项有界跳过：三引擎均验证独立源文档可回收、延迟绘制和已 dispose 快照，以及移除 iframe 后 canvas 的所属文档、像素和独立副本；Chromium/Firefox 另验证 iframe 文档可回收。WebKit 的无捕获 iframe 对照仍保留原生文档，因此不对它作该项 GC 承诺。本地完整检查 208/266/114、构建、类型及 tarball 均通过（源码另有 1 项上述有界跳过）；[定向证据](evidence/capture-source-lifetime.json)已归档。真机输出与远端检查待完成；不等于原 SPA 的完整内存压力场景已复测。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 

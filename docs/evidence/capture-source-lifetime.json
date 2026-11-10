@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-11-10T22:14:36.316487+00:00",
+  "baselineRevision": "8bddd81d5f6f1693cf2f997c503af9836691a683",
+  "scope": "Source document reachability of snapshots created by a library loaded in the parent document; no whole-SPA memory-pressure claim",
+  "targeted": {
+    "baseline": {
+      "failed": 11,
+      "passed": 0,
+      "skipped": 1
+    },
+    "candidate": {
+      "failed": 0,
+      "passed": 11,
+      "skipped": 1
+    },
+    "detachedSourceDocument": "WeakRef cleared after browser-requested GC before lazy rasterization and after disposal, all three engines",
+    "removedIframe": "Source document collectible while snapshot remains usable in Chromium/Firefox",
+    "canvasOutput": "Both independently writable canvases belong to the library document and retain green pixels after removal, all three engines"
+  },
+  "isolation": {
+    "original": "Source ownerDocument in render closure and inline renderer release callback retain source document",
+    "removeOwnerDocumentOnly": "Chromium removed-iframe cases passed; Firefox still retained source",
+    "bindReleaseToTask": "Chromium/Firefox removed-iframe cases passed",
+    "nativeNoCaptureControl": "An iframe removed without ever creating a capture collected in Chromium/Firefox; WebKit retained it. Only WebKit native-iframe GC assertion is skipped. Its detached-document GC and iframe output assertions run."
+  },
+  "localValidation": {
+    "lint": "passed",
+    "build": "passed",
+    "browserTestTypes": "passed",
+    "coverageTests": 208,
+    "sourceBrowserTests": 266,
+    "sourceBrowserSkipped": 1,
+    "builtPackageBrowserTests": 114,
+    "builtLifetimeCase": "ESM and UMD removed-iframe canvas ownership, independent pixels and disposed-state rejection",
+    "tarballEntries": [
+      "ESM",
+      "CJS",
+      "UMD",
+      "TypeScript 4.9",
+      "current TypeScript"
+    ]
+  },
+  "candidateSourceSha256": {
+    "src/capture.ts": "dfc46730566949919dc5a4af0219c15d382340ad67cfdd40c1665d9e7626af75",
+    "src/renderer.ts": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500",
+    "test/browser-unit/capture-lifetime.test.ts": "bd616a0d2ed7461419609560d61da4eb64ceadfb99c45b4ca4a8cd57120b0835"
+  },
+  "nativeIOS": "Output validation pending; no native GC result claimed",
+  "remote": "Pending"
+}

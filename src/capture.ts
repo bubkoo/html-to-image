@@ -27,7 +27,6 @@ export async function createCapture(
 ): Promise<Capture> {
   try {
     return await task.run(async () => {
-      const ownerDocument = node.ownerDocument
       const { width, height } = getImageSize(node as HTMLElement, options)
       const pixelRatio = options.pixelRatio ?? getPixelRatio()
       const canvasWidth = options.canvasWidth ?? width
@@ -75,7 +74,6 @@ export async function createCapture(
           canvasHeight,
           pixelRatio,
         },
-        ownerDocument,
         options,
         task,
         release,
@@ -99,7 +97,6 @@ interface Snapshot {
 
 function fromSnapshot(
   snapshot: Snapshot,
-  ownerDocument: Document,
   options: Options,
   task: CaptureTask,
   release: () => void,
@@ -127,7 +124,9 @@ function fromSnapshot(
           // eslint-disable-next-line no-await-in-loop
           const image = await createImage(source, options)
           task.check()
-          canvas = ownerDocument.createElement('canvas')
+          // Use the library's document so a snapshot cannot keep a captured
+          // iframe and its live source tree alive through this render closure.
+          canvas = document.createElement('canvas')
           canvas.width = canvasWidth * pixelRatio
           canvas.height = canvasHeight * pixelRatio
           if (!options.skipAutoScale) checkCanvasDimensions(canvas)

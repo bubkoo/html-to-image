@@ -133,6 +133,10 @@ its captures. Per-call `signal` and `timeout` are supported. `exclude` accepts
 CSS selectors for subtrees. See [v2 architecture](docs/v2-architecture.md) for
 extension order, migration details, and current limits.
 
+Returned canvases belong to the document where the library runs, including when
+capturing content from an iframe. A completed snapshot can render after its source
+iframe is removed; it does not need that source document for canvas creation.
+
 The library keeps resource promises only within each capture; a later capture
 fetches again subject to the browser's HTTP cache. To request revalidation,
 use `fetchRequestInit: { cache: 'no-cache' }`. Disposal releases library-owned

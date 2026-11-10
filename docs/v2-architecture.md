@@ -21,6 +21,13 @@ reuse that bitmap. Each returned canvas is independently writable. Call
 When `stabilizationAttempts` exceeds one, the raster stage draws that same SVG
 multiple times and returns the last bitmap; it never re-clones the source DOM.
 
+Canvas creation uses the library's document, rather than retaining the source
+document for lazy rendering. Returned canvases belong to that library document.
+The renderer's task-release callback is bound outside the capture invocation's
+lexical environment, which can otherwise retain the source node in Firefox even
+after disposal. This source-document release is separate from keeping the private
+clone document alive until serialization, as described below.
+
 ## Customization contract
 
 For a single capture, `onClone({ root, signal })` may edit the detached root.

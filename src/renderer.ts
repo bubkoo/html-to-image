@@ -16,12 +16,20 @@ export function createRenderer(defaults: Options = {}): Renderer {
     return task
   }
 
+  const releaseTask = (task: CaptureTask) => {
+    tasks.delete(task)
+    captures.delete(task)
+  }
+
   const capture = async (node: CaptureNode, options: Options = {}) => {
     const task = start(options)
-    const result = await createCapture(node, task.options, task, () => {
-      tasks.delete(task)
-      captures.delete(task)
-    })
+    // An inline callback here can retain this call's source node in Firefox.
+    const result = await createCapture(
+      node,
+      task.options,
+      task,
+      releaseTask.bind(undefined, task),
+    )
     // Disposal can race with the final microtask of capture creation.
     if (disposed || task.context.signal.aborted) {
       result.dispose()
