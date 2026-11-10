@@ -2,7 +2,7 @@
 
 **Logged**: 2026-11-11 (Asia/Shanghai)
 **Priority**: high
-**Status**: pending
+**Status**: resolved
 **Area**: capture-lifecycle
 
 ### Summary
@@ -24,5 +24,5 @@
 - Scope: library loaded in the parent document; source documents and iframe snapshots without user callbacks intentionally retaining their source
 - Authority: baseline 11 failures / candidate 11 passed and 1 scoped skip; native no-capture control
 - Revalidation: canvas allocation, renderer release callbacks, browser GC protocol or clone/snapshot boundaries change
-- Validation: targeted 11 passed; full local 208/266/114, 1 scoped source skip, build/types/tarball passed; real iPhone output 22/22 passed on 6c7de81 (no native GC claim); remote pending
+- Validation: targeted 11 passed; full local 208/266/114, 1 scoped source skip, build/types/tarball passed; real iPhone output 22/22 passed on 6c7de81 (no native GC claim); PR/master CI and CodeQL plus PR Codecov patch/project passed; merged as #625 / 6b6bf2a
 - Last-Validated: 2026-11-11

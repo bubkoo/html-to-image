@@ -18,6 +18,7 @@
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
     import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
     import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
+    import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -182,6 +183,22 @@
         })
       }
       await checkCaptureLifetime(window.htmlToImage)
+    })
+
+    await test('pseudo background and injected mask resources', async () => {
+      await checkPseudoResources({ createRenderer }, { skipFonts: true })
+      await checkPseudoResources({ createRenderer }, { skipFonts: false })
+      if (!window.htmlToImage) {
+        const script = document.createElement('script')
+        script.src = '/dist/html-to-image.js'
+        await new Promise((resolve, reject) => {
+          script.onload = resolve
+          script.onerror = () => reject(new Error('UMD script did not load'))
+          document.head.append(script)
+        })
+      }
+      await checkPseudoResources(window.htmlToImage, { skipFonts: true })
+      await checkPseudoResources(window.htmlToImage, { skipFonts: false })
     })
 
     await test('resource cache lifetime', async () => {

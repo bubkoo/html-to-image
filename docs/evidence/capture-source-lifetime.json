@@ -51,6 +51,17 @@
     "report": "ios-safari-capture-lifetime-6c7de81.json",
     "scope": "ESM/UMD removed-iframe canvas ownership, independent pixels, disposed-state rejection and the complete existing smoke suite; no native GC claim"
   },
-  "remote": "Pending",
+  "remote": {
+    "pr": 625,
+    "head": "295dcd3abbef0701d67044c24b2cd2475e455558",
+    "master": "6b6bf2a8eace85e109f6dd4ee6c9cd0b984210b8",
+    "prCI": 42912942010,
+    "prCodeQL": 42912942090,
+    "codecovPatch": "passed",
+    "codecovProject": "passed",
+    "masterCI": 42913787431,
+    "masterCodeQL": 42913787387,
+    "status": "all passed; merged tree equals checked PR head"
+  },
   "candidateRevision": "6c7de8144d85a12c427dc9454e0eafc3aee7785d"
 }

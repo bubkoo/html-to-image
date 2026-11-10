@@ -10,6 +10,7 @@ const cases = [
   'fractional fonts and tight last word',
   'iframe fonts and document scope',
   'capture source document lifetime',
+  'pseudo background and injected mask resources',
   'resource cache lifetime',
   'native HTTP cache policy',
   'per-URL resource credentials',
