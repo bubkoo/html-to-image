@@ -114,3 +114,10 @@
 
 
 #626 已合入 master（`fd28e2c`），上述伪元素资源候选的 PR CI/CodeQL、Codecov patch/project 与主分支 CI/CodeQL 全部通过；具体运行编号见规则资源证据 JSON。
+
+
+## 2026-11-11 SVG 依赖与引用优先级验收
+
+源码 `180ff9469e59b23063ede37c84738f21e0367d3c` 重新构建后，USB 连接的真实 iPhone Safari（iOS 18.7、Safari 26.6.1、DPR 3，非模拟器）完整 **24/24 通过**，[原始报告](evidence/ios-safari-svg-dependencies-180ff94.json)已归档。新用例通过 ESM/UMD 验证嵌套 use、渐变/裁剪/遮罩/滤镜、跨文件同名 ID、循环和重叠子树，以及相对 image/feImage、无片段 use、空/缺失 href 与筛选后定义。请求去重、源不变和快照冻结均有断言；蓝色输出与同设备原生 SVG 精确对照。
+
+本地完整检查：覆盖率 220/220、三引擎源码 302 通过/1 项既有 GC 跳过、构建包 120/120，lint/构建/类型与 tarball ESM/CJS/UMD/双版本 TypeScript 通过。最终定向 42 项在旧源码上 29 项失败、候选全部通过。[依赖证据](evidence/svg-reference-dependencies.json)保存源文件 hash；外部样式表/字体、变换新增引用、重定向基准及 #585 其他 API/重排设计尚未建立证据。PR/主分支检查另行核验，npm 未发布。

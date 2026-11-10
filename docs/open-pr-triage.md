@@ -76,7 +76,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 复核 #585 的外部 SVG 需求时，确认当前代码只复制被引用节点，漏掉旁边的渐变、裁剪、遮罩和其他符号。候选按原文档/ShadowRoot 建立依赖图，递归导入属性与行内样式中的引用；外部文档各自分配副本 ID，处理循环和重叠子树，复用单次捕获的资源加载器。相对 image/feImage 地址保留资源文档及 xml:base 的解析基准。SVG use 无片段时选择文档根元素，与 [SVG 2 use 规则](https://www.w3.org/TR/SVG2/struct.html#UseElement)一致。
 
-另修复现代 href 的空值被旧 xlink:href 覆盖、无 href 图片误请求当前页面，以及被筛掉的内部定义又被补回的问题。原始 DOM 不变；本地依赖仍走既有克隆回调。三引擎最终定向 42 项在旧源码上 29 项失败、13 项通过，候选全部通过。WebKit 蓝色的微小原生偏差及特殊编码 ID 均与同引擎独立 SVG 对照精确比较，没有放宽像素容差。[依赖证据](evidence/svg-reference-dependencies.json)记录范围和源文件 hash，本地完整检查 220/302/120（源码另 1 项既有 GC 跳过）、lint/构建/类型/tarball 均通过；真机结果待补。
+另修复现代 href 的空值被旧 xlink:href 覆盖、无 href 图片误请求当前页面，以及被筛掉的内部定义又被补回的问题。原始 DOM 不变；本地依赖仍走既有克隆回调。三引擎最终定向 42 项在旧源码上 29 项失败、13 项通过，候选全部通过。WebKit 蓝色的微小原生偏差及特殊编码 ID 均与同引擎独立 SVG 对照精确比较，没有放宽像素容差。[依赖证据](evidence/svg-reference-dependencies.json)记录范围和源文件 hash，本地完整检查 220/302/120（源码另 1 项既有 GC 跳过）、lint/构建/类型/tarball 均通过；源码 `180ff94` 真实 iPhone Safari **24/24 通过**，[原始报告](evidence/ios-safari-svg-dependencies-180ff94.json)已归档；远端待验。
 
 这不是 #585 的整体移植：外部兄弟样式表/字体、变换阶段新增引用及重定向后的基准 URL 尚未建立证据；其 live reflow、三态 filter、调用者缓存和通用 iOS 重绘方案仍分别核对。不能因此关闭整个 #585，也不能把 #498 的延时重绘视为通用根因修复。
 

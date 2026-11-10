@@ -24,5 +24,5 @@ href 优先级必须用空值合并：显式空现代属性也优先于 XLink。
 - Scope: original-document SVG graph, IDs, image resources, filtering and frozen outputs
 - Authority: final baseline 29 failures / 13 passes; candidate 42 passes across three engines
 - Revalidation: clone ordering, URL resolution, SVG embedding, filtering or resource-cache changes
-- Validation: lint/build/types/tarball passed; full local 220/302/120 with 1 inherited source GC skip; native and remote pending
+- Validation: lint/build/types/tarball passed; full local 220/302/120 with 1 inherited source GC skip; real iPhone 24/24 passed on 180ff94; remote pending
 - Last-Validated: 2026-11-11
