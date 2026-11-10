@@ -22,3 +22,35 @@ python3 -m venv /tmp/html-to-image-font-tools
 The generator uses fixed timestamps for reproducible output. The checked-in
 font is used directly by tests; Python and FontTools are not required by CI
 or by library consumers.
+
+
+# Resource policy fixture
+
+`resource-policy-server.mjs` serves bounded, isolated test sessions for both
+Vite source tests and the built-package/manual Safari server. Setup and state
+changes require same-origin POSTs. A path-scoped HttpOnly cookie protects the
+private SVG; public SVG/font routes allow wildcard CORS on a second origin.
+The client always cleans up its session and cookie.
+
+`resource-policy.mjs` checks real HTTP request counts and headers alongside
+pixels: repeated images and CSS backgrounds share pending resource promises,
+clone mutation creates no extra native requests, later captures see changed
+responses, and disposed snapshots/renderers reject reuse. A cacheable fixture
+checks `cache: 'no-cache'` sends revalidation directives and obtains the changed
+response, without requiring the browser to cache a default request. Another
+case proves global credential inclusion fails wildcard CORS, then resolves
+public font/image resources with credentials omitted while private images use
+the normal authenticated fetch. Relative inline/transform/iframe/SVG images,
+source immutability and original iframe callback errors are covered too.
+
+These cases run through source tests, built ESM/UMD and the real-device smoke
+page. The source suite uses one origin; the built suite supplies both origins
+for the credential scenario. Request markers distinguish library fetches from
+native image loads. This validates ownership and requests, not forced GC or
+all applications' memory pressure.
+
+The relative iframe case separately asserts embedded URLs in the frozen SVG
+and default single-draw pixels for HTML, modern SVG href and legacy xlink:href.
+WebKit's SVG href.baseVal setter updated xlink while leaving a modern href
+relative; explicit attribute handling avoids this and keeps source attributes
+unchanged. It does not establish a fix for every first-draw blank scenario.

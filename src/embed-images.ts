@@ -42,9 +42,18 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   const isImageElement = isInstanceOfElement(clonedNode, HTMLImageElement)
   const isSVGImage = isInstanceOfElement(clonedNode, SVGImageElement)
   if (!isImageElement && !isSVGImage) return
-  const url = isImageElement
+  let url = isImageElement
     ? clonedNode.src
-    : (clonedNode as SVGImageElement).href.baseVal
+    : clonedNode.getAttribute('href') ||
+      clonedNode.getAttribute('xlink:href') ||
+      ''
+  if (!isDataUrl(url)) {
+    try {
+      url = new URL(url, clonedNode.baseURI).href
+    } catch {
+      // Let the resource loader and image error handler recover invalid URLs.
+    }
+  }
   const dataURL = isDataUrl(url)
     ? url
     : await resourceToDataURL(url, getMimeType(url), options)
@@ -52,15 +61,23 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
     const image = clonedNode as HTMLImageElement
     image.loading = 'eager'
     image.srcset = ''
+    if (!image.ownerDocument.defaultView) {
+      image.decoding = 'sync'
+      image.crossOrigin = 'anonymous'
+      image.src = dataURL
+    }
   }
   try {
     await createImage(
       dataURL,
       options,
-      isImageElement ? (clonedNode as HTMLImageElement) : undefined,
+      isImageElement && clonedNode.ownerDocument.defaultView
+        ? (clonedNode as HTMLImageElement)
+        : undefined,
     )
   } catch (error) {
     getTask(options)?.check()
+    if (isImageElement) (clonedNode as HTMLImageElement).src = ''
     if (options.onImageErrorHandler) {
       await options.onImageErrorHandler.call(clonedNode, new Event('error'))
       return
@@ -68,7 +85,8 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
     throw error
   }
   if (!isImageElement) {
-    ;(clonedNode as SVGImageElement).href.baseVal = dataURL
+    clonedNode.setAttribute('href', dataURL)
+    clonedNode.removeAttributeNS('http://www.w3.org/1999/xlink', 'href')
   }
 }
 

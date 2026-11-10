@@ -18,6 +18,18 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 候选 `8103b7b` 本地完整检查：覆盖率回归 172/172、三引擎源码 159/159、实际压缩包 ESM/CJS/UMD/类型通过。新增冒烟项后构建包 69/69，真实 iPhone Safari 14/14，通过报告见 [发布验收记录](v2-release-readiness.md)。首轮定向运行还出现一次 WebKit 1× 像素透明，后续定向和完整运行未复现；尺寸回退修复不能作为该时序现象已解决的证据。
 
+## 2026-11-11 资源策略复核
+
+- **#430 / #429：V2 已按单次捕获缓存进行中的 Promise。** 同 URL 的两张图片和 CSS 背景只发一次库请求，同一冻结快照输出 PNG/像素不重新获取。复核同时发现 WebKit 在活动文档中改写脱离页面的副本会额外发送 3 次原生图片请求；本候选改用无窗口的私有文档，回归要求额外请求为 0。CSS 相对 URL 的锚点解析在 WebKit 产生不同缓存键，改用 URL 解析后同一资源只加载一次。SVG href.baseVal 在 WebKit 只更新旧 xlink 属性、留下有效的相对 href，现显式写入副本属性；现代和旧属性都验证冻结 SVG 与默认单次绘制像素。
+- **#560：不恢复全局缓存及手动清空接口。** 每次捕获独立；服务端红→蓝→绿的变化分别被同一 renderer 的新捕获及旧 facade 的新调用读取。`capture.dispose()` / `renderer.dispose()` 后拒绝复用。证据针对库持有引用与生命周期，不等于浏览器 HTTP 缓存已清空、强制 GC 或原 SPA 内存压力已复测。
+- **#400：已有 `fetchRequestInit: { cache: 'no-cache' }`，无需新增 `cacheDisable`。** 可缓存 HTTP fixture 改变内容后，三个引擎均须发出带重新验证指令的新请求并得到蓝色像素；默认请求是否缓存由浏览器决定，不强制假定会命中缓存。冻结的调用选项保持不变。
+- **#443 / #503：已有 `resources.resolve` 可按 URL 返回 Blob，`undefined` 使用正常 fetch。** 实际双源 fixture 验证带 cookie 的私有图片与省略凭据的公开图片/字体同时正确，负面对照全局 include 因 wildcard CORS 失败。不新增旧补丁的第二套 RequestInit 生成器；resolver 自行负责请求选项、状态检查和 signal。
+- **#442 / #361：受控的混合凭据需求可由上述 resolver 满足；保留原 iOS 故障边界。** include 不是所有 iOS 资源的统一要求，cacheBust 也不是凭据方案。原应用的资源 URL、CORS 响应和可运行 fixture 缺失，不能按该 Issue 的全部空白问题已解决关闭。
+
+本候选本地完整检查通过：覆盖率回归 190/190、三引擎源码 213/213、构建包 105/105，以及 lint、构建、测试类型和隔离 tarball 的 ESM/CJS/UMD/双版本 TypeScript 消费检查。真机与远端检查另行归档。
+
+本候选也修正同源 iframe 适配器过宽的 catch：仅访问不可读文档时回退，用户克隆回调抛错必须原样拒绝。修复前三个引擎均吞掉该错误，修复后回归核对同一 Error 对象。副本 `ownerDocument.defaultView` 现在为 null，迁移约定和创建新节点的方法已写入 README。
+
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 
 | PR | 对应结果与回复边界 |
@@ -48,7 +60,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 2026-11-11 字体路径复核（#511 / #415）：
 
-- 原字号缩小来自历史 #270 对 #132 末词换行的绕过。当前三引擎都把 `20.75px` 改成 `19.9px`，可见的第二行消失，13.75px 文字也出现像素位移；每个引擎修复前各 5 项失败。本候选移除全局取整/缩小，默认保留源计算字号；V2 不增加 `skipFontSizeShrink` 开关。
+- 原字号缩小来自历史 #270 对 #132 末词换行的绕过。当前三引擎都把 `20.75px` 改成 `19.9px`，可见的第二行消失，13.75px 文字也出现像素位移；每个引擎修复前各 5 项失败。已随 [#621](https://github.com/bubkoo/html-to-image/pull/621) 合入 `master`（`9a0be4f`），移除全局取整/缩小，默认保留源计算字号；V2 不增加 `skipFontSizeShrink` 开关。
 - 受控字体的 auto/normal/none 字距、8.75/13.75/20.75px、1×/2× 输出及 #132 的原始 flex 结构均有回归。当前三引擎移除字号改写后通过，不改写源 `font-kerning`。原帖没有完整段落 fixture 或可靠环境信息，不能宣称全部字体、旧浏览器和应用组合已复测。
 
 2026-11-11 图片路径复核：
@@ -71,8 +83,8 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 | 高 | [#409](https://github.com/bubkoo/html-to-image/pull/409), [#408](https://github.com/bubkoo/html-to-image/pull/408) | #409 的 CSS/像素尺寸分离已验证，零值/NaN 修复已随 #618 合入，见上方基线；#408 为部分滚动覆盖，自定义滚动条外观及复杂布局仍需独立复现。 |
 | 高 | [#498](https://github.com/bubkoo/html-to-image/pull/498), [#442](https://github.com/bubkoo/html-to-image/pull/442), [#585](https://github.com/bubkoo/html-to-image/pull/585) | 用原 fixture 分离 iOS 资源获取和首次空白等根因；#585 是大范围替代实现，不整体移植。真实 iOS 回归需重新测目标场景。 |
 | 中 | [#401](https://github.com/bubkoo/html-to-image/pull/401), [#482](https://github.com/bubkoo/html-to-image/pull/482), [#504](https://github.com/bubkoo/html-to-image/pull/504), [#533](https://github.com/bubkoo/html-to-image/pull/533) | 对照 V2 的图片加载、解码和资源错误路径；先构造能失败的用例，避免重复修复或吞掉用户回调错误。 |
-| 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 单次捕获已有独立资源缓存；需确认仍需手动清缓存、跨调用请求复用、`no-cache` 或按 URL 的请求参数，再决定 API，避免重引入全局状态。 |
-| 中 | [#511](https://github.com/bubkoo/html-to-image/pull/511), [#376](https://github.com/bubkoo/html-to-image/pull/376), [#407](https://github.com/bubkoo/html-to-image/pull/407), [#473](https://github.com/bubkoo/html-to-image/pull/473) | #511 的字号缩小已复现并形成保留原值的修复候选，见字体复核；其余继续评估伪元素注入、附加 CSS 和大页面分片的实际输出语义及资源成本。 |
+| 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 已有逐项结论与真实 HTTP fixture，见资源策略复核；待本候选完整验收和远端检查。 |
+| 中 | [#511](https://github.com/bubkoo/html-to-image/pull/511), [#376](https://github.com/bubkoo/html-to-image/pull/376), [#407](https://github.com/bubkoo/html-to-image/pull/407), [#473](https://github.com/bubkoo/html-to-image/pull/473) | #511 的字号缩小修复已随 #621 合入 master，真机 16/16，见字体复核；其余继续评估伪元素注入、附加 CSS 和大页面分片的实际输出语义及资源成本。 |
 | 低 | [#398](https://github.com/bubkoo/html-to-image/pull/398) | 核对示例中的实际 API、复数/单数和浏览器打开方式后更新文档。 |
 
 ## 维护与无关内容

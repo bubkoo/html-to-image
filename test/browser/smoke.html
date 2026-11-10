@@ -16,6 +16,12 @@
   <script type="module">
     import { createRenderer, toImageData, toPng, toSvg } from '../../es/index.js'
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
+    import {
+      checkResourceCache,
+      checkNativeCachePolicy,
+      checkResourceCredentials,
+      checkRelativeCloneAssets,
+    } from './fixtures/resource-policy.mjs'
 
     const results = document.querySelector('#results')
     const verdicts = []
@@ -156,6 +162,22 @@
 
     await test('fractional fonts and tight last word', async () => {
       await checkFontMetrics({ toSvg, toImageData })
+    })
+
+    await test('resource cache lifetime', async () => {
+      await checkResourceCache({ createRenderer, toImageData })
+    })
+
+    await test('native HTTP cache policy', async () => {
+      await checkNativeCachePolicy({ toImageData })
+    })
+
+    await test('per-URL resource credentials', async () => {
+      await checkResourceCredentials({ toSvg, toImageData })
+    })
+
+    await test('relative clone resources and callback errors', async () => {
+      await checkRelativeCloneAssets({ createRenderer, toSvg, toImageData })
     })
 
     await test('per-node customization', async () => {

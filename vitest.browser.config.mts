@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
+import { resourcePolicyServer } from './test/browser/fixtures/resource-policy-server.mjs'
 
 const names = ['chromium', 'firefox', 'webkit'] as const
 const selected = process.env.TEST_BROWSER
@@ -27,6 +28,7 @@ const fixtureTypes: Record<string, string> = {
   '.woff2': 'font/woff2',
 }
 const root = process.cwd()
+const resourcePolicy = resourcePolicyServer(root)
 
 export default defineConfig({
   optimizeDeps: { include: ['pixelmatch'] },
@@ -35,6 +37,7 @@ export default defineConfig({
       name: 'serve-legacy-fixtures',
       configureServer(server) {
         server.middlewares.use(async (request, response, next) => {
+          if (await resourcePolicy(request, response)) return
           const pathname = new URL(request.url || '/', 'http://localhost')
             .pathname
           if (
@@ -67,8 +70,8 @@ export default defineConfig({
       suite === 'browser'
         ? ['test/browser-unit/**/*.test.ts']
         : suite === 'regression'
-        ? ['test/spec/**/*.test.ts']
-        : ['test/browser-unit/**/*.test.ts', 'test/spec/**/*.test.ts'],
+          ? ['test/spec/**/*.test.ts']
+          : ['test/browser-unit/**/*.test.ts', 'test/spec/**/*.test.ts'],
     testTimeout: 30000,
     coverage: {
       provider: 'v8',
@@ -83,8 +86,8 @@ export default defineConfig({
       instances: (selected
         ? [selected]
         : suite === 'browser'
-        ? names
-        : ['chromium']
+          ? names
+          : ['chromium']
       ).map((browser) => ({
         browser: browser as (typeof names)[number],
       })),
