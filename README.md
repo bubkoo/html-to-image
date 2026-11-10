@@ -239,13 +239,46 @@ Get a PNG image blob and download it (using [FileSaver](https://github.com/eligr
 htmlToImage
   .toBlob(document.getElementById('my-node'))
   .then(function (blob) {
+    if (!blob) throw new Error('PNG encoding returned no Blob');
     if (window.saveAs) {
       window.saveAs(blob, 'my-node.png');
     } else {
-     FileSaver.saveAs(blob, 'my-node.png');
-   }
+      FileSaver.saveAs(blob, 'my-node.png');
+    }
   });
 ```
+
+To preview the PNG in a new tab, create a link the user can click:
+
+```js
+async function createPreviewLink(node, container) {
+  const blob = await htmlToImage.toBlob(node);
+  if (!blob) throw new Error('PNG encoding returned no Blob');
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = 'Open PNG preview';
+  container.appendChild(link);
+
+  return () => {
+    link.remove();
+    URL.revokeObjectURL(url);
+  };
+}
+
+const discardPreview = await createPreviewLink(
+  document.getElementById('my-node'),
+  document.getElementById('preview-links'),
+);
+// Call discardPreview() when the link and its opened preview are no longer needed.
+```
+
+Keep the object URL alive while the link or opened preview is in use. The
+returned cleanup function removes the link and releases the URL; it does not
+close a preview tab. See the [File API lifetime rules](https://w3c.github.io/FileAPI/#lifeTime).
 
 #### toCanvas
 Get a HTMLCanvasElement, and display it right away:

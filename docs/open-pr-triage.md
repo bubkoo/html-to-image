@@ -21,7 +21,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 ## 2026-11-11 资源策略复核
 
 - **#430 / #429：V2 已按单次捕获缓存进行中的 Promise。** 同 URL 的两张图片和 CSS 背景只发一次库请求，同一冻结快照输出 PNG/像素不重新获取。复核同时发现 WebKit 在活动文档中改写脱离页面的副本会额外发送 3 次原生图片请求；修复已随 [#622](https://github.com/bubkoo/html-to-image/pull/622) 合入 `master`（`c742a11`），改用无窗口的私有文档，回归要求额外请求为 0。CSS 相对 URL 的锚点解析在 WebKit 产生不同缓存键，改用 URL 解析后同一资源只加载一次。SVG href.baseVal 在 WebKit 只更新旧 xlink 属性、留下有效的相对 href，现显式写入副本属性；现代和旧属性都验证冻结 SVG 与默认单次绘制像素。
-- **#560：不恢复全局缓存及手动清空接口。** 每次捕获独立；服务端红→蓝→绿的变化分别被同一 renderer 的新捕获及旧 facade 的新调用读取。`capture.dispose()` / `renderer.dispose()` 后拒绝复用。证据针对库持有引用与生命周期，不等于浏览器 HTTP 缓存已清空、强制 GC 或原 SPA 内存压力已复测。
+- **#560：不恢复全局缓存及手动清空接口。** 每次捕获独立；服务端红→蓝→绿的变化分别被同一 renderer 的新捕获及旧 facade 的新调用读取。`capture.dispose()` / `renderer.dispose()` 后拒绝复用。证据针对资源请求复用范围和释放后的 API 状态，不等于浏览器 HTTP 缓存已清空、强制 GC 或原 SPA 内存压力已复测。
 - **#400：已有 `fetchRequestInit: { cache: 'no-cache' }`，无需新增 `cacheDisable`。** 可缓存 HTTP fixture 改变内容后，三个引擎均须发出带重新验证指令的新请求并得到蓝色像素；默认请求是否缓存由浏览器决定，不强制假定会命中缓存。冻结的调用选项保持不变。
 - **#443 / #503：已有 `resources.resolve` 可按 URL 返回 Blob，`undefined` 使用正常 fetch。** 实际双源 fixture 验证带 cookie 的私有图片与省略凭据的公开图片/字体同时正确，负面对照全局 include 因 wildcard CORS 失败。不新增旧补丁的第二套 RequestInit 生成器；resolver 自行负责请求选项、状态检查和 signal。
 - **#442 / #361：受控的混合凭据需求可由上述 resolver 满足；保留原 iOS 故障边界。** include 不是所有 iOS 资源的统一要求，cacheBust 也不是凭据方案。原应用的资源 URL、CORS 响应和可运行 fixture 缺失，不能按该 Issue 的全部空白问题已解决关闭。
@@ -32,17 +32,27 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 ## 2026-11-11 iframe 字体复核（#568）
 
+已随 [#623](https://github.com/bubkoo/html-to-image/pull/623) 合入 `master`（`a360c43`）。最终源码 `f4ab94e` 真机 21/21、本地 204/255/111，PR CI、CodeQL、Codecov patch/project 和主分支 CI/CodeQL 均通过；下述初版与首轮失败记录是历史对照。
+
 V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过后代的问题，本候选继续保留原始 `srcdoc` 验证，并增加实际几何字体和像素。发现独立缺陷：捕获 iframe 本身或它的祖先时，克隆已包含 frame body，字体收集却只查外层文档；不同文档同名字体也会在扁平副本中互相覆盖。
 
 候选按副本来源文档收集字体与相对地址，附加文档的字体只在副本中改为各自名字；源 DOM、普通和 adopted 样式表不变。支持嵌套 iframe、body 内字体规则、含逗号/撇号的家族名、重复捕获的字体 CSS、普通名称的显式覆盖、变换新增字体和 local-only 来源；过滤掉的 iframe 不下载它的同名字体。旧 #568 的字符串类型补丁不移植。
 
-在当前主分支源码上回放最终 39 项定向测试，三个引擎各 8 项失败（共 24 项）；修复后三引擎 39/39、本地覆盖率 203/203、源码 252/252、构建 ESM/UMD 111/111 通过。实际 tarball 的 ESM/CJS/UMD/双版本 TypeScript、lint、构建、浏览器测试类型也通过；源码 `036f1db` 真实 iPhone Safari 21/21 通过，[原始报告](evidence/ios-safari-iframe-fonts-036f1db.json)已归档；远端检查待通过。复用含 iframe 的 fontEmbedCSS 要保留同一捕获子树及 frame 文档，导航或替换后重新收集。跨源不可读 iframe、纯 JavaScript FontFace 字节和同一文档内不同 ShadowRoot 的同名字体隔离不在此结论内。
+以 #623 前的主分支 `c742a11` 回放初版 39 项定向测试，三个引擎各 8 项失败（共 24 项）；修复后三引擎 39/39、本地覆盖率 203/203、源码 252/252、构建 ESM/UMD 111/111 通过。实际 tarball 的 ESM/CJS/UMD/双版本 TypeScript、lint、构建、浏览器测试类型也通过；源码 `036f1db` 真实 iPhone Safari 21/21 通过，[原始报告](evidence/ios-safari-iframe-fonts-036f1db.json)已归档；该初版的资源计数失败及最终修复见下节。复用含 iframe 的 fontEmbedCSS 要保留同一捕获子树及 frame 文档，导航或替换后重新收集。跨源不可读 iframe、纯 JavaScript FontFace 字节和同一文档内不同 ShadowRoot 的同名字体隔离不在此结论内。
 
 ### #623 远端复检补充
 
 首轮 [CI](https://github.com/bubkoo/html-to-image/actions/runs/42904242209) 的字体回归通过，但 WebKit 资源用例记录了多余请求。本地追踪发现：同一 capture 的背景先使用绝对地址，新插入图片随后处于 `about:blank` 文档，保留相对地址，形成两个缓存键。现在捕获流程显式持有私有文档直到序列化，不给地址加猜测性回退，也不放宽请求计数。去掉该持有的 12 轮/三引擎对照为 2/36 失败；恢复后 36/36，通过期间 clone base URI 也必须保持不变。
 
-同时补齐显式字体 CSS 的语义边界：注释里出现生成的字体名不能当作有效 face，三个引擎在初版各 1 项失败。现通过 CSSOM 读取实际声明后再选择文档别名，42/42 字体定向检查与上面的资源对照合计 78/78 通过；最终本地完整检查已通过：覆盖率 204/204、三引擎源码 255/255、构建包 111/111，以及 lint、构建、类型与 tarball 消费检查；最终源码 `f4ab94e` 真实 iPhone Safari 21/21 通过，[原始报告](evidence/ios-safari-document-ownership-f4ab94e.json)已归档；最终远端检查待通过。早期 `036f1db` 的真机 21/21 是该候选及其七种字体场景的记录，不能代替此补充的最终验收。
+同时补齐显式字体 CSS 的语义边界：注释里出现生成的字体名不能当作有效 face，三个引擎在初版各 1 项失败。现通过 CSSOM 读取实际声明后再选择文档别名，42/42 字体定向检查与上面的资源对照合计 78/78 通过；最终本地完整检查已通过：覆盖率 204/204、三引擎源码 255/255、构建包 111/111，以及 lint、构建、类型与 tarball 消费检查；最终源码 `f4ab94e` 真实 iPhone Safari 21/21 通过，[原始报告](evidence/ios-safari-document-ownership-f4ab94e.json)已归档；最终 PR 与主分支 CI/CodeQL、PR Codecov 两项检查均已通过。早期 `036f1db` 的真机 21/21 是该候选及其七种字体场景的记录，不能代替此补充的最终验收。
+
+## 2026-11-11 文档与旧依赖补丁复核
+
+| PR | 结论 | 可复核证据与边界 |
+| --- | --- | --- |
+| [#398](https://github.com/bubkoo/html-to-image/pull/398) | 原需求是通过 Blob 快速预览，实际 API 是单数 toBlob。README 新增生成预览链接、由用户点击打开新标签页、返回清理函数的例子；处理 null Blob、noopener 和显式 revoke，不新增 toBlobs API。 | 从 README 原样提取 helper，使用当前构建 ESM 在 Chrome/Firefox/WebKit 检查 PNG MIME、尺寸、红/蓝像素、opener 为空，以及关闭预览后清理链接、旧地址 fetch 拒绝。[浏览器记录](evidence/blob-preview-browser-checks.json)包含 helper hash。真实 iPhone 已生成并读取正确的 96×60 PNG；自动点击未产生 DOM 事件，新标签页交互及其后清理仍待一次手动点击，不计作真机全流程通过。 |
+| [#540](https://github.com/bubkoo/html-to-image/pull/540) | 已由工具链迁移取代，无需移植旧锁文件。 | 原 PR 仅改 pnpm-lock，将 pbkdf2 3.1.2 升到 3.1.3。迁移提交 e32e74c 移除了相关旧依赖；当前 lock 不含 pbkdf2，完整安装树也没有此包。不能为合并旧 bump 而重新引入已移除的测试链。 |
+| [#574](https://github.com/bubkoo/html-to-image/pull/574) | 当前 Rollup 4.67.4 已覆盖旧 bump 的目的，无需退回 3.x 锁文件。 | 原 PR 仅将锁文件中的 3.12.0 升到 3.30.0；官方 [DOM clobbering 公告](https://github.com/rollup/rollup/security/advisories/GHSA-gcx4-mw62-g8wm) 的 4.x 修复版为 4.22.4，[目录逃逸公告](https://github.com/rollup/rollup/security/advisories/GHSA-mw96-cpmx-2vgc) 为 4.59.0。当前安装树仅有 4.67.4；生成 UMD 的 IMG/SCRIPT currentScript 分支及隔离临时目录中的越界输出拒绝均实测通过。[依赖记录](evidence/maintenance-dependency-review.json)保存版本、lock hash、原 PR head 与行为结果；这不是整棵依赖树的安全审计。 |
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 
@@ -87,7 +97,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 | PR | 剩余问题 |
 | --- | --- |
 | [#591](https://github.com/bubkoo/html-to-image/pull/591) | V2 有可选的多次栅格化，并在真实 iPhone 16 Pro Safari 验证过首帧透明、重绘成功；它不是 PR 的“两次相同才停止”算法。原帖的全部图像组合及其他 iOS 场景尚未证明。 |
-| [#568](https://github.com/bubkoo/html-to-image/pull/568) | V2 的跨 realm Element 遍历已存在；本候选另外复现并修复 iframe/祖先捕获漏收集 frame 字体及同名冲突，见上方 iframe 字体复核。三引擎有原始跨 realm、字体数据、真实字体像素、相对地址及源不变验证；源码 `036f1db` 真实 iPhone Safari 21/21 通过，[原始报告](evidence/ios-safari-iframe-fonts-036f1db.json)已归档；远端检查待通过。 |
+| [#568](https://github.com/bubkoo/html-to-image/pull/568) | 原跨 realm 遍历需求已等价覆盖；另外发现的文档字体及生命周期缺陷已随 #623 合入。最终 `f4ab94e` 真机 21/21、字体定向 42/42、完整本地和远端检查通过，见上方记录；不外推至不可读跨源 iframe 或纯 JS FontFace 字节。 |
 | [#451](https://github.com/bubkoo/html-to-image/pull/451) | [PR #617](https://github.com/bubkoo/html-to-image/pull/617) 复现了视频原始比例 960×540、显示区域 240×160 且 `object-fit: contain` 时的拉伸：修复前顶部留白变成视频画面。按视频原始宽高截取帧后，三引擎源码与构建 UMD 均导出正确的顶部留白与中心画面。原 PR 的截图页面、其他 `object-fit` 组合及高分辨率视频的资源成本尚未复测。 |
 
 ## 待复现和设计：拆成小问题处理，每个修复补回归
@@ -99,13 +109,15 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 | 中 | [#401](https://github.com/bubkoo/html-to-image/pull/401), [#482](https://github.com/bubkoo/html-to-image/pull/482), [#504](https://github.com/bubkoo/html-to-image/pull/504), [#533](https://github.com/bubkoo/html-to-image/pull/533) | 对照 V2 的图片加载、解码和资源错误路径；先构造能失败的用例，避免重复修复或吞掉用户回调错误。 |
 | 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 已有逐项结论与真实 HTTP fixture，见资源策略复核；已随 #622 合入；本地 190/213/105、真机 20/20、PR CI/CodeQL/Codecov 和主分支 CI/CodeQL 通过。 |
 | 中 | [#511](https://github.com/bubkoo/html-to-image/pull/511), [#376](https://github.com/bubkoo/html-to-image/pull/376), [#407](https://github.com/bubkoo/html-to-image/pull/407), [#473](https://github.com/bubkoo/html-to-image/pull/473) | #511 的字号缩小修复已随 #621 合入 master，真机 16/16，见字体复核；其余继续评估伪元素注入、附加 CSS 和大页面分片的实际输出语义及资源成本。 |
-| 低 | [#398](https://github.com/bubkoo/html-to-image/pull/398) | 核对示例中的实际 API、复数/单数和浏览器打开方式后更新文档。 |
+| 低 | [#398](https://github.com/bubkoo/html-to-image/pull/398) | README 已有新预览示例，桌面三引擎通过；真机 PNG 生成/读取通过，新标签交互等待手动点击，见文档复核。 |
 
 ## 维护与无关内容
 
 | PR | 处理 |
 | --- | --- |
-| [#574](https://github.com/bubkoo/html-to-image/pull/574), [#540](https://github.com/bubkoo/html-to-image/pull/540) | 旧锁文件上的 Dependabot 单包更新；在当前主分支核对依赖树及安全公告，再重建补丁与锁文件，不直接合并旧分支。 |
+| [#574](https://github.com/bubkoo/html-to-image/pull/574), [#540](https://github.com/bubkoo/html-to-image/pull/540) | 已核对原改动、当前 lock/安装树和官方公告，两项旧锁文件 bump 均被现行工具链取代；见上方依赖记录，不直接移植旧锁文件。 |
 | [#517](https://github.com/bubkoo/html-to-image/pull/517) | Reservation 页面与 DOM 转图片库无关；已说明范围后关闭。 |
 
-合计：22 个已有对应实现、6 个本轮补齐、3 个部分覆盖、18 个待复现或设计、2 个依赖维护、1 个无关内容，共 52 个。
+以下为 #603 前的历史分组，并非本次 28 项目标的当前完成度。
+
+历史合计：22 个已有对应实现、6 个本轮补齐、3 个部分覆盖、18 个待复现或设计、2 个依赖维护、1 个无关内容，共 52 个。

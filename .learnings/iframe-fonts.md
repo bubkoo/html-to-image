@@ -25,7 +25,7 @@ Firefox 不允许修改 CSSFontFaceRule 的描述符；应读取并构造新规�
 - Scope: 可访问的同源 iframe、CSS 定义字体及当前 Chromium/Firefox/WebKit；纯 JS FontFace 和不同 ShadowRoot 内的同名字体隔离未验证
 - Authority: 旧源码定向 24/39 失败，修复后 39/39；本地覆盖率 203、源码 252、构建包 111 全通过
 - Revalidation: 修改 iframe 扁平克隆、字体来源/别名、CSS 复用或浏览器版本时
-- Validation: verified locally and on real iPhone; remote pending
+- Validation: verified locally and on real iPhone; PR/master CI and CodeQL plus PR Codecov passed
 - Last-Validated: 2026-11-11
 - Evidence: ../docs/v2-regressions.md
 
@@ -40,3 +40,7 @@ Firefox 不允许修改 CSSFontFaceRule 的描述符；应读取并构造新规�
 
 ### Final candidate validation
 最终源码 `f4ab94e` 完整本地 204/255/111 与真实 iPhone Safari 21/21 通过，报告为 `docs/evidence/ios-safari-document-ownership-f4ab94e.json`；相对资源的文档 base URI、实际请求次数与八种字体场景均通过。受测源码 SHA 与报告一致，远端检查在合并前核验。
+
+
+### Integration
+#623 已合入 master（a360c43）；最终候选的 PR CI/CodeQL/Codecov 与主分支 CI/CodeQL 均通过。最终真机证据仍对应 f4ab94e，合入后源文件树一致。
