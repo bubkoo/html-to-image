@@ -61,6 +61,12 @@
       "current TypeScript"
     ]
   },
-  "nativeIOS": "Pending",
-  "remote": "Pending"
+  "nativeIOS": {
+    "passed": 24,
+    "simulator": false,
+    "report": "ios-safari-svg-dependencies-180ff94.json",
+    "newCase": "ESM/UMD graph pixels, native blue control, scoped IDs, request deduplication, image/feImage bases, whole-file use, empty/missing href, exclusions and frozen output"
+  },
+  "remote": "Pending",
+  "candidateRevision": "180ff9469e59b23063ede37c84738f21e0367d3c"
 }
