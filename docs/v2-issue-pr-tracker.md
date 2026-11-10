@@ -8,6 +8,7 @@
 
 | 对应讨论 | 原问题与根因 | 当前分支已做的事 | 证据和回复边界 |
 | --- | --- | --- | --- |
+| [PR #511](https://github.com/bubkoo/html-to-image/pull/511) / [Issue #415](https://github.com/bubkoo/html-to-image/issues/415) | 计算字号被 `floor(...) - 0.1` 改写，小数字号显著缩小，文本换行和字形位置偏离源页面；历史 #270 曾用此法绕过 #132 的末词换行。 | 本候选保留源计算字号，不增加字号缩小开关，不改写源字距设置。 | **修复候选**：三引擎修复前各 5 项失败；修复后验证 20.75px 的默认/全局/逐节点选择、第二行红色像素、13.75px 字形位置、不同字距/字号/像素比、源不变及 #132 的 flex 结构。构建 ESM/UMD 使用本仓库原创 1.1 KB 字体做相同像素验证。原帖完整段落和旧平台未提供可运行 fixture，不能按全部环境已解决关闭。 |
 | [PR #409](https://github.com/bubkoo/html-to-image/pull/409) 尺寸核对 | 原补丁把画布像素属性设回 CSS 尺寸，覆盖 `pixelRatio`。核对 V2 时发现独立边界缺陷：`width`/`height` 的 `||` 回退吞掉显式 `0` 和 `NaN`。 | 本分支只对未指定尺寸使用源尺寸，克隆样式保留显式零值；保留已有有限非负尺寸校验和零尺寸 SVG/栅格化语义。 | **修复候选**：三引擎在修复前各 4 项失败，修复后源码验证零尺寸 SVG、副本样式、栅格化拒绝、NaN 在克隆前拒绝及源尺寸不变；另验证 1×/2× CSS/像素尺寸、实际 UMD 的 2× 末端像素。ESM 冒烟页新增同组验收。原关联项目缺精确设备信息，不把独立边界修复等同于复现其全部故障。 |
 | [PR #408](https://github.com/bubkoo/html-to-image/pull/408) / [Issue #345](https://github.com/bubkoo/html-to-image/issues/345) | PR 尝试平移子节点并隐藏滚动条；Issue 同时要求自定义滚动条的颜色和宽度。 | V2 的可见滚动视口已有下方 #594 的限定覆盖；未实现滚动条外观的独立复制。 | **部分覆盖**：隐藏滚动条不能等同于保留外观；混合直接文本、行内及复杂定位仍有边界，#345 不按完整修复处理。 |
 | [Issue #562](https://github.com/bubkoo/html-to-image/issues/562) | 发布的 ESM 文件保留无扩展名相对导入，浏览器原生模块和 Node ESM 无法解析。 | 源码内部使用 `.js` 导入，生成 `es/package.json`，设置 ESM/CJS 条件导出。 | **本地覆盖**：`test:package` 将实际压缩包装进临时项目，验证 ESM、CJS、UMD、类型与文件清单；`test/browser/package.test.ts` 在 Chromium、Firefox、WebKit 加载构建后的 ESM 和 UMD，并核对输出像素。正式发布后的消费场景仍待验证。 |

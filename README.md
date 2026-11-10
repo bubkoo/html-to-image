@@ -313,6 +313,10 @@ canvas size limiting).
 
 An object whose properties to be copied to node's style before rendering. You might want to check [this reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) for JavaScript names of CSS properties.
 
+Computed font sizes, including fractional pixels, are preserved on the copy.
+Capture does not automatically round down or shrink text. Font kerning follows
+the source element's computed value.
+
 ### quality
 
 A number between `0` and `1` indicating image quality (e.g. `0.92` => `92%`) of the JPEG image.

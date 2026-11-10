@@ -46,6 +46,11 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 
 ## 部分覆盖：保留讨论，不按完整修复关闭
 
+2026-11-11 字体路径复核（#511 / #415）：
+
+- 原字号缩小来自历史 #270 对 #132 末词换行的绕过。当前三引擎都把 `20.75px` 改成 `19.9px`，可见的第二行消失，13.75px 文字也出现像素位移；每个引擎修复前各 5 项失败。本候选移除全局取整/缩小，默认保留源计算字号；V2 不增加 `skipFontSizeShrink` 开关。
+- 受控字体的 auto/normal/none 字距、8.75/13.75/20.75px、1×/2× 输出及 #132 的原始 flex 结构均有回归。当前三引擎移除字号改写后通过，不改写源 `font-kerning`。原帖没有完整段落 fixture 或可靠环境信息，不能宣称全部字体、旧浏览器和应用组合已复测。
+
 2026-11-11 图片路径复核：
 
 - **#504：发现新的异步错误处理回归。** V2 已等待图片解码并保留 `decode` 方法，但调用 `onImageErrorHandler` 后未等待其返回值，导致异步恢复前冻结快照、回调拒绝被忽略。本候选等待回调 Promise；三引擎修复前各 2 项失败、修复后恢复后的绿色像素和原始异常传播通过，源图片不变。原 PR 的整体重构与完整应用 fixture 未移植。
@@ -67,7 +72,7 @@ GitHub 实时查询剩余 28 个开放旧 PR：#577、#504、#585、#430、#581�
 | 高 | [#498](https://github.com/bubkoo/html-to-image/pull/498), [#442](https://github.com/bubkoo/html-to-image/pull/442), [#585](https://github.com/bubkoo/html-to-image/pull/585) | 用原 fixture 分离 iOS 资源获取和首次空白等根因；#585 是大范围替代实现，不整体移植。真实 iOS 回归需重新测目标场景。 |
 | 中 | [#401](https://github.com/bubkoo/html-to-image/pull/401), [#482](https://github.com/bubkoo/html-to-image/pull/482), [#504](https://github.com/bubkoo/html-to-image/pull/504), [#533](https://github.com/bubkoo/html-to-image/pull/533) | 对照 V2 的图片加载、解码和资源错误路径；先构造能失败的用例，避免重复修复或吞掉用户回调错误。 |
 | 中 | [#560](https://github.com/bubkoo/html-to-image/pull/560), [#430](https://github.com/bubkoo/html-to-image/pull/430), [#400](https://github.com/bubkoo/html-to-image/pull/400), [#443](https://github.com/bubkoo/html-to-image/pull/443) | 单次捕获已有独立资源缓存；需确认仍需手动清缓存、跨调用请求复用、`no-cache` 或按 URL 的请求参数，再决定 API，避免重引入全局状态。 |
-| 中 | [#511](https://github.com/bubkoo/html-to-image/pull/511), [#376](https://github.com/bubkoo/html-to-image/pull/376), [#407](https://github.com/bubkoo/html-to-image/pull/407), [#473](https://github.com/bubkoo/html-to-image/pull/473) | 分别评估字体缩小开关、伪元素注入、附加 CSS 和大页面分片的用户场景；先定义输出语义及资源/内存成本，再决定是否扩展公共 API。 |
+| 中 | [#511](https://github.com/bubkoo/html-to-image/pull/511), [#376](https://github.com/bubkoo/html-to-image/pull/376), [#407](https://github.com/bubkoo/html-to-image/pull/407), [#473](https://github.com/bubkoo/html-to-image/pull/473) | #511 的字号缩小已复现并形成保留原值的修复候选，见字体复核；其余继续评估伪元素注入、附加 CSS 和大页面分片的实际输出语义及资源成本。 |
 | 低 | [#398](https://github.com/bubkoo/html-to-image/pull/398) | 核对示例中的实际 API、复数/单数和浏览器打开方式后更新文档。 |
 
 ## 维护与无关内容
