@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-11-10T22:36:42.475227+00:00",
+  "baselineRevision": "6b6bf2a8eace85e109f6dd4ee6c9cd0b984210b8",
+  "sourcePRs": {
+    "376": "f6363fcc11e3c8860ae78b77f3cb57396ede876d",
+    "407": "772ca3228b2d2639d2f9659586a978b15c0f39fd"
+  },
+  "scope": "Generated before/after and transform-added style rules: background/mask direct URLs; does not establish all CSS URL properties, expanded imports or native scrollbar fidelity",
+  "targeted": {
+    "baselineFailed": 6,
+    "candidatePassed": 6,
+    "engines": ["chromium", "firefox", "webkit"],
+    "fontModes": ["default embedding", "skipFonts"]
+  },
+  "assertions": [
+    "Green before/after background pixels replace the red failure baseline",
+    "A grouped rule added by onClone renders the expected masked green pixel",
+    "Relative mask URL and repeated absolute background URLs use one marked HTTP image request per capture",
+    "No native parser requests after the source-image preload",
+    "Unused font-face is not downloaded; skipFonts retains the face rule",
+    "Import rules survive serialization but are not fetched or expanded by this step",
+    "Non-CSS style text and content URL literals are not treated as image declarations",
+    "Original DOM and source stylesheet remain unchanged"
+  ],
+  "localValidation": {
+    "lint": "passed",
+    "build": "passed",
+    "browserTestTypes": "passed",
+    "coverageTests": 210,
+    "sourceBrowserTests": 272,
+    "sourceBrowserSkipped": 1,
+    "skipReason": "Existing WebKit native iframe GC control; unrelated to this image fix",
+    "builtPackageBrowserTests": 117,
+    "builtFixture": "ESM/UMD, each with default font processing and skipFonts",
+    "tarballEntries": [
+      "ESM",
+      "CJS",
+      "UMD",
+      "TypeScript 4.9",
+      "current TypeScript"
+    ]
+  },
+  "mediaControl": {
+    "method": "Current V2 hook injection, not a historical #473 build",
+    "minWidth1px": "Chromium green, Firefox/WebKit red",
+    "mediaAll": "All three green",
+    "inference": "Do not treat arbitrary page CSS as equivalent to frozen computed source styles"
+  },
+  "sourceSha256": {
+    "src/embed-images.ts": "996dac5e19e3b3c25cad0addb8cbe204343be1d8fd9d6dcf6bf479f8510f125f",
+    "test/browser/fixtures/pseudo-resources.mjs": "e489e1695b5f27f64d72d3014457f530a661e38b1217a41f1e3156beb7ecc811",
+    "test/browser-unit/pseudo-resources.test.ts": "81b3d6b6f6b12929e3cb8b329c9059dcf009f6e99946c27781664efc4fb3c838"
+  },
+  "nativeIOS": "Pending",
+  "remote": "Pending"
+}

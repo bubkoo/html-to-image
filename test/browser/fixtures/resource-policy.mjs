@@ -33,6 +33,8 @@ async function fixture(cache = false) {
   }
 }
 
+export { fixture as createResourceFixture }
+
 function scene(url, repeated = false) {
   const root = document.createElement('div')
   root.style.cssText = `display:flex;width:${repeated ? 60 : 20}px;height:20px;background:white`

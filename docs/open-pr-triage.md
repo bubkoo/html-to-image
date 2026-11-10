@@ -58,9 +58,19 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 ## 2026-11-11 源文档持有复核（#560）
 
+已随 [#625](https://github.com/bubkoo/html-to-image/pull/625) 合入 master（`6b6bf2a`）。PR 与主分支 CI/CodeQL、PR Codecov patch/project 均通过；合入源码与真机候选一致。
+
 本轮另复现了与全局资源缓存不同的引用问题：保留已 dispose 的快照对象时，延迟绘制函数仍持有源 ownerDocument；Chromium 中移除 iframe 后请求 GC，文档仍可经 WeakRef 读取，丢弃快照才消失。候选改由库所在 document 创建 canvas，并将任务释放函数绑定在捕获调用环境之外，避免 Firefox 通过内联释放回调间接保留源节点。
 
-最终定向回归在旧源码上 11 项全部失败，候选 11 项通过、1 项有界跳过：三引擎均验证独立源文档可回收、延迟绘制和已 dispose 快照，以及移除 iframe 后 canvas 的所属文档、像素和独立副本；Chromium/Firefox 另验证 iframe 文档可回收。WebKit 的无捕获 iframe 对照仍保留原生文档，因此不对它作该项 GC 承诺。本地完整检查 208/266/114、构建、类型及 tarball 均通过（源码另有 1 项上述有界跳过）；[定向证据](evidence/capture-source-lifetime.json)已归档。源码 `6c7de81` 真实 iPhone Safari 22/22 通过（ESM/UMD 输出，不声称真机 GC），[原始报告](evidence/ios-safari-capture-lifetime-6c7de81.json)已归档；远端检查待完成；不等于原 SPA 的完整内存压力场景已复测。
+最终定向回归在旧源码上 11 项全部失败，候选 11 项通过、1 项有界跳过：三引擎均验证独立源文档可回收、延迟绘制和已 dispose 快照，以及移除 iframe 后 canvas 的所属文档、像素和独立副本；Chromium/Firefox 另验证 iframe 文档可回收。WebKit 的无捕获 iframe 对照仍保留原生文档，因此不对它作该项 GC 承诺。本地完整检查 208/266/114、构建、类型及 tarball 均通过（源码另有 1 项上述有界跳过）；[定向证据](evidence/capture-source-lifetime.json)已归档。源码 `6c7de81` 真实 iPhone Safari 22/22 通过（ESM/UMD 输出，不声称真机 GC），[原始报告](evidence/ios-safari-capture-lifetime-6c7de81.json)已归档；远端检查已通过；不等于原 SPA 的完整内存压力场景已复测。
+
+## 2026-11-11 自定义样式与伪元素复核（#376 / #407）
+
+#407 的附加 CSS 可由已有 onClone 在副本中插入 style 完成，不增加重复的 extraStyleContent 接口。#376 的非标准伪元素列表原补丁可用逐节点扩展复现，但不能把通用 CSS 注入等同于原生滚动条的完整截图：早期 a360c43 上的原 HTML/CSS 结构在 Chromium/WebKit 未滚动时可经注入显示红黑滚动条，scrollTop=50 后仍因 cloneScrollState 的隐藏/位移路径消失；Firefox 不支持那组 WebKit 专有规则。该测量是原序列化逻辑在 V2 hook 中的适配，不是历史分支完整构建回放。当前原生滚动条外观契约已向用户提出两种具体选择，尚未确定。
+
+复核另发现独立的既有缺陷：默认 ::before/::after 背景图只进入生成的样式规则，资源阶段只读取行内 style，三个引擎输出红色底色。候选从无窗口解析文档的 CSSOM 读取规则背景/遮罩，复用现有嵌入流程；直接 URL、分组规则、变换新增遮罩、相对地址和缓存复用有真实 HTTP 回归，旧源码六项全部失败。@import 保留而不加载/展开，font-face 保留原策略，非 CSS style 块与生成内容中的 URL 字面文本不会被当成图片。本地 210/272/117（源码另有 1 项既有 GC 跳过）、lint/构建/类型/tarball 已通过，[证据](evidence/pseudo-style-resources.json)已归档；真机与远端待验。
+
+#473 的 usePageCss 不能仅凭更小体积替代计算样式：在当前 V2 hook 注入的受控对照中，@media(min-width:1px) 在 Firefox/WebKit 的 SVG 图像输出不生效，改为 all 后生效；这不是 #473 整体替代实现的运行结论。其分页函数先解码完整 SVG，再对宽度缩放、对高度分片，仍需分别度量 CSS 体积、完整图像解码和输出内存，不能声称已解决大 DOM 性能。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 

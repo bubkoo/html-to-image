@@ -109,6 +109,23 @@ The private document prevents WebKit from making native image requests while
 styles and image attributes are copied. Relative image addresses are resolved
 before embedding, including images added by clone callbacks.
 
+To add CSS to the snapshot, append a style element in `onClone`:
+
+```ts
+onClone({ root }) {
+  const style = root.ownerDocument.createElement('style')
+  style.textContent = '.export-badge::before { background-image: url("/badge.png") }'
+  root.append(style)
+}
+```
+
+URL values directly declared in background and mask properties are embedded
+from inline styles and style rules, including generated `::before`/`::after`
+rules and nested groups. They use the capture's resource resolver and cache.
+Other CSS URL properties and imported stylesheets are not expanded by this step;
+font faces retain the existing font-embedding policy. Custom selectors and media
+conditions run in the serialized SVG and do not replace copied computed styles.
+
 `stylePropertiesForNode(source)` chooses computed CSS properties before they
 are copied. Its array applies to that element and its pseudo elements; `[]`
 copies none, and `undefined` copies the full computed style even when a global
