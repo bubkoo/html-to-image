@@ -1,5 +1,5 @@
 import type { Capture, CaptureNode, EncodingOptions, Options } from './types.js'
-import { cloneNode } from './clone-node.js'
+import { cloneNode, ensureSVGSymbols } from './clone-node.js'
 import { applyStyle } from './apply-style.js'
 import { embedWebFonts } from './embed-webfonts.js'
 import { embedImages } from './embed-images.js'
@@ -44,11 +44,10 @@ export async function createCapture(
       }
 
       task.stage('clone')
-      const root = (await cloneNode(node as HTMLElement, options, true))!
+      const root = (await cloneNode(node as HTMLElement, options, true, false))!
       // Retain the inert document across async resource work. WebKit can lose
       // a detached copy's document/base URL when only its nodes remain alive.
       const cloneDocument = root.ownerDocument
-      task.clearInheritedStyles()
       applyStyle(root, options)
       task.stage('transform')
       const context = Object.freeze({ root, signal: task.context.signal })
@@ -60,6 +59,8 @@ export async function createCapture(
         await plugins[i].transformClone?.(context)
       }
       task.stage('resources')
+      await ensureSVGSymbols(node as HTMLElement, root, options)
+      task.clearInheritedStyles()
       await embedWebFonts(root, options, node)
       task.clearCloneSources()
       task.check()

@@ -89,10 +89,16 @@ const renderer = createRenderer({
 
 For a change tied to each source element, use `onCloneNode(original, copy)`.
 It runs synchronously after that element's children, computed styles, pseudo
-elements and form state have been copied. Children run before parents. It runs
-before `onClone`, plugins, and resource embedding, so edit `copy`, not
+elements and form state have been copied. Children run before parents. For the
+captured source tree, it runs before `onClone`, plugins, and resource embedding, so edit `copy`, not
 `original`. Filtered nodes and text nodes do not call it. A thrown error rejects
 the capture.
+
+SVG references are resolved after `onClone` and plugin transforms. Added or
+changed references are embedded; removed references are not requested by the
+library. Local SVG definitions outside the captured tree are imported during
+resource discovery and call `onCloneNode` at that point. Already copied source
+nodes are reused without calling the callback again.
 
 ```ts
 const png = await htmlToImage.toPng(node, {

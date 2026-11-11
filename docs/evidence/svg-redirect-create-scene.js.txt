@@ -1,0 +1,6 @@
+() => {
+ const bytes=crypto.getRandomValues(new Uint8Array(16));const hex=Array.from(bytes,x=>x.toString(16).padStart(2,'0')).join('');const id=[hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20)].join('-');
+ const prefix='/probe/'+id+'/';const root=document.createElement('div');root.id='source';root.style.cssText='display:flex;width:80px;height:20px;background:white';
+ for(const path of ['redirect.svg','direct.svg','flat.svg']){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('width','20');svg.setAttribute('height','20');svg.style.flex='none';const use=document.createElementNS(svg.namespaceURI,'use');use.setAttribute('href',prefix+path+'#icon');use.setAttribute('width','20');use.setAttribute('height','20');svg.append(use);root.append(svg)}
+ const control=document.createElement('div');control.style.cssText='width:20px;height:20px;flex:none;background:yellow';root.append(control);document.body.append(root);window.__scene={root,source:root.outerHTML};return {id,prefix,visibility:document.visibilityState,userAgent:navigator.userAgent};
+}

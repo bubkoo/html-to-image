@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-11-11T01:58:52.355862+00:00",
+  "baselineRevision": "132c38d186ac4debd9da164363a8bb8234f3c396",
+  "sourcePRs": [585, 427],
+  "scope": "SVG references inserted, retargeted or removed by onClone/plugin transforms, including same-origin iframe descendants; preserve filtering and user error propagation.",
+  "baseline": {
+    "failed": 30,
+    "passed": 6,
+    "sharedCasesPerEngine": 11,
+    "standaloneCompatibilityPerEngine": 1
+  },
+  "candidate": {
+    "targetedSVGTransformPassed": 36,
+    "fontGlyphNativeSourcePassed": 18,
+    "coveragePassed": 282,
+    "sourcePassed": 488,
+    "sourceSkipped": 1,
+    "skipReason": "Inherited WebKit native iframe GC control",
+    "packagePassed": 132,
+    "lintBuildTypesTarball": "passed"
+  },
+  "method": "Same final shared fixtures on baseline source (only capture.ts and clone-node.ts restored in try/finally) versus candidate. HTTP resource with flat green/red symbols; no disputed external stylesheet or redirect semantics. Removed-reference cases use a resolver that throws on any library request, including in an iframe. Local imported definition callbacks are once-only in resources and preserve original thrown errors.",
+  "sourceUnchanged": true,
+  "filesSha256": {
+    "src/capture.ts": "716e830a747d9249356c84bd5eb528a1bb6a6e3d39c69e2a6b77229432d62cbf",
+    "src/clone-node.ts": "9e104f61c473704e76f626922810a5ae2e10d025fdcbf203721eaddd2b3e1f48",
+    "test/browser/fixtures/transformed-svg.mjs": "d14c852e5da8c2a5a3d60b4214093889f785b9b3d9ca77f352e83bef16187a14",
+    "test/browser/fixtures/transform-symbol.svg": "5e77c6320946fd4f938804fbc52fb639f53fce42b584fad5ac07bf8c08d0d7db",
+    "test/browser-unit/transformed-svg.test.ts": "0f091a41ed032cff97a489555e28924ebc3e02be27dc3793137ce725eb35ee37"
+  },
+  "contractNote": "Primary captured-source onCloneNode calls remain before transforms. Auxiliary local SVG definitions outside that tree are now discovered/cloned in resources, invoking onCloneNode then; README documents this ordering. Direct internal cloneNode callers retain default reference resolution.",
+  "nativeIOS": "Pending committed-source build",
+  "remote": "Pending",
+  "verificationScope": [
+    "Complete pnpm run test:browser passed 281 coverage / 485 source + 1 inherited skip / 132 package before final test-only refinements.",
+    "Final full coverage/source suite passed 282 / 488 + 1 inherited skip; lint and test types passed. Production code is unchanged.",
+    "After broadening the font-MIME observation predicate, all 18 font-source checks and the three-engine built ESM/UMD font case passed again.",
+    "Final standalone clone compatibility case was added to the unit suite; baseline/candidate comparison is in the same final test file."
+  ]
+}

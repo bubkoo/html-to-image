@@ -1,0 +1,350 @@
+{
+  "checkedAt": "2026-11-11T01:58:52.371722+00:00",
+  "sourcePR": 581,
+  "relatedIssue": 534,
+  "status": "Equivalence verification; no new font runtime fix in this branch.",
+  "legacyRevision": "995728147e4459a58188af51b5fcc3f8a7010207",
+  "legacyTag": "v1.11.13",
+  "observedCurrentRevision": null,
+  "bundler": "esbuild 0.28.2, browser ESM, es2017, exact archived legacy source unmodified",
+  "legacyBundleSha256": "1f276db0cfe5b4963d4f83d0f11b545116daf953fa8a533e3d494a7081f882b7",
+  "fontSha256": "609ed7142290b5032cdd169a0f9f11c61eac8584215b381e4d21089196b7e7fe",
+  "fixtureSha256": "081efc91d852d6615cffee7759ab674c455286f3100323533f567d630f63e7fb",
+  "modes": [
+    "attribute",
+    "inline",
+    "inherited",
+    "attribute-root",
+    "inline-root",
+    "inherited-root"
+  ],
+  "legacyAutomaticFailures": 15,
+  "legacyExplicitPositiveControls": 18,
+  "currentNativeSourceAndOutputPassed": 18,
+  "negativeControl": "skipFonts:true yields white at 2,2; explicit valid fontEmbedCSS yields red even on legacy source.",
+  "observations": {
+    "chrome": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "results": {
+        "current": [
+          {
+            "mode": "attribute",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "attribute-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          }
+        ],
+        "legacy": [
+          {
+            "mode": "attribute",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "attribute-root",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline-root",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          }
+        ]
+      }
+    },
+    "firefox": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "results": {
+        "current": [
+          {
+            "mode": "attribute",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "attribute-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          }
+        ],
+        "legacy": [
+          {
+            "mode": "attribute",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "attribute-root",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline-root",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          }
+        ]
+      }
+    },
+    "webkit": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "results": {
+        "current": [
+          {
+            "mode": "attribute",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "attribute-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          }
+        ],
+        "legacy": [
+          {
+            "mode": "attribute",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "attribute-root",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inline-root",
+            "automatic": [255, 255, 255, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": false,
+            "sourceUnchanged": true
+          },
+          {
+            "mode": "inherited-root",
+            "automatic": [255, 0, 0, 255],
+            "omitted": [255, 255, 255, 255],
+            "explicit": [255, 0, 0, 255],
+            "fontEmbedded": true,
+            "sourceUnchanged": true
+          }
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Original Chinese font bytes and full original application are not supplied by this fixture",
+    "System-font reference PNGs and syntactically valid fake font bytes are not proof of webfont glyph embedding"
+  ],
+  "nativeIOS": "Pending committed-source build",
+  "legacyAutomaticPassed": 3,
+  "currentRuntimeIdentity": "Candidate working tree ESM; runtime source hashes are recorded in transformed-svg-resources.json and the committed native report will bind the final revision.",
+  "measurementNote": "Font embedding is recognized by a data URL in @font-face, including legacy application/font-truetype MIME. The old root-inherited mode embeds and renders correctly and is retained as a positive control."
+}

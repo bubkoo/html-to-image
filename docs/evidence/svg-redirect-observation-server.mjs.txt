@@ -1,0 +1,19 @@
+import {createServer} from 'node:http'
+import {readFile} from 'node:fs/promises'
+import {resolve,extname} from 'node:path'
+const root=process.cwd()
+const svg=(color,name)=>`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><defs><linearGradient id="paint"><stop stop-color="${color}"/></linearGradient></defs><symbol id="icon" viewBox="0 0 20 20"><rect width="20" height="20" fill="url(${name}#paint)"/></symbol></svg>`
+const flat='<svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon" viewBox="0 0 20 20"><rect width="20" height="20" fill="green"/></symbol></svg>'
+createServer(async(req,res)=>{
+ const u=new URL(req.url,'http://localhost')
+ if(u.pathname==='/probe/'){res.writeHead(200,{'Content-Type':'text/html','Cache-Control':'no-store'}).end('<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG redirect native control</title><body style="margin:0">');return}
+ const m=/^\/probe\/([a-f0-9-]{36})\/(.*)$/.exec(u.pathname)
+ if(m){const path=m[2],prefix='/probe/'+m[1]+'/';
+  if(path==='redirect.svg'){res.writeHead(302,{Location:prefix+'assets/sprite.svg','Cache-Control':'no-store'}).end();return}
+  const colors={'assets/sprite.svg':['green','sprite.svg'],'sprite.svg':['red','sprite.svg'],'direct.svg':['green','direct.svg']};
+  const entry=colors[path];if(entry||path==='flat.svg'){res.writeHead(200,{'Content-Type':'image/svg+xml','Cache-Control':'no-store'}).end(entry?svg(...entry):flat);return}
+ }
+ if(!u.pathname.startsWith('/es/')){res.writeHead(404).end();return}
+ const p=resolve(root,'.'+u.pathname);if(!p.startsWith(root+'/es/')){res.writeHead(403).end();return}
+ try{res.writeHead(200,{'Content-Type':extname(p)==='.js'?'text/javascript':'text/plain','Cache-Control':'no-store'}).end(await readFile(p))}catch{res.writeHead(404).end()}
+}).listen(4493,'0.0.0.0',()=>process.stdout.write('Isolated SVG probe listening 4493\n'))

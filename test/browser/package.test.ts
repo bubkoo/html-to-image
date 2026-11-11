@@ -8,6 +8,8 @@ const cases = [
   'canvas snapshot pixels',
   'explicit dimensions and pixel ratio',
   'fractional fonts and tight last word',
+  'SVG font-family glyph pixels',
+  'SVG references after clone transforms',
   'iframe fonts and document scope',
   'capture source document lifetime',
   'pseudo background and injected mask resources',

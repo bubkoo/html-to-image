@@ -47,11 +47,22 @@
 | [PR #591](https://github.com/bubkoo/html-to-image/pull/591) / [Issue #488](https://github.com/bubkoo/html-to-image/issues/488) | WebKit 首次栅格化大图可能透明；预先 `decode()` 不能证明 SVG `foreignObject` 已绘制。 | 可选 `stabilizationAttempts` 对同一冻结 SVG 重绘，默认仍为 1 次。 | **部分覆盖**：模拟首次空白的像素回归；构建产物的大图标记测试在 Chromium、Firefox、WebKit 通过；本机 Safari 26.5.2 和真实 iPhone 16 Pro Safari 的随机 800×800 PNG 首次透明、稳定化后中心像素正确。实现语义不是 PR #591 的“连续两次结果相同才停止”；SVG 图片、跨域、所有 iOS/WebKit 场景未验证。 |
 | PR #600 CI 中发现的下拉框问题 | 固定 PNG 参考图受 Linux 系统字体绘制影响；旧克隆逻辑只查显式 `value` 属性，会丢失运行时选择，并无法区分重复值选项。 | 下拉框测试改查选择语义和同环境像素变化；克隆按每个源选项的实际选中状态同步。 | **CI 覆盖**：`select.test.ts` 的 3 个 fixture、运行时切换、重复值、过滤前置选项用例；[首次失败](https://github.com/bubkoo/html-to-image/actions/runs/40829694424) 后，[修复提交完整通过](https://github.com/bubkoo/html-to-image/actions/runs/40830152086)。 |
 
+
+## 2026-11-11 全量处置复核与 SVG 补充
+
+剩余 28 个旧 PR 已逐项核对当前 head、原需求、实现与证据，见 [当前处置表](open-pr-triage.md#2026-11-11-剩余-28-项的当前处置索引)及[机器可读索引](evidence/open-pr-current-audit.json)。没有关闭或评论旧 PR。
+
+本候选修复 SVG 引用发现过早：原来在 onClone/插件之前处理，新增/改向 use 不嵌入，移除引用却先请求。现在在资源阶段处理，并把延后标志传入 iframe 克隆；局部 SVG 定义的回调在导入时运行、错误原样传播，继承样式缓存随后清理。最终基线 30 失败 / 3 通过，候选 33 通过；见 [阶段证据](evidence/transformed-svg-resources.json)。主源树回调顺序不变，外部辅助定义的资源阶段顺序已写入 README。
+
+#581 / #534 补齐真实字体字形与直接 SVG 根入口，旧版使用未经修改的 v1.11.13 源码对照，显式嵌入是正对照、skipFonts 是负对照；[字体证据](evidence/svg-font-glyphs.json)记录范围。这是现有 V2 能力验收，不伪装为本轮新改字体运行时代码。
+
+#585 相对 paint 与重定向的[原生矩阵](evidence/svg-redirect-native-matrix.json)使用独立地址、先截源后导出、直连/纯色 SVG 与黄色参照。Chrome/真机 Safari 的原生相对 paint 区域为空白，Firefox/桌面 WebKit 为绿色；当前导出分别得到重定向红色和直连绿色。源完整像素在前后保持一致。它是语义差异证据，不是通过的修复回归；仍需确认目标是文件定义还是当前浏览器页面输出。
+
 ## 2026-11-11 fixed 滚动源页面对照（#408 / #345 / #594）
 
 独立原生截图发现早期 transformed-fixed + sticky 测试的期望有误：滚动 50px 后 fixed 已在 -50px，源顶部为绿色，旧导出和测试却期待蓝色。三个引擎均复现，不能继续把旧测试通过当页面保真证据。[独立原生 PNG、计数与范围](evidence/fixed-scroll.json)和[重放](evidence/fixed-scroll-replay.md)已归档。
 
-候选使用源浏览器 offsetParent 区分当前容器、其他祖先或视口。纵向块流内有 fixed 后代时复用伪元素流偏移，避免把普通包装层变成新的 fixed 包含块；只给随当前容器滚动的 fixed 调整 inset，保留已有变换。直接横向/斜向 fixed 同样按实际关系处理。30 个输入覆盖 CSS 建立包含块的多种方式、sticky 两种顺序、普通/混合/深层/嵌套 fixed、已有变换、bottom/auto/right/RTL 和源 important。最终输入在基线 72 失败、18 通过，原生源对照全通过；候选 90 通过。完整 lint/构建/类型/tarball、264 覆盖率、434 源码（另 1 项既有 GC 跳过）及 126 构建包检查通过；源码 `aba8ed5` 的最终 30 输入分别经 ESM/UMD，真实 iPhone Safari 完整 26/26 通过，[最终报告](evidence/ios-safari-fixed-options-aba8ed5.json)已归档。独立原生源像素对照来自相同运行时代码的 c3b2d09；远端待验。
+候选使用源浏览器 offsetParent 区分当前容器、其他祖先或视口。纵向块流内有 fixed 后代时复用伪元素流偏移，避免把普通包装层变成新的 fixed 包含块；只给随当前容器滚动的 fixed 调整 inset，保留已有变换。直接横向/斜向 fixed 同样按实际关系处理。30 个输入覆盖 CSS 建立包含块的多种方式、sticky 两种顺序、普通/混合/深层/嵌套 fixed、已有变换、bottom/auto/right/RTL 和源 important。最终输入在基线 72 失败、18 通过，原生源对照全通过；候选 90 通过。完整 lint/构建/类型/tarball、264 覆盖率、434 源码（另 1 项既有 GC 跳过）及 126 构建包检查通过；源码 `aba8ed5` 的最终 30 输入分别经 ESM/UMD，真实 iPhone Safari 完整 26/26 通过，[最终报告](evidence/ios-safari-fixed-options-aba8ed5.json)已归档。独立原生源像素对照来自相同运行时代码的 c3b2d09；#631 已合入 master（132c38d），PR/主分支 CI、CodeQL 与 PR Codecov 均通过。
 
 横向/斜向的深层 fixed 包装组合、已有 inline before 与绝对定位回退、任意捕获根偏移、其他未测布局及滚动条外观仍保留边界；不按整个 #408/#345 已解决处理。
 
@@ -77,3 +88,5 @@
 #408 / #345 / #594：直接文本或行内节点曾触发不保留 scrollTop 的回退。候选用副本伪元素表达限定纵向块布局的流偏移，不包装真实子节点；结构选择器、源 important 规则和负边距都有独立对照。14 种输入 × 三引擎在旧源码全部 42 项失败、源截图对照全通过，候选 42 项通过。完整检查 234/344/123（另 1 项既有 GC 跳过）；源码 `42e8012` 真实 iPhone Safari 完整 25/25 通过；#630 已合入 master（7169372），PR/主分支 CI、CodeQL 与 PR Codecov 全部通过，见 [证据](evidence/mixed-scroll.json)。横向/斜向混合文字、绝对定位和原生滚动条外观仍有限制，不按整个旧 PR/Issue 已解决处理。
 
 #451：`b9f2dfd` 的真实 iPhone 暂停视频验证补齐，默认和稳定化输出均保留 object-fit:contain 的紫色留白及中心帧，源不变。输入为带正确 MIME 的 Blob，限定范围和初始输入故障见 [原始记录](evidence/ios-video-aspect-b9f2dfd.json)；不推广为 HTTP 播放/CORS 或所有适配模式验证。
+
+#585 的其余设计取舍：保留旧 boolean filter（根不调用）及 backgroundColor；不自动改成 keep/unwrap/remove 或删除旧入口。结构变换可显式用 onClone，但不等同于原方案的 live reflow 后重新计算样式/尺寸。V2 维度仍来自显式输出值或源尺寸回退，当前不提供隐式 auto-height。跨捕获 Cache 类没有引入；保留单次资源生命周期与调用者 resolver 原语。默认完整 URL 身份、等待 decode、命名空间和实际像素缓冲区已有对应回归；通用 iOS 延时、页面 CSS 模式与批量 CSS 写入不整体移植，分别保留原场景/输出语义/性能边界。

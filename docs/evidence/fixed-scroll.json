@@ -87,7 +87,32 @@
     "independentSourceControlRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9",
     "runtimeUnchangedSinceIndependentControl": true
   },
-  "remote": "Pending",
+  "remote": {
+    "pr": 631,
+    "implementationRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9",
+    "finalFixtureRevision": "aba8ed5644aabd8f96860bb6dea330b62310d352",
+    "checkedHead": "f28715299941e291e250c72d3f77baf7d880b4a7",
+    "mergedRevision": "132c38d186ac4debd9da164363a8bb8234f3c396",
+    "prCI": 42937702667,
+    "prCodeQL": 42937702825,
+    "prCodecovPatch": "passed",
+    "prCodecovProject": "passed",
+    "patchCoverage": 95.45455,
+    "projectCoverage": 85.47,
+    "masterCI": 42938266640,
+    "masterCodeQL": 42938266765,
+    "status": "all passed; merged full tree matches checked PR head",
+    "nativeReport": "docs/evidence/ios-safari-fixed-options-aba8ed5.json",
+    "nativePassed": 26,
+    "sharedCasesESM": 30,
+    "sharedCasesUMD": 30,
+    "local": {
+      "coveragePassed": 264,
+      "sourcePassed": 434,
+      "sourceSkipped": 1,
+      "packagePassed": 126
+    }
+  },
   "testHarnessNote": "First full run had one Chromium selected-case failure because the new smoke item did not load UMD independently; fixed the shared loader, then repeated the complete stable run: 261/425+1skip/126 passed. This is distinct from the 57 baseline capture regressions.",
   "candidateRevision": "aba8ed5644aabd8f96860bb6dea330b62310d352",
   "initialNativeIOS": {
