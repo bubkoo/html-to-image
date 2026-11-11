@@ -44,7 +44,7 @@ describe('scrolled viewport capture', () => {
     })
   })
 
-  it('keeps a fixed overlay, later sticky header and scrolled rows visible', async () => {
+  it('scrolls a container-fixed child while keeping later sticky rows visible', async () => {
     const { root, panel } = scene('vertical')
     panel.style.transform = 'translate(0,0)'
     const spacer = panel.firstElementChild as HTMLElement
@@ -63,7 +63,7 @@ describe('scrolled viewport capture', () => {
     panel.scrollTop = 50
 
     const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
-    expect(rgba(image, 20, 2)).toEqual([0, 0, 255, 255])
+    expect(rgba(image, 20, 2)).toEqual([0, 128, 0, 255])
     expect(rgba(image, 20, 13)).toEqual([255, 0, 0, 255])
     expect(rgba(image, 20, 25)).toEqual([0, 128, 0, 255])
     expect(panel.scrollTop).toBe(50)
