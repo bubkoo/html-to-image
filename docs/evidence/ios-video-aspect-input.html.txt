@@ -1,0 +1,20 @@
+<!doctype html><meta name="viewport" content="width=device-width, initial-scale=1"><title>Native video aspect control</title><pre id="result">Loading video frame...</pre><script type="module">
+import {createRenderer} from '../../es/index.js'
+const root=document.createElement('div');root.style.cssText='width:240px;height:160px'
+const video=document.createElement('video');video.style.cssText='display:block;width:240px;height:160px;object-fit:contain;background:rgb(255,0,255)';video.preload='auto';video.muted=true;video.playsInline=true;root.append(video);document.body.append(root)
+let mediaURL
+const read=(image,y)=>Array.from(image.data.slice(4*(y*image.width+120),4*(y*image.width+120)+4))
+try {
+ window.__nativeVideoPhase='loading'
+ const bytes=await (await fetch('./video-native-flower.mp4')).arrayBuffer();mediaURL=URL.createObjectURL(new Blob([bytes],{type:'video/mp4'}))
+ await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error('Video loadeddata timeout')),15000);video.addEventListener('loadeddata',()=>{clearTimeout(timer);resolve()},{once:true});video.addEventListener('error',()=>{clearTimeout(timer);reject(new Error('Video error '+video.error?.code))},{once:true});video.src=mediaURL;video.load()})
+ window.__nativeVideoPhase='capturing'
+ const source=root.outerHTML;const observations=[]
+ for(const attempts of [1,3]) {
+  const renderer=createRenderer({pixelRatio:1,skipFonts:true,stabilizationAttempts:attempts})
+  try {const image=await renderer.toImageData(root);observations.push({attempts,size:[image.width,image.height],top:read(image,2),center:read(image,80),bottom:read(image,157)})}finally{renderer.dispose()}
+ }
+ window.__nativeVideoResult={userAgent:navigator.userAgent,dpr:devicePixelRatio,intrinsic:[video.videoWidth,video.videoHeight],sourceBox:[video.clientWidth,video.clientHeight],paused:video.paused,currentTime:video.currentTime,sourceUnchanged:root.outerHTML===source,observations}
+ document.querySelector('#result').textContent=JSON.stringify(window.__nativeVideoResult,null,2)
+} catch(error){window.__nativeVideoError=String(error);document.querySelector('#result').textContent=String(error)}finally{video.pause();root.remove();if(mediaURL)URL.revokeObjectURL(mediaURL)}
+</script>

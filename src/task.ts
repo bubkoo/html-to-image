@@ -47,6 +47,16 @@ export class CaptureTask {
 
   private cloneSources = new WeakMap<Element, Element>()
 
+  private clonedStyles: string[] = []
+
+  addClonedStyle(rule: string) {
+    this.clonedStyles.push(rule)
+  }
+
+  getClonedStyles() {
+    return this.clonedStyles.join('\n')
+  }
+
   private excludedSources = new WeakSet<Node>()
 
   excludeSource(node: Node) {
@@ -245,6 +255,7 @@ export class CaptureTask {
     this.cleanups = []
     this.clearInheritedStyles()
     this.clearCloneSources()
+    this.clonedStyles = []
     this.resources.clear()
     // Weak entries expire with options. Pending async stages still need to see
     // this disposed task so they cannot resume work after cancellation.

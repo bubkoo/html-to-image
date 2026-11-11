@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-11-11",
+  "baselineRevision": "b9f2dfd220fcf5a49f86f47d181f1c28607de75d",
+  "sourcePRs": [408],
+  "relatedIssues": [345, 594],
+  "scope": "Vertical positive scroll in horizontal-tb block scrollers containing direct text or inline children; preserve child order and native source DOM",
+  "method": "Fourteen shared fixtures, each with actual browser screenshot controls and exact captured RGBA checks in Chromium, Firefox and WebKit. Baseline restores capture.ts, clone-node.ts, task.ts and util.ts from b9f2dfd without changing the final fixtures; candidate restores working copies. Native source controls passed even during the failing baseline replay.",
+  "cases": [
+    "direct",
+    "wrapped",
+    "padding",
+    "negative-margin",
+    "structural",
+    "layered-structural",
+    "before-block",
+    "sticky",
+    "fixed-inside",
+    "nested",
+    "rtl",
+    "after",
+    "inline-elements",
+    "iframe"
+  ],
+  "baseline": {
+    "failed": 42,
+    "passed": 0,
+    "nativeControlFailures": 0
+  },
+  "candidate": {
+    "targetedPassed": 42,
+    "coveragePassed": 234,
+    "sourcePassed": 344,
+    "sourceSkipped": 1,
+    "skipReason": "Inherited WebKit native iframe GC control",
+    "builtPackagePassed": 123,
+    "lintBuildTypesTarball": "passed"
+  },
+  "sourceUnchanged": true,
+  "filesSha256": {
+    "src/clone-scroll.ts": "482b613124cdc43269913c7fdf3a32898533c8e06e23d7e531616a1b13ecc8aa",
+    "src/clone-node.ts": "acb6bf85030f88e01efd1b8cd4a8c323f289324f72f0af1afbec754c00536457",
+    "src/task.ts": "fe14c6fd53ee4349fb44968a4c72ad134b8de3b87d5b7fed6670f4ed193d06d8",
+    "src/capture.ts": "a0ed87dd82b0b7da5fca9b8dffeaac59034631afcc1bdcf4afa5329a3b045eda",
+    "src/util.ts": "f60d42875bd9d59ca2924493e36ea05d3a2d6bac591996d84d3e8ca214bd7387",
+    "test/browser/fixtures/mixed-scroll.mjs": "dc3ca78d556f6140801da1109df8700f987c182fbac93e2463c72d114481931b",
+    "test/browser-unit/mixed-scroll.test.ts": "c035906dd786d97d9d1c3e1d2c9c336e086b2e1f463ad8d86b6f2a0ecd0bd786"
+  },
+  "limits": [
+    "Mixed horizontal/diagonal scroll and vertical writing remain outside this path",
+    "Existing inline before pseudo and absolute-positioned descendants use prior fallback",
+    "Only direct fixed children with a transform-containing scroller were independently covered; filter/perspective and deeper fixed combinations are unverified",
+    "Native scrollbar appearance and thumb position are not copied",
+    "Existing block pseudo margins and arbitrary layout combinations are not universally proven"
+  ],
+  "nativeIOS": "Pending committed-source build",
+  "remote": "Pending"
+}

@@ -2,7 +2,7 @@
 
 **Logged**: 2026-11-11 (Asia/Shanghai)
 **Priority**: high
-**Status**: pending
+**Status**: resolved
 **Area**: computed-style-copy
 
 ### Summary
@@ -22,5 +22,5 @@
 - Scope: computed style loop and performance evidence; no whole-PR feature completion
 - Authority: paired before/after samples, byte-identical SVG, source immutability; existing functional regressions retained
 - Revalidation: condition order, style selection, iframe cross-realm detection or cloning changes
-- Validation: full local 220/302/120 with 1 inherited GC skip; lint/build/types/tarball passed; real iPhone paired 135→124ms with identical SVG, full ESM/UMD smoke 24/24 on c2f78c1; remote pending
+- Validation: full local 220/302/120 with 1 inherited GC skip; lint/build/types/tarball passed; real iPhone paired 135→124ms with identical SVG, full ESM/UMD smoke 24/24 on c2f78c1; PR #629 / master CI、CodeQL、PR Codecov passed；合并 b9f2dfd，树与已验 head 742f1e7 一致
 - Last-Validated: 2026-11-11

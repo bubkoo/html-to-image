@@ -91,48 +91,62 @@ describe('scrolled viewport capture', () => {
     expect(panel.scrollTop).toBe(50)
   })
 
-  ;(['inline', 'absolute'] as const).forEach((kind) => {
-    it(`keeps the ${kind} sticky-scroll layout outside the margin path`, async () => {
-      const { root, panel } = scene('vertical')
-      const unusual = document.createElement('span')
-      unusual.style.cssText =
-        kind === 'inline' ? 'display:inline' : 'position:absolute'
-      unusual.textContent = 'separate layout'
-      const header = document.createElement('div')
-      header.style.cssText =
-        'position:sticky;top:8px;width:40px;height:10px;background:red'
-      panel.insertBefore(unusual, panel.lastElementChild)
-      panel.insertBefore(header, panel.lastElementChild)
-      panel.scrollTop = 50
-      expect(panel.scrollTop).toBe(50)
-
-      const svg = await getSvgDocument(
-        await toSvg(root, { pixelRatio: 1, skipFonts: true }),
-      )
-      const copied = svg.querySelector(
-        'foreignObject > div > div',
-      ) as HTMLElement
-      expect(copied.style.overflow).not.toBe('hidden')
-      expect(
-        (copied.firstElementChild as HTMLElement).style.marginTop,
-      ).not.toContain('calc(')
-      expect(panel.scrollTop).toBe(50)
-    })
-  })
-
-  it('leaves mixed direct text and elements untouched when it cannot shift both', async () => {
+  it('keeps an absolutely positioned sticky-scroll layout outside the margin path', async () => {
     const { root, panel } = scene('vertical')
-    panel.insertBefore(document.createTextNode('direct text'), panel.firstChild)
-    panel.scrollTop = 40
+    const unusual = document.createElement('span')
+    unusual.style.position = 'absolute'
+    unusual.textContent = 'separate layout'
+    const header = document.createElement('div')
+    header.style.cssText =
+      'position:sticky;top:8px;width:40px;height:10px;background:red'
+    panel.insertBefore(unusual, panel.lastElementChild)
+    panel.insertBefore(header, panel.lastElementChild)
+    panel.scrollTop = 50
     const svg = await getSvgDocument(
       await toSvg(root, { pixelRatio: 1, skipFonts: true }),
     )
     const copied = svg.querySelector('foreignObject > div > div') as HTMLElement
     expect(copied.style.overflow).not.toBe('hidden')
     expect(
-      (copied.firstElementChild as HTMLElement).style.transform,
-    ).not.toContain('translate(')
-    expect(panel.scrollTop).toBe(40)
+      (copied.firstElementChild as HTMLElement).style.marginTop,
+    ).not.toContain('calc(')
+    expect(panel.scrollTop).toBe(50)
+  })
+
+  it('preserves inline flow together with a later sticky header', async () => {
+    const { root, panel } = scene('vertical')
+    const inline = document.createElement('span')
+    inline.textContent = 'separate layout'
+    const header = document.createElement('div')
+    header.style.cssText =
+      'position:sticky;top:8px;width:40px;height:10px;background:red'
+    const visible = panel.lastElementChild as HTMLElement
+    visible.style.height = '80px'
+    panel.insertBefore(inline, visible)
+    panel.insertBefore(header, visible)
+    panel.scrollTop =
+      visible.getBoundingClientRect().top -
+      panel.getBoundingClientRect().top -
+      10
+    const scroll = panel.scrollTop
+    const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+    expect(rgba(image, 20, 13)).toEqual([255, 0, 0, 255])
+    expect(rgba(image, 20, 25)).toEqual([0, 128, 0, 255])
+    expect(panel.scrollTop).toBe(scroll)
+  })
+
+  it('preserves direct text and element flow at the visible scroll position', async () => {
+    const { root, panel } = scene('vertical')
+    panel.insertBefore(document.createTextNode('direct text'), panel.firstChild)
+    const visible = panel.lastElementChild as HTMLElement
+    panel.scrollTop =
+      visible.getBoundingClientRect().top - panel.getBoundingClientRect().top
+    const scroll = panel.scrollTop
+    const source = panel.outerHTML
+    const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
+    expect(rgba(image, 20, 20)).toEqual([0, 128, 0, 255])
+    expect(panel.outerHTML).toBe(source)
+    expect(panel.scrollTop).toBe(scroll)
   })
 
   it('preserves an existing child transform while shifting the viewport', async () => {

@@ -122,6 +122,17 @@
     "sourceUnchanged": true,
     "simulator": false
   },
-  "remote": "Pending",
+  "remote": {
+    "pr": 629,
+    "checkedHead": "742f1e7055fc0a18dfbefe0f7ede4d1683e73472",
+    "mergedRevision": "b9f2dfd220fcf5a49f86f47d181f1c28607de75d",
+    "prCI": 42929439593,
+    "prCodeQL": 42929439553,
+    "prCodecovPatch": "passed",
+    "prCodecovProject": "passed",
+    "masterCI": 42929890378,
+    "masterCodeQL": 42929890439,
+    "status": "all passed; merged tree matches checked PR head"
+  },
   "candidateRevision": "c2f78c1d348e96efdcc3eec260d30e4e58f96343"
 }

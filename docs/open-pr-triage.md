@@ -94,7 +94,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 继续定位 V2 的复制成本时，发现每一个样式属性都会对普通节点调用跨 realm iframe 类型识别。候选先检查属性是否为 display、值是否为 inline，再执行类型识别，保留原复制顺序和 CSSOM 写入。相同构建器、同一 401 节点输入、六次交替运行的配对对照中，捕获中位数 Chromium 202.8→141.6ms、Firefox 135→122ms、WebKit 150→138ms，三个引擎 SVG **字节完全相同**且源 DOM 不变。[性能证据](evidence/style-copy-performance.json)记录全部样本；这是前后耗时对照，不伪造新增的功能失败计数。批量 CSS 写入的实验只有约 2% 捕获收益，且未保持字节相同，已撤回。
 
-本地 lint/构建/类型/tarball、覆盖率 220、源码 302（另 1 项既有 GC 跳过）、构建包 120 全部通过。源码 `c2f78c1` 真实 iPhone 的配对捕获中位数 135→124ms、SVG 字节一致；构建 ESM/UMD 完整 24/24 通过，[配对记录](evidence/ios-style-copy-paired.json)与[冒烟报告](evidence/ios-safari-style-copy-c2f78c1.json)已归档，远端待验；SVG 体积和大页面内存问题没有因此解决，#473/#585 不按整体完成处理。[重放与范围](evidence/style-copy-performance-replay.md)说明两个不同的对照实验。
+本地 lint/构建/类型/tarball、覆盖率 220、源码 302（另 1 项既有 GC 跳过）、构建包 120 全部通过。源码 `c2f78c1` 真实 iPhone 的配对捕获中位数 135→124ms、SVG 字节一致；构建 ESM/UMD 完整 24/24 通过，[配对记录](evidence/ios-style-copy-paired.json)与[冒烟报告](evidence/ios-safari-style-copy-c2f78c1.json)已归档；[#629](https://github.com/bubkoo/html-to-image/pull/629) 已合入 master（`b9f2dfd`），PR/主分支 CI、CodeQL 与 PR Codecov 均通过；SVG 体积和大页面内存问题没有因此解决，#473/#585 不按整体完成处理。[重放与范围](evidence/style-copy-performance-replay.md)说明两个不同的对照实验。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 
@@ -163,3 +163,13 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 以下为 #603 前的历史分组，并非本次 28 项目标的当前完成度。
 
 历史合计：22 个已有对应实现、6 个本轮补齐、3 个部分覆盖、18 个待复现或设计、2 个依赖维护、1 个无关内容，共 52 个。
+
+## 2026-11-11 混合文字滚动修复（#408 / #345 / #594）
+
+此前包含直接文本或行内子元素时直接回退，导出丢失 scrollTop，源视口绿色而截图为红色。候选对正向纵向滚动、horizontal-tb 的块级容器，用副本 ::before 的流偏移表达滚动量；不包裹、不重排真实子节点。已有块级 ::before 保留内容，仅调整顶边距；空伪元素的 1px 高度防止与后续负边距合并。私有规则位于 SVG 外层最先声明的层，其 important 优先级依据 [CSS Cascade 5](https://www.w3.org/TR/css-cascade-5/#layer-order)，避免源 ID 或分层 important 规则覆盖偏移。
+
+14 种共享输入覆盖直接/换行文字、padding/border、首块负边距、结构选择器和分层 important、已有 before/after、sticky、变换包含块中的直接 fixed、嵌套、RTL 纵向、纯行内元素和同源 iframe。三引擎均先截取浏览器实际源页面作为像素对照，再核对捕获像素和源不变；最终输入在旧源码 42/42 失败，源对照无失败，候选 42/42 通过。完整 lint/构建/类型/tarball、234 覆盖率、344 源码（另 1 项既有 GC 跳过）及 123 构建包检查通过。[证据与范围](evidence/mixed-scroll.json)已归档，真机和远端待验。
+
+横向/斜向混合文字、竖排、已有 inline before、绝对定位组合、其他 fixed 包含块及原生滚动条外观仍有边界；#408/#345 不按全部完成处理。
+
+另对 #451 在 `b9f2dfd` 做了独立真实 iPhone 验证：960×540 视频暂停在 0 秒，240×160 object-fit:contain；默认 1 次与稳定化 3 次输出均保留上下紫色留白和中心视频像素，源不变。[原始记录](evidence/ios-video-aspect-b9f2dfd.json)及[输入](evidence/ios-video-aspect-input.html.txt)已归档。使用明确 video/mp4 MIME 的 Blob；最初静态 HTTP 输入在捕获前即不被设备支持，不能算库的回归。没有验证流媒体、CORS、播放时序、高 DPR 输出或所有适配组合。

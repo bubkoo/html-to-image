@@ -10,6 +10,7 @@ import { getMimeType } from './mimes.js'
 import { resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
 import { embedSVGReferences, getSVGReference } from './svg-references.js'
+import { cloneScrollState } from './clone-scroll.js'
 
 function createCloneDocument(source: Document) {
   // A detached element in a browsing document can still load resources in
@@ -287,95 +288,6 @@ function cloneClipPathReferences<T extends HTMLElement>(
   }
 }
 
-function cloneScrollState<T extends HTMLElement>(
-  nativeNode: T,
-  clonedNode: T,
-  scrollLeft = nativeNode.scrollLeft,
-  scrollTop = nativeNode.scrollTop,
-) {
-  if (!scrollLeft && !scrollTop) return
-  const children = Array.from(clonedNode.children)
-  const hasDirectText = Array.from(clonedNode.childNodes).some(
-    (child) => child.nodeType === Node.TEXT_NODE && child.textContent?.trim(),
-  )
-  // Moving every child with a transform prevents sticky positioning from
-  // using the scrollport. In a block scroller, shifting the first in-flow
-  // child's margin moves the flow while leaving sticky layout to the browser.
-  if (
-    scrollLeft === 0 &&
-    scrollTop > 0 &&
-    clonedNode.style.display === 'block' &&
-    !hasDirectText &&
-    children.some(
-      (child) => (child as HTMLElement).style.position === 'sticky',
-    ) &&
-    children.every((child) => {
-      const { display, position } = (child as HTMLElement).style
-      return (
-        !display.startsWith('inline') &&
-        display !== 'contents' &&
-        position !== 'absolute'
-      )
-    })
-  ) {
-    const firstFlowChild = children.find((child) => {
-      const style = (child as HTMLElement).style
-      return style.display !== 'none' && style.position !== 'fixed'
-    }) as HTMLElement | undefined
-    const margin = firstFlowChild?.style.marginTop || '0px'
-    if (firstFlowChild && margin !== 'auto') {
-      firstFlowChild.style.marginTop = `calc(${margin} - ${scrollTop}px)`
-      clonedNode.style.overflow = 'hidden'
-      return
-    }
-  }
-  const isSupportedSticky = (child: Element, index: number) => {
-    const style = (child as HTMLElement).style
-    return (
-      index === 0 &&
-      scrollLeft === 0 &&
-      style.position === 'sticky' &&
-      parseFloat(style.top) === 0 &&
-      (!style.bottom || style.bottom === 'auto')
-    )
-  }
-  const hasUnsupportedPosition = children.some((child, index) => {
-    const style = (child as HTMLElement).style
-    return (
-      (style.position === 'sticky' && !isSupportedSticky(child, index)) ||
-      style.display === 'inline'
-    )
-  })
-  if (hasDirectText || hasUnsupportedPosition) return
-  const x = -scrollLeft
-  const y = -scrollTop
-  children.forEach((child, index) => {
-    const element = child as HTMLElement
-    if (element.style.position === 'fixed') {
-      // Translated siblings create stacking contexts above an auto-z fixed child.
-      if (!element.style.zIndex || element.style.zIndex === 'auto') {
-        element.style.zIndex = '1'
-      }
-      return
-    }
-    if (isSupportedSticky(child, index)) {
-      // Transformed siblings become stacking contexts; keep the sticky header
-      // above the normal-flow content as it appears in the live scroller.
-      if (!element.style.zIndex || element.style.zIndex === 'auto') {
-        element.style.zIndex = '1'
-      }
-      return
-    }
-    const transform = element.style.transform
-    element.style.transform = `translate(${x}px, ${y}px) ${
-      transform && transform !== 'none' ? transform : ''
-    }`.trim()
-  })
-  // SVG foreignObject serialization loses the live scroll offset. Preserve
-  // the source viewport by clipping the shifted copy instead.
-  clonedNode.style.overflow = 'hidden'
-}
-
 function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
@@ -406,6 +318,7 @@ function decorate<T extends HTMLElement>(
       cloneScrollState(
         nativeNode,
         clonedNode.firstElementChild as HTMLElement,
+        options,
         scrollLeft,
         scrollTop,
       )
@@ -419,7 +332,7 @@ function decorate<T extends HTMLElement>(
         clonedNode.style.transform = 'translate(0px, 0px)'
       }
     } else {
-      cloneScrollState(nativeNode, clonedNode)
+      cloneScrollState(nativeNode, clonedNode, options)
     }
     options.onCloneNode?.(nativeNode, clonedNode)
   }
