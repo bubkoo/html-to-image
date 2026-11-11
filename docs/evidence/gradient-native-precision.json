@@ -1,0 +1,48 @@
+{
+  "kind": "observational probe emits deliberate diagnostic errors; not regression failures",
+  "method": "No scrolling. Native screenshot, native computed-style roundtrip, library raster and manually authored SVG foreignObject raster.",
+  "records": [
+    {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+      "sourceFirst": [0, 128, 0, 255],
+      "captureFirst": [0, 128, 0, 255],
+      "computedRoundtripFirst": [0, 128, 0, 255],
+      "maximumCaptureChannelDelta": 0,
+      "maximumRoundtripChannelDelta": 0,
+      "directForeignObjectFirst": [0, 128, 0, 255],
+      "maximumDirectForeignObjectChannelDelta": 0,
+      "scroll": [0, 0],
+      "computedBackground": "linear-gradient(to right, rgb(255, 0, 0) -40px, rgb(0, 128, 0) -40px)"
+    },
+    {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:157.0) Gecko/20100101 Firefox/157.0",
+      "sourceFirst": [0, 128, 0, 255],
+      "captureFirst": [0, 128, 0, 255],
+      "computedRoundtripFirst": [0, 128, 0, 255],
+      "maximumCaptureChannelDelta": 0,
+      "maximumRoundtripChannelDelta": 0,
+      "directForeignObjectFirst": [0, 128, 0, 255],
+      "maximumDirectForeignObjectChannelDelta": 0,
+      "scroll": [0, 0],
+      "computedBackground": "linear-gradient(to right, rgb(255, 0, 0) -40px, rgb(0, 128, 0) -40px)"
+    },
+    {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "sourceFirst": [0, 128, 0, 255],
+      "captureFirst": [0, 128, 1, 255],
+      "computedRoundtripFirst": [0, 128, 0, 255],
+      "maximumCaptureChannelDelta": 1,
+      "maximumRoundtripChannelDelta": 0,
+      "directForeignObjectFirst": [0, 128, 1, 255],
+      "maximumDirectForeignObjectChannelDelta": 1,
+      "scroll": [0, 0],
+      "computedBackground": "linear-gradient(to right, rgb(255, 0, 0) -40px, rgb(0, 128, 0) -40px)"
+    }
+  ],
+  "checkedAt": "2026-11-11T03:49:03.857918+00:00",
+  "scope": "Observed browser raster precision, independent of scrolling or library serialization: WebKit source green [0,128,0,255] vs library and manually authored SVG foreignObject [0,128,1,255]. Native computed-style roundtrip remains exact. Chromium and Firefox have zero delta.",
+  "interpretation": "No general gradient correction was implemented. This observation is not a passing byte-equality regression. The scroll fixture now uses an opaque green background with a hard 40px inset red shadow as the horizontal position marker; all RGBA equality checks remain strict.",
+  "replay": "docs/evidence/gradient-native-control.ts.txt is an observational Vitest probe which deliberately emits three GRADIENT_OBSERVATION errors. It is not part of CI and its expected diagnostic errors are not source-regression counts.",
+  "probeSha256": "28aae45f439791613509a79945c5a63980c001d0b75bbc827cf017bcb3e4ae68",
+  "recordedRuntimeContext": "f3f997e plus scroll-only working candidate at observation time; zero source scroll bypasses scroll encoding. The manual SVG foreignObject control does not invoke the library."
+}

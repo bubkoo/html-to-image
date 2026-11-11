@@ -1,6 +1,6 @@
 let sequence = 0
 
-export const horizontalFixedCases = [
+export const positionedScrollCases = [
   'local-nested',
   'local-deep',
   'viewport-nested',
@@ -35,18 +35,41 @@ export const horizontalFixedCases = [
   'local-relative-absolute-only-diagonal',
   'ancestor-absolute-only-diagonal',
   'wrapper-absolute-only-diagonal',
+  'local-block-horizontal',
+  'viewport-block-horizontal',
+  'ancestor-block-horizontal',
+  'wrapper-block-horizontal',
+  'local-block-diagonal',
+  'viewport-block-diagonal',
+  'ancestor-block-diagonal',
+  'wrapper-block-diagonal',
+  'local-block-diagonal-absolute',
+  'local-block-diagonal-rtl',
+  'local-block-diagonal-deep',
+  'local-block-diagonal-important',
+  'local-block-diagonal-selected',
+  'local-block-absolute-only-diagonal',
+  'local-block-relative-absolute-only-diagonal',
+  'local-block-vertical',
+  'local-block-absolute-only-vertical',
+  'relative-block-absolute-only-diagonal',
+  'local-block-before-diagonal',
+  'local-block-after-diagonal',
+  'local-block-absolute-only-sticky-vertical',
 ]
 
-export async function createHorizontalFixedScene(kind) {
+export async function createPositionedScrollScene(kind) {
   const root = document.createElement('div')
-  root.id = `horizontal-fixed-${++sequence}`
+  root.id = `positioned-scroll-${++sequence}`
   root.style.cssText =
-    'position:absolute;left:0;top:0;width:40px;height:40px;overflow:hidden;margin:0;padding:0'
+    'position:absolute;left:0;top:0;width:40px;height:40px;overflow:hidden;margin:0;padding:0;background:white'
   const panel = document.createElement('div')
+  panel.id = root.id + '-panel'
   panel.style.cssText =
     'width:40px;height:40px;overflow:auto;scrollbar-width:none;display:flex;flex-wrap:nowrap;align-items:flex-start;margin:0;padding:0'
   if (kind.startsWith('local')) panel.style.transform = 'translate(0,0)'
   if (kind.startsWith('ancestor')) root.style.transform = 'translate(0,0)'
+  if (kind.startsWith('relative')) panel.style.position = 'relative'
   if (kind.endsWith('rtl')) panel.style.direction = 'rtl'
   if (kind === 'local-reverse') panel.style.flexDirection = 'row-reverse'
   const column = kind.includes('column')
@@ -73,8 +96,17 @@ export async function createHorizontalFixedScene(kind) {
       ? '80px'
       : '40px'
   }
+  const block = kind.includes('block')
+  if (block) {
+    panel.style.display = 'block'
+    red.style.width = '88px'
+    red.style.height = kind.includes('horizontal') ? '0' : '48px'
+    green.style.width = '80px'
+    green.style.height = kind.includes('horizontal') ? '40px' : '80px'
+    green.style.marginLeft = '8px'
+  }
   if (kind.startsWith('wrapper')) green.style.transform = 'translate(0,0)'
-  if (kind.includes('relative')) green.style.position = 'relative'
+  if (kind.includes('-relative')) green.style.position = 'relative'
   if (kind.endsWith('margin')) {
     red.style.marginLeft = '3px'
     green.style.marginRight = '5px'
@@ -91,18 +123,35 @@ export async function createHorizontalFixedScene(kind) {
     green.append(inner)
   } else green.append(fixed)
   panel.append(red, green)
+  if (block && kind.includes('sticky')) {
+    const header = document.createElement('div')
+    header.style.cssText =
+      'position:sticky;top:0;height:4px;width:88px;background:red;z-index:1'
+    green.before(header)
+  }
   root.append(panel)
+  if (block && /before|after/.test(kind)) {
+    red.style.height = green.style.height = '0'
+    const sheet = document.createElement('style')
+    const pseudo = kind.includes('before') ? 'before' : 'after'
+    sheet.textContent = `#${panel.id}::${pseudo}{content:"";display:block;width:88px;height:88px;background:green;box-shadow:inset 40px 0 0 red}`
+    root.append(sheet)
+  }
   document.body.append(root)
   panel.scrollLeft =
-    column && !kind.includes('diagonal')
+    (column && !kind.includes('diagonal')) || kind.endsWith('vertical')
       ? 0
       : kind.endsWith('rtl') || kind === 'local-reverse'
         ? -40
         : 40
-  panel.scrollTop =
-    kind.includes('column-reverse') || kind.endsWith('wrap-reverse')
+  panel.scrollTop = kind.includes('sticky')
+    ? 60
+    : kind.includes('column-reverse') || kind.endsWith('wrap-reverse')
       ? -40
-      : kind.includes('diagonal') || column || wrapped
+      : kind.includes('diagonal') ||
+          column ||
+          wrapped ||
+          kind.endsWith('vertical')
         ? 40
         : 0
   // Place the source's blue stripe at x=4, y=0 regardless of its containing
@@ -155,8 +204,8 @@ export async function createHorizontalFixedScene(kind) {
   }
 }
 
-export async function checkHorizontalFixed(api, kind, readNative) {
-  const scene = await createHorizontalFixedScene(kind)
+export async function checkPositionedScroll(api, kind, readNative) {
+  const scene = await createPositionedScrollScene(kind)
   const renderer = api.createRenderer({
     pixelRatio: 1,
     skipFonts: true,
@@ -180,7 +229,12 @@ export async function checkHorizontalFixed(api, kind, readNative) {
       throw new Error(
         `${kind} source did not scroll on both axes: ${scene.scroll}`,
       )
-    if (kind.includes('column') && !scene.scroll[1])
+    if (kind.endsWith('horizontal') && !scene.scroll[0])
+      throw new Error(`${kind} source did not scroll horizontally`)
+    if (
+      (kind.includes('column') || kind.endsWith('vertical')) &&
+      !scene.scroll[1]
+    )
       throw new Error(`${kind} source did not scroll vertically`)
     const native = readNative ? await readNative(scene.root.id) : undefined
     if (native) check(native, 'native control')

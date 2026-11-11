@@ -154,3 +154,10 @@
 ## 二维 flex 定位扩展（真机未验）
 
 #633 从横向单行扩展为二维 flex 位移，固定和绝对定位后代保留源包含块，覆盖行/列/反向/换行/RTL 及对齐。最终 34 场景 × 三引擎的 102 个原生源截图与导出图全部像素相同；原父版本 90 项失败，初版横向候选仍有 57 项失败，已有变换/相对容器等保留正对照。与旧 fixed 用例定向 192 通过，完整 coverage/source/package 316/590/135（另 1 项既有 GC skip），lint/构建/类型/tarball 通过。[证据](evidence/horizontal-fixed-scroll.json)保存最终输入、源码 hash、双基线及历史 PNG 的限定范围。新的 PR head 远端与真实 iPhone 仍待验，不沿用初版 294/524/135 或历史真机 26/26 作为本版通过。外部 SVG/原生滚动条语义和记录的其他布局边界不变；未合并、未发布 npm。
+
+
+## 普通块流定位扩展（真机未验）
+
+当前 #633 的证据改为 [positioned-scroll.json](evidence/positioned-scroll.json)：55 场景 × 三引擎的 165 份实际源截图与导出图全像素零容差相同；原父版本 141 项失败，上一 flex 候选 51 项失败。定向 297、本地完整 coverage/source/package 337/653/135（另 1 项既有 GC skip）及 lint/构建/类型/tarball 通过。普通块流复用纵向 before 偏移，横向移动正常盒及 before/after，按源包含块调整定位；WeakSet 跟踪已克隆参照并随源映射清理，原外部 absolute 回退测试和文档生命周期测试保持通过。
+
+布局使用实色硬边界，全图比较不加容差；WebKit 在无滚动/无库手写 foreignObject 中同样存在的渐变 1 级色差独立记录，不声称已校正。源输入改名为 positioned-scroll，旧 horizontal JSON 仅保留 f3f997e 及更早的历史快照。外部原点、水平混合行内/浮动/sticky、auto 边距/部分伪元素、竖排和原生滚动条等保持明确边界。最新远端/真实 iPhone 尚待核验，未合并、未发布 npm。

@@ -47,6 +47,8 @@ export class CaptureTask {
 
   private cloneSources = new WeakMap<Element, Element>()
 
+  private clonedSources = new WeakSet<Element>()
+
   private clonedStyles: string[] = []
 
   addClonedStyle(rule: string) {
@@ -74,14 +76,20 @@ export class CaptureTask {
 
   registerClone(copy: Element, source: Element) {
     this.cloneSources.set(copy, source)
+    this.clonedSources.add(source)
   }
 
   getCloneSource(copy: Element) {
     return this.cloneSources.get(copy)
   }
 
+  hasClonedSource(source: Element) {
+    return this.clonedSources.has(source)
+  }
+
   clearCloneSources() {
     this.cloneSources = new WeakMap()
+    this.clonedSources = new WeakSet()
     this.excludedSources = new WeakSet()
   }
 

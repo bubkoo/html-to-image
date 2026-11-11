@@ -8,7 +8,7 @@ declare module 'vitest/browser' {
   }
 }
 
-const moduleURL = '/test/browser/fixtures/horizontal-fixed-scroll.mjs'
+const moduleURL = '/test/browser/fixtures/positioned-scroll.mjs'
 const cases = [
   'local-nested',
   'local-deep',
@@ -44,10 +44,31 @@ const cases = [
   'local-relative-absolute-only-diagonal',
   'ancestor-absolute-only-diagonal',
   'wrapper-absolute-only-diagonal',
+  'local-block-horizontal',
+  'viewport-block-horizontal',
+  'ancestor-block-horizontal',
+  'wrapper-block-horizontal',
+  'local-block-diagonal',
+  'viewport-block-diagonal',
+  'ancestor-block-diagonal',
+  'wrapper-block-diagonal',
+  'local-block-diagonal-absolute',
+  'local-block-diagonal-rtl',
+  'local-block-diagonal-deep',
+  'local-block-diagonal-important',
+  'local-block-diagonal-selected',
+  'local-block-absolute-only-diagonal',
+  'local-block-relative-absolute-only-diagonal',
+  'local-block-vertical',
+  'local-block-absolute-only-vertical',
+  'relative-block-absolute-only-diagonal',
+  'local-block-before-diagonal',
+  'local-block-after-diagonal',
+  'local-block-absolute-only-sticky-vertical',
 ]
 
 cases.forEach((kind) => {
-  test(`flex scroll ${kind} matches the actual source pixels`, async () => {
+  test(`positioned scroll ${kind} matches the actual source pixels`, async () => {
     const fixture = await import(/* @vite-ignore */ moduleURL)
     const readNative = async (id: string) => {
       const png = await commands.screenshotScrollSource('#' + id)
@@ -61,6 +82,8 @@ cases.forEach((kind) => {
       context.drawImage(image, 0, 0)
       return context.getImageData(0, 0, canvas.width, canvas.height)
     }
-    expect(await fixture.checkHorizontalFixed(api, kind, readNative)).toBe(true)
+    expect(await fixture.checkPositionedScroll(api, kind, readNative)).toBe(
+      true,
+    )
   })
 })

@@ -78,7 +78,13 @@
     "status": "pending",
     "reason": "Parent #632 real-device session expired and reconnect reports unavailable device; no candidate real-device pass claimed."
   },
-  "remote": "Pending updated #633 head. Prior 7d66cb4 CI/Codecov passed only the earlier 12-case horizontal scope; no final vector remote or native pass claimed.",
+  "remote": {
+    "head": "f3f997e170fab7a6e7f0148fbd33b6dcd688bb23",
+    "ci": 42953089996,
+    "codecovPatch": "success",
+    "codecovProject": "success",
+    "scope": "Historical 34-mode flex candidate only; native validation remains pending"
+  },
   "remainingBoundaries": [
     "Non-flex scroll layouts, arbitrary capture-root offsets and original #408/#345 whole applications",
     "Unresolved auto margins on shifted axes; anonymous text and display:contents flex items; sticky descendants and generated flex items",
@@ -189,5 +195,7 @@
   "specificationReferences": {
     "flexItemMargins": "https://www.w3.org/TR/css-flexbox-1/#item-margins",
     "transformsContainingBlocks": "https://www.w3.org/TR/css-transforms-1/#transform-rendering"
-  }
+  },
+  "historicalSnapshotRevision": "f3f997e170fab7a6e7f0148fbd33b6dcd688bb23",
+  "supersededBy": "docs/evidence/positioned-scroll.json"
 }

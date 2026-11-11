@@ -119,3 +119,16 @@ GitHub 当前的 28 个旧 PR 均仍开放，head 与逐项已读版本一致；
 最终同一 34 输入 × 三引擎：原父版本 4d1bd59 为 90 失败 / 12 通过，初版 7d66cb4 仍有 57 失败 / 45 通过，原生源控制均有效；候选的 102 项逐一比较完整 40×40 图像的 6400 个 RGBA 通道，全部相同，含原有 fixed 对照定向 192 通过。本地完整 coverage/source/package 为 316/590/135，另 1 项既有 GC skip，lint/构建/类型/tarball 均通过。[证据](evidence/horizontal-fixed-scroll.json)明确区分 b4d8d23 的历史横向 PNG 与本次完整源像素测试。
 
 该候选支持 horizontal-tb 下 flex 的行/列/反向/换行/RTL、center/baseline 对齐及 absolute-only；非 flex、位移轴未解析 auto 边距、匿名文本/contents/生成项目、sticky、竖排、任意捕获根偏移和原生滚动条仍保留边界。新的远端检查和真实 iPhone 结果待验，不能沿用上一版通过数；#632/#633 未合并，不发布 npm。
+
+
+## 普通块流与定位参照扩展候选
+
+#633 继续处理普通块布局：沿用不会折叠的 before 纵向流偏移，组合横向相反边距，移动实际流盒及受支持 block before/after；定位后代按原 offsetParent 处理，真实子节点不包装、不重排。库插入的伪元素样式节点不作为内容流盒。新增 WeakSet 记录已克隆源元素，源映射清理和 dispose 一并清理，保留文档生命周期约束。
+
+最终 55 输入 × 三引擎，165 个完整 40×40 原生源/导出图在 6400 个 RGBA 通道上零容差相同。恢复 clone-scroll.ts/task.ts 的原始父版本 4d1bd59 为 141 失败 / 24 通过，恢复上一 flex 候选 f3f997e 为 51 失败 / 114 通过；源控制全部有效，只接受完整 165 项、无浏览器未处理错误的运行。含旧 fixed/mixed 对照定向 297 通过，完整 coverage/source/package 为 337/653/135，另 1 项既有 GC skip，lint/构建/类型/tarball 均通过。[当前证据](evidence/positioned-scroll.json)与[重放](evidence/horizontal-fixed-scroll-replay.md)已更新；旧 horizontal JSON 明确标记 f3f997e 历史范围。
+
+全量检查保留未克隆 absolute 包含块的原回退：捕获树外原点尚未重建，不能直接套当前容器偏移。水平匿名文本/inline/contents/float/sticky、未解析 auto 边距、部分伪元素、竖排、其他捕获根坐标和原生滚动条仍未完整覆盖。
+
+[不滚动渐变观察](evidence/gradient-native-precision.json)另外验证：WebKit 源页面及原生计算样式往返为 [0,128,0,255]，库和完全手写 foreignObject 都为 [0,128,1,255]，最大通道差 1；Chrome/Firefox 为零。定位标记改为实色硬边界，仍严格比较全部像素；没有把渐变记为逐字节相同或实现通用校正。该观察探针是独立归档，不进入 CI 回归计数。
+
+本版最新 PR head 的远端检查和真机待验；Mac 尚未识别原 USB iPhone，不沿用旧 26/26。#632/#633 未合并，不关闭旧 PR，不发布 npm。
