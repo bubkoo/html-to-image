@@ -92,7 +92,7 @@
 #585 的其余设计取舍：保留旧 boolean filter（根不调用）及 backgroundColor；不自动改成 keep/unwrap/remove 或删除旧入口。结构变换可显式用 onClone，但不等同于原方案的 live reflow 后重新计算样式/尺寸。V2 维度仍来自显式输出值或源尺寸回退，当前不提供隐式 auto-height。跨捕获 Cache 类没有引入；保留单次资源生命周期与调用者 resolver 原语。默认完整 URL 身份、等待 decode、命名空间和实际像素缓冲区已有对应回归；通用 iOS 延时、页面 CSS 模式与批量 CSS 写入不整体移植，分别保留原场景/输出语义/性能边界。
 
 
-### 横向 fixed 深层后代候选
+### 横向 fixed 初版（由下方二维 flex 扩展取代）
 
 #408/#345 剩余边界复现：单行横向 flex 中，给普通包装子元素加 transform 会改变深层 fixed 的定位参照。最终 12 输入 × 三引擎的源截图控制全部有效，旧源码 33 项失败 / 3 项通过。候选用保持外部主轴尺寸的相反侧边距表达位移，仅调整原参照为当前滚动容器的 fixed/absolute inset；没有新增包含块。加原有 fixed 用例定向 126 通过，完整/真机/远端状态见[证据](evidence/horizontal-fixed-scroll.json)。对角、自动侧边距、多行 flex、匿名文本及 sticky 等仍不在此结论内，不作为整个旧 PR 完成。
 
@@ -110,3 +110,12 @@ GitHub 当前的 28 个旧 PR 均仍开放，head 与逐项已读版本一致；
 - 滚动条范围：#376/#407/#408 关联 #345，需要确定本轮是否包含原生轨道和滑块的外观/位置；现有内容裁剪和通用伪元素支持不足以证明该项。
 
 以上不是目标完成声明；原应用 fixture 的具体缺失条件仍按各 PR 的边界保留，不新增未授权的关闭、评论或 npm 发布。
+
+
+## 二维 flex 定位后代扩展候选
+
+#633 的初版只修横向单行，但同一“普通项目新增 transform 改变 fixed/absolute 包含块”的根因仍存在于斜向、纵向、列布局和换行。现按两个滚动轴分别施加和为零的一对物理边距，保持项目外部尺寸和 flex 行分配，不新增包含块；定位后代仍按原 offsetParent 调整 inset。
+
+最终同一 34 输入 × 三引擎：原父版本 4d1bd59 为 90 失败 / 12 通过，初版 7d66cb4 仍有 57 失败 / 45 通过，原生源控制均有效；候选的 102 项逐一比较完整 40×40 图像的 6400 个 RGBA 通道，全部相同，含原有 fixed 对照定向 192 通过。本地完整 coverage/source/package 为 316/590/135，另 1 项既有 GC skip，lint/构建/类型/tarball 均通过。[证据](evidence/horizontal-fixed-scroll.json)明确区分 b4d8d23 的历史横向 PNG 与本次完整源像素测试。
+
+该候选支持 horizontal-tb 下 flex 的行/列/反向/换行/RTL、center/baseline 对齐及 absolute-only；非 flex、位移轴未解析 auto 边距、匿名文本/contents/生成项目、sticky、竖排、任意捕获根偏移和原生滚动条仍保留边界。新的远端检查和真实 iPhone 结果待验，不能沿用上一版通过数；#632/#633 未合并，不发布 npm。

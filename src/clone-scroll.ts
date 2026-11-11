@@ -19,8 +19,11 @@ export function cloneScrollState<T extends HTMLElement>(
   )
   const task = getTask(options)
   const descendants = Array.from(clonedNode.querySelectorAll('*'))
-  const fixed = descendants.filter(
-    (child) => (child as HTMLElement).style?.position === 'fixed',
+  const positioned = descendants.filter((child) =>
+    ['fixed', 'absolute'].includes((child as HTMLElement).style?.position),
+  ) as HTMLElement[]
+  const fixed = positioned.filter(
+    (child) => child.style.position === 'fixed',
   ) as HTMLElement[]
   const original = task?.getCloneSource(clonedNode) || nativeNode
   const shiftPositioned = (element: HTMLElement) => {
@@ -45,13 +48,10 @@ export function cloneScrollState<T extends HTMLElement>(
     shift('top', 'bottom', scrollTop)
   }
   if (
-    fixed.length &&
+    task &&
+    positioned.length &&
     !hasDirectText &&
-    scrollLeft !== 0 &&
-    scrollTop === 0 &&
     ['flex', 'inline-flex'].includes(clonedNode.style.display) &&
-    ['row', 'row-reverse'].includes(clonedNode.style.flexDirection) &&
-    clonedNode.style.flexWrap === 'nowrap' &&
     clonedNode.style.writingMode === 'horizontal-tb' &&
     !descendants.some(
       (child) => (child as HTMLElement).style?.position === 'sticky',
@@ -60,34 +60,37 @@ export function cloneScrollState<T extends HTMLElement>(
       const style = (child as HTMLElement).style
       return (
         style.display !== 'contents' &&
-        style.marginLeft !== 'auto' &&
-        style.marginRight !== 'auto'
+        (!scrollLeft ||
+          (style.marginLeft !== 'auto' && style.marginRight !== 'auto')) &&
+        (!scrollTop ||
+          (style.marginTop !== 'auto' && style.marginBottom !== 'auto'))
       )
     })
   ) {
-    // Opposite margins translate each flex item without changing its outer
-    // size or creating a containing block for positioned descendants. An
-    // added transform would re-anchor fixed children of ordinary wrappers.
+    // Opposite margins translate each flex item on both axes without changing
+    // its outer size, flex lines or containing blocks. Unlike block margins,
+    // flex-item margins cannot collapse. Added transforms would re-anchor
+    // positioned descendants of ordinary wrappers.
     children.forEach((child) => {
       const { style } = child as HTMLElement
       if (['fixed', 'absolute'].includes(style.position)) return
-      style.setProperty(
-        'margin-left',
-        `calc(${style.marginLeft || '0px'} - ${scrollLeft}px)`,
-        'important',
-      )
-      style.setProperty(
-        'margin-right',
-        `calc(${style.marginRight || '0px'} + ${scrollLeft}px)`,
-        'important',
-      )
+      const margins = [
+        ['margin-left', -scrollLeft],
+        ['margin-right', scrollLeft],
+        ['margin-top', -scrollTop],
+        ['margin-bottom', scrollTop],
+      ] as const
+      margins.forEach(([property, delta]) => {
+        if (!delta) return
+        const value = style.getPropertyValue(property) || '0px'
+        style.setProperty(
+          property,
+          `calc(${value} ${delta < 0 ? '-' : '+'} ${Math.abs(delta)}px)`,
+          'important',
+        )
+      })
     })
-    descendants.forEach((child) => {
-      const element = child as HTMLElement
-      if (['fixed', 'absolute'].includes(element.style?.position)) {
-        shiftPositioned(element)
-      }
-    })
+    positioned.forEach(shiftPositioned)
     clonedNode.style.overflow = 'hidden'
     return
   }

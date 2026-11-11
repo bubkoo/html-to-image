@@ -1,4 +1,4 @@
-## [LRN-20261111-021] Horizontal flex scroll without new containing blocks
+## [LRN-20261111-021] Flex scroll without new containing blocks
 
 **Logged**: 2026-11-11 (Asia/Shanghai)
 **Priority**: high
@@ -6,20 +6,20 @@
 **Area**: scrolling / positioned descendants
 
 ### Summary
-横向滚动给每个子元素添加 transform，会让普通包装容器突然成为 fixed/absolute 的定位参照。#631 的纵向流偏移和直接 fixed 修复没有覆盖深层横向后代。
+给普通 flex 项目添加 transform，会让它成为 fixed 和 absolute 后代的新定位参照。只修横向单行布局仍会遗漏同一根因在斜向、纵向、列布局、换行和 absolute-only 中的表现。
 
 ### Details
-单行横向 flex 通过成对相反的物理侧边距移动每个流内项目，保持其主轴外部尺寸和原始 transform，不新增定位包含块。固定和绝对定位后代只在原始 offsetParent 为滚动容器时调整 inset；属于更内层已有变换、外部祖先或视口的参照不改变。RTL、row-reverse、两层包装、已有 margin、important、样式筛选和 absolute 后代都有原生源像素对照。
+每个滚动轴用一对相反的物理边距表达位移，边距和为零，因此项目外部尺寸与 flex 行分配保持不变，也不新增包含块。Flex 项目的边距不折叠，故纵向同样适用。按源 offsetParent 调整定位后代 inset；已属于内部变换、相对容器、外层祖先或视口的关系保留。需要当前任务的源映射，并排除匿名文本、contents、sticky 和位移轴上未解析的 auto 边距。
 
-最终同一共享 fixture 在修复前 33 失败 / 3 通过，所有 36 个原生源截图对照先通过。已有变换包装是三个正对照。候选加原有 fixed 回归 126 项通过；完整与真机/远端状态见证据，不沿用旧候选通过数。
+同一最终 34 输入 × 三引擎，原始父版本 4d1bd59 为 90 失败 / 12 通过；上一版 7d66cb4 横向修复仍为 57 失败 / 45 通过。所有 102 个原生源控制先通过；候选的 102 项均比较整个 40×40 图像的 6400 个 RGBA 通道，全部相同。含旧 fixed 回归的定向 192 项通过。保留旧横向 PNG 作为标明 b4d8d23 的历史证据，不把它冒充为当前整个布局集合的真机结果。
 
 ### Metadata
-- Source: #408 / #345 remaining horizontal containing-block boundary
+- Source: #408 / #345 remaining containing-block boundary
 - Related Files: ../src/clone-scroll.ts, ../test/browser/fixtures/horizontal-fixed-scroll.mjs, ../docs/evidence/horizontal-fixed-scroll.json
 - Pattern-Key: scroll.flex-margins-preserve-containing-blocks
 
 ### Context Maintenance
-- Scope: horizontal-tb、单行 flex、非 auto 侧边距、无直接文本/contents/后代 sticky 的横向滚动；不宣称对角、自动边距或整个旧 issue 已修复
-- Authority: 精确父提交 4d1bd59 与最终同一源截图/导出像素回归
-- Validation: 定向 126、完整 coverage/source/package 294/524/135 通过（另 1 项既有 GC skip），lint/build/types/tarball 通过；真机和远端待验
+- Scope: horizontal-tb flex、二维位移、row/column/reverse/wrap、fixed/absolute；非 flex、自动边距、匿名文本/contents/sticky/生成项目、竖排及原生滚动条保留边界
+- Authority: 精确 4d1bd59 与 7d66cb4，只还原 clone-scroll.ts，最终共享输入保持不变
+- Validation: 定向 192；完整 coverage/source/package 316/590/135（另 1 项既有 GC skip），lint/build/types/tarball 通过；当前真机和远端状态见证据
 - Last-Validated: 2026-11-11

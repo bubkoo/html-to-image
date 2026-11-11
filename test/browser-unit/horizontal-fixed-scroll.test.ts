@@ -22,10 +22,32 @@ const cases = [
   'local-margin',
   'local-important',
   'local-selected',
+  'local-diagonal',
+  'viewport-diagonal',
+  'ancestor-diagonal',
+  'wrapper-diagonal',
+  'local-diagonal-deep',
+  'local-diagonal-absolute',
+  'local-diagonal-important',
+  'local-diagonal-selected',
+  'local-diagonal-rtl',
+  'local-column',
+  'local-column-reverse',
+  'local-column-diagonal',
+  'local-column-diagonal-rtl',
+  'local-wrap',
+  'local-wrap-reverse',
+  'local-center-diagonal',
+  'local-baseline-diagonal',
+  'local-absolute-only',
+  'local-absolute-only-diagonal',
+  'local-relative-absolute-only-diagonal',
+  'ancestor-absolute-only-diagonal',
+  'wrapper-absolute-only-diagonal',
 ]
 
 cases.forEach((kind) => {
-  test(`horizontal fixed ${kind} matches the actual source pixels`, async () => {
+  test(`flex scroll ${kind} matches the actual source pixels`, async () => {
     const fixture = await import(/* @vite-ignore */ moduleURL)
     const readNative = async (id: string) => {
       const png = await commands.screenshotScrollSource('#' + id)
