@@ -94,7 +94,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 继续定位 V2 的复制成本时，发现每一个样式属性都会对普通节点调用跨 realm iframe 类型识别。候选先检查属性是否为 display、值是否为 inline，再执行类型识别，保留原复制顺序和 CSSOM 写入。相同构建器、同一 401 节点输入、六次交替运行的配对对照中，捕获中位数 Chromium 202.8→141.6ms、Firefox 135→122ms、WebKit 150→138ms，三个引擎 SVG **字节完全相同**且源 DOM 不变。[性能证据](evidence/style-copy-performance.json)记录全部样本；这是前后耗时对照，不伪造新增的功能失败计数。批量 CSS 写入的实验只有约 2% 捕获收益，且未保持字节相同，已撤回。
 
-本地 lint/构建/类型/tarball、覆盖率 220、源码 302（另 1 项既有 GC 跳过）、构建包 120 全部通过。候选仍需真实设备与远端验收；SVG 体积和大页面内存问题没有因此解决，#473/#585 不按整体完成处理。[重放与范围](evidence/style-copy-performance-replay.md)说明两个不同的对照实验。
+本地 lint/构建/类型/tarball、覆盖率 220、源码 302（另 1 项既有 GC 跳过）、构建包 120 全部通过。源码 `c2f78c1` 真实 iPhone 的配对捕获中位数 135→124ms、SVG 字节一致；构建 ESM/UMD 完整 24/24 通过，[配对记录](evidence/ios-style-copy-paired.json)与[冒烟报告](evidence/ios-safari-style-copy-c2f78c1.json)已归档，远端待验；SVG 体积和大页面内存问题没有因此解决，#473/#585 不按整体完成处理。[重放与范围](evidence/style-copy-performance-replay.md)说明两个不同的对照实验。
 
 ## 已有对应实现：已回复并关闭的 22 个旧 PR
 

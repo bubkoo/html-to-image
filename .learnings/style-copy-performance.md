@@ -22,5 +22,5 @@
 - Scope: computed style loop and performance evidence; no whole-PR feature completion
 - Authority: paired before/after samples, byte-identical SVG, source immutability; existing functional regressions retained
 - Revalidation: condition order, style selection, iframe cross-realm detection or cloning changes
-- Validation: full local 220/302/120 with 1 inherited GC skip; lint/build/types/tarball passed; native and remote pending
+- Validation: full local 220/302/120 with 1 inherited GC skip; lint/build/types/tarball passed; real iPhone paired 135→124ms with identical SVG, full ESM/UMD smoke 24/24 on c2f78c1; remote pending
 - Last-Validated: 2026-11-11

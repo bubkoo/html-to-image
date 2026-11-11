@@ -1,0 +1,29 @@
+{
+  "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+  "dimensions": [40, 8000],
+  "modes": {
+    "baseline": {
+      "svgBytes": 2923133,
+      "medianCanvasMs": 149,
+      "canvasMs": [213, 151, 149, 148, 150, 148],
+      "medianCaptureMs": 135,
+      "captureMs": [150, 138, 135, 135, 136, 135]
+    },
+    "candidate": {
+      "svgBytes": 2923133,
+      "medianCanvasMs": 137,
+      "canvasMs": [144, 139, 137, 144, 136, 136],
+      "medianCaptureMs": 124,
+      "captureMs": [130, 125, 124, 127, 123, 124]
+    }
+  },
+  "identicalSVG": true,
+  "nodes": 401,
+  "sourceUnchanged": true,
+  "candidateRevision": "c2f78c1d348e96efdcc3eec260d30e4e58f96343",
+  "baselineRevision": "3080a424514fb5c927d390272340acf2baaaec3b",
+  "simulator": false,
+  "fixture": "same paired source function as desktop, loaded by temporary native page",
+  "nativeInputSha256": "91451a63c43e58582940e54989be0ae76a4b1931c3664f7632b09124007df5c1",
+  "inputReplay": "style-copy-native-probe.html.txt"
+}

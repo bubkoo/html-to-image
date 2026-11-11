@@ -31,3 +31,10 @@ playwright-cli --session style-copy run-code --filename compare.js
 另一个 [页面 CSS 对照函数](pr473-css-benchmark.js.txt)在 401 节点、40×8000、统一绿色背景的独立样例中比较原 `pr473.js` 与当前构建 UMD（另存为 v2.js）。四次调用去掉首个样本后的中位数：原分支 4–6ms，V2 150–265ms；SVG 13602 字节，对照 V2 约 2.38–2.87MB。两种输出的尺寸、顶部/底部像素和源不变均验证。该 fixture 与上节使用不同 class 前缀、不同计时方式，不能混合两组绝对耗时计算加速比。
 
 两份历史重放函数也用 CLI run-code 的 filename 参数运行，工作目录中须有 pr473.js，页面 CSS 对照还需 v2.js。原分支的页面 CSS 有具体收益；它同时改变字体/伪元素策略、选项和全局 Document，不能整体移植。真实 iOS 上原 #473 的完整行为、任意页面 CSS 保真、大 DOM 压力和内存上界尚未建立证据；本次小优化不代表这些问题解决，npm 未发布。
+
+
+## 真实 iPhone 对照
+
+源码 c2f78c1 的 [配对记录](ios-style-copy-paired.json)在 iOS 18.7 / Safari 26.6.1 / DPR 3 的真实设备执行相同函数：捕获中位数 135→124ms，两个 SVG 字节相同，源不变，40×8000 canvas 首尾均绿色。六次交替样本及 canvas 总耗时保留于 JSON。
+
+[真机页面输入](style-copy-native-probe.html.txt)保留原始 HTML；临时复制到 test/browser/ 下，并准备同目录的 style-copy-baseline.js 与 style-copy-candidate.js 即可重放。其 hash 与两份 bundle hash 已归档。此设备比较是 V2 基线与候选的实测，不是原 #473 历史构建的 iOS 验收。
