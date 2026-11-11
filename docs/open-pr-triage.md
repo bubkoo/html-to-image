@@ -168,7 +168,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 此前包含直接文本或行内子元素时直接回退，导出丢失 scrollTop，源视口绿色而截图为红色。候选对正向纵向滚动、horizontal-tb 的块级容器，用副本 ::before 的流偏移表达滚动量；不包裹、不重排真实子节点。已有块级 ::before 保留内容，仅调整顶边距；空伪元素的 1px 高度防止与后续负边距合并。私有规则位于 SVG 外层最先声明的层，其 important 优先级依据 [CSS Cascade 5](https://www.w3.org/TR/css-cascade-5/#layer-order)，避免源 ID 或分层 important 规则覆盖偏移。
 
-14 种共享输入覆盖直接/换行文字、padding/border、首块负边距、结构选择器和分层 important、已有 before/after、sticky、变换包含块中的直接 fixed、嵌套、RTL 纵向、纯行内元素和同源 iframe。三引擎均先截取浏览器实际源页面作为像素对照，再核对捕获像素和源不变；最终输入在旧源码 42/42 失败，源对照无失败，候选 42/42 通过。完整 lint/构建/类型/tarball、234 覆盖率、344 源码（另 1 项既有 GC 跳过）及 123 构建包检查通过。[证据与范围](evidence/mixed-scroll.json)已归档，真机和远端待验。
+14 种共享输入覆盖直接/换行文字、padding/border、首块负边距、结构选择器和分层 important、已有 before/after、sticky、变换包含块中的直接 fixed、嵌套、RTL 纵向、纯行内元素和同源 iframe。三引擎均先截取浏览器实际源页面作为像素对照，再核对捕获像素和源不变；最终输入在旧源码 42/42 失败，源对照无失败，候选 42/42 通过。完整 lint/构建/类型/tarball、234 覆盖率、344 源码（另 1 项既有 GC 跳过）及 123 构建包检查通过。[证据与范围](evidence/mixed-scroll.json)已归档，源码 `42e8012` 真实 iPhone Safari 完整 25/25 通过（新增 14 场景分别经 ESM/UMD 验证），[原始报告](evidence/ios-safari-mixed-scroll-42e8012.json)已归档，远端待验。
 
 横向/斜向混合文字、竖排、已有 inline before、绝对定位组合、其他 fixed 包含块及原生滚动条外观仍有边界；#408/#345 不按全部完成处理。
 

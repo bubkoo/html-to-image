@@ -22,5 +22,5 @@
 - Scope: 正 scrollTop、horizontal-tb 的 block 混合文字/行内布局；不等于完整滚动条外观或任意定位支持
 - Authority: 14 个相同 fixture，三引擎实际源截图逐点核对；旧源码 42/42 失败且源对照全通过，候选 42/42 通过；DOM 和滚动状态不变
 - Revalidation: 伪元素层叠、边距合并、序列化结构、fixed 包含块、iframe 克隆变化
-- Validation: lint/build/types/tarball、覆盖率 234、三引擎源码 344（既有 GC skip 1）、构建包 123 全通过；真机和远端待验
+- Validation: lint/build/types/tarball、覆盖率 234、三引擎源码 344（既有 GC skip 1）、构建包 123 全通过；源码 42e8012 真实 iPhone Safari 25/25 通过，新增 14 场景经 ESM/UMD 验证；远端待验
 - Last-Validated: 2026-11-11
