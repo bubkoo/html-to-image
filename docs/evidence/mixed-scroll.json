@@ -52,6 +52,15 @@
     "Native scrollbar appearance and thumb position are not copied",
     "Existing block pseudo margins and arbitrary layout combinations are not universally proven"
   ],
-  "nativeIOS": "Pending committed-source build",
-  "remote": "Pending"
+  "nativeIOS": {
+    "report": "ios-safari-mixed-scroll-42e8012.json",
+    "passed": 25,
+    "mixedCasesESM": 14,
+    "mixedCasesUMD": 14,
+    "simulator": false,
+    "sourceUnchanged": true,
+    "note": "Full smoke validates captured pixels against shared expected markers and source state; independent native source screenshots for every fixture are from the desktop three-engine suite."
+  },
+  "remote": "Pending",
+  "candidateRevision": "42e8012fecc65bf0ea99a10450be2470dda37505"
 }
