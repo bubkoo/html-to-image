@@ -110,6 +110,18 @@
       "current TypeScript"
     ]
   },
-  "nativeIOS": "Pending",
-  "remote": "Pending"
+  "nativeIOS": {
+    "pairedReport": "ios-style-copy-paired.json",
+    "smokeReport": "ios-safari-style-copy-c2f78c1.json",
+    "smokePassed": 24,
+    "medianCaptureMs": {
+      "baseline": 135,
+      "candidate": 124
+    },
+    "identicalSVG": true,
+    "sourceUnchanged": true,
+    "simulator": false
+  },
+  "remote": "Pending",
+  "candidateRevision": "c2f78c1d348e96efdcc3eec260d30e4e58f96343"
 }
