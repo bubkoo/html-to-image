@@ -146,7 +146,7 @@ test.each([0, 8])(
 )
 
 test.each(['first', 'last'])(
-  'a %s fixed overlay stays above a later sticky header and scrolled content',
+  'a %s container-fixed child scrolls while a later sticky header stays visible',
   async (placement) => {
     const root = attach(document.createElement('div'))
     root.style.cssText = 'width:40px;height:40px;overflow:hidden'
@@ -172,7 +172,7 @@ test.each(['first', 'last'])(
     panel.scrollTop = 50
 
     const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
-    expect(pixel(image, 20, 2)).toEqual([0, 0, 255, 255])
+    expect(pixel(image, 20, 2)).toEqual([0, 128, 0, 255])
     expect(pixel(image, 20, 13)).toEqual([255, 0, 0, 255])
     expect(pixel(image, 20, 25)).toEqual([0, 128, 0, 255])
     expect(panel.scrollTop).toBe(50)

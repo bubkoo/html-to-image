@@ -33,7 +33,7 @@
 | V2 Shadow DOM slot 复核 | slot 没有分配节点时，浏览器应显示 fallback 子节点；克隆器只取空的 `assignedNodes()`，把 fallback 丢弃。 | [PR #613](https://github.com/bubkoo/html-to-image/pull/613) 已合入 `master`：没有分配节点时克隆 slot 的 fallback 子节点；有分配节点时仍只克隆分配内容。 | **本地覆盖**：`capture.test.ts` 在三引擎修复前得到透明像素，修复后得到绿色 fallback 像素；分配节点后得到红色像素、SVG 不含 fallback，源状态不变。构建 ESM 的三引擎冒烟测试通过；真实 iOS 对新增验收项待复测。 |
 | [Issue #578](https://github.com/bubkoo/html-to-image/issues/578) | HTML 文本中的 XML 1.0 非法控制字符进入 SVG，导致后续图像加载失败。 | SVG 序列化后移除非法控制字符，不改动源 DOM 文本。 | **本地覆盖**：`renderer.test.ts` 验证含 SOH 的输出可解析，源文本保留。原帖 Edge 环境尚未复测。 |
 | [Issue #570](https://github.com/bubkoo/html-to-image/issues/570) | HTML 注释可以包含 `--`，但复制到导出的 XML/SVG 后会触发解析错误。注释没有视觉内容。 | [PR #606](https://github.com/bubkoo/html-to-image/pull/606) 已合入 `master`：克隆入口跳过注释节点，保留源 DOM；不修改文本或元素内容。 | **修复前失败、修复后通过**：`xml-comments.test.ts` 在 Chromium 先得到 XML `parsererror`，修复后三浏览器源码与实际 UMD 构建包均验证 SVG 可解析、红色像素正确、源注释不变。PR 与合并后的 CI、CodeQL 通过；npm 尚未发布。 |
-| [Issue #594](https://github.com/bubkoo/html-to-image/issues/594) | 嵌套滚动容器的 `scrollTop`/`scrollLeft` 是运行时状态，序列化的副本丢失可见位置。 | 在副本中表达内容位移和裁剪；保留源节点的滚动状态。直接位于顶部的 sticky 标题保留原位与绘制层级，普通内容仍按滚动量位移。[PR #611](https://github.com/bubkoo/html-to-image/pull/611) 补充直接 fixed 子元素：仅位移正常流内容，并维持 fixed 叠放顺序。[PR #615](https://github.com/bubkoo/html-to-image/pull/615) 处理 sticky 前有普通块级内容的纵向滚动：用首个正常流子元素的边距表达滚动量，让浏览器继续定位 sticky。 | **部分覆盖**：`scroll.test.ts` 验证纵向、横向、已有子元素变换和混合直接文本回退；`capture.test.ts` 在三引擎核对单层、双层、直接 sticky、RTL 负 `scrollLeft` 与直接 fixed 元素在滚动视口内外的像素和源状态。按原帖独立页面结构补的 430×320 场景、200 px 面板、滚动 200 px 后第 5–8 行与 2× 画布像素在三引擎通过。新增 sticky 后置测试修复前在 Chromium 导出蓝色 spacer，修复后三引擎验证 `top:0/8px` 的红色标题、绿色内容和源滚动不变；fixed 覆盖层在 sticky 前后两种 DOM 顺序的修复前测试也失败，修复后蓝色覆盖层正确。构建后 ESM 的三引擎冒烟覆盖 fixed/sticky/普通内容，真实 iOS 待复验。原帖 Windows 主机、横向 sticky、混合行内内容、直接绝对定位和更深层组合尚未验证。 |
+| [Issue #594](https://github.com/bubkoo/html-to-image/issues/594) | 嵌套滚动容器的 `scrollTop`/`scrollLeft` 是运行时状态，序列化的副本丢失可见位置。 | 在副本中表达内容位移和裁剪；保留源节点的滚动状态。直接位于顶部的 sticky 标题保留原位与绘制层级，普通内容仍按滚动量位移。[PR #611](https://github.com/bubkoo/html-to-image/pull/611) 补充直接 fixed 子元素：仅位移正常流内容，并维持 fixed 叠放顺序。[PR #615](https://github.com/bubkoo/html-to-image/pull/615) 处理 sticky 前有普通块级内容的纵向滚动：用首个正常流子元素的边距表达滚动量，让浏览器继续定位 sticky。 | **部分覆盖**：`scroll.test.ts` 验证纵向、横向、已有子元素变换和混合直接文本回退；`capture.test.ts` 在三引擎核对单层、双层、直接 sticky、RTL 负 `scrollLeft` 与直接 fixed 元素在滚动视口内外的像素和源状态。按原帖独立页面结构补的 430×320 场景、200 px 面板、滚动 200 px 后第 5–8 行与 2× 画布像素在三引擎通过。新增 sticky 后置测试修复前在 Chromium 导出蓝色 spacer，修复后三引擎验证 `top:0/8px` 的红色标题、绿色内容和源滚动不变；早期 transformed-fixed 在 sticky 前后两种 DOM 顺序中期待蓝色覆盖层，但未核对原生源像素；该期望已由本轮 fixed 源页面对照纠正，不能沿用为保真证据。构建后 ESM 的三引擎冒烟覆盖 fixed/sticky/普通内容，真实 iOS 待复验。原帖 Windows 主机、横向 sticky、混合行内内容、直接绝对定位和更深层组合尚未验证。 |
 | [Issue #515](https://github.com/bubkoo/html-to-image/issues/515) / [PR #583](https://github.com/bubkoo/html-to-image/pull/583) | SVG 被整体深拷贝，`filter` 无法访问 `foreignObject` 等后代。 | SVG 后代也走可筛选的递归克隆。 | **本地覆盖**：`renderer.test.ts` 和跨浏览器新测试直接验证 `foreignObject` 后代被 `filter` 排除；尚未跑原帖的完整 SVG fixture。 |
 | [PR #595](https://github.com/bubkoo/html-to-image/pull/595) | 样式属性列表缓存在全局，首次捕获的选项泄漏到后续捕获。 | 样式选择归属单次捕获；显式空数组和伪元素选择按各次选项处理。 | **本地覆盖**：`renderer.test.ts` 的并发选项、冻结选项、伪元素 CSS 回归。此分支是独立实现，不应说已合并该 PR。 |
 | [PR #597](https://github.com/bubkoo/html-to-image/pull/597) / [Issue #457](https://github.com/bubkoo/html-to-image/issues/457) | 用户需要按源元素修改导出副本，又不修改可见页面。 | 新增同步 `onCloneNode(original, copy)`，在子节点和样式复制后、整份 `onClone` 前运行；V2 的 SVG 后代也逐个触发。 | **本地覆盖**：`renderer.test.ts` 验证顺序、过滤、SVG 后代、异常和源不变；`capture.test.ts` 三引擎验证像素；构建 ESM 三引擎和实际 npm 压缩包类型验证通过。此分支独立实现，不能说合并了原 PR。 |
@@ -46,6 +46,15 @@
 | [PR #590](https://github.com/bubkoo/html-to-image/pull/590) | `toBlob` 丢弃调用者指定的 MIME 和质量。 | 旧入口向画布编码传递 `type`、`quality`，包括 `quality: 0`。 | **本地覆盖**：`renderer.test.ts` 验证 JPEG Blob 类型和传给浏览器的质量参数。 |
 | [PR #591](https://github.com/bubkoo/html-to-image/pull/591) / [Issue #488](https://github.com/bubkoo/html-to-image/issues/488) | WebKit 首次栅格化大图可能透明；预先 `decode()` 不能证明 SVG `foreignObject` 已绘制。 | 可选 `stabilizationAttempts` 对同一冻结 SVG 重绘，默认仍为 1 次。 | **部分覆盖**：模拟首次空白的像素回归；构建产物的大图标记测试在 Chromium、Firefox、WebKit 通过；本机 Safari 26.5.2 和真实 iPhone 16 Pro Safari 的随机 800×800 PNG 首次透明、稳定化后中心像素正确。实现语义不是 PR #591 的“连续两次结果相同才停止”；SVG 图片、跨域、所有 iOS/WebKit 场景未验证。 |
 | PR #600 CI 中发现的下拉框问题 | 固定 PNG 参考图受 Linux 系统字体绘制影响；旧克隆逻辑只查显式 `value` 属性，会丢失运行时选择，并无法区分重复值选项。 | 下拉框测试改查选择语义和同环境像素变化；克隆按每个源选项的实际选中状态同步。 | **CI 覆盖**：`select.test.ts` 的 3 个 fixture、运行时切换、重复值、过滤前置选项用例；[首次失败](https://github.com/bubkoo/html-to-image/actions/runs/40829694424) 后，[修复提交完整通过](https://github.com/bubkoo/html-to-image/actions/runs/40830152086)。 |
+
+## 2026-11-11 fixed 滚动源页面对照（#408 / #345 / #594）
+
+独立原生截图发现早期 transformed-fixed + sticky 测试的期望有误：滚动 50px 后 fixed 已在 -50px，源顶部为绿色，旧导出和测试却期待蓝色。三个引擎均复现，不能继续把旧测试通过当页面保真证据。[独立原生 PNG、计数与范围](evidence/fixed-scroll.json)和[重放](evidence/fixed-scroll-replay.md)已归档。
+
+候选使用源浏览器 offsetParent 区分当前容器、其他祖先或视口。纵向块流内有 fixed 后代时复用伪元素流偏移，避免把普通包装层变成新的 fixed 包含块；只给随当前容器滚动的 fixed 调整 inset，保留已有变换。直接横向/斜向 fixed 同样按实际关系处理。27 个输入覆盖 CSS 建立包含块的多种方式、sticky 两种顺序、普通/混合/深层/嵌套 fixed、已有变换、bottom/auto/right/RTL 和源 important。最终输入在基线 57 失败、24 通过，原生源对照全通过；候选 81 通过。完整 lint/构建/类型/tarball、261 覆盖率、425 源码（另 1 项既有 GC 跳过）及 126 构建包检查通过；真机及远端待验。
+
+横向/斜向的深层 fixed 包装组合、已有 inline before 与绝对定位回退、任意捕获根偏移、其他未测布局及滚动条外观仍保留边界；不按整个 #408/#345 已解决处理。
+
 
 ## 尚不能宣称解决
 
@@ -65,6 +74,6 @@
 
 ## 2026-11-11 混合滚动补充
 
-#408 / #345 / #594：直接文本或行内节点曾触发不保留 scrollTop 的回退。候选用副本伪元素表达限定纵向块布局的流偏移，不包装真实子节点；结构选择器、源 important 规则和负边距都有独立对照。14 种输入 × 三引擎在旧源码全部 42 项失败、源截图对照全通过，候选 42 项通过。完整检查 234/344/123（另 1 项既有 GC 跳过）；源码 `42e8012` 真实 iPhone Safari 完整 25/25 通过，远端待验，见 [证据](evidence/mixed-scroll.json)。横向/斜向混合文字、绝对定位和原生滚动条外观仍有限制，不按整个旧 PR/Issue 已解决处理。
+#408 / #345 / #594：直接文本或行内节点曾触发不保留 scrollTop 的回退。候选用副本伪元素表达限定纵向块布局的流偏移，不包装真实子节点；结构选择器、源 important 规则和负边距都有独立对照。14 种输入 × 三引擎在旧源码全部 42 项失败、源截图对照全通过，候选 42 项通过。完整检查 234/344/123（另 1 项既有 GC 跳过）；源码 `42e8012` 真实 iPhone Safari 完整 25/25 通过；#630 已合入 master（7169372），PR/主分支 CI、CodeQL 与 PR Codecov 全部通过，见 [证据](evidence/mixed-scroll.json)。横向/斜向混合文字、绝对定位和原生滚动条外观仍有限制，不按整个旧 PR/Issue 已解决处理。
 
 #451：`b9f2dfd` 的真实 iPhone 暂停视频验证补齐，默认和稳定化输出均保留 object-fit:contain 的紫色留白及中心帧，源不变。输入为带正确 MIME 的 Blob，限定范围和初始输入故障见 [原始记录](evidence/ios-video-aspect-b9f2dfd.json)；不推广为 HTTP 播放/CORS 或所有适配模式验证。

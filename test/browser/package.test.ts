@@ -21,6 +21,7 @@ const cases = [
   'same-origin iframe viewport',
   'nested visible scroll position',
   'mixed text and inline scroll positions',
+  'fixed positioning follows its source containing block',
   'sticky child after spacer',
   'same-document clip path',
   'SVG use local and external symbols',

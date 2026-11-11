@@ -18,18 +18,43 @@ export function cloneScrollState<T extends HTMLElement>(
     (child as HTMLElement).style.display.startsWith('inline'),
   )
   const task = getTask(options)
+  const descendants = Array.from(clonedNode.querySelectorAll('*'))
+  const fixed = descendants.filter(
+    (child) => (child as HTMLElement).style?.position === 'fixed',
+  ) as HTMLElement[]
+  const original = task?.getCloneSource(clonedNode) || nativeNode
+  const shiftFixed = (element: HTMLElement) => {
+    const source = task?.getCloneSource(element) as HTMLElement | undefined
+    if (source?.offsetParent !== original) return
+    // Use the source browser's containing block, rather than guessing from a
+    // subset of CSS properties. Insets do not create another containing block
+    // for nested fixed descendants, as an added transform would.
+    const { style } = element
+    const shift = (start: string, end: string, amount: number) => {
+      if (!amount) return
+      const value = style.getPropertyValue(start)
+      const opposite = style.getPropertyValue(end)
+      if (value && value !== 'auto') {
+        style.setProperty(start, `calc(${value} - ${amount}px)`, 'important')
+        style.setProperty(end, 'auto', 'important')
+      } else if (opposite && opposite !== 'auto') {
+        style.setProperty(end, `calc(${opposite} + ${amount}px)`, 'important')
+      }
+    }
+    shift('left', 'right', scrollLeft)
+    shift('top', 'bottom', scrollTop)
+  }
   if (
     task &&
-    (hasDirectText || hasInline) &&
+    (hasDirectText || hasInline || fixed.length) &&
     scrollLeft === 0 &&
     scrollTop > 0 &&
     clonedNode.style.display === 'block' &&
     clonedNode.style.writingMode === 'horizontal-tb' &&
-    !Array.from(clonedNode.querySelectorAll('*')).some(
+    !descendants.some(
       (child) => (child as HTMLElement).style?.position === 'absolute',
     )
   ) {
-    const original = task.getCloneSource(clonedNode) || nativeNode
     const before = (
       original.ownerDocument.defaultView || window
     ).getComputedStyle(original, '::before')
@@ -52,18 +77,7 @@ export function cloneScrollState<T extends HTMLElement>(
         ? `all:initial!important;content:""!important;display:block!important;height:1px!important;margin:${-scrollTop - 1}px 0 0!important;overflow:hidden!important;`
         : `margin-top:calc(${margin} - ${scrollTop}px)!important;`
       task.addClonedStyle(`.${className}::before { ${declarations} }`)
-      // A fixed child whose containing block is this transformed scroller
-      // scrolls with that block, while viewport-fixed children stay anchored.
-      if (clonedNode.style.transform && clonedNode.style.transform !== 'none') {
-        children.forEach((child) => {
-          const style = (child as HTMLElement).style
-          if (style.position === 'fixed') {
-            const transform = style.transform
-            style.transform =
-              `translate(0px, ${-scrollTop}px) ${transform && transform !== 'none' ? transform : ''}`.trim()
-          }
-        })
-      }
+      fixed.forEach(shiftFixed)
       clonedNode.style.overflow = 'hidden'
       return
     }
@@ -95,6 +109,7 @@ export function cloneScrollState<T extends HTMLElement>(
     const margin = firstFlowChild?.style.marginTop || '0px'
     if (firstFlowChild && margin !== 'auto') {
       firstFlowChild.style.marginTop = `calc(${margin} - ${scrollTop}px)`
+      fixed.forEach(shiftFixed)
       clonedNode.style.overflow = 'hidden'
       return
     }
@@ -122,6 +137,7 @@ export function cloneScrollState<T extends HTMLElement>(
   children.forEach((child, index) => {
     const element = child as HTMLElement
     if (element.style.position === 'fixed') {
+      shiftFixed(element)
       // Translated siblings create stacking contexts above an auto-z fixed child.
       if (!element.style.zIndex || element.style.zIndex === 'auto') {
         element.style.zIndex = '1'

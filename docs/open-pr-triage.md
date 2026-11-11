@@ -2,6 +2,14 @@
 
 更新于 2026-11-11。按创建 [PR #603](https://github.com/bubkoo/html-to-image/pull/603) 前的 52 个开放 PR 编号逐一登记。`master` 已包含 V2，尚未发布 V2 到 npm。已向下节 22 个 PR 回复具体证据并关闭；无关的 #517 也已说明后关闭。其余“关闭”仍为建议动作，不能当作已完成。旧分支的补丁不能因 CI 变绿就直接合并到 V2。
 
+## 2026-11-11 fixed 滚动源页面对照（#408 / #345 / #594）
+
+独立原生截图发现早期 transformed-fixed + sticky 测试的期望有误：滚动 50px 后 fixed 已在 -50px，源顶部为绿色，旧导出和测试却期待蓝色。三个引擎均复现，不能继续把旧测试通过当页面保真证据。[独立原生 PNG、计数与范围](evidence/fixed-scroll.json)和[重放](evidence/fixed-scroll-replay.md)已归档。
+
+候选使用源浏览器 offsetParent 区分当前容器、其他祖先或视口。纵向块流内有 fixed 后代时复用伪元素流偏移，避免把普通包装层变成新的 fixed 包含块；只给随当前容器滚动的 fixed 调整 inset，保留已有变换。直接横向/斜向 fixed 同样按实际关系处理。27 个输入覆盖 CSS 建立包含块的多种方式、sticky 两种顺序、普通/混合/深层/嵌套 fixed、已有变换、bottom/auto/right/RTL 和源 important。最终输入在基线 57 失败、24 通过，原生源对照全通过；候选 81 通过。完整 lint/构建/类型/tarball、261 覆盖率、425 源码（另 1 项既有 GC 跳过）及 126 构建包检查通过；真机及远端待验。
+
+横向/斜向的深层 fixed 包装组合、已有 inline before 与绝对定位回退、任意捕获根偏移、其他未测布局及滚动条外观仍保留边界；不按整个 #408/#345 已解决处理。
+
 ## 2026-11-11 长期目标基线
 
 后续进展：尺寸修复已随 [#618](https://github.com/bubkoo/html-to-image/pull/618) 合入 `master`（`319da08`），CI、CodeQL 和 Codecov patch/project 全部通过。图片异步错误回调修复已随 [#619](https://github.com/bubkoo/html-to-image/pull/619) 合入 `master`（`de9136c`），PR 与主分支 CI、CodeQL、PR Codecov patch/project 通过；组合真机验收为 15/15，报告对应源码 `841908f`，见 [发布验收记录](v2-release-readiness.md)。旧 #409/#504 的完整应用场景仍保留各自边界，npm 不发布。
@@ -168,7 +176,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 此前包含直接文本或行内子元素时直接回退，导出丢失 scrollTop，源视口绿色而截图为红色。候选对正向纵向滚动、horizontal-tb 的块级容器，用副本 ::before 的流偏移表达滚动量；不包裹、不重排真实子节点。已有块级 ::before 保留内容，仅调整顶边距；空伪元素的 1px 高度防止与后续负边距合并。私有规则位于 SVG 外层最先声明的层，其 important 优先级依据 [CSS Cascade 5](https://www.w3.org/TR/css-cascade-5/#layer-order)，避免源 ID 或分层 important 规则覆盖偏移。
 
-14 种共享输入覆盖直接/换行文字、padding/border、首块负边距、结构选择器和分层 important、已有 before/after、sticky、变换包含块中的直接 fixed、嵌套、RTL 纵向、纯行内元素和同源 iframe。三引擎均先截取浏览器实际源页面作为像素对照，再核对捕获像素和源不变；最终输入在旧源码 42/42 失败，源对照无失败，候选 42/42 通过。完整 lint/构建/类型/tarball、234 覆盖率、344 源码（另 1 项既有 GC 跳过）及 123 构建包检查通过。[证据与范围](evidence/mixed-scroll.json)已归档，源码 `42e8012` 真实 iPhone Safari 完整 25/25 通过（新增 14 场景分别经 ESM/UMD 验证），[原始报告](evidence/ios-safari-mixed-scroll-42e8012.json)已归档，远端待验。
+14 种共享输入覆盖直接/换行文字、padding/border、首块负边距、结构选择器和分层 important、已有 before/after、sticky、变换包含块中的直接 fixed、嵌套、RTL 纵向、纯行内元素和同源 iframe。三引擎均先截取浏览器实际源页面作为像素对照，再核对捕获像素和源不变；最终输入在旧源码 42/42 失败，源对照无失败，候选 42/42 通过。完整 lint/构建/类型/tarball、234 覆盖率、344 源码（另 1 项既有 GC 跳过）及 123 构建包检查通过。[证据与范围](evidence/mixed-scroll.json)已归档，源码 `42e8012` 真实 iPhone Safari 完整 25/25 通过（新增 14 场景分别经 ESM/UMD 验证），[原始报告](evidence/ios-safari-mixed-scroll-42e8012.json)已归档；[#630](https://github.com/bubkoo/html-to-image/pull/630) 已合入 master（7169372），PR/主分支 CI、CodeQL 与 PR Codecov 全部通过。
 
 横向/斜向混合文字、竖排、已有 inline before、绝对定位组合、其他 fixed 包含块及原生滚动条外观仍有边界；#408/#345 不按全部完成处理。
 

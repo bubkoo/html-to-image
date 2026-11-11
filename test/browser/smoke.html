@@ -21,6 +21,7 @@
     import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
+    import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -39,6 +40,18 @@
           4 * (y * image.width + x) + 4,
         ),
       )
+
+    async function loadUMD() {
+      if (!window.htmlToImage) {
+        const script = document.createElement('script')
+        script.src = '/dist/html-to-image.js'
+        await new Promise((resolve, reject) => {
+          script.onload = resolve
+          script.onerror = () => reject(new Error('UMD script did not load'))
+          document.head.append(script)
+        })
+      }
+    }
 
     async function test(name, run) {
       if (selectedCase && selectedCase !== name) return
@@ -79,15 +92,7 @@
     })
 
     await test('UMD global and pixels', async () => {
-      if (!window.htmlToImage) {
-        const script = document.createElement('script')
-        script.src = '/dist/html-to-image.js'
-        await new Promise((resolve, reject) => {
-          script.onload = resolve
-          script.onerror = () => reject(new Error('UMD script did not load'))
-          document.head.append(script)
-        })
-      }
+      await loadUMD()
       const node = document.createElement('div')
       node.style.cssText = 'width:20px;height:20px;background:rgb(255,0,0)'
       document.body.append(node)
@@ -175,45 +180,21 @@
 
     await test('capture source document lifetime', async () => {
       await checkCaptureLifetime({ createRenderer })
-      if (!window.htmlToImage) {
-        const script = document.createElement('script')
-        script.src = '/dist/html-to-image.js'
-        await new Promise((resolve, reject) => {
-          script.onload = resolve
-          script.onerror = () => reject(new Error('UMD script did not load'))
-          document.head.append(script)
-        })
-      }
+      await loadUMD()
       await checkCaptureLifetime(window.htmlToImage)
     })
 
     await test('pseudo background and injected mask resources', async () => {
       await checkPseudoResources({ createRenderer }, { skipFonts: true })
       await checkPseudoResources({ createRenderer }, { skipFonts: false })
-      if (!window.htmlToImage) {
-        const script = document.createElement('script')
-        script.src = '/dist/html-to-image.js'
-        await new Promise((resolve, reject) => {
-          script.onload = resolve
-          script.onerror = () => reject(new Error('UMD script did not load'))
-          document.head.append(script)
-        })
-      }
+      await loadUMD()
       await checkPseudoResources(window.htmlToImage, { skipFonts: true })
       await checkPseudoResources(window.htmlToImage, { skipFonts: false })
     })
 
     await test('SVG dependency graphs and reference precedence', async () => {
       await checkSVGDependencies({ createRenderer })
-      if (!window.htmlToImage) {
-        const script = document.createElement('script')
-        script.src = '/dist/html-to-image.js'
-        await new Promise((resolve, reject) => {
-          script.onload = resolve
-          script.onerror = () => reject(new Error('UMD script did not load'))
-          document.head.append(script)
-        })
-      }
+      await loadUMD()
       await checkSVGDependencies(window.htmlToImage)
     })
 
@@ -354,17 +335,17 @@
       for (const kind of mixedScrollCases) {
         await checkMixedScroll({ createRenderer }, kind)
       }
-      if (!window.htmlToImage) {
-        const script = document.createElement('script')
-        script.src = '/dist/html-to-image.js'
-        await new Promise((resolve, reject) => {
-          script.onload = resolve
-          script.onerror = () => reject(new Error('UMD script did not load'))
-          document.head.append(script)
-        })
-      }
+      await loadUMD()
       for (const kind of mixedScrollCases) {
         await checkMixedScroll(window.htmlToImage, kind)
+      }
+    })
+
+    await test('fixed positioning follows its source containing block', async () => {
+      await loadUMD()
+      for (const kind of fixedScrollCases) {
+        await checkFixedScroll({ createRenderer }, kind)
+        await checkFixedScroll(window.htmlToImage, kind)
       }
     })
 
@@ -389,7 +370,7 @@
         const overlay = pixel(image, 20, 2).join(',')
         const sticky = pixel(image, 20, 13).join(',')
         const content = pixel(image, 20, 25).join(',')
-        if (overlay !== '0,0,255,255' || sticky !== '255,0,0,255' || content !== '0,128,0,255') {
+        if (overlay !== '0,128,0,255' || sticky !== '255,0,0,255' || content !== '0,128,0,255') {
           throw new Error(`overlay/sticky/content pixels ${overlay} / ${sticky} / ${content}`)
         }
         if (panel.scrollTop !== 50)

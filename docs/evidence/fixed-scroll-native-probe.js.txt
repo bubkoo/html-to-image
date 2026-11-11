@@ -1,0 +1,17 @@
+async (page) => {
+  await page.goto('http://localhost:4373/test/browser/umd.html');
+  const result = await page.evaluate(async () => {
+    document.body.replaceChildren();document.body.style.cssText = 'margin:0;padding:0';
+    const {toImageData} = await import('/es/index.js');
+    const root = document.createElement('div');root.id='source';root.style.cssText='width:40px;height:40px;overflow:hidden';
+    const panel=document.createElement('div');panel.style.cssText='width:40px;height:40px;overflow:auto;scrollbar-width:none;transform:translate(0,0)';
+    panel.innerHTML='<div id="fixed" style="position:fixed;top:0;left:0;width:40px;height:4px;background:blue"></div><div style="height:40px;background:blue"></div><div style="position:sticky;top:8px;height:10px;background:red"></div><div style="height:80px;background:green"></div>';
+    root.append(panel);document.body.append(root);panel.scrollTop=50;
+    const source=root.outerHTML;
+    const image=await toImageData(root,{pixelRatio:1,skipFonts:true});
+    const at=y=>Array.from(image.data.slice(4*(y*image.width+20),4*(y*image.width+20)+4));
+    return {userAgent:navigator.userAgent,scrollTop:panel.scrollTop,sourceUnchanged:source===root.outerHTML,fixedTop:panel.querySelector('#fixed').getBoundingClientRect().top-panel.getBoundingClientRect().top,capture:{top:at(2),sticky:at(13),content:at(25)}};
+  });
+  await page.locator('#source').screenshot({path:'/tmp/html-to-image-blob-check/fixed-scroll/source-'+page.context().browser().browserType().name()+'.png',scale:'css'});
+  return result;
+}

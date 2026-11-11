@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-11-11",
+  "baselineRevision": "71693724f0748e2ef0a3986b92975670e60f0b24",
+  "sourcePRs": [408],
+  "relatedIssues": [345, 594],
+  "rootCause": "Fixed positioning can be attached to a scroll container or a different ancestor/viewport. Old paths unconditionally anchored direct fixed children, and transforms added to normal-flow wrappers introduced new fixed containing blocks. Existing transformed-fixed tests incorrectly expected blue where independent native source screenshots are green.",
+  "method": "27 shared fixtures with exact native source screenshot and capture RGBA controls in each of Chromium, Firefox and WebKit; source DOM and scroll immutability. Final baseline restores only clone-scroll.ts from 7169372 without changing fixtures or browser commands.",
+  "baseline": {
+    "failed": 57,
+    "passed": 24,
+    "nativeControlFailures": 0
+  },
+  "candidate": {
+    "targetedPassed": 81,
+    "fullChecks": {
+      "coveragePassed": 261,
+      "sourcePassed": 425,
+      "sourceSkipped": 1,
+      "skipReason": "Inherited WebKit native iframe GC control",
+      "builtPackagePassed": 126,
+      "lintBuildTypesTarball": "passed"
+    }
+  },
+  "independentNativeProbe": {
+    "chrome": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "scrollTop": 50,
+      "sourceUnchanged": true,
+      "fixedTop": -50,
+      "capture": {
+        "top": [0, 0, 255, 255],
+        "sticky": [255, 0, 0, 255],
+        "content": [0, 128, 0, 255]
+      }
+    },
+    "firefox": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "scrollTop": 50,
+      "sourceUnchanged": true,
+      "fixedTop": -50,
+      "capture": {
+        "top": [0, 0, 255, 255],
+        "sticky": [255, 0, 0, 255],
+        "content": [0, 128, 0, 255]
+      }
+    },
+    "webkit": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "scrollTop": 50,
+      "sourceUnchanged": true,
+      "fixedTop": -50,
+      "capture": {
+        "top": [0, 0, 255, 255],
+        "sticky": [255, 0, 0, 255],
+        "content": [0, 128, 0, 255]
+      }
+    }
+  },
+  "nativeSourcePixels": {
+    "top": [0, 128, 0, 255],
+    "sticky": [255, 0, 0, 255],
+    "content": [0, 128, 0, 255]
+  },
+  "filesSha256": {
+    "src/clone-scroll.ts": "1f17cff53c06a2a380c813fc2afce65ddfa092fd79d6ea0a05b0602e34efdfb0",
+    "test/browser/fixtures/fixed-scroll.mjs": "5a9683d0a8bbc8a0de561b6576b2bd0868acbbc2e03ce6d53210c20b610f1c46",
+    "test/browser-unit/fixed-scroll.test.ts": "aec82dc3c7fd224ca4a7fe620379f47e82abcb4380d10a8155fe7e192cde3c7a"
+  },
+  "standards": [
+    "https://drafts.csswg.org/cssom-view/#dom-htmlelement-offsetparent",
+    "https://www.w3.org/TR/css-position-3/#fixed-cb"
+  ],
+  "limits": [
+    "Fixed descendants of normal-flow wrappers in horizontal/diagonal paths are not covered by the vertical flow solution",
+    "Existing inline before pseudo and absolute-positioned combinations can retain the prior fallback",
+    "No universal claim for every layout, writing mode or fixed element at arbitrary capture-root viewport offsets",
+    "Native scrollbar appearance is not copied"
+  ],
+  "nativeIOS": "Pending committed-source build",
+  "remote": "Pending",
+  "testHarnessNote": "First full run had one Chromium selected-case failure because the new smoke item did not load UMD independently; fixed the shared loader, then repeated the complete stable run: 261/425+1skip/126 passed. This is distinct from the 57 baseline capture regressions."
+}

@@ -61,6 +61,26 @@
     "sourceUnchanged": true,
     "note": "Full smoke validates captured pixels against shared expected markers and source state; independent native source screenshots for every fixture are from the desktop three-engine suite."
   },
-  "remote": "Pending",
+  "remote": {
+    "pr": 630,
+    "sourceRevision": "42e8012fecc65bf0ea99a10450be2470dda37505",
+    "checkedHead": "34f23190508fc2e2f3132886bbd8db994be1862f",
+    "mergedRevision": "71693724f0748e2ef0a3986b92975670e60f0b24",
+    "prCI": 42933821376,
+    "prCodeQL": 42933821528,
+    "prCodecovPatch": "passed",
+    "prCodecovProject": "passed",
+    "masterCI": 42934317634,
+    "masterCodeQL": 42934317632,
+    "status": "all passed; merged tree matches checked PR head",
+    "nativeReport": "docs/evidence/ios-safari-mixed-scroll-42e8012.json",
+    "nativePassed": 25,
+    "local": {
+      "coveragePassed": 234,
+      "sourcePassed": 344,
+      "sourceSkipped": 1,
+      "packagePassed": 123
+    }
+  },
   "candidateRevision": "42e8012fecc65bf0ea99a10450be2470dda37505"
 }
