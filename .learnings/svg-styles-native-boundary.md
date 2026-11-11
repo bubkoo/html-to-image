@@ -24,5 +24,5 @@ SVG2 的 use 样式模型也提示不能先在原文档匹配选择器后冻结�
 - Scope: external stylesheet behavior and choice between live-page fidelity and file-style normalization
 - Authority: real HTTP live-DOM screenshots, capture pixels, source immutability, byte-identical real iPhone controls with and without main CSS
 - Revalidation: external SVG CSS handling, browser engines, stylesheet scoping or output contract changes
-- Validation: characterization only; no fixed-regression count or runtime completion claimed
+- Validation: characterization only; PR #628 and master CI/CodeQL passed; output-contract decision still pending; no fixed-regression count or runtime completion claimed
 - Last-Validated: 2026-11-11

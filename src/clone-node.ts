@@ -190,9 +190,9 @@ function cloneCSSStyle<T extends HTMLElement>(
         }
       }
       if (
-        isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
         name === 'display' &&
-        value === 'inline'
+        value === 'inline' &&
+        isInstanceOfElement(nativeNode, HTMLIFrameElement)
       ) {
         value = 'block'
       }

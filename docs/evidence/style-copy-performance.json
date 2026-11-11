@@ -1,0 +1,115 @@
+{
+  "checkedAt": "2026-11-11T00:08:51.936777+00:00",
+  "baselineRevision": "3080a424514fb5c927d390272340acf2baaaec3b",
+  "sourcePRs": [473, 585],
+  "scope": "Avoid repeated cross-realm iframe checks for unrelated computed properties; no stylesheet mode or tiling API change",
+  "method": "Identical esbuild 0.28.2 bundling of baseline/candidate. Each engine measured separately; six interleaved capture/canvas samples per mode with alternating order, discard first sample and report median of remaining five. Same 401-node class-based 40x8000 fixture, green top/bottom pixels, full serialized SVG byte identity and source DOM immutability.",
+  "measurements": {
+    "chromium": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "nodes": 401,
+      "dimensions": [40, 8000],
+      "modes": {
+        "baseline": {
+          "captureMs": [211.4, 204, 206.4, 201.6, 200.6, 202.8],
+          "canvasMs": [257.4, 204.8, 207.3, 202.4, 201.4, 203.6],
+          "medianCaptureMs": 202.8,
+          "medianCanvasMs": 203.6,
+          "svgBytes": 2842933
+        },
+        "candidate": {
+          "captureMs": [150.7, 145.2, 142.7, 141.6, 140.4, 141.1],
+          "canvasMs": [198.2, 146.1, 143.4, 142.7, 141.2, 141.8],
+          "medianCaptureMs": 141.6,
+          "medianCanvasMs": 142.7,
+          "svgBytes": 2842933
+        }
+      },
+      "identicalSVG": true,
+      "sourceUnchanged": true
+    },
+    "firefox": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "nodes": 401,
+      "dimensions": [40, 8000],
+      "modes": {
+        "baseline": {
+          "captureMs": [140, 139, 135, 134, 137, 128],
+          "canvasMs": [165, 143, 142, 139, 143, 135],
+          "medianCaptureMs": 135,
+          "medianCanvasMs": 142,
+          "svgBytes": 2379365
+        },
+        "candidate": {
+          "captureMs": [124, 123, 122, 123, 121, 116],
+          "canvasMs": [131, 130, 127, 129, 128, 122],
+          "medianCaptureMs": 122,
+          "medianCanvasMs": 128,
+          "svgBytes": 2379365
+        }
+      },
+      "identicalSVG": true,
+      "sourceUnchanged": true
+    },
+    "webkit": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "nodes": 401,
+      "dimensions": [40, 8000],
+      "modes": {
+        "baseline": {
+          "captureMs": [161, 158, 153, 148, 148, 150],
+          "canvasMs": [189, 159, 154, 149, 149, 151],
+          "medianCaptureMs": 150,
+          "medianCanvasMs": 151,
+          "svgBytes": 2866191
+        },
+        "candidate": {
+          "captureMs": [143, 146, 138, 139, 138, 137],
+          "canvasMs": [144, 148, 139, 141, 139, 138],
+          "medianCaptureMs": 138,
+          "medianCanvasMs": 139,
+          "svgBytes": 2866191
+        }
+      },
+      "identicalSVG": true,
+      "sourceUnchanged": true
+    }
+  },
+  "discardedExperiment": "Batch CSSOM writes gave about 2% capture improvement in the Chromium probe and did not preserve byte-identical SVG; it was reverted before this change.",
+  "performanceEvidence": "These are paired before/after latency measurements, not newly failing functional tests; existing correctness regressions are retained.",
+  "limitations": [
+    "One controlled class-based fixture; not a general large-DOM or memory-bound result",
+    "Output SVG size remains roughly 2.4-2.9MB; the 13KB historical page-CSS mode is a distinct tradeoff",
+    "External SVG stylesheet contract is still pending user selection",
+    "No full #473/#585 completion or npm release claimed"
+  ],
+  "sourceSha256": {
+    "baseline/src/clone-node.ts": "ddd1529770fa9d4e132d422ac24f0a0f6746b7c6ac1120c246d5569e31171169",
+    "candidate/src/clone-node.ts": "7d8b42780d7f1d2845b230a5bd2224c6dac5e234b9c312043f0ca77496add30b"
+  },
+  "bundleSha256": {
+    "baseline": "32ea8cdd3c0304641b2b738ef1076cf86a35edb0197560d63773a63d5ff66476",
+    "candidate": "392546a04ee759e10cfe101cb8d6536333283b193ca1a2613fa894572c445384"
+  },
+  "measuredScriptSha256": "869ba90f0b3edf36485d424e31cb0189463b61d8ff58a0048cf1a4c582c20e38",
+  "replayScript": "style-copy-performance-replay.js.txt",
+  "localValidation": {
+    "lint": "passed",
+    "build": "passed",
+    "browserTestTypes": "passed",
+    "coverageTests": 220,
+    "sourceBrowserTests": 302,
+    "sourceBrowserSkipped": 1,
+    "skipReason": "Inherited WebKit native iframe GC control",
+    "builtPackageBrowserTests": 120,
+    "tarballEntries": [
+      "ESM",
+      "CJS",
+      "UMD",
+      "TypeScript 4.9",
+      "current TypeScript"
+    ]
+  },
+  "nativeIOS": "Pending",
+  "remote": "Pending"
+}

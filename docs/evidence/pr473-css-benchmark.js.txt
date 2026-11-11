@@ -1,0 +1,29 @@
+async (page) => {
+  await page.addScriptTag({path:'./pr473.js'})
+  await page.addScriptTag({path:'./v2.js'})
+  return await page.evaluate(async () => {
+    const style=document.createElement('style');style.textContent='.hti-bench-root{width:40px;margin:0;padding:0}.hti-bench-row{width:40px;height:20px;background:green;margin:0;padding:0}';document.head.append(style)
+    const root=document.createElement('div');root.className='hti-bench-root'
+    for(let index=0;index<400;index+=1){const child=document.createElement('div');child.className='hti-bench-row';root.append(child)}
+    document.body.append(root);const source=root.outerHTML
+    const results={userAgent:navigator.userAgent,nodes:401,dimensions:[40,8000],modes:{}}
+    const apiModes=[['pr473-page-css',window.pr473],['current-v2',window.htmlToImage]]
+    try{
+      for(const [name,api] of apiModes) {
+        const samples=[];let pixels
+        for(let run=0;run<4;run+=1) {
+          const start=performance.now();const png=await api.toPng(root,{pixelRatio:1,skipFonts:true});samples.push(Math.round(performance.now()-start))
+          const image=new Image();image.src=png;await image.decode()
+          if(image.naturalWidth!==40||image.naturalHeight!==8000)throw new Error(name+' dimensions '+image.naturalWidth+'x'+image.naturalHeight)
+          const canvas=document.createElement('canvas');canvas.width=40;canvas.height=8000;const context=canvas.getContext('2d');context.drawImage(image,0,0)
+          pixels=[Array.from(context.getImageData(20,0,1,1).data),Array.from(context.getImageData(20,7999,1,1).data)]
+          if(pixels.some(pixel=>pixel.join(',')!=='0,128,0,255'))throw new Error(name+' pixels '+JSON.stringify(pixels))
+        }
+        const svg=await api.toSvg(root,{pixelRatio:1,skipFonts:true})
+        const raw=decodeURIComponent(svg.slice(svg.indexOf(',')+1))
+        results.modes[name]={pngSamplesMs:samples,medianAfterWarmupMs:[...samples.slice(1)].sort((a,b)=>a-b)[1],svgBytes:new TextEncoder().encode(raw).byteLength,pixels,sourceUnchanged:root.outerHTML===source}
+      }
+      return results
+    }finally{root.remove();style.remove()}
+  })
+}

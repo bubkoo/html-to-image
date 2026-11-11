@@ -1,0 +1,34 @@
+async (page) => {
+  await page.addScriptTag({path:'./pr473.js'})
+  return await page.evaluate(async () => {
+    const api=window.pr473
+    const results={userAgent:navigator.userAgent,dpr:devicePixelRatio,cases:[]}
+    const original=CanvasRenderingContext2D.prototype.drawImage
+    const draws=[]
+    CanvasRenderingContext2D.prototype.drawImage=function(...args) {
+      draws.push({source:[args[0].naturalWidth,args[0].naturalHeight],canvas:[this.canvas.width,this.canvas.height],coordinates:args.slice(1)})
+      return original.apply(this,args)
+    }
+    const pixel=(canvas,x,y)=>Array.from(canvas.getContext('2d').getImageData(x,y,1,1).data)
+    const measure=async(name,node,options)=>{
+      document.body.append(node);draws.length=0
+      const input=[node.getBoundingClientRect().width,node.getBoundingClientRect().height]
+      const before=JSON.stringify(options);const start=performance.now()
+      try {
+        const canvases=await api.toCanvasList(node,options)
+        results.cases.push({name,input,elapsedMs:Math.round(performance.now()-start),optionsChanged:before!==JSON.stringify(options),optionsAfter:options,outputs:canvases.map(canvas=>({size:[canvas.width,canvas.height],first:pixel(canvas,Math.floor(canvas.width/2),0),last:pixel(canvas,Math.floor(canvas.width/2),canvas.height-1)})),draws:[...draws]})
+      } catch(error) {results.cases.push({name,input,error:String(error),draws:[...draws]})}
+      finally {node.remove()}
+    }
+    try {
+      const wide=document.createElement('div');wide.style.cssText='width:17000px;height:20px;background:green'
+      await measure('wide',wide,{pixelRatio:1,usePageCss:false})
+      const tall=document.createElement('div');tall.style.cssText='position:relative;width:40px;height:20000px;background:green';tall.innerHTML='<div style="position:absolute;top:0;width:40px;height:20px;background:red"></div><div style="position:absolute;bottom:0;width:40px;height:20px;background:blue"></div>'
+      await measure('tall',tall,{pixelRatio:1,usePageCss:false})
+      const style=document.createElement('style');style.textContent='.pr473-media{width:20px;height:20px;background:red}@media(min-width:1px){.pr473-media{background:green}}';document.head.append(style)
+      const media=document.createElement('div');media.className='pr473-media'
+      try{await measure('media-default',media,{pixelRatio:1})}finally{style.remove()}
+      return results
+    } finally{CanvasRenderingContext2D.prototype.drawImage=original}
+  })
+}

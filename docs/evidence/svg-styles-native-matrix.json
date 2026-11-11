@@ -322,5 +322,15 @@
     "test/browser/fixtures/svg-styles/other.svg": "30d15426dfde9b1fed542fe9f612ceaf5b87d74c11308203546520e2a4889d60",
     "test/browser/fixtures/svg-styles/plain.svg": "e3a6fd5b664d4e0646c6ba7827317c10cac7da2e4ee567c9da397b9a77ba3225"
   },
-  "replaySource": "svg-styles-native-observation.test.ts.txt"
+  "replaySource": "svg-styles-native-observation.test.ts.txt",
+  "remote": {
+    "pr": 628,
+    "checkedHead": "cebd580f780ae06d6dc78eb2dc4154e2996a7e97",
+    "mergedRevision": "3080a424514fb5c927d390272340acf2baaaec3b",
+    "prCI": 42926885872,
+    "prCodeQL": 42926885876,
+    "masterCI": 42927378143,
+    "masterCodeQL": 42927378197,
+    "status": "all passed; no Codecov check emitted for this evidence-only PR"
+  }
 }

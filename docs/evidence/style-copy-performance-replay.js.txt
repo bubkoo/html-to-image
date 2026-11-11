@@ -1,0 +1,34 @@
+async (page) => {
+  await page.addScriptTag({path:'./baseline.js'})
+  await page.addScriptTag({path:'./candidate.js'})
+  return await page.evaluate(async () => {
+    const style=document.createElement('style');style.textContent='.hti-copy-root{width:40px;margin:0;padding:0}.hti-copy-row{width:40px;height:20px;background:green;margin:0;padding:0}';document.head.append(style)
+    const root=document.createElement('div');root.className='hti-copy-root'
+    for(let index=0;index<400;index+=1){const child=document.createElement('div');child.className='hti-copy-row';root.append(child)}
+    document.body.append(root);const source=root.outerHTML
+    const result={userAgent:navigator.userAgent,nodes:401,dimensions:[40,8000],modes:{baseline:{captureMs:[],canvasMs:[]},candidate:{captureMs:[],canvasMs:[]}}}
+    const renderers={baseline:window.baseline.createRenderer({pixelRatio:1,skipFonts:true}),candidate:window.candidate.createRenderer({pixelRatio:1,skipFonts:true})}
+    const svg={}
+    try {
+      for(let round=0;round<6;round+=1) {
+        const order=round%2?['candidate','baseline']:['baseline','candidate']
+        for(const name of order) {
+          const start=performance.now();const capture=await renderers[name].capture(root);const captured=performance.now();const canvas=await capture.toCanvas();const painted=performance.now()
+          result.modes[name].captureMs.push(Number((captured-start).toFixed(2)));result.modes[name].canvasMs.push(Number((painted-start).toFixed(2)))
+          const context=canvas.getContext('2d');const pixels=[Array.from(context.getImageData(20,0,1,1).data),Array.from(context.getImageData(20,7999,1,1).data)]
+          if(canvas.width!==40||canvas.height!==8000||pixels.some(pixel=>pixel.join(',')!=='0,128,0,255'))throw new Error(name+' pixels/dimensions '+JSON.stringify(pixels))
+          if(round===0) svg[name]=await capture.toSvg()
+          capture.dispose()
+        }
+      }
+      const median=(samples)=>samples.slice(1).sort((a,b)=>a-b)[2]
+      for(const name of ['baseline','candidate']) {
+        result.modes[name].medianCaptureMs=median(result.modes[name].captureMs)
+        result.modes[name].medianCanvasMs=median(result.modes[name].canvasMs)
+        result.modes[name].svgBytes=new TextEncoder().encode(decodeURIComponent(svg[name].slice(svg[name].indexOf(',')+1))).byteLength
+      }
+      result.identicalSVG=svg.baseline===svg.candidate;result.sourceUnchanged=root.outerHTML===source
+      return result
+    } finally {Object.values(renderers).forEach(renderer=>renderer.dispose());root.remove();style.remove()}
+  })
+}
