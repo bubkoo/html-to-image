@@ -343,8 +343,9 @@
     "Original Chinese font bytes and full original application are not supplied by this fixture",
     "System-font reference PNGs and syntactically valid fake font bytes are not proof of webfont glyph embedding"
   ],
-  "nativeIOS": "Pending committed-source build",
+  "nativeIOS": "Pending: prior real-device session expired; reconnect reports device unavailable. No candidate-native glyph result claimed.",
   "legacyAutomaticPassed": 3,
   "currentRuntimeIdentity": "Candidate working tree ESM; runtime source hashes are recorded in transformed-svg-resources.json and the committed native report will bind the final revision.",
-  "measurementNote": "Font embedding is recognized by a data URL in @font-face, including legacy application/font-truetype MIME. The old root-inherited mode embeds and renders correctly and is retained as a positive control."
+  "measurementNote": "Font embedding is recognized by a data URL in @font-face, including legacy application/font-truetype MIME. The old root-inherited mode embeds and renders correctly and is retained as a positive control.",
+  "candidateRevision": "c373dcd793a15604cff2981a865f807127dde2c5"
 }

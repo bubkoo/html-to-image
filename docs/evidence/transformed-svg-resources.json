@@ -29,12 +29,23 @@
     "test/browser-unit/transformed-svg.test.ts": "0f091a41ed032cff97a489555e28924ebc3e02be27dc3793137ce725eb35ee37"
   },
   "contractNote": "Primary captured-source onCloneNode calls remain before transforms. Auxiliary local SVG definitions outside that tree are now discovered/cloned in resources, invoking onCloneNode then; README documents this ordering. Direct internal cloneNode callers retain default reference resolution.",
-  "nativeIOS": "Pending committed-source build",
-  "remote": "Pending",
+  "nativeIOS": {
+    "status": "unavailable",
+    "checkedAt": "2026-11-11T02:49:36.045486+00:00",
+    "lastSession": "expired (invalid session id)",
+    "reconnect": "session not created: Some devices were found, but could not be used",
+    "candidatePassClaimed": false,
+    "required": "Reconnect original unlocked iPhone to Mac with Safari available, then run committed-source smoke and actual font source controls."
+  },
+  "remote": {
+    "pr": "https://github.com/bubkoo/html-to-image/pull/632",
+    "status": "checks running; not merged"
+  },
   "verificationScope": [
     "Complete pnpm run test:browser passed 281 coverage / 485 source + 1 inherited skip / 132 package before final test-only refinements.",
     "Final full coverage/source suite passed 282 / 488 + 1 inherited skip; lint and test types passed. Production code is unchanged.",
     "After broadening the font-MIME observation predicate, all 18 font-source checks and the three-engine built ESM/UMD font case passed again.",
     "Final standalone clone compatibility case was added to the unit suite; baseline/candidate comparison is in the same final test file."
-  ]
+  ],
+  "candidateRevision": "c373dcd793a15604cff2981a865f807127dde2c5"
 }
