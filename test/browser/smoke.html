@@ -368,7 +368,7 @@
       }
     })
 
-    await test('horizontal fixed descendants preserve containing blocks', async () => {
+    await test('flex scroll preserves positioned descendants', async () => {
       await loadUMD()
       for (const kind of horizontalFixedCases) {
         await checkHorizontalFixed({ createRenderer }, kind)

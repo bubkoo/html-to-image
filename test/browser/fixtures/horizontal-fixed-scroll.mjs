@@ -13,6 +13,28 @@ export const horizontalFixedCases = [
   'local-margin',
   'local-important',
   'local-selected',
+  'local-diagonal',
+  'viewport-diagonal',
+  'ancestor-diagonal',
+  'wrapper-diagonal',
+  'local-diagonal-deep',
+  'local-diagonal-absolute',
+  'local-diagonal-important',
+  'local-diagonal-selected',
+  'local-diagonal-rtl',
+  'local-column',
+  'local-column-reverse',
+  'local-column-diagonal',
+  'local-column-diagonal-rtl',
+  'local-wrap',
+  'local-wrap-reverse',
+  'local-center-diagonal',
+  'local-baseline-diagonal',
+  'local-absolute-only',
+  'local-absolute-only-diagonal',
+  'local-relative-absolute-only-diagonal',
+  'ancestor-absolute-only-diagonal',
+  'wrapper-absolute-only-diagonal',
 ]
 
 export async function createHorizontalFixedScene(kind) {
@@ -26,13 +48,33 @@ export async function createHorizontalFixedScene(kind) {
   if (kind.startsWith('local')) panel.style.transform = 'translate(0,0)'
   if (kind.startsWith('ancestor')) root.style.transform = 'translate(0,0)'
   if (kind.endsWith('rtl')) panel.style.direction = 'rtl'
-  if (kind.endsWith('reverse')) panel.style.flexDirection = 'row-reverse'
+  if (kind === 'local-reverse') panel.style.flexDirection = 'row-reverse'
+  const column = kind.includes('column')
+  const wrapped = kind.includes('wrap') && !kind.startsWith('wrapper')
+  if (column)
+    panel.style.flexDirection = kind.includes('column-reverse')
+      ? 'column-reverse'
+      : 'column'
+  if (wrapped)
+    panel.style.flexWrap = kind.endsWith('wrap-reverse')
+      ? 'wrap-reverse'
+      : 'wrap'
+  if (kind.includes('center')) panel.style.alignItems = 'center'
+  if (kind.includes('baseline')) panel.style.alignItems = 'baseline'
   const red = document.createElement('div')
   red.style.cssText = 'width:48px;height:40px;background:red;flex:none'
   const green = document.createElement('div')
   green.style.cssText = 'width:80px;height:40px;background:green;flex:none'
+  if (kind.includes('diagonal')) red.style.height = green.style.height = '80px'
+  if (column) {
+    red.style.height = '48px'
+    green.style.height = '80px'
+    red.style.width = green.style.width = kind.includes('diagonal')
+      ? '80px'
+      : '40px'
+  }
   if (kind.startsWith('wrapper')) green.style.transform = 'translate(0,0)'
-  if (kind.endsWith('relative')) green.style.position = 'relative'
+  if (kind.includes('relative')) green.style.position = 'relative'
   if (kind.endsWith('margin')) {
     red.style.marginLeft = '3px'
     green.style.marginRight = '5px'
@@ -41,6 +83,7 @@ export async function createHorizontalFixedScene(kind) {
   fixed.id = root.id + '-fixed'
   fixed.style.cssText =
     'position:fixed;left:0;top:0;width:4px;height:40px;background:blue;z-index:10'
+  if (kind.includes('absolute-only')) fixed.style.position = 'absolute'
   if (kind.endsWith('deep')) {
     const inner = document.createElement('div')
     inner.style.cssText = 'width:80px;height:40px'
@@ -50,8 +93,19 @@ export async function createHorizontalFixedScene(kind) {
   panel.append(red, green)
   root.append(panel)
   document.body.append(root)
-  panel.scrollLeft = /rtl|reverse/.test(kind) ? -40 : 40
-  // Place the source's blue stripe at x=4 regardless of the actual containing
+  panel.scrollLeft =
+    column && !kind.includes('diagonal')
+      ? 0
+      : kind.endsWith('rtl') || kind === 'local-reverse'
+        ? -40
+        : 40
+  panel.scrollTop =
+    kind.includes('column-reverse') || kind.endsWith('wrap-reverse')
+      ? -40
+      : kind.includes('diagonal') || column || wrapped
+        ? 40
+        : 0
+  // Place the source's blue stripe at x=4, y=0 regardless of its containing
   // block. Native screenshots independently assert this setup before capture.
   const container = fixed.offsetParent
   const left =
@@ -63,11 +117,21 @@ export async function createHorizontalFixedScene(kind) {
     `${left}px`,
     kind.endsWith('important') ? 'important' : '',
   )
+  const top =
+    -(container?.getBoundingClientRect().top || 0) + (container?.scrollTop || 0)
+  fixed.style.setProperty(
+    'top',
+    `${top}px`,
+    kind.endsWith('important') ? 'important' : '',
+  )
   if (kind.endsWith('absolute')) {
     const absolute = document.createElement('div')
     absolute.style.cssText =
       'position:absolute;left:52px;top:0;width:4px;height:40px;background:purple;z-index:11'
     green.append(absolute)
+    const anchor = absolute.offsetParent
+    absolute.style.left = `${12 - (anchor?.getBoundingClientRect().left || 0) + (anchor?.scrollLeft || 0)}px`
+    absolute.style.top = `${-(anchor?.getBoundingClientRect().top || 0) + (anchor?.scrollTop || 0)}px`
   }
   const points = [
     { x: 6, y: 20, expected: '0,0,255,255' },
@@ -109,9 +173,31 @@ export async function checkHorizontalFixed(api, kind, readNative) {
     })
   }
   try {
-    if (readNative) check(await readNative(scene.root.id), 'native control')
+    if (
+      (kind.includes('diagonal') || wrappedKind(kind)) &&
+      (!scene.scroll[0] || !scene.scroll[1])
+    )
+      throw new Error(
+        `${kind} source did not scroll on both axes: ${scene.scroll}`,
+      )
+    if (kind.includes('column') && !scene.scroll[1])
+      throw new Error(`${kind} source did not scroll vertically`)
+    const native = readNative ? await readNative(scene.root.id) : undefined
+    if (native) check(native, 'native control')
     const capture = await renderer.capture(scene.root)
-    check(await capture.toImageData(), 'capture')
+    const image = await capture.toImageData()
+    check(image, 'capture')
+    if (native) {
+      if (image.width !== native.width || image.height !== native.height)
+        throw new Error(`${kind} native/capture dimensions differ`)
+      const different = image.data.findIndex(
+        (value, index) => value !== native.data[index],
+      )
+      if (different !== -1)
+        throw new Error(
+          `${kind} native/capture pixel channel ${different}: ${image.data[different]}, expected ${native.data[different]}`,
+        )
+    }
     capture.dispose()
     if (
       scene.source !== scene.root.outerHTML ||
@@ -124,4 +210,8 @@ export async function checkHorizontalFixed(api, kind, readNative) {
     renderer.dispose()
     scene.cleanup()
   }
+}
+
+function wrappedKind(kind) {
+  return kind.includes('wrap') && !kind.startsWith('wrapper')
 }

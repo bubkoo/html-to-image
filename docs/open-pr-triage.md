@@ -29,7 +29,7 @@
 | [#430](https://github.com/bubkoo/html-to-image/pull/430) | 缓存进行中的请求避免短时间重复加载。核心等价；#622 另消除 WebKit 副本的额外原生请求。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 缓存限单次捕获，不承诺跨捕获响应永不变化 |
 | [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts) | 外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成 |
 | [#409](https://github.com/bubkoo/html-to-image/pull/409) | CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致。#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁。 | [dimensions.test.ts](../test/browser-unit/dimensions.test.ts) | 原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证 |
-| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。限定场景已由 #630/#631 修复；#633 的单行横向 flex 深层 fixed 候选已通过桌面及构建包，待真机。 | [mixed-scroll.test.ts](../test/browser-unit/mixed-scroll.test.ts) | 斜向深层 fixed、inline before、自动边距/多行 flex、任意捕获根偏移及滚动条外观仍未完整覆盖；#633 尚未合并 |
+| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。限定场景已由 #630/#631 修复；#633 扩展二维 flex fixed/absolute，34 输入的三引擎全像素及构建包通过，待真机。 | [mixed-scroll.test.ts](../test/browser-unit/mixed-scroll.test.ts) | 非 flex、inline before、未解析 auto 边距/匿名/contents/sticky、竖排、捕获根偏移及滚动条外观仍未完整覆盖；#633 尚未合并 |
 | [#407](https://github.com/bubkoo/html-to-image/pull/407) | 把额外 CSS 放进输出副本。使用 onClone 插入 style 的现有原语，不新增 extraStyleContent。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 自定义 CSS 注入不等于源原生滚动条外观/位置已保留 |
 | [#401](https://github.com/bubkoo/html-to-image/pull/401) | 应调用并等待 decode，而不是覆盖方法。核心等价；保留可用图片 decode 拒绝不悬挂的边界。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 图片可解码不等于所有 WebKit foreignObject 首绘问题已解决 |
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
@@ -230,7 +230,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 当前本地构建、类型、tarball、构建包 132 通过；最终全量 coverage/source 为 282/488（另 1 项既有 GC 跳过），字体 MIME 观察修正后再验三引擎源码 18、ESM/UMD 包 3 均通过。真机和远端待验；不关闭旧 PR，不发布 npm。
 
 
-### 横向 fixed 深层后代候选
+### 横向 fixed 初版（由下方二维 flex 扩展取代）
 
 #408/#345 剩余边界复现：单行横向 flex 中，给普通包装子元素加 transform 会改变深层 fixed 的定位参照。最终 12 输入 × 三引擎的源截图控制全部有效，旧源码 33 项失败 / 3 项通过。候选用保持外部主轴尺寸的相反侧边距表达位移，仅调整原参照为当前滚动容器的 fixed/absolute inset；没有新增包含块。加原有 fixed 用例定向 126 通过，完整/真机/远端状态见[证据](evidence/horizontal-fixed-scroll.json)。对角、自动侧边距、多行 flex、匿名文本及 sticky 等仍不在此结论内，不作为整个旧 PR 完成。
 
@@ -240,3 +240,12 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 GitHub 重新核对的 28 个旧 PR 均仍开放，head 与已读版本一致，索引文件均存在。#443 的受控双源 Cookie/公开资源测试已经通过；缺少的是原业务 URL/登录与完整应用 fixture，二者不能混写为“凭据对照未验”。
 
 #632 的 CI/CodeQL/Codecov、#633 的 CI/Codecov 已通过，二者仍待当前真机验收；#633 转向 master 后还需 CodeQL。[具体缺口及验收条件](v2-issue-pr-tracker.md#当前验收缺口复核)集中记录真机、SVG 输出和滚动条范围，原始 head/证据复核见[审计索引](evidence/open-pr-current-audit.json)。
+
+
+## 二维 flex 定位后代扩展候选
+
+#633 的初版只修横向单行，但同一“普通项目新增 transform 改变 fixed/absolute 包含块”的根因仍存在于斜向、纵向、列布局和换行。现按两个滚动轴分别施加和为零的一对物理边距，保持项目外部尺寸和 flex 行分配，不新增包含块；定位后代仍按原 offsetParent 调整 inset。
+
+最终同一 34 输入 × 三引擎：原父版本 4d1bd59 为 90 失败 / 12 通过，初版 7d66cb4 仍有 57 失败 / 45 通过，原生源控制均有效；候选的 102 项逐一比较完整 40×40 图像的 6400 个 RGBA 通道，全部相同，含原有 fixed 对照定向 192 通过。本地完整 coverage/source/package 为 316/590/135，另 1 项既有 GC skip，lint/构建/类型/tarball 均通过。[证据](evidence/horizontal-fixed-scroll.json)明确区分 b4d8d23 的历史横向 PNG 与本次完整源像素测试。
+
+该候选支持 horizontal-tb 下 flex 的行/列/反向/换行/RTL、center/baseline 对齐及 absolute-only；非 flex、位移轴未解析 auto 边距、匿名文本/contents/生成项目、sticky、竖排、任意捕获根偏移和原生滚动条仍保留边界。新的远端检查和真实 iPhone 结果待验，不能沿用上一版通过数；#632/#633 未合并，不发布 npm。

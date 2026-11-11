@@ -302,7 +302,7 @@
       "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
       "observedState": "open",
       "requirement": "保留可见滚动位置",
-      "disposition": "已合入 #630/#631 的限定场景；#633 补齐单行横向 flex 深层 fixed 候选，等待真机",
+      "disposition": "已合入 #630/#631 的限定场景；#633 扩展二维 flex fixed/absolute：34 输入三引擎全像素通过，待真机",
       "evidence": [
         "test/browser-unit/mixed-scroll.test.ts",
         "test/browser-unit/fixed-scroll.test.ts",
@@ -310,7 +310,7 @@
         "test/browser-unit/horizontal-fixed-scroll.test.ts",
         "docs/evidence/horizontal-fixed-scroll.json"
       ],
-      "remainingBoundary": "#633 已在三引擎和构建包通过，未合并/未完成真机；斜向深层 fixed、inline before、自动边距/多行 flex、任意捕获根偏移及滚动条外观仍未完整覆盖"
+      "remainingBoundary": "#633 的行/列/反向/换行/斜向及 absolute-only 已在三引擎/构建包通过；非 flex、未解析 auto 边距/匿名或 contents 项目、sticky/生成项目、竖排、捕获根偏移和原生滚动条仍未完整覆盖；候选未合并、未完成真机"
     },
     {
       "number": 407,
@@ -429,7 +429,7 @@
       "kind": "physical-device",
       "prs": [632, 633, 398],
       "condition": "Mac must detect original USB iPhone and Safari must be unlocked/available. Last live observation: no iPhone USB device, prior en15 USB network interface absent, WebDriver ready with no valid session.",
-      "nextEvidence": "#632 committed-source full smoke plus six actual native font source controls; #633 committed-source full smoke and independent horizontal fixed source/capture control. #398 needs actual trusted tap opening PNG preview, then cleanup verification.",
+      "nextEvidence": "#632 committed-source full smoke plus six actual native font source controls; #633 committed-source full smoke plus native source/capture controls for its 34 flex modes. #398 needs actual trusted tap opening PNG preview, then cleanup verification.",
       "notProven": "Neither candidate has a current real-device pass; historical 26/26 does not satisfy their new cases."
     },
     {
@@ -453,5 +453,23 @@
       ],
       "notProven": "General pseudo selectors or CSS injection do not demonstrate native scrollbar rendering."
     }
-  ]
+  ],
+  "candidateExpansion": {
+    "pr": 633,
+    "parentRevision": "7d66cb41a02c21703302d6e347e8fe13e4053a83",
+    "scope": "Two-dimensional flex scroll, fixed/absolute, row/column/reverse/wrap/RTL/alignment",
+    "evidence": "docs/evidence/horizontal-fixed-scroll.json",
+    "originalParentFailedPassed": [90, 12],
+    "previousHorizontalCandidateFailedPassed": [57, 45],
+    "finalFlexFullPixelPassed": 102,
+    "finalWithExistingFixedPassed": 192,
+    "completeLocalChecks": {
+      "coverage": 316,
+      "source": 590,
+      "sourceSkipped": 1,
+      "package": 135
+    },
+    "remote": "updated head pending",
+    "nativeIOS": "pending USB reconnect"
+  }
 }
