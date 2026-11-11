@@ -1,0 +1,49 @@
+import { expect, test } from 'vitest'
+import { commands } from 'vitest/browser'
+import * as api from '../../src'
+
+declare module 'vitest/browser' {
+  interface BrowserCommands {
+    screenshotScrollSource: (selector: string) => Promise<string>
+  }
+}
+
+test('observe unscrolled gradient precision and computed-style roundtrip', async () => {
+  const root = document.createElement('div')
+  root.id = 'unscrolled-gradient-control'
+  root.style.cssText = 'position:absolute;left:0;top:0;width:40px;height:40px;background:linear-gradient(to right, red -40px, green -40px)'
+  document.body.append(root)
+  const readNative = async () => {
+    const png = await commands.screenshotScrollSource('#' + root.id)
+    const image = new Image()
+    image.src = 'data:image/png;base64,' + png
+    await image.decode()
+    const canvas = document.createElement('canvas')
+    canvas.width = canvas.height = 40
+    const context = canvas.getContext('2d')!
+    context.drawImage(image, 0, 0, 40, 40)
+    return context.getImageData(0, 0, 40, 40)
+  }
+  try {
+    const source = await readNative()
+    const computedBackground = getComputedStyle(root).backgroundImage
+    const output = await api.toImageData(root, { pixelRatio: 1, skipFonts: true })
+    root.style.backgroundImage = computedBackground
+    const roundtrip = await readNative()
+    const directImage = new Image()
+    directImage.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><foreignObject width="40" height="40"><div xmlns="http://www.w3.org/1999/xhtml" style="width:40px;height:40px;background:linear-gradient(to right, red -40px, green -40px)"></div></foreignObject></svg>')
+    await directImage.decode()
+    const directCanvas = document.createElement('canvas')
+    directCanvas.width = directCanvas.height = 40
+    const directContext = directCanvas.getContext('2d')!
+    directContext.drawImage(directImage, 0, 0)
+    const direct = directContext.getImageData(0, 0, 40, 40)
+    const delta = (data: Uint8ClampedArray) => Math.max(...data.map((value, index) => Math.abs(value - source.data[index])))
+    expect(Array.from(source.data.slice(0,4))).toEqual([0,128,0,255])
+    expect(root.scrollLeft).toBe(0)
+    expect(root.scrollTop).toBe(0)
+    throw new Error('GRADIENT_OBSERVATION ' + JSON.stringify({userAgent:navigator.userAgent, sourceFirst:Array.from(source.data.slice(0,4)), captureFirst:Array.from(output.data.slice(0,4)), computedRoundtripFirst:Array.from(roundtrip.data.slice(0,4)), maximumCaptureChannelDelta:delta(output.data),maximumRoundtripChannelDelta:delta(roundtrip.data),directForeignObjectFirst:Array.from(direct.data.slice(0,4)),maximumDirectForeignObjectChannelDelta:delta(direct.data),scroll:[root.scrollLeft,root.scrollTop],computedBackground}))
+  } finally {
+    root.remove()
+  }
+})

@@ -302,15 +302,15 @@
       "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
       "observedState": "open",
       "requirement": "保留可见滚动位置",
-      "disposition": "已合入 #630/#631 的限定场景；#633 扩展二维 flex fixed/absolute：34 输入三引擎全像素通过，待真机",
+      "disposition": "已合入 #630/#631；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入三引擎全像素通过，待真机",
       "evidence": [
         "test/browser-unit/mixed-scroll.test.ts",
         "test/browser-unit/fixed-scroll.test.ts",
         "docs/evidence/fixed-scroll.json",
-        "test/browser-unit/horizontal-fixed-scroll.test.ts",
-        "docs/evidence/horizontal-fixed-scroll.json"
+        "test/browser-unit/positioned-scroll.test.ts",
+        "docs/evidence/positioned-scroll.json"
       ],
-      "remainingBoundary": "#633 的行/列/反向/换行/斜向及 absolute-only 已在三引擎/构建包通过；非 flex、未解析 auto 边距/匿名或 contents 项目、sticky/生成项目、竖排、捕获根偏移和原生滚动条仍未完整覆盖；候选未合并、未完成真机"
+      "remainingBoundary": "新块流路径保留未克隆 absolute 包含块的原回退；水平文本/inline/contents/float/sticky、auto 边距/不支持的伪元素、竖排、捕获根坐标与原生滚动条等仍未完整覆盖；候选未合并、未完成真机"
     },
     {
       "number": 407,
@@ -429,7 +429,7 @@
       "kind": "physical-device",
       "prs": [632, 633, 398],
       "condition": "Mac must detect original USB iPhone and Safari must be unlocked/available. Last live observation: no iPhone USB device, prior en15 USB network interface absent, WebDriver ready with no valid session.",
-      "nextEvidence": "#632 committed-source full smoke plus six actual native font source controls; #633 committed-source full smoke plus native source/capture controls for its 34 flex modes. #398 needs actual trusted tap opening PNG preview, then cleanup verification.",
+      "nextEvidence": "#632 committed-source full smoke plus six actual native font source controls; #633 committed-source full smoke plus native source/capture controls for its 55 positioned scroll modes. #398 needs actual trusted tap opening PNG preview, then cleanup verification.",
       "notProven": "Neither candidate has a current real-device pass; historical 26/26 does not satisfy their new cases."
     },
     {
@@ -456,20 +456,21 @@
   ],
   "candidateExpansion": {
     "pr": 633,
-    "parentRevision": "7d66cb41a02c21703302d6e347e8fe13e4053a83",
-    "scope": "Two-dimensional flex scroll, fixed/absolute, row/column/reverse/wrap/RTL/alignment",
-    "evidence": "docs/evidence/horizontal-fixed-scroll.json",
-    "originalParentFailedPassed": [90, 12],
-    "previousHorizontalCandidateFailedPassed": [57, 45],
-    "finalFlexFullPixelPassed": 102,
-    "finalWithExistingFixedPassed": 192,
+    "parentRevision": "f3f997e170fab7a6e7f0148fbd33b6dcd688bb23",
+    "scope": "Two-dimensional flex and supported block flow with fixed/absolute and block pseudos; external absolute coordinate origins keep prior fallback",
+    "evidence": "docs/evidence/positioned-scroll.json",
+    "originalParentFailedPassed": [141, 24],
+    "previousFlexCandidateFailedPassed": [51, 114],
+    "currentFullPixelPassed": 165,
+    "withExistingFixedAndMixedPassed": 297,
+    "localCoverageSource": [337, 653],
+    "remote": "updated head pending",
+    "nativeIOS": "pending USB reconnect",
     "completeLocalChecks": {
-      "coverage": 316,
-      "source": 590,
+      "coverage": 337,
+      "source": 653,
       "sourceSkipped": 1,
       "package": 135
-    },
-    "remote": "updated head pending",
-    "nativeIOS": "pending USB reconnect"
+    }
   }
 }

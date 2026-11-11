@@ -29,7 +29,7 @@
 | [#430](https://github.com/bubkoo/html-to-image/pull/430) | 缓存进行中的请求避免短时间重复加载。核心等价；#622 另消除 WebKit 副本的额外原生请求。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 缓存限单次捕获，不承诺跨捕获响应永不变化 |
 | [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts) | 外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成 |
 | [#409](https://github.com/bubkoo/html-to-image/pull/409) | CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致。#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁。 | [dimensions.test.ts](../test/browser-unit/dimensions.test.ts) | 原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证 |
-| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。限定场景已由 #630/#631 修复；#633 扩展二维 flex fixed/absolute，34 输入的三引擎全像素及构建包通过，待真机。 | [mixed-scroll.test.ts](../test/browser-unit/mixed-scroll.test.ts) | 非 flex、inline before、未解析 auto 边距/匿名/contents/sticky、竖排、捕获根偏移及滚动条外观仍未完整覆盖；#633 尚未合并 |
+| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631 已合入；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入的三引擎全像素和构建包通过，待真机。 | [positioned-scroll.json](evidence/positioned-scroll.json) | 捕获树外 absolute 坐标、水平文本/inline/contents/float/sticky、auto 边距/部分伪元素、竖排及原生滚动条仍保留边界；#633 尚未合并 |
 | [#407](https://github.com/bubkoo/html-to-image/pull/407) | 把额外 CSS 放进输出副本。使用 onClone 插入 style 的现有原语，不新增 extraStyleContent。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 自定义 CSS 注入不等于源原生滚动条外观/位置已保留 |
 | [#401](https://github.com/bubkoo/html-to-image/pull/401) | 应调用并等待 decode，而不是覆盖方法。核心等价；保留可用图片 decode 拒绝不悬挂的边界。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 图片可解码不等于所有 WebKit foreignObject 首绘问题已解决 |
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
@@ -249,3 +249,16 @@ GitHub 重新核对的 28 个旧 PR 均仍开放，head 与已读版本一致，
 最终同一 34 输入 × 三引擎：原父版本 4d1bd59 为 90 失败 / 12 通过，初版 7d66cb4 仍有 57 失败 / 45 通过，原生源控制均有效；候选的 102 项逐一比较完整 40×40 图像的 6400 个 RGBA 通道，全部相同，含原有 fixed 对照定向 192 通过。本地完整 coverage/source/package 为 316/590/135，另 1 项既有 GC skip，lint/构建/类型/tarball 均通过。[证据](evidence/horizontal-fixed-scroll.json)明确区分 b4d8d23 的历史横向 PNG 与本次完整源像素测试。
 
 该候选支持 horizontal-tb 下 flex 的行/列/反向/换行/RTL、center/baseline 对齐及 absolute-only；非 flex、位移轴未解析 auto 边距、匿名文本/contents/生成项目、sticky、竖排、任意捕获根偏移和原生滚动条仍保留边界。新的远端检查和真实 iPhone 结果待验，不能沿用上一版通过数；#632/#633 未合并，不发布 npm。
+
+
+## 普通块流与定位参照扩展候选
+
+#633 继续处理普通块布局：沿用不会折叠的 before 纵向流偏移，组合横向相反边距，移动实际流盒及受支持 block before/after；定位后代按原 offsetParent 处理，真实子节点不包装、不重排。库插入的伪元素样式节点不作为内容流盒。新增 WeakSet 记录已克隆源元素，源映射清理和 dispose 一并清理，保留文档生命周期约束。
+
+最终 55 输入 × 三引擎，165 个完整 40×40 原生源/导出图在 6400 个 RGBA 通道上零容差相同。恢复 clone-scroll.ts/task.ts 的原始父版本 4d1bd59 为 141 失败 / 24 通过，恢复上一 flex 候选 f3f997e 为 51 失败 / 114 通过；源控制全部有效，只接受完整 165 项、无浏览器未处理错误的运行。含旧 fixed/mixed 对照定向 297 通过，完整 coverage/source/package 为 337/653/135，另 1 项既有 GC skip，lint/构建/类型/tarball 均通过。[当前证据](evidence/positioned-scroll.json)与[重放](evidence/horizontal-fixed-scroll-replay.md)已更新；旧 horizontal JSON 明确标记 f3f997e 历史范围。
+
+全量检查保留未克隆 absolute 包含块的原回退：捕获树外原点尚未重建，不能直接套当前容器偏移。水平匿名文本/inline/contents/float/sticky、未解析 auto 边距、部分伪元素、竖排、其他捕获根坐标和原生滚动条仍未完整覆盖。
+
+[不滚动渐变观察](evidence/gradient-native-precision.json)另外验证：WebKit 源页面及原生计算样式往返为 [0,128,0,255]，库和完全手写 foreignObject 都为 [0,128,1,255]，最大通道差 1；Chrome/Firefox 为零。定位标记改为实色硬边界，仍严格比较全部像素；没有把渐变记为逐字节相同或实现通用校正。该观察探针是独立归档，不进入 CI 回归计数。
+
+本版最新 PR head 的远端检查和真机待验；Mac 尚未识别原 USB iPhone，不沿用旧 26/26。#632/#633 未合并，不关闭旧 PR，不发布 npm。

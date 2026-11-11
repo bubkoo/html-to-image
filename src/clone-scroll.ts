@@ -26,6 +26,27 @@ export function cloneScrollState<T extends HTMLElement>(
     (child) => child.style.position === 'fixed',
   ) as HTMLElement[]
   const original = task?.getCloneSource(clonedNode) || nativeNode
+  const hasSticky = descendants.some(
+    (child) => (child as HTMLElement).style?.position === 'sticky',
+  )
+  const shiftMargins = (element: HTMLElement, left: number, top: number) => {
+    const { style } = element
+    const margins = [
+      ['margin-left', -left],
+      ['margin-right', left],
+      ['margin-top', -top],
+      ['margin-bottom', top],
+    ] as const
+    margins.forEach(([property, delta]) => {
+      if (!delta) return
+      const value = style.getPropertyValue(property) || '0px'
+      style.setProperty(
+        property,
+        `calc(${value} ${delta < 0 ? '-' : '+'} ${Math.abs(delta)}px)`,
+        'important',
+      )
+    })
+  }
   const shiftPositioned = (element: HTMLElement) => {
     const source = task?.getCloneSource(element) as HTMLElement | undefined
     if (source?.offsetParent !== original) return
@@ -53,9 +74,7 @@ export function cloneScrollState<T extends HTMLElement>(
     !hasDirectText &&
     ['flex', 'inline-flex'].includes(clonedNode.style.display) &&
     clonedNode.style.writingMode === 'horizontal-tb' &&
-    !descendants.some(
-      (child) => (child as HTMLElement).style?.position === 'sticky',
-    ) &&
+    !hasSticky &&
     children.every((child) => {
       const style = (child as HTMLElement).style
       return (
@@ -74,60 +93,96 @@ export function cloneScrollState<T extends HTMLElement>(
     children.forEach((child) => {
       const { style } = child as HTMLElement
       if (['fixed', 'absolute'].includes(style.position)) return
-      const margins = [
-        ['margin-left', -scrollLeft],
-        ['margin-right', scrollLeft],
-        ['margin-top', -scrollTop],
-        ['margin-bottom', scrollTop],
-      ] as const
-      margins.forEach(([property, delta]) => {
-        if (!delta) return
-        const value = style.getPropertyValue(property) || '0px'
-        style.setProperty(
-          property,
-          `calc(${value} ${delta < 0 ? '-' : '+'} ${Math.abs(delta)}px)`,
-          'important',
-        )
-      })
+      shiftMargins(child as HTMLElement, scrollLeft, scrollTop)
     })
     positioned.forEach(shiftPositioned)
     clonedNode.style.overflow = 'hidden'
     return
   }
+  const canShiftBlockX =
+    !scrollLeft ||
+    (!hasDirectText &&
+      !hasInline &&
+      !hasSticky &&
+      children.every((child) => {
+        const { style } = child as HTMLElement
+        // Pseudo cloning appends stylesheet nodes with no inline box styles.
+        // They do not participate in the source content flow.
+        if (child.tagName === 'STYLE' && !style.display) return true
+        return (
+          ['fixed', 'absolute'].includes(style.position) ||
+          (['block', 'flow-root', 'flex', 'grid', 'table', 'none'].includes(
+            style.display,
+          ) &&
+            (!style.cssFloat || style.cssFloat === 'none') &&
+            style.marginLeft !== 'auto' &&
+            style.marginRight !== 'auto')
+        )
+      }))
+  const hasExternalAbsolute = positioned.some((element) => {
+    if (element.style.position !== 'absolute') return false
+    const source = task?.getCloneSource(element) as HTMLElement | undefined
+    const anchor = source?.offsetParent
+    // A containing block outside the captured tree has another coordinate
+    // origin. Keep its existing fallback until that origin is reconstructed.
+    return !anchor || !task?.hasClonedSource(anchor)
+  })
   if (
     task &&
-    (hasDirectText || hasInline || fixed.length) &&
-    scrollLeft === 0 &&
-    scrollTop > 0 &&
+    (hasDirectText || hasInline || positioned.length) &&
+    canShiftBlockX &&
+    !hasExternalAbsolute &&
+    scrollTop >= 0 &&
     clonedNode.style.display === 'block' &&
-    clonedNode.style.writingMode === 'horizontal-tb' &&
-    !descendants.some(
-      (child) => (child as HTMLElement).style?.position === 'absolute',
-    )
+    clonedNode.style.writingMode === 'horizontal-tb'
   ) {
-    const before = (
-      original.ownerDocument.defaultView || window
-    ).getComputedStyle(original, '::before')
-    const empty =
-      !before.content ||
-      before.content === 'none' ||
-      before.content === 'normal' ||
-      before.display === 'none'
-    if (
-      empty ||
-      ['block', 'flow-root', 'flex', 'grid'].includes(before.display)
-    ) {
-      const className = uuid()
-      clonedNode.classList.add(className)
-      const margin =
-        before.marginTop === 'auto' ? '0px' : before.marginTop || '0px'
-      // A nonzero box prevents its top margin collapsing with a following
-      // negative margin. Its height plus margin still totals -scrollTop.
-      const declarations = empty
-        ? `all:initial!important;content:""!important;display:block!important;height:1px!important;margin:${-scrollTop - 1}px 0 0!important;overflow:hidden!important;`
-        : `margin-top:calc(${margin} - ${scrollTop}px)!important;`
-      task.addClonedStyle(`.${className}::before { ${declarations} }`)
-      fixed.forEach(shiftPositioned)
+    const view = original.ownerDocument.defaultView || window
+    const before = view.getComputedStyle(original, '::before')
+    const after = scrollLeft
+      ? view.getComputedStyle(original, '::after')
+      : undefined
+    const empty = (style: CSSStyleDeclaration) =>
+      !style.content ||
+      style.content === 'none' ||
+      style.content === 'normal' ||
+      style.display === 'none'
+    const supported = (style: CSSStyleDeclaration) =>
+      empty(style) ||
+      (['block', 'flow-root', 'flex', 'grid'].includes(style.display) &&
+        (!scrollLeft ||
+          (style.marginLeft !== 'auto' && style.marginRight !== 'auto')))
+    if (supported(before) && (!after || supported(after))) {
+      let beforeDeclarations = ''
+      if (scrollTop) {
+        const margin =
+          before.marginTop === 'auto' ? '0px' : before.marginTop || '0px'
+        // The nonzero box prevents collapse with a following negative margin.
+        // Its height plus margin still totals -scrollTop.
+        beforeDeclarations = empty(before)
+          ? `all:initial!important;content:""!important;display:block!important;height:1px!important;margin:${-scrollTop - 1}px 0 0!important;overflow:hidden!important;`
+          : `margin-top:calc(${margin} - ${scrollTop}px)!important;`
+      }
+      const pseudoX = (style: CSSStyleDeclaration) =>
+        scrollLeft && !empty(style)
+          ? `margin-left:calc(${style.marginLeft || '0px'} - ${scrollLeft}px)!important;margin-right:calc(${style.marginRight || '0px'} + ${scrollLeft}px)!important;`
+          : ''
+      beforeDeclarations += pseudoX(before)
+      const afterDeclarations = after ? pseudoX(after) : ''
+      if (beforeDeclarations || afterDeclarations) {
+        const className = uuid()
+        clonedNode.classList.add(className)
+        if (beforeDeclarations)
+          task.addClonedStyle(`.${className}::before { ${beforeDeclarations} }`)
+        if (afterDeclarations)
+          task.addClonedStyle(`.${className}::after { ${afterDeclarations} }`)
+      }
+      if (scrollLeft)
+        children.forEach((child) => {
+          const element = child as HTMLElement
+          if (!['fixed', 'absolute'].includes(element.style.position))
+            shiftMargins(element, scrollLeft, 0)
+        })
+      positioned.forEach(shiftPositioned)
       clonedNode.style.overflow = 'hidden'
       return
     }

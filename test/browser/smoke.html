@@ -22,7 +22,7 @@
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
     import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
-    import { checkHorizontalFixed, horizontalFixedCases } from './fixtures/horizontal-fixed-scroll.mjs'
+    import { checkPositionedScroll, positionedScrollCases } from './fixtures/positioned-scroll.mjs'
     import { checkSVGFontGlyphs, svgFontModes } from './fixtures/svg-font-glyphs.mjs'
     import { checkTransformedSVG, transformedSVGModes } from './fixtures/transformed-svg.mjs'
     import {
@@ -368,11 +368,11 @@
       }
     })
 
-    await test('flex scroll preserves positioned descendants', async () => {
+    await test('scroll preserves positioned containing blocks', async () => {
       await loadUMD()
-      for (const kind of horizontalFixedCases) {
-        await checkHorizontalFixed({ createRenderer }, kind)
-        await checkHorizontalFixed(window.htmlToImage, kind)
+      for (const kind of positionedScrollCases) {
+        await checkPositionedScroll({ createRenderer }, kind)
+        await checkPositionedScroll(window.htmlToImage, kind)
       }
     })
 
