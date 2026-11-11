@@ -161,3 +161,14 @@
 当前 #633 的证据改为 [positioned-scroll.json](evidence/positioned-scroll.json)：55 场景 × 三引擎的 165 份实际源截图与导出图全像素零容差相同；原父版本 141 项失败，上一 flex 候选 51 项失败。定向 297、本地完整 coverage/source/package 337/653/135（另 1 项既有 GC skip）及 lint/构建/类型/tarball 通过。普通块流复用纵向 before 偏移，横向移动正常盒及 before/after，按源包含块调整定位；WeakSet 跟踪已克隆参照并随源映射清理，原外部 absolute 回退测试和文档生命周期测试保持通过。
 
 布局使用实色硬边界，全图比较不加容差；WebKit 在无滚动/无库手写 foreignObject 中同样存在的渐变 1 级色差独立记录，不声称已校正。源输入改名为 positioned-scroll，旧 horizontal JSON 仅保留 f3f997e 及更早的历史快照。外部原点、水平混合行内/浮动/sticky、auto 边距/部分伪元素、竖排和原生滚动条等保持明确边界。最新远端/真实 iPhone 尚待核验，未合并、未发布 npm。
+
+
+## 2026-11-11 重连后的准确提交真机验收
+
+#632 的准确 head 4d1bd59 重建后，真实 USB iPhone Safari（iOS 18.7、Safari 26.6.1、DPR 3、非模拟器）完整 28/28 通过；六种 SVG 字体入口的实际源截图、自动/显式红色字形、skipFonts 白色负对照及源不变控制全部通过。[原始报告](evidence/ios-safari-svg-transforms-4d1bd59.json)与[字体源截图](evidence/ios-native-font-4d1bd59.json)已归档。PR CI/CodeQL/Codecov 通过，#632 已合入 master 67b2ec2。
+
+#633 的准确 head 9584645 重建后，真机完整 29/29 通过；另先截 55 种实际源元素，再捕获，每个 40×40 图像的 6400 个 RGBA 通道零容差一致，源 DOM/滚动不变。[原始报告](evidence/ios-safari-positioned-scroll-9584645.json)、[55 种源截图](evidence/ios-native-positioned-9584645.json)与[重放](evidence/ios-native-source-replay.py.txt)已归档。Safari 元素截图可能包含裁剪外的变换后代，因此按 DPR 裁取源视口；整张溢出图缩小造成的早期源控制失败不计入通过数。重放到新主分支后源码/fixture 字节一致，真机记录保留原始 revision；最终主分支目标的远端检查及合入状态另行记录。
+
+#398 自动 USB 页面可生成 96×60 PNG，但退出自动化后，手动 Safari 无法访问 USB 和同一 Wi-Fi 地址。可信点击、新标签和清理仍待网络可达后验收，未用合成点击替代。
+
+原需求复核：#408 关联 [#81](https://github.com/bubkoo/html-to-image/issues/81) 与 [#345](https://github.com/bubkoo/html-to-image/issues/345)。#81 的关闭来自 stale 机器人，不等于修复；其原 sandbox API 为 HTTP403、预览为 HTTP400。#345 已明确要求颜色、尺寸、轨道/滑块外观和位置，撤回此前要求用户缩减范围的选择。现有部分布局修复不等于两个 Issue 整体解决。

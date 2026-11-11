@@ -8,7 +8,7 @@
 
 | 对应讨论 | 原问题与根因 | 当前分支已做的事 | 证据和回复边界 |
 | --- | --- | --- | --- |
-| [PR #376](https://github.com/bubkoo/html-to-image/pull/376) / [PR #407](https://github.com/bubkoo/html-to-image/pull/407) | 需要自定义伪元素及附加 CSS；默认伪元素的背景图也被漏过资源阶段。 | 附加 CSS 使用现有 onClone；候选补齐 CSS 样式规则内背景/遮罩直接 URL 的嵌入，不新增重复选项。 | **独立缺陷候选**：旧源码六项像素回归失败、候选六项通过，本地 210/272/117 与构建/类型/tarball 通过；grouped/relative URL、去重与源不变控制；import 不展开、字体策略不改；源码 `58de76f` 真实 iPhone Safari 23/23 通过；#626 已合入 master，PR/主分支 CI、CodeQL 与 PR Codecov 均通过。原生滚动条外观与滑块位置仍待产品契约选择，不能称 #345 全部修复。 |
+| [PR #376](https://github.com/bubkoo/html-to-image/pull/376) / [PR #407](https://github.com/bubkoo/html-to-image/pull/407) | 需要自定义伪元素及附加 CSS；默认伪元素的背景图也被漏过资源阶段。 | 附加 CSS 使用现有 onClone；候选补齐 CSS 样式规则内背景/遮罩直接 URL 的嵌入，不新增重复选项。 | **独立缺陷候选**：旧源码六项像素回归失败、候选六项通过，本地 210/272/117 与构建/类型/tarball 通过；grouped/relative URL、去重与源不变控制；import 不展开、字体策略不改；源码 `58de76f` 真实 iPhone Safari 23/23 通过；#626 已合入 master，PR/主分支 CI、CodeQL 与 PR Codecov 均通过。原生滚动条外观与滑块位置仍待实际源对照验证，不能称 #345 全部修复。 |
 | [PR #585](https://github.com/bubkoo/html-to-image/pull/585) 的 SVG 子集 / [PR #427](https://github.com/bubkoo/html-to-image/pull/427) / [PR #499](https://github.com/bubkoo/html-to-image/pull/499) / [PR #393](https://github.com/bubkoo/html-to-image/pull/393) | 引用符号的兄弟依赖丢失，跨文档 ID 混淆；空 modern href 错误激活 legacy，筛选后的定义被重新导入。 | #627 已递归补齐属性/行内样式引用，按源文档分配外部 ID，复用资源缓存；补齐 image/feImage、相对资源地址和无片段 use。 | **独立缺陷已合入 #627**：旧源码 29/42 失败，候选三引擎 42/42 通过；真实 HTTP 的嵌套/循环/重叠引用、相对图片、冻结快照与源不变控制。本地完整 220/302/120、lint/构建/类型/tarball 通过（源码另 1 项既有 GC 跳过），源码 `180ff94` 真机 24/24 通过；#627 已合入 master，PR/主分支 CI、CodeQL 与 PR Codecov 通过，见 svg-reference-dependencies.json。外部样式表/字体及 #585 其他设计不作完整解决声明。 |
 | #585 外部 SVG 样式后续核对 | 独立 SVG 图片不等于 live external use 的页面行为；主页面 CSS 与外部样式的作用域在三引擎存在差异。 | 保存 15 组实际页面截图/当前导出像素及真实 iPhone 原生对照，撤回统一绿/蓝即可证明页面保真的假设；运行时原型不合入。 | **契约待选**：页面内黄规则下 Chromium 为绿/蓝、Firefox 黄/黄、WebKit 和真机绿/黑；导出当前均黄/黄。原始像素、输入 hash、真机 PNG 和重放方法见 svg-styles-native-matrix.json。已提出“页面实际显示 / 文件样式统一还原”的具体选择，未推定用户答案；不按 #585 已完成处理。 |
 | [PR #473](https://github.com/bubkoo/html-to-image/pull/473) / #585 的样式复制性能 | 页面 CSS 和逐节点计算样式的体积/开销不同；原分片仍先解码完整图片。V2 还把 iframe 类型识别放在每个无关属性前重复执行。 | 实际运行原 head，归档 17000px 宽缩放、20000px 高分片及媒体查询行为；候选仅调整类型判断条件顺序。 | **独立性能修复已合入 #629**：配对 401 节点样例的捕获中位数降低约 8%–30%，三引擎完整 SVG 字节一致，源码/构建包完整检查通过；源码 `c2f78c1` 真机配对 135→124ms 且 SVG 字节相同、构建包完整 24/24 通过，PR/主分支 CI、CodeQL 与 PR Codecov 均通过，合并 b9f2dfd。历史页面 CSS 模式在该样例确有体积与耗时收益；任意页面保真、完整解码和内存上界仍未证明，见 style-copy-performance.json / pr473-historical-controls.json。 |
@@ -105,9 +105,9 @@ GitHub 当前的 28 个旧 PR 均仍开放，head 与逐项已读版本一致；
 
 剩余明确条件：
 
-- 真机：Mac 重新识别原 USB iPhone，Safari 保持解锁可用；依次验收 #632/#633。#398 还需要可信物理点击打开 PNG 新标签，再验证清理。
+- 真机：#632 完整 28/28 与六种源字体控制、#633 完整 29/29 与 55 种全像素源对照已通过。#398 仍需手动网络可达后的可信点击和清理。
 - SVG 输出：#585/#427 在“当前浏览器实际页面”和“统一外部文件定义”之间确定目标，现有矩阵已证明二者并不相同。
-- 滚动条范围：#376/#407/#408 关联 #345，需要确定本轮是否包含原生轨道和滑块的外观/位置；现有内容裁剪和通用伪元素支持不足以证明该项。
+- 滚动条保真：#345 原帖已要求轨道/滑块外观和位置，无需另选范围；#408 还关联 #81 的段落双向滚动，现有部分覆盖不足以宣称整体完成。
 
 以上不是目标完成声明；原应用 fixture 的具体缺失条件仍按各 PR 的边界保留，不新增未授权的关闭、评论或 npm 发布。
 
@@ -132,3 +132,14 @@ GitHub 当前的 28 个旧 PR 均仍开放，head 与逐项已读版本一致；
 [不滚动渐变观察](evidence/gradient-native-precision.json)另外验证：WebKit 源页面及原生计算样式往返为 [0,128,0,255]，库和完全手写 foreignObject 都为 [0,128,1,255]，最大通道差 1；Chrome/Firefox 为零。定位标记改为实色硬边界，仍严格比较全部像素；没有把渐变记为逐字节相同或实现通用校正。该观察探针是独立归档，不进入 CI 回归计数。
 
 本版最新 PR head 的远端检查和真机待验；Mac 尚未识别原 USB iPhone，不沿用旧 26/26。#632/#633 未合并，不关闭旧 PR，不发布 npm。
+
+
+## 2026-11-11 重连后的准确提交真机验收
+
+#632 的准确 head 4d1bd59 重建后，真实 USB iPhone Safari（iOS 18.7、Safari 26.6.1、DPR 3、非模拟器）完整 28/28 通过；六种 SVG 字体入口的实际源截图、自动/显式红色字形、skipFonts 白色负对照及源不变控制全部通过。[原始报告](evidence/ios-safari-svg-transforms-4d1bd59.json)与[字体源截图](evidence/ios-native-font-4d1bd59.json)已归档。PR CI/CodeQL/Codecov 通过，#632 已合入 master 67b2ec2。
+
+#633 的准确 head 9584645 重建后，真机完整 29/29 通过；另先截 55 种实际源元素，再捕获，每个 40×40 图像的 6400 个 RGBA 通道零容差一致，源 DOM/滚动不变。[原始报告](evidence/ios-safari-positioned-scroll-9584645.json)、[55 种源截图](evidence/ios-native-positioned-9584645.json)与[重放](evidence/ios-native-source-replay.py.txt)已归档。Safari 元素截图可能包含裁剪外的变换后代，因此按 DPR 裁取源视口；整张溢出图缩小造成的早期源控制失败不计入通过数。重放到新主分支后源码/fixture 字节一致，真机记录保留原始 revision；最终主分支目标的远端检查及合入状态另行记录。
+
+#398 自动 USB 页面可生成 96×60 PNG，但退出自动化后，手动 Safari 无法访问 USB 和同一 Wi-Fi 地址。可信点击、新标签和清理仍待网络可达后验收，未用合成点击替代。
+
+原需求复核：#408 关联 [#81](https://github.com/bubkoo/html-to-image/issues/81) 与 [#345](https://github.com/bubkoo/html-to-image/issues/345)。#81 的关闭来自 stale 机器人，不等于修复；其原 sandbox API 为 HTTP403、预览为 HTTP400。#345 已明确要求颜色、尺寸、轨道/滑块外观和位置，撤回此前要求用户缩减范围的选择。现有部分布局修复不等于两个 Issue 整体解决。

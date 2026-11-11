@@ -35,9 +35,9 @@
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
 | [#398](https://github.com/bubkoo/html-to-image/pull/398) | Blob PNG 在新标签页预览。README helper 与三引擎交互已验；保留单数 toBlob API。 | [blob-preview-browser-checks.json](evidence/blob-preview-browser-checks.json) | 真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击 |
 | [#393](https://github.com/bubkoo/html-to-image/pull/393) | 支持 SVG use href 属性。核心等价，现代/旧命名空间及优先级有回归。 | [svg-use.test.ts](../test/browser-unit/svg-use.test.ts) | 同 #499 的属性级结论，不扩大为全部外部 SVG 样式兼容 |
-| [#376](https://github.com/bubkoo/html-to-image/pull/376) | 允许额外伪元素，尤其非标准滚动条。不把通用伪元素列表等同于滚动条完成；等待外观契约。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 需在可见内容优先与包含原生轨道/滑块位置之间选择；非标准伪元素有引擎差异 |
+| [#376](https://github.com/bubkoo/html-to-image/pull/376) | 允许额外伪元素，尤其非标准滚动条。不把通用伪元素列表等同于滚动条完成；继续原生外观验证。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 按 #345 保留源轨道/滑块外观和位置的明确要求验证；非标准伪元素有引擎差异 |
 
-下文较早的分组/候选计数是历史记录；与本表冲突时，以本表链接的已验证范围和后续完成报告为准。外部 SVG 输出语义、原生滚动条范围及真机 Blob 链接物理点击仍保留明确待定条件，不因表中编号齐全就当作长期目标已完成。
+下文较早的分组/候选计数是历史记录；与本表冲突时，以本表链接的已验证范围和后续完成报告为准。外部 SVG 输出语义、原生滚动条保真及真机 Blob 链接物理点击仍保留明确待定条件，不因表中编号齐全就当作长期目标已完成。
 
 ## 2026-11-11 fixed 滚动源页面对照（#408 / #345 / #594）
 
@@ -111,7 +111,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 ## 2026-11-11 自定义样式与伪元素复核（#376 / #407）
 
-#407 的附加 CSS 可由已有 onClone 在副本中插入 style 完成，不增加重复的 extraStyleContent 接口。#376 的非标准伪元素列表原补丁可用逐节点扩展复现，但不能把通用 CSS 注入等同于原生滚动条的完整截图：早期 a360c43 上的原 HTML/CSS 结构在 Chromium/WebKit 未滚动时可经注入显示红黑滚动条，scrollTop=50 后仍因 cloneScrollState 的隐藏/位移路径消失；Firefox 不支持那组 WebKit 专有规则。该测量是原序列化逻辑在 V2 hook 中的适配，不是历史分支完整构建回放。[早期测量及重放输入](evidence/scrollbar-extension-probes.json)已归档。当前原生滚动条外观契约已向用户提出两种具体选择，尚未确定。
+#407 的附加 CSS 可由已有 onClone 在副本中插入 style 完成，不增加重复的 extraStyleContent 接口。#376 的非标准伪元素列表原补丁可用逐节点扩展复现，但不能把通用 CSS 注入等同于原生滚动条的完整截图：早期 a360c43 上的原 HTML/CSS 结构在 Chromium/WebKit 未滚动时可经注入显示红黑滚动条，scrollTop=50 后仍因 cloneScrollState 的隐藏/位移路径消失；Firefox 不支持那组 WebKit 专有规则。该测量是原序列化逻辑在 V2 hook 中的适配，不是历史分支完整构建回放。[早期测量及重放输入](evidence/scrollbar-extension-probes.json)已归档。复核原帖后确认：外观、尺寸和位置已经是明确需求；撤回早先的范围选择，按 #345 继续验证。
 
 复核另发现独立的既有缺陷：默认 ::before/::after 背景图只进入生成的样式规则，资源阶段只读取行内 style，三个引擎输出红色底色。候选从无窗口解析文档的 CSSOM 读取规则背景/遮罩，复用现有嵌入流程；直接 URL、分组规则、变换新增遮罩、相对地址和缓存复用有真实 HTTP 回归，旧源码六项全部失败。@import 保留而不加载/展开，font-face 保留原策略，非 CSS style 块与生成内容中的 URL 字面文本不会被当成图片。本地 210/272/117（源码另有 1 项既有 GC 跳过）、lint/构建/类型/tarball 已通过，[证据](evidence/pseudo-style-resources.json)已归档；源码 `58de76f` 真实 iPhone Safari 23/23 通过，[原始报告](evidence/ios-safari-pseudo-resources-58de76f.json)已归档；#626 已合入 master（fd28e2c），PR/主分支 CI、CodeQL 与 PR Codecov 均通过。
 
@@ -262,3 +262,14 @@ GitHub 重新核对的 28 个旧 PR 均仍开放，head 与已读版本一致，
 [不滚动渐变观察](evidence/gradient-native-precision.json)另外验证：WebKit 源页面及原生计算样式往返为 [0,128,0,255]，库和完全手写 foreignObject 都为 [0,128,1,255]，最大通道差 1；Chrome/Firefox 为零。定位标记改为实色硬边界，仍严格比较全部像素；没有把渐变记为逐字节相同或实现通用校正。该观察探针是独立归档，不进入 CI 回归计数。
 
 本版最新 PR head 的远端检查和真机待验；Mac 尚未识别原 USB iPhone，不沿用旧 26/26。#632/#633 未合并，不关闭旧 PR，不发布 npm。
+
+
+## 2026-11-11 重连后的准确提交真机验收
+
+#632 的准确 head 4d1bd59 重建后，真实 USB iPhone Safari（iOS 18.7、Safari 26.6.1、DPR 3、非模拟器）完整 28/28 通过；六种 SVG 字体入口的实际源截图、自动/显式红色字形、skipFonts 白色负对照及源不变控制全部通过。[原始报告](evidence/ios-safari-svg-transforms-4d1bd59.json)与[字体源截图](evidence/ios-native-font-4d1bd59.json)已归档。PR CI/CodeQL/Codecov 通过，#632 已合入 master 67b2ec2。
+
+#633 的准确 head 9584645 重建后，真机完整 29/29 通过；另先截 55 种实际源元素，再捕获，每个 40×40 图像的 6400 个 RGBA 通道零容差一致，源 DOM/滚动不变。[原始报告](evidence/ios-safari-positioned-scroll-9584645.json)、[55 种源截图](evidence/ios-native-positioned-9584645.json)与[重放](evidence/ios-native-source-replay.py.txt)已归档。Safari 元素截图可能包含裁剪外的变换后代，因此按 DPR 裁取源视口；整张溢出图缩小造成的早期源控制失败不计入通过数。重放到新主分支后源码/fixture 字节一致，真机记录保留原始 revision；最终主分支目标的远端检查及合入状态另行记录。
+
+#398 自动 USB 页面可生成 96×60 PNG，但退出自动化后，手动 Safari 无法访问 USB 和同一 Wi-Fi 地址。可信点击、新标签和清理仍待网络可达后验收，未用合成点击替代。
+
+原需求复核：#408 关联 [#81](https://github.com/bubkoo/html-to-image/issues/81) 与 [#345](https://github.com/bubkoo/html-to-image/issues/345)。#81 的关闭来自 stale 机器人，不等于修复；其原 sandbox API 为 HTTP403、预览为 HTTP400。#345 已明确要求颜色、尺寸、轨道/滑块外观和位置，撤回此前要求用户缩减范围的选择。现有部分布局修复不等于两个 Issue 整体解决。

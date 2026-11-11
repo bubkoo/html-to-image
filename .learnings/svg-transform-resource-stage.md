@@ -21,5 +21,5 @@ SVG 依赖在整份 onClone/插件之前处理，违反“先变换副本，再�
 ### Context Maintenance
 - Scope: SVG 引用的捕获阶段；不声称所有视频/原生资源都已延后，不采用原 PR 的完整替代方案
 - Authority: 当前 master 132c38d 的最终对照 30 失败 / 6 通过，候选 36 通过；其中三个通过项是独立 cloneNode 兼容对照
-- Validation: 完整构建/类型/tarball/构建包 132 通过，最终覆盖率 282 / 源码 488（既有 GC skip 1）、lint/types 通过；真机与远端待验
+- Validation: 完整构建/类型/tarball/构建包 132 通过，最终覆盖率 282 / 源码 488（既有 GC skip 1）、lint/types 通过；准确 head 4d1bd59 真机 28/28、六种实际源字形控制通过；PR CI/CodeQL/Codecov 通过，#632 已合入 67b2ec2
 - Last-Validated: 2026-11-11

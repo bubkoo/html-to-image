@@ -1,7 +1,7 @@
 {
   "checkedAt": "2026-11-11T02:07:41.358341+00:00",
   "runtimeBase": "132c38d186ac4debd9da164363a8bb8234f3c396",
-  "scope": "The 28 original open PRs in the user goal; candidate SVG phase fix and new font checks are not yet a merged result.",
+  "scope": "The 28 original open PRs; #632 merged, #633 native acceptance passed and master-targeted checks remain required. Not whole-issue completion.",
   "all28AccountedFor": true,
   "oldPRClosureActions": 0,
   "oldPRCommentActions": 0,
@@ -302,7 +302,7 @@
       "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
       "observedState": "open",
       "requirement": "保留可见滚动位置",
-      "disposition": "已合入 #630/#631；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入三引擎全像素通过，待真机",
+      "disposition": "已合入 #630/#631；#633 的三引擎全像素、真机 29/29 和 55 个源截图全像素通过，待主分支检查合入",
       "evidence": [
         "test/browser-unit/mixed-scroll.test.ts",
         "test/browser-unit/fixed-scroll.test.ts",
@@ -310,7 +310,8 @@
         "test/browser-unit/positioned-scroll.test.ts",
         "docs/evidence/positioned-scroll.json"
       ],
-      "remainingBoundary": "新块流路径保留未克隆 absolute 包含块的原回退；水平文本/inline/contents/float/sticky、auto 边距/不支持的伪元素、竖排、捕获根坐标与原生滚动条等仍未完整覆盖；候选未合并、未完成真机"
+      "remainingBoundary": "水平文字/inline/contents/float/sticky、捕获树外原点、auto 边距/部分伪元素、竖排和原生滚动条仍有限制；#81 stale 关闭不是修复证据",
+      "relatedIssues": [81, 345]
     },
     {
       "number": 407,
@@ -390,12 +391,12 @@
       "reviewedHead": "f6363fcc11e3c8860ae78b77f3cb57396ede876d",
       "observedState": "open",
       "requirement": "允许额外伪元素，尤其非标准滚动条",
-      "disposition": "不把通用伪元素列表等同于滚动条完成；等待外观契约",
+      "disposition": "不把通用伪元素列表等同于滚动条完成；按 #345 明确的外观/位置要求继续验证",
       "evidence": [
         "docs/evidence/scrollbar-extension-probes.json",
         "docs/evidence/pseudo-style-resources.json"
       ],
-      "remainingBoundary": "需在可见内容优先与包含原生轨道/滑块位置之间选择；非标准伪元素有引擎差异"
+      "remainingBoundary": "原帖已要求源轨道/滑块颜色、尺寸与位置，不是用户待选范围；非标准伪元素和原 Windows/Edge 环境仍待验证"
     }
   ],
   "sourceReviewMethod": "Fresh original PR body/head and available source patches, mapped to current sources/tests; lock-only items reuse the archived review of the same head. No old branch was merged.",
@@ -426,11 +427,9 @@
   },
   "remainingAcceptanceGates": [
     {
-      "kind": "physical-device",
-      "prs": [632, 633, 398],
-      "condition": "Mac must detect original USB iPhone and Safari must be unlocked/available. Last live observation: no iPhone USB device, prior en15 USB network interface absent, WebDriver ready with no valid session.",
-      "nextEvidence": "#632 committed-source full smoke plus six actual native font source controls; #633 committed-source full smoke plus native source/capture controls for its 55 positioned scroll modes. #398 needs actual trusted tap opening PNG preview, then cleanup verification.",
-      "notProven": "Neither candidate has a current real-device pass; historical 26/26 does not satisfy their new cases."
+      "kind": "manual-network-access",
+      "prs": [398],
+      "condition": "USB automated validation passed. Manual Safari cannot reach the Mac service through USB or same Wi-Fi; trusted click/new tab/cleanup remain unverified. No synthetic click substitutes for physical acceptance."
     },
     {
       "kind": "output-contract",
@@ -443,15 +442,12 @@
       "notProven": "A uniform file-style prototype is not a page-fidelity fix."
     },
     {
-      "kind": "scope-decision",
+      "kind": "native-scrollbar-fidelity",
       "prs": [376, 407, 408],
-      "relatedIssues": [345],
-      "condition": "Decide whether this round must reproduce native scrollbar track/thumb appearance and position, in addition to the visible content viewport.",
-      "evidence": [
-        "docs/evidence/scrollbar-extension-probes.json",
-        "docs/evidence/pseudo-style-resources.json"
-      ],
-      "notProven": "General pseudo selectors or CSS injection do not demonstrate native scrollbar rendering."
+      "relatedIssues": [345, 81],
+      "condition": "#345 explicitly requires native track/thumb appearance and position; no scope choice is needed. #81 requires child paragraph scrollTop/scrollLeft.",
+      "evidence": ["docs/evidence/scrollbar-extension-probes.json"],
+      "notProven": "Style injection/hiding is not full fidelity; original #81 sandbox API HTTP403 and preview HTTP400."
     }
   ],
   "candidateExpansion": {
@@ -464,13 +460,41 @@
     "currentFullPixelPassed": 165,
     "withExistingFixedAndMixedPassed": 297,
     "localCoverageSource": [337, 653],
-    "remote": "updated head pending",
-    "nativeIOS": "pending USB reconnect",
+    "remote": "9584645 CI/Codecov passed; rebased master-targeted head requires new CI/CodeQL/Codecov.",
+    "nativeIOS": {
+      "status": "passed",
+      "revision": "9584645a407800a40afb18bedc7346bee2da0389",
+      "smokePassed": 29,
+      "nativeSourceFullPixelPassed": 55,
+      "rgbaChannelsPerCase": 6400,
+      "tolerance": 0,
+      "report": "docs/evidence/ios-safari-positioned-scroll-9584645.json",
+      "sourceEvidence": "docs/evidence/ios-native-positioned-9584645.json",
+      "useSimulator": false,
+      "rebaseNote": "Rebased onto merged #632 with identical source/fixture trees; native result retains original exact tested 9584645."
+    },
     "completeLocalChecks": {
       "coverage": 337,
       "source": 653,
       "sourceSkipped": 1,
       "package": 135
+    }
+  },
+  "associatedIssueReview": {
+    "81": {
+      "url": "https://github.com/bubkoo/html-to-image/issues/81",
+      "state": "closed",
+      "closureEvidence": "https://github.com/bubkoo/html-to-image/issues/81#issuecomment-805386748",
+      "closureKind": "60-day inactivity bot, not a verified fix",
+      "requirement": "Child overflow:auto paragraph retains scrollTop/scrollLeft",
+      "originalSandbox": "https://codesandbox.io/s/html-to-image-demo-x78vk?file=/src/App.js",
+      "fixtureStatus": "API HTTP403; actual preview browser HTTP400."
+    },
+    "345": {
+      "url": "https://github.com/bubkoo/html-to-image/issues/345",
+      "state": "open",
+      "requirement": "Same scrollbar size/color/appearance and position; Windows11 Edge107/Chrome",
+      "scopeDecisionRequired": false
     }
   }
 }

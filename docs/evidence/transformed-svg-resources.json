@@ -30,16 +30,23 @@
   },
   "contractNote": "Primary captured-source onCloneNode calls remain before transforms. Auxiliary local SVG definitions outside that tree are now discovered/cloned in resources, invoking onCloneNode then; README documents this ordering. Direct internal cloneNode callers retain default reference resolution.",
   "nativeIOS": {
-    "status": "unavailable",
-    "checkedAt": "2026-11-11T02:49:36.045486+00:00",
-    "lastSession": "expired (invalid session id)",
-    "reconnect": "session not created: Some devices were found, but could not be used",
-    "candidatePassClaimed": false,
-    "required": "Reconnect original unlocked iPhone to Mac with Safari available, then run committed-source smoke and actual font source controls."
+    "status": "passed",
+    "revision": "4d1bd59a33109657b875c40cfffa9f206f6cb13e",
+    "smokePassed": 28,
+    "fontNativeSourceModesPassed": 6,
+    "report": "docs/evidence/ios-safari-svg-transforms-4d1bd59.json",
+    "fontSourceEvidence": "docs/evidence/ios-native-font-4d1bd59.json",
+    "useSimulator": false
   },
   "remote": {
     "pr": "https://github.com/bubkoo/html-to-image/pull/632",
-    "status": "checks running; not merged"
+    "status": "merged",
+    "checkedHead": "4d1bd59a33109657b875c40cfffa9f206f6cb13e",
+    "ci": 42948699322,
+    "codeql": 42948699314,
+    "codecovPatch": "success",
+    "codecovProject": "success",
+    "mergeCommit": "67b2ec22410c284f5320c2aebee5e837b42bfbb1"
   },
   "verificationScope": [
     "Complete pnpm run test:browser passed 281 coverage / 485 source + 1 inherited skip / 132 package before final test-only refinements.",

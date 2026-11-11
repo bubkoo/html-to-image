@@ -1,0 +1,124 @@
+{
+  "checkedAt": "2026-11-11T04:45:52.623766+00:00",
+  "revision": "4d1bd59a33109657b875c40cfffa9f206f6cb13e",
+  "device": {
+    "platform": "iOS",
+    "useSimulator": false,
+    "osFromUserAgent": "18.7",
+    "safari": "26.6.1",
+    "dpr": 3
+  },
+  "result": {
+    "results": [
+      {
+        "native": [255, 0, 0, 255],
+        "automatic": [255, 0, 0, 255],
+        "mode": "attribute",
+        "sourceUnchanged": true,
+        "explicit": [255, 0, 0, 255],
+        "fontEmbedded": true,
+        "omitted": [255, 255, 255, 255]
+      },
+      {
+        "native": [255, 0, 0, 255],
+        "automatic": [255, 0, 0, 255],
+        "mode": "inline",
+        "sourceUnchanged": true,
+        "explicit": [255, 0, 0, 255],
+        "fontEmbedded": true,
+        "omitted": [255, 255, 255, 255]
+      },
+      {
+        "native": [255, 0, 0, 255],
+        "automatic": [255, 0, 0, 255],
+        "mode": "inherited",
+        "sourceUnchanged": true,
+        "explicit": [255, 0, 0, 255],
+        "fontEmbedded": true,
+        "omitted": [255, 255, 255, 255]
+      },
+      {
+        "native": [255, 0, 0, 255],
+        "automatic": [255, 0, 0, 255],
+        "mode": "attribute-root",
+        "sourceUnchanged": true,
+        "explicit": [255, 0, 0, 255],
+        "fontEmbedded": true,
+        "omitted": [255, 255, 255, 255]
+      },
+      {
+        "native": [255, 0, 0, 255],
+        "automatic": [255, 0, 0, 255],
+        "mode": "inline-root",
+        "sourceUnchanged": true,
+        "explicit": [255, 0, 0, 255],
+        "fontEmbedded": true,
+        "omitted": [255, 255, 255, 255]
+      },
+      {
+        "native": [255, 0, 0, 255],
+        "automatic": [255, 0, 0, 255],
+        "mode": "inherited-root",
+        "sourceUnchanged": true,
+        "explicit": [255, 0, 0, 255],
+        "fontEmbedded": true,
+        "omitted": [255, 255, 255, 255]
+      }
+    ],
+    "passed": 6
+  },
+  "cases": [
+    "attribute",
+    "inline",
+    "inherited",
+    "attribute-root",
+    "inline-root",
+    "inherited-root"
+  ],
+  "nativeScreenshots": [
+    {
+      "mode": "attribute-root",
+      "file": "ios-font-4d1bd59/attribute-root.png",
+      "sha256": "ade5cf12bd8071195fab2bece3d6a85aca6170bfcaae4b82a9b5062fe54b1034",
+      "physicalSize": [60, 60]
+    },
+    {
+      "mode": "attribute",
+      "file": "ios-font-4d1bd59/attribute.png",
+      "sha256": "ade5cf12bd8071195fab2bece3d6a85aca6170bfcaae4b82a9b5062fe54b1034",
+      "physicalSize": [60, 60]
+    },
+    {
+      "mode": "inherited-root",
+      "file": "ios-font-4d1bd59/inherited-root.png",
+      "sha256": "ade5cf12bd8071195fab2bece3d6a85aca6170bfcaae4b82a9b5062fe54b1034",
+      "physicalSize": [60, 60]
+    },
+    {
+      "mode": "inherited",
+      "file": "ios-font-4d1bd59/inherited.png",
+      "sha256": "ade5cf12bd8071195fab2bece3d6a85aca6170bfcaae4b82a9b5062fe54b1034",
+      "physicalSize": [60, 60]
+    },
+    {
+      "mode": "inline-root",
+      "file": "ios-font-4d1bd59/inline-root.png",
+      "sha256": "ade5cf12bd8071195fab2bece3d6a85aca6170bfcaae4b82a9b5062fe54b1034",
+      "physicalSize": [60, 60]
+    },
+    {
+      "mode": "inline",
+      "file": "ios-font-4d1bd59/inline.png",
+      "sha256": "ade5cf12bd8071195fab2bece3d6a85aca6170bfcaae4b82a9b5062fe54b1034",
+      "physicalSize": [60, 60]
+    }
+  ],
+  "method": {
+    "transport": "USB Safari WebDriver element screenshot, before capture; never a screenshot of library output",
+    "sourceCSSSize": [20, 20],
+    "crop": "Use the top-left CSS viewport at physical DPR=3, then draw at CSS dimensions. Safari element screenshot can include overflowing transformed descendants (264px instead of 120px); do not shrink that overflow into the viewport. All final native marker controls pass.",
+    "checks": "Native red glyph, automatic/explicit red, skip-font white, embedded font and unchanged source for all six modes.",
+    "excludedDiagnostics": "Initial attempts that scaled the whole overflow-inclusive screenshot failed their native source controls and are excluded from passing counts."
+  },
+  "replay": "ios-native-source-replay.py.txt"
+}

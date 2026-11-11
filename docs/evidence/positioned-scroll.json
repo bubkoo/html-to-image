@@ -134,12 +134,23 @@
     "The independently observed WebKit gradient raster precision difference; no general correction implemented"
   ],
   "nativeIOS": {
-    "status": "pending",
-    "reason": "No USB iPhone detected; saved Safari session invalid. No final 55-mode native-device pass claimed."
+    "status": "passed",
+    "revision": "9584645a407800a40afb18bedc7346bee2da0389",
+    "smokePassed": 29,
+    "nativeSourceFullPixelPassed": 55,
+    "rgbaChannelsPerCase": 6400,
+    "tolerance": 0,
+    "report": "docs/evidence/ios-safari-positioned-scroll-9584645.json",
+    "sourceEvidence": "docs/evidence/ios-native-positioned-9584645.json",
+    "useSimulator": false,
+    "rebaseNote": "Rebased onto merged #632 with identical source/fixture trees; native result retains original exact tested 9584645."
   },
   "remote": {
     "pr": "https://github.com/bubkoo/html-to-image/pull/633",
-    "status": "Pending updated committed source; f3f997e checks cover only the prior flex candidate"
+    "previousCheckedHead": "9584645a407800a40afb18bedc7346bee2da0389",
+    "previousCI": 42956952446,
+    "previousCIAndCodecov": "passed",
+    "status": "Rebased after #632 merge; final master-targeted CI/CodeQL/Codecov required before merge"
   },
   "replay": "docs/evidence/horizontal-fixed-scroll-replay.md"
 }

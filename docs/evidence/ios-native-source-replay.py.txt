@@ -1,0 +1,89 @@
+# Run against an already authorized, real-iPhone Safari WebDriver session.
+# Build the exact revision, serve test/browser/server.mjs on an iPhone-reachable
+# address, then: python3 this-file --session SESSION --base-url http://HOST:PORT
+# --kind positioned (or font). Do not use a simulated device to certify iOS.
+import argparse
+import base64
+import json
+import pathlib
+import struct
+import time
+import urllib.request
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--session', required=True)
+parser.add_argument('--base-url', required=True)
+parser.add_argument('--driver', default='http://localhost:4444')
+parser.add_argument('--kind', choices=['positioned', 'font'], required=True)
+parser.add_argument('--output', default='native-source-output')
+a = parser.parse_args()
+out = pathlib.Path(a.output)
+out.mkdir(parents=True, exist_ok=True)
+
+def call(path, data=None):
+    request = urllib.request.Request(
+        a.driver + '/session/' + a.session + path,
+        data=None if data is None else json.dumps(data).encode(),
+        headers={'Content-Type': 'application/json'},
+    )
+    return json.load(urllib.request.urlopen(request, timeout=30))['value']
+
+def execute(script, args=None):
+    return call('/execute/sync', {'script': script, 'args': args or []})
+
+call('/url', {'url': a.base_url + '/test/browser/umd.html?native=' + str(time.time_ns())})
+font = a.kind == 'font'
+size = 20 if font else 40
+fixture = 'svg-font-glyphs' if font else 'positioned-scroll'
+case_array = 'svgFontModes' if font else 'positionedScrollCases'
+check = 'checkSVGFontGlyphs' if font else 'checkPositionedScroll'
+execute("""
+const meta=document.createElement('meta');meta.name='viewport';
+meta.content='width=device-width,initial-scale=1';document.head.append(meta);
+document.body.replaceChildren();window.__nativeResult=null;window.__nativeRequest=null;
+import('/es/index.js').then(async api=>{
+ const f=await import('/test/browser/fixtures/""" + fixture + """.mjs');const results=[];
+ for(const kind of f.""" + case_array + """){
+  results.push(await f.""" + check + """(api,kind,async id=>{
+   window.__nativeRequest={id,kind};return new Promise(resolve=>window.__nativePending=resolve);
+  }));
+ }
+ window.__nativeResult={passed:results.length,results};
+}).catch(e=>window.__nativeResult={error:e.message,stack:e.stack});return true;
+""")
+records = []
+deadline = time.monotonic() + 180
+while time.monotonic() < deadline:
+    state = execute('return {request:window.__nativeRequest,result:window.__nativeResult}')
+    if state['result'] is not None:
+        result = {'records': records, 'result': state['result']}
+        (out / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
+        print(json.dumps(result))
+        if 'error' in result['result']:
+            raise RuntimeError(result['result']['error'])
+        break
+    request = state['request']
+    if request:
+        time.sleep(.15)
+        element = call('/element', {'using': 'css selector', 'value': '#' + request['id']})
+        key = element.get('element-6066-11e4-a52e-4f735466cecf') or element['ELEMENT']
+        png = call('/element/' + key + '/screenshot')
+        raw = base64.b64decode(png)
+        (out / (request['kind'] + '.png')).write_bytes(raw)
+        dimensions = struct.unpack('>II', raw[16:24])
+        # iOS Safari may return overflow-inclusive element bounds. The fixtures'
+        # visible source viewport starts at the screenshot origin. Crop that
+        # viewport at DPR; never scale the complete overflow-inclusive image.
+        execute("""
+window.__nativeRequest=null;const i=new Image();i.src=arguments[0];
+i.decode().then(()=>{const c=document.createElement('canvas');const n=arguments[1];
+c.width=c.height=n;const ctx=c.getContext('2d');
+ctx.drawImage(i,0,0,n*devicePixelRatio,n*devicePixelRatio,0,0,n,n);
+window.__nativePending(ctx.getImageData(0,0,n,n));
+}).catch(e=>window.__nativeResult={error:e.message});return true;
+""", ['data:image/png;base64,' + png, size])
+        records.append({'mode': request['kind'], 'screenshotSize': dimensions})
+    else:
+        time.sleep(.1)
+else:
+    raise RuntimeError('Native source comparison timed out')
