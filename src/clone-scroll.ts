@@ -23,7 +23,7 @@ export function cloneScrollState<T extends HTMLElement>(
     (child) => (child as HTMLElement).style?.position === 'fixed',
   ) as HTMLElement[]
   const original = task?.getCloneSource(clonedNode) || nativeNode
-  const shiftFixed = (element: HTMLElement) => {
+  const shiftPositioned = (element: HTMLElement) => {
     const source = task?.getCloneSource(element) as HTMLElement | undefined
     if (source?.offsetParent !== original) return
     // Use the source browser's containing block, rather than guessing from a
@@ -43,6 +43,53 @@ export function cloneScrollState<T extends HTMLElement>(
     }
     shift('left', 'right', scrollLeft)
     shift('top', 'bottom', scrollTop)
+  }
+  if (
+    fixed.length &&
+    !hasDirectText &&
+    scrollLeft !== 0 &&
+    scrollTop === 0 &&
+    ['flex', 'inline-flex'].includes(clonedNode.style.display) &&
+    ['row', 'row-reverse'].includes(clonedNode.style.flexDirection) &&
+    clonedNode.style.flexWrap === 'nowrap' &&
+    clonedNode.style.writingMode === 'horizontal-tb' &&
+    !descendants.some(
+      (child) => (child as HTMLElement).style?.position === 'sticky',
+    ) &&
+    children.every((child) => {
+      const style = (child as HTMLElement).style
+      return (
+        style.display !== 'contents' &&
+        style.marginLeft !== 'auto' &&
+        style.marginRight !== 'auto'
+      )
+    })
+  ) {
+    // Opposite margins translate each flex item without changing its outer
+    // size or creating a containing block for positioned descendants. An
+    // added transform would re-anchor fixed children of ordinary wrappers.
+    children.forEach((child) => {
+      const { style } = child as HTMLElement
+      if (['fixed', 'absolute'].includes(style.position)) return
+      style.setProperty(
+        'margin-left',
+        `calc(${style.marginLeft || '0px'} - ${scrollLeft}px)`,
+        'important',
+      )
+      style.setProperty(
+        'margin-right',
+        `calc(${style.marginRight || '0px'} + ${scrollLeft}px)`,
+        'important',
+      )
+    })
+    descendants.forEach((child) => {
+      const element = child as HTMLElement
+      if (['fixed', 'absolute'].includes(element.style?.position)) {
+        shiftPositioned(element)
+      }
+    })
+    clonedNode.style.overflow = 'hidden'
+    return
   }
   if (
     task &&
@@ -77,7 +124,7 @@ export function cloneScrollState<T extends HTMLElement>(
         ? `all:initial!important;content:""!important;display:block!important;height:1px!important;margin:${-scrollTop - 1}px 0 0!important;overflow:hidden!important;`
         : `margin-top:calc(${margin} - ${scrollTop}px)!important;`
       task.addClonedStyle(`.${className}::before { ${declarations} }`)
-      fixed.forEach(shiftFixed)
+      fixed.forEach(shiftPositioned)
       clonedNode.style.overflow = 'hidden'
       return
     }
@@ -109,7 +156,7 @@ export function cloneScrollState<T extends HTMLElement>(
     const margin = firstFlowChild?.style.marginTop || '0px'
     if (firstFlowChild && margin !== 'auto') {
       firstFlowChild.style.marginTop = `calc(${margin} - ${scrollTop}px)`
-      fixed.forEach(shiftFixed)
+      fixed.forEach(shiftPositioned)
       clonedNode.style.overflow = 'hidden'
       return
     }
@@ -137,7 +184,7 @@ export function cloneScrollState<T extends HTMLElement>(
   children.forEach((child, index) => {
     const element = child as HTMLElement
     if (element.style.position === 'fixed') {
-      shiftFixed(element)
+      shiftPositioned(element)
       // Translated siblings create stacking contexts above an auto-z fixed child.
       if (!element.style.zIndex || element.style.zIndex === 'auto') {
         element.style.zIndex = '1'

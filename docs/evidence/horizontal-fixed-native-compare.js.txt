@@ -1,0 +1,16 @@
+async(page)=>{
+ await page.goto('http://localhost:4373/test/browser/umd.html');
+ const engine=page.context().browser().browserType().name();
+ const id=await page.evaluate(async()=>{const f=await import('/test/browser/fixtures/horizontal-fixed-scroll.mjs');window.__hf=await f.createHorizontalFixedScene('local-deep');return window.__hf.root.id});
+ const native=await page.locator('#'+id).screenshot({path:'/tmp/html-to-image-blob-check/fixed-scroll/horizontal-source-'+engine+'.png',scale:'css'});
+ const result=await page.evaluate(async(png)=>{
+  const s=window.__hf;const api=await import('/es/index.js');const canvas=await api.toCanvas(s.root,{skipFonts:true,pixelRatio:1});
+  const image=new Image();image.src='data:image/png;base64,'+png;await image.decode();const source=document.createElement('canvas');source.width=source.height=40;const ctx=source.getContext('2d');ctx.drawImage(image,0,0,40,40);
+  const a=ctx.getImageData(0,0,40,40).data,b=canvas.getContext('2d').getImageData(0,0,40,40).data;let differentChannels=0;for(let i=0;i<a.length;i++)if(a[i]!==b[i])differentChannels++;
+  canvas.id='horizontal-capture-proof';canvas.style.cssText='position:absolute;left:80px;top:0;width:40px;height:40px';document.body.append(canvas);
+  return {userAgent:navigator.userAgent,mode:'local-deep',size:[canvas.width,canvas.height],comparedChannels:a.length,differentChannels,sourceUnchanged:s.source===s.root.outerHTML,scrollUnchanged:s.scroll[0]===s.panel.scrollLeft&&s.scroll[1]===s.panel.scrollTop};
+ },native.toString('base64'));
+ await page.locator('#horizontal-capture-proof').screenshot({path:'/tmp/html-to-image-blob-check/fixed-scroll/horizontal-capture-'+engine+'.png',scale:'css'});
+ await page.evaluate(()=>{window.__hf.cleanup();document.getElementById('horizontal-capture-proof').remove()});
+ return result;
+}

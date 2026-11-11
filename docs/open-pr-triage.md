@@ -228,3 +228,8 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 #585 的重定向/相对 paint [最终原生矩阵](evidence/svg-redirect-native-matrix.json)使用独立地址与源截图先后对照，纯色 external use 和黄色块验证源图有效。Chrome/真机 Safari 的相对 paint 为白底，Firefox/桌面 WebKit 为绿色；库输出为重定向红、直连绿。源全图像素保持不变，未合入统一最终 URL 的运行时改动，仍等待既有 SVG 输出契约选择。
 
 当前本地构建、类型、tarball、构建包 132 通过；最终全量 coverage/source 为 282/488（另 1 项既有 GC 跳过），字体 MIME 观察修正后再验三引擎源码 18、ESM/UMD 包 3 均通过。真机和远端待验；不关闭旧 PR，不发布 npm。
+
+
+### 横向 fixed 深层后代候选
+
+#408/#345 剩余边界复现：单行横向 flex 中，给普通包装子元素加 transform 会改变深层 fixed 的定位参照。最终 12 输入 × 三引擎的源截图控制全部有效，旧源码 33 项失败 / 3 项通过。候选用保持外部主轴尺寸的相反侧边距表达位移，仅调整原参照为当前滚动容器的 fixed/absolute inset；没有新增包含块。加原有 fixed 用例定向 126 通过，完整/真机/远端状态见[证据](evidence/horizontal-fixed-scroll.json)。对角、自动侧边距、多行 flex、匿名文本及 sticky 等仍不在此结论内，不作为整个旧 PR 完成。
