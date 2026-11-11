@@ -24,12 +24,12 @@
 | [#482](https://github.com/bubkoo/html-to-image/pull/482) | 字体/图片嵌入出错后继续。不采用无条件吞错；保留诊断/占位与用户错误拒绝。 | [image-errors.test.ts](../test/browser-unit/image-errors.test.ts) | 资源解析器或用户回调失败必须可见；不把缺失内容当无条件成功 |
 | [#473](https://github.com/bubkoo/html-to-image/pull/473) | usePageCss、大页面输出分片与性能。原 head 已实测；#629 仅解决明确的复制开销，不整体移植。 | [pr473-historical-controls.json](evidence/pr473-historical-controls.json) | 页面 CSS 模式/新分页 API 未实现；原实现先解码整图且宽度被缩放，缺少大 DOM 样本及内存/尺寸目标 |
 | [#451](https://github.com/bubkoo/html-to-image/pull/451) | 视频原始比例与显示区域比例不同导致变形。#617 独立修复原始帧尺寸，真实 iPhone contain 对照通过。 | [video.test.ts](../test/browser-unit/video.test.ts) | 未复测全部 object-fit、流媒体/CORS、播放时序及高 DPR 成本 |
-| [#443](https://github.com/bubkoo/html-to-image/pull/443) | 不同 URL 需要不同 RequestInit。以 resources.resolve 替代第二套生成器 API。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 实际私有 cookie 图与公开图/字体双源对照；resolver 自行管理请求选项和 signal |
+| [#443](https://github.com/bubkoo/html-to-image/pull/443) | 不同 URL 需要不同 RequestInit。以 resources.resolve 替代第二套生成器 API。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 受控私有 Cookie 图片与公开图/字体双源已验证；原业务 URL/登录及完整 fixture 未取得，resolver 自行管理请求选项和 signal |
 | [#442](https://github.com/bubkoo/html-to-image/pull/442) | 图片与公开字体的凭据配置不同，并报告 iOS 空白。URL/kind resolver 覆盖混合凭据核心需求；原 iOS 故障保留条件。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 原私有资源 URL、CORS 响应、凭据和完整故障 fixture 未验；include 不是所有 iOS 请求的统一要求 |
 | [#430](https://github.com/bubkoo/html-to-image/pull/430) | 缓存进行中的请求避免短时间重复加载。核心等价；#622 另消除 WebKit 副本的额外原生请求。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 缓存限单次捕获，不承诺跨捕获响应永不变化 |
 | [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts) | 外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成 |
 | [#409](https://github.com/bubkoo/html-to-image/pull/409) | CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致。#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁。 | [dimensions.test.ts](../test/browser-unit/dimensions.test.ts) | 原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证 |
-| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。限定场景已由 #630/#631 等独立修复；保留复杂布局边界。 | [mixed-scroll.test.ts](../test/browser-unit/mixed-scroll.test.ts) | 横/斜向深层 fixed、inline before、绝对定位、任意捕获根偏移及滚动条外观仍未完整覆盖 |
+| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。限定场景已由 #630/#631 修复；#633 的单行横向 flex 深层 fixed 候选已通过桌面及构建包，待真机。 | [mixed-scroll.test.ts](../test/browser-unit/mixed-scroll.test.ts) | 斜向深层 fixed、inline before、自动边距/多行 flex、任意捕获根偏移及滚动条外观仍未完整覆盖；#633 尚未合并 |
 | [#407](https://github.com/bubkoo/html-to-image/pull/407) | 把额外 CSS 放进输出副本。使用 onClone 插入 style 的现有原语，不新增 extraStyleContent。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 自定义 CSS 注入不等于源原生滚动条外观/位置已保留 |
 | [#401](https://github.com/bubkoo/html-to-image/pull/401) | 应调用并等待 decode，而不是覆盖方法。核心等价；保留可用图片 decode 拒绝不悬挂的边界。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 图片可解码不等于所有 WebKit foreignObject 首绘问题已解决 |
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
@@ -233,3 +233,10 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 ### 横向 fixed 深层后代候选
 
 #408/#345 剩余边界复现：单行横向 flex 中，给普通包装子元素加 transform 会改变深层 fixed 的定位参照。最终 12 输入 × 三引擎的源截图控制全部有效，旧源码 33 项失败 / 3 项通过。候选用保持外部主轴尺寸的相反侧边距表达位移，仅调整原参照为当前滚动容器的 fixed/absolute inset；没有新增包含块。加原有 fixed 用例定向 126 通过，完整/真机/远端状态见[证据](evidence/horizontal-fixed-scroll.json)。对角、自动侧边距、多行 flex、匿名文本及 sticky 等仍不在此结论内，不作为整个旧 PR 完成。
+
+
+## 当前验收缺口复核
+
+GitHub 重新核对的 28 个旧 PR 均仍开放，head 与已读版本一致，索引文件均存在。#443 的受控双源 Cookie/公开资源测试已经通过；缺少的是原业务 URL/登录与完整应用 fixture，二者不能混写为“凭据对照未验”。
+
+#632 的 CI/CodeQL/Codecov、#633 的 CI/Codecov 已通过，二者仍待当前真机验收；#633 转向 master 后还需 CodeQL。[具体缺口及验收条件](v2-issue-pr-tracker.md#当前验收缺口复核)集中记录真机、SVG 输出和滚动条范围，原始 head/证据复核见[审计索引](evidence/open-pr-current-audit.json)。
