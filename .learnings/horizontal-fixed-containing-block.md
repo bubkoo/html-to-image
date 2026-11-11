@@ -27,3 +27,6 @@ WebKit 的渐变另做不滚动控制：源与计算样式往返一致，库和�
 - Authority: 精确 4d1bd59 与 f3f997e，还原 clone-scroll.ts 和 task.ts，最终共享输入保持不变；排除未运行全部 165 项的基础设施失败
 - Validation: 定向 297；完整 coverage/source/package 337/653/135（既有 GC skip 1），lint/build/types/tarball 通过；远端/真机状态见证据
 - Last-Validated: 2026-11-11
+
+### Native screenshot evidence
+准确 head 9584645 真机 29/29，以及 55 个实际源截图/导出全像素对照通过。Safari 元素截图可包含裁剪外变换后代；须按源视口和 DPR 裁取，不能整张缩小。初始源控制失败已排除。#345 的外观范围原帖已明确，不应要求用户选择省略；#81 stale 关闭不算修复。

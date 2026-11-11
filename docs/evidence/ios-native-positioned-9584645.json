@@ -1,0 +1,411 @@
+{
+  "checkedAt": "2026-11-11T04:45:52.761790+00:00",
+  "revision": "9584645a407800a40afb18bedc7346bee2da0389",
+  "device": {
+    "platform": "iOS",
+    "useSimulator": false,
+    "osFromUserAgent": "18.7",
+    "safari": "26.6.1",
+    "dpr": 3
+  },
+  "result": {
+    "passed": 55
+  },
+  "cases": [
+    "local-nested",
+    "local-deep",
+    "viewport-nested",
+    "ancestor-nested",
+    "wrapper-nested",
+    "local-rtl",
+    "local-reverse",
+    "local-relative",
+    "local-absolute",
+    "local-margin",
+    "local-important",
+    "local-selected",
+    "local-diagonal",
+    "viewport-diagonal",
+    "ancestor-diagonal",
+    "wrapper-diagonal",
+    "local-diagonal-deep",
+    "local-diagonal-absolute",
+    "local-diagonal-important",
+    "local-diagonal-selected",
+    "local-diagonal-rtl",
+    "local-column",
+    "local-column-reverse",
+    "local-column-diagonal",
+    "local-column-diagonal-rtl",
+    "local-wrap",
+    "local-wrap-reverse",
+    "local-center-diagonal",
+    "local-baseline-diagonal",
+    "local-absolute-only",
+    "local-absolute-only-diagonal",
+    "local-relative-absolute-only-diagonal",
+    "ancestor-absolute-only-diagonal",
+    "wrapper-absolute-only-diagonal",
+    "local-block-horizontal",
+    "viewport-block-horizontal",
+    "ancestor-block-horizontal",
+    "wrapper-block-horizontal",
+    "local-block-diagonal",
+    "viewport-block-diagonal",
+    "ancestor-block-diagonal",
+    "wrapper-block-diagonal",
+    "local-block-diagonal-absolute",
+    "local-block-diagonal-rtl",
+    "local-block-diagonal-deep",
+    "local-block-diagonal-important",
+    "local-block-diagonal-selected",
+    "local-block-absolute-only-diagonal",
+    "local-block-relative-absolute-only-diagonal",
+    "local-block-vertical",
+    "local-block-absolute-only-vertical",
+    "relative-block-absolute-only-diagonal",
+    "local-block-before-diagonal",
+    "local-block-after-diagonal",
+    "local-block-absolute-only-sticky-vertical"
+  ],
+  "nativeScreenshots": [
+    {
+      "mode": "ancestor-absolute-only-diagonal",
+      "file": "ios-positioned-9584645/ancestor-absolute-only-diagonal.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "ancestor-block-diagonal",
+      "file": "ios-positioned-9584645/ancestor-block-diagonal.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "ancestor-block-horizontal",
+      "file": "ios-positioned-9584645/ancestor-block-horizontal.png",
+      "sha256": "e386cdd49d12246fd9893a4d3838c1db760f60a7ca8bb6905da603f84d90cdd1",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "ancestor-diagonal",
+      "file": "ios-positioned-9584645/ancestor-diagonal.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "ancestor-nested",
+      "file": "ios-positioned-9584645/ancestor-nested.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-absolute-only-diagonal",
+      "file": "ios-positioned-9584645/local-absolute-only-diagonal.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-absolute-only",
+      "file": "ios-positioned-9584645/local-absolute-only.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-absolute",
+      "file": "ios-positioned-9584645/local-absolute.png",
+      "sha256": "eb2793d321ff3106cc0241de7924cd14a416dda5c2586ca30d0da2b76541fe30",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-baseline-diagonal",
+      "file": "ios-positioned-9584645/local-baseline-diagonal.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-absolute-only-diagonal",
+      "file": "ios-positioned-9584645/local-block-absolute-only-diagonal.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-absolute-only-sticky-vertical",
+      "file": "ios-positioned-9584645/local-block-absolute-only-sticky-vertical.png",
+      "sha256": "2b85af54d108da4d01cd6412d2ecb82a22def154e7bc912f8ddbc37ec52c5b0c",
+      "physicalSize": [264, 120]
+    },
+    {
+      "mode": "local-block-absolute-only-vertical",
+      "file": "ios-positioned-9584645/local-block-absolute-only-vertical.png",
+      "sha256": "8c6528eafc4602f175dcfb0cf6ee63355c94cc755411d1ad48cb89877ed27f5c",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-after-diagonal",
+      "file": "ios-positioned-9584645/local-block-after-diagonal.png",
+      "sha256": "e386cdd49d12246fd9893a4d3838c1db760f60a7ca8bb6905da603f84d90cdd1",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-before-diagonal",
+      "file": "ios-positioned-9584645/local-block-before-diagonal.png",
+      "sha256": "e386cdd49d12246fd9893a4d3838c1db760f60a7ca8bb6905da603f84d90cdd1",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-diagonal-absolute",
+      "file": "ios-positioned-9584645/local-block-diagonal-absolute.png",
+      "sha256": "350f71793d77a409f237d8301100663f76cc629dffb68a268ab66cdfcf10d1bd",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-diagonal-deep",
+      "file": "ios-positioned-9584645/local-block-diagonal-deep.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-diagonal-important",
+      "file": "ios-positioned-9584645/local-block-diagonal-important.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-diagonal-rtl",
+      "file": "ios-positioned-9584645/local-block-diagonal-rtl.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-diagonal-selected",
+      "file": "ios-positioned-9584645/local-block-diagonal-selected.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-diagonal",
+      "file": "ios-positioned-9584645/local-block-diagonal.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-horizontal",
+      "file": "ios-positioned-9584645/local-block-horizontal.png",
+      "sha256": "e386cdd49d12246fd9893a4d3838c1db760f60a7ca8bb6905da603f84d90cdd1",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-block-relative-absolute-only-diagonal",
+      "file": "ios-positioned-9584645/local-block-relative-absolute-only-diagonal.png",
+      "sha256": "afc9405f4b6423e97975dff0040aafb5ad49cb09d191ae0d22a11e553dbdfaac",
+      "physicalSize": [144, 264]
+    },
+    {
+      "mode": "local-block-vertical",
+      "file": "ios-positioned-9584645/local-block-vertical.png",
+      "sha256": "8c6528eafc4602f175dcfb0cf6ee63355c94cc755411d1ad48cb89877ed27f5c",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-center-diagonal",
+      "file": "ios-positioned-9584645/local-center-diagonal.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-column-diagonal-rtl",
+      "file": "ios-positioned-9584645/local-column-diagonal-rtl.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-column-diagonal",
+      "file": "ios-positioned-9584645/local-column-diagonal.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-column-reverse",
+      "file": "ios-positioned-9584645/local-column-reverse.png",
+      "sha256": "b21d861249e81ca64cdf84ceff388950d1f659f387488f76520e39a7f6dd089c",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-column",
+      "file": "ios-positioned-9584645/local-column.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-deep",
+      "file": "ios-positioned-9584645/local-deep.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-diagonal-absolute",
+      "file": "ios-positioned-9584645/local-diagonal-absolute.png",
+      "sha256": "eb2793d321ff3106cc0241de7924cd14a416dda5c2586ca30d0da2b76541fe30",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-diagonal-deep",
+      "file": "ios-positioned-9584645/local-diagonal-deep.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-diagonal-important",
+      "file": "ios-positioned-9584645/local-diagonal-important.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-diagonal-rtl",
+      "file": "ios-positioned-9584645/local-diagonal-rtl.png",
+      "sha256": "55d124fd152cc388219804aac89d78724e800eb23dc884e109e63f3f8750ed6a",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-diagonal-selected",
+      "file": "ios-positioned-9584645/local-diagonal-selected.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-diagonal",
+      "file": "ios-positioned-9584645/local-diagonal.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-important",
+      "file": "ios-positioned-9584645/local-important.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-margin",
+      "file": "ios-positioned-9584645/local-margin.png",
+      "sha256": "d8e15c2341ed97a6ec6e7c67a12ec34f1f067b47b2f030a1725412f14bcffb50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-nested",
+      "file": "ios-positioned-9584645/local-nested.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-relative-absolute-only-diagonal",
+      "file": "ios-positioned-9584645/local-relative-absolute-only-diagonal.png",
+      "sha256": "d2193ddc4725c447d20b33f549ea6e4222a54579ff0164efe86615346c14defc",
+      "physicalSize": [264, 120]
+    },
+    {
+      "mode": "local-relative",
+      "file": "ios-positioned-9584645/local-relative.png",
+      "sha256": "d2193ddc4725c447d20b33f549ea6e4222a54579ff0164efe86615346c14defc",
+      "physicalSize": [264, 120]
+    },
+    {
+      "mode": "local-reverse",
+      "file": "ios-positioned-9584645/local-reverse.png",
+      "sha256": "55d124fd152cc388219804aac89d78724e800eb23dc884e109e63f3f8750ed6a",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-rtl",
+      "file": "ios-positioned-9584645/local-rtl.png",
+      "sha256": "55d124fd152cc388219804aac89d78724e800eb23dc884e109e63f3f8750ed6a",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-selected",
+      "file": "ios-positioned-9584645/local-selected.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-wrap-reverse",
+      "file": "ios-positioned-9584645/local-wrap-reverse.png",
+      "sha256": "e386cdd49d12246fd9893a4d3838c1db760f60a7ca8bb6905da603f84d90cdd1",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "local-wrap",
+      "file": "ios-positioned-9584645/local-wrap.png",
+      "sha256": "e386cdd49d12246fd9893a4d3838c1db760f60a7ca8bb6905da603f84d90cdd1",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "relative-block-absolute-only-diagonal",
+      "file": "ios-positioned-9584645/relative-block-absolute-only-diagonal.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "viewport-block-diagonal",
+      "file": "ios-positioned-9584645/viewport-block-diagonal.png",
+      "sha256": "03b372016c2b0a645083370dd20899a4d2ccbd172d98e76b53568ee74d16ce50",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "viewport-block-horizontal",
+      "file": "ios-positioned-9584645/viewport-block-horizontal.png",
+      "sha256": "e386cdd49d12246fd9893a4d3838c1db760f60a7ca8bb6905da603f84d90cdd1",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "viewport-diagonal",
+      "file": "ios-positioned-9584645/viewport-diagonal.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "viewport-nested",
+      "file": "ios-positioned-9584645/viewport-nested.png",
+      "sha256": "6296edbe582ddf4aa82a917c0248bb764584ede8279bc7edc5f6d7d03b7cf2dc",
+      "physicalSize": [120, 120]
+    },
+    {
+      "mode": "wrapper-absolute-only-diagonal",
+      "file": "ios-positioned-9584645/wrapper-absolute-only-diagonal.png",
+      "sha256": "d2193ddc4725c447d20b33f549ea6e4222a54579ff0164efe86615346c14defc",
+      "physicalSize": [264, 120]
+    },
+    {
+      "mode": "wrapper-block-diagonal",
+      "file": "ios-positioned-9584645/wrapper-block-diagonal.png",
+      "sha256": "afc9405f4b6423e97975dff0040aafb5ad49cb09d191ae0d22a11e553dbdfaac",
+      "physicalSize": [144, 264]
+    },
+    {
+      "mode": "wrapper-block-horizontal",
+      "file": "ios-positioned-9584645/wrapper-block-horizontal.png",
+      "sha256": "2907e4117c9ae2d157abc9300717275a46ab7daddfe599130759064a9362c193",
+      "physicalSize": [144, 120]
+    },
+    {
+      "mode": "wrapper-diagonal",
+      "file": "ios-positioned-9584645/wrapper-diagonal.png",
+      "sha256": "d2193ddc4725c447d20b33f549ea6e4222a54579ff0164efe86615346c14defc",
+      "physicalSize": [264, 120]
+    },
+    {
+      "mode": "wrapper-nested",
+      "file": "ios-positioned-9584645/wrapper-nested.png",
+      "sha256": "d2193ddc4725c447d20b33f549ea6e4222a54579ff0164efe86615346c14defc",
+      "physicalSize": [264, 120]
+    }
+  ],
+  "method": {
+    "transport": "USB Safari WebDriver element screenshot, before capture; never a screenshot of library output",
+    "sourceCSSSize": [40, 40],
+    "crop": "Use the top-left CSS viewport at physical DPR=3, then draw at CSS dimensions. Safari element screenshot can include overflowing transformed descendants (264px instead of 120px); do not shrink that overflow into the viewport. All final native marker controls pass.",
+    "checks": "Final shared checkPositionedScroll validates source marker positions/nonzero axes, all 6400 RGBA channels at zero tolerance, and unchanged source DOM/scroll for each of 55 modes.",
+    "excludedDiagnostics": "Initial attempts that scaled the whole overflow-inclusive screenshot failed their native source controls and are excluded from passing counts."
+  },
+  "replay": "ios-native-source-replay.py.txt"
+}
