@@ -29,7 +29,7 @@
 | [#430](https://github.com/bubkoo/html-to-image/pull/430) | 缓存进行中的请求避免短时间重复加载。核心等价；#622 另消除 WebKit 副本的额外原生请求。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 缓存限单次捕获，不承诺跨捕获响应永不变化 |
 | [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts) | 外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成 |
 | [#409](https://github.com/bubkoo/html-to-image/pull/409) | CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致。#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁。 | [dimensions.test.ts](../test/browser-unit/dimensions.test.ts) | 原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证 |
-| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631 已合入；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入的三引擎全像素和构建包通过，待真机。 | [positioned-scroll.json](evidence/positioned-scroll.json) | 捕获树外 absolute 坐标、水平文本/inline/contents/float/sticky、auto 边距/部分伪元素、竖排及原生滚动条仍保留边界；#633 尚未合并 |
+| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631 已合入；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入的三引擎/构建包及真机全像素通过，已合入。 | [positioned-scroll.json](evidence/positioned-scroll.json) | 捕获树外 absolute 坐标、水平文本/inline/contents/float/sticky、auto 边距/部分伪元素、竖排及原生滚动条仍保留边界；#633 已合入，其他边界仍保留 |
 | [#407](https://github.com/bubkoo/html-to-image/pull/407) | 把额外 CSS 放进输出副本。使用 onClone 插入 style 的现有原语，不新增 extraStyleContent。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 自定义 CSS 注入不等于源原生滚动条外观/位置已保留 |
 | [#401](https://github.com/bubkoo/html-to-image/pull/401) | 应调用并等待 decode，而不是覆盖方法。核心等价；保留可用图片 decode 拒绝不悬挂的边界。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 图片可解码不等于所有 WebKit foreignObject 首绘问题已解决 |
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
@@ -273,3 +273,10 @@ GitHub 重新核对的 28 个旧 PR 均仍开放，head 与已读版本一致，
 #398 自动 USB 页面可生成 96×60 PNG，但退出自动化后，手动 Safari 无法访问 USB 和同一 Wi-Fi 地址。可信点击、新标签和清理仍待网络可达后验收，未用合成点击替代。
 
 原需求复核：#408 关联 [#81](https://github.com/bubkoo/html-to-image/issues/81) 与 [#345](https://github.com/bubkoo/html-to-image/issues/345)。#81 的关闭来自 stale 机器人，不等于修复；其原 sandbox API 为 HTTP403、预览为 HTTP400。#345 已明确要求颜色、尺寸、轨道/滑块外观和位置，撤回此前要求用户缩减范围的选择。现有部分布局修复不等于两个 Issue 整体解决。
+
+
+## #633 主分支合入记录
+
+#633 的最终 head 1c6b184 在转向 master 后，CI 42961919142、CodeQL 42961919318 和 Codecov patch/project 全通过，CI 日志确认准确 head，完整计数 337/653/135（源码另 1 项既有 GC 跳过）。已以 rebase 方式合入 master 7d8d350。真机报告仍准确绑定源码相同的原始 9584645，不改写历史 revision。合入后主分支 CI 42962301112 与 CodeQL 42962301137 均通过；CI 日志确认准确 checkout 7d8d350，完整计数仍为 337/653/135，另 1 项既有 GC skip。
+
+下一项从 #81/#345 的原始需求继续：研究用静态 CSS snap 恢复图像内的原生滚动，而不是继续扩大人工位移分支。[独立三引擎观察](evidence/native-scroll-snap-investigation/native-scroll-snap-investigation.json)已保存；20 种块布局的 60 个对照一致，WebKit 可见滚动条也有正负对照。该观察尚无生产实现或真机 snap 验收，不作为两个旧 Issue 已完成的声明。

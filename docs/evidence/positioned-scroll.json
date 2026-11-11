@@ -147,10 +147,21 @@
   },
   "remote": {
     "pr": "https://github.com/bubkoo/html-to-image/pull/633",
-    "previousCheckedHead": "9584645a407800a40afb18bedc7346bee2da0389",
-    "previousCI": 42956952446,
-    "previousCIAndCodecov": "passed",
-    "status": "Rebased after #632 merge; final master-targeted CI/CodeQL/Codecov required before merge"
+    "status": "merged",
+    "checkedHead": "1c6b184955eef72819bcb9a332d5f9f50e2e088f",
+    "ci": 42961919142,
+    "testedHeadVerifiedFromLog": true,
+    "codeql": 42961919318,
+    "codecovPatch": "success",
+    "codecovProject": "success",
+    "coverageSourcePackage": [337, 653, 135],
+    "sourceSkipped": 1,
+    "mergeCommit": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
+    "masterCI": 42962301112,
+    "masterCodeQL": 42962301137,
+    "masterChecks": "passed",
+    "masterTestedCheckoutVerifiedFromLog": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
+    "masterCoverageSourcePackage": [337, 653, 135]
   },
   "replay": "docs/evidence/horizontal-fixed-scroll-replay.md"
 }

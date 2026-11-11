@@ -143,3 +143,10 @@ GitHub 当前的 28 个旧 PR 均仍开放，head 与逐项已读版本一致；
 #398 自动 USB 页面可生成 96×60 PNG，但退出自动化后，手动 Safari 无法访问 USB 和同一 Wi-Fi 地址。可信点击、新标签和清理仍待网络可达后验收，未用合成点击替代。
 
 原需求复核：#408 关联 [#81](https://github.com/bubkoo/html-to-image/issues/81) 与 [#345](https://github.com/bubkoo/html-to-image/issues/345)。#81 的关闭来自 stale 机器人，不等于修复；其原 sandbox API 为 HTTP403、预览为 HTTP400。#345 已明确要求颜色、尺寸、轨道/滑块外观和位置，撤回此前要求用户缩减范围的选择。现有部分布局修复不等于两个 Issue 整体解决。
+
+
+## #633 主分支合入记录
+
+#633 的最终 head 1c6b184 在转向 master 后，CI 42961919142、CodeQL 42961919318 和 Codecov patch/project 全通过，CI 日志确认准确 head，完整计数 337/653/135（源码另 1 项既有 GC 跳过）。已以 rebase 方式合入 master 7d8d350。真机报告仍准确绑定源码相同的原始 9584645，不改写历史 revision。合入后主分支 CI 42962301112 与 CodeQL 42962301137 均通过；CI 日志确认准确 checkout 7d8d350，完整计数仍为 337/653/135，另 1 项既有 GC skip。
+
+下一项从 #81/#345 的原始需求继续：研究用静态 CSS snap 恢复图像内的原生滚动，而不是继续扩大人工位移分支。[独立三引擎观察](evidence/native-scroll-snap-investigation/native-scroll-snap-investigation.json)已保存；20 种块布局的 60 个对照一致，WebKit 可见滚动条也有正负对照。该观察尚无生产实现或真机 snap 验收，不作为两个旧 Issue 已完成的声明。

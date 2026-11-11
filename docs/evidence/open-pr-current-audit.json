@@ -1,7 +1,7 @@
 {
   "checkedAt": "2026-11-11T02:07:41.358341+00:00",
   "runtimeBase": "132c38d186ac4debd9da164363a8bb8234f3c396",
-  "scope": "The 28 original open PRs; #632 merged, #633 native acceptance passed and master-targeted checks remain required. Not whole-issue completion.",
+  "scope": "The 28 original open PRs. Own fixes #632/#633 are merged after exact-head CI/CodeQL/Codecov and native-device acceptance; remaining boundaries are explicit, not whole-issue completion.",
   "all28AccountedFor": true,
   "oldPRClosureActions": 0,
   "oldPRCommentActions": 0,
@@ -302,7 +302,7 @@
       "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
       "observedState": "open",
       "requirement": "保留可见滚动位置",
-      "disposition": "已合入 #630/#631；#633 的三引擎全像素、真机 29/29 和 55 个源截图全像素通过，待主分支检查合入",
+      "disposition": "#630/#631/#633 已合入；#633 三引擎 165 全像素、真机完整 29/29 和 55 个源截图全像素对照通过",
       "evidence": [
         "test/browser-unit/mixed-scroll.test.ts",
         "test/browser-unit/fixed-scroll.test.ts",
@@ -419,7 +419,7 @@
       "Source URLs and frozen request options unchanged."
     ],
     "nativeReport": "docs/evidence/ios-safari-resource-policy-5cbf99d.json",
-    "currentRuntimeValidation": "#633 CI 42949527428 on b4d8d230f9430670ad31f936fd776dfe816a261c passed the ESM/UMD and full-page shared checks in all three engines.",
+    "currentRuntimeValidation": "Final #633 CI 42961919142 on exact head 1c6b184955eef72819bcb9a332d5f9f50e2e088f passes the complete 337/653/135 checks, including shared credential controls.",
     "fixtureFilesSha256": {
       "test/browser/fixtures/resource-policy.mjs": "c2e751945875d3f2836890aa06dc63e06b176f52c92e50361f83c04230bfd448",
       "test/browser/fixtures/resource-policy-server.mjs": "f7cd003fc477e517ad934e838bc62d8733a45af347ee41376ed6a2ad21761f73"
@@ -460,7 +460,15 @@
     "currentFullPixelPassed": 165,
     "withExistingFixedAndMixedPassed": 297,
     "localCoverageSource": [337, 653],
-    "remote": "9584645 CI/Codecov passed; rebased master-targeted head requires new CI/CodeQL/Codecov.",
+    "remote": {
+      "status": "merged",
+      "checkedHead": "1c6b184955eef72819bcb9a332d5f9f50e2e088f",
+      "ci": 42961919142,
+      "codeql": 42961919318,
+      "codecovPatch": "success",
+      "codecovProject": "success",
+      "mergeCommit": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd"
+    },
     "nativeIOS": {
       "status": "passed",
       "revision": "9584645a407800a40afb18bedc7346bee2da0389",

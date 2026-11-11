@@ -1,0 +1,1065 @@
+{
+  "status": "investigation only; no production change or whole-issue fix claimed",
+  "runtimeRevisionForSharedSourceFixture": "9584645a407800a40afb18bedc7346bee2da0389",
+  "method": "Actual native source element screenshot before handwritten serialized SVG, with final comparison of every RGBA channel; source DOM preserved. This is not a library candidate regression run.",
+  "probes": {
+    "initial": {
+      "chrome": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "results": [
+          {
+            "mode": "none",
+            "scroll": [0, 0],
+            "client": [40, 40],
+            "support": true,
+            "nativeCenter": [255, 0, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime-scroll",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": true,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 3200,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "initial-target",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": true,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;scroll-initial-target:nearest;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap-target",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": true,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;scroll-snap-type:both mandatory;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;scroll-snap-align:start start;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": true,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-41px!important;scroll-margin-bottom:80px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-rtl",
+            "scroll": [-40, 40],
+            "client": [40, 40],
+            "support": true,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;direction:rtl;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:40px!important;scroll-margin-right:-40px!important;scroll-margin-top:-41px!important;scroll-margin-bottom:80px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-padding",
+            "scroll": [40, 40],
+            "client": [46, 46],
+            "support": true,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;padding:3px;border:1px solid blue;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-37px!important;scroll-margin-right:43px!important;scroll-margin-top:-38px!important;scroll-margin-bottom:83px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-padding-rtl",
+            "scroll": [-40, 40],
+            "client": [46, 46],
+            "support": true,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;direction:rtl;padding:3px;border:1px solid blue;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:43px!important;scroll-margin-right:-37px!important;scroll-margin-top:-38px!important;scroll-margin-bottom:83px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      },
+      "firefox": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "results": [
+          {
+            "mode": "none",
+            "scroll": [0, 0],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [255, 0, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime-scroll",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 3200,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "initial-target",
+            "scroll": [0, 0],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [255, 0, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;scroll-initial-target:nearest;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap-target",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;scroll-snap-type:both mandatory;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;scroll-snap-align:start start;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-41px!important;scroll-margin-bottom:80px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-rtl",
+            "scroll": [-40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;direction:rtl;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:40px!important;scroll-margin-right:-40px!important;scroll-margin-top:-41px!important;scroll-margin-bottom:80px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-padding",
+            "scroll": [40, 40],
+            "client": [46, 46],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;padding:3px;border:1px solid blue;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-37px!important;scroll-margin-right:43px!important;scroll-margin-top:-38px!important;scroll-margin-bottom:83px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-padding-rtl",
+            "scroll": [-40, 40],
+            "client": [46, 46],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;direction:rtl;padding:3px;border:1px solid blue;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:43px!important;scroll-margin-right:-37px!important;scroll-margin-top:-38px!important;scroll-margin-bottom:83px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      },
+      "webkit": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+        "results": [
+          {
+            "mode": "none",
+            "scroll": [0, 0],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [255, 0, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime-scroll",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 3200,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "initial-target",
+            "scroll": [0, 0],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [255, 0, 0, 255],
+            "foreignObjectCenter": [255, 0, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;scroll-initial-target:nearest;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap-target",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div id=\"initial-scroll-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;scroll-snap-type:both mandatory;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;scroll-snap-align:start start;\"></div></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected",
+            "scroll": [40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-41px!important;scroll-margin-bottom:80px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-rtl",
+            "scroll": [-40, 40],
+            "client": [40, 40],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;direction:rtl;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:40px!important;scroll-margin-right:-40px!important;scroll-margin-top:-41px!important;scroll-margin-bottom:80px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-padding",
+            "scroll": [40, 40],
+            "client": [46, 46],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;padding:3px;border:1px solid blue;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-37px!important;scroll-margin-right:43px!important;scroll-margin-top:-38px!important;scroll-margin-bottom:83px!important;}</style></div></foreignObject></svg>"
+          },
+          {
+            "mode": "injected-padding-rtl",
+            "scroll": [-40, 40],
+            "client": [46, 46],
+            "support": false,
+            "nativeCenter": [0, 128, 0, 255],
+            "foreignObjectCenter": [0, 128, 0, 255],
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><foreignObject width=\"40\" height=\"40\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"initial-scroll-root\" style=\"position: absolute; left: 0px; top: 0px; width: 40px; height: 40px; overflow: hidden; background: white;\"><div id=\"initial-scroll-panel\" style=\"width:40px;height:40px;overflow:auto;scrollbar-width:none;direction:rtl;padding:3px;border:1px solid blue;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;\"><div style=\"position:relative;width:120px;height:120px;background:red\"><div style=\"position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;\"></div></div></div><style>#initial-scroll-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:43px!important;scroll-margin-right:-37px!important;scroll-margin-top:-38px!important;scroll-margin-bottom:83px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      }
+    },
+    "block": {
+      "chrome": {
+        "engine": "chromium",
+        "results": [
+          {
+            "kind": "local-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "viewport-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "ancestor-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "wrapper-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "viewport-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "ancestor-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "wrapper-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-absolute",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-rtl",
+            "scroll": [-40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-deep",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-important",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-selected",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-relative-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-vertical",
+            "scroll": [0, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-vertical",
+            "scroll": [0, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "relative-block-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-before-diagonal",
+            "skipped": "occupied before"
+          },
+          {
+            "kind": "local-block-after-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-sticky-vertical",
+            "scroll": [0, 60],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          }
+        ]
+      },
+      "firefox": {
+        "engine": "firefox",
+        "results": [
+          {
+            "kind": "local-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "viewport-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "ancestor-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "wrapper-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "viewport-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "ancestor-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "wrapper-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-absolute",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-rtl",
+            "scroll": [-40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-deep",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-important",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-selected",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-relative-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-vertical",
+            "scroll": [0, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-vertical",
+            "scroll": [0, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "relative-block-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-before-diagonal",
+            "skipped": "occupied before"
+          },
+          {
+            "kind": "local-block-after-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-sticky-vertical",
+            "scroll": [0, 60],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          }
+        ]
+      },
+      "webkit": {
+        "engine": "webkit",
+        "results": [
+          {
+            "kind": "local-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "viewport-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "ancestor-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "wrapper-block-horizontal",
+            "scroll": [40, 0],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "viewport-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "ancestor-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "wrapper-block-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-absolute",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-rtl",
+            "scroll": [-40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-deep",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-important",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-diagonal-selected",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-relative-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-vertical",
+            "scroll": [0, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-vertical",
+            "scroll": [0, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "relative-block-absolute-only-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-before-diagonal",
+            "skipped": "occupied before"
+          },
+          {
+            "kind": "local-block-after-diagonal",
+            "scroll": [40, 40],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          },
+          {
+            "kind": "local-block-absolute-only-sticky-vertical",
+            "scroll": [0, 60],
+            "differentChannels": 0,
+            "sourceUnchanged": true
+          }
+        ]
+      }
+    },
+    "standardBars": {
+      "chrome": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "results": [
+          {
+            "mode": "unscrolled",
+            "scroll": [0, 0],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 1763,
+              "black": 284,
+              "blue": 0
+            },
+            "differentChannels": 3874,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 1763,
+              "black": 284,
+              "blue": 0
+            },
+            "differentChannels": 3874,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 1763,
+              "black": 284,
+              "blue": 0
+            },
+            "differentChannels": 3874,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"bar-probe-root\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important\"><div style=\"width:200px;height:300px;background:green\"></div></div><style>#bar-probe-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-51px!important;scroll-margin-bottom:150px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      },
+      "firefox": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "results": [
+          {
+            "mode": "unscrolled",
+            "scroll": [0, 0],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important\"><div style=\"width:200px;height:300px;background:green\"></div></div><style>#bar-probe-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-51px!important;scroll-margin-bottom:150px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      },
+      "webkit": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+        "results": [
+          {
+            "mode": "unscrolled",
+            "scroll": [0, 0],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"bar-probe-root\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#bar-probe-panel::-webkit-scrollbar-track{background:red}#bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;scrollbar-color:black red;scrollbar-width:thin;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important\"><div style=\"width:200px;height:300px;background:green\"></div></div><style>#bar-probe-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-51px!important;scroll-margin-bottom:150px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      }
+    },
+    "legacyBars": {
+      "chrome": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "results": [
+          {
+            "mode": "unscrolled",
+            "scroll": [0, 0],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "differentChannels": 3120,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"legacy-bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "differentChannels": 3120,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"legacy-bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "differentChannels": 3120,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"legacy-bar-probe-root\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important\"><div style=\"width:200px;height:300px;background:green\"></div></div><style>#legacy-bar-probe-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-51px!important;scroll-margin-bottom:150px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      },
+      "firefox": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "results": [
+          {
+            "mode": "unscrolled",
+            "scroll": [0, 0],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"legacy-bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"legacy-bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap",
+            "scroll": [40, 50],
+            "client": [100, 100],
+            "nativeColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "captureColors": {
+              "red": 0,
+              "black": 0,
+              "blue": 0
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"legacy-bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important\"><div style=\"width:200px;height:300px;background:green\"></div></div><style>#legacy-bar-probe-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-51px!important;scroll-margin-bottom:150px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      },
+      "webkit": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+        "results": [
+          {
+            "mode": "unscrolled",
+            "scroll": [0, 0],
+            "client": [90, 90],
+            "nativeColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "captureColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"legacy-bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "runtime",
+            "scroll": [40, 50],
+            "client": [90, 90],
+            "nativeColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "captureColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "differentChannels": 640,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div id=\"legacy-bar-probe-root\" xmlns=\"http://www.w3.org/1999/xhtml\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;\"><div style=\"width:200px;height:300px;background:green\"></div></div></div></foreignObject></svg>"
+          },
+          {
+            "mode": "snap",
+            "scroll": [40, 50],
+            "client": [90, 90],
+            "nativeColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "captureColors": {
+              "red": 1120,
+              "black": 680,
+              "blue": 100
+            },
+            "differentChannels": 0,
+            "sourceUnchanged": true,
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><foreignObject width=\"100\" height=\"100\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"legacy-bar-probe-root\" style=\"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; overflow: hidden; background: white;\"><style>#legacy-bar-probe-panel::-webkit-scrollbar{width:10px;height:10px;background:red}#legacy-bar-probe-panel::-webkit-scrollbar-track{background:red}#legacy-bar-probe-panel::-webkit-scrollbar-thumb{background:black;border-radius:0}#legacy-bar-probe-panel::-webkit-scrollbar-corner{background:blue}</style><div id=\"legacy-bar-probe-panel\" style=\"width:100px;height:100px;overflow:scroll;;scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important\"><div style=\"width:200px;height:300px;background:green\"></div></div><style>#legacy-bar-probe-panel::before{all:initial!important;content:\"\"!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:-40px!important;scroll-margin-right:40px!important;scroll-margin-top:-51px!important;scroll-margin-bottom:140px!important;}</style></div></foreignObject></svg>"
+          }
+        ]
+      }
+    }
+  },
+  "replayFilesSha256": {
+    "initial-target.js.txt": "82bfc1efcec9a06d6b549721c94994035c8575fc172fcebf184b62675a94f154",
+    "block-matrix.js.txt": "a29599fce8f161e56f34636a23f9d482197e77a5b2ea70e50d33b48c45ee0f27",
+    "scrollbars.js.txt": "84a673181fb703d0e23e4a506229b51381dba472b5400033a1eeee8815303aa0",
+    "legacy-bars.js.txt": "6ac29e33b85af444fd54fbfd86847ee31194cbf61c3cc5ad19a5432bd5bc24fb"
+  },
+  "limits": [
+    "Native phone initial-snap behavior unverified; no candidate implementation yet.",
+    "Visible before pseudos cannot be overwritten; competing targets and non-block layouts need separate handling.",
+    "Legacy WebKit custom scrollbar source is visible and final snapped SVG matches; Chromium SVG draws bars absent from the overlay source even at zero offset.",
+    "Firefox does not support the legacy WebKit scrollbar pseudo styles; zero difference there is not positive scrollbar acceptance."
+  ],
+  "sharedFixture": {
+    "path": "test/browser/fixtures/positioned-scroll.mjs",
+    "sha256": "b9faff52a156f74bf325e1314d92b33f2ab34ba39d61c578881756a3ccecad21"
+  },
+  "validatedSummary": {
+    "injectedPerEngine": 4,
+    "injectedFullPixelPassed": 12,
+    "blockPerEngine": 20,
+    "blockFullPixelPassed": 60,
+    "occupiedBeforeExcluded": 3,
+    "visibleWebKitScrollbarControl": {
+      "unscrolledDifferentChannels": 0,
+      "runtimeStateLostDifferentChannels": 640,
+      "snapDifferentChannels": 0
+    },
+    "nativeIOS": "not validated for the snap mechanism"
+  },
+  "replayInstructions": "Build the recorded revision; serve test/browser/server.mjs at localhost:4373. Open separate Chromium/Firefox/WebKit CLI sessions at /test/browser/umd.html. Ensure /tmp/html-to-image-blob-check/scroll-native exists. Run each archived async(page) probe with playwright-cli run-code --filename, then read its Result JSON. initial-target checks state-loss/feature controls, block-matrix imports the unchanged shared fixture, scrollbars uses standard scrollbar declarations and legacy-bars uses only WebKit pseudo rules. Original executed scripts and immutable hashes are retained rather than represented as production tests."
+}

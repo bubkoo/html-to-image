@@ -1,0 +1,25 @@
+async(page)=>{
+ const engine=page.context().browser().browserType().name();const results=[];
+ for(const mode of ['none','runtime-scroll','initial-target','snap-target','injected','injected-rtl','injected-padding','injected-padding-rtl']){
+  const state=await page.evaluate(async(mode)=>{
+   const root=document.createElement('div');root.id='initial-scroll-root';root.setAttribute('xmlns','http://www.w3.org/1999/xhtml');root.style.cssText='position:absolute;left:0;top:0;width:40px;height:40px;overflow:hidden;background:white';
+   root.innerHTML='<div id="initial-scroll-panel" style="width:40px;height:40px;overflow:auto;scrollbar-width:none;'+(mode==='snap-target'?'scroll-snap-type:both mandatory;':'')+(mode.includes('rtl')?'direction:rtl;':'')+(mode.includes('padding')?'padding:3px;border:1px solid blue;':'')+'"><div style="position:relative;width:120px;height:120px;background:red"><div style="position:absolute;left:40px;top:40px;width:40px;height:40px;background:green;'+(mode==='initial-target'?'scroll-initial-target:nearest;':mode==='snap-target'?'scroll-snap-align:start start;':'')+'"></div></div></div>';
+   document.body.append(root);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const panel=root.firstElementChild;if(mode==='runtime-scroll'||mode.startsWith('injected')){panel.scrollLeft=mode.includes('rtl')?-40:40;panel.scrollTop=40;}
+   const css=getComputedStyle(panel);
+   return {scroll:[panel.scrollLeft,panel.scrollTop],client:[panel.clientWidth,panel.clientHeight],padding:[parseFloat(css.paddingLeft),parseFloat(css.paddingRight),parseFloat(css.paddingTop)],html:root.outerHTML,support:CSS.supports('scroll-initial-target','nearest')};
+  },mode);
+  const native=await page.locator('#initial-scroll-root').screenshot({path:'/tmp/html-to-image-blob-check/scroll-native/initial-source-'+engine+'-'+mode+'.png',scale:'css'});
+  const result=await page.evaluate(async({state,png,mode})=>{
+   let svg='<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><foreignObject width="40" height="40">'+state.html+'</foreignObject></svg>';
+   if(mode.startsWith('injected')){
+    const doc=new DOMParser().parseFromString(svg,'image/svg+xml');const panel=doc.querySelector('#initial-scroll-panel');panel.setAttribute('style',panel.getAttribute('style')+';scroll-snap-type:both mandatory!important;scroll-padding:0!important;scroll-behavior:auto!important;');const sheet=doc.createElementNS('http://www.w3.org/1999/xhtml','style');const [x,y]=state.scroll,[pl,pr,pt]=state.padding;
+    sheet.textContent='#initial-scroll-panel::before{all:initial!important;content:""!important;display:block!important;width:auto!important;height:1px!important;margin:-1px 0 0!important;overflow:hidden!important;scroll-snap-align:start start!important;scroll-margin-left:'+(pl-x)+'px!important;scroll-margin-right:'+(x+pr)+'px!important;scroll-margin-top:'+(pt-1-y)+'px!important;scroll-margin-bottom:'+(y+state.client[1]-pt)+'px!important;}';doc.querySelector('#initial-scroll-root').append(sheet);svg=new XMLSerializer().serializeToString(doc);
+   }
+   const image=new Image();image.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);await image.decode();const canvas=document.createElement('canvas');canvas.id='initial-scroll-capture';canvas.width=canvas.height=40;canvas.style.cssText='position:absolute;left:80px;top:0;width:40px;height:40px';const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);document.body.append(canvas);
+   const source=new Image();source.src='data:image/png;base64,'+png;await source.decode();const n=document.createElement('canvas');n.width=n.height=40;const nc=n.getContext('2d');nc.drawImage(source,0,0,40,40);const a=nc.getImageData(0,0,40,40).data,b=ctx.getImageData(0,0,40,40).data;let different=0;for(let i=0;i<a.length;i++)if(a[i]!==b[i])different++;const offset=4*(20*40+20);const original=document.getElementById('initial-scroll-root');
+   return {scroll:state.scroll,client:state.client,support:state.support,nativeCenter:Array.from(a.slice(offset,offset+4)),foreignObjectCenter:Array.from(b.slice(offset,offset+4)),differentChannels:different,sourceUnchanged:original.outerHTML===state.html,svg};
+  },{state,png:native.toString('base64'),mode});
+  await page.locator('#initial-scroll-capture').screenshot({path:'/tmp/html-to-image-blob-check/scroll-native/initial-capture-'+engine+'-'+mode+'.png',scale:'css'});results.push({mode,...result});await page.evaluate(()=>{document.getElementById('initial-scroll-root').remove();document.getElementById('initial-scroll-capture').remove()});
+ }
+ return {userAgent:await page.evaluate(()=>navigator.userAgent),results};
+}

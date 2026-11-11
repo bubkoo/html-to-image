@@ -46,7 +46,10 @@
     "codeql": 42948699314,
     "codecovPatch": "success",
     "codecovProject": "success",
-    "mergeCommit": "67b2ec22410c284f5320c2aebee5e837b42bfbb1"
+    "mergeCommit": "67b2ec22410c284f5320c2aebee5e837b42bfbb1",
+    "masterCI": 42961170843,
+    "masterCodeQL": 42961170809,
+    "masterChecks": "passed"
   },
   "verificationScope": [
     "Complete pnpm run test:browser passed 281 coverage / 485 source + 1 inherited skip / 132 package before final test-only refinements.",
