@@ -214,6 +214,83 @@ function cloneCSSStyle<T extends HTMLElement>(
       )
     })
   }
+  return sourceStyle
+}
+
+function restoreScrollbarBox<T extends HTMLElement>(
+  nativeNode: T,
+  clonedNode: T,
+  sourceStyle: CSSStyleDeclaration,
+  selected?: readonly string[],
+) {
+  const targetStyle = clonedNode.style
+  if (
+    sourceStyle.boxSizing === 'content-box' &&
+    ['auto', 'scroll', 'hidden'].some(
+      (value) =>
+        sourceStyle.overflowX === value || sourceStyle.overflowY === value,
+    )
+  ) {
+    const px = (name: string) =>
+      parseFloat(sourceStyle.getPropertyValue(name)) || 0
+    const restore = (
+      dimension: 'width' | 'height',
+      offset: number,
+      start: string,
+      end: string,
+    ) => {
+      const horizontal = sourceStyle.writingMode === 'horizontal-tb'
+      const logical =
+        dimension === 'width'
+          ? horizontal
+            ? 'inline-size'
+            : 'block-size'
+          : horizontal
+            ? 'block-size'
+            : 'inline-size'
+      if (
+        selected &&
+        !selected.includes(dimension) &&
+        !selected.includes(logical)
+      )
+        return
+      const axis = dimension === 'width' ? 'overflow-y' : 'overflow-x'
+      const targetOverflow =
+        targetStyle.getPropertyValue(axis) ||
+        targetStyle.getPropertyValue(
+          logical === 'inline-size' ? 'overflow-block' : 'overflow-inline',
+        )
+      // Legacy scroll encoding hides the native gutter and uses its content
+      // viewport. Restore the outer box only when that gutter is retained.
+      const keepsStableGutter =
+        targetOverflow === 'hidden' &&
+        logical === 'inline-size' &&
+        sourceStyle.getPropertyValue('scrollbar-gutter').includes('stable')
+      if (
+        targetOverflow !== sourceStyle.getPropertyValue(axis) &&
+        !keepsStableGutter
+      )
+        return
+      const used = parseFloat(sourceStyle.getPropertyValue(dimension))
+      if (!Number.isFinite(used) || !Number.isFinite(offset)) return
+      const edges =
+        px(`padding-${start}`) +
+        px(`padding-${end}`) +
+        px(`border-${start}-width`) +
+        px(`border-${end}-width`)
+      const gutter = offset - Math.round(used + edges)
+      if (gutter <= 0) return
+      // CSSOM resolves a content-box dimension after subtracting its gutter.
+      // A second scroll container must start from the original box dimension,
+      // otherwise it subtracts the same scrollbar space again.
+      const property =
+        selected && !selected.includes(dimension) ? logical : dimension
+      targetStyle.removeProperty(property)
+      targetStyle.setProperty(property, `${used + gutter}px`)
+    }
+    restore('width', nativeNode.offsetWidth, 'left', 'right')
+    restore('height', nativeNode.offsetHeight, 'top', 'bottom')
+  }
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
@@ -303,7 +380,13 @@ function decorate<T extends HTMLElement>(
     const selected = options.stylePropertiesForNode
       ? options.stylePropertiesForNode(nativeNode)
       : options.includeStyleProperties
-    cloneCSSStyle(nativeNode, clonedNode, options, selected, isRoot)
+    const sourceStyle = cloneCSSStyle(
+      nativeNode,
+      clonedNode,
+      options,
+      selected,
+      isRoot,
+    )
     clonePseudoElements(nativeNode, clonedNode, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
@@ -339,6 +422,8 @@ function decorate<T extends HTMLElement>(
     } else {
       cloneScrollState(nativeNode, clonedNode, options)
     }
+    if (sourceStyle)
+      restoreScrollbarBox(nativeNode, clonedNode, sourceStyle, selected)
     options.onCloneNode?.(nativeNode, clonedNode)
   }
 

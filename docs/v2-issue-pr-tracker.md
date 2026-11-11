@@ -1,5 +1,17 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-11 最新状态：滚动条占位尺寸候选 #634
+
+#632 已合入 master 67b2ec2，#633 已合入 master 7d8d350；各自准确源码的真机验收已归档。#633 最终 head 1c6b184 的 PR CI 42961919142、CodeQL 42961919318、Codecov，以及 master CI 42962301112 / CodeQL 42962301137 全部通过。下方较早的“待验/未合并”文字保留为历史阶段，不代表当前状态。
+
+继续按 #408 原关联的 #81 / #345 处理。新候选修复独立根因：CSSOM 的 content-box 尺寸已扣除滚动条占位，再复制到原生滚动容器会重复扣除。按实际外框与已解析尺寸的差额恢复占位，仅处理仍保留该空间的轴；滚动后 hidden 仍保留 stable inline gutter 的情况也覆盖。没有读取伪元素声明的 10.5px 当作实际厚度。
+
+[尺寸证据](evidence/scrollbar-box-dimensions.json)：最终同组旧源码 12 失败 / 25 通过 / 2 特性跳过，候选 36 通过 / 3 跳过。完整本地 coverage/source/package 为 349/689/138，另 1/4/0 跳过，lint/构建/类型/tarball 均通过；HTML 格式收敛后相关构建包复验 9/9。Chromium 明确关闭测试框架默认隐藏滚动条和系统悬浮模式，旧 iframe/粘性标题内容取样改到真实内容视口内。两个 Firefox legacy 选择器不支持；Chromium both-edge gutter 的原生横向滑块差异未计为通过：Mac 44 通道、首轮 Linux CI 22 通道。库与手写 SVG 全像素相同；仅当全部原生差异都位于横向滚动条带内、手写 SVG/原生差异数也完全相同时单独跳过原生保真验收，额外几何正对照和其他内容像素仍严格验证，不放宽容差。先前称为角落差异不准确，已按 PNG 坐标修正。
+
+[草稿 PR #634](https://github.com/bubkoo/html-to-image/pull/634) 尚待最终提交的远端和真机验收；前两轮 CI 分别暴露 Mac 通道数硬编码与误传 Chromium 专用启动选项的问题；已按差异区域核对，并仅在 Chromium 实例/项目设置选项。本地再次全过，最终提交的远端及真机仍需各自验收。目前 USB 列表没有 iPhone，Safari 不能创建可用会话，不能沿用 #632/#633 的真机报告。#398 手动页面在 USB/同 Wi-Fi 均不可达；临时外网入口也未建立（DNS 失败、Mac 安全软件拦截隧道工具），未修改安全设置。原生滚动条完整外观/滑块位置及两个 Issue 的其他布局边界仍未解决；未关闭或评论旧 PR，未发布 npm。
+
+另一个原生滚动状态原型保留在 codex/native-scroll-snapshot 的 b9e9d5b，存在两个严格 WebKit 源像素失败，未进入本尺寸修正。
+
 更新于 2026-11-11。用途是准备后续 Issue 和 PR 回复；已合并与后续修复候选应按各行证据分别核对。V2 已通过 [PR #600](https://github.com/bubkoo/html-to-image/pull/600) 合并到 `master`，尚未发布 V2 到 npm，不能把合并等同于发布。测试与修复项的完整对应关系见 [v2-regressions.md](v2-regressions.md)；开放 PR 的逐项处理建议见 [open-pr-triage.md](open-pr-triage.md)。
 
 “本地覆盖”只表示所列场景有对应回归并通过验证；“部分覆盖”表示不能按原帖的全部范围宣称解决。后续修复候选须合并后才能称为 `master` 已修复。回复前应重新核对主分支代码、测试结果和远端 CI。

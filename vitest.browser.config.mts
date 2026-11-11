@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
@@ -93,6 +93,35 @@ export default defineConfig({
             .screenshot({ scale: 'css', timeout: 5000 })
           return png.toString('base64')
         },
+        async recordScrollbarBoxEvidence(_, record: string) {
+          const data = JSON.parse(record)
+          if (
+            !process.env.SCROLLBAR_BOX_EVIDENCE &&
+            !data.nativeDifferentChannels
+          )
+            return
+          const folder = resolve('.vitest/attachments/scrollbar-box')
+          await mkdir(folder, { recursive: true })
+          const name = String(data.engine + '-' + data.kind).replace(
+            /[^a-z0-9-]/gi,
+            '_',
+          )
+          await Promise.all(
+            ['native', 'capture', 'authored'].map(async (key) => {
+              if (data[key]) {
+                await writeFile(
+                  resolve(folder, name + '-' + key + '.png'),
+                  Buffer.from(data[key], 'base64'),
+                )
+                delete data[key]
+              }
+            }),
+          )
+          await writeFile(
+            resolve(folder, name + '.json'),
+            JSON.stringify(data, null, 2) + '\n',
+          )
+        },
       },
       instances: (selected
         ? [selected]
@@ -101,6 +130,17 @@ export default defineConfig({
           : ['chromium']
       ).map((browser) => ({
         browser: browser as (typeof names)[number],
+        provider: playwright({
+          launchOptions:
+            browser === 'chromium'
+              ? {
+                  ignoreDefaultArgs: ['--hide-scrollbars'],
+                  args: [
+                    '--disable-features=OverlayScrollbar,FluentOverlayScrollbar',
+                  ],
+                }
+              : undefined,
+        }),
       })),
     },
   },

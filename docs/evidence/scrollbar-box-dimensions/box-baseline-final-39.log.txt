@@ -1,0 +1,225 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |webkit| test/browser-unit/scrollbar-box.test.ts (13 tests | 2 failed) 759ms
+   × scrollbar box legacy-fractional matches all native source pixels 85ms
+   × scrollbar box legacy-gutter matches all native source pixels 81ms
+ ❯ |chromium| test/browser-unit/scrollbar-box.test.ts (13 tests | 10 failed) 1412ms
+   × scrollbar box content matches all native source pixels 162ms
+   × scrollbar box padding matches all native source pixels 125ms
+   × scrollbar box fractional matches all native source pixels 117ms
+   × scrollbar box gutter matches all native source pixels 118ms
+   × scrollbar box vertical matches all native source pixels 116ms
+   × scrollbar box legacy-fractional matches all native source pixels 132ms
+   × scrollbar box legacy-gutter matches all native source pixels 115ms
+   × scrollbar box selected-logical matches all native source pixels 112ms
+   × scrollbar box scrolled-gutter keeps the native content viewport 111ms
+   × both-edge gutter keeps the authored box independent of native thumb painting 51ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box content matches all native source pixels
+Error: content: source box 100,100 became 89,89
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-content-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box padding matches all native source pixels
+Error: padding: source box 108,108 became 97,97
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-padding-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box fractional matches all native source pixels
+Error: fractional: source box 100.5,100.5 became 89.5,89.5
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-fractional-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box gutter matches all native source pixels
+Error: gutter: source box 100,100 became 78,89
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-gutter-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box vertical matches all native source pixels
+Error: vertical: source box 100,100 became 89,89
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-vertical-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box legacy-fractional matches all native source pixels
+Error: legacy-fractional: source box 100.5,100.5 became 90.5,90.5
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-legacy-fractional-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box legacy-gutter matches all native source pixels
+Error: legacy-gutter: source box 100.5,100.5 became 80.5,90.5
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-legacy-gutter-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box selected-logical matches all native source pixels
+Error: selected-logical: source box 100,100 became 89,89
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-selected-logical-matches-all-native-source-pixels.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box scrolled-gutter keeps the native content viewport
+Error: scrolled-gutter: source box 78,89 became 56,89
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-scrolled-gutter-keeps-the-native-content-viewport.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/12]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > both-edge gutter keeps the authored box independent of native thumb painting
+Error: gutter: source box 100,100 became 78,89
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/both-edge-gutter-keeps-the-authored-box-independent-of-native-thumb-painting.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:84:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/12]⎯
+
+ FAIL  |webkit| test/browser-unit/scrollbar-box.test.ts > scrollbar box legacy-fractional matches all native source pixels
+ FAIL  |webkit| test/browser-unit/scrollbar-box.test.ts > scrollbar box legacy-gutter matches all native source pixels
+Error: legacy-fractional: source box 100.5,100.5 became 90.5,90.5
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-legacy-fractional-matches-all-native-source-pixels.png
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-legacy-gutter-matches-all-native-source-pixels.png
+
+ ❯ checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:26
+    117|           : metrics.serializedOuter
+    118|         if (actual.some((value, i) => value !== expected[i]))
+    119|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                          ^
+    120|       } finally {
+    121|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/12]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  12 failed | 25 passed | 2 skipped (39)
+   Start at  15:01:00
+   Duration  1.87s (tests 89%, worker 9%, import 2%)
+
