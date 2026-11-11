@@ -8,4 +8,6 @@
 - 固定内容取样必须落在真实 client viewport 内；开启占位滚动条后 40px 盒的 25px 坐标可能已经越界。scrolled 用例对 clientLeft/clientTop 起点后的全部内容像素比较。
 - 最终回归基线 12 fail/25 pass/2 unsupported；候选 36 pass/3 skips。全量 349 coverage/689 source/138 package。原生原型两项 WebKit 严格失败留在独立分支，不混入此修正。
 
-- Read optional scrollbar-gutter through getPropertyValue: older browsers may not expose the IDL property, while getPropertyValue returns an empty string safely.
+- 通过 getPropertyValue 读取可选 scrollbar-gutter；旧浏览器可能没有对应 IDL 属性，该方法仍安全返回空字符串。
+
+- 浏览器专用启动选项只能放在对应实例/项目里。Mac WebKit 可能忽略 Chromium 选项，Linux WebKit 会直接报 Unknown option；本地全过不能代替远端跨平台验收。

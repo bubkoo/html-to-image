@@ -1,0 +1,17 @@
+2026-11-11T06:55:26.3789627Z [36;1mecho "Tested checkout: $actual_sha"[0m
+2026-11-11T06:55:26.3791805Z [36;1m  echo "PR head in tested merge: $actual_head"[0m
+2026-11-11T06:55:26.3951410Z Tested checkout: 63880d38dadeceba99d1dfa7a43f0b5705146601
+2026-11-11T06:55:26.3970502Z PR head in tested merge: 3d3dc1549e62915b48fba53e3dbd64df11a2a7c4
+2026-11-11T06:57:49.1862720Z [2m Test Files [22m [1m[32m34 passed[39m[22m[90m (34)[39m
+2026-11-11T06:57:49.1871928Z [2m      Tests [22m [1m[32m349 passed[39m[22m[2m | [22m[33m1 skipped[39m[90m (350)[39m
+2026-11-11T06:58:07.4908523Z [pid=5645][err] Cannot parse arguments: Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar
+2026-11-11T06:58:07.4913578Z   - [pid=5645][err] Cannot parse arguments: Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar
+2026-11-11T06:58:07.4945922Z [90m [2m❯[22m BrowserWorker.runTests node_modules/.pnpm/vitest@5.0.5_@types+node@22.20.5_@vitest+browser-playwright@5.0.5_@vitest+coverage-v8@5_467b010705281930a1b4be0087361ef0/node_modules/vitest/dist/chunks/index.1TqnEahn.js:[2m4592:3[22m[39m
+2026-11-11T06:58:07.4951578Z [31m[1mSerialized Error:[22m[39m [90m{ log: [ '  - <launching> /home/runner/.cache/ms-playwright/webkit-2370/pw_run.sh --inspector-pipe --headless --no-startup-window --disable-features=OverlayScrollbar,FluentOverlayScrollbar', '  - <launched> pid=5645', '  - [pid=5645][err] Cannot parse arguments: Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar', '  - [pid=5645] <gracefully close start>', '  - [pid=5645] <kill>', '  - [pid=5645] <will force kill>', '  - [pid=5645] exception while trying to kill process: Error: kill ESRCH', '  - [pid=5645] <process did exit: exitCode=1, signal=null>', '  - [pid=5645] starting temporary directories cleanup', '  - [pid=5645] finished temporary directories cleanup', '  - [pid=5645] <gracefully close end>' ] }[39m
+2026-11-11T06:58:07.4955408Z [2m Test Files [22m [1m[32m42 passed[39m[22m[90m (63)[39m
+2026-11-11T06:58:07.4956198Z [2m      Tests [22m [1m[32m459 passed[39m[22m[2m | [22m[33m3 skipped[39m[90m (462)[39m
+2026-11-11T06:58:07.4956858Z [2m     Errors [22m [1m[31m1 error[39m[22m
+2026-11-11T06:58:07.5392905Z [pid=5645][err] Cannot parse arguments: Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar
+2026-11-11T06:58:07.5406192Z   - [pid=5645][err] Cannot parse arguments: Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar
+2026-11-11T06:58:07.5626283Z     at async BrowserWorker.runTests (/home/runner/work/html-to-image/html-to-image/node_modules/.pnpm/vitest@5.0.5_@types+node@22.20.5_@vitest+browser-playwright@5.0.5_@vitest+coverage-v8@5_467b010705281930a1b4be0087361ef0/node_modules/vitest/dist/chunks/index.1TqnEahn.js:4592:3) {
+2026-11-11T06:58:07.5648918Z     '  - [pid=5645][err] Cannot parse arguments: Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar',

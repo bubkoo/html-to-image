@@ -1,20 +1,20 @@
 
  RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
 
- ❯ |webkit| test/browser-unit/scrollbar-box.test.ts (13 tests | 2 failed) 739ms
-   × scrollbar box legacy-fractional matches all native source pixels 84ms
-   × scrollbar box legacy-gutter matches all native source pixels 66ms
- ❯ |chromium| test/browser-unit/scrollbar-box.test.ts (13 tests | 10 failed) 1394ms
-   × scrollbar box content matches all native source pixels 164ms
-   × scrollbar box padding matches all native source pixels 123ms
-   × scrollbar box fractional matches all native source pixels 120ms
-   × scrollbar box gutter matches all native source pixels 114ms
-   × scrollbar box vertical matches all native source pixels 115ms
-   × scrollbar box legacy-fractional matches all native source pixels 118ms
-   × scrollbar box legacy-gutter matches all native source pixels 116ms
-   × scrollbar box selected-logical matches all native source pixels 111ms
-   × scrollbar box scrolled-gutter keeps the native content viewport 112ms
-   × both-edge gutter keeps the authored box independent of native thumb painting 50ms
+ ❯ |webkit| test/browser-unit/scrollbar-box.test.ts (13 tests | 2 failed) 759ms
+   × scrollbar box legacy-fractional matches all native source pixels 85ms
+   × scrollbar box legacy-gutter matches all native source pixels 81ms
+ ❯ |chromium| test/browser-unit/scrollbar-box.test.ts (13 tests | 10 failed) 1412ms
+   × scrollbar box content matches all native source pixels 162ms
+   × scrollbar box padding matches all native source pixels 125ms
+   × scrollbar box fractional matches all native source pixels 117ms
+   × scrollbar box gutter matches all native source pixels 118ms
+   × scrollbar box vertical matches all native source pixels 116ms
+   × scrollbar box legacy-fractional matches all native source pixels 132ms
+   × scrollbar box legacy-gutter matches all native source pixels 115ms
+   × scrollbar box selected-logical matches all native source pixels 112ms
+   × scrollbar box scrolled-gutter keeps the native content viewport 111ms
+   × both-edge gutter keeps the authored box independent of native thumb painting 51ms
 
 ⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
 
@@ -220,6 +220,6 @@ Failure screenshots:
 
  Test Files  2 failed | 1 passed (3)
       Tests  12 failed | 25 passed | 2 skipped (39)
-   Start at  14:54:37
-   Duration  1.94s (tests 89%, worker 9%, import 2%)
+   Start at  15:01:00
+   Duration  1.87s (tests 89%, worker 9%, import 2%)
 

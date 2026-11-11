@@ -82,12 +82,7 @@ export default defineConfig({
     browser: {
       enabled: true,
       headless: true,
-      provider: playwright({
-        launchOptions: {
-          ignoreDefaultArgs: ['--hide-scrollbars'],
-          args: ['--disable-features=OverlayScrollbar,FluentOverlayScrollbar'],
-        },
-      }),
+      provider: playwright(),
       commands: {
         async collectGarbage({ page }) {
           await page.requestGC()
@@ -135,6 +130,17 @@ export default defineConfig({
           : ['chromium']
       ).map((browser) => ({
         browser: browser as (typeof names)[number],
+        provider: playwright({
+          launchOptions:
+            browser === 'chromium'
+              ? {
+                  ignoreDefaultArgs: ['--hide-scrollbars'],
+                  args: [
+                    '--disable-features=OverlayScrollbar,FluentOverlayScrollbar',
+                  ],
+                }
+              : undefined,
+        }),
       })),
     },
   },

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-11T06:55:00.767990+00:00",
+  "checkedAt": "2026-11-11T07:01:18.633767+00:00",
   "status": "Draft PR #634; final local complete check passed, exact-commit real iPhone and remote CI pending",
   "base": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
   "sourcePRs": [408],
@@ -7,8 +7,8 @@
   "rootCause": "CSSOM content-box dimensions exclude occupied scrollbar/gutter space. Copying those resolved dimensions into a second native scroll container subtracts the space again. Restore the measured outer box only on axes retaining native gutter space, including stable inline gutters after legacy scroll encoding.",
   "sourceSHA256": {
     "src/clone-node.ts": "0af9c330868e74c82bcc6d94adabc808fe8647760575e345c9c627c10e38455a",
-    "vitest.browser.config.mts": "537fb9d98c2753a65a85596c2ececa49a22b9a8a2c0d24a81e5302e823fe729a",
-    "playwright.config.ts": "d42835f4bb279e6e17b40fc56c9d6333d1fdae8d5c400cac51ea802fb353a267",
+    "vitest.browser.config.mts": "cb69ded080ffb8df4d5b4521de7e9648200aee18bfa135c203bf00b9b42df8cc",
+    "playwright.config.ts": "1e32656659634d0c6479a394a0ebd00336037ba185330b31b92877595fb06349",
     "test/browser/fixtures/scrollbar-box.mjs": "220abb4727bd206a2eef1ed5e2963f70a652a95a0ab8ba9e8b05dca0118aea52",
     "test/browser-unit/scrollbar-box.test.ts": "84884c97a42635a296f267d2af2845efa9359327379b26fc116e67234768dbcf",
     "test/browser/fixtures/mixed-scroll.mjs": "d6685b00a20035b1aa187b55e19cd8ccf2c0610dd7c53d37c0726b597ff9e318",
@@ -55,7 +55,7 @@
     "build": true,
     "types": true,
     "packageContract": true,
-    "notes": "Final portable thumb-region oracle and optional CSS property read included; baseline rerun on the same final tests."
+    "notes": "Final Chromium-only launch options, portable thumb-region oracle and optional CSS property read included. Final full check passed; baseline rerun on those same final tests."
   },
   "boundedScope": [
     "Zero-offset native scroll containers preserve box dimensions for content-box, border-box controls, padding/border, fractional sizes, vertical writing, stable both-edge gutters, captured legacy scrollbar rules, empty/logical style selections.",
@@ -635,5 +635,37 @@
     "reason": "The native thumb exception was incorrectly hardcoded to 44 channels from Mac. Linux reported 22. Refined to verify the actual horizontal scrollbar region and exact independent authored SVG agreement, preserving the geometry assertion and reporting native fidelity as skipped.",
     "codeqlRun": 42975042006,
     "codeqlConclusion": "success"
+  },
+  "linuxThumbOracle": {
+    "runId": 42975779835,
+    "head": "3d3dc1549e62915b48fba53e3dbd64df11a2a7c4",
+    "artifactId": 13835805498,
+    "rawFile": "scrollbar-box-dimensions/linux-chromium-gutter.json",
+    "metrics": {
+      "kind": "gutter",
+      "boxSizing": "content-box",
+      "resolved": ["80px", "90px"],
+      "client": [80, 90],
+      "outer": [100, 100],
+      "offsets": [0, 0],
+      "clientOrigin": [10, 0],
+      "engine": "chromium",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+      "serializedOuter": [100, 100],
+      "serializedViewport": [80, 90],
+      "libraryAuthoredDifferentChannels": 0,
+      "nativeDifferentChannels": 22,
+      "nativeAuthoredDifferentChannels": 22,
+      "nativeHorizontalScrollbarDifferentChannels": 22
+    }
+  },
+  "remoteSecond": {
+    "revision": "3d3dc1549e62915b48fba53e3dbd64df11a2a7c4",
+    "ciRun": 42975779835,
+    "conclusion": "failure",
+    "sourcePassed": 459,
+    "sourceSkipped": 3,
+    "sourceEnginesCompleted": ["chromium", "firefox"],
+    "webkitLaunchFailure": "Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar. Chromium-only options were incorrectly passed globally. Limit them to Chromium instances/projects; final run must include WebKit."
   }
 }

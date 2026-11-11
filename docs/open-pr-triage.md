@@ -8,7 +8,7 @@
 
 [尺寸证据](evidence/scrollbar-box-dimensions.json)：最终同组旧源码 12 失败 / 25 通过 / 2 特性跳过，候选 36 通过 / 3 跳过。完整本地 coverage/source/package 为 349/689/138，另 1/4/0 跳过，lint/构建/类型/tarball 均通过；HTML 格式收敛后相关构建包复验 9/9。Chromium 明确关闭测试框架默认隐藏滚动条和系统悬浮模式，旧 iframe/粘性标题内容取样改到真实内容视口内。两个 Firefox legacy 选择器不支持；Chromium both-edge gutter 的原生横向滑块差异未计为通过：Mac 44 通道、首轮 Linux CI 22 通道。库与手写 SVG 全像素相同；仅当全部原生差异都位于横向滚动条带内、手写 SVG/原生差异数也完全相同时单独跳过原生保真验收，额外几何正对照和其他内容像素仍严格验证，不放宽容差。先前称为角落差异不准确，已按 PNG 坐标修正。
 
-[草稿 PR #634](https://github.com/bubkoo/html-to-image/pull/634) 尚待最终提交的远端和真机验收；初版 CI 因上述写死 Mac 通道数而失败，CodeQL 已通过，后续提交重新验收。目前 USB 列表没有 iPhone，Safari 不能创建可用会话，不能沿用 #632/#633 的真机报告。#398 手动页面在 USB/同 Wi-Fi 均不可达；临时外网入口也未建立（DNS 失败、Mac 安全软件拦截隧道工具），未修改安全设置。原生滚动条完整外观/滑块位置及两个 Issue 的其他布局边界仍未解决；未关闭或评论旧 PR，未发布 npm。
+[草稿 PR #634](https://github.com/bubkoo/html-to-image/pull/634) 尚待最终提交的远端和真机验收；前两轮 CI 分别暴露 Mac 通道数硬编码与误传 Chromium 专用启动选项的问题；已按差异区域核对，并仅在 Chromium 实例/项目设置选项。本地再次全过，最终提交的远端及真机仍需各自验收。目前 USB 列表没有 iPhone，Safari 不能创建可用会话，不能沿用 #632/#633 的真机报告。#398 手动页面在 USB/同 Wi-Fi 均不可达；临时外网入口也未建立（DNS 失败、Mac 安全软件拦截隧道工具），未修改安全设置。原生滚动条完整外观/滑块位置及两个 Issue 的其他布局边界仍未解决；未关闭或评论旧 PR，未发布 npm。
 
 另一个原生滚动状态原型保留在 codex/native-scroll-snapshot 的 b9e9d5b，存在两个严格 WebKit 源像素失败，未进入本尺寸修正。
 
