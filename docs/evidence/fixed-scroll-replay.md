@@ -17,3 +17,5 @@ pnpm exec vitest run --config vitest.browser.config.mts test/browser-unit/fixed-
 真实 iPhone 对源码 `c3b2d09` 的完整验收为 26/26，27 输入分别经 ESM/UMD。另使用 Safari WebDriver 的 W3C element screenshot 截取共享 transform-sticky-first 的实际源节点（不是页面全屏），120×120 对应 40×40 CSS，y=2/13/25 为绿/红/绿，fixed 相对顶部 -50px，offsetParent 是该面板。原始截图与数值记录见 ios-fixed-scroll-source.png / ios-fixed-scroll-source-control.json。
 
 覆盖率复核补入对 fixed 返回空样式列表、保留 inline top/left:auto 的 bottom/right 选项场景，并检查 y=38/x=38 的残留条；不模拟私有函数或修改覆盖率门槛。最终 30 输入基线与完整检查分别重新运行。初版 c3b2d09 的真机记录仍只代表当时 27 输入，最终记录另行标明。
+
+最终选项回归提交为 `aba8ed5`，运行时代码与 c3b2d09 相同，30 输入分别经 ESM/UMD，真机完整 26/26；最终完整本地 264/434/126（另 1 项既有 GC 跳过）全部通过。最终手机报告是 ios-safari-fixed-options-aba8ed5.json；初版原始报告保留为历史记录。

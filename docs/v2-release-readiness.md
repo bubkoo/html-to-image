@@ -136,4 +136,4 @@
 
 ## 2026-11-11 fixed 滚动源页面对照验收
 
-源码 `c3b2d09272d88591d1524ae3c9452c221d26e1d9` 提交后重新构建，真实 iPhone Safari 完整 **26/26** 通过，新增 27 输入分别用 ESM/UMD 验证；[原始报告](evidence/ios-safari-fixed-scroll-c3b2d09.json) SHA 与源码一致。另用 W3C 元素截图独立核对 transformed-fixed + sticky 的原生源像素为绿/红/绿，fixed 顶部 -50px、offsetParent 为当前面板，[源对照](evidence/ios-fixed-scroll-source-control.json)及[原始 PNG](evidence/ios-fixed-scroll-source.png)已归档。完整本地 261/425/126（另 1 项既有 GC 跳过）和构建/类型/tarball 通过；远端待验，不发布 npm。
+最终回归提交 `aba8ed5644aabd8f96860bb6dea330b62310d352` 提交后重新构建，真实 iPhone Safari 完整 **26/26** 通过，30 输入分别用 ESM/UMD 验证；[最终报告](evidence/ios-safari-fixed-options-aba8ed5.json) SHA 与提交一致。另用 W3C 元素截图独立核对 transformed-fixed + sticky 的原生源像素为绿/红/绿，fixed 顶部 -50px、offsetParent 为当前面板，[源对照](evidence/ios-fixed-scroll-source-control.json)及[原始 PNG](evidence/ios-fixed-scroll-source.png)已归档；该独立源对照在 c3b2d09 上完成，之后仅补测试和文档，运行时代码不变。完整本地 264/434/126（另 1 项既有 GC 跳过）和构建/类型/tarball 通过；最终 head 远端待验，不发布 npm。

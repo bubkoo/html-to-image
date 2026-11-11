@@ -24,5 +24,5 @@
 - Scope: 已测纵向块流及直接横向/斜向 fixed；不是任意固定元素/滚动组合或滚动条外观的完成声明
 - Authority: 30 输入 × 三引擎，基线 72 失败 / 18 通过且原生源对照无失败，候选 90 通过；独立原生 PNG 已归档
 - Revalidation: fixed 包含块、offsetParent 兼容性、复制 inset、流偏移、子节点变换或捕获根偏移变化
-- Validation: 完整 lint/build/types/tarball、264 覆盖率、434 源码（另 1 项既有 GC 跳过）、126 构建包通过；最终 30 输入真机和远端待验；初版 27 输入真机与独立原生源像素对照已归档
+- Validation: 完整 lint/build/types/tarball、264 覆盖率、434 源码（另 1 项既有 GC 跳过）、126 构建包通过；源码 aba8ed5 最终 30 输入经 ESM/UMD、真机完整 26/26 通过；独立原生源像素对照来自运行时代码相同的 c3b2d09，已归档；最终 head 远端待验
 - Last-Validated: 2026-11-11

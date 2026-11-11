@@ -76,10 +76,20 @@
     "No universal claim for every layout, writing mode or fixed element at arbitrary capture-root viewport offsets",
     "Native scrollbar appearance is not copied"
   ],
-  "nativeIOS": "Pending final 30-case committed-source run",
+  "nativeIOS": {
+    "report": "ios-safari-fixed-options-aba8ed5.json",
+    "passed": 26,
+    "casesESM": 30,
+    "casesUMD": 30,
+    "simulator": false,
+    "sourceUnchanged": true,
+    "independentSourceControl": "ios-fixed-scroll-source-control.json",
+    "independentSourceControlRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9",
+    "runtimeUnchangedSinceIndependentControl": true
+  },
   "remote": "Pending",
   "testHarnessNote": "First full run had one Chromium selected-case failure because the new smoke item did not load UMD independently; fixed the shared loader, then repeated the complete stable run: 261/425+1skip/126 passed. This is distinct from the 57 baseline capture regressions.",
-  "candidateRevision": "Pending final option-test commit",
+  "candidateRevision": "aba8ed5644aabd8f96860bb6dea330b62310d352",
   "initialNativeIOS": {
     "report": "ios-safari-fixed-scroll-c3b2d09.json",
     "passed": 26,
@@ -93,5 +103,6 @@
     "note": "Full device smoke validates capture pixels/source state for all shared cases. One independent native element screenshot verifies the corrected transformed-fixed/sticky source directly."
   },
   "initialCandidateRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9",
-  "coverageFollowup": "Initial remote patch/project checks failed at 81.81% patch / 85.24% project despite passing CI. Added public stylePropertiesForNode empty-selection bottom/right controls (no implementation mocks), and strengthened far-edge assertions. Both missing inset lines now execute. No thresholds or runtime code changed. The additional auto-position case verifies that both auto insets retain normal static-position flow; the bottom/right fallback condition is now exercised both ways."
+  "coverageFollowup": "Initial remote patch/project checks failed at 81.81% patch / 85.24% project despite passing CI. Added public stylePropertiesForNode empty-selection bottom/right controls (no implementation mocks), and strengthened far-edge assertions. Both missing inset lines now execute. No thresholds or runtime code changed. The additional auto-position case verifies that both auto insets retain normal static-position flow; the bottom/right fallback condition is now exercised both ways.",
+  "implementationRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9"
 }
