@@ -1,0 +1,29 @@
+{
+  "sourceRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9",
+  "case": "transform-sticky-first",
+  "method": "Real iPhone Safari W3C element screenshot of the actual shared source scene, independent of html-to-image output; sample points scale from 40x40 CSS pixels to screenshot dimensions.",
+  "screenshotDimensions": [120, 120],
+  "pngBitDepth": 8,
+  "screenshotSha256": "9912dab2e14d762d8cb06a74c4709983cd31fde3e2b0c221e8548af293a9e0c3",
+  "points": [
+    {
+      "x": 20,
+      "y": 2,
+      "color": [0, 128, 0, 255]
+    },
+    {
+      "x": 20,
+      "y": 13,
+      "color": [255, 0, 0, 255]
+    },
+    {
+      "x": 20,
+      "y": 25,
+      "color": [0, 128, 0, 255]
+    }
+  ],
+  "fixedTopRelativeToPanel": -50,
+  "fixedOffsetParentIsPanel": true,
+  "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+  "simulator": false
+}

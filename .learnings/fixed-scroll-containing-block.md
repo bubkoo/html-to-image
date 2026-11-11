@@ -22,5 +22,5 @@
 - Scope: 已测纵向块流及直接横向/斜向 fixed；不是任意固定元素/滚动组合或滚动条外观的完成声明
 - Authority: 27 输入 × 三引擎，基线 57 失败 / 24 通过且原生源对照无失败，候选 81 通过；独立原生 PNG 已归档
 - Revalidation: fixed 包含块、offsetParent 兼容性、复制 inset、流偏移、子节点变换或捕获根偏移变化
-- Validation: 完整 lint/build/types/tarball、261 覆盖率、425 源码（另 1 项既有 GC 跳过）、126 构建包通过；真机和远端待验
+- Validation: 完整 lint/build/types/tarball、261 覆盖率、425 源码（另 1 项既有 GC 跳过）、126 构建包通过；源码 c3b2d09 真实 iPhone Safari 完整 26/26、新增 27 输入 ESM/UMD 通过；独立 W3C element screenshot 验证原生源为绿/红/绿、offsetParent 为当前容器，原始截图已归档；远端待验
 - Last-Validated: 2026-11-11

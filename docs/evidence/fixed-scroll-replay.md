@@ -13,3 +13,5 @@ pnpm exec vitest run --config vitest.browser.config.mts test/browser-unit/fixed-
 实现依据源浏览器的 offsetParent 关系。[CSSOM View 当前草案](https://drafts.csswg.org/cssom-view/#dom-htmlelement-offsetparent)定义 fixed 的包含块查找；[Positioned Layout 草案](https://www.w3.org/TR/css-position-3/#fixed-cb)说明它与视口的区别。两者均为仍在演进的草案，实际支持以本次浏览器和真机对照为准，不声称所有旧浏览器等价。
 
 完整检查使用 `pnpm run test:browser`。真机需先提交源码并重新构建，完整 smoke 页的新 fixed 项分别用 ESM/UMD 循环所有输入；报告 gitHead 须与提交一致。真机输出标记与源状态断言不冒充逐项原生截图，后者来自桌面三引擎源码测试。
+
+真实 iPhone 对源码 `c3b2d09` 的完整验收为 26/26，27 输入分别经 ESM/UMD。另使用 Safari WebDriver 的 W3C element screenshot 截取共享 transform-sticky-first 的实际源节点（不是页面全屏），120×120 对应 40×40 CSS，y=2/13/25 为绿/红/绿，fixed 相对顶部 -50px，offsetParent 是该面板。原始截图与数值记录见 ios-fixed-scroll-source.png / ios-fixed-scroll-source-control.json。
