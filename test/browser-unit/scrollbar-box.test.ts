@@ -59,7 +59,9 @@ cases.forEach((kind) => {
       if (
         kind === 'gutter' &&
         result.engine === 'chromium' &&
-        result.nativeDifferentChannels === 44
+        result.nativeDifferentChannels > 0 &&
+        result.nativeHorizontalScrollbarDifferentChannels ===
+          result.nativeDifferentChannels
       ) {
         expect(result.nativeAuthoredDifferentChannels).toBe(
           result.nativeDifferentChannels,
@@ -67,7 +69,7 @@ cases.forEach((kind) => {
         skip(
           'Authored SVG and native source differ in ' +
             result.nativeDifferentChannels +
-            ' channels; native fidelity remains unverified.',
+            ' horizontal scrollbar channels; native thumb fidelity remains unverified.',
         )
       }
       expect(result.nativeDifferentChannels).toBe(0)
@@ -75,9 +77,9 @@ cases.forEach((kind) => {
   )
 })
 
-// This remains a positive regression even on a platform whose native corner
+// This remains a positive regression even on a platform whose native thumb
 // painting differs from its authored SVG. The old shrunken box fails it.
-test('both-edge gutter keeps the authored box independent of native corner painting', async () => {
+test('both-edge gutter keeps the authored box independent of native thumb painting', async () => {
   const fixture = await import(/* @vite-ignore */ moduleURL)
   const result = await fixture.checkScrollbarBox(api, 'gutter')
   expect(result.libraryAuthoredDifferentChannels).toBe(0)

@@ -99,9 +99,13 @@ export default defineConfig({
           return png.toString('base64')
         },
         async recordScrollbarBoxEvidence(_, record: string) {
-          if (!process.env.SCROLLBAR_BOX_EVIDENCE) return
           const data = JSON.parse(record)
-          const folder = resolve('test-results/scrollbar-box')
+          if (
+            !process.env.SCROLLBAR_BOX_EVIDENCE &&
+            !data.nativeDifferentChannels
+          )
+            return
+          const folder = resolve('.vitest/attachments/scrollbar-box')
           await mkdir(folder, { recursive: true })
           const name = String(data.engine + '-' + data.kind).replace(
             /[^a-z0-9-]/gi,

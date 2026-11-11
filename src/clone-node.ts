@@ -265,7 +265,7 @@ function restoreScrollbarBox<T extends HTMLElement>(
       const keepsStableGutter =
         targetOverflow === 'hidden' &&
         logical === 'inline-size' &&
-        sourceStyle.scrollbarGutter.includes('stable')
+        sourceStyle.getPropertyValue('scrollbar-gutter').includes('stable')
       if (
         targetOverflow !== sourceStyle.getPropertyValue(axis) &&
         !keepsStableGutter

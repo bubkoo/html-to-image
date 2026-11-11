@@ -1,20 +1,20 @@
 
  RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
 
- ❯ |webkit| test/browser-unit/scrollbar-box.test.ts (13 tests | 2 failed) 881ms
-   × scrollbar box legacy-fractional matches all native source pixels 106ms
-   × scrollbar box legacy-gutter matches all native source pixels 99ms
- ❯ |chromium| test/browser-unit/scrollbar-box.test.ts (13 tests | 10 failed) 1612ms
-   × scrollbar box content matches all native source pixels 169ms
-   × scrollbar box padding matches all native source pixels 136ms
-   × scrollbar box fractional matches all native source pixels 137ms
-   × scrollbar box gutter matches all native source pixels 113ms
-   × scrollbar box vertical matches all native source pixels 141ms
-   × scrollbar box legacy-fractional matches all native source pixels 142ms
-   × scrollbar box legacy-gutter matches all native source pixels 133ms
-   × scrollbar box selected-logical matches all native source pixels 144ms
-   × scrollbar box scrolled-gutter keeps the native content viewport 133ms
-   × both-edge gutter keeps the authored box independent of native corner painting 67ms
+ ❯ |webkit| test/browser-unit/scrollbar-box.test.ts (13 tests | 2 failed) 739ms
+   × scrollbar box legacy-fractional matches all native source pixels 84ms
+   × scrollbar box legacy-gutter matches all native source pixels 66ms
+ ❯ |chromium| test/browser-unit/scrollbar-box.test.ts (13 tests | 10 failed) 1394ms
+   × scrollbar box content matches all native source pixels 164ms
+   × scrollbar box padding matches all native source pixels 123ms
+   × scrollbar box fractional matches all native source pixels 120ms
+   × scrollbar box gutter matches all native source pixels 114ms
+   × scrollbar box vertical matches all native source pixels 115ms
+   × scrollbar box legacy-fractional matches all native source pixels 118ms
+   × scrollbar box legacy-gutter matches all native source pixels 116ms
+   × scrollbar box selected-logical matches all native source pixels 111ms
+   × scrollbar box scrolled-gutter keeps the native content viewport 112ms
+   × both-edge gutter keeps the authored box independent of native thumb painting 50ms
 
 ⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
 
@@ -180,11 +180,11 @@ Failure screenshot:
 
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/12]⎯
 
- FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > both-edge gutter keeps the authored box independent of native corner painting
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > both-edge gutter keeps the authored box independent of native thumb painting
 Error: gutter: source box 100,100 became 78,89
 
 Failure screenshot:
-  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/both-edge-gutter-keeps-the-authored-box-independent-of-native-corner-painting.png
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/both-edge-gutter-keeps-the-authored-box-independent-of-native-thumb-painting.png
 
  ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:119:17
     117|           : metrics.serializedOuter
@@ -193,7 +193,7 @@ Failure screenshot:
        |                 ^
     120|       } finally {
     121|         frame.remove()
- ❯ test/browser-unit/scrollbar-box.test.ts:82:18
+ ❯ test/browser-unit/scrollbar-box.test.ts:84:18
  ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
 
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/12]⎯
@@ -220,6 +220,6 @@ Failure screenshots:
 
  Test Files  2 failed | 1 passed (3)
       Tests  12 failed | 25 passed | 2 skipped (39)
-   Start at  14:44:25
-   Duration  2.57s (tests 88%, worker 9%, import 3%)
+   Start at  14:54:37
+   Duration  1.94s (tests 89%, worker 9%, import 2%)
 

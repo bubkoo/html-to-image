@@ -196,26 +196,42 @@ export async function checkScrollbarBox(api, kind, readNative, record) {
         const difference = (a, b) =>
           a.data.reduce((n, v, i) => n + (v !== b.data[i] ? 1 : 0), 0)
         const libraryAuthored = difference(image, authored)
-        if (record)
-          await record({
-            ...metrics,
-            native: native && png(native),
-            capture: png(image),
-            authored: png(authored),
-            libraryAuthoredDifferentChannels: libraryAuthored,
-            nativeDifferentChannels: native && difference(image, native),
-          })
-        if (libraryAuthored)
-          throw new Error(
-            `${kind}: frozen box differs from the original authored SVG in ${libraryAuthored} channels; metrics=${JSON.stringify(metrics)}`,
-          )
         metrics.libraryAuthoredDifferentChannels = libraryAuthored
         if (native) {
           if (native.width !== image.width || native.height !== image.height)
             throw new Error(`${kind}: source/capture dimensions differ`)
           metrics.nativeDifferentChannels = difference(image, native)
           metrics.nativeAuthoredDifferentChannels = difference(authored, native)
-        } else {
+          metrics.nativeHorizontalScrollbarDifferentChannels =
+            image.data.reduce(
+              (count, value, i) =>
+                count +
+                (value !== native.data[i] &&
+                Math.floor(i / 4 / image.width) >=
+                  panel.clientTop + panel.clientHeight
+                  ? 1
+                  : 0),
+              0,
+            )
+        }
+        if (record)
+          await record({
+            ...metrics,
+            native: native && png(native),
+            capture: png(image),
+            authored: png(authored),
+            authoredSvg:
+              native && metrics.nativeDifferentChannels ? svg : undefined,
+            frozenSvg:
+              native && metrics.nativeDifferentChannels
+                ? frozen.documentElement.outerHTML
+                : undefined,
+          })
+        if (libraryAuthored)
+          throw new Error(
+            `${kind}: frozen box differs from the original authored SVG in ${libraryAuthored} channels; metrics=${JSON.stringify(metrics)}`,
+          )
+        if (!native) {
           const x = kind === 'vertical' ? 30 : 5,
             y = 5,
             k = 4 * (y * image.width + x)
