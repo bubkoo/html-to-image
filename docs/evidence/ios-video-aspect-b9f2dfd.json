@@ -1,0 +1,32 @@
+{
+  "paused": true,
+  "sourceBox": [240, 160],
+  "currentTime": 0,
+  "observations": [
+    {
+      "size": [240, 160],
+      "center": [210, 110, 110, 255],
+      "top": [255, 0, 255, 255],
+      "attempts": 1,
+      "bottom": [255, 0, 255, 255]
+    },
+    {
+      "size": [240, 160],
+      "center": [210, 110, 110, 255],
+      "top": [255, 0, 255, 255],
+      "attempts": 3,
+      "bottom": [255, 0, 255, 255]
+    }
+  ],
+  "dpr": 3,
+  "sourceUnchanged": true,
+  "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+  "intrinsic": [960, 540],
+  "sourceRevision": "b9f2dfd220fcf5a49f86f47d181f1c28607de75d",
+  "simulator": false,
+  "fixture": "Typed same-origin Blob with video/mp4 MIME from the existing flower.mp4 bytes; paused frame at time zero, object-fit:contain",
+  "mediaSha256": "0cd83d944a6ca7822b4a8306cecc60a36e859b041f6702c6a1ad9ead78924451",
+  "inputSha256": "e668969607ae380decc4578725c0dc54eeff794503b4eb70b3fe99fd089ce2aa",
+  "initialFixtureFailure": "Direct static HTTP response was application/octet-stream without byte-range handling; iPhone reported MEDIA_ERR_SRC_NOT_SUPPORTED before any capture. Correct typed Blob fixture loaded and both captures passed. This is not recorded as an application regression.",
+  "scope": "Controlled video aspect ratio and frame presence only; not HTTP streaming, CORS, playback timing, high-DPR output or all object-fit modes"
+}

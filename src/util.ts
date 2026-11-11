@@ -240,6 +240,7 @@ export async function nodeToDataURL(
   width: number,
   height: number,
   ownerDocument: Document = node.ownerDocument,
+  clonedStyles = '',
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
   const svg = ownerDocument.createElementNS(xmlns, 'svg')
@@ -255,6 +256,13 @@ export async function nodeToDataURL(
   foreignObject.setAttribute('y', '0')
   foreignObject.setAttribute('externalResourcesRequired', 'true')
 
+  if (clonedStyles) {
+    const style = ownerDocument.createElementNS(xmlns, 'style')
+    // First-layer important declarations protect private layout state from
+    // author pseudo rules, without inserting children into the captured tree.
+    style.textContent = `@layer ${uuid()} { ${clonedStyles} }`
+    svg.append(style)
+  }
   svg.appendChild(foreignObject)
   foreignObject.appendChild(node)
   return svgToDataURL(svg)

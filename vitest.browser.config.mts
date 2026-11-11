@@ -87,6 +87,12 @@ export default defineConfig({
         async collectGarbage({ page }) {
           await page.requestGC()
         },
+        async screenshotScrollSource({ iframe }, selector: string) {
+          const png = await iframe
+            .locator(selector)
+            .screenshot({ scale: 'css', timeout: 5000 })
+          return png.toString('base64')
+        },
       },
       instances: (selected
         ? [selected]

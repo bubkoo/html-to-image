@@ -67,7 +67,13 @@ export async function createCapture(
       task.stage('serialize')
       return fromSnapshot(
         {
-          svg: await nodeToDataURL(root, width, height, cloneDocument),
+          svg: await nodeToDataURL(
+            root,
+            width,
+            height,
+            cloneDocument,
+            task.getClonedStyles(),
+          ),
           width,
           height,
           canvasWidth,

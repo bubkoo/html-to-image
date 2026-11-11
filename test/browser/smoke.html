@@ -20,6 +20,7 @@
     import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
     import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
+    import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -347,6 +348,24 @@
       }
       if (panel.scrollTop !== 40)
         throw new Error('source scroll position changed')
+    })
+
+    await test('mixed text and inline scroll positions', async () => {
+      for (const kind of mixedScrollCases) {
+        await checkMixedScroll({ createRenderer }, kind)
+      }
+      if (!window.htmlToImage) {
+        const script = document.createElement('script')
+        script.src = '/dist/html-to-image.js'
+        await new Promise((resolve, reject) => {
+          script.onload = resolve
+          script.onerror = () => reject(new Error('UMD script did not load'))
+          document.head.append(script)
+        })
+      }
+      for (const kind of mixedScrollCases) {
+        await checkMixedScroll(window.htmlToImage, kind)
+      }
     })
 
     await test('sticky child after spacer', async () => {
