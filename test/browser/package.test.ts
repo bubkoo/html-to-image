@@ -25,6 +25,7 @@ const cases = [
   'mixed text and inline scroll positions',
   'fixed positioning follows its source containing block',
   'scroll preserves positioned containing blocks',
+  'scrollbar box preserves native space',
   'sticky child after spacer',
   'same-document clip path',
   'SVG use local and external symbols',

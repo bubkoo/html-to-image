@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
@@ -82,7 +82,12 @@ export default defineConfig({
     browser: {
       enabled: true,
       headless: true,
-      provider: playwright(),
+      provider: playwright({
+        launchOptions: {
+          ignoreDefaultArgs: ['--hide-scrollbars'],
+          args: ['--disable-features=OverlayScrollbar,FluentOverlayScrollbar'],
+        },
+      }),
       commands: {
         async collectGarbage({ page }) {
           await page.requestGC()
@@ -92,6 +97,31 @@ export default defineConfig({
             .locator(selector)
             .screenshot({ scale: 'css', timeout: 5000 })
           return png.toString('base64')
+        },
+        async recordScrollbarBoxEvidence(_, record: string) {
+          if (!process.env.SCROLLBAR_BOX_EVIDENCE) return
+          const data = JSON.parse(record)
+          const folder = resolve('test-results/scrollbar-box')
+          await mkdir(folder, { recursive: true })
+          const name = String(data.engine + '-' + data.kind).replace(
+            /[^a-z0-9-]/gi,
+            '_',
+          )
+          await Promise.all(
+            ['native', 'capture', 'authored'].map(async (key) => {
+              if (data[key]) {
+                await writeFile(
+                  resolve(folder, name + '-' + key + '.png'),
+                  Buffer.from(data[key], 'base64'),
+                )
+                delete data[key]
+              }
+            }),
+          )
+          await writeFile(
+            resolve(folder, name + '.json'),
+            JSON.stringify(data, null, 2) + '\n',
+          )
         },
       },
       instances: (selected

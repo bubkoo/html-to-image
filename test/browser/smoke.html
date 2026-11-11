@@ -22,6 +22,7 @@
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
     import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
+    import { checkScrollbarBox, scrollbarBoxCases } from './fixtures/scrollbar-box.mjs'
     import { checkPositionedScroll, positionedScrollCases } from './fixtures/positioned-scroll.mjs'
     import { checkSVGFontGlyphs, svgFontModes } from './fixtures/svg-font-glyphs.mjs'
     import { checkTransformedSVG, transformedSVGModes } from './fixtures/transformed-svg.mjs'
@@ -376,6 +377,19 @@
       }
     })
 
+    await test('scrollbar box preserves native space', async () => {
+      await loadUMD()
+      for (const kind of scrollbarBoxCases) {
+        if (
+          kind.startsWith('legacy') &&
+          !CSS.supports('selector(::-webkit-scrollbar)')
+        )
+          continue
+        await checkScrollbarBox({ createRenderer }, kind)
+        await checkScrollbarBox(window.htmlToImage, kind)
+      }
+    })
+
     await test('sticky child after spacer', async () => {
       const scene = document.createElement('div')
       scene.style.cssText = 'width:40px;height:40px;overflow:hidden'
@@ -396,7 +410,7 @@
         })
         const overlay = pixel(image, 20, 2).join(',')
         const sticky = pixel(image, 20, 13).join(',')
-        const content = pixel(image, 20, 25).join(',')
+        const content = pixel(image, 20, 20).join(',')
         if (overlay !== '0,128,0,255' || sticky !== '255,0,0,255' || content !== '0,128,0,255') {
           throw new Error(`overlay/sticky/content pixels ${overlay} / ${sticky} / ${content}`)
         }

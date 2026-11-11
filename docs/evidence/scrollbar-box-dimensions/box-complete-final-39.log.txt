@@ -1,0 +1,245 @@
+
+> html-to-image@1.11.13 test:browser /Users/bytedance/Documents/Github/html-to-image
+> pnpm run lint:check && pnpm run build && pnpm run test:browser:types && pnpm run test && pnpm run test:package && pnpm run test:browser:package
+
+
+> html-to-image@1.11.13 lint:check /Users/bytedance/Documents/Github/html-to-image
+> eslint 'src/**/*.{js,ts}?(x)' vitest.browser.config.mts playwright.config.ts 'test/browser-unit/**/*.ts' 'test/browser/**/*.ts' 'test/browser/**/*.mjs' 'test/spec/**/*.ts' rollup.config.js eslint.config.mjs commitlint.config.cjs 'scripts/*.{js,mjs,cjs}'
+
+
+> html-to-image@1.11.13 build /Users/bytedance/Documents/Github/html-to-image
+> pnpm run clean && pnpm run build:esm && pnpm run build:cjs && pnpm run build:umd
+
+
+> html-to-image@1.11.13 clean /Users/bytedance/Documents/Github/html-to-image
+> node scripts/clean.mjs
+
+
+> html-to-image@1.11.13 build:esm /Users/bytedance/Documents/Github/html-to-image
+> pnpm run build:esm:tsc && pnpm run build:esm:metadata
+
+
+> html-to-image@1.11.13 build:esm:tsc /Users/bytedance/Documents/Github/html-to-image
+> tsc --module esnext --target es2017 --outDir ./es
+
+
+> html-to-image@1.11.13 build:esm:metadata /Users/bytedance/Documents/Github/html-to-image
+> node scripts/mark-esm.mjs
+
+
+> html-to-image@1.11.13 build:cjs /Users/bytedance/Documents/Github/html-to-image
+> tsc --module commonjs --target es5 --outDir ./lib
+
+
+> html-to-image@1.11.13 build:umd /Users/bytedance/Documents/Github/html-to-image
+> rollup -c --bundleConfigAsCjs
+
+
+src/index.ts → dist/html-to-image.js...
+created dist/html-to-image.js in 1s
+
+> html-to-image@1.11.13 test:browser:types /Users/bytedance/Documents/Github/html-to-image
+> tsc --project tsconfig.browser-tests.json
+
+
+> html-to-image@1.11.13 test /Users/bytedance/Documents/Github/html-to-image
+> pnpm run test:coverage && pnpm run test:browser:source
+
+
+> html-to-image@1.11.13 test:coverage /Users/bytedance/Documents/Github/html-to-image
+> TEST_SUITE=coverage TEST_BROWSER=chromium vitest run --config vitest.browser.config.mts --coverage
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+      Coverage enabled with v8
+
+
+ Test Files  34 passed (34)
+      Tests  349 passed | 1 skipped (350)
+   Start at  14:44:43
+   Duration  5.79s (worker 66%, tests 33%, import 2%)
+
+ % Coverage report from v8
+
+=============================== Coverage summary ===============================
+Statements   : 91.79% ( 1342/1462 )
+Branches     : 82.4% ( 843/1023 )
+Functions    : 95.95% ( 285/297 )
+Lines        : 92.9% ( 1244/1339 )
+================================================================================
+
+> html-to-image@1.11.13 test:browser:source /Users/bytedance/Documents/Github/html-to-image
+> vitest run --config vitest.browser.config.mts
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+
+ Test Files  63 passed (63)
+      Tests  689 passed | 4 skipped (693)
+   Start at  14:44:50
+   Duration  12.44s (worker 70%, tests 26%, import 4%)
+
+
+> html-to-image@1.11.13 test:package /Users/bytedance/Documents/Github/html-to-image
+> node scripts/check-package.mjs
+
+Package smoke passed: installed tarball ESM, CJS, UMD, types (TS 4.9 and current)
+
+> html-to-image@1.11.13 test:browser:package /Users/bytedance/Documents/Github/html-to-image
+> playwright test --config playwright.config.ts
+
+[WebServer] (node:29591) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 138 tests using 1 worker
+
+(node:29592) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [chromium] › test/browser/package.test.ts:39:7 › built ESM: ESM import and basic PNG (120ms)
+  ✓    2 [chromium] › test/browser/package.test.ts:39:7 › built ESM: UMD global and pixels (124ms)
+  ✓    3 [chromium] › test/browser/package.test.ts:39:7 › built ESM: canvas snapshot pixels (86ms)
+  ✓    4 [chromium] › test/browser/package.test.ts:39:7 › built ESM: explicit dimensions and pixel ratio (85ms)
+  ✓    5 [chromium] › test/browser/package.test.ts:39:7 › built ESM: fractional fonts and tight last word (103ms)
+  ✓    6 [chromium] › test/browser/package.test.ts:39:7 › built ESM: SVG font-family glyph pixels (262ms)
+  ✓    7 [chromium] › test/browser/package.test.ts:39:7 › built ESM: SVG references after clone transforms (267ms)
+  ✓    8 [chromium] › test/browser/package.test.ts:39:7 › built ESM: iframe fonts and document scope (362ms)
+  ✓    9 [chromium] › test/browser/package.test.ts:39:7 › built ESM: capture source document lifetime (115ms)
+  ✓   10 [chromium] › test/browser/package.test.ts:39:7 › built ESM: pseudo background and injected mask resources (867ms)
+  ✓   11 [chromium] › test/browser/package.test.ts:39:7 › built ESM: SVG dependency graphs and reference precedence (307ms)
+  ✓   12 [chromium] › test/browser/package.test.ts:39:7 › built ESM: resource cache lifetime (250ms)
+  ✓   13 [chromium] › test/browser/package.test.ts:39:7 › built ESM: native HTTP cache policy (147ms)
+  ✓   14 [chromium] › test/browser/package.test.ts:39:7 › built ESM: per-URL resource credentials (250ms)
+  ✓   15 [chromium] › test/browser/package.test.ts:39:7 › built ESM: relative clone resources and callback errors (260ms)
+  ✓   16 [chromium] › test/browser/package.test.ts:39:7 › built ESM: per-node customization (83ms)
+  ✓   17 [chromium] › test/browser/package.test.ts:39:7 › built ESM: shadow slot fallback and assignment (85ms)
+  ✓   18 [chromium] › test/browser/package.test.ts:39:7 › built ESM: same-origin iframe viewport (101ms)
+  ✓   19 [chromium] › test/browser/package.test.ts:39:7 › built ESM: nested visible scroll position (78ms)
+  ✓   20 [chromium] › test/browser/package.test.ts:39:7 › built ESM: mixed text and inline scroll positions (259ms)
+  ✓   21 [chromium] › test/browser/package.test.ts:39:7 › built ESM: fixed positioning follows its source containing block (377ms)
+  ✓   22 [chromium] › test/browser/package.test.ts:39:7 › built ESM: scroll preserves positioned containing blocks (613ms)
+  ✓   23 [chromium] › test/browser/package.test.ts:39:7 › built ESM: scrollbar box preserves native space (392ms)
+  ✓   24 [chromium] › test/browser/package.test.ts:39:7 › built ESM: sticky child after spacer (79ms)
+  ✓   25 [chromium] › test/browser/package.test.ts:39:7 › built ESM: same-document clip path (82ms)
+  ✓   26 [chromium] › test/browser/package.test.ts:39:7 › built ESM: SVG use local and external symbols (90ms)
+  ✓   27 [chromium] › test/browser/package.test.ts:39:7 › built ESM: large embedded data image (224ms)
+  ✓   28 [chromium] › test/browser/package.test.ts:39:7 › built ESM: cross-origin stylesheet fallback (75ms)
+  ✓   29 [chromium] › test/browser/package.test.ts:39:7 › built ESM: repeated Content-Type embeds image and CSS (100ms)
+  ✓   30 [chromium] › test/browser/package.test.ts:39:7 › built ESM: asynchronous image error recovery (146ms)
+
+  ✓   31 [chromium] › test/browser/package.test.ts:49:5 › the full mobile smoke page completes without a hidden failure (3.5s)
+  ✓   32 [chromium] › test/browser/package.test.ts:78:5 › built UMD global renders pixels in a browser (81ms)
+  ✓   33 [chromium] › test/browser/package.test.ts:108:5 › built UMD validates explicit dimensions and preserves the scaled pixel buffer (82ms)
+  ✓   34 [chromium] › test/browser/package.test.ts:196:5 › built UMD keeps a fixed child above scrolled content (71ms)
+  ✓   35 [chromium] › test/browser/package.test.ts:252:5 › built UMD preserves a same-origin iframe scroll position (89ms)
+  ✓   36 [chromium] › test/browser/package.test.ts:327:5 › built UMD omits HTML comments that invalidate XML (68ms)
+  ✓   37 [chromium] › test/browser/package.test.ts:373:5 › built UMD keeps inherited CSS variables without repeating them per child (72ms)
+  ✓   38 [chromium] › test/browser/package.test.ts:414:5 › built UMD preserves canvas pixels inside the exported image (66ms)
+  ✓   39 [chromium] › test/browser/package.test.ts:465:5 › built UMD preserves video letterboxing instead of stretching the frame (311ms)
+  ✓   40 [chromium] › test/browser/package.test.ts:543:5 › built UMD awaits image recovery and propagates rejected callbacks (136ms)
+  ✓   41 [chromium] › test/browser/package.test.ts:618:5 › built UMD preserves fractional font size and text line metrics (112ms)
+  ✓   42 [chromium] › test/browser/package.test.ts:684:7 › built UMD: relative clone resources and callback errors (177ms)
+  ✓   43 [chromium] › test/browser/package.test.ts:684:7 › built UMD: resource cache lifetime (228ms)
+  ✓   44 [chromium] › test/browser/package.test.ts:684:7 › built UMD: native HTTP cache policy (153ms)
+  ✓   45 [chromium] › test/browser/package.test.ts:684:7 › built UMD: per-URL resource credentials (156ms)
+  ✓   46 [chromium] › test/browser/package.test.ts:699:5 › built UMD preserves document-local iframe fonts and reusable CSS (281ms)
+(node:29798) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   47 [firefox] › test/browser/package.test.ts:39:7 › built ESM: ESM import and basic PNG (670ms)
+  ✓   48 [firefox] › test/browser/package.test.ts:39:7 › built ESM: UMD global and pixels (213ms)
+  ✓   49 [firefox] › test/browser/package.test.ts:39:7 › built ESM: canvas snapshot pixels (298ms)
+  ✓   50 [firefox] › test/browser/package.test.ts:39:7 › built ESM: explicit dimensions and pixel ratio (189ms)
+  ✓   51 [firefox] › test/browser/package.test.ts:39:7 › built ESM: fractional fonts and tight last word (348ms)
+  ✓   52 [firefox] › test/browser/package.test.ts:39:7 › built ESM: SVG font-family glyph pixels (380ms)
+  ✓   53 [firefox] › test/browser/package.test.ts:39:7 › built ESM: SVG references after clone transforms (360ms)
+  ✓   54 [firefox] › test/browser/package.test.ts:39:7 › built ESM: iframe fonts and document scope (586ms)
+  ✓   55 [firefox] › test/browser/package.test.ts:39:7 › built ESM: capture source document lifetime (213ms)
+  ✓   56 [firefox] › test/browser/package.test.ts:39:7 › built ESM: pseudo background and injected mask resources (1.5s)
+  ✓   57 [firefox] › test/browser/package.test.ts:39:7 › built ESM: SVG dependency graphs and reference precedence (394ms)
+  ✓   58 [firefox] › test/browser/package.test.ts:39:7 › built ESM: resource cache lifetime (354ms)
+  ✓   59 [firefox] › test/browser/package.test.ts:39:7 › built ESM: native HTTP cache policy (358ms)
+  ✓   60 [firefox] › test/browser/package.test.ts:39:7 › built ESM: per-URL resource credentials (345ms)
+  ✓   61 [firefox] › test/browser/package.test.ts:39:7 › built ESM: relative clone resources and callback errors (252ms)
+  ✓   62 [firefox] › test/browser/package.test.ts:39:7 › built ESM: per-node customization (165ms)
+  ✓   63 [firefox] › test/browser/package.test.ts:39:7 › built ESM: shadow slot fallback and assignment (196ms)
+  ✓   64 [firefox] › test/browser/package.test.ts:39:7 › built ESM: same-origin iframe viewport (218ms)
+  ✓   65 [firefox] › test/browser/package.test.ts:39:7 › built ESM: nested visible scroll position (174ms)
+  ✓   66 [firefox] › test/browser/package.test.ts:39:7 › built ESM: mixed text and inline scroll positions (768ms)
+  ✓   67 [firefox] › test/browser/package.test.ts:39:7 › built ESM: fixed positioning follows its source containing block (1.3s)
+  ✓   68 [firefox] › test/browser/package.test.ts:39:7 › built ESM: scroll preserves positioned containing blocks (734ms)
+  ✓   69 [firefox] › test/browser/package.test.ts:39:7 › built ESM: scrollbar box preserves native space (411ms)
+  ✓   70 [firefox] › test/browser/package.test.ts:39:7 › built ESM: sticky child after spacer (204ms)
+  ✓   71 [firefox] › test/browser/package.test.ts:39:7 › built ESM: same-document clip path (197ms)
+  ✓   72 [firefox] › test/browser/package.test.ts:39:7 › built ESM: SVG use local and external symbols (212ms)
+  ✓   73 [firefox] › test/browser/package.test.ts:39:7 › built ESM: large embedded data image (567ms)
+  ✓   74 [firefox] › test/browser/package.test.ts:39:7 › built ESM: cross-origin stylesheet fallback (195ms)
+  ✓   75 [firefox] › test/browser/package.test.ts:39:7 › built ESM: repeated Content-Type embeds image and CSS (217ms)
+  ✓   76 [firefox] › test/browser/package.test.ts:39:7 › built ESM: asynchronous image error recovery (646ms)
+
+  ✓   77 [firefox] › test/browser/package.test.ts:49:5 › the full mobile smoke page completes without a hidden failure (3.6s)
+  ✓   78 [firefox] › test/browser/package.test.ts:78:5 › built UMD global renders pixels in a browser (159ms)
+  ✓   79 [firefox] › test/browser/package.test.ts:108:5 › built UMD validates explicit dimensions and preserves the scaled pixel buffer (153ms)
+  ✓   80 [firefox] › test/browser/package.test.ts:196:5 › built UMD keeps a fixed child above scrolled content (177ms)
+  ✓   81 [firefox] › test/browser/package.test.ts:252:5 › built UMD preserves a same-origin iframe scroll position (186ms)
+  ✓   82 [firefox] › test/browser/package.test.ts:327:5 › built UMD omits HTML comments that invalidate XML (177ms)
+  ✓   83 [firefox] › test/browser/package.test.ts:373:5 › built UMD keeps inherited CSS variables without repeating them per child (202ms)
+  ✓   84 [firefox] › test/browser/package.test.ts:414:5 › built UMD preserves canvas pixels inside the exported image (169ms)
+  ✓   85 [firefox] › test/browser/package.test.ts:465:5 › built UMD preserves video letterboxing instead of stretching the frame (337ms)
+  ✓   86 [firefox] › test/browser/package.test.ts:543:5 › built UMD awaits image recovery and propagates rejected callbacks (644ms)
+  ✓   87 [firefox] › test/browser/package.test.ts:618:5 › built UMD preserves fractional font size and text line metrics (278ms)
+  ✓   88 [firefox] › test/browser/package.test.ts:684:7 › built UMD: relative clone resources and callback errors (252ms)
+  ✓   89 [firefox] › test/browser/package.test.ts:684:7 › built UMD: resource cache lifetime (319ms)
+  ✓   90 [firefox] › test/browser/package.test.ts:684:7 › built UMD: native HTTP cache policy (254ms)
+  ✓   91 [firefox] › test/browser/package.test.ts:684:7 › built UMD: per-URL resource credentials (271ms)
+  ✓   92 [firefox] › test/browser/package.test.ts:699:5 › built UMD preserves document-local iframe fonts and reusable CSS (410ms)
+(node:30414) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   93 [webkit] › test/browser/package.test.ts:39:7 › built ESM: ESM import and basic PNG (703ms)
+  ✓   94 [webkit] › test/browser/package.test.ts:39:7 › built ESM: UMD global and pixels (221ms)
+  ✓   95 [webkit] › test/browser/package.test.ts:39:7 › built ESM: canvas snapshot pixels (228ms)
+  ✓   96 [webkit] › test/browser/package.test.ts:39:7 › built ESM: explicit dimensions and pixel ratio (225ms)
+  ✓   97 [webkit] › test/browser/package.test.ts:39:7 › built ESM: fractional fonts and tight last word (349ms)
+  ✓   98 [webkit] › test/browser/package.test.ts:39:7 › built ESM: SVG font-family glyph pixels (1.1s)
+  ✓   99 [webkit] › test/browser/package.test.ts:39:7 › built ESM: SVG references after clone transforms (433ms)
+  ✓  100 [webkit] › test/browser/package.test.ts:39:7 › built ESM: iframe fonts and document scope (528ms)
+  ✓  101 [webkit] › test/browser/package.test.ts:39:7 › built ESM: capture source document lifetime (245ms)
+  ✓  102 [webkit] › test/browser/package.test.ts:39:7 › built ESM: pseudo background and injected mask resources (1.0s)
+  ✓  103 [webkit] › test/browser/package.test.ts:39:7 › built ESM: SVG dependency graphs and reference precedence (568ms)
+  ✓  104 [webkit] › test/browser/package.test.ts:39:7 › built ESM: resource cache lifetime (490ms)
+  ✓  105 [webkit] › test/browser/package.test.ts:39:7 › built ESM: native HTTP cache policy (456ms)
+  ✓  106 [webkit] › test/browser/package.test.ts:39:7 › built ESM: per-URL resource credentials (418ms)
+  ✓  107 [webkit] › test/browser/package.test.ts:39:7 › built ESM: relative clone resources and callback errors (291ms)
+  ✓  108 [webkit] › test/browser/package.test.ts:39:7 › built ESM: per-node customization (225ms)
+  ✓  109 [webkit] › test/browser/package.test.ts:39:7 › built ESM: shadow slot fallback and assignment (237ms)
+  ✓  110 [webkit] › test/browser/package.test.ts:39:7 › built ESM: same-origin iframe viewport (258ms)
+  ✓  111 [webkit] › test/browser/package.test.ts:39:7 › built ESM: nested visible scroll position (241ms)
+  ✓  112 [webkit] › test/browser/package.test.ts:39:7 › built ESM: mixed text and inline scroll positions (538ms)
+  ✓  113 [webkit] › test/browser/package.test.ts:39:7 › built ESM: fixed positioning follows its source containing block (1.1s)
+  ✓  114 [webkit] › test/browser/package.test.ts:39:7 › built ESM: scroll preserves positioned containing blocks (1.6s)
+  ✓  115 [webkit] › test/browser/package.test.ts:39:7 › built ESM: scrollbar box preserves native space (1.1s)
+  ✓  116 [webkit] › test/browser/package.test.ts:39:7 › built ESM: sticky child after spacer (244ms)
+  ✓  117 [webkit] › test/browser/package.test.ts:39:7 › built ESM: same-document clip path (346ms)
+  ✓  118 [webkit] › test/browser/package.test.ts:39:7 › built ESM: SVG use local and external symbols (228ms)
+  ✓  119 [webkit] › test/browser/package.test.ts:39:7 › built ESM: large embedded data image (415ms)
+  ✓  120 [webkit] › test/browser/package.test.ts:39:7 › built ESM: cross-origin stylesheet fallback (252ms)
+  ✓  121 [webkit] › test/browser/package.test.ts:39:7 › built ESM: repeated Content-Type embeds image and CSS (240ms)
+  ✓  122 [webkit] › test/browser/package.test.ts:39:7 › built ESM: asynchronous image error recovery (277ms)
+
+  ✓  123 [webkit] › test/browser/package.test.ts:49:5 › the full mobile smoke page completes without a hidden failure (5.0s)
+  ✓  124 [webkit] › test/browser/package.test.ts:78:5 › built UMD global renders pixels in a browser (261ms)
+  ✓  125 [webkit] › test/browser/package.test.ts:108:5 › built UMD validates explicit dimensions and preserves the scaled pixel buffer (225ms)
+  ✓  126 [webkit] › test/browser/package.test.ts:196:5 › built UMD keeps a fixed child above scrolled content (222ms)
+  ✓  127 [webkit] › test/browser/package.test.ts:252:5 › built UMD preserves a same-origin iframe scroll position (257ms)
+  ✓  128 [webkit] › test/browser/package.test.ts:327:5 › built UMD omits HTML comments that invalidate XML (249ms)
+  ✓  129 [webkit] › test/browser/package.test.ts:373:5 › built UMD keeps inherited CSS variables without repeating them per child (338ms)
+  ✓  130 [webkit] › test/browser/package.test.ts:414:5 › built UMD preserves canvas pixels inside the exported image (215ms)
+  ✓  131 [webkit] › test/browser/package.test.ts:465:5 › built UMD preserves video letterboxing instead of stretching the frame (388ms)
+  ✓  132 [webkit] › test/browser/package.test.ts:543:5 › built UMD awaits image recovery and propagates rejected callbacks (277ms)
+  ✓  133 [webkit] › test/browser/package.test.ts:618:5 › built UMD preserves fractional font size and text line metrics (291ms)
+  ✓  134 [webkit] › test/browser/package.test.ts:684:7 › built UMD: relative clone resources and callback errors (316ms)
+  ✓  135 [webkit] › test/browser/package.test.ts:684:7 › built UMD: resource cache lifetime (382ms)
+  ✓  136 [webkit] › test/browser/package.test.ts:684:7 › built UMD: native HTTP cache policy (370ms)
+  ✓  137 [webkit] › test/browser/package.test.ts:684:7 › built UMD: per-URL resource credentials (345ms)
+  ✓  138 [webkit] › test/browser/package.test.ts:699:5 › built UMD preserves document-local iframe fonts and reusable CSS (545ms)
+
+  138 passed (59.2s)
