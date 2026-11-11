@@ -51,6 +51,7 @@ async function cloneIFrameElement(
   iframe: HTMLIFrameElement,
   options: Options,
   targetDocument: Document,
+  resolveSymbols: boolean,
 ) {
   let sourceBody: HTMLElement | null = null
   try {
@@ -63,7 +64,7 @@ async function cloneIFrameElement(
       sourceBody,
       options,
       true,
-      true,
+      resolveSymbols,
       targetDocument,
     )
     const viewport = targetDocument.createElement('div')
@@ -78,6 +79,7 @@ async function cloneSingleNode<T extends HTMLElement>(
   node: T,
   options: Options,
   targetDocument: Document,
+  resolveSymbols: boolean,
 ): Promise<HTMLElement> {
   if (isInstanceOfElement(node, HTMLCanvasElement)) {
     return targetDocument.adoptNode(await cloneCanvasElement(node, options))
@@ -88,7 +90,7 @@ async function cloneSingleNode<T extends HTMLElement>(
   }
 
   if (isInstanceOfElement(node, HTMLIFrameElement)) {
-    return cloneIFrameElement(node, options, targetDocument)
+    return cloneIFrameElement(node, options, targetDocument, resolveSymbols)
   }
 
   const copy = targetDocument.importNode(node, false)
@@ -117,6 +119,7 @@ async function cloneChildren<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
   targetDocument: Document,
+  resolveSymbols: boolean,
 ): Promise<T> {
   let children: T[]
 
@@ -140,7 +143,9 @@ async function cloneChildren<T extends HTMLElement>(
   await children.reduce(
     (deferred, child) =>
       deferred
-        .then(() => cloneNode(child, options, false, true, targetDocument))
+        .then(() =>
+          cloneNode(child, options, false, resolveSymbols, targetDocument),
+        )
         .then((clonedChild: HTMLElement | null) => {
           if (clonedChild) {
             clonedNode.appendChild(clonedChild)
@@ -340,7 +345,7 @@ function decorate<T extends HTMLElement>(
   return clonedNode
 }
 
-async function ensureSVGSymbols<T extends HTMLElement>(
+export async function ensureSVGSymbols<T extends HTMLElement>(
   source: T,
   clone: T,
   options: Options,
@@ -388,13 +393,24 @@ export async function cloneNode<T extends HTMLElement>(
   return Promise.resolve(node)
     .then(
       (clonedNode) =>
-        cloneSingleNode(clonedNode, options, copyDocument) as Promise<T>,
+        cloneSingleNode(
+          clonedNode,
+          options,
+          copyDocument,
+          resolveSymbols,
+        ) as Promise<T>,
     )
     .then((clonedNode) => {
       if (isInstanceOfElement(node, Element)) {
         task?.registerClone(clonedNode, node)
       }
-      return cloneChildren(node, clonedNode, options, copyDocument)
+      return cloneChildren(
+        node,
+        clonedNode,
+        options,
+        copyDocument,
+        resolveSymbols,
+      )
     })
     .then((clonedNode) => decorate(node, clonedNode, options, isRoot))
     .then((clonedNode) =>

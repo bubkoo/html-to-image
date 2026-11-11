@@ -1,0 +1,9 @@
+async(page)=>{
+ await page.goto('http://localhost:4373/test/browser/umd.html');
+ return await page.evaluate(async()=>{
+  const fixture=await import('/test/browser/fixtures/svg-font-glyphs.mjs');
+  const apis={current:await import('/es/index.js'),legacy:await import('/test/browser/legacy-svg-font-probe.js')};const results={};
+  for(const [name,api] of Object.entries(apis)){results[name]=[];for(const mode of fixture.svgFontModes)results[name].push(await fixture.observeSVGFontGlyphs(api,mode));}
+  return {userAgent:navigator.userAgent,results};
+ });
+}

@@ -1,0 +1,398 @@
+{
+  "checkedAt": "2026-11-11T02:07:41.358341+00:00",
+  "runtimeBase": "132c38d186ac4debd9da164363a8bb8234f3c396",
+  "scope": "The 28 original open PRs in the user goal; candidate SVG phase fix and new font checks are not yet a merged result.",
+  "all28AccountedFor": true,
+  "oldPRClosureActions": 0,
+  "oldPRCommentActions": 0,
+  "notACompletionAttestation": "This is an evidence index. Passing counts and remaining product/fixture conditions must be read from each linked source. It is not a claim that all historical PRs or their whole applications are fixed.",
+  "entries": [
+    {
+      "number": 585,
+      "url": "https://github.com/bubkoo/html-to-image/pull/585",
+      "title": "fix: apply ios workarounds and rendering issues and improve image generation performance",
+      "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
+      "observedState": "open",
+      "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
+      "disposition": "分项处理；本候选修复变换新增/删除 SVG 引用的资源阶段",
+      "evidence": [
+        "docs/evidence/transformed-svg-resources.json",
+        "docs/evidence/svg-redirect-native-matrix.json",
+        "docs/evidence/style-copy-performance.json"
+      ],
+      "remainingBoundary": "外部 SVG 的文件定义与原生页面输出语义待定；不整体移植 live reflow、三态 filter、全新 Cache 或通用 iOS 延时"
+    },
+    {
+      "number": 581,
+      "url": "https://github.com/bubkoo/html-to-image/pull/581",
+      "title": "fix(svg): support font-family attribute on SVG text elements",
+      "reviewedHead": "9ee9e0f9dd311e48eabee59f26ac8efffcefb6db",
+      "observedState": "open",
+      "requirement": "SVG text 的 font-family 属性应选择并嵌入真实网络字体",
+      "disposition": "核心等价，补齐真实字形验证",
+      "evidence": [
+        "test/browser-unit/svg-font-glyphs.test.ts",
+        "docs/evidence/svg-font-glyphs.json"
+      ],
+      "remainingBoundary": "含直接 SVG 根入口；原中文字库字节、完整原应用及旧平台未整体复测；不移植附带工具链/参考图改动"
+    },
+    {
+      "number": 577,
+      "url": "https://github.com/bubkoo/html-to-image/pull/577",
+      "title": "fix: preserve repeating-linear-gradient through cssText round-trip",
+      "reviewedHead": "35a6953ce31c59b67271babbfaaddc76bbf9013c",
+      "observedState": "open",
+      "requirement": "repeating-linear-gradient 经样式序列化仍重复",
+      "disposition": "核心等价",
+      "evidence": ["test/browser-unit/svg-style.test.ts"],
+      "remainingBoundary": "当前回归核对多个实际色块；不把原补丁 cssText 字符串断言当全部视觉证明"
+    },
+    {
+      "number": 575,
+      "url": "https://github.com/bubkoo/html-to-image/pull/575",
+      "title": "fix: resolve CSS custom properties (var()) in SVG descendants",
+      "reviewedHead": "a8def89611d014a4161823817a8ae86d6aa2c66e",
+      "observedState": "open",
+      "requirement": "SVG 后代应获得计算后的 CSS 变量值",
+      "disposition": "核心等价",
+      "evidence": [
+        "test/browser-unit/svg-style.test.ts",
+        "test/browser-unit/css-variables.test.ts"
+      ],
+      "remainingBoundary": "原 Recharts/MUI sandbox 未整体验收；本次网页工具未能访问该链接，若需同项目验收需可导出源码/样式"
+    },
+    {
+      "number": 574,
+      "url": "https://github.com/bubkoo/html-to-image/pull/574",
+      "title": "build(deps-dev): bump rollup from 3.12.0 to 3.30.0",
+      "reviewedHead": "8edd3595adb1f6df10cff4bce335ef0a3391fd37",
+      "observedState": "open",
+      "requirement": "更新旧 Rollup 3.x 锁文件依赖",
+      "disposition": "已被现行工具链替代，不移植旧锁",
+      "evidence": ["docs/evidence/maintenance-dependency-review.json"],
+      "remainingBoundary": "只证明该旧 bump 的目的与现行安装树；不代表完整依赖安全审计"
+    },
+    {
+      "number": 568,
+      "url": "https://github.com/bubkoo/html-to-image/pull/568",
+      "title": "fix: child return false in iframe that use srcdoc",
+      "reviewedHead": "a752f019d2472b52100e1cbe71a469d9526e3607",
+      "observedState": "open",
+      "requirement": "srcdoc iframe 中的跨 realm 子元素不能被 instanceof 丢弃",
+      "disposition": "核心等价；相关文档字体缺陷已由 #623 修复",
+      "evidence": [
+        "test/browser-unit/iframe-fonts.test.ts",
+        "docs/evidence/ios-safari-document-ownership-f4ab94e.json"
+      ],
+      "remainingBoundary": "不可读跨源 iframe、纯 JS FontFace 字节不在范围"
+    },
+    {
+      "number": 560,
+      "url": "https://github.com/bubkoo/html-to-image/pull/560",
+      "title": "perf: allow to clear internal caches",
+      "reviewedHead": "e3f59317b338a2bf8805eb66152c72ea82f6c37f",
+      "observedState": "open",
+      "requirement": "SPA 不应被模块全局缓存无限持有图片/字体",
+      "disposition": "使用 capture/renderer 生命周期替代全局 clearCache；#625 修复文档持有",
+      "evidence": [
+        "test/browser-unit/resource-policy.test.ts",
+        "test/browser-unit/capture-lifetime.test.ts",
+        "docs/evidence/capture-source-lifetime.json"
+      ],
+      "remainingBoundary": "不宣称浏览器 HTTP 缓存被清空、强制 GC 或原 20 MB SPA 内存压力已复现"
+    },
+    {
+      "number": 540,
+      "url": "https://github.com/bubkoo/html-to-image/pull/540",
+      "title": "build(deps-dev): bump pbkdf2 from 3.1.2 to 3.1.3",
+      "reviewedHead": "76805a80a7beddc0cf9d6fda0bd46dde9478c766",
+      "observedState": "open",
+      "requirement": "旧锁中的 pbkdf2 3.1.2 升级",
+      "disposition": "相关旧依赖已移除，不重新引入旧测试链",
+      "evidence": ["docs/evidence/maintenance-dependency-review.json"],
+      "remainingBoundary": "不代表无关依赖不存在其他问题"
+    },
+    {
+      "number": 533,
+      "url": "https://github.com/bubkoo/html-to-image/pull/533",
+      "title": "fix(createImage): make waiting on animation frame optional",
+      "reviewedHead": "247475cc4c7fb4e96ed8909b116d7d06cbeb9683",
+      "observedState": "open",
+      "requirement": "后台导出不应强制等待 requestAnimationFrame",
+      "disposition": "已有路径不等待 RAF，不增加重复等待开关",
+      "evidence": ["test/spec/renderer.test.ts", "src/util.ts"],
+      "remainingBoundary": "只证明库内路径；不保证浏览器或系统不暂停后台页面"
+    },
+    {
+      "number": 511,
+      "url": "https://github.com/bubkoo/html-to-image/pull/511",
+      "title": "feat(disable-font-size-shrink): add optional flag to disable font size shrinking",
+      "reviewedHead": "1d59779c522c6e2c78a435919cd290804b40f8b7",
+      "observedState": "open",
+      "requirement": "禁用字体字号缩小以保留字形和换行",
+      "disposition": "#621 已移除全局取整/缩小，不新增 opt-out 开关",
+      "evidence": [
+        "test/browser-unit/font-metrics.test.ts",
+        "docs/evidence/ios-safari-font-metrics-3b6b37a.json"
+      ],
+      "remainingBoundary": "不外推全部原段落、字体、旧浏览器组合"
+    },
+    {
+      "number": 504,
+      "url": "https://github.com/bubkoo/html-to-image/pull/504",
+      "title": "refactor: improve image embedding and async image loading",
+      "reviewedHead": "c9d4b5f192a1ee6868d130697fd268945c165525",
+      "observedState": "open",
+      "requirement": "图片解码、SVG/HTML 图片处理、异步错误恢复",
+      "disposition": "保留 V2 独立实现；#619 已补齐异步错误回调等待",
+      "evidence": [
+        "test/browser-unit/image-errors.test.ts",
+        "test/spec/renderer.test.ts",
+        "docs/evidence/ios-safari-image-handler-2e8731e.json"
+      ],
+      "remainingBoundary": "不按整体重构已移植或所有原应用图片问题已解决处理"
+    },
+    {
+      "number": 499,
+      "url": "https://github.com/bubkoo/html-to-image/pull/499",
+      "title": "fix: fix a bug cannot read href attribute in use tags",
+      "reviewedHead": "3caf213e24d96f8e4e576e47352f66b0c53d8b7d",
+      "observedState": "open",
+      "requirement": "读取现代 SVG use href",
+      "disposition": "核心等价，#627 补齐空 href 优先级等边界",
+      "evidence": [
+        "test/browser-unit/svg-use.test.ts",
+        "docs/evidence/svg-reference-dependencies.json"
+      ],
+      "remainingBoundary": "复杂外部样式/重定向语义仍按独立 SVG 边界处理"
+    },
+    {
+      "number": 498,
+      "url": "https://github.com/bubkoo/html-to-image/pull/498",
+      "title": "fix: blank image in safari, algin #461, #478",
+      "reviewedHead": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
+      "observedState": "open",
+      "requirement": "Safari 图片初次绘制缺失，提出多次延时重绘",
+      "disposition": "保留显式 stabilizationAttempts，拒绝按图片数写入共享重绘计数",
+      "evidence": [
+        "test/spec/renderer.test.ts",
+        "docs/v2-release-readiness.md"
+      ],
+      "remainingBoundary": "原应用的可运行 DOM、图像/字体字节、设备与复现步骤缺失；不宣称固定等待能解决全部 #461/#556/#569"
+    },
+    {
+      "number": 482,
+      "url": "https://github.com/bubkoo/html-to-image/pull/482",
+      "title": "fix: Adding error handling to embedWebFonts and embedImages",
+      "reviewedHead": "712af489c3956765fb38446fe306c855f30217eb",
+      "observedState": "open",
+      "requirement": "字体/图片嵌入出错后继续",
+      "disposition": "不采用无条件吞错；保留诊断/占位与用户错误拒绝",
+      "evidence": [
+        "test/browser-unit/image-errors.test.ts",
+        "test/spec/renderer.test.ts"
+      ],
+      "remainingBoundary": "资源解析器或用户回调失败必须可见；不把缺失内容当无条件成功"
+    },
+    {
+      "number": 473,
+      "url": "https://github.com/bubkoo/html-to-image/pull/473",
+      "title": "feat: add usePageCss option, add toCanvasList and toImage method for large html",
+      "reviewedHead": "0b677d591b33c4a92d854095e6935bba0db34ce3",
+      "observedState": "open",
+      "requirement": "usePageCss、大页面输出分片与性能",
+      "disposition": "原 head 已实测；#629 仅解决明确的复制开销，不整体移植",
+      "evidence": [
+        "docs/evidence/pr473-historical-controls.json",
+        "docs/evidence/style-copy-performance.json"
+      ],
+      "remainingBoundary": "页面 CSS 模式/新分页 API 未实现；原实现先解码整图且宽度被缩放，缺少大 DOM 样本及内存/尺寸目标"
+    },
+    {
+      "number": 451,
+      "url": "https://github.com/bubkoo/html-to-image/pull/451",
+      "title": "fix: Abnormal video size",
+      "reviewedHead": "ad7092d5e75ac7186f216ad147fbd21e07c4424a",
+      "observedState": "open",
+      "requirement": "视频原始比例与显示区域比例不同导致变形",
+      "disposition": "#617 独立修复原始帧尺寸，真实 iPhone contain 对照通过",
+      "evidence": [
+        "test/browser-unit/video.test.ts",
+        "docs/evidence/ios-video-aspect-b9f2dfd.json"
+      ],
+      "remainingBoundary": "未复测全部 object-fit、流媒体/CORS、播放时序及高 DPR 成本"
+    },
+    {
+      "number": 443,
+      "url": "https://github.com/bubkoo/html-to-image/pull/443",
+      "title": "feat: Added fetchRequestInitGenerator option",
+      "reviewedHead": "7aee57edb9bf026b2060b332929698e260a90841",
+      "observedState": "open",
+      "requirement": "不同 URL 需要不同 RequestInit",
+      "disposition": "以 resources.resolve 替代第二套生成器 API",
+      "evidence": [
+        "test/browser-unit/resource-policy.test.ts",
+        "test/browser/fixtures/resource-policy.mjs"
+      ],
+      "remainingBoundary": "实际私有 cookie 图与公开图/字体双源对照；resolver 自行管理请求选项和 signal"
+    },
+    {
+      "number": 442,
+      "url": "https://github.com/bubkoo/html-to-image/pull/442",
+      "title": "This pull request is an attempt to resolve the issue of IOS not loading images",
+      "reviewedHead": "0fb224261833201c29ddbfcaf05911e2cc341e33",
+      "observedState": "open",
+      "requirement": "图片与公开字体的凭据配置不同，并报告 iOS 空白",
+      "disposition": "URL/kind resolver 覆盖混合凭据核心需求；原 iOS 故障保留条件",
+      "evidence": [
+        "test/browser-unit/resource-policy.test.ts",
+        "docs/evidence/ios-safari-resource-policy-5cbf99d.json"
+      ],
+      "remainingBoundary": "原私有资源 URL、CORS 响应、凭据和完整故障 fixture 未验；include 不是所有 iOS 请求的统一要求"
+    },
+    {
+      "number": 430,
+      "url": "https://github.com/bubkoo/html-to-image/pull/430",
+      "title": "feat: cache request itself",
+      "reviewedHead": "b26144609a76c3da452e2dd9846ba0805cc15a5c",
+      "observedState": "open",
+      "requirement": "缓存进行中的请求避免短时间重复加载",
+      "disposition": "核心等价；#622 另消除 WebKit 副本的额外原生请求",
+      "evidence": [
+        "test/browser-unit/resource-policy.test.ts",
+        "src/resource-loader.ts"
+      ],
+      "remainingBoundary": "缓存限单次捕获，不承诺跨捕获响应永不变化"
+    },
+    {
+      "number": 427,
+      "url": "https://github.com/bubkoo/html-to-image/pull/427",
+      "title": "fix: make external svg files referred to in use tags work",
+      "reviewedHead": "225e357cd971880c36542279960876d30d1651ae",
+      "observedState": "open",
+      "requirement": "外部 SVG use 的引用可以导出",
+      "disposition": "基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段",
+      "evidence": [
+        "test/browser-unit/svg-dependencies.test.ts",
+        "test/browser-unit/transformed-svg.test.ts",
+        "docs/evidence/svg-reference-dependencies.json"
+      ],
+      "remainingBoundary": "外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成"
+    },
+    {
+      "number": 409,
+      "url": "https://github.com/bubkoo/html-to-image/pull/409",
+      "title": "fix: Bug that changes content size when width and height are set to 'style' tag in canvas",
+      "reviewedHead": "9673188ab391df9f8a3db207ba855a2fd06a1cbe",
+      "observedState": "open",
+      "requirement": "CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致",
+      "disposition": "#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁",
+      "evidence": [
+        "test/browser-unit/dimensions.test.ts",
+        "docs/evidence/ios-safari-dimensions-8103b7b.json"
+      ],
+      "remainingBoundary": "原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证"
+    },
+    {
+      "number": 408,
+      "url": "https://github.com/bubkoo/html-to-image/pull/408",
+      "title": "fix: workaround for respecting scrollbar positions",
+      "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
+      "observedState": "open",
+      "requirement": "保留可见滚动位置",
+      "disposition": "限定场景已由 #630/#631 等独立修复；保留复杂布局边界",
+      "evidence": [
+        "test/browser-unit/mixed-scroll.test.ts",
+        "test/browser-unit/fixed-scroll.test.ts",
+        "docs/evidence/fixed-scroll.json"
+      ],
+      "remainingBoundary": "横/斜向深层 fixed、inline before、绝对定位、任意捕获根偏移及滚动条外观仍未完整覆盖"
+    },
+    {
+      "number": 407,
+      "url": "https://github.com/bubkoo/html-to-image/pull/407",
+      "title": "feat: support extra content which will be added to style tag from svg",
+      "reviewedHead": "772ca3228b2d2639d2f9659586a978b15c0f39fd",
+      "observedState": "open",
+      "requirement": "把额外 CSS 放进输出副本",
+      "disposition": "使用 onClone 插入 style 的现有原语，不新增 extraStyleContent",
+      "evidence": [
+        "docs/evidence/scrollbar-extension-probes.json",
+        "test/browser-unit/pseudo-resources.test.ts"
+      ],
+      "remainingBoundary": "自定义 CSS 注入不等于源原生滚动条外观/位置已保留"
+    },
+    {
+      "number": 401,
+      "url": "https://github.com/bubkoo/html-to-image/pull/401",
+      "title": "fix: the incorrect usage of `image.decode`",
+      "reviewedHead": "676b0db994578c6d97a8d3f2f7ac7930a8e55440",
+      "observedState": "open",
+      "requirement": "应调用并等待 decode，而不是覆盖方法",
+      "disposition": "核心等价；保留可用图片 decode 拒绝不悬挂的边界",
+      "evidence": [
+        "test/spec/renderer.test.ts",
+        "src/util.ts",
+        "src/embed-images.ts"
+      ],
+      "remainingBoundary": "图片可解码不等于所有 WebKit foreignObject 首绘问题已解决"
+    },
+    {
+      "number": 400,
+      "url": "https://github.com/bubkoo/html-to-image/pull/400",
+      "title": "feat: add 'cacheDisable' option to set fetch cache option to 'no-cache'",
+      "reviewedHead": "f4a9fdd3a64b977f0d877ac993a120184047b088",
+      "observedState": "open",
+      "requirement": "允许配置 fetch cache:no-cache",
+      "disposition": "已有 fetchRequestInit.cache，不新增 cacheDisable",
+      "evidence": [
+        "test/browser-unit/resource-policy.test.ts",
+        "src/resource-loader.ts"
+      ],
+      "remainingBoundary": "真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中"
+    },
+    {
+      "number": 398,
+      "url": "https://github.com/bubkoo/html-to-image/pull/398",
+      "title": "docs: add open in new tab example for toBlobs",
+      "reviewedHead": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
+      "observedState": "open",
+      "requirement": "Blob PNG 在新标签页预览",
+      "disposition": "README helper 与三引擎交互已验；保留单数 toBlob API",
+      "evidence": [
+        "docs/evidence/blob-preview-browser-checks.json",
+        "README.md"
+      ],
+      "remainingBoundary": "真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击"
+    },
+    {
+      "number": 393,
+      "url": "https://github.com/bubkoo/html-to-image/pull/393",
+      "title": "Handle `href` use attribute",
+      "reviewedHead": "90389a7df1c90179458043e799d4c87ffd62c9d5",
+      "observedState": "open",
+      "requirement": "支持 SVG use href 属性",
+      "disposition": "核心等价，现代/旧命名空间及优先级有回归",
+      "evidence": [
+        "test/browser-unit/svg-use.test.ts",
+        "docs/evidence/svg-reference-dependencies.json"
+      ],
+      "remainingBoundary": "同 #499 的属性级结论，不扩大为全部外部 SVG 样式兼容"
+    },
+    {
+      "number": 376,
+      "url": "https://github.com/bubkoo/html-to-image/pull/376",
+      "title": "feat: allow user to provide custom pseudo elements to be captured",
+      "reviewedHead": "f6363fcc11e3c8860ae78b77f3cb57396ede876d",
+      "observedState": "open",
+      "requirement": "允许额外伪元素，尤其非标准滚动条",
+      "disposition": "不把通用伪元素列表等同于滚动条完成；等待外观契约",
+      "evidence": [
+        "docs/evidence/scrollbar-extension-probes.json",
+        "docs/evidence/pseudo-style-resources.json"
+      ],
+      "remainingBoundary": "需在可见内容优先与包含原生轨道/滑块位置之间选择；非标准伪元素有引擎差异"
+    }
+  ],
+  "sourceReviewMethod": "Fresh original PR body/head and available source patches, mapped to current sources/tests; lock-only items reuse the archived review of the same head. No old branch was merged."
+}

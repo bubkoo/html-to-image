@@ -14,7 +14,7 @@
   <h1>Browser smoke</h1>
   <pre id="results">Running...</pre>
   <script type="module">
-    import { createRenderer, toImageData, toPng, toSvg } from '../../es/index.js'
+    import { createRenderer, toCanvas, toImageData, toPng, toSvg } from '../../es/index.js'
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
     import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
     import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
@@ -22,6 +22,8 @@
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
     import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
+    import { checkSVGFontGlyphs, svgFontModes } from './fixtures/svg-font-glyphs.mjs'
+    import { checkTransformedSVG, transformedSVGModes } from './fixtures/transformed-svg.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -172,6 +174,22 @@
 
     await test('fractional fonts and tight last word', async () => {
       await checkFontMetrics({ toSvg, toImageData })
+    })
+
+    await test('SVG font-family glyph pixels', async () => {
+      await loadUMD()
+      for (const mode of svgFontModes) {
+        await checkSVGFontGlyphs({ toCanvas, toSvg }, mode)
+        await checkSVGFontGlyphs(window.htmlToImage, mode)
+      }
+    })
+
+    await test('SVG references after clone transforms', async () => {
+      await loadUMD()
+      for (const mode of transformedSVGModes) {
+        await checkTransformedSVG({ createRenderer }, mode)
+        await checkTransformedSVG(window.htmlToImage, mode)
+      }
     })
 
     await test('iframe fonts and document scope', async () => {

@@ -1,0 +1,5 @@
+async () => {
+ const {createRenderer}=await import('/es/index.js');const {root,source}=window.__scene;const requests=[];const renderer=createRenderer({pixelRatio:1,skipFonts:true,resources:{resolve:({url})=>{requests.push(url)}}});
+ try{const image=await renderer.toImageData(root);return {pixels:[10,30,50,70].map(x=>Array.from(image.data.slice(4*(10*image.width+x),4*(10*image.width+x)+4))),sourceUnchanged:source===root.outerHTML,requests,userAgent:navigator.userAgent,visibility:document.visibilityState}}
+ finally{renderer.dispose()}
+}

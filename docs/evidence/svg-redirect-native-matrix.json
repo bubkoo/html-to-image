@@ -1,0 +1,188 @@
+{
+  "checkedAt": "2026-11-11T01:58:52.515536+00:00",
+  "runtimeRevision": "132c38d186ac4debd9da164363a8bb8234f3c396",
+  "sourcePR": 585,
+  "status": "Observation only; output semantics pending. No redirect runtime fix is claimed.",
+  "method": "Unique random path for each scene, native screenshot before library capture, then repeat source screenshot. Columns: redirected relative paint, direct relative paint, flat external symbol, yellow HTML control. use BBoxes and network completion checked; iPhone page visibility was visible, all three SVG BBoxes 20x20, network entries completed.",
+  "observations": {
+    "chrome": {
+      "input": {
+        "id": "5ff2a3c8-57e0-ad37-0d77-fc299e0b6c25",
+        "prefix": "/probe/5ff2a3c8-57e0-ad37-0d77-fc299e0b6c25/",
+        "visibility": "visible",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+      },
+      "result": {
+        "pixels": [
+          [255, 0, 0, 255],
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "sourceUnchanged": true,
+        "requests": [
+          "http://localhost:4493/probe/5ff2a3c8-57e0-ad37-0d77-fc299e0b6c25/redirect.svg",
+          "http://localhost:4493/probe/5ff2a3c8-57e0-ad37-0d77-fc299e0b6c25/sprite.svg",
+          "http://localhost:4493/probe/5ff2a3c8-57e0-ad37-0d77-fc299e0b6c25/direct.svg",
+          "http://localhost:4493/probe/5ff2a3c8-57e0-ad37-0d77-fc299e0b6c25/flat.svg"
+        ],
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "visibility": "visible"
+      },
+      "before": [
+        [255, 255, 255],
+        [255, 255, 255],
+        [0, 128, 0],
+        [255, 255, 0]
+      ],
+      "after": [
+        [255, 255, 255],
+        [255, 255, 255],
+        [0, 128, 0],
+        [255, 255, 0]
+      ],
+      "nativePixelsUnchanged": true,
+      "nativePixelHashes": [
+        "ca951962293037eba06d823f68c7afef3aa626482ec8737a9b7b87c9bca9a76f",
+        "ca951962293037eba06d823f68c7afef3aa626482ec8737a9b7b87c9bca9a76f"
+      ]
+    },
+    "firefox": {
+      "input": {
+        "id": "8726616e-3baa-05fa-00ba-cc29e907871c",
+        "prefix": "/probe/8726616e-3baa-05fa-00ba-cc29e907871c/",
+        "visibility": "visible",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0"
+      },
+      "result": {
+        "pixels": [
+          [255, 0, 0, 255],
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "sourceUnchanged": true,
+        "requests": [
+          "http://localhost:4493/probe/8726616e-3baa-05fa-00ba-cc29e907871c/redirect.svg",
+          "http://localhost:4493/probe/8726616e-3baa-05fa-00ba-cc29e907871c/sprite.svg",
+          "http://localhost:4493/probe/8726616e-3baa-05fa-00ba-cc29e907871c/direct.svg",
+          "http://localhost:4493/probe/8726616e-3baa-05fa-00ba-cc29e907871c/flat.svg"
+        ],
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "visibility": "visible"
+      },
+      "before": [
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "after": [
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "nativePixelsUnchanged": true,
+      "nativePixelHashes": [
+        "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf",
+        "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf"
+      ]
+    },
+    "webkit": {
+      "input": {
+        "id": "2327ba0b-4f8a-b68c-4684-90307ac1bd0e",
+        "prefix": "/probe/2327ba0b-4f8a-b68c-4684-90307ac1bd0e/",
+        "visibility": "visible",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+      },
+      "result": {
+        "pixels": [
+          [255, 0, 0, 255],
+          [0, 129, 1, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "sourceUnchanged": true,
+        "requests": [
+          "http://localhost:4493/probe/2327ba0b-4f8a-b68c-4684-90307ac1bd0e/redirect.svg",
+          "http://localhost:4493/probe/2327ba0b-4f8a-b68c-4684-90307ac1bd0e/sprite.svg",
+          "http://localhost:4493/probe/2327ba0b-4f8a-b68c-4684-90307ac1bd0e/direct.svg",
+          "http://localhost:4493/probe/2327ba0b-4f8a-b68c-4684-90307ac1bd0e/flat.svg"
+        ],
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+        "visibility": "visible"
+      },
+      "before": [
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "after": [
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "nativePixelsUnchanged": true,
+      "nativePixelHashes": [
+        "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf",
+        "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf"
+      ]
+    },
+    "ios": {
+      "input": {
+        "visibility": "visible",
+        "id": "5c429797-63c7-827b-06cc-0b3988540862",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+        "prefix": "/probe/5c429797-63c7-827b-06cc-0b3988540862/"
+      },
+      "result": {
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+        "visibility": "visible",
+        "pixels": [
+          [255, 0, 0, 255],
+          [0, 129, 1, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "sourceUnchanged": true,
+        "requests": [
+          "http://169.254.93.21:4493/probe/5c429797-63c7-827b-06cc-0b3988540862/redirect.svg",
+          "http://169.254.93.21:4493/probe/5c429797-63c7-827b-06cc-0b3988540862/sprite.svg",
+          "http://169.254.93.21:4493/probe/5c429797-63c7-827b-06cc-0b3988540862/direct.svg",
+          "http://169.254.93.21:4493/probe/5c429797-63c7-827b-06cc-0b3988540862/flat.svg"
+        ]
+      },
+      "before": [
+        [255, 255, 255, 255],
+        [255, 255, 255, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "after": [
+        [255, 255, 255, 255],
+        [255, 255, 255, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "nativePixelsUnchanged": true,
+      "nativePixelHashes": [
+        "861759dc4bacc7fe6654d8e4fe5426bfb969d992dcaa59d7ce2276062b05dc6e",
+        "861759dc4bacc7fe6654d8e4fe5426bfb969d992dcaa59d7ce2276062b05dc6e"
+      ]
+    }
+  },
+  "replayServerRootAdjustment": "Portable replay uses process.cwd() instead of the absolute repository path; response bytes and routes are unchanged.",
+  "limits": [
+    "Initial shared-URL, after-capture-only experiments are excluded from this final matrix",
+    "Native source/capture equality is deliberately not asserted as a passing regression",
+    "Fetch final URL alone is not proof of each engine native SVG use paint behavior"
+  ],
+  "nativeIOS": {
+    "simulator": false,
+    "sourceScreenshot": "svg-redirect-source-ios.png",
+    "nativeBeforeAfterUnchanged": true
+  }
+}
