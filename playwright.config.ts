@@ -12,6 +12,7 @@ export default defineConfig({
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   use: {
     baseURL,
+    launchOptions: { ignoreDefaultArgs: ['--hide-scrollbars'] },
     trace: 'retain-on-failure',
   },
   projects: [

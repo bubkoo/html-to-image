@@ -49,14 +49,20 @@ export class CaptureTask {
 
   private clonedSources = new WeakSet<Element>()
 
-  private clonedStyles: string[] = []
+  private clonedStyles: { rule: string; owner?: string }[] = []
 
-  addClonedStyle(rule: string) {
-    this.clonedStyles.push(rule)
+  addClonedStyle(rule: string, owner?: string) {
+    this.clonedStyles.push({ rule, owner })
   }
 
-  getClonedStyles() {
-    return this.clonedStyles.join('\n')
+  getClonedStyles(root?: Element) {
+    return this.clonedStyles
+      .filter(
+        ({ owner }) =>
+          !owner || !root || root.matches(owner) || root.querySelector(owner),
+      )
+      .map(({ rule }) => rule)
+      .join('\n')
   }
 
   private excludedSources = new WeakSet<Node>()

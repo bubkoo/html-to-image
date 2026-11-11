@@ -28,3 +28,8 @@ WebKit 专有自定义滚动条的实际源可见：零偏移的原 SVG 已一�
 - Authority: 原生源截图先于图像生成，所有通道比较，原输入/完整 SVG/重放脚本及关键源和导出 PNG 保存；不依赖 CSS.supports 断言行为
 - Validation: 12 个 injected 精确像素对照、60 个块布局对照、WebKit 可见滚动条正/负对照；不使用无效和不适用输入扩大数量
 - Last-Validated: 2026-11-11
+
+### 2026-11-11 prototype checkpoint
+Chromium 早期“源无滚动条、SVG 有滚动条”由 Playwright 的 --hide-scrollbars 引起，不能归为平台限制。移除参数后源 client 为 90×90。另一个独立根因：content-box 的计算尺寸已减去 gutter，直接复制后目的滚动容器再减一次；显式恢复原始盒尺寸后，滚动条 10 项严格源像素对照通过（Firefox 的两项 WebKit 专有输入不适用）。
+
+本分支的原生恢复实现仍是原型，未开 PR/未合并。定向 363 项为 359 通过、2 个 WebKit 绘制失败、2 项浏览器功能不适用。visible-text 与 padding-shadow 保持严格失败，未放宽容差；浮动零外部尺寸目标也没有消除它们。源与副本普通 HTML 的 Range/元素矩形及滚动值相同，SVG 图像绘制仍不同。背景 URL 的私有规则资源阶段与 owner 过滤已编码，尚缺完整资源/生命周期和真机验证。先独立交付盒尺寸根因，继续保留原目标，不把该原型称为 #81/#345 完成。

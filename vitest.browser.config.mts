@@ -82,7 +82,9 @@ export default defineConfig({
     browser: {
       enabled: true,
       headless: true,
-      provider: playwright(),
+      provider: playwright({
+        launchOptions: { ignoreDefaultArgs: ['--hide-scrollbars'] },
+      }),
       commands: {
         async collectGarbage({ page }) {
           await page.requestGC()

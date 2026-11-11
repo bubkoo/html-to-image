@@ -1061,5 +1061,11 @@
     },
     "nativeIOS": "not validated for the snap mechanism"
   },
-  "replayInstructions": "Build the recorded revision; serve test/browser/server.mjs at localhost:4373. Open separate Chromium/Firefox/WebKit CLI sessions at /test/browser/umd.html. Ensure /tmp/html-to-image-blob-check/scroll-native exists. Run each archived async(page) probe with playwright-cli run-code --filename, then read its Result JSON. initial-target checks state-loss/feature controls, block-matrix imports the unchanged shared fixture, scrollbars uses standard scrollbar declarations and legacy-bars uses only WebKit pseudo rules. Original executed scripts and immutable hashes are retained rather than represented as production tests."
+  "replayInstructions": "Build the recorded revision; serve test/browser/server.mjs at localhost:4373. Open separate Chromium/Firefox/WebKit CLI sessions at /test/browser/umd.html. Ensure /tmp/html-to-image-blob-check/scroll-native exists. Run each archived async(page) probe with playwright-cli run-code --filename, then read its Result JSON. initial-target checks state-loss/feature controls, block-matrix imports the unchanged shared fixture, scrollbars uses standard scrollbar declarations and legacy-bars uses only WebKit pseudo rules. Original executed scripts and immutable hashes are retained rather than represented as production tests.",
+  "chromiumScrollbarCorrection": {
+    "reason": "Playwright headless launch includes --hide-scrollbars. The old CLI source had no native bars because of that test flag, not an intrinsic Chromium overlay/foreignObject incompatibility.",
+    "verifiedUnhiddenClient": [90, 90],
+    "sourceCSSWidth": "100px declared / 90px resolved after a 10px gutter",
+    "nextRootFix": "Restore box dimensions before recreating a native scrollbar; the current width clone subtracts the gutter twice."
+  }
 }

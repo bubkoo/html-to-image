@@ -121,7 +121,19 @@ export async function createMixedScrollScene(kind) {
       root,
       panel: frame.contentDocument.body,
       frame,
-      points: [{ x: 30, y: 10, expected: '0,128,0,255' }],
+      points: [
+        {
+          x: Math.min(
+            30,
+            Math.floor(frame.contentDocument.documentElement.clientWidth / 2),
+          ),
+          y: Math.min(
+            10,
+            Math.floor(frame.contentDocument.documentElement.clientHeight / 2),
+          ),
+          expected: '0,128,0,255',
+        },
+      ],
       source: root.outerHTML,
       scroll: [frame.contentDocument.body.scrollTop, 0],
       frameScroll: scrollY,

@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-11-11T06:10:30.095505+00:00",
+  "status": "WIP, not ready for merge",
+  "scope": "Original #81/#345 requirements remain intact; no full issue completion claimed.",
+  "targeted": {
+    "total": 363,
+    "passed": 359,
+    "failed": 2,
+    "featureUnsupportedSkipped": 2,
+    "failures": [
+      "WebKit visible-text exact native-source pixels",
+      "WebKit padding-shadow exact native-source pixels"
+    ],
+    "tolerance": 0
+  },
+  "rootFindings": [
+    "Playwright --hide-scrollbars invalidated the earlier Chromium scrollbar absence inference.",
+    "CSSOM content-box dimensions already exclude a scrollbar gutter; replay must not subtract it again.",
+    "Glyph/element Range rectangles can agree while SVG raster pixels differ. No passing glyph-geometry count replaces the failing pixel case."
+  ],
+  "followup": "Isolate the box-size correction with independent zero-offset controls; continue the full native-scroll prototype afterward.",
+  "filesSha256": {
+    "src/capture.ts": "e278817a8894c7dc32caad79b0735061f29f597e1b9e1bd898709ac154fedb4e",
+    "src/clone-node.ts": "a3d189b8c1a1e4581386605989f9522b1c090d2b5476ac751dd1a44337d762b1",
+    "src/clone-scroll.ts": "e336c3e3de32a8e9223a226c20b6e9df17269fb40c6bb4d5da8521b436482810",
+    "src/clone-scroll-native.ts": "c428f2893a9e2c2559ef21f46ae486fc6cd8ec5735ac83b417dd6d2b1b76b5e9",
+    "src/clone-scrollbars.ts": "9a51e99414946be47a39f6ac3b79c871b65e107d656ba8482bdd55cf4004559d",
+    "src/embed-images.ts": "eacdb006770a53db2a8ee4b680d0cc95236bb7ca28a3d85b49e7b21bdc535609",
+    "src/task.ts": "e722d3cd1210397e0840e7dbd4ab888137ce26436a7332ef3ff8efa5a66c5bfc",
+    "test/browser/fixtures/native-scroll.mjs": "a190a22e487191e1c1d358882e0703e9cc04be31192541fc357513dd5016772e",
+    "test/browser/fixtures/native-scrollbars.mjs": "39973e981eaf8003263f1c1d00424e9b93037c6b82ba57e1e74cd469865bacb7",
+    "test/browser-unit/native-scroll.test.ts": "04b145a171e834fb927d75e33181f32ecb32e9af564de1378a462d84224bf54c",
+    "test/browser-unit/native-scrollbars.test.ts": "23e99ea6a9c08eba59f0ff66027419839d90400dd1a2219690232ea5ec8ff92a"
+  }
+}

@@ -11,6 +11,7 @@ import { resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
 import { embedSVGReferences, getSVGReference } from './svg-references.js'
 import { cloneScrollState } from './clone-scroll.js'
+import { cloneScrollbarStyles } from './clone-scrollbars.js'
 
 function createCloneDocument(source: Document) {
   // A detached element in a browsing document can still load resources in
@@ -214,6 +215,68 @@ function cloneCSSStyle<T extends HTMLElement>(
       )
     })
   }
+  if (
+    sourceStyle.boxSizing === 'content-box' &&
+    ['auto', 'scroll', 'hidden'].some(
+      (value) =>
+        sourceStyle.overflowX === value || sourceStyle.overflowY === value,
+    )
+  ) {
+    const px = (name: string) =>
+      parseFloat(sourceStyle.getPropertyValue(name)) || 0
+    const restore = (
+      dimension: 'width' | 'height',
+      offset: number,
+      start: string,
+      end: string,
+    ) => {
+      const horizontal = sourceStyle.writingMode === 'horizontal-tb'
+      const logical =
+        dimension === 'width'
+          ? horizontal
+            ? 'inline-size'
+            : 'block-size'
+          : horizontal
+            ? 'block-size'
+            : 'inline-size'
+      if (
+        selected &&
+        !selected.includes(dimension) &&
+        !selected.includes(logical)
+      )
+        return
+      const used = parseFloat(sourceStyle.getPropertyValue(dimension))
+      if (!Number.isFinite(used) || !Number.isFinite(offset)) return
+      const edges =
+        px(`padding-${start}`) +
+        px(`padding-${end}`) +
+        px(`border-${start}-width`) +
+        px(`border-${end}-width`)
+      const gutter = offset - Math.round(used + edges)
+      if (gutter <= 0) return
+      // CSSOM resolves a content-box dimension after subtracting its gutter.
+      // A second scroll container must start from the original box dimension,
+      // otherwise it subtracts the same scrollbar space again.
+      let reserved = gutter
+      if (
+        sourceStyle.scrollbarWidth === 'auto' &&
+        sourceStyle.scrollbarColor === 'auto' &&
+        CSS.supports('selector(::-webkit-scrollbar)')
+      ) {
+        const scrollbar = (
+          nativeNode.ownerDocument.defaultView || window
+        ).getComputedStyle(nativeNode, '::-webkit-scrollbar')
+        const explicit = parseFloat(scrollbar.getPropertyValue(dimension))
+        if (Number.isFinite(explicit) && explicit > 0) reserved = explicit
+      }
+      const property =
+        selected && !selected.includes(dimension) ? logical : dimension
+      targetStyle.removeProperty(property)
+      targetStyle.setProperty(property, `${used + reserved}px`)
+    }
+    restore('width', nativeNode.offsetWidth, 'left', 'right')
+    restore('height', nativeNode.offsetHeight, 'top', 'bottom')
+  }
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
@@ -305,6 +368,7 @@ function decorate<T extends HTMLElement>(
       : options.includeStyleProperties
     cloneCSSStyle(nativeNode, clonedNode, options, selected, isRoot)
     clonePseudoElements(nativeNode, clonedNode, selected)
+    cloneScrollbarStyles(nativeNode, clonedNode, options, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
     cloneClipPathReferences(nativeNode, clonedNode)
