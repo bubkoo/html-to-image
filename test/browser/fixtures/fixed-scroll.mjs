@@ -28,6 +28,9 @@ export const fixedScrollCases = [
   'ancestor-block',
   'relative-block',
   'transform-important',
+  'transform-selected-bottom',
+  'transform-selected-auto',
+  'transform-selected-right-horizontal',
 ]
 
 export async function createFixedScrollScene(kind) {
@@ -146,6 +149,10 @@ export async function createFixedScrollScene(kind) {
     points.push({ x: 20, y: 6, expected: '0,0,255,255' })
   if (kind.endsWith('visible'))
     points.push({ x: 20, y: 7, expected: '0,0,255,255' })
+  if (kind.endsWith('bottom'))
+    points.push({ x: 20, y: 38, expected: '0,128,0,255' })
+  if (kind.includes('right') && horizontal)
+    points.push({ x: 38, y: 20, expected: '0,128,0,255' })
   if (kind.endsWith('important') || kind.endsWith('inner'))
     points.push({ x: 20, y: 6, expected: '0,0,255,255' })
   if (kind.endsWith('chain')) {
@@ -158,13 +165,23 @@ export async function createFixedScrollScene(kind) {
     points,
     source: root.outerHTML,
     scroll: [panel.scrollLeft, panel.scrollTop],
+    options: kind.includes('selected')
+      ? {
+          stylePropertiesForNode: (source) =>
+            source.id.endsWith('-fixed') ? [] : undefined,
+        }
+      : {},
     cleanup: () => root.remove(),
   }
 }
 
 export async function checkFixedScroll(api, kind, readNative) {
   const scene = await createFixedScrollScene(kind)
-  const renderer = api.createRenderer({ pixelRatio: 1, skipFonts: true })
+  const renderer = api.createRenderer({
+    pixelRatio: 1,
+    skipFonts: true,
+    ...scene.options,
+  })
   const check = (image, label) => {
     scene.points.forEach(({ x, y, expected }) => {
       const offset = 4 * (y * image.width + x)
