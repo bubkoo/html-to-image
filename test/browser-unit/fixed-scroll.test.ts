@@ -36,6 +36,9 @@ const cases = [
   'ancestor-block',
   'relative-block',
   'transform-important',
+  'transform-selected-bottom',
+  'transform-selected-auto',
+  'transform-selected-right-horizontal',
 ]
 
 cases.forEach((kind) => {

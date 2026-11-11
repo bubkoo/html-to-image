@@ -4,17 +4,17 @@
   "sourcePRs": [408],
   "relatedIssues": [345, 594],
   "rootCause": "Fixed positioning can be attached to a scroll container or a different ancestor/viewport. Old paths unconditionally anchored direct fixed children, and transforms added to normal-flow wrappers introduced new fixed containing blocks. Existing transformed-fixed tests incorrectly expected blue where independent native source screenshots are green.",
-  "method": "27 shared fixtures with exact native source screenshot and capture RGBA controls in each of Chromium, Firefox and WebKit; source DOM and scroll immutability. Final baseline restores only clone-scroll.ts from 7169372 without changing fixtures or browser commands.",
+  "method": "30 shared fixtures with exact native source screenshot and capture RGBA controls in each of Chromium, Firefox and WebKit; source DOM and scroll immutability. Final baseline restores only clone-scroll.ts from 7169372 without changing fixtures or browser commands.",
   "baseline": {
-    "failed": 57,
-    "passed": 24,
+    "failed": 72,
+    "passed": 18,
     "nativeControlFailures": 0
   },
   "candidate": {
-    "targetedPassed": 81,
+    "targetedPassed": 90,
     "fullChecks": {
-      "coveragePassed": 261,
-      "sourcePassed": 425,
+      "coveragePassed": 264,
+      "sourcePassed": 434,
       "sourceSkipped": 1,
       "skipReason": "Inherited WebKit native iframe GC control",
       "builtPackagePassed": 126,
@@ -63,8 +63,8 @@
   },
   "filesSha256": {
     "src/clone-scroll.ts": "1f17cff53c06a2a380c813fc2afce65ddfa092fd79d6ea0a05b0602e34efdfb0",
-    "test/browser/fixtures/fixed-scroll.mjs": "5a9683d0a8bbc8a0de561b6576b2bd0868acbbc2e03ce6d53210c20b610f1c46",
-    "test/browser-unit/fixed-scroll.test.ts": "aec82dc3c7fd224ca4a7fe620379f47e82abcb4380d10a8155fe7e192cde3c7a"
+    "test/browser/fixtures/fixed-scroll.mjs": "02fe4a935d1a499d226d5cdfe7873e6051488889ff16fdfb3966a39da2f36a6c",
+    "test/browser-unit/fixed-scroll.test.ts": "181bc54462639d360a98ab5dacc3a42a4b025b3fd272eebfaca80192813584d6"
   },
   "standards": [
     "https://drafts.csswg.org/cssom-view/#dom-htmlelement-offsetparent",
@@ -76,7 +76,11 @@
     "No universal claim for every layout, writing mode or fixed element at arbitrary capture-root viewport offsets",
     "Native scrollbar appearance is not copied"
   ],
-  "nativeIOS": {
+  "nativeIOS": "Pending final 30-case committed-source run",
+  "remote": "Pending",
+  "testHarnessNote": "First full run had one Chromium selected-case failure because the new smoke item did not load UMD independently; fixed the shared loader, then repeated the complete stable run: 261/425+1skip/126 passed. This is distinct from the 57 baseline capture regressions.",
+  "candidateRevision": "Pending final option-test commit",
+  "initialNativeIOS": {
     "report": "ios-safari-fixed-scroll-c3b2d09.json",
     "passed": 26,
     "casesESM": 27,
@@ -88,7 +92,6 @@
     "simulator": false,
     "note": "Full device smoke validates capture pixels/source state for all shared cases. One independent native element screenshot verifies the corrected transformed-fixed/sticky source directly."
   },
-  "remote": "Pending",
-  "testHarnessNote": "First full run had one Chromium selected-case failure because the new smoke item did not load UMD independently; fixed the shared loader, then repeated the complete stable run: 261/425+1skip/126 passed. This is distinct from the 57 baseline capture regressions.",
-  "candidateRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9"
+  "initialCandidateRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9",
+  "coverageFollowup": "Initial remote patch/project checks failed at 81.81% patch / 85.24% project despite passing CI. Added public stylePropertiesForNode empty-selection bottom/right controls (no implementation mocks), and strengthened far-edge assertions. Both missing inset lines now execute. No thresholds or runtime code changed. The additional auto-position case verifies that both auto insets retain normal static-position flow; the bottom/right fallback condition is now exercised both ways."
 }

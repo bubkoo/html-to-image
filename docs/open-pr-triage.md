@@ -6,7 +6,7 @@
 
 独立原生截图发现早期 transformed-fixed + sticky 测试的期望有误：滚动 50px 后 fixed 已在 -50px，源顶部为绿色，旧导出和测试却期待蓝色。三个引擎均复现，不能继续把旧测试通过当页面保真证据。[独立原生 PNG、计数与范围](evidence/fixed-scroll.json)和[重放](evidence/fixed-scroll-replay.md)已归档。
 
-候选使用源浏览器 offsetParent 区分当前容器、其他祖先或视口。纵向块流内有 fixed 后代时复用伪元素流偏移，避免把普通包装层变成新的 fixed 包含块；只给随当前容器滚动的 fixed 调整 inset，保留已有变换。直接横向/斜向 fixed 同样按实际关系处理。27 个输入覆盖 CSS 建立包含块的多种方式、sticky 两种顺序、普通/混合/深层/嵌套 fixed、已有变换、bottom/auto/right/RTL 和源 important。最终输入在基线 57 失败、24 通过，原生源对照全通过；候选 81 通过。完整 lint/构建/类型/tarball、261 覆盖率、425 源码（另 1 项既有 GC 跳过）及 126 构建包检查通过；源码 `c3b2d09` 真实 iPhone Safari 完整 26/26 通过，新增 27 输入分别经 ESM/UMD 验证。[真机报告](evidence/ios-safari-fixed-scroll-c3b2d09.json)和[独立原生源像素对照](evidence/ios-fixed-scroll-source-control.json)已归档，远端待验。
+候选使用源浏览器 offsetParent 区分当前容器、其他祖先或视口。纵向块流内有 fixed 后代时复用伪元素流偏移，避免把普通包装层变成新的 fixed 包含块；只给随当前容器滚动的 fixed 调整 inset，保留已有变换。直接横向/斜向 fixed 同样按实际关系处理。30 个输入覆盖 CSS 建立包含块的多种方式、sticky 两种顺序、普通/混合/深层/嵌套 fixed、已有变换、bottom/auto/right/RTL 和源 important。最终输入在基线 72 失败、18 通过，原生源对照全通过；候选 90 通过。完整 lint/构建/类型/tarball、264 覆盖率、434 源码（另 1 项既有 GC 跳过）及 126 构建包检查通过；最终 30 输入真机报告待补，初版 27 输入真机 26/26 及独立原生源像素对照已归档。
 
 横向/斜向的深层 fixed 包装组合、已有 inline before 与绝对定位回退、任意捕获根偏移、其他未测布局及滚动条外观仍保留边界；不按整个 #408/#345 已解决处理。
 
