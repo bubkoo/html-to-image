@@ -1,0 +1,377 @@
+{
+  "sourcePR": 473,
+  "sourceHead": "0b677d591b33c4a92d854095e6935bba0db34ce3",
+  "build": "Exact git archive src bundled as IIFE by installed esbuild 0.28.2; no source changes or npm install",
+  "fixture": "pr473-historical-replay.js.txt",
+  "fixtureSha256": "626915111c68ef05ef9bf8161fe50422cff188b727d71c6e33534008c7a251db",
+  "bundleSha256": "943eab6103399955f3e259b35274ec4707ce4e742a9cff6834f9e422e756a7aa",
+  "results": {
+    "chromium": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "dpr": 1,
+      "cases": [
+        {
+          "name": "wide",
+          "input": [17000, 20],
+          "elapsedMs": 36,
+          "optionsChanged": false,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": false
+          },
+          "outputs": [
+            {
+              "size": [16384, 19],
+              "first": [0, 128, 0, 255],
+              "last": [0, 128, 0, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [17000, 20],
+              "canvas": [16384, 19],
+              "coordinates": [0, 0, 17000, 20, 0, 0, 16384, 19.27529411764706]
+            }
+          ]
+        },
+        {
+          "name": "tall",
+          "input": [40, 20000],
+          "elapsedMs": 5,
+          "optionsChanged": false,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": false
+          },
+          "outputs": [
+            {
+              "size": [40, 16384],
+              "first": [255, 0, 0, 255],
+              "last": [0, 128, 0, 255]
+            },
+            {
+              "size": [40, 3616],
+              "first": [0, 128, 0, 255],
+              "last": [0, 0, 255, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [40, 20000],
+              "canvas": [40, 16384],
+              "coordinates": [0, 0, 40, 16384, 0, 0, 40, 16384]
+            },
+            {
+              "source": [40, 20000],
+              "canvas": [40, 3616],
+              "coordinates": [0, 16384, 40, 3616, 0, 0, 40, 3616]
+            }
+          ]
+        },
+        {
+          "name": "media-default",
+          "input": [20, 20],
+          "elapsedMs": 1,
+          "optionsChanged": true,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": true
+          },
+          "outputs": [
+            {
+              "size": [20, 20],
+              "first": [0, 128, 0, 255],
+              "last": [0, 128, 0, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [20, 20],
+              "canvas": [20, 20],
+              "coordinates": [0, 0, 20, 20, 0, 0, 20, 20]
+            }
+          ]
+        }
+      ]
+    },
+    "firefox": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "dpr": 1,
+      "cases": [
+        {
+          "name": "wide",
+          "input": [17000, 20],
+          "elapsedMs": 3,
+          "optionsChanged": false,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": false
+          },
+          "outputs": [
+            {
+              "size": [16384, 19],
+              "first": [0, 128, 0, 255],
+              "last": [0, 128, 0, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [17000, 20],
+              "canvas": [16384, 19],
+              "coordinates": [0, 0, 17000, 20, 0, 0, 16384, 19.27529411764706]
+            }
+          ]
+        },
+        {
+          "name": "tall",
+          "input": [40, 20000],
+          "elapsedMs": 3,
+          "optionsChanged": false,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": false
+          },
+          "outputs": [
+            {
+              "size": [40, 16384],
+              "first": [255, 0, 0, 255],
+              "last": [0, 128, 0, 255]
+            },
+            {
+              "size": [40, 3616],
+              "first": [0, 128, 0, 255],
+              "last": [0, 0, 255, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [40, 20000],
+              "canvas": [40, 16384],
+              "coordinates": [0, 0, 40, 16384, 0, 0, 40, 16384]
+            },
+            {
+              "source": [40, 20000],
+              "canvas": [40, 3616],
+              "coordinates": [0, 16384, 40, 3616, 0, 0, 40, 3616]
+            }
+          ]
+        },
+        {
+          "name": "media-default",
+          "input": [20, 20],
+          "elapsedMs": 1,
+          "optionsChanged": true,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": true
+          },
+          "outputs": [
+            {
+              "size": [20, 20],
+              "first": [0, 128, 0, 255],
+              "last": [0, 128, 0, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [20, 20],
+              "canvas": [20, 20],
+              "coordinates": [0, 0, 20, 20, 0, 0, 20, 20]
+            }
+          ]
+        }
+      ]
+    },
+    "webkit": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "dpr": 1,
+      "cases": [
+        {
+          "name": "wide",
+          "input": [17000, 20],
+          "elapsedMs": 22,
+          "optionsChanged": false,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": false
+          },
+          "outputs": [
+            {
+              "size": [16384, 19],
+              "first": [0, 128, 0, 255],
+              "last": [0, 128, 0, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [17000, 20],
+              "canvas": [16384, 19],
+              "coordinates": [0, 0, 17000, 20, 0, 0, 16384, 19.27529411764706]
+            }
+          ]
+        },
+        {
+          "name": "tall",
+          "input": [40, 20000],
+          "elapsedMs": 8,
+          "optionsChanged": false,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": false
+          },
+          "outputs": [
+            {
+              "size": [40, 16384],
+              "first": [255, 0, 0, 255],
+              "last": [0, 128, 0, 255]
+            },
+            {
+              "size": [40, 3616],
+              "first": [0, 128, 0, 255],
+              "last": [0, 0, 255, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [40, 20000],
+              "canvas": [40, 16384],
+              "coordinates": [0, 0, 40, 16384, 0, 0, 40, 16384]
+            },
+            {
+              "source": [40, 20000],
+              "canvas": [40, 3616],
+              "coordinates": [0, 16384, 40, 3616, 0, 0, 40, 3616]
+            }
+          ]
+        },
+        {
+          "name": "media-default",
+          "input": [20, 20],
+          "elapsedMs": 3,
+          "optionsChanged": true,
+          "optionsAfter": {
+            "pixelRatio": 1,
+            "usePageCss": true
+          },
+          "outputs": [
+            {
+              "size": [20, 20],
+              "first": [0, 128, 0, 255],
+              "last": [0, 128, 0, 255]
+            }
+          ],
+          "draws": [
+            {
+              "source": [20, 20],
+              "canvas": [20, 20],
+              "coordinates": [0, 0, 20, 20, 0, 0, 20, 20]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scope": "Exact original source replay and one small controlled CSS fixture; no large-DOM stress, source-image memory bound or iOS claim",
+  "next": [
+    "Archive actual historical-build behavior separately from earlier V2-hook experiments",
+    "Investigate a bounded SVG/image input stage before claiming tiled output bounds raster memory",
+    "Do not assume usePageCss preserves computed-source media behavior"
+  ],
+  "cssBenchmark": {
+    "script": "pr473-css-benchmark.js.txt",
+    "scriptSha256": "ee6fbe3910ca2763f991fe5a0dd29a9b8e24dbabf211f30c6482c5bf8b0a566c",
+    "method": "Single sequential invocation per engine, each mode four PNG calls (first warmup), then one separate SVG byte measurement. No concurrently running benchmark during these final invocations.",
+    "limitations": "One simple 401-node CSS fixture, descriptive timings only; no large-DOM stress, memory bound, fidelity across arbitrary page CSS or broad performance conclusion.",
+    "chromium": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "nodes": 401,
+      "dimensions": [40, 8000],
+      "modes": {
+        "pr473-page-css": {
+          "pngSamplesMs": [29, 7, 6, 6],
+          "medianAfterWarmupMs": 6,
+          "svgBytes": 13602,
+          "pixels": [
+            [0, 128, 0, 255],
+            [0, 128, 0, 255]
+          ],
+          "sourceUnchanged": true
+        },
+        "current-v2": {
+          "pngSamplesMs": [268, 219, 272, 265],
+          "medianAfterWarmupMs": 265,
+          "svgBytes": 2843334,
+          "pixels": [
+            [0, 128, 0, 255],
+            [0, 128, 0, 255]
+          ],
+          "sourceUnchanged": true
+        }
+      }
+    },
+    "firefox": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "nodes": 401,
+      "dimensions": [40, 8000],
+      "modes": {
+        "pr473-page-css": {
+          "pngSamplesMs": [7, 6, 6, 6],
+          "medianAfterWarmupMs": 6,
+          "svgBytes": 13602,
+          "pixels": [
+            [0, 128, 0, 255],
+            [0, 128, 0, 255]
+          ],
+          "sourceUnchanged": true
+        },
+        "current-v2": {
+          "pngSamplesMs": [149, 149, 150, 151],
+          "medianAfterWarmupMs": 150,
+          "svgBytes": 2379766,
+          "pixels": [
+            [0, 128, 0, 255],
+            [0, 128, 0, 255]
+          ],
+          "sourceUnchanged": true
+        }
+      }
+    },
+    "webkit": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "nodes": 401,
+      "dimensions": [40, 8000],
+      "modes": {
+        "pr473-page-css": {
+          "pngSamplesMs": [10, 4, 4, 4],
+          "medianAfterWarmupMs": 4,
+          "svgBytes": 13602,
+          "pixels": [
+            [0, 128, 0, 255],
+            [0, 128, 0, 255]
+          ],
+          "sourceUnchanged": true
+        },
+        "current-v2": {
+          "pngSamplesMs": [163, 164, 167, 170],
+          "medianAfterWarmupMs": 167,
+          "svgBytes": 2866592,
+          "pixels": [
+            [0, 128, 0, 255],
+            [0, 128, 0, 255]
+          ],
+          "sourceUnchanged": true
+        }
+      }
+    }
+  },
+  "sourceSha256": {
+    "src/apply-style.ts": "57d38e5bc9f8887df7edc87255cb8228d56f822a7738dbdb9281f2042270541b",
+    "src/clone-node.ts": "6c1401c71d5a6938a4434bce04b9e17c9d25e9ca6c94ccabd014d7b108d69323",
+    "src/clone-pseudos.ts": "27f24155ca9aa1bfb2280db92dc35724e842a66358332c5f321882248b5ade20",
+    "src/dataurl.ts": "7b78cbe8c3c86e66a2f4faca8547163acfe9ae3676600957c0b1e5ea8d07bac1",
+    "src/index.ts": "719c41390920dfb3323cda88a2f4c3e0dce513244ada72edefb563750ee0dbad",
+    "src/mimes.ts": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9",
+    "src/types.ts": "ae67d6977720c68f174d2fba6c17e46e6a690cdd6c7b535291f05b8db5e3fa17",
+    "src/util.ts": "50b05be39f8b6b6a7d1970863a9992d1635902565036892656d5f53d0abddfaf"
+  }
+}
