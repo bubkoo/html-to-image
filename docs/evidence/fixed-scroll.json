@@ -76,7 +76,19 @@
     "No universal claim for every layout, writing mode or fixed element at arbitrary capture-root viewport offsets",
     "Native scrollbar appearance is not copied"
   ],
-  "nativeIOS": "Pending committed-source build",
+  "nativeIOS": {
+    "report": "ios-safari-fixed-scroll-c3b2d09.json",
+    "passed": 26,
+    "casesESM": 27,
+    "casesUMD": 27,
+    "sourceControl": "ios-fixed-scroll-source-control.json",
+    "sourceScreenshot": "ios-fixed-scroll-source.png",
+    "sourceColors": ["green", "red", "green"],
+    "fixedOffsetParentIsPanel": true,
+    "simulator": false,
+    "note": "Full device smoke validates capture pixels/source state for all shared cases. One independent native element screenshot verifies the corrected transformed-fixed/sticky source directly."
+  },
   "remote": "Pending",
-  "testHarnessNote": "First full run had one Chromium selected-case failure because the new smoke item did not load UMD independently; fixed the shared loader, then repeated the complete stable run: 261/425+1skip/126 passed. This is distinct from the 57 baseline capture regressions."
+  "testHarnessNote": "First full run had one Chromium selected-case failure because the new smoke item did not load UMD independently; fixed the shared loader, then repeated the complete stable run: 261/425+1skip/126 passed. This is distinct from the 57 baseline capture regressions.",
+  "candidateRevision": "c3b2d09272d88591d1524ae3c9452c221d26e1d9"
 }

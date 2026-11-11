@@ -133,3 +133,7 @@
 源码 `c2f78c1d348e96efdcc3eec260d30e4e58f96343` 重新构建后，真实 iPhone Safari（iOS 18.7、Safari 26.6.1、DPR 3，非模拟器）完整 **24/24 通过**，[原始报告](evidence/ios-safari-style-copy-c2f78c1.json)已归档。同设备的 401 节点配对测试中，捕获中位数从 135ms 到 124ms，生成的 SVG 字节完全相同，40×8000 canvas 首尾绿色且源 DOM 不变；[完整配对样本](evidence/ios-style-copy-paired.json)另存。
 
 桌面配对中，Chromium/Firefox/WebKit 捕获中位数降低约 8%–30%，SVG 均字节一致。本地完整检查为覆盖率 220、源码 302 通过/1 项既有 GC 跳过、构建包 120；lint、构建、类型及 tarball ESM/CJS/UMD/双版本 TypeScript 通过。[性能证据](evidence/style-copy-performance.json)明确这是条件顺序优化与受控测量，不是页面 CSS、分片内存上界或整个 #473/#585 的解决；远端待验，npm 未发布。
+
+## 2026-11-11 fixed 滚动源页面对照验收
+
+源码 `c3b2d09272d88591d1524ae3c9452c221d26e1d9` 提交后重新构建，真实 iPhone Safari 完整 **26/26** 通过，新增 27 输入分别用 ESM/UMD 验证；[原始报告](evidence/ios-safari-fixed-scroll-c3b2d09.json) SHA 与源码一致。另用 W3C 元素截图独立核对 transformed-fixed + sticky 的原生源像素为绿/红/绿，fixed 顶部 -50px、offsetParent 为当前面板，[源对照](evidence/ios-fixed-scroll-source-control.json)及[原始 PNG](evidence/ios-fixed-scroll-source.png)已归档。完整本地 261/425/126（另 1 项既有 GC 跳过）和构建/类型/tarball 通过；远端待验，不发布 npm。
