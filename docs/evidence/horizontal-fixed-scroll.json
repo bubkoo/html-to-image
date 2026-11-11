@@ -1,0 +1,117 @@
+{
+  "checkedAt": "2026-11-11T02:54:20.673258+00:00",
+  "baselineRevision": "4d1bd59a33109657b875c40cfffa9f206f6cb13e",
+  "sourcePRs": [408],
+  "scope": "Horizontal, single-line flex rows containing fixed descendants; horizontal-tb, no direct text/contents items, sticky descendants or auto side margins. Existing fixed containing blocks and absolute descendants anchored to the scroller are preserved.",
+  "rootCause": "Artificial transforms on ordinary flex item wrappers establish new fixed/absolute containing blocks. Nested positioned elements are then re-anchored instead of preserving the source scroll viewport.",
+  "implementation": "Translate each in-flow flex item with opposite physical side-margin changes so its outer main-axis size is unchanged. This introduces no containing block. Shift positioned descendant insets only when their source offsetParent is the original scroller; existing wrapper/ancestor/viewport anchors remain unchanged.",
+  "baseline": {
+    "failed": 33,
+    "passed": 3,
+    "total": 36,
+    "nativeSourceControlsPassed": 36,
+    "positiveControl": "Existing transformed wrapper already has the correct fixed containing block and passes in all three engines."
+  },
+  "candidate": {
+    "targetedWithExistingFixedControlsPassed": 126,
+    "coveragePassed": 294,
+    "sourcePassed": 524,
+    "sourceSkipped": 1,
+    "skipReason": "Inherited bounded WebKit native iframe GC control",
+    "packagePassed": 135,
+    "lintBuildTypesTarball": "passed"
+  },
+  "cases": [
+    "local-nested",
+    "local-deep",
+    "viewport-nested",
+    "ancestor-nested",
+    "wrapper-nested",
+    "local-rtl",
+    "local-reverse",
+    "local-relative",
+    "local-absolute",
+    "local-margin",
+    "local-important",
+    "local-selected"
+  ],
+  "engines": ["chromium", "firefox", "webkit"],
+  "sourceState": "Each case checks source DOM and scroll remain unchanged. Native source element screenshots are read before capture; native controls pass before every baseline failure.",
+  "filesSha256": {
+    "src/clone-scroll.ts": "a4ccec5eb0c1f996af2440c68919742ac32c0b037765267b47010b078b850c8a",
+    "test/browser/fixtures/horizontal-fixed-scroll.mjs": "5124f65b30f99a07c08741e682b3497e7278cf9d4acf31de617d5947f171cd2d",
+    "test/browser-unit/horizontal-fixed-scroll.test.ts": "3853b702301081294dec250aa1d7e80a4852256e416da0adb2198a7be6fab083",
+    "test/browser/smoke.html": "65c23fd64aad0f4462dc506c60c06013b43a963d3ad10c74d1f03d13201ee865",
+    "test/browser/package.test.ts": "414be51ea5a034fdd1d2bfee0b3915ecd6c19df2bb29598d72ff5afdc6d19396"
+  },
+  "nativeIOS": {
+    "status": "pending",
+    "reason": "Parent #632 real-device session expired and reconnect reports unavailable device; no candidate real-device pass claimed."
+  },
+  "remote": "pending own stacked PR; parent #632 remains unmerged pending native checks",
+  "remainingBoundaries": [
+    "Diagonal scroll and vertical mixed/absolute layouts",
+    "Wrapped flex rows, auto side margins, direct anonymous text items, display:contents and sticky descendants",
+    "Arbitrary capture-root viewport offsets and original #408/#345 whole-application fixtures"
+  ],
+  "relatedIssues": [345, 594],
+  "independentNativeComparisons": {
+    "chromium": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "mode": "local-deep",
+      "size": [40, 40],
+      "comparedChannels": 6400,
+      "differentChannels": 0,
+      "sourceUnchanged": true,
+      "scrollUnchanged": true,
+      "files": {
+        "source": {
+          "path": "docs/evidence/horizontal-fixed-source-chromium.png",
+          "sha256": "1d6a854018a14f51cb72d864bc08671b3086ab2afd1ff82bea280c278f582722"
+        },
+        "capture": {
+          "path": "docs/evidence/horizontal-fixed-capture-chromium.png",
+          "sha256": "1d6a854018a14f51cb72d864bc08671b3086ab2afd1ff82bea280c278f582722"
+        }
+      }
+    },
+    "firefox": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "mode": "local-deep",
+      "size": [40, 40],
+      "comparedChannels": 6400,
+      "differentChannels": 0,
+      "sourceUnchanged": true,
+      "scrollUnchanged": true,
+      "files": {
+        "source": {
+          "path": "docs/evidence/horizontal-fixed-source-firefox.png",
+          "sha256": "74856a4f98233711653bbb7a6c534b7aac4830e9ab1986749d8245d8e75a74cb"
+        },
+        "capture": {
+          "path": "docs/evidence/horizontal-fixed-capture-firefox.png",
+          "sha256": "74856a4f98233711653bbb7a6c534b7aac4830e9ab1986749d8245d8e75a74cb"
+        }
+      }
+    },
+    "webkit": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "mode": "local-deep",
+      "size": [40, 40],
+      "comparedChannels": 6400,
+      "differentChannels": 0,
+      "sourceUnchanged": true,
+      "scrollUnchanged": true,
+      "files": {
+        "source": {
+          "path": "docs/evidence/horizontal-fixed-source-webkit.png",
+          "sha256": "04e8ed5973dc3cd7914231313b5776ba7568cf3d10d5a93e78b67f82994c9206"
+        },
+        "capture": {
+          "path": "docs/evidence/horizontal-fixed-capture-webkit.png",
+          "sha256": "04e8ed5973dc3cd7914231313b5776ba7568cf3d10d5a93e78b67f82994c9206"
+        }
+      }
+    }
+  }
+}

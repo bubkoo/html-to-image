@@ -90,3 +90,8 @@
 #451：`b9f2dfd` 的真实 iPhone 暂停视频验证补齐，默认和稳定化输出均保留 object-fit:contain 的紫色留白及中心帧，源不变。输入为带正确 MIME 的 Blob，限定范围和初始输入故障见 [原始记录](evidence/ios-video-aspect-b9f2dfd.json)；不推广为 HTTP 播放/CORS 或所有适配模式验证。
 
 #585 的其余设计取舍：保留旧 boolean filter（根不调用）及 backgroundColor；不自动改成 keep/unwrap/remove 或删除旧入口。结构变换可显式用 onClone，但不等同于原方案的 live reflow 后重新计算样式/尺寸。V2 维度仍来自显式输出值或源尺寸回退，当前不提供隐式 auto-height。跨捕获 Cache 类没有引入；保留单次资源生命周期与调用者 resolver 原语。默认完整 URL 身份、等待 decode、命名空间和实际像素缓冲区已有对应回归；通用 iOS 延时、页面 CSS 模式与批量 CSS 写入不整体移植，分别保留原场景/输出语义/性能边界。
+
+
+### 横向 fixed 深层后代候选
+
+#408/#345 剩余边界复现：单行横向 flex 中，给普通包装子元素加 transform 会改变深层 fixed 的定位参照。最终 12 输入 × 三引擎的源截图控制全部有效，旧源码 33 项失败 / 3 项通过。候选用保持外部主轴尺寸的相反侧边距表达位移，仅调整原参照为当前滚动容器的 fixed/absolute inset；没有新增包含块。加原有 fixed 用例定向 126 通过，完整/真机/远端状态见[证据](evidence/horizontal-fixed-scroll.json)。对角、自动侧边距、多行 flex、匿名文本及 sticky 等仍不在此结论内，不作为整个旧 PR 完成。

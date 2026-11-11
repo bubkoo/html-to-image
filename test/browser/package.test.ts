@@ -24,6 +24,7 @@ const cases = [
   'nested visible scroll position',
   'mixed text and inline scroll positions',
   'fixed positioning follows its source containing block',
+  'horizontal fixed descendants preserve containing blocks',
   'sticky child after spacer',
   'same-document clip path',
   'SVG use local and external symbols',
