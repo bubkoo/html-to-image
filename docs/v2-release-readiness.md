@@ -137,3 +137,10 @@
 ## 2026-11-11 fixed 滚动源页面对照验收
 
 最终回归提交 `aba8ed5644aabd8f96860bb6dea330b62310d352` 提交后重新构建，真实 iPhone Safari 完整 **26/26** 通过，30 输入分别用 ESM/UMD 验证；[最终报告](evidence/ios-safari-fixed-options-aba8ed5.json) SHA 与提交一致。另用 W3C 元素截图独立核对 transformed-fixed + sticky 的原生源像素为绿/红/绿，fixed 顶部 -50px、offsetParent 为当前面板，[源对照](evidence/ios-fixed-scroll-source-control.json)及[原始 PNG](evidence/ios-fixed-scroll-source.png)已归档；该独立源对照在 c3b2d09 上完成，之后仅补测试和文档，运行时代码不变。完整本地 264/434/126（另 1 项既有 GC 跳过）和构建/类型/tarball 通过；#631 已合入 master（132c38d），PR/主分支 CI、CodeQL 与 PR Codecov 均通过，不发布 npm。
+
+
+## 2026-11-11 SVG 变换资源候选（真机未验）
+
+[PR #632](https://github.com/bubkoo/html-to-image/pull/632) 的源码 `c373dcd` 把 SVG 引用解析移至 onClone/插件之后。最终同一用例在旧源码为 30 失败 / 6 通过、候选 36 通过；最终本地 coverage/source 为 282/488（另 1 项既有 GC 跳过），构建包 132、lint/构建/类型/tarball 通过。六种实际网络字体字形入口在三引擎 18/18 通过；这是 V2 等价证据，没有新增字体运行时修改。
+
+候选提交后已重新构建，但原真实 iPhone 会话过期，新建会话报告设备不可用，因此**本候选真机待验**，不沿用上一版 26/26 作为通过。远端检查运行中、尚未合并。外部 SVG 样式/重定向的原生差异仍只记录观察；不关闭旧 PR，不发布 npm。
