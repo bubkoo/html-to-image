@@ -149,6 +149,9 @@ export async function checkSVGDataImports(
       await new Promise((resolve) => setTimeout(resolve, 0))
     if (!use.getBBox().width)
       throw new Error('Native data-import scene did not load')
+    await new Promise((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(resolve)),
+    )
     const source = root.outerHTML
     const before = readNative ? await readNative(root.id) : undefined
     let color = [255, 0, 0, 255]
@@ -209,6 +212,11 @@ export async function checkSVGDataImports(
         referenceDifferentChannels,
         actualDifferentChannels,
         sourceUnchanged,
+        sourceBefore: source,
+        sourceAfter: root.outerHTML,
+        sourceRasterDifferentChannels: before
+          ? difference(before, after)
+          : null,
         diagnostics: capture.diagnostics,
         requests,
         native: before && png(before),
