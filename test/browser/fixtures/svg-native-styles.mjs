@@ -24,6 +24,7 @@ export const svgNativeStyleCases = [
   'file-media',
   'file-media-active',
   'file-type',
+  'file-invalid-url',
 ]
 let sequence = 0
 let referencePolicy
@@ -109,6 +110,7 @@ async function authoredPixelReference(name) {
         'file-media',
         'file-media-active',
         'file-type',
+        'file-invalid-url',
       ].includes(name)
     )
       left = right = yellow

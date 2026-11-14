@@ -255,10 +255,15 @@ export async function embedSVGReferences(
         (text, style) =>
           text.replace(
             /url\(\s*(['"]?)([^'"()]+?)\1\s*\)/g,
-            (match, quote, value) =>
-              value.startsWith('#')
-                ? match
-                : `url("${new URL(value, baseFor(style, scope)).href}")`,
+            (match, quote, value: string) => {
+              if (value.startsWith('#')) return match
+              try {
+                return `url("${new URL(value, baseFor(style, scope)).href}")`
+              } catch {
+                // Keep invalid URLs and their native CSS fallback values intact.
+                return match
+              }
+            },
           ),
         pageStyles,
       )
