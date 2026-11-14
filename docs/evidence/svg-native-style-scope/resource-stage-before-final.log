@@ -1,0 +1,122 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/svg-style-resource-policy.test.ts (2 tests | 1 failed | 1 skipped) 662ms
+   × external SVG style evaluation neither preloads resources nor executes content 661ms
+ ❯ |webkit| test/browser-unit/svg-style-resource-policy.test.ts (2 tests | 1 failed | 1 skipped) 615ms
+   × external SVG style evaluation neither preloads resources nor executes content 614ms
+ ❯ |firefox| test/browser-unit/svg-style-resource-policy.test.ts (2 tests | 1 failed | 1 skipped) 599ms
+   × external SVG style evaluation neither preloads resources nor executes content 599ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/svg-style-resource-policy.test.ts > external SVG style evaluation neither preloads resources nor executes content
+AssertionError: expected [ …(4) ] to deeply equal [ Array(1) ]
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-resource-policy.test.ts/external-SVG-style-evaluation-neither-preloads-resources-nor-executes-content.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "/test/browser/umd.html?scope=svg-style-safety-47c2fa52-8e07-4343-adcf-4680157cfdfb",[39m
+[31m+   "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-47c2fa52-8e07-4343-adcf-4680157cfdfb",[39m
+[31m+   "blob-response:blob:http://localhost:63315/b79774f2-621e-436c-bc5c-687828cd7ce7",[39m
+[2m    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-47c2fa52-8e07-4343-adcf-4680157cfdfb&control=1",[22m
+[2m  ][22m
+
+ ❯ test/browser-unit/svg-style-resource-policy.test.ts:97:21
+     95|     expect(requests).toContain(imageURL)
+     96|     expect(requests).toContain(blobURL)
+     97|     expect(network).toEqual([control.pathname + control.search])
+       |                     ^
+     98|     expect(state.__htiSVGStyleScript).toBe(0)
+     99|   } finally {
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |firefox| test/browser-unit/svg-style-resource-policy.test.ts > external SVG style evaluation neither preloads resources nor executes content
+AssertionError: expected [ …(3) ] to deeply equal [ Array(1) ]
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-resource-policy.test.ts/external-SVG-style-evaluation-neither-preloads-resources-nor-executes-content.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-8637c49d-e82a-41c3-9051-2af6e4527716",[39m
+[31m+   "/test/browser/umd.html?scope=svg-style-safety-8637c49d-e82a-41c3-9051-2af6e4527716",[39m
+[2m    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-8637c49d-e82a-41c3-9051-2af6e4527716&control=1",[22m
+[2m  ][22m
+
+ ❯ test/browser-unit/svg-style-resource-policy.test.ts:97:21
+     95|     expect(requests).toContain(imageURL)
+     96|     expect(requests).toContain(blobURL)
+     97|     expect(network).toEqual([control.pathname + control.search])
+       |                     ^
+     98|     expect(state.__htiSVGStyleScript).toBe(0)
+     99|   } finally {
+ ❯ async*withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |webkit| test/browser-unit/svg-style-resource-policy.test.ts > external SVG style evaluation neither preloads resources nor executes content
+AssertionError: expected [ …(3) ] to deeply equal [ Array(1) ]
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-resource-policy.test.ts/external-SVG-style-evaluation-neither-preloads-resources-nor-executes-content.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-97dba81a-607d-4cf5-b502-a2caae68c803",[39m
+[31m+   "blob-response:blob:http://localhost:63315/54dcb7ec-4936-4692-b5e8-f9b06595ef40",[39m
+[2m    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-97dba81a-607d-4cf5-b502-a2caae68c803&control=1",[22m
+[2m  ][22m
+
+ ❯ test/browser-unit/svg-style-resource-policy.test.ts:97:21
+     95|     expect(requests).toContain(imageURL)
+     96|     expect(requests).toContain(blobURL)
+     97|     expect(network).toEqual([control.pathname + control.search])
+       |                     ^
+     98|     expect(state.__htiSVGStyleScript).toBe(0)
+     99|   } finally {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  3 failed | 3 skipped (6)
+   Start at  02:17:27
+   Duration  1.90s (tests 85%, worker 11%, import 4%)
+

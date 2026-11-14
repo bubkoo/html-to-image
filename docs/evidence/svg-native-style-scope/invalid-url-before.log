@@ -1,0 +1,37 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/svg-native-styles.test.ts (25 tests | 1 failed | 24 skipped) 234ms
+   × external SVG file-invalid-url preserves current native-page pixels 234ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG file-invalid-url preserves current native-page pixels
+TypeError: Failed to construct 'URL': Invalid URL
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-file-invalid-url-preserves-current-native-page-pixels.png
+
+ ❯ src/svg-references.ts:261:27
+    259|               value.startsWith('#')
+    260|                 ? match
+    261|                 : `url("${new URL(value, baseFor(style, scope)).href}"…
+       |                           ^
+    262|           ),
+    263|         pageStyles,
+ ❯ src/svg-references.ts:256:16
+ ❯ src/svg-style-scope.ts:317:28
+ ❯ freezeSVGFragmentStyles src/svg-style-scope.ts:316:14
+ ❯ copyDefinition src/svg-references.ts:248:7
+ ❯ reference src/svg-references.ts:391:21
+ ❯ visit src/svg-references.ts:436:11
+ ❯ visit src/svg-references.ts:487:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 2 passed | 72 skipped (75)
+   Start at  01:52:49
+   Duration  1.38s (tests 62%, worker 29%, import 9%)
+

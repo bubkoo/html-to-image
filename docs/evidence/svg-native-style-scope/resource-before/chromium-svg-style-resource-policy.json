@@ -1,14 +1,16 @@
 {
   "browser": "chromium",
   "network": [
-    "/test/browser/umd.html?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7",
-    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7",
-    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7&control=1"
+    "/test/browser/umd.html?scope=svg-style-safety-47c2fa52-8e07-4343-adcf-4680157cfdfb",
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-47c2fa52-8e07-4343-adcf-4680157cfdfb",
+    "blob-response:blob:http://localhost:63315/b79774f2-621e-436c-bc5c-687828cd7ce7",
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-47c2fa52-8e07-4343-adcf-4680157cfdfb&control=1"
   ],
   "scriptRan": 1,
   "requests": [
     "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
-    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7"
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-47c2fa52-8e07-4343-adcf-4680157cfdfb",
+    "blob:http://localhost:63315/b79774f2-621e-436c-bc5c-687828cd7ce7"
   ],
   "engine": "chromium",
   "kind": "svg-style-resource-policy"

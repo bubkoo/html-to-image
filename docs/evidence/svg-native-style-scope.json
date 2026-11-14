@@ -1,43 +1,152 @@
 {
-  "contract": "User selected current browser live-page fidelity on 2026-11-15",
-  "status": "Candidate locally verified; real iPhone and remote checks pending. Does not complete PR 585.",
+  "verifiedAt": "2026-11-14T18:32:54.094829+00:00",
+  "sourceCommit": "2a94455aa99cf3da23c62be961a5492535409832",
+  "pullRequest": "https://github.com/bubkoo/html-to-image/pull/637",
+  "contract": "Explicit user choice: preserve each current browser live-page output",
+  "status": "Final runtime/fixtures passed local and real iPhone gates; final documentation head remote gates pending",
   "baseline": {
     "runtime": "a64b831",
-    "total": 75,
-    "failed": 47,
-    "passed": 28,
-    "nativeStyleCasesPerEngine": 24
+    "sameFinalFixtures": true,
+    "nativeStyleCasesPerEngine": 27,
+    "total": 84,
+    "failed": 53,
+    "passed": 31,
+    "log": "svg-native-style-scope/baseline-final-origin.log"
   },
   "candidate": {
-    "total": 81,
-    "passed": 81,
-    "nativeStyleChecks": 72,
-    "dependencyGraphs": 3,
-    "resourceAndAbortChecks": 6
+    "same84": {
+      "passed": 84,
+      "failed": 0
+    },
+    "additional": {
+      "resourceBlobScriptAbort": 6,
+      "deniedProbePreservesPriorOutput": 3,
+      "loadedCSSFontModes": 6
+    },
+    "total": 99,
+    "passed": 99,
+    "log": "svg-native-style-scope/candidate-final-origin.log"
   },
   "full": {
-    "coverage": 379,
+    "coverage": 385,
     "coverageSkipped": 1,
-    "source": 779,
+    "source": 797,
     "sourceSkipped": 4,
     "package": 144,
-    "lintBuildTypesTarball": "pass"
+    "lintBuildTypesTarball": "pass",
+    "log": "svg-native-style-scope/final-all-checks.log"
   },
-  "oracle": "Native source screenshot pixels, all RGBA channels exact; independent HTTP geometry policy validates authored package references against actual native screenshots. No tolerance expansion.",
-  "security": "Before isolation all three engines issue real HTTP loads outside the resolver; after isolation server receives only an explicit control fetch, scripts/events remain zero, cancellation removes the frame.",
-  "scope": [
-    "file versus page selectors, cascade and use inheritance",
-    "independent host colors and custom properties with single asset fetch",
-    "media/type and styles inside symbols",
-    "page paint/clip URLs, nested external styles, late CSS mutation",
-    "unrelated opaque stylesheet warning instead of abort",
-    "fragmentless roots preserve native support with same-file fragment positive control"
+  "device": {
+    "sourceCommit": "2a94455aa99cf3da23c62be961a5492535409832",
+    "capabilities": {
+      "platformName": "iOS",
+      "safari:platformVersion": "26.6.1",
+      "browserVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "actualNativeScreenshots": {
+      "esm": 27,
+      "umd": 27,
+      "passed": 54,
+      "pixelTolerance": 0
+    },
+    "additionalPixelControls": {
+      "defaultFontEmbedding": 2,
+      "CSPDeniedProbeRetainsPriorOutput": 2,
+      "passed": 4
+    },
+    "fullSmoke": {
+      "passed": 32,
+      "info": 2,
+      "failed": 0,
+      "receipt": "a83d42d2-d187-4446-b3f9-d1468d04c47c"
+    },
+    "screenshotEncoding": "Original 16-bit PNGs explicitly tagged sRGB (PNG sRGB=0, EXIF ColorSpace=1). Compare 8-bit RGBA at CSS-pixel centers to Canvas ImageData, without palette replacement, rescaling or tolerance. Full original screenshots and sampled source/capture PNGs preserved.",
+    "sessionAndServer": "Owned Safari session ended; mobile server stopped"
+  },
+  "oracle": "Actual source screenshots in each engine; source DOM and geometry remain unchanged. Authored package references are also checked against those actual source pixels via independent static HTTP fixture geometry, separate from production Blob probes.",
+  "nativeCases": [
+    "class",
+    "cascade",
+    "inheritance",
+    "dependencies",
+    "plain",
+    "main-tag",
+    "host-contexts",
+    "host-inherit-no-page",
+    "host-vars",
+    "main-id",
+    "page-outside",
+    "page-ancestor",
+    "page-structural",
+    "whole-style",
+    "nested-style",
+    "nested-style-plain",
+    "nested-simple",
+    "nested-external",
+    "late-page-css",
+    "unreadable-sheet",
+    "page-paint",
+    "file-media",
+    "file-media-active",
+    "file-type",
+    "file-invalid-url",
+    "loaded-page-font",
+    "page-outside-width"
   ],
-  "boundaries": [
-    "No claim for all of original PR 585",
-    "Matching rules in unreadable cross-origin stylesheets are unavailable and diagnosed",
-    "External file CSS imports and font-face resources still need native cases",
-    "Redirect/relative-paint native mismatches remain open",
-    "Nested reference support as a whole is not certified; the style fixture has an explicit native visible fallback"
+  "causalControls": {
+    "malformedURL": "Chromium before 1 failed / other 2 passed; preserve invalid CSS URL and its native color fallback",
+    "CSP": "Original pre-feature pixels 3 passed; feature before failure isolation 3 failed; final existing-output plus diagnostic checks 3 passed. This is regression prevention, not complete CSP style fidelity.",
+    "fontOwnership": "Firefox/WebKit reject CSS-connected FontFace transfers; without ownership guard final two-mode controls 4 failed / 2 passed; final 6 passed",
+    "pageGeometry": "Main-page rect width rules corrupt a probe in the source document (Firefox 1600 channel differences); probe now runs in the private document",
+    "activeContent": "Source-document staging caused real HTTP bypasses in all 3 engines; final staging permits only the explicit control HTTP fetch and no scripts/events",
+    "blobLock": "Allowing Blob images during untrusted staging caused an observable WebKit Blob response (1 failed / 2 passed). Trusted probes may use only owned Blob URLs; an additional img-src none policy is applied before importing any fetched content."
+  },
+  "scope": [
+    "file versus page selectors, specificity, inherited styles and custom properties",
+    "independent host contexts with one resource fetch and reserved cycle identities",
+    "style media/type, nested styles, and nested cross-file style context with visible fallback",
+    "page paint/clip definitions and CSS frozen before resource callbacks",
+    "opaque unrelated CSS warning without abort and existing font embedding modes",
+    "fragmentless roots use same-file fragment positive controls"
+  ],
+  "remainingBoundaries": [
+    "PR 585 remains incomplete; this is a scoped style correction",
+    "When CSP denies Blob probes, preserve existing definition embedding with a diagnostic. Native stylesheet and fragmentless-root fidelity under that restriction remains open",
+    "Matching rules in unreadable cross-origin stylesheets remain unavailable",
+    "External-file CSS imports/fonts and arbitrary SVG font-relative metrics remain uncertified; loaded-font controls prove compatibility, not all text fidelity",
+    "Redirect/relative-paint native differences remain open",
+    "Broader nested-use native support is not certified; the nested style fixture has an authored visible fallback"
+  ],
+  "rawEvidence": {
+    "baseline": {
+      "archive": "baseline-raw.tar.gz",
+      "index": "baseline-index.json"
+    },
+    "candidate": {
+      "archive": "candidate-raw.tar.gz",
+      "index": "candidate-index.json"
+    },
+    "iphone": {
+      "archive": "iphone-raw.tar.gz",
+      "index": "iphone-index.json"
+    }
+  },
+  "ciRepairs": {
+    "initialRuntimeHead": "c17bd3a",
+    "coverageRun": 43622948757,
+    "codeQLRun": 43622948778,
+    "sizeLabelRun": 43622948783,
+    "failures": [
+      "Linux localhost/127 dual-stack alias did not provide a reachable CSS origin; tests now serve a dedicated second origin",
+      "Monolithic GitHub diff API rejects more than 300 files; all raw evidence now archived with per-file SHA indices"
+    ],
+    "noWorkflowBypass": true
+  },
+  "notDone": [
+    "npm publishing",
+    "closing or commenting on old contributor PRs",
+    "claiming all of PR 585 fixed"
   ]
 }

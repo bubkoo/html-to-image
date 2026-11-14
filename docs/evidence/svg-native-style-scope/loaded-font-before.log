@@ -1,0 +1,56 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |webkit| test/browser-unit/svg-style-loaded-font.test.ts (1 test | 1 failed) 97ms
+   × a loaded page font does not prevent external SVG style evaluation 95ms
+ ❯ |firefox| test/browser-unit/svg-style-loaded-font.test.ts (1 test | 1 failed) 74ms
+   × a loaded page font does not prevent external SVG style evaluation 74ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |firefox| test/browser-unit/svg-style-loaded-font.test.ts > a loaded page font does not prevent external SVG style evaluation
+InvalidModificationError: FontFaceSet.add: Can't add face to FontFaceSet that comes from an @font-face rule
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-loaded-font.test.ts/a-loaded-page-font-does-not-prevent-external-SVG-style-evaluation.png
+
+ ❯ createSVGStyleEnvironment/getDocument/pending</ownFrame.onload/< src/svg-style-scope.ts:242:47
+    240|                 add(font: FontFace): FontFaceSet
+    241|               }
+    242|               fonts.forEach((font) => fontSet.add(font))
+       |                                               ^
+    243|               finish(undefined, result)
+    244|             } catch (error) {
+ ❯ createSVGStyleEnvironment/getDocument/pending</ownFrame.onload src/svg-style-scope.ts:242:21
+ ❯ EventHandlerNonNull*createSVGStyleEnvironment/getDocument/pending< src/svg-style-scope.ts:235:11
+ ❯ getDocument src/svg-style-scope.ts:208:19
+ ❯ copyDefinition src/svg-references.ts:272:32
+ ❯ reference src/svg-references.ts:412:27
+ ❯ async*visit src/svg-references.ts:457:17
+ ❯ async*visit src/svg-references.ts:508:13
+ ❯ async*visit src/svg-references.ts:508:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |webkit| test/browser-unit/svg-style-loaded-font.test.ts > a loaded page font does not prevent external SVG style evaluation
+InvalidModificationError:  The object can not be modified in this way.
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-loaded-font.test.ts/a-loaded-page-font-does-not-prevent-external-SVG-style-evaluation.png
+
+ ❯ src/svg-style-scope.ts:242:21
+    240|                 add(font: FontFace): FontFaceSet
+    241|               }
+    242|               fonts.forEach((font) => fontSet.add(font))
+       |                     ^
+    243|               finish(undefined, result)
+    244|             } catch (error) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  2 failed | 1 passed (3)
+   Start at  02:03:22
+   Duration  1.35s (worker 47%, tests 42%, import 12%)
+

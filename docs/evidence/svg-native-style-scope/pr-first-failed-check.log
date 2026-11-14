@@ -1,0 +1,62 @@
+run	Run pascalgn/size-label-action@v0.1.1	﻿2026-11-14T17:46:59.0584092Z ##[group]Run pascalgn/size-label-action@v0.1.1
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.0597273Z env:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.0600258Z   bot_token: ***
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.0603009Z   GITHUB_TOKEN: ***
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.0603352Z   IGNORED: !.gitignore
+run	Run pascalgn/size-label-action@v0.1.1	pnpm-lock.yaml
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.0603729Z ##[endgroup]
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.0702592Z ##[command]/usr/bin/docker run --name a77e0ee32e514e339a2a8a9cb1c75df6_298f39 --label 215120 --workdir /github/workspace --rm -e "bot_token" -e "GITHUB_TOKEN" -e "IGNORED" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "GITHUB_ARTIFACTS" -e "GITHUB_ARTIFACTS_LIST" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e "ACTIONS_CACHE_MODE" -e "ACTIONS_ORCHESTRATION_ID" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/html-to-image/html-to-image":"/github/workspace" 215120:a77e0ee32e514e339a2a8a9cb1c75df6
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.4931581Z [@octokit/rest] `const Octokit = require("@octokit/rest")` is deprecated. Use `const { Octokit } = require("@octokit/rest")` instead
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9290074Z { RequestError [HttpError]: Sorry, the diff exceeded the maximum number of files (300). Consider using 'List pull requests files' API or locally cloning the repository instead.: {"resource":"PullRequest","field":"diff","code":"too_large"}
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9292648Z     at fetch.then (/usr/local/share/.config/yarn/global/node_modules/@octokit/request/dist-node/index.js:86:21)
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9294067Z     at processTicksAndRejections (internal/process/task_queues.js:86:5)
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9294956Z   name: 'HttpError',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9295486Z   status: 406,
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9296002Z   response:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9296514Z    { url:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9297420Z       'https://api.github.com/repos/bubkoo/html-to-image/pulls/637',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9298263Z      status: 406,
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9298786Z      headers:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9299436Z       { 'access-control-allow-origin': '*',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9300189Z         'access-control-expose-headers':
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9302878Z          'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset, Warning',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9305558Z         connection: 'close',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9306339Z         'content-length': '337',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9307509Z         'content-security-policy': "default-src 'none'",
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9308440Z         'content-type': 'application/json; charset=utf-8',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9309835Z         date: 'Sat, 14 Nov 2026 17:46:59 GMT',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9310879Z         'referrer-policy': 'origin-when-cross-origin, strict-origin-when-cross-origin',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9312382Z         server: 'github.com',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9313330Z         'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9314423Z         vary: 'Accept-Encoding, Accept, X-Requested-With',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9315574Z         'x-accepted-github-permissions': 'pull_requests=read; contents=read',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9316833Z         'x-content-type-options': 'nosniff',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9317639Z         'x-frame-options': 'deny',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9318426Z         'x-github-api-version-selected': '2022-11-28',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9319330Z         'x-github-edge-region': 'iad',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9320117Z         'x-github-media-type': 'github.v3; param=diff',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9320886Z         'x-github-request-id': '5040:221F88:17990:4B884:6AF89E93',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9321403Z         'x-ratelimit-limit': '8250',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9321831Z         'x-ratelimit-remaining': '8230',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9322222Z         'x-ratelimit-reset': '1794682007',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9322617Z         'x-ratelimit-resource': 'core',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9323008Z         'x-ratelimit-used': '20',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9323392Z         'x-xss-protection': '0' },
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9323762Z      data:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9324042Z       { message:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9324734Z          "Sorry, the diff exceeded the maximum number of files (300). Consider using 'List pull requests files' API or locally cloning the repository instead.",
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9325962Z         errors: [Array],
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9326297Z         documentation_url:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9327273Z          'https://docs.github.com/rest/pulls/pulls#list-pull-requests-files',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9327868Z         status: '406' } },
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9328192Z   request:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9328459Z    { method: 'GET',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9328757Z      url:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9329134Z       'https://api.github.com/repos/bubkoo/html-to-image/pulls/637',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9329585Z      headers:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9329907Z       { accept: 'application/vnd.github.v3.diff',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9330291Z         'user-agent':
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9330757Z          'pascalgn/size-label-action octokit.js/16.43.2 Node.js/11.15.0 (Linux 7.0; x64)',
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9331304Z         authorization: 'bearer [REDACTED]' },
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9331666Z      request:
+run	Run pascalgn/size-label-action@v0.1.1	2026-11-14T17:46:59.9332038Z       { hook: [Function: bound bound register], validate: [Object] } } }

@@ -9,9 +9,10 @@
     "Main-page selectors versus external-file selectors",
     "Referenced paint/clip definitions and redirect cases where source behavior differs"
   ],
-  "implementationStatus": "Not fixed yet. Previous matrices are failing observations, not passing regressions.",
+  "implementationStatus": "PR 637 final source 2a94455: 27 desktop native scenes, 99 targeted checks, full 385/797/144 and physical iPhone 54 actual source screenshot matches + 4 controls + 32/32 smoke passed; final remote gates pending. CSP-denied full fidelity and other original 585 scopes remain open.",
   "evidence": [
     "svg-styles-native-matrix.json",
-    "svg-redirect-native-matrix.json"
+    "svg-redirect-native-matrix.json",
+    "svg-native-style-scope.json"
   ]
 }

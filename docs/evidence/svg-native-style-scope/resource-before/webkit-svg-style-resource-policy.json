@@ -1,13 +1,15 @@
 {
   "browser": "webkit",
   "network": [
-    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-7be86d8e-2770-4f92-b6e2-c7e53abba3cd",
-    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-7be86d8e-2770-4f92-b6e2-c7e53abba3cd&control=1"
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-97dba81a-607d-4cf5-b502-a2caae68c803",
+    "blob-response:blob:http://localhost:63315/54dcb7ec-4936-4692-b5e8-f9b06595ef40",
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-97dba81a-607d-4cf5-b502-a2caae68c803&control=1"
   ],
   "scriptRan": 1,
   "requests": [
     "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
-    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-7be86d8e-2770-4f92-b6e2-c7e53abba3cd"
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-97dba81a-607d-4cf5-b502-a2caae68c803",
+    "blob:http://localhost:63315/54dcb7ec-4936-4692-b5e8-f9b06595ef40"
   ],
   "engine": "webkit",
   "kind": "svg-style-resource-policy"
