@@ -23,6 +23,7 @@
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkSVGUseCycle } from './fixtures/svg-use-cycle.mjs'
     import { checkSVGFontUnits } from './fixtures/svg-font-units.mjs'
+    import { checkSVGDataImports, svgDataImportCases } from './fixtures/svg-data-imports.mjs'
     import { checkSVGNativeStyles, svgNativeStyleCases } from './fixtures/svg-native-styles.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
     import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
@@ -241,6 +242,14 @@
       for (const mode of ['loaded', 'large', 'system']) {
         await checkSVGFontUnits({ createRenderer }, mode)
         await checkSVGFontUnits(window.htmlToImage, mode)
+      }
+    })
+
+    await test('external SVG data stylesheet imports preserve native scope', async () => {
+      await loadUMD()
+      for (const name of svgDataImportCases) {
+        await checkSVGDataImports({ createRenderer }, name)
+        await checkSVGDataImports(window.htmlToImage, name)
       }
     })
 

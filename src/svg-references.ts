@@ -5,6 +5,7 @@ import { getTask } from './task.js'
 import { getMimeType } from './mimes.js'
 import { uuid } from './util.js'
 import { getSVGStyleFontCSS } from './embed-webfonts.js'
+import { prepareSVGFileStyle } from './svg-style-imports.js'
 import {
   createSVGStyleEnvironment,
   freezeSVGFragmentStyles,
@@ -119,7 +120,20 @@ export async function embedSVGReferences(
   const activeUses = new Map<string, Element>()
   const nativeStylePolicy = () => {
     stylePolicy ||= styleEnvironment
-      .measurePolicy(() => task?.check())
+      .measurePolicy(
+        () => task?.check(),
+        (error) => {
+          loader.warn(
+            Object.freeze({
+              code: 'resource-error',
+              resource: 'external-svg-style-import-probe',
+              message:
+                'Native SVG import capabilities could not be measured; retaining the measured base stylesheet scope: ' +
+                (error instanceof Error ? error.message : String(error)),
+            }),
+          )
+        },
+      )
       .catch((error) => {
         task?.check()
         // An unavailable optional probe must not discard a valid SVG resource.
@@ -312,6 +326,29 @@ export async function embedSVGReferences(
             }),
           )
         },
+        async (text) =>
+          prepareSVGFileStyle(
+            text,
+            await styleEnvironment.getDocument(),
+            scope.stylePolicy!,
+            (url) => loader.load(url, 'stylesheet', 'text/css'),
+            async () => {
+              task?.check()
+              await task?.maybeYieldClone()
+            },
+            (url, error) => {
+              task?.check()
+              if (error instanceof ResourceResolverError) throw error
+              loader.warn(
+                Object.freeze({
+                  code: 'resource-error',
+                  resource: url,
+                  message:
+                    error instanceof Error ? error.message : String(error),
+                }),
+              )
+            },
+          ),
       )
     }
     copy.setAttribute('id', id)

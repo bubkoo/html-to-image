@@ -21,14 +21,16 @@
     svgNativeStyleCases,
     checkSVGNativeStyles,
   } from './fixtures/svg-native-styles.mjs'
-  window.runSVGNativeVerification = (format) => {
+  import { checkSVGDataImports, svgDataImportCases } from './fixtures/svg-data-imports.mjs'
+  function runVerification(format, cases, verify) {
     const api = format === 'esm' ? esm : window.htmlToImage
     window.svgNativeDone = undefined
     window.svgNativeRecords = []
+    window.svgNativeScene = undefined
     let sequence = 0
     ;(async () => {
-      for (const name of svgNativeStyleCases) {
-        await checkSVGNativeStyles(
+      for (const name of cases) {
+        await verify(
           api,
           name,
           (id) =>
@@ -63,7 +65,7 @@
         document.getElementById('status').textContent =
           format + ': ' + name + ' passed'
       }
-      window.svgNativeDone = { format, passed: svgNativeStyleCases.length }
+      window.svgNativeDone = { format, passed: cases.length }
     })().catch((error) => {
       window.svgNativeDone = {
         format,
@@ -73,4 +75,6 @@
       document.getElementById('status').textContent = String(error)
     })
   }
+  window.runSVGNativeVerification = format => runVerification(format, svgNativeStyleCases, checkSVGNativeStyles)
+  window.runSVGDataImportVerification = format => runVerification(format, svgDataImportCases, checkSVGDataImports)
 </script>
