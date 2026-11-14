@@ -25,6 +25,7 @@ export const svgNativeStyleCases = [
   'file-media-active',
   'file-type',
   'file-invalid-url',
+  'loaded-page-font',
 ]
 let sequence = 0
 let referencePolicy
@@ -111,6 +112,7 @@ async function authoredPixelReference(name) {
         'file-media-active',
         'file-type',
         'file-invalid-url',
+        'loaded-page-font',
       ].includes(name)
     )
       left = right = yellow
@@ -137,29 +139,32 @@ export function readNativeSVGFixturePolicy() {
 }
 
 export async function checkSVGNativeStyles(api, name, readNative, record) {
+  await readNativeSVGFixturePolicy()
   const root = document.createElement('div')
   root.id = 'svg-native-style-' + ++sequence
   root.style.cssText = 'display:flex;width:60px;height:20px;background:white'
   const asset =
-    name === 'page-paint'
+    name === 'loaded-page-font'
       ? 'class'
-      : name === 'unreadable-sheet'
+      : name === 'page-paint'
         ? 'class'
-        : name === 'late-page-css'
+        : name === 'unreadable-sheet'
           ? 'class'
-          : name === 'nested-style-plain'
-            ? 'nested-style'
-            : ['page-ancestor', 'page-structural'].includes(name)
-              ? 'class'
-              : name === 'main-id'
-                ? 'cascade'
-                : name === 'page-outside'
-                  ? 'class'
-                  : name === 'main-tag'
+          : name === 'late-page-css'
+            ? 'class'
+            : name === 'nested-style-plain'
+              ? 'nested-style'
+              : ['page-ancestor', 'page-structural'].includes(name)
+                ? 'class'
+                : name === 'main-id'
+                  ? 'cascade'
+                  : name === 'page-outside'
                     ? 'class'
-                    : name === 'host-inherit-no-page'
-                      ? 'host-contexts'
-                      : name
+                    : name === 'main-tag'
+                      ? 'class'
+                      : name === 'host-inherit-no-page'
+                        ? 'host-contexts'
+                        : name
   root.innerHTML =
     '<style>.shared{fill:yellow!important}</style>' +
     '<svg xmlns="' +
@@ -228,6 +233,26 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
     }
   }
   document.body.append(root)
+  let loadedFontSheet
+  let loadedFontCount = 0
+  if (name === 'loaded-page-font') {
+    loadedFontSheet = document.createElement('style')
+    loadedFontSheet.textContent =
+      '@font-face{font-family:"SVG Native Page Font";src:url("/test/browser/fixtures/font-metrics.ttf")}'
+    document.head.append(loadedFontSheet)
+    root.style.fontFamily = '"SVG Native Page Font"'
+    try {
+      const faces = await document.fonts.load('20px "SVG Native Page Font"')
+      loadedFontCount = faces.length
+      if (faces.length !== 1 || faces[0].status !== 'loaded')
+        throw new Error('Loaded page font positive control failed')
+    } catch (error) {
+      loadedFontSheet.remove()
+      outsideStyle?.remove()
+      root.remove()
+      throw error
+    }
+  }
   let opaqueSheet
   if (name === 'unreadable-sheet') {
     opaqueSheet = document.createElement('link')
@@ -315,6 +340,14 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
     )
       throw new Error('Invalid source screenshot or yellow geometry control')
     capture = await renderer.capture(root)
+    if (
+      capture.diagnostics.some(
+        (item) => item.resource === 'external-svg-style-probe',
+      )
+    )
+      throw new Error(
+        'Native SVG style probe was unavailable for a normal source fixture',
+      )
     const pixels = await capture.toImageData()
     if (name === 'late-page-css')
       outsideStyle.textContent = '.shared{fill:yellow!important}'
@@ -344,6 +377,7 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
         nativeCenters: [10, 30, 50].map((x) => point(native, x)),
         captureCenters: [10, 30, 50].map((x) => point(pixels, x)),
         diagnostics: capture.diagnostics,
+        loadedFontCount,
         native: png(native),
         capture: png(pixels),
         frozenSvg: decodeURIComponent(
@@ -383,6 +417,7 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
     renderer.dispose()
     outsideStyle?.remove()
     wholeControl?.remove()
+    loadedFontSheet?.remove()
     opaqueSheet?.remove()
     root.remove()
   }

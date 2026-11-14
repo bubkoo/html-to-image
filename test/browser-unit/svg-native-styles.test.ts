@@ -28,6 +28,7 @@ const cases = [
   'file-media-active',
   'file-type',
   'file-invalid-url',
+  'loaded-page-font',
 ]
 const moduleURL = '/test/browser/fixtures/svg-native-styles.mjs'
 

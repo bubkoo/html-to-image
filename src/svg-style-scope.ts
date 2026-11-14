@@ -239,7 +239,19 @@ export function createSVGStyleEnvironment(
               const fontSet = result.fonts as FontFaceSet & {
                 add(font: FontFace): FontFaceSet
               }
-              fonts.forEach((font) => fontSet.add(font))
+              fonts.forEach((font) => {
+                try {
+                  fontSet.add(font)
+                } catch (error) {
+                  // Some engines keep CSS-connected faces in their owner document.
+                  // Their resource embedding remains with the existing font pipeline.
+                  if (
+                    (error as DOMException | null)?.name !==
+                    'InvalidModificationError'
+                  )
+                    throw error
+                }
+              })
               finish(undefined, result)
             } catch (error) {
               finish(error)
