@@ -1,0 +1,1206 @@
+{
+  "archive": "candidate-raw.tar.gz",
+  "archiveSHA256": "3e1ca3519377a1256ef0cb77a74494a4702b02fb1be6678a8e379283a182f9d0",
+  "files": [
+    {
+      "path": "chromium-svg-data-import-basic-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-basic-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-basic-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-basic.json",
+      "bytes": 1540,
+      "sha256": "bfe22728fc2e9ffb8ff17f07e3c9798e114c791b51e3affdb7a95dedd83bf5d3"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-bom-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-bom-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-bom-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-bom.json",
+      "bytes": 1589,
+      "sha256": "1396cfb7e05447061a16c4175c5757adfce269bb87758a45eddc16341738279f"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-header-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-header-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-header-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-header.json",
+      "bytes": 1593,
+      "sha256": "923d701c37a478c2f253813e22486e9925953021ac8f44d16f679d9b2b3f2b44"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-invalid-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-invalid-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-invalid-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-invalid.json",
+      "bytes": 1610,
+      "sha256": "e0f6a45df0eaacd6ae148cf13d7f4836802bdddc9d8f2b09abf91be6d9d75384"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-rule-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-rule-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-rule-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-rule.json",
+      "bytes": 1598,
+      "sha256": "2d600f2613c089e93bdeda36baba276c2d894426997e10560bdf5b9147bde44e"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-utf16-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-utf16-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-utf16-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-charset-utf16.json",
+      "bytes": 1610,
+      "sha256": "eb0b370452285c1b41509939f5acfe02056bf1ca78f0247fba5365d25abe05a6"
+    },
+    {
+      "path": "chromium-svg-data-import-invalid-data-authored.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-invalid-data-capture.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-invalid-data-native.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-invalid-data.json",
+      "bytes": 1661,
+      "sha256": "51e3214b7776e9aa5047737ee0abbf8c592a8f3861f260bd1433e6b452f3bac9"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-authored.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-capture.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline-authored.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline-capture.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline-native.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline-only-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline-only-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline-only-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline-only.json",
+      "bytes": 1472,
+      "sha256": "6108abb428812c08e86882fe02da2111de24cf7a611dfd7030b39438e10833e7"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-inline.json",
+      "bytes": 1450,
+      "sha256": "cde933ad793ee60f6d7903fc9403a8569e7271cedebe3e092f4eb417e29b76c4"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-native.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-only-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-only-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-only-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-layer-only.json",
+      "bytes": 1560,
+      "sha256": "f667f4e74495baf210c764a9ec5715e9a74485ec6c78137cfa99facc60d926e1"
+    },
+    {
+      "path": "chromium-svg-data-import-layer.json",
+      "bytes": 1540,
+      "sha256": "0bcdbb6754a3f12f3c58bc5e3d433390aec04d16d217ca4e104186e10707dc5f"
+    },
+    {
+      "path": "chromium-svg-data-import-media-active-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-media-active-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-media-active-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-media-active.json",
+      "bytes": 1568,
+      "sha256": "05c4b09dd06eafdd36b5cb40691b12feeed9160af1c6f52e4688e75d5ce61efb"
+    },
+    {
+      "path": "chromium-svg-data-import-media-inactive-authored.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-media-inactive-capture.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-media-inactive-native.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-media-inactive.json",
+      "bytes": 1458,
+      "sha256": "f43db553bbcfbbbbf8b2bd0faf5bb28b744b2847fe0a20a02500f0e2dcdfbeaf"
+    },
+    {
+      "path": "chromium-svg-data-import-nested-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-nested-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-nested-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-nested.json",
+      "bytes": 1726,
+      "sha256": "fb660078f1a331f8fa0ca6f4dfde84b711148632251401fd697c7b5da8532329"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment-authored.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment-capture.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment-native.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment.json",
+      "bytes": 1587,
+      "sha256": "d9f3e27e88beeaf22838c3e0be783dbcf9a29d1022a07d5a8049c32d1875dfcf"
+    },
+    {
+      "path": "chromium-svg-data-import-style-type-authored.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-style-type-capture.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-style-type-native.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-style-type.json",
+      "bytes": 1444,
+      "sha256": "90cbac859f19961034209e089bb314867bd8d03ea14fa85c7cfd5bd2dc5a39a8"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-active-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-active-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-active-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-active.json",
+      "bytes": 1580,
+      "sha256": "1eaf02be4b569a0423755e138d6af0efc21de79f7e5f7ef6c9f6876203e76a15"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-header-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-header-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-header-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-header.json",
+      "bytes": 1464,
+      "sha256": "700bbbf8957561a561e837df10a8d7e990b6b2ec45d1a9801d2b3ec659e646cb"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-inactive-authored.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-inactive-capture.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-inactive-native.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-supports-inactive.json",
+      "bytes": 1470,
+      "sha256": "70953c3e750f2b2db69ffbe8db2bece239d784aa893813b33c5ef344706c8796"
+    },
+    {
+      "path": "chromium-svg-data-import-wrong-mime-authored.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-wrong-mime-capture.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-wrong-mime-native.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-wrong-mime.json",
+      "bytes": 1567,
+      "sha256": "336219a5cce1c83bed64fc967ea88d558fe47c145df2a228be34fd4da197dd69"
+    },
+    {
+      "path": "firefox-svg-data-import-basic-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-basic-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-basic-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-basic.json",
+      "bytes": 1429,
+      "sha256": "b7549b2e3b82d1a103168f7b1d85a1713ae8d91e7be19561f0bd336158ea6205"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-bom-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-bom-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-bom-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-bom.json",
+      "bytes": 1455,
+      "sha256": "c9937d2dc58d307d0b2f1abbaeb6401b4faa738eebe898d138115a19428de773"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-header-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-header-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-header-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-header.json",
+      "bytes": 1467,
+      "sha256": "bf641c10b382ca232a47e3a94c48e044b9b402f8c78de0d6e04b7de184159080"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-invalid-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-invalid-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-invalid-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-invalid.json",
+      "bytes": 1471,
+      "sha256": "76e16148014affd414166ded6f91d2a164a79a2a83f535047db6f2315705119c"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-rule-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-rule-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-rule-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-rule.json",
+      "bytes": 1459,
+      "sha256": "26fc9f0dacb0d210aa5891bdeb9d581d9ceae15058c830f2eca44bfae03c0ade"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-utf16-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-utf16-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-utf16-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-charset-utf16.json",
+      "bytes": 1463,
+      "sha256": "c4fef9db935e41ffd2e96a56c459b02336a388aa2670c09ef2d987a6a5990bef"
+    },
+    {
+      "path": "firefox-svg-data-import-invalid-data-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-invalid-data-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-invalid-data-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-invalid-data.json",
+      "bytes": 1459,
+      "sha256": "c5a70b68f0de3d2ca461aa721f9787fc46f0de2a17547b7492a8fb6b1b5271ef"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline-only-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline-only-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline-only-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline-only.json",
+      "bytes": 1479,
+      "sha256": "3963f661bddabe14e3bf17835888b24734f0b12f7ea6d88ced3c7af8df77b3af"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-inline.json",
+      "bytes": 1457,
+      "sha256": "05075f5663cc1fdbfd767e7a6bbb5919749359b28260f504d6bf32a6784d63b7"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-only-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-only-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-only-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer-only.json",
+      "bytes": 1449,
+      "sha256": "bc04e6addd839e8fa52ed6e4674054738563f446b4854b3bb4261ebf4bd34dc0"
+    },
+    {
+      "path": "firefox-svg-data-import-layer.json",
+      "bytes": 1429,
+      "sha256": "806634ccc1051c2771c7f587c26eb8ad947eb5f72c35096a4381d8262472a724"
+    },
+    {
+      "path": "firefox-svg-data-import-media-active-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-media-active-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-media-active-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-media-active.json",
+      "bytes": 1457,
+      "sha256": "6217c9dd9481d143d3ec107f475b008bfac6d0e9620e5f6abb134dec501aa0d0"
+    },
+    {
+      "path": "firefox-svg-data-import-media-inactive-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-media-inactive-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-media-inactive-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-media-inactive.json",
+      "bytes": 1465,
+      "sha256": "215afa154dd8eb6007c5b30e8fc1c4a7945e71cd3431a54f5f944a419668817c"
+    },
+    {
+      "path": "firefox-svg-data-import-nested-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-nested-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-nested-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-nested.json",
+      "bytes": 1433,
+      "sha256": "94eb62f78847b6a86cd8e01e58977e93d9ef4384fe5d3e15c0a849fa7e7b1fe9"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment.json",
+      "bytes": 1467,
+      "sha256": "fa96e16e4eaacf7d1230d6570b71b9742cee9668b79e26e63a7569944f1f2d70"
+    },
+    {
+      "path": "firefox-svg-data-import-style-type-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-style-type-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-style-type-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-style-type.json",
+      "bytes": 1451,
+      "sha256": "b97af95a428a44c1fd83b5c0440db0c6ace871b7eeec46976f782e34201d72f7"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-active-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-active-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-active-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-active.json",
+      "bytes": 1469,
+      "sha256": "54d4918da7d7472e21044690e3263e6b656320528db992d451308a10df5bab44"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-header-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-header-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-header-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-header.json",
+      "bytes": 1471,
+      "sha256": "97f933581fa1ac9a0e52ae390360ae643bdbf88dd4d5f547316591f42f3403d1"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-inactive-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-inactive-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-inactive-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-supports-inactive.json",
+      "bytes": 1477,
+      "sha256": "9a870940401e712c2c1af89003da4fe79193572c8af8fbdac1508980e5a9478c"
+    },
+    {
+      "path": "firefox-svg-data-import-wrong-mime-authored.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-wrong-mime-capture.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-wrong-mime-native.png",
+      "bytes": 159,
+      "sha256": "f1a8f935848fb7faa64f28613246c0a4f316c3c9d6c72b84e3e20eff4b7e25d0"
+    },
+    {
+      "path": "firefox-svg-data-import-wrong-mime.json",
+      "bytes": 1451,
+      "sha256": "b12eb3f44ed0bae917002e8d2dfdf27f04eb19115e009707e1b75edb35f54560"
+    },
+    {
+      "path": "webkit-svg-data-import-basic-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-basic-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-basic-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-basic.json",
+      "bytes": 1428,
+      "sha256": "52cd022e92cd83d0982040fecbaa6bd8345547edc561c22f8765f33c02c78232"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-bom-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-bom-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-bom-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-bom.json",
+      "bytes": 1454,
+      "sha256": "d801554a15f083a606eac7294f016c2aad3ae78ac4d0da310d1d1d5977d0a2d7"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-header-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-header-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-header-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-header.json",
+      "bytes": 1466,
+      "sha256": "d21971033106912300d141e3fea6aa417b6d6c999b3fe0dbaab753c301b3c000"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-invalid-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-invalid-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-invalid-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-invalid.json",
+      "bytes": 1470,
+      "sha256": "7b84da08fb6a3be82caaae3eb3e6f7653c1d9ddc535f408595d802f98818d640"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-rule-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-rule-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-rule-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-rule.json",
+      "bytes": 1458,
+      "sha256": "ad8052697eb8c58eb7aa70d74fe7afd4aa60d3f800c51d3ae5adb47a76667a28"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-utf16-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-utf16-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-utf16-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-charset-utf16.json",
+      "bytes": 1462,
+      "sha256": "7953e85b5187a20254dea9dd1d40d724b86cca9b6679272705ab1daed13046ed"
+    },
+    {
+      "path": "webkit-svg-data-import-invalid-data-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-invalid-data-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-invalid-data-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-invalid-data.json",
+      "bytes": 1458,
+      "sha256": "51a490fdd1ed31acef6b2c17284b1c591214455e6908236d4559782fafb0f8c0"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline-only-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline-only-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline-only-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline-only.json",
+      "bytes": 1478,
+      "sha256": "06c132c992c412902cb963c8085876fbfed925c26172d28d3446390c512c9659"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-inline.json",
+      "bytes": 1456,
+      "sha256": "56064bbf3fc9a9cc7fee09b490ad6a4f208488f5a411f2b6fdbb4d46007128c2"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-only-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-only-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-only-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-layer-only.json",
+      "bytes": 1448,
+      "sha256": "ae3538afdf40e798acb4bf4299df078b174e67f4a3413925a76ff97c4c4b19fc"
+    },
+    {
+      "path": "webkit-svg-data-import-layer.json",
+      "bytes": 1428,
+      "sha256": "11cea1a9af8f99e262b0544881a4ac44abc79611b21a2b415f965f0937e995fb"
+    },
+    {
+      "path": "webkit-svg-data-import-media-active-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-media-active-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-media-active-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-media-active.json",
+      "bytes": 1456,
+      "sha256": "ff0107e724d2888cd289bedbfb6ef0096ef264b37a387e77d58f2011932ff7af"
+    },
+    {
+      "path": "webkit-svg-data-import-media-inactive-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-media-inactive-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-media-inactive-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-media-inactive.json",
+      "bytes": 1464,
+      "sha256": "c1889c2c10886c37549cbf19b41a761387d6c5edfe1e33547c58a0d80b8c3312"
+    },
+    {
+      "path": "webkit-svg-data-import-nested-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-nested-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-nested-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-nested.json",
+      "bytes": 1432,
+      "sha256": "f588a41e1cd66bbc85400eea8b9a1406d58bf75a2090db3bba3f8e161412dfd8"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment.json",
+      "bytes": 1466,
+      "sha256": "5dc2ef02684fe234f8db327e3285bfe9419ec3b327e8b5a0b4876d1e552a7e2c"
+    },
+    {
+      "path": "webkit-svg-data-import-style-type-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-style-type-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-style-type-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-style-type.json",
+      "bytes": 1450,
+      "sha256": "79257f3d5e6b164685f54e93a45b2965fe8df2514089c0605b0f72f601df1c82"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-active-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-active-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-active-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-active.json",
+      "bytes": 1468,
+      "sha256": "a944cc07c301c6f7f2b154b4a327a508ce839d411cc1cff7392947c978f58dd5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-header-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-header-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-header-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-header.json",
+      "bytes": 1470,
+      "sha256": "bb4d194dbf74f17be1f24273168108f25dc2a3c6ffd2ee169dcb15d3af4ff329"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-inactive-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-inactive-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-inactive-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-supports-inactive.json",
+      "bytes": 1476,
+      "sha256": "ff30f598599fc9c37ce24aa87de3ec5aa5ad27abb023c99ea00f2cadb9d3a8f0"
+    },
+    {
+      "path": "webkit-svg-data-import-wrong-mime-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-wrong-mime-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-wrong-mime-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-wrong-mime.json",
+      "bytes": 1450,
+      "sha256": "42ceae6f1d964335057d20a9298353d503575671dfbeefd86dbfcfe15ee8e28e"
+    }
+  ]
+}

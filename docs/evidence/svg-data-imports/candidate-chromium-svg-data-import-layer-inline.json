@@ -1,0 +1,24 @@
+{
+  "kind": "svg-data-import-layer-inline",
+  "policy": {
+    "file": true,
+    "imports": true,
+    "fileLayers": "flat",
+    "importLayers": "flat"
+  },
+  "nativeDifferentChannels": 0,
+  "referenceDifferentChannels": 0,
+  "actualDifferentChannels": 0,
+  "sourceUnchanged": true,
+  "sourceBefore": "<div id=\"svg-data-import-9\" style=\"display: flex; width: 60px; height: 20px; background: white;\"><svg width=\"20\" height=\"20\" style=\"flex: 0 0 auto;\"><use href=\"/test/browser/fixtures/svg-data-imports/layer-inline.svg#icon\" width=\"20\" height=\"20\"></use></svg><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: blue;\"></div><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: yellow;\"></div></div>",
+  "sourceAfter": "<div id=\"svg-data-import-9\" style=\"display: flex; width: 60px; height: 20px; background: white;\"><svg width=\"20\" height=\"20\" style=\"flex: 0 0 auto;\"><use href=\"/test/browser/fixtures/svg-data-imports/layer-inline.svg#icon\" width=\"20\" height=\"20\"></use></svg><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: blue;\"></div><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: yellow;\"></div></div>",
+  "sourceRasterDifferentChannels": 0,
+  "diagnostics": [],
+  "requests": [
+    {
+      "url": "http://localhost:63315/test/browser/fixtures/svg-data-imports/layer-inline.svg",
+      "kind": "image"
+    }
+  ],
+  "engine": "chromium"
+}

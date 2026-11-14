@@ -1,8 +1,13 @@
 import { uuid } from './util.js'
+import {
+  rewriteSVGStyleURLs,
+  type SVGImportPolicy,
+  type SVGLayerPolicy,
+} from './svg-style-imports.js'
 
 const installedFontCSS = new WeakMap<Document, Set<string>>()
 
-export interface SVGStylePolicy {
+export interface SVGStylePolicy extends SVGImportPolicy {
   file: boolean
   page: boolean
   whole: boolean
@@ -13,16 +18,13 @@ function pageStyleText(
   unavailable: (url: string, error: unknown) => void,
 ) {
   const resolve = (text: string, base: string) =>
-    text.replace(
-      /url\(\s*(['"]?)([^'"()]+?)\1\s*\)/g,
-      (match, quote, value: string) => {
-        try {
-          return `url("${new URL(value, base).href}")`
-        } catch {
-          return match
-        }
-      },
-    )
+    rewriteSVGStyleURLs(text, (value) => {
+      try {
+        return new URL(value, base).href
+      } catch {
+        return undefined
+      }
+    })
   const active = new Set<CSSStyleSheet>()
   const read = (sheet: CSSStyleSheet): string => {
     if (sheet.disabled) return ''
@@ -132,6 +134,7 @@ export function svgStyleContextKey(host: Element) {
 export async function detectSVGStylePolicy(
   document: Document,
   check: () => void,
+  reportImportError?: (error: unknown) => void,
 ): Promise<SVGStylePolicy> {
   const widths: number[] = []
   for (let index = 0; index < 4; index++) {
@@ -176,10 +179,97 @@ export async function detectSVGStylePolicy(
   }
   if (widths[2] !== 21)
     throw new Error('External SVG style probe control was not visible')
+  let imports: SVGImportPolicy = {
+    dataImports: false,
+    fileLayers: 'ordered',
+    importLayers: 'ordered',
+  }
+  if (widths[0] === 1) {
+    try {
+      imports = await detectSVGImportPolicy(document, check)
+    } catch (error) {
+      check()
+      reportImportError?.(error)
+    }
+  }
   return {
     file: widths[0] === 1,
     page: widths[1] === 1,
     whole: widths[3] === 21,
+    ...imports,
+  }
+}
+
+async function detectSVGImportPolicy(
+  document: Document,
+  check: () => void,
+): Promise<SVGImportPolicy> {
+  const name = uuid()
+  const data = (css: string) => 'data:text/css,' + encodeURIComponent(css)
+  const css = `@import url("${data(`.${name}-plain{display:none!important}`)}");@import url("${data(`.${name}-import-marker,.${name}-import-priority{display:none!important}`)}") layer(probe);@layer inlineprobe{.${name}-inline-marker,.${name}-inline-priority{display:none!important}}.${name}-inline-priority,.${name}-import-priority{display:block!important}`
+  const ids = [
+    'plain',
+    'inline-marker',
+    'inline-priority',
+    'import-marker',
+    'import-priority',
+    'control',
+  ]
+  const groups = ids
+    .map(
+      (id) =>
+        `<g id="${id}"><rect class="${name}-${id}" width="20" height="10"/><rect x="20" width="1" height="1"/></g>`,
+    )
+    .join('')
+  const url = URL.createObjectURL(
+    new Blob(
+      [
+        `<svg xmlns="http://www.w3.org/2000/svg"><style>${css}</style>${groups}</svg>`,
+      ],
+      { type: 'image/svg+xml' },
+    ),
+  )
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  svg.style.cssText =
+    'position:absolute!important;left:-9999px!important;opacity:0!important;display:block!important'
+  let loaded = false
+  const uses = ids.map((id) => {
+    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+    use.setAttribute('href', url + '#' + id)
+    svg.append(use)
+    return use
+  })
+  const ready = () => {
+    loaded = true
+  }
+  uses[0].addEventListener('load', ready)
+  try {
+    document.documentElement.append(svg)
+    const deadline = Date.now() + 5000
+    while (!loaded && Date.now() < deadline) {
+      check()
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise<void>((resolve) => setTimeout(resolve, 0))
+    }
+    check()
+    const values = uses.map((use) => use.getBBox().width)
+    if (
+      !loaded ||
+      values[5] !== 21 ||
+      !values.every((value) => value === 1 || value === 21)
+    )
+      throw new Error('Native SVG data-import probe did not become ready')
+    const mode = (marker: number, priority: number): SVGLayerPolicy =>
+      marker === 21 ? 'none' : priority === 1 ? 'ordered' : 'flat'
+    return {
+      dataImports: values[0] === 1,
+      fileLayers: mode(values[1], values[2]),
+      importLayers: mode(values[3], values[4]),
+    }
+  } finally {
+    uses[0].removeEventListener('load', ready)
+    svg.remove()
+    URL.revokeObjectURL(url)
   }
 }
 
@@ -199,30 +289,43 @@ export function createSVGStyleEnvironment(
   let pending: Promise<Document> | undefined
   let cancel: (() => void) | undefined
   let resourcesLocked = false
+  let disposed = false
   const lockResources = (document: Document) => {
     if (resourcesLocked) return
     const policy = document.createElement('meta')
     policy.httpEquiv = 'Content-Security-Policy'
-    policy.content = "img-src 'none'"
+    policy.content = "img-src 'none'; style-src 'unsafe-inline'"
     document.head.append(policy)
     resourcesLocked = true
   }
   const dispose = () => {
+    disposed = true
+    signal?.removeEventListener('abort', dispose)
     cancel?.()
     frame?.remove()
     frame = undefined
+    pending = undefined
   }
+  signal?.addEventListener('abort', dispose, { once: true })
   return {
     dispose,
-    async measurePolicy(check: () => void): Promise<SVGStylePolicy> {
+    async measurePolicy(
+      check: () => void,
+      reportImportError?: (error: unknown) => void,
+    ): Promise<SVGStylePolicy> {
       const document = await this.getDocument(true)
       try {
-        return await detectSVGStylePolicy(document, check)
+        return await detectSVGStylePolicy(document, check, reportImportError)
       } finally {
         lockResources(document)
       }
     },
     getDocument(trustedProbe = false): Promise<Document> {
+      if (disposed)
+        return Promise.reject(
+          signal?.reason ||
+            new Error('SVG style environment has been disposed'),
+        )
       if (!pending) {
         pending = new Promise<Document>((resolve, reject) => {
           frame = document.createElement('iframe')
@@ -281,7 +384,7 @@ export function createSVGStyleEnvironment(
             abort()
             return
           }
-          ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
+          ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline' data:; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
           document.documentElement.append(ownFrame)
         })
       }
@@ -306,6 +409,7 @@ export async function freezeSVGFragmentStyles(
   pageStyles: () => string,
   prepareFonts: (families: readonly string[]) => Promise<string>,
   reportFontError: (error: unknown) => void,
+  prepareFileStyle: (text: string) => Promise<string>,
 ) {
   const view = (document.defaultView || window) as Window & typeof globalThis
   const container = document.createElement('div')
@@ -342,24 +446,22 @@ export async function freezeSVGFragmentStyles(
   const shadow = container.attachShadow({ mode: 'open' })
   if (policy.file || policy.page) {
     const sheet = new view.CSSStyleSheet()
-    sheet.replaceSync(
-      policy.page
-        ? pageStyles()
-        : Array.from(styleRoot.querySelectorAll('style'))
-            .filter(
-              (style) =>
-                !style.getAttribute('type') ||
-                style.getAttribute('type')!.trim().toLowerCase() === 'text/css',
-            )
-            .map((style) => {
-              const text = resolveURLs(style.textContent || '', style)
-              const media = style.getAttribute('media')
-              return media && media !== 'all'
-                ? `@media ${media}{${text}}`
-                : text
-            })
-            .join('\n'),
-    )
+    let css = policy.page
+      ? pageStyles()
+      : Array.from(styleRoot.querySelectorAll('style'))
+          .filter(
+            (style) =>
+              !style.getAttribute('type') ||
+              style.getAttribute('type')!.trim().toLowerCase() === 'text/css',
+          )
+          .map((style) => {
+            const text = resolveURLs(style.textContent || '', style)
+            const media = style.getAttribute('media')
+            return media && media !== 'all' ? `@media ${media}{${text}}` : text
+          })
+          .join('\n')
+    if (!policy.page) css = await prepareFileStyle(css)
+    sheet.replaceSync(css)
     const removeFontFaces = (parent: CSSStyleSheet | CSSGroupingRule) => {
       for (let index = parent.cssRules.length - 1; index >= 0; index--) {
         const rule = parent.cssRules[index]

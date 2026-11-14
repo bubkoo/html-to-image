@@ -17,6 +17,7 @@ const cases = [
   'external SVG preserves native stylesheet scope',
   'external SVG use cycles preserve scoped identities',
   'external SVG font units retain loaded metrics',
+  'external SVG data stylesheet imports preserve native scope',
   'resource cache lifetime',
   'native HTTP cache policy',
   'per-URL resource credentials',

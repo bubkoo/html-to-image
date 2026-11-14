@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Github/html-to-image/output/playwright/ios-svg-data-imports/run-data.py", line 22, in <module>
+    if state['done'].get('error'):raise RuntimeError(json.dumps(state['done']))
+RuntimeError: {"error": "Error: Capture changed the SVG import source", "format": "esm", "stack": "checkSVGDataImports@http://169.254.44.203:4373/test/browser/fixtures/svg-data-imports.mjs:219:22"}

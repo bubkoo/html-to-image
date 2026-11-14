@@ -1,0 +1,7 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |firefox| test/browser-unit/svg-data-import-resources.test.ts (3 tests | 3 failed) 15155ms
+   × SVG data import cycle retains resource ownership and isolation 5090ms
+   × SVG data import reject retains resource ownership and isolation 5029ms
+   × SVG data import http-child retains resource ownership and isolation 5035ms

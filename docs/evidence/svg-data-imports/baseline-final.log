@@ -1,0 +1,602 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/resource-resolver-cancellation.test.ts (3 tests | 3 failed) 338ms
+   × a disposed SVG environment releases its document with probed=false 159ms
+   × a disposed SVG environment releases its document with probed=true 81ms
+   × cancellation releases private SVG work while a custom font resolver remains pending 97ms
+ ❯ |chromium| test/browser-unit/svg-import-probe.test.ts (1 test | 1 failed) 89ms
+   × an expired optional import probe preserves measured base SVG capabilities 88ms
+ ❯ |chromium| test/browser-unit/svg-data-import-resources.test.ts (3 tests | 3 failed) 875ms
+   × SVG data import cycle retains resource ownership and isolation 212ms
+   × SVG data import reject retains resource ownership and isolation 99ms
+   × SVG data import http-child retains resource ownership and isolation 564ms
+ ❯ |webkit| test/browser-unit/resource-resolver-cancellation.test.ts (3 tests | 3 failed) 206ms
+   × a disposed SVG environment releases its document with probed=false 87ms
+   × a disposed SVG environment releases its document with probed=true 50ms
+   × cancellation releases private SVG work while a custom font resolver remains pending 67ms
+ ❯ |firefox| test/browser-unit/resource-resolver-cancellation.test.ts (3 tests | 3 failed) 511ms
+   × a disposed SVG environment releases its document with probed=false 194ms
+   × a disposed SVG environment releases its document with probed=true 266ms
+   × cancellation releases private SVG work while a custom font resolver remains pending 51ms
+ ❯ |chromium| test/browser-unit/svg-data-imports.test.ts (20 tests | 15 failed) 4669ms
+   × external SVG data CSS import basic preserves native pixels 374ms
+   × external SVG data CSS import nested preserves native pixels 260ms
+   × external SVG data CSS import media-active preserves native pixels 249ms
+   × external SVG data CSS import supports-active preserves native pixels 268ms
+   × external SVG data CSS import layer preserves native pixels 250ms
+   × external SVG data CSS import layer-only preserves native pixels 233ms
+   × external SVG data CSS import layer-inline preserves native pixels 233ms
+   × external SVG data CSS import wrong-mime preserves native pixels 234ms
+   × external SVG data CSS import charset-header preserves native pixels 235ms
+   × external SVG data CSS import charset-rule preserves native pixels 233ms
+   × external SVG data CSS import charset-bom preserves native pixels 236ms
+   × external SVG data CSS import charset-utf16 preserves native pixels 233ms
+   × external SVG data CSS import charset-invalid preserves native pixels 234ms
+   × external SVG data CSS import invalid-data preserves native pixels 234ms
+   × external SVG data CSS import paint-fragment preserves native pixels 233ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 28 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false
+ FAIL  |chromium| test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true
+AssertionError: expected HTMLDocument{ location: null } to be undefined
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png
+
+[32m- Expected:[39m
+undefined
+
+[31m+ Received:[39m
+HTMLDocument {
+  "location": null,
+}
+
+ ❯ test/browser-unit/resource-resolver-cancellation.test.ts:83:33
+     81|       await commands.collectGarbage()
+     82|       await commands.collectGarbage()
+     83|       expect(reference.deref()).toBeUndefined()
+       |                                 ^
+     84|     }
+     85|     await expect(environment.getDocument()).rejects.toThrow(/disposed/)
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/28]⎯
+
+ FAIL  |chromium| test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending
+AssertionError: expected [ <iframe …(4)></iframe> ] to deeply equal []
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   <iframe[39m
+[31m+     aria-hidden="true"[39m
+[31m+     sandbox="allow-same-origin"[39m
+[31m+     srcdoc="<!doctype html><meta data-svg-style-policy http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'\"><style>html,body{margin:0;overflow:hidden}</style><body></body>"[39m
+[31m+     style="position: fixed !important; left: -99999px !important; top: 0px !important; width: 414px !important; height: 896px !important; opacity: 0 !important; border: 0px !important; pointer-events: none !important;"[39m
+[31m+   />,[39m
+[31m+ ][39m
+
+ ❯ test/browser-unit/resource-resolver-cancellation.test.ts:158:61
+    156|     controller.abort(reason)
+    157|     await expect(operation).rejects.toBe(reason)
+    158|     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(fr…
+       |                                                             ^
+    159|     expect(root.outerHTML).toBe(source)
+    160|     // WebKit retains even a removed iframe in the existing native GC …
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-import-resources.test.ts > SVG data import cycle retains resource ownership and isolation
+ FAIL  |chromium| test/browser-unit/svg-data-import-resources.test.ts > SVG data import http-child retains resource ownership and isolation
+Error: SVG data import basic differs in 800 channels
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/svg-data-import-resources.test.ts/SVG-data-import-cycle-retains-resource-ownership-and-isolation.png
+  - .vitest/attachments/failure-screenshots/svg-data-import-resources.test.ts/SVG-data-import-http-child-retains-resource-ownership-and-isolation.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-import-resources.test.ts:47:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-import-resources.test.ts > SVG data import reject retains resource ownership and isolation
+AssertionError: expected Error: SVG data import basic differs in 8… to match object { …(1) }
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-import-resources.test.ts/SVG-data-import-reject-retains-resource-ownership-and-isolation.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- {[39m
+[32m-   "cause": Error {[39m
+[32m-     "message": "owned CSS resolver rejection",[39m
+[32m-   },[39m
+[31m+ Error {[39m
+[31m+   "message": "SVG data import basic differs in 800 channels",[39m
+[2m  }[22m
+
+ ❯ Assertion.__VITEST_REJECTS__ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/index.aTZaPVhf-CPAH62u0.js?v=ad4e4e20:2299:33
+ ❯ test/browser-unit/svg-data-import-resources.test.ts:46:29
+     44|       )
+     45|       if (mode === 'reject' && policy.imports)
+     46|         await expect(result).rejects.toMatchObject({ cause: reason })
+       |                             ^
+     47|       else expect((await result).fullPixelMatch).toBe(true)
+     48|       expect(calls).toHaveLength(policy.imports ? 1 : 0)
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import basic preserves native pixels
+Error: SVG data import basic differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-basic-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import nested preserves native pixels
+Error: SVG data import nested differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-nested-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import media-active preserves native pixels
+Error: SVG data import media-active differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-media-active-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import supports-active preserves native pixels
+Error: SVG data import supports-active differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-supports-active-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import layer preserves native pixels
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import wrong-mime preserves native pixels
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import invalid-data preserves native pixels
+AssertionError: expected [] to have a length of 1 but got +0
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-layer-preserves-native-pixels.png
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-wrong-mime-preserves-native-pixels.png
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-invalid-data-preserves-native-pixels.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 1[39m
+[31m+ 0[39m
+
+ ❯ Proxy.<anonymous> node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/index.aTZaPVhf-CPAH62u0.js?v=ad4e4e20:1986:20
+ ❯ Proxy.<anonymous> node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/index.aTZaPVhf-CPAH62u0.js?v=ad4e4e20:1786:14
+ ❯ test/browser-unit/svg-data-imports.test.ts:70:5
+     68|       (request: { kind: ResourceKind }) => request.kind === 'styleshee…
+     69|     ),
+     70|   ).toHaveLength(expected)
+       |     ^
+     71|   if (name === 'invalid-data' && policy.imports)
+     72|     expect(
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import layer-only preserves native pixels
+Error: SVG data import layer-only differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-layer-only-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import layer-inline preserves native pixels
+Error: SVG data import layer-inline differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-layer-inline-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import charset-header preserves native pixels
+Error: SVG data import charset-header differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-charset-header-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import charset-rule preserves native pixels
+Error: SVG data import charset-rule differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-charset-rule-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import charset-bom preserves native pixels
+Error: SVG data import charset-bom differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-charset-bom-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import charset-utf16 preserves native pixels
+Error: SVG data import charset-utf16 differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-charset-utf16-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import charset-invalid preserves native pixels
+Error: SVG data import charset-invalid differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-charset-invalid-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import paint-fragment preserves native pixels
+Error: SVG data import paint-fragment differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-paint-fragment-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:238:13
+    236|       )
+    237|     if (actualDifferentChannels)
+    238|       throw new Error(
+       |             ^
+    239|         'SVG data import ' +
+    240|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:30:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/28]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-import-probe.test.ts > an expired optional import probe preserves measured base SVG capabilities
+AssertionError: expected undefined to be false // Object.is equality
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-import-probe.test.ts/an-expired-optional-import-probe-preserves-measured-base-SVG-capabilities.png
+
+[32m- Expected:[39m
+false
+
+[31m+ Received:[39m
+undefined
+
+ ❯ test/browser-unit/svg-import-probe.test.ts:36:34
+     34|     }).toEqual(native)
+     35|     if (native.file) {
+     36|       expect(policy.dataImports).toBe(false)
+       |                                  ^
+     37|       expect(errors).toHaveLength(1)
+     38|       expect(errors[0]).toMatchObject({
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/28]⎯
+
+ FAIL  |firefox| test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false
+ FAIL  |firefox| test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true
+AssertionError: expected HTMLDocument{ location: null } to be undefined
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png
+
+[32m- Expected:[39m
+undefined
+
+[31m+ Received:[39m
+HTMLDocument {
+  "location": null,
+}
+
+ ❯ test/browser-unit/resource-resolver-cancellation.test.ts:83:33
+     81|       await commands.collectGarbage()
+     82|       await commands.collectGarbage()
+     83|       expect(reference.deref()).toBeUndefined()
+       |                                 ^
+     84|     }
+     85|     await expect(environment.getDocument()).rejects.toThrow(/disposed/)
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/28]⎯
+
+ FAIL  |firefox| test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending
+AssertionError: expected [ <iframe …(4)></iframe> ] to deeply equal []
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   <iframe[39m
+[31m+     aria-hidden="true"[39m
+[31m+     sandbox="allow-same-origin"[39m
+[31m+     srcdoc="<!doctype html><meta data-svg-style-policy http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'\"><style>html,body{margin:0;overflow:hidden}</style><body></body>"[39m
+[31m+     style="position: fixed !important; left: -99999px !important; top: 0px !important; width: 414px !important; height: 896px !important; opacity: 0 !important; border: 0px !important; pointer-events: none !important;"[39m
+[31m+   />,[39m
+[31m+ ][39m
+
+ ❯ test/browser-unit/resource-resolver-cancellation.test.ts:158:61
+    156|     controller.abort(reason)
+    157|     await expect(operation).rejects.toBe(reason)
+    158|     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(fr…
+       |                                                             ^
+    159|     expect(root.outerHTML).toBe(source)
+    160|     // WebKit retains even a removed iframe in the existing native GC …
+ ❯ async*withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/28]⎯
+
+ FAIL  |webkit| test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false
+ FAIL  |webkit| test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true
+AssertionError: promise resolved "HTMLDocument{ …(1) }" instead of rejecting
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- Error {[39m
+[32m-   "message": "rejected promise",[39m
+[31m+ HTMLDocument {[39m
+[31m+   "location": Location {[39m
+[31m+     "ancestorOrigins": DOMStringList {},[39m
+[31m+     "assign": [Function assign],[39m
+[31m+     "hash": "",[39m
+[31m+     "host": "",[39m
+[31m+     "hostname": "",[39m
+[31m+     "href": "about:srcdoc",[39m
+[31m+     "origin": "null",[39m
+[31m+     "pathname": "srcdoc",[39m
+[31m+     "port": "",[39m
+[31m+     "protocol": "about:",[39m
+[31m+     "reload": [Function reload],[39m
+[31m+     "replace": [Function replace],[39m
+[31m+     "search": "",[39m
+[31m+     "toString": [Function toString],[39m
+[31m+   },[39m
+[2m  }[22m
+
+ ❯ __VITEST_REJECTS__ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/index.aTZaPVhf-CPAH62u0.js?v=ad4e4e20:2299:42
+ ❯ test/browser-unit/resource-resolver-cancellation.test.ts:85:44
+     83|       expect(reference.deref()).toBeUndefined()
+     84|     }
+     85|     await expect(environment.getDocument()).rejects.toThrow(/disposed/)
+       |                                            ^
+     86|     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(fr…
+     87|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/28]⎯
+
+ FAIL  |webkit| test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending
+AssertionError: expected [ <iframe …(4)></iframe> ] to deeply equal []
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   <iframe[39m
+[31m+     aria-hidden="true"[39m
+[31m+     sandbox="allow-same-origin"[39m
+[31m+     srcdoc="<!doctype html><meta data-svg-style-policy http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'\"><style>html,body{margin:0;overflow:hidden}</style><body></body>"[39m
+[31m+     style="position: fixed !important; left: -99999px !important; top: 0px !important; width: 414px !important; height: 896px !important; opacity: 0 !important; border: 0px !important; pointer-events: none !important;"[39m
+[31m+   />,[39m
+[31m+ ][39m
+
+ ❯ test/browser-unit/resource-resolver-cancellation.test.ts:158:61
+    156|     controller.abort(reason)
+    157|     await expect(operation).rejects.toBe(reason)
+    158|     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(fr…
+       |                                                             ^
+    159|     expect(root.outerHTML).toBe(source)
+    160|     // WebKit retains even a removed iframe in the existing native GC …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/28]⎯
+
+
+ Test Files  6 failed | 12 passed (18)
+      Tests  28 failed | 74 passed (102)
+   Start at  05:47:29
+   Duration  5.37s (tests 69%, worker 28%, import 3%)
+
