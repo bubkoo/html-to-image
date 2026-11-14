@@ -1,0 +1,290 @@
+
+> html-to-image@1.11.13 test:browser /Users/bytedance/Documents/Github/html-to-image
+> pnpm run lint:check && pnpm run build && pnpm run test:browser:types && pnpm run test && pnpm run test:package && pnpm run test:browser:package
+
+
+> html-to-image@1.11.13 lint:check /Users/bytedance/Documents/Github/html-to-image
+> eslint 'src/**/*.{js,ts}?(x)' vitest.browser.config.mts playwright.config.ts 'test/browser-unit/**/*.ts' 'test/browser/**/*.ts' 'test/browser/**/*.mjs' 'test/spec/**/*.ts' rollup.config.js eslint.config.mjs commitlint.config.cjs 'scripts/*.{js,mjs,cjs}'
+
+
+> html-to-image@1.11.13 build /Users/bytedance/Documents/Github/html-to-image
+> pnpm run clean && pnpm run build:esm && pnpm run build:cjs && pnpm run build:umd
+
+
+> html-to-image@1.11.13 clean /Users/bytedance/Documents/Github/html-to-image
+> node scripts/clean.mjs
+
+
+> html-to-image@1.11.13 build:esm /Users/bytedance/Documents/Github/html-to-image
+> pnpm run build:esm:tsc && pnpm run build:esm:metadata
+
+
+> html-to-image@1.11.13 build:esm:tsc /Users/bytedance/Documents/Github/html-to-image
+> tsc --module esnext --target es2017 --outDir ./es
+
+
+> html-to-image@1.11.13 build:esm:metadata /Users/bytedance/Documents/Github/html-to-image
+> node scripts/mark-esm.mjs
+
+
+> html-to-image@1.11.13 build:cjs /Users/bytedance/Documents/Github/html-to-image
+> tsc --module commonjs --target es5 --outDir ./lib
+
+
+> html-to-image@1.11.13 build:umd /Users/bytedance/Documents/Github/html-to-image
+> rollup -c --bundleConfigAsCjs
+
+
+src/index.ts → dist/html-to-image.js...
+created dist/html-to-image.js in 1s
+
+> html-to-image@1.11.13 test:browser:types /Users/bytedance/Documents/Github/html-to-image
+> tsc --project tsconfig.browser-tests.json
+
+
+> html-to-image@1.11.13 test /Users/bytedance/Documents/Github/html-to-image
+> pnpm run test:coverage && pnpm run test:browser:source
+
+
+> html-to-image@1.11.13 test:coverage /Users/bytedance/Documents/Github/html-to-image
+> TEST_SUITE=coverage TEST_BROWSER=chromium vitest run --config vitest.browser.config.mts --coverage
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+      Coverage enabled with v8
+
+
+ Test Files  35 passed (35)
+      Tests  353 passed | 1 skipped (354)
+   Start at  00:02:50
+   Duration  6.39s (worker 65%, tests 33%, import 2%)
+
+ % Coverage report from v8
+
+=============================== Coverage summary ===============================
+Statements   : 91.79% ( 1343/1463 )
+Branches     : 82.53% ( 846/1025 )
+Functions    : 95.95% ( 285/297 )
+Lines        : 92.91% ( 1245/1340 )
+================================================================================
+
+> html-to-image@1.11.13 test:browser:source /Users/bytedance/Documents/Github/html-to-image
+> vitest run --config vitest.browser.config.mts
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+stderr | test/browser-unit/capture.test.ts > a nested scroller exports its visible viewport without moving the source
+[vitest] Failed to take a screenshot [TimeoutError: locator.screenshot: Timeout 4965.734ms exceeded.
+Call log:
+[2m  - taking element screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+[2m  - attempting scroll into view action[22m
+[2m    - waiting for element to be stable[22m
+]
+ ❯ |webkit| test/browser-unit/svg-dependencies.test.ts (1 test | 1 failed) 1678ms
+   × external SVG dependency graphs preserve scoped references and resources 1677ms
+ ❯ |webkit| test/browser-unit/pseudo-resources.test.ts (2 tests | 1 failed) 1766ms
+   × generated and injected style rules embed images with skipFonts=true 1670ms
+ ❯ |webkit| test/browser-unit/font-metrics.test.ts (11 tests | 1 failed) 1719ms
+   × fractional text retains its second line instead of shrinking into the first 1618ms
+ ❯ |webkit| test/browser-unit/resource-policy.test.ts (4 tests | 1 failed) 1989ms
+   × HTTP resources deduplicate without clone preloads and expire with captures 1690ms
+ ❯ |webkit| test/browser-unit/iframe-fonts.test.ts (14 tests | 1 failed) 1993ms
+   × preserves document-local font families and pixels for content 1604ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |webkit| test/browser-unit/capture.test.ts > a nested scroller exports its visible viewport without moving the source
+AssertionError: expected [ +0, +0, +0, +0 ] to deeply equal [ +0, 128, +0, 255 ]
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[2m    0,[22m
+[32m-   128,[39m
+[2m    0,[22m
+[32m-   255,[39m
+[31m+   0,[39m
+[31m+   0,[39m
+[2m  ][22m
+
+ ❯ test/browser-unit/capture.test.ts:35:32
+     33|
+     34|   const image = await toImageData(root, { pixelRatio: 1, skipFonts: tr…
+     35|   expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
+       |                                ^
+     36|   expect(panel.scrollTop).toBe(40)
+     37| })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |webkit| test/browser-unit/capture.test.ts > Issue #594 standalone panel keeps rows 5–8 in a 2x canvas
+AssertionError: expected [ +0, +0, +0, +0 ] to deeply equal [ 216, 245, 223, 255 ]
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[32m-   216,[39m
+[32m-   245,[39m
+[32m-   223,[39m
+[32m-   255,[39m
+[31m+   0,[39m
+[31m+   0,[39m
+[31m+   0,[39m
+[31m+   0,[39m
+[2m  ][22m
+
+ ❯ test/browser-unit/capture.test.ts:68:5
+     66|   expect(
+     67|     Array.from(canvas.getContext('2d')!.getImageData(x, y, 1, 1).data),
+     68|   ).toEqual([216, 245, 223, 255])
+       |     ^
+     69|   expect(panel.scrollTop).toBe(200)
+     70| })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |webkit| test/browser-unit/font-metrics.test.ts > fractional text retains its second line instead of shrinking into the first
+AssertionError: expected [ +0, +0, +0, +0 ] to deeply equal [ 255, +0, +0, 255 ]
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/font-metrics.test.ts/fractional-text-retains-its-second-line-instead-of-shrinking-into-the-first.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[32m-   255,[39m
+[2m    0,[22m
+[2m    0,[22m
+[32m-   255,[39m
+[31m+   0,[39m
+[31m+   0,[39m
+[2m  ][22m
+
+ ❯ test/browser-unit/font-metrics.test.ts:65:30
+     63|   const y = sourceLines[1].top - box.top + sourceLines[1].height / 2
+     64|   const image = await toImageData(root, { pixelRatio: 1 })
+     65|   expect(pixel(image, x, y)).toEqual([255, 0, 0, 255])
+       |                              ^
+     66|   expect(Array.from(range.getClientRects())).toHaveLength(2)
+     67|   expect(root.style.fontSize).toBe('20.75px')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |webkit| test/browser-unit/iframe-fonts.test.ts > preserves document-local font families and pixels for content
+Error: iframe left glyph pixel differs from its selected font: 0,0,0,0
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/iframe-fonts.test.ts/preserves-document-local-font-families-and-pixels-for-content.png
+
+ ❯ assert test/browser/fixtures/iframe-fonts.mjs:2:34
+      1| function assert(condition, message) {
+      2|   if (!condition) throw new Error(message)
+       |                                  ^
+      3| }
+      4|
+ ❯ checkIframeFonts test/browser/fixtures/iframe-fonts.mjs:143:11
+ ❯ test/browser-unit/iframe-fonts.test.ts:52:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |webkit| test/browser-unit/pseudo-resources.test.ts > generated and injected style rules embed images with skipFonts=true
+Error: Pseudo backgrounds 0,0,0,0 / 0,0,0,0
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/pseudo-resources.test.ts/generated-and-injected-style-rules-embed-images-with-skipFonts-true.png
+
+ ❯ checkPseudoResources test/browser/fixtures/pseudo-resources.mjs:59:22
+     57|     }
+     58|     if (pixel(10) !== '0,128,0,255' || pixel(30) !== '0,128,0,255')
+     59|       throw new Error(`Pseudo backgrounds ${pixel(10)} / ${pixel(30)}`)
+       |                      ^
+     60|     if (pixel(50) !== '0,128,0,255')
+     61|       throw new Error(`Injected mask ${pixel(50)}`)
+ ❯ test/browser-unit/pseudo-resources.test.ts:9:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |webkit| test/browser-unit/resource-policy.test.ts > HTTP resources deduplicate without clone preloads and expire with captures
+Error: first capture lost a red resource
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/resource-policy.test.ts/HTTP-resources-deduplicate-without-clone-preloads-and-expire-with-captures.png
+
+ ❯ assert test/browser/fixtures/resource-policy.mjs:2:34
+      1| function assert(condition, message) {
+      2|   if (!condition) throw new Error(message)
+       |                                  ^
+      3| }
+      4|
+ ❯ checkResourceCache test/browser/fixtures/resource-policy.mjs:82:26
+ ❯ test/browser-unit/resource-policy.test.ts:8:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  |webkit| test/browser-unit/svg-dependencies.test.ts > external SVG dependency graphs preserve scoped references and resources
+Error: Cross-document ID collision 0,1,255,255 native=0,0,0,0
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-dependencies.test.ts/external-SVG-dependency-graphs-preserve-scoped-references-and-resources.png
+
+ ❯ assert test/browser/fixtures/svg-dependencies.mjs:39:36
+     37|   }
+     38|   const assert = (condition, message) => {
+     39|     if (!condition) throw new Error(message)
+       |                                    ^
+     40|   }
+     41|   const parse = (dataURL) =>
+ ❯ checkSVGDependencies test/browser/fixtures/svg-dependencies.mjs:76:11
+ ❯ test/browser-unit/svg-dependencies.test.ts:8:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: Failed to run the test /Users/bytedance/Documents/Github/html-to-image/test/browser-unit/fixed-scroll.test.ts.
+ ❯ node_modules/.pnpm/vitest@5.0.5_@types+node@22.20.5_@vitest+browser-playwright@5.0.5_@vitest+coverage-v8@5_467b010705281930a1b4be0087361ef0/node_modules/vitest/dist/chunks/index.1TqnEahn.js:4757:17
+
+Caused by: Error: [vitest] Browser connection was closed while running tests. Was the page closed unexpectedly?
+ ❯ WebSocket.<anonymous> node_modules/.pnpm/@vitest+browser@5.0.5_vite@8.3.5_@types+node@22.20.5_esbuild@0.28.2_jiti@2.7.0_terser@5.51.2_yaml@2.9.1__vitest@5.0.5/node_modules/@vitest/browser/dist/index.js:2911:16
+ ❯ WebSocket.emit node:events:531:35
+ ❯ WebSocket.emitClose node_modules/.pnpm/ws@8.22.1/node_modules/ws/lib/websocket.js:292:10
+ ❯ Socket.socketOnClose node_modules/.pnpm/ws@8.22.1/node_modules/ws/lib/websocket.js:1379:15
+ ❯ Socket.emit node:events:531:35
+ ❯ TCP.<anonymous> node:net:346:12
+ ❯ TCP.callbackTrampoline node:internal/async_hooks:130:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'VITEST_BROWSER_CONNECTION_CLOSED' }
+Caused by: Error: [birpc] rpc is closed, cannot call "createTesters"
+ ❯ node_modules/.pnpm/@vitest+browser@5.0.5_vite@8.3.5_@types+node@22.20.5_esbuild@0.28.2_jiti@2.7.0_terser@5.51.2_yaml@2.9.1__vitest@5.0.5/node_modules/@vitest/browser/dist/index.js:2712:34
+ ❯ Proxy.$close node_modules/.pnpm/@vitest+browser@5.0.5_vite@8.3.5_@types+node@22.20.5_esbuild@0.28.2_jiti@2.7.0_terser@5.51.2_yaml@2.9.1__vitest@5.0.5/node_modules/@vitest/browser/dist/index.js:2711:18
+ ❯ WebSocket.<anonymous> node_modules/.pnpm/@vitest+browser@5.0.5_vite@8.3.5_@types+node@22.20.5_esbuild@0.28.2_jiti@2.7.0_terser@5.51.2_yaml@2.9.1__vitest@5.0.5/node_modules/@vitest/browser/dist/index.js:2911:9
+ ❯ WebSocket.emit node:events:531:35
+ ❯ WebSocket.emitClose node_modules/.pnpm/ws@8.22.1/node_modules/ws/lib/websocket.js:292:10
+ ❯ Socket.socketOnClose node_modules/.pnpm/ws@8.22.1/node_modules/ws/lib/websocket.js:1379:15
+ ❯ Socket.emit node:events:531:35
+ ❯ TCP.<anonymous> node:net:346:12
+ ❯ TCP.callbackTrampoline node:internal/async_hooks:130:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  5 failed | 45 passed (66)
+      Tests  7 failed | 498 passed | 3 skipped (649)
+     Errors  1 error
+   Start at  00:02:57
+   Duration  13.07s (worker 67%, tests 28%, import 5%)
+
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

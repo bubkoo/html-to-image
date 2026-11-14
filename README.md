@@ -465,7 +465,10 @@ use as initial-scale `1` for the image.
 Rasterize the frozen SVG this many times and use the last result. This can
 help when Safari/WebKit produces a blank embedded image on an initial draw.
 Set an integer from `1` to `10`; the default is `1`. It does not re-read the
-source DOM. Extra attempts cost time and remain subject to `timeout`.
+source DOM. Each extra attempt uses a fresh SVG image decode context so the
+browser cannot keep reusing the first incomplete decode. The frozen SVG
+returned by `capture.toSvg()` stays unchanged. Extra attempts cost time and
+remain subject to `timeout`; they do not guarantee complete rendering.
 
 ### cloneTimeSliceMs
 

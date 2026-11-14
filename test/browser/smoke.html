@@ -18,6 +18,7 @@
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
     import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
     import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
+    import { checkRasterRetry, checkRasterRetryFont } from './fixtures/raster-retry.mjs'
     import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
@@ -592,6 +593,16 @@
           throw new Error(`async handler failure was not propagated: ${message}`)
       } finally {
         node.remove()
+      }
+    })
+
+    await test('snapshot retries preserve frozen pixels', async () => {
+      await loadUMD()
+      await checkRasterRetryFont({ createRenderer })
+      await checkRasterRetryFont(window.htmlToImage)
+      for (const mode of ['retry', 'single', 'healthy']) {
+        await checkRasterRetry({ createRenderer }, mode)
+        await checkRasterRetry(window.htmlToImage, mode)
       }
     })
 

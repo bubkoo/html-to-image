@@ -11,6 +11,7 @@ import {
   getImageSize,
   getPixelRatio,
   nodeToDataURL,
+  uuid,
 } from './util.js'
 
 function getContext(canvas: HTMLCanvasElement) {
@@ -128,8 +129,17 @@ function fromSnapshot(
         for (let attempt = 0; attempt < attempts; attempt += 1) {
           // Re-rasterize the same serialized SVG. Re-cloning would capture a
           // different DOM state and defeat snapshot semantics.
+          // Reusing its URL can retain the first incomplete decoded image.
+          // A document-level XML comment gives retries a fresh decode key
+          // without changing visual content, selectors or the saved snapshot.
+          const renderSource = attempt
+            ? source.replace(
+                ',',
+                `,${encodeURIComponent(`<!-- html-to-image retry ${uuid()} -->`)}`,
+              )
+            : source
           // eslint-disable-next-line no-await-in-loop
-          const image = await createImage(source, options)
+          const image = await createImage(renderSource, options)
           task.check()
           // Use the library's document so a snapshot cannot keep a captured
           // iframe and its live source tree alive through this render closure.

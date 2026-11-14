@@ -1,0 +1,13 @@
+
+> html-to-image@1.11.13 test:browser:source /Users/bytedance/Documents/Github/html-to-image
+> vitest run --config vitest.browser.config.mts
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+
+ Test Files  66 passed (66)
+      Tests  701 passed | 4 skipped (705)
+   Start at  00:03:57
+   Duration  9.01s (worker 75%, tests 23%, import 3%)
+

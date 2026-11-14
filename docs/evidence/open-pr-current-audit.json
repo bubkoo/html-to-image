@@ -172,13 +172,15 @@
       "title": "fix: blank image in safari, algin #461, #478",
       "reviewedHead": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
       "observedState": "open",
-      "requirement": "Safari 图片初次绘制缺失，提出多次延时重绘",
-      "disposition": "保留显式 stabilizationAttempts，拒绝按图片数写入共享重绘计数",
+      "requirement": "Safari 子图片初次缺失，尝试延时重绘；标题关联 #461 Issue 与 #478 PR。",
+      "disposition": "有界冻结快照重绘保留；#635 修正额外尝试复用首次不完整 SVG 解码缓存，组合源码本地完整检查与真实 iPhone 31/31 通过，最终远端检查待验。",
       "evidence": [
         "test/spec/renderer.test.ts",
-        "docs/v2-release-readiness.md"
+        "docs/v2-release-readiness.md",
+        "docs/evidence/svg-raster-retry-cache.json"
       ],
-      "remainingBoundary": "原应用的可运行 DOM、图像/字体字节、设备与复现步骤缺失；不宣称固定等待能解决全部 #461/#556/#569"
+      "remainingBoundary": "完整原应用/资源及历史 WKWebView 场景未整体复验；不把缓存修正等同于全部历史白图问题解决。#591 作者的历史 16/16 与关闭状态单独归档。",
+      "checkedAt": "2026-11-14T16:05:54.058552+00:00"
     },
     {
       "number": 482,
@@ -497,5 +499,12 @@
       "requirement": "Same scrollbar size/color/appearance and position; Windows11 Edge107/Chrome",
       "scopeDecisionRequired": false
     }
+  },
+  "latestIncrementalUpdate": {
+    "checkedAt": "2026-11-14T16:05:54.058552+00:00",
+    "runtimeSource": "3f8bbdfa1b306a98b126e6a32bacddb9088631e8",
+    "pr": 635,
+    "status": "local and exact-source real iPhone passed; final remote checks pending",
+    "evidence": "docs/evidence/svg-raster-retry-cache.json"
   }
 }
