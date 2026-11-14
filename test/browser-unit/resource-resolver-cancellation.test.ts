@@ -57,6 +57,36 @@ async function measuredFrame() {
   }
 }
 
+async function disposedEnvironment(probed: boolean) {
+  const environment = createSVGStyleEnvironment(document)
+  try {
+    if (probed) await environment.measurePolicy(() => {})
+    return {
+      environment,
+      reference: new WeakRef(await environment.getDocument()),
+    }
+  } finally {
+    environment.dispose()
+  }
+}
+
+test.each([false, true])(
+  'a disposed SVG environment releases its document with probed=%s',
+  async (probed) => {
+    const frames = Array.from(document.querySelectorAll('iframe'))
+    const { environment, reference } = await disposedEnvironment(probed)
+    expect(Array.from(document.querySelectorAll('iframe'))).toEqual(frames)
+    if (server.browser !== 'webkit') {
+      await commands.collectGarbage()
+      await commands.collectGarbage()
+      await commands.collectGarbage()
+      expect(reference.deref()).toBeUndefined()
+    }
+    await expect(environment.getDocument()).rejects.toThrow(/disposed/)
+    expect(Array.from(document.querySelectorAll('iframe'))).toEqual(frames)
+  },
+)
+
 test('cancellation releases private SVG work while a custom font resolver remains pending', async () => {
   const sheet = document.createElement('style')
   sheet.textContent =

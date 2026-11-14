@@ -288,6 +288,7 @@ export function createSVGStyleEnvironment(
   let pending: Promise<Document> | undefined
   let cancel: (() => void) | undefined
   let resourcesLocked = false
+  let disposed = false
   const lockResources = (document: Document) => {
     if (resourcesLocked) return
     const policy = document.createElement('meta')
@@ -297,10 +298,12 @@ export function createSVGStyleEnvironment(
     resourcesLocked = true
   }
   const dispose = () => {
+    disposed = true
     signal?.removeEventListener('abort', dispose)
     cancel?.()
     frame?.remove()
     frame = undefined
+    pending = undefined
   }
   signal?.addEventListener('abort', dispose, { once: true })
   return {
@@ -317,6 +320,11 @@ export function createSVGStyleEnvironment(
       }
     },
     getDocument(trustedProbe = false): Promise<Document> {
+      if (disposed)
+        return Promise.reject(
+          signal?.reason ||
+            new Error('SVG style environment has been disposed'),
+        )
       if (!pending) {
         pending = new Promise<Document>((resolve, reject) => {
           frame = document.createElement('iframe')
