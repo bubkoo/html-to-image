@@ -172,13 +172,15 @@
       "title": "fix: blank image in safari, algin #461, #478",
       "reviewedHead": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
       "observedState": "open",
-      "requirement": "Safari 图片初次绘制缺失，提出多次延时重绘",
-      "disposition": "保留显式 stabilizationAttempts，拒绝按图片数写入共享重绘计数",
+      "requirement": "Safari 子图片初次缺失，尝试延时重绘；标题关联 #461 Issue 与 #478 PR。",
+      "disposition": "保留有界冻结快照重绘；新增额外尝试避开首次解码缓存的独立修正候选，本地完整检查通过。",
       "evidence": [
         "test/spec/renderer.test.ts",
-        "docs/v2-release-readiness.md"
+        "docs/v2-release-readiness.md",
+        "docs/evidence/svg-raster-retry-cache.json"
       ],
-      "remainingBoundary": "原应用的可运行 DOM、图像/字体字节、设备与复现步骤缺失；不宣称固定等待能解决全部 #461/#556/#569"
+      "remainingBoundary": "原应用完整资源与当前精确提交的真机仍待验；不把缓存修正等同于所有历史 Safari/WKWebView 白图问题解决。#591 作者的旧 V2 16/16 原始夹具报告及关闭状态单独记录。",
+      "checkedAt": "2026-11-14T15:35:55.453034+00:00"
     },
     {
       "number": 482,
@@ -497,5 +499,10 @@
       "requirement": "Same scrollbar size/color/appearance and position; Windows11 Edge107/Chrome",
       "scopeDecisionRequired": false
     }
+  },
+  "latestIncrementalUpdate": {
+    "checkedAt": "2026-11-14T15:35:55.453034+00:00",
+    "scope": "Only #498 and linked #461/#478/#591 revalidated in this increment; original 28-entry review baseline remains unchanged. #632/#633 merged; #634 draft with remote checks passed; new raster retry candidate local checks passed, remote/native pending.",
+    "evidence": "docs/evidence/svg-raster-retry-cache.json"
   }
 }

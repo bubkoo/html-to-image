@@ -1,0 +1,116 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/raster-retry.test.ts (4 tests | 1 failed) 165ms
+   × raster retry retry keeps frozen pixels and bounded attempts 90ms
+ ❯ |webkit| test/browser-unit/raster-retry.test.ts (4 tests | 2 failed) 216ms
+   × real embedded font retries agree with a fresh SVG decoding 142ms
+   × raster retry retry keeps frozen pixels and bounded attempts 50ms
+ ❯ |firefox| test/browser-unit/raster-retry.test.ts (4 tests | 1 failed) 106ms
+   × raster retry retry keeps frozen pixels and bounded attempts 57ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/raster-retry.test.ts > raster retry retry keeps frozen pixels and bounded attempts
+Error: retry: frozen pixel 0,0 is 0,0,0,0; expected 255,0,0,255; decode requests=3; distinct sources=1
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/raster-retry.test.ts/raster-retry-retry-keeps-frozen-pixels-and-bounded-attempts.png
+
+ ❯ Module.checkRasterRetry test/browser/fixtures/raster-retry.mjs:206:17
+    204|               )
+    205|         if (actual.some((value, index) => value !== expected[index]))
+    206|           throw new Error(
+       |                 ^
+    207|             mode +
+    208|               ': frozen pixel ' +
+ ❯ test/browser-unit/raster-retry.test.ts:17:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |firefox| test/browser-unit/raster-retry.test.ts > raster retry retry keeps frozen pixels and bounded attempts
+Error: retry: frozen pixel 0,0 is 0,0,0,0; expected 255,0,0,255; decode requests=3; distinct sources=1
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/raster-retry.test.ts/raster-retry-retry-keeps-frozen-pixels-and-bounded-attempts.png
+
+ ❯ checkRasterRetry test/browser/fixtures/raster-retry.mjs:206:17
+    204|               )
+    205|         if (actual.some((value, index) => value !== expected[index]))
+    206|           throw new Error(
+       |                 ^
+    207|             mode +
+    208|               ': frozen pixel ' +
+ ❯ async* test/browser-unit/raster-retry.test.ts:17:34
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |webkit| test/browser-unit/raster-retry.test.ts > real embedded font retries agree with a fresh SVG decoding
+Error: Repeated SVG font decode differs from a fresh decoding in 243 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/raster-retry.test.ts/real-embedded-font-retries-agree-with-a-fresh-SVG-decoding.png
+
+ ❯ checkRasterRetryFont test/browser/fixtures/raster-retry.mjs:84:22
+     82|       throw new Error('Fresh SVG font reference lost a glyph color')
+     83|     if (different)
+     84|       throw new Error(
+       |                      ^
+     85|         'Repeated SVG font decode differs from a fresh decoding in ' +
+     86|           different +
+ ❯ test/browser-unit/raster-retry.test.ts:8:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |webkit| test/browser-unit/raster-retry.test.ts > raster retry retry keeps frozen pixels and bounded attempts
+Error: retry: frozen pixel 0,0 is 0,0,0,0; expected 255,0,0,255; decode requests=3; distinct sources=1
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/raster-retry.test.ts/raster-retry-retry-keeps-frozen-pixels-and-bounded-attempts.png
+
+ ❯ checkRasterRetry test/browser/fixtures/raster-retry.mjs:206:26
+    204|               )
+    205|         if (actual.some((value, index) => value !== expected[index]))
+    206|           throw new Error(
+       |                          ^
+    207|             mode +
+    208|               ': frozen pixel ' +
+ ❯ test/browser-unit/raster-retry.test.ts:17:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  4 failed | 8 passed (12)
+   Start at  23:29:27
+   Duration  1.59s (tests 60%, worker 34%, import 6%)
+

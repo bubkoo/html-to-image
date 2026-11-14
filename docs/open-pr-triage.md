@@ -1,5 +1,15 @@
 # 开放 PR 处理台账
 
+## 2026-11-14 SVG 重绘缓存修正候选
+
+#632/#633 已合入 master；#634 的 1626445 仍为检查全绿的草稿、等待真机。原生滚动新原型保留在 [2e0fbc7 调查分支](https://github.com/bubkoo/html-to-image/blob/2e0fbc76a3123ac3572b805685b44b6d027f1c5c/docs/evidence/native-scroll-v2.json)，其两个严格 WebKit 原生像素失败没有删除，也没有并入本候选。
+
+本候选从 master 7d8d350 独立修正 #498 相关重绘路径：同一个 SVG URL 的新 Image 可能继续使用首次不完整解码。只在额外尝试的内部图片地址中加入文档级唯一 XML 注释，令其重新解码；视觉内容、元素/选择器/片段引用、保存的 SVG 和单次默认行为不变，不重克隆源，也不增加固定等待或按两图相同提前结束。
+
+[回归与完整检查](evidence/svg-raster-retry-cache.json)：同一最终用例旧源码 4 失败 / 8 通过，候选三引擎 12/12；包含真实字体下旧重绘仍差 243 通道的直接复现、可控解码缓存故障、默认单次/健康对照、源后续变化、SVG 裁剪与渐变引用、冻结输出及完成后的栅格复用。完整本地 coverage/source/package 为 341/665/138，另 1 项既有 GC 跳过，lint/ESM/CJS/UMD/类型/tarball 通过；构建包新场景同时运行 ESM 和 UMD。远端检查及本提交真机仍待验，不按整个 #498 或所有 Safari 白图报告已解决处理。
+
+原始讨论重新核对：#498 仍开放；其标题关联 #461 是已关闭 Issue、#478 是已关闭 PR。#591 作者已在[原始报告](https://github.com/bubkoo/html-to-image/pull/591#issuecomment-6575677342)中说明旧 V2 187c4bc 在 iPhone 11 / iOS 26.2 的 13 项夹具、16 轮测试中默认及 2/4 次模式均完整，并自行关闭 #591。这是作者的历史实测，不是本候选的新设备验收，也不等于可沿用到 WKWebView。历史原始报告中的 osFromUserAgent 只表示 UA token，不单独证明真实系统版本。当前 USB 没有识别到 iPhone；未关闭或评论旧 PR，未发布 npm。
+
 ## 2026-11-14 补充验收：#634 真机 30/30
 
 准确源码 `1626445` 的 PR CI 42976558545、CodeQL 42976558526 与 Codecov patch/project 均通过；真实 USB iPhone Safari 26.6.1 完整 smoke 30/30，12 种盒模型/滚动输入无跳过。[原始报告](evidence/ios-safari-scrollbar-box-1626445.json)和[逐项几何记录](evidence/ios-scrollbar-box-metrics-1626445.json)已归档。本次手机使用悬浮滚动条，stable gutter 实际占位为零；此结果证明移动端兼容，不能替代桌面占位滚动条的严格源截图对照。设备 OS 版本来自 SafariDriver capabilities（26.6.1）；UA 的 `CPU iPhone OS 18_7` 是兼容 token，不是实测系统版本。

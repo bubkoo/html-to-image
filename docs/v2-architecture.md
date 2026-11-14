@@ -20,6 +20,10 @@ reuse that bitmap. Each returned canvas is independently writable. Call
 `capture.dispose()` when finished, especially when keeping snapshots around.
 When `stabilizationAttempts` exceeds one, the raster stage draws that same SVG
 multiple times and returns the last bitmap; it never re-clones the source DOM.
+Extra attempts insert a document-level XML comment into the internal image
+source to avoid reusing an incomplete decoded SVG. This changes the decode
+cache key without changing SVG elements, selectors or the saved snapshot.
+The default first attempt and `capture.toSvg()` output stay unchanged.
 
 Canvas creation uses the library's document, rather than retaining the source
 document for lazy rendering. Returned canvases belong to that library document.

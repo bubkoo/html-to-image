@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-11-14T15:34:37.372772+00:00",
+  "status": "Local complete check passed; remote CI and exact-commit real iPhone verification pending",
+  "base": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
+  "sourcePRs": [498],
+  "relatedDiscussions": [
+    {
+      "number": 461,
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/bubkoo/html-to-image/issues/461"
+    },
+    {
+      "number": 478,
+      "kind": "pull_request",
+      "state": "closed",
+      "url": "https://github.com/bubkoo/html-to-image/pull/478"
+    },
+    {
+      "number": 591,
+      "kind": "pull_request",
+      "state": "closed",
+      "url": "https://github.com/bubkoo/html-to-image/pull/591"
+    }
+  ],
+  "rootCause": "New Image objects using the same SVG data URL can reuse an incomplete decoded SVG. Repeated raster attempts need a fresh decode context, while retaining the exact frozen visual content.",
+  "change": "Only extra stabilization attempts prefix a unique document-level XML comment to the internal SVG data URL. Default first render and saved toSvg string are unchanged; no source re-clone, mutation, new delay or bitmap-equality stopping rule.",
+  "baselines": {
+    "revision": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
+    "restoredSource": ["src/capture.ts"],
+    "total": 12,
+    "failed": 4,
+    "passed": 8,
+    "realWebKitFontFailure": "Three old retries differ from an independently fresh decoded SVG in 243 channels.",
+    "controlledFailures": "One per engine: first decode URL stays incomplete; all three old attempts still return transparent pixels. The independent healthy/default-one controls pass."
+  },
+  "candidate": {
+    "total": 12,
+    "passed": 12,
+    "skipped": 0
+  },
+  "oracles": [
+    "A real authored CSS snap + embedded font input exercises the public renderer, independent of the unmerged native-scroll implementation. Exact RGBA comparison to an independent fresh SVG decoding.",
+    "Controlled persistent first-URL cache fault, with clip/gradient content; exact full RGBA match to healthy decoding.",
+    "Default one-attempt behavior, healthy decoding, one clone, later source changes excluded, frozen SVG string unchanged, and completed raster reused."
+  ],
+  "localFull": {
+    "command": "pnpm run test:browser",
+    "completion": "All phases finished with passing summaries; see complete-final.log.txt",
+    "coveragePassed": 341,
+    "sourcePassed": 665,
+    "sourceSkipped": 1,
+    "builtPackagePassed": 138,
+    "lint": true,
+    "esmCjsUmdBuild": true,
+    "types": true,
+    "packageContract": true,
+    "builtArtifacts": "Shared new fixture runs real font plus controlled retry/single/healthy modes against both ESM and UMD in all three engines. Existing 800x800 noisy image at 2x and 3 stabilization attempts also passes."
+  },
+  "scopeLimits": [
+    "Does not claim full resolution of all historic #498/#461 reports without their complete applications/assets.",
+    "Original #591 author reported the 13-fixture harness complete in 16/16 V2 runs on iPhone 11/iOS 26.2 at 187c4bc, then closed that PR. This is historical third-party evidence, not validation of this candidate.",
+    "Not a full native-scroll fix: separate prototype still has a 21-channel/1-level warmed glyph difference and a 234-channel inset-shadow difference against native WebKit source.",
+    "Exact-commit USB iPhone validation remains pending; no current USB iPhone is present. No npm publication or old contributor PR closure/comment."
+  ],
+  "nativeScrollInvestigation": "https://github.com/bubkoo/html-to-image/blob/2e0fbc76a3123ac3572b805685b44b6d027f1c5c/docs/evidence/native-scroll-v2.json",
+  "historical591Report": "https://github.com/bubkoo/html-to-image/pull/591#issuecomment-6575677342",
+  "sourceSHA256": {
+    "src/capture.ts": "b91081e4f0acfa75c683feac344122b8bddab466690965b24ca7f30bf719b167",
+    "test/browser-unit/raster-retry.test.ts": "89e261bda5a584f4b59ed5a6b7a0620079d6c9a62556d5bca5f2434997255f23",
+    "test/browser/fixtures/raster-retry.mjs": "94c5a1a451957c7f7566743afe9e8e5983f90418968622013ef1827af7ec954c",
+    "test/browser/smoke.html": "f3f022a832afdb77e66aa1d1799b76c3eeb07368f592c6fb555850b3b09c70ff",
+    "test/browser/package.test.ts": "6b9efa5ee4ec319b3d16a7459d596c868fc72886cf4a7a37bf0b15c2b71ba4cd",
+    "test/browser/server.mjs": "e3223d0db6066666361b75e68f073fa0af57e9706c1d3d28fd52f654394da391"
+  }
+}

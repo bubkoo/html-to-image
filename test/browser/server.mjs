@@ -59,7 +59,7 @@ const serve = async (request, response) => {
         typeof report.dpr !== 'number' ||
         !Number.isFinite(report.dpr) ||
         !Array.isArray(report.verdicts) ||
-        report.verdicts.length > 32 ||
+        report.verdicts.length > 64 ||
         !report.verdicts.every(
           (line) => typeof line === 'string' && line.length <= 500,
         )

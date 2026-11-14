@@ -30,6 +30,7 @@ const cases = [
   'same-document clip path',
   'SVG use local and external symbols',
   'large embedded data image',
+  'snapshot retries preserve frozen pixels',
   'cross-origin stylesheet fallback',
   'repeated Content-Type embeds image and CSS',
   'asynchronous image error recovery',
