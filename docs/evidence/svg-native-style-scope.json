@@ -3,7 +3,7 @@
   "sourceCommit": "56e8a22cf564d21af629d5bf874eec11d59ed691",
   "pullRequest": "https://github.com/bubkoo/html-to-image/pull/637",
   "contract": "Explicit user choice: preserve each current browser live-page output",
-  "status": "Source/fixture head 56e8a22 passed CI, CodeQL and both original Codecov gates; evidence-only head still requires verification before merge",
+  "status": "Merged as PR #637 at 5b456a17627548c04d71db1cbf573a0a750ad3f0; exact final PR head and post-merge CI/CodeQL passed. Remaining relative-paint mismatch is recorded separately.",
   "baseline": {
     "runtime": "a64b831",
     "sameFinalFixtures": true,
@@ -181,5 +181,23 @@
     "discardedAttempt": "A rerun used an obsolete USB IP and was stopped before any test verdict; no pass was recorded",
     "correction": "Controllers now resolve the current interface address on every navigation; default en15 can be changed with HTI_PHONE_INTERFACE",
     "verifiedOrigin": "http://169.254.173.98:4373"
+  },
+  "mergedVerification": {
+    "finalPRHead": "475a4cbb5c83bf59cedb4d0bfc691f8e1dfd1c6e",
+    "finalPRCI": 43632692714,
+    "finalPRCodeQL": 43632692697,
+    "codecovPatch": "87.40%, success against 86.12%",
+    "codecovProject": "86.33%, success against 86.12%",
+    "mergeCommit": "5b456a17627548c04d71db1cbf573a0a750ad3f0",
+    "masterCI": 43633225813,
+    "masterCodeQL": 43633225800,
+    "masterCounts": {
+      "coverage": 922,
+      "coverageSkipped": 4,
+      "source": 803,
+      "sourceSkipped": 4,
+      "package": 147
+    },
+    "remainingRelativePaint": "svg-relative-paint-current/observations.json"
   }
 }

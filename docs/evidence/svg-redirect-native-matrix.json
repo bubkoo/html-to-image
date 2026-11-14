@@ -2,7 +2,7 @@
   "checkedAt": "2026-11-11T01:58:52.515536+00:00",
   "runtimeRevision": "132c38d186ac4debd9da164363a8bb8234f3c396",
   "sourcePR": 585,
-  "status": "Observation only; output semantics pending. No redirect runtime fix is claimed.",
+  "status": "Historical observation on 132c38d. The user selected current-browser live-page appearance; no redirect runtime fix is claimed. See svg-relative-paint-current/observations.json for current 5b456a1 behavior.",
   "method": "Unique random path for each scene, native screenshot before library capture, then repeat source screenshot. Columns: redirected relative paint, direct relative paint, flat external symbol, yellow HTML control. use BBoxes and network completion checked; iPhone page visibility was visible, all three SVG BBoxes 20x20, network entries completed.",
   "observations": {
     "chrome": {
