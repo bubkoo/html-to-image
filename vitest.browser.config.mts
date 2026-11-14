@@ -103,7 +103,7 @@ export default defineConfig({
           : ['test/browser-unit/**/*.test.ts', 'test/spec/**/*.test.ts'],
     testTimeout: 30000,
     coverage: {
-      provider: 'v8',
+      provider: 'istanbul',
       reporter: ['text-summary', 'lcov'],
       reportsDirectory: 'test/coverage',
       include: ['src/**/*.ts'],
@@ -177,11 +177,14 @@ export default defineConfig({
       },
       instances: (selected
         ? [selected]
-        : suite === 'browser'
-          ? names
-          : ['chromium']
+        : suite === 'regression'
+          ? ['chromium']
+          : names
       ).map((browser) => ({
         browser: browser as (typeof names)[number],
+        ...(suite === 'coverage' && browser !== 'chromium'
+          ? { exclude: ['test/spec/**'] }
+          : {}),
         provider: playwright({
           launchOptions:
             browser === 'chromium'
