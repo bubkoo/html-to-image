@@ -1,0 +1,321 @@
+{
+  "archive": "observations-raw.tar.gz",
+  "archiveSHA256": "d2139266aca1e2a018e7f8a2dcd5264ca7fb7051fc0bf0520e2c2e32e773c85a",
+  "files": [
+    {
+      "path": "svg-base-clip-chromium.png",
+      "bytes": 156,
+      "sha256": "11673b2ebf9d65fbc73e1fd72d03bdd1906f1a5e74fe6317df4ef256c79fae71"
+    },
+    {
+      "path": "svg-base-clip-firefox.png",
+      "bytes": 150,
+      "sha256": "f9dee1d35c32432ae05391d02d1ab221126668c580b10b34f1c7370141ceb456"
+    },
+    {
+      "path": "svg-base-clip-probe.json",
+      "bytes": 2979,
+      "sha256": "31eca1bce45a13b94d8aaf008ffde149e870799b5fb84d53688ddce39afdf14a"
+    },
+    {
+      "path": "svg-base-clip-probe.log",
+      "bytes": 2979,
+      "sha256": "31eca1bce45a13b94d8aaf008ffde149e870799b5fb84d53688ddce39afdf14a"
+    },
+    {
+      "path": "svg-base-clip-probe.mjs",
+      "bytes": 2913,
+      "sha256": "fa4e18da953a1df960d14b7b8c0152488e4bea87205d6a0ea1ed37702ca80abc"
+    },
+    {
+      "path": "svg-base-clip-webkit.png",
+      "bytes": 288,
+      "sha256": "05de5cd59558ca906371c94d7f61a3fb4f9e7d44da4994496654c30186f8a317"
+    },
+    {
+      "path": "svg-painted-hit-chromium.png",
+      "bytes": 153,
+      "sha256": "45def53a00880bbe74ad52761436f2aeb7fcec5830f7c7a7c4ff30344dadfcfd"
+    },
+    {
+      "path": "svg-painted-hit-firefox.png",
+      "bytes": 174,
+      "sha256": "44ce00fdb72a02aeece94046cddf4762c864be81dab31512eb69414145a223df"
+    },
+    {
+      "path": "svg-painted-hit-probe.json",
+      "bytes": 1799,
+      "sha256": "e4af61713f0e528b0bf033aad72cf1d31df6a6926a2f640fcfbe989ed6e76eef"
+    },
+    {
+      "path": "svg-painted-hit-probe.log",
+      "bytes": 1799,
+      "sha256": "e4af61713f0e528b0bf033aad72cf1d31df6a6926a2f640fcfbe989ed6e76eef"
+    },
+    {
+      "path": "svg-painted-hit-probe.mjs",
+      "bytes": 3079,
+      "sha256": "e112cd7c6e233187e9eb456799ed91b8f1b67f318838ba97990f6db38ba5ec95"
+    },
+    {
+      "path": "svg-painted-hit-webkit.png",
+      "bytes": 287,
+      "sha256": "0de671905552734339c99e63af828c729212122c677e84cabcf58f8fe18622b4"
+    },
+    {
+      "path": "svg-redirect-file-css.log",
+      "bytes": 41,
+      "sha256": "26268227c8c7c8ff27e27e851b801f8ff4d811ad504c2c945c26cd19274c532c"
+    },
+    {
+      "path": "svg-redirect-file-css.mjs",
+      "bytes": 4801,
+      "sha256": "186d67127561bfd5abb8b7b78c5f8c35563dde9f17cd97a5208bf9b43ee79f53"
+    },
+    {
+      "path": "svg-redirect-file-css/chromium-after.png",
+      "bytes": 164,
+      "sha256": "986db2978c932a74e34ea0f53d784d3ba0fe5a1a8f678ff653fdb218ef8d8fa4"
+    },
+    {
+      "path": "svg-redirect-file-css/chromium-before.png",
+      "bytes": 164,
+      "sha256": "986db2978c932a74e34ea0f53d784d3ba0fe5a1a8f678ff653fdb218ef8d8fa4"
+    },
+    {
+      "path": "svg-redirect-file-css/chromium-capture.png",
+      "bytes": 229,
+      "sha256": "5cfb0f77394eb1839edd173f80a380ccc893c1ac118cd60692aaea8f721065a3"
+    },
+    {
+      "path": "svg-redirect-file-css/firefox-after.png",
+      "bytes": 190,
+      "sha256": "bf08a7d5b516acc393d65e1f741a451430614aa7a50e616af0994ec6116ac6de"
+    },
+    {
+      "path": "svg-redirect-file-css/firefox-before.png",
+      "bytes": 190,
+      "sha256": "bf08a7d5b516acc393d65e1f741a451430614aa7a50e616af0994ec6116ac6de"
+    },
+    {
+      "path": "svg-redirect-file-css/firefox-capture.png",
+      "bytes": 206,
+      "sha256": "d33e85a0bcc8f73b75b84a2471b9df00167902b55e80bc8251b1cd1d21732a27"
+    },
+    {
+      "path": "svg-redirect-file-css/observation.json",
+      "bytes": 7757,
+      "sha256": "371886a0e86a8b21a1981cccfd53627b58f479619066a878fc2fb3b5fe453284"
+    },
+    {
+      "path": "svg-redirect-file-css/webkit-after.png",
+      "bytes": 297,
+      "sha256": "f8b2bccc40feff4aac991ad8d0e924296fb01094e5f3b35605e4292347ba2be3"
+    },
+    {
+      "path": "svg-redirect-file-css/webkit-before.png",
+      "bytes": 297,
+      "sha256": "f8b2bccc40feff4aac991ad8d0e924296fb01094e5f3b35605e4292347ba2be3"
+    },
+    {
+      "path": "svg-redirect-file-css/webkit-capture.png",
+      "bytes": 1448,
+      "sha256": "29555700494d83c1d388cf5c31746a5acdaa0fc46d7c66aa74cf1619fa1fa607"
+    },
+    {
+      "path": "svg-relative-phone-fragment/after-native.png",
+      "bytes": 149,
+      "sha256": "121a429a9cabd079a8dfca511bf3fc6cf695e7c6a8d23678180a730c537e65f9"
+    },
+    {
+      "path": "svg-relative-phone-fragment/after-screen.png",
+      "bytes": 120053,
+      "sha256": "d24a208c86b5f5f8dc4993d10d886386cf6604dc2063d071025a439f338473b0"
+    },
+    {
+      "path": "svg-relative-phone-fragment/before-native.png",
+      "bytes": 149,
+      "sha256": "121a429a9cabd079a8dfca511bf3fc6cf695e7c6a8d23678180a730c537e65f9"
+    },
+    {
+      "path": "svg-relative-phone-fragment/before-screen.png",
+      "bytes": 120053,
+      "sha256": "d24a208c86b5f5f8dc4993d10d886386cf6604dc2063d071025a439f338473b0"
+    },
+    {
+      "path": "svg-relative-phone-fragment/capture.png",
+      "bytes": 1792,
+      "sha256": "da52338e3c0786f9d913a5b31ba25ca0197b03437d8800b9d561c8210d05788e"
+    },
+    {
+      "path": "svg-relative-phone-fragment/client.py",
+      "bytes": 634,
+      "sha256": "b091468b191cb090e1f9c73fe716e5cd8ba22881aec3fe5540e4fedf3da6cf2b"
+    },
+    {
+      "path": "svg-relative-phone-fragment/run.log",
+      "bytes": 3078,
+      "sha256": "35aa1b8bb7ba77fc0ded1405e4d194bbf66bbc555304dcfc408d9e6d0748395d"
+    },
+    {
+      "path": "svg-relative-phone-fragment/run.py",
+      "bytes": 4289,
+      "sha256": "5eb1e8fdb6fd0858f3962e2f12be7623124152f7cfb0ff0d9857bc65815a4c44"
+    },
+    {
+      "path": "svg-relative-phone-fragment/summary.json",
+      "bytes": 4778,
+      "sha256": "5db4d01da98ec4baf1b9b405440deadab6dbbbdfd4a5f243acca947f7e83fec7"
+    },
+    {
+      "path": "svg-relative-phone-inner/after-native.png",
+      "bytes": 159,
+      "sha256": "c56b69ff409847f95e2cf5092130712ca4d12301da4eff16ab8e68be7e6d2809"
+    },
+    {
+      "path": "svg-relative-phone-inner/after-screen.png",
+      "bytes": 125073,
+      "sha256": "a25a7a00cd07bb0871adda0cf18d0409aabf4e3f0798e8af3037e7d3b5c66292"
+    },
+    {
+      "path": "svg-relative-phone-inner/before-native.png",
+      "bytes": 159,
+      "sha256": "c56b69ff409847f95e2cf5092130712ca4d12301da4eff16ab8e68be7e6d2809"
+    },
+    {
+      "path": "svg-relative-phone-inner/before-screen.png",
+      "bytes": 125073,
+      "sha256": "a25a7a00cd07bb0871adda0cf18d0409aabf4e3f0798e8af3037e7d3b5c66292"
+    },
+    {
+      "path": "svg-relative-phone-inner/capture.png",
+      "bytes": 1827,
+      "sha256": "c94e868f977f06a10e578451a202cdac7a2206907e62c195af356be3da014d86"
+    },
+    {
+      "path": "svg-relative-phone-inner/client.py",
+      "bytes": 634,
+      "sha256": "b091468b191cb090e1f9c73fe716e5cd8ba22881aec3fe5540e4fedf3da6cf2b"
+    },
+    {
+      "path": "svg-relative-phone-inner/run.log",
+      "bytes": 3285,
+      "sha256": "f679c7160c1310bd8b8c6b36a6517095b872a0718a34bcb56250cd8d268600e7"
+    },
+    {
+      "path": "svg-relative-phone-inner/run.py",
+      "bytes": 4574,
+      "sha256": "783df6b9d9e61ff0e09f960a55e77f3aeb0e6a601f8972fb4b9901b0bcb070eb"
+    },
+    {
+      "path": "svg-relative-phone-inner/summary.json",
+      "bytes": 5147,
+      "sha256": "50d5028f455aa3da2790fc785632b4982b042ea0fafa20b9ab85594343466cf5"
+    },
+    {
+      "path": "svg-relative-phone-server-fragment.log",
+      "bytes": 51,
+      "sha256": "b13f1a77f60a3a088e1a2a19c5d1073be2aa365a9f3cf21fb2b9876777925324"
+    },
+    {
+      "path": "svg-relative-phone-server-fragment.mjs",
+      "bytes": 2097,
+      "sha256": "97dd522c567d38313f18e1dcec14d1597ccc8c190913ca8a5fec5890fae2c110"
+    },
+    {
+      "path": "svg-relative-phone-server-inner.log",
+      "bytes": 51,
+      "sha256": "b13f1a77f60a3a088e1a2a19c5d1073be2aa365a9f3cf21fb2b9876777925324"
+    },
+    {
+      "path": "svg-relative-phone-server-inner.mjs",
+      "bytes": 2250,
+      "sha256": "f75d6c725b90e4f76d1dc5eef6d6e05381aa316db6662629debf72ecbabb6467"
+    },
+    {
+      "path": "svg-relative-phone-server.log",
+      "bytes": 51,
+      "sha256": "b13f1a77f60a3a088e1a2a19c5d1073be2aa365a9f3cf21fb2b9876777925324"
+    },
+    {
+      "path": "svg-relative-phone-server.mjs",
+      "bytes": 2042,
+      "sha256": "f4944d6eb39f506fa85b891d178f2550a63e972a5fdf6d830e6ae9b473c0a322"
+    },
+    {
+      "path": "svg-relative-phone/after-native.png",
+      "bytes": 147,
+      "sha256": "7e19bf70881065c496415b2d106d6d2d99295ede5df65b26cc9a49ca6b9d7e94"
+    },
+    {
+      "path": "svg-relative-phone/after-screen.png",
+      "bytes": 119652,
+      "sha256": "03d86fbe8b4e23e04de93915bd78d52421d7c7c55cd4ff75bd0f431f870f917b"
+    },
+    {
+      "path": "svg-relative-phone/before-native.png",
+      "bytes": 147,
+      "sha256": "7e19bf70881065c496415b2d106d6d2d99295ede5df65b26cc9a49ca6b9d7e94"
+    },
+    {
+      "path": "svg-relative-phone/before-screen.png",
+      "bytes": 119652,
+      "sha256": "03d86fbe8b4e23e04de93915bd78d52421d7c7c55cd4ff75bd0f431f870f917b"
+    },
+    {
+      "path": "svg-relative-phone/capture.png",
+      "bytes": 1448,
+      "sha256": "29555700494d83c1d388cf5c31746a5acdaa0fc46d7c66aa74cf1619fa1fa607"
+    },
+    {
+      "path": "svg-relative-phone/client.py",
+      "bytes": 634,
+      "sha256": "b091468b191cb090e1f9c73fe716e5cd8ba22881aec3fe5540e4fedf3da6cf2b"
+    },
+    {
+      "path": "svg-relative-phone/clip-summary.json",
+      "bytes": 840,
+      "sha256": "ed22cb7addaf12a9f3c7126ecbf2dc45409a63f544644a1cbe640eb56179cb5b"
+    },
+    {
+      "path": "svg-relative-phone/clip.log",
+      "bytes": 841,
+      "sha256": "032a076d03a58a2500db62c9843e7a09abda8ddea6c4f093a007bb8741f416ee"
+    },
+    {
+      "path": "svg-relative-phone/run-clip.py",
+      "bytes": 2513,
+      "sha256": "765cab4e3e78c031694fbd993061584a81cb4d286d242e86a79aea250ef6c738"
+    },
+    {
+      "path": "svg-relative-phone/run.log",
+      "bytes": 2866,
+      "sha256": "a1fe57e5c155ba998b5554ad2af433aa3bffc1d1c92519bd57ee7e57a0150530"
+    },
+    {
+      "path": "svg-relative-phone/run.py",
+      "bytes": 4259,
+      "sha256": "da470350436635eb3997f3b7314c127a21bd184e9e9b0fef91067a4cf23600d6"
+    },
+    {
+      "path": "svg-relative-phone/summary.json",
+      "bytes": 4401,
+      "sha256": "119967736efa446e6d2eefca98108f44bf4688e92770b8fec8f56265a1a66fd2"
+    },
+    {
+      "path": "svg-relative-style-provenance.json",
+      "bytes": 7133,
+      "sha256": "f3e3c63412eee184f56d5ae97266db19716188035b31a3f16be8360b2dd88fd8"
+    },
+    {
+      "path": "svg-relative-style-provenance.log",
+      "bytes": 7133,
+      "sha256": "f3e3c63412eee184f56d5ae97266db19716188035b31a3f16be8360b2dd88fd8"
+    },
+    {
+      "path": "svg-relative-style-provenance.mjs",
+      "bytes": 2740,
+      "sha256": "ae8c92589252e6ff5b6543b0096ea1f8f41f1230017c0a4e97bb4a889ba0f45c"
+    }
+  ]
+}

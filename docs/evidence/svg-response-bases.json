@@ -1,0 +1,116 @@
+{
+  "verifiedAt": "2026-11-14T23:30:07.049609+00:00",
+  "sourceCommit": "bafedeb9720a89b3c6fad0c98f70b51e2f7bdab1",
+  "productionCommit": "5ece820b0a173823aa61ab1dcec971531a7e9dae",
+  "baseCommit": "29bcc921b548ae4d83c2fa8313eab189ef58aed1",
+  "contract": "Each current browser live-page appearance; scoped external SVG file-CSS redirect bases only.",
+  "rootCause": "Loader discarded native final response URL; SVG file CSS used the pre-redirect base and fetched valid wrong red paint instead of native green.",
+  "baseline": {
+    "sameFinalNativeCases": 6,
+    "failed": 2,
+    "passed": 4,
+    "nativeReferenceDifference": 0,
+    "failureEngine": "chromium",
+    "differentChannelsPerCase": 1600,
+    "runtimeOnlyAblation": "Final fixture and controls with only resource-loader.ts/svg-references.ts reverted to 29bcc92; restored in finally and verified byte equality."
+  },
+  "candidate": {
+    "sameNativeCases": 6,
+    "failed": 0,
+    "targetedWithHTTPResourceAndImportControls": 99
+  },
+  "full": {
+    "coverage": 1108,
+    "coverageSkipped": 4,
+    "source": 989,
+    "sourceSkipped": 4,
+    "package": 156,
+    "lintBuildTypesTarballConsumers": "pass"
+  },
+  "resourceContract": [
+    "load still returns Blob and the same cached pending Promise",
+    "Final URL metadata uses the same full resource/kind/MIME cache key",
+    "Custom shared Blob keeps separate requested bases",
+    "Legacy query-omitting cache metadata follows actual reused bytes",
+    "Loader clear drops metadata; late fetch cannot restore it",
+    "Only owned cache-busting nonce is removed from document identity; caller query preserved",
+    "Final SVG response address registered as a scope alias"
+  ],
+  "initialFailures": {
+    "queriedSVGAndUnqueriedPaint": {
+      "native": "purple fallback",
+      "initialReference": "incorrect green",
+      "baselineNativeExportDifference": 2800,
+      "baselineNativeReferenceDifference": 3600,
+      "candidateNativeExportDifference": 3600,
+      "scope": "Retained invalid fixture/reference observation, not final before/after acceptance. Query-qualified paint support remains open.",
+      "candidateExportAuthoredDifference": 0,
+      "candidateNativeReferenceDifference": 3600
+    },
+    "insecureDeviceFixtureID": "crypto.randomUUID unavailable on USB HTTP origin; failed before screenshots. Final fixture uses getRandomValues; initial diagnostic retained.",
+    "initialFullDesktop": "5ece820 passed 1108/989/156 before the insecure-origin ID correction; final bafedeb repeats the full suite."
+  },
+  "device": {
+    "sourceCommit": "bafedeb9720a89b3c6fad0c98f70b51e2f7bdab1",
+    "capabilities": {
+      "platformName": "iOS",
+      "safari:platformVersion": "26.6.1",
+      "browserVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "nativeComparisons": 4,
+    "beforeAfterPhotographs": 8,
+    "directAndRedirectTiles": 12,
+    "cacheBustModes": [false, true],
+    "formats": ["esm", "umd"],
+    "fileCSSActive": false,
+    "positiveActiveCSSClaim": false,
+    "cancellationControls": 4,
+    "smoke": {
+      "PASS": 36,
+      "INFO": 2,
+      "FAIL": 0
+    },
+    "smokeReceipt": "3075cf8e-893b-45ef-a767-33ce24b3b735",
+    "gcClaim": false,
+    "sessionEnded": true,
+    "serverEnded": true
+  },
+  "previousMain": {
+    "source": "29bcc921b548ae4d83c2fa8313eab189ef58aed1",
+    "pr": 642,
+    "head": "a7eae30eb4c0c543cdbfa08d0c4de7e6146184b8",
+    "prCI": 43651983816,
+    "prCodeQL": 43651983823,
+    "patchCoverage": 100.0,
+    "patchTarget": 86.99,
+    "projectCoverage": 87.0,
+    "masterCI": 43652637169,
+    "masterCodeQL": 43652637103,
+    "conclusions": "success",
+    "counts": [1084, 965, 153]
+  },
+  "rawArchiveFiles": 259,
+  "archives": {
+    "baseline": 25,
+    "candidate": 30,
+    "initial": 102,
+    "iphone": 39,
+    "observations": 63
+  },
+  "observedRemaining": {
+    "iPhone": "Qualified paint uses purple fallback, fragment-only #paint uses containing-page blue while current export embeds file green/red. Flat/color controls and before/after native pixels agree.",
+    "desktop": "Attribute/inline relative bases still differ in Firefox/WebKit; queried SVG versus unqueried paint can remain native purple while export embeds green.",
+    "probeLimit": "Clip hit-testing is not yet a universal paint-policy proxy; visiblePainted reports missing-paint hits in Firefox/WebKit. Sentinel base preserves selectors but can lose original relative-path provenance."
+  },
+  "remaining": [
+    "Relative attribute/inline SVG URLs",
+    "Fragment paint page/file scope",
+    "Native unsupported qualified and query-distinct paint URLs",
+    "Broader redirect/base combinations",
+    "Opaque matching rules and restricted CSP",
+    "HTTP file CSS/fonts and native compositor differences",
+    "Original 20 MB SPA pressure, browser caches, WebKit/device GC"
+  ]
+}

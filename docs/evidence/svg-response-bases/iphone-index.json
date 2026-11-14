@@ -1,0 +1,201 @@
+{
+  "archive": "iphone-raw.tar.gz",
+  "archiveSHA256": "3cf36ca726556080aa1ffaf1b144e0e1c16901d83c319cdc0d4a5728bb93cfd6",
+  "files": [
+    {
+      "path": "bafedeb-full.json",
+      "bytes": 4287,
+      "sha256": "d7e7816a4781c011c66262a9f3398f1ef9ebb808255e9456d26db01edbaabe1c"
+    },
+    {
+      "path": "cancel-summary.json",
+      "bytes": 1144,
+      "sha256": "0f523654539b97bc54f94e4f90f60d5ab9630dca6ab4804f77f92bb374f8147e"
+    },
+    {
+      "path": "cancel.log",
+      "bytes": 1145,
+      "sha256": "fd4754f4b983025a1b5e2edadbfb0b012daf73bce2c7509111718618d604cedc"
+    },
+    {
+      "path": "client.py",
+      "bytes": 634,
+      "sha256": "b091468b191cb090e1f9c73fe716e5cd8ba22881aec3fe5540e4fedf3da6cf2b"
+    },
+    {
+      "path": "esm-false-1-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "esm-false-1-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    },
+    {
+      "path": "esm-false-2-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "esm-false-2-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    },
+    {
+      "path": "esm-svg-response-urls-false-authored.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "esm-svg-response-urls-false-capture.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "esm-svg-response-urls-false-native.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "esm-svg-response-urls-true-authored.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "esm-svg-response-urls-true-capture.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "esm-svg-response-urls-true-native.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "esm-true-3-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "esm-true-3-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    },
+    {
+      "path": "esm-true-4-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "esm-true-4-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    },
+    {
+      "path": "response-summary.json",
+      "bytes": 20045,
+      "sha256": "20b034b0209f94711c3ebb90f0ad713d93cd0435f1e6c70f70a23ac978d0f2d5"
+    },
+    {
+      "path": "response.log",
+      "bytes": 74,
+      "sha256": "d52f5db9fb5abdfb8095eee71eab9f310981e0d4f75776a9bad3877f2d528dbc"
+    },
+    {
+      "path": "run-cancel.py",
+      "bytes": 3408,
+      "sha256": "8bb091640a751e8bbc0d101d0b9c6be8753d8198e0cf14419929b519642781d0"
+    },
+    {
+      "path": "run-response.py",
+      "bytes": 4060,
+      "sha256": "d2758c7898b9845d39551801c86d7a6608b358c78302694707bd5c3379b8a397"
+    },
+    {
+      "path": "run-smoke.py",
+      "bytes": 1632,
+      "sha256": "4161b8e8ddd1ff53864244cf9887a5dcd428f3a847c61f2f2b977d80e63756d1"
+    },
+    {
+      "path": "smoke-server-receipt.json",
+      "bytes": 2405,
+      "sha256": "bc9000203f56bab84db9350903db605fc7778937cf63395c96473a3665e6b842"
+    },
+    {
+      "path": "smoke.log",
+      "bytes": 4288,
+      "sha256": "c9d92c60164111f85c9fe41e8424a2ff9a27ab01409c6c7b3d3720f6bd8a44be"
+    },
+    {
+      "path": "umd-false-5-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "umd-false-5-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    },
+    {
+      "path": "umd-false-6-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "umd-false-6-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    },
+    {
+      "path": "umd-svg-response-urls-false-authored.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "umd-svg-response-urls-false-capture.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "umd-svg-response-urls-false-native.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "umd-svg-response-urls-true-authored.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "umd-svg-response-urls-true-capture.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "umd-svg-response-urls-true-native.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "umd-true-7-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "umd-true-7-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    },
+    {
+      "path": "umd-true-8-native.png",
+      "bytes": 143,
+      "sha256": "b0571c9299b11cd700aec7b1bcdc66a6a33ada40bef8c304a3e39a659c42378b"
+    },
+    {
+      "path": "umd-true-8-screen.png",
+      "bytes": 131469,
+      "sha256": "fa1ddfb5025c864bf41931bf86f1c6f81a5472ac1a7d9ad8f50fd77d622d81b2"
+    }
+  ]
+}

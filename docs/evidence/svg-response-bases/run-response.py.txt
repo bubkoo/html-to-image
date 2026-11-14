@@ -1,0 +1,55 @@
+from client import call,execute,folder,session
+import json,time,base64,io,hashlib,subprocess,re
+from PIL import Image
+head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+address=re.search(r'\binet\s+(\d+\.\d+\.\d+\.\d+)',subprocess.check_output(['ifconfig','en15'],text=True)).group(1)
+call('/timeouts',{'pageLoad':60000,'script':60000})
+call('/url',{'url':'http://'+address+':4373/test/browser/svg-native-device.html?response='+head},timeout=65)
+script='''
+window.responseRecords=[];window.responsePhotos=0;window.responseScene=null;window.responseDone=null;
+(async()=>{
+ const fixture=await import('/test/browser/fixtures/svg-response-urls.mjs'),esm=await import('/es/index.js'),results=[];
+ for(const [format,api] of [['esm',esm],['umd',window.htmlToImage]])for(const cacheBust of [false,true]){
+  const result=await fixture.checkSVGResponseURLs(api,cacheBust,async id=>new Promise(resolve=>{
+   window.deliverResponsePixels=pixels=>{window.responseScene=null;resolve(new ImageData(new Uint8ClampedArray(pixels),100,20))};
+   window.responseScene={sequence:++window.responsePhotos,name:format+'-'+cacheBust,rect:document.getElementById(id).getBoundingClientRect().toJSON(),viewport:{width:innerWidth,height:innerHeight}};
+  }),record=>window.responseRecords.push({...record,format}));
+  results.push({format,cacheBust,...result});
+ }
+ return {results};
+})().then(value=>window.responseDone=value).catch(error=>window.responseDone={error:String(error),stack:error.stack});return true;
+'''
+execute(script)
+seen=0;photos=[];deadline=time.monotonic()+180
+while time.monotonic()<deadline:
+ state=execute('return {scene:window.responseScene,done:window.responseDone}')
+ if state['done']:
+  if state['done'].get('error'):
+   (folder/'response-error.json').write_text(json.dumps(state['done'],indent=2));raise RuntimeError(json.dumps(state['done']))
+  break
+ scene=state['scene']
+ if not scene or scene['sequence']==seen:time.sleep(.1);continue
+ seen=scene['sequence'];name=scene['name']+'-'+str(seen)
+ raw=base64.b64decode(call('/screenshot'));(folder/(name+'-screen.png')).write_bytes(raw)
+ image=Image.open(io.BytesIO(raw));profile=image.info.get('icc_profile');rgba=image.convert('RGBA');scale=rgba.width/scene['viewport']['width'];rect=scene['rect'];cx=round((rect['x']+90.5)*scale)
+ rows=[y for y in range(rgba.height) if rgba.getpixel((cx,y))==(255,255,0,255)];runs=[]
+ for y in rows:
+  if not runs or y!=runs[-1][-1]+1:runs.append([y])
+  else:runs[-1].append(y)
+ valid=[r for r in runs if len(r)==round(20*scale)]
+ if len(valid)!=1:raise RuntimeError('yellow geometry control invalid '+str([(r[0],len(r)) for r in runs]))
+ top=valid[0][0];left=round(rect['x']*scale);pixels=[];crop=Image.new('RGBA',(100,20))
+ for y in range(20):
+  for x in range(100):
+   value=rgba.getpixel((left+int((x+.5)*scale),top+int((y+.5)*scale)));pixels.extend(value);crop.putpixel((x,y),value)
+ crop.save(folder/(name+'-native.png'))
+ photos.append({**scene,'screenSize':rgba.size,'sampleScale':scale,'yellowControlTop':top,'screenSHA256':hashlib.sha256(raw).hexdigest(),'nativeRGBA_SHA256':hashlib.sha256(bytes(pixels)).hexdigest(),'iccProfileSHA256':hashlib.sha256(profile).hexdigest() if profile else None})
+ execute('window.deliverResponsePixels('+json.dumps(pixels)+');return true')
+else:raise RuntimeError('native response verification timed out')
+records=execute('return window.responseRecords')
+for record in records:
+ name=record['format']+'-'+record['kind']
+ for field in ['native','capture','authored']:
+  (folder/(name+'-'+field+'.png')).write_bytes(base64.b64decode(record.pop(field)))
+summary={'sourceCommit':head,'capabilities':{k:session['capabilities'].get(k) for k in ['platformName','safari:platformVersion','browserVersion','safari:deviceType','safari:useSimulator']},'photos':photos,'runs':state['done']['results'],'records':records}
+(folder/'response-summary.json').write_text(json.dumps(summary,indent=2));print(json.dumps({'passed':len(summary['runs']),'photos':len(photos),'fileCSSActive':[r['policy']['file'] for r in records]}))
