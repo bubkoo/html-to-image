@@ -1,0 +1,15 @@
+{
+  "browser": "chromium",
+  "network": [
+    "/test/browser/umd.html?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7",
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7",
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7&control=1"
+  ],
+  "scriptRan": 1,
+  "requests": [
+    "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f678f2bc-581f-4d65-96b6-775166959bd7"
+  ],
+  "engine": "chromium",
+  "kind": "svg-style-resource-policy"
+}

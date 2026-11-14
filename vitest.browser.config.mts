@@ -29,6 +29,7 @@ const fixtureTypes: Record<string, string> = {
 }
 const root = process.cwd()
 const resourcePolicy = resourcePolicyServer(root)
+const svgStyleTraces = new Map<string, string[]>()
 
 export default defineConfig({
   optimizeDeps: { include: ['pixelmatch'] },
@@ -37,6 +38,10 @@ export default defineConfig({
       name: 'serve-legacy-fixtures',
       configureServer(server) {
         server.middlewares.use(async (request, response, next) => {
+          const path = request.url || ''
+          svgStyleTraces.forEach((urls, marker) => {
+            if (path.includes(marker)) urls.push(path)
+          })
           if (await resourcePolicy(request, response)) return
           const pathname = new URL(request.url || '/', 'http://localhost')
             .pathname
@@ -84,6 +89,16 @@ export default defineConfig({
       headless: true,
       provider: playwright(),
       commands: {
+        async startSVGStyleResourceTrace(_, marker: string) {
+          svgStyleTraces.set(marker, [])
+        },
+        async endSVGStyleResourceTrace({ page }, marker: string) {
+          await page.waitForLoadState('networkidle', { timeout: 5000 })
+          const trace = svgStyleTraces.get(marker)
+          if (!trace) throw new Error('SVG style trace is missing')
+          svgStyleTraces.delete(marker)
+          return trace
+        },
         async collectGarbage({ page }) {
           await page.requestGC()
         },

@@ -1,0 +1,13 @@
+{
+  "browser": "webkit",
+  "network": [
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-56ba8a7a-d031-4976-b93e-554a2ba787f8&control=1"
+  ],
+  "scriptRan": 0,
+  "requests": [
+    "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-56ba8a7a-d031-4976-b93e-554a2ba787f8"
+  ],
+  "engine": "webkit",
+  "kind": "svg-style-resource-policy"
+}

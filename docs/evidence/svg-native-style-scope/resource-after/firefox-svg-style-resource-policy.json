@@ -1,0 +1,13 @@
+{
+  "browser": "firefox",
+  "network": [
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-902da4b8-782b-4858-bcb9-b13b9fe05069&control=1"
+  ],
+  "scriptRan": 0,
+  "requests": [
+    "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-902da4b8-782b-4858-bcb9-b13b9fe05069"
+  ],
+  "engine": "firefox",
+  "kind": "svg-style-resource-policy"
+}

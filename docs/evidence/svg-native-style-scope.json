@@ -1,0 +1,43 @@
+{
+  "contract": "User selected current browser live-page fidelity on 2026-11-15",
+  "status": "Candidate locally verified; real iPhone and remote checks pending. Does not complete PR 585.",
+  "baseline": {
+    "runtime": "a64b831",
+    "total": 75,
+    "failed": 47,
+    "passed": 28,
+    "nativeStyleCasesPerEngine": 24
+  },
+  "candidate": {
+    "total": 81,
+    "passed": 81,
+    "nativeStyleChecks": 72,
+    "dependencyGraphs": 3,
+    "resourceAndAbortChecks": 6
+  },
+  "full": {
+    "coverage": 379,
+    "coverageSkipped": 1,
+    "source": 779,
+    "sourceSkipped": 4,
+    "package": 144,
+    "lintBuildTypesTarball": "pass"
+  },
+  "oracle": "Native source screenshot pixels, all RGBA channels exact; independent HTTP geometry policy validates authored package references against actual native screenshots. No tolerance expansion.",
+  "security": "Before isolation all three engines issue real HTTP loads outside the resolver; after isolation server receives only an explicit control fetch, scripts/events remain zero, cancellation removes the frame.",
+  "scope": [
+    "file versus page selectors, cascade and use inheritance",
+    "independent host colors and custom properties with single asset fetch",
+    "media/type and styles inside symbols",
+    "page paint/clip URLs, nested external styles, late CSS mutation",
+    "unrelated opaque stylesheet warning instead of abort",
+    "fragmentless roots preserve native support with same-file fragment positive control"
+  ],
+  "boundaries": [
+    "No claim for all of original PR 585",
+    "Matching rules in unreadable cross-origin stylesheets are unavailable and diagnosed",
+    "External file CSS imports and font-face resources still need native cases",
+    "Redirect/relative-paint native mismatches remain open",
+    "Nested reference support as a whole is not certified; the style fixture has an explicit native visible fallback"
+  ]
+}

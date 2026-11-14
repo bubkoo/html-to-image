@@ -1,0 +1,13 @@
+{
+  "browser": "chromium",
+  "network": [
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-273efd3c-0397-419f-9454-b503d5364a40&control=1"
+  ],
+  "scriptRan": 0,
+  "requests": [
+    "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-273efd3c-0397-419f-9454-b503d5364a40"
+  ],
+  "engine": "chromium",
+  "kind": "svg-style-resource-policy"
+}
