@@ -1,5 +1,11 @@
 # 开放 PR 处理台账
 
+## 2026-11-14 补充验收：#634 真机 30/30
+
+准确源码 `1626445` 的 PR CI 42976558545、CodeQL 42976558526 与 Codecov patch/project 均通过；真实 USB iPhone Safari 26.6.1 完整 smoke 30/30，12 种盒模型/滚动输入无跳过。[原始报告](evidence/ios-safari-scrollbar-box-1626445.json)和[逐项几何记录](evidence/ios-scrollbar-box-metrics-1626445.json)已归档。本次手机使用悬浮滚动条，stable gutter 实际占位为零；此结果证明移动端兼容，不能替代桌面占位滚动条的严格源截图对照。设备 OS 版本来自 SafariDriver capabilities（26.6.1）；UA 的 `CPU iPhone OS 18_7` 是兼容 token，不是实测系统版本。
+
+本次仅补充文档/证据，已核对运行时、fixture、配置的 SHA256 与真机源码一致。证据提交的最终检查通过后合入 #634。下方 11 月 11 日“没有手机/待真机”是历史状态。完整原生滚动外观和两项 WebKit 像素差异仍未解决；#398 手动预览的可信点击、新标签和清理也仍待独立验证。未关闭旧 PR，未发布 npm。
+
 ## 2026-11-11 最新状态：滚动条占位尺寸候选 #634
 
 #632 已合入 master 67b2ec2，#633 已合入 master 7d8d350；各自准确源码的真机验收已归档。#633 最终 head 1c6b184 的 PR CI 42961919142、CodeQL 42961919318、Codecov，以及 master CI 42962301112 / CodeQL 42962301137 全部通过。下方较早的“待验/未合并”文字保留为历史阶段，不代表当前状态。

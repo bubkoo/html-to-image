@@ -11,3 +11,9 @@
 - 通过 getPropertyValue 读取可选 scrollbar-gutter；旧浏览器可能没有对应 IDL 属性，该方法仍安全返回空字符串。
 
 - 浏览器专用启动选项只能放在对应实例/项目里。Mac WebKit 可能忽略 Chromium 选项，Linux WebKit 会直接报 Unknown option；本地全过不能代替远端跨平台验收。
+
+## 2026-11-14 真机证据边界
+
+- 真实设备通过全部 30 项 smoke、12 组盒控制，但悬浮滚动条没有占位；不能把移动端兼容通过写成在 iPhone 复现了桌面重复扣除根因。
+- Safari UA 的 CPU iPhone OS 18_7 可以是兼容 token；实际系统版本要读取会话 capabilities（本次 26.6.1）。
+- 页面 DONE 只代表断言结束；必须等待 REPORT SAVED 和服务器对应 receipt，才能确认报告落盘。暂停前的报告已回读确认，无须重跑全部测试。

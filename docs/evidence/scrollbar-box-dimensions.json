@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-11T07:01:18.633767+00:00",
-  "status": "Draft PR #634; final local complete check passed, exact-commit real iPhone and remote CI pending",
+  "checkedAt": "2026-11-14T15:58:12.338681+00:00",
+  "status": "PR #634: full local and exact-source remote checks passed; real USB iPhone complete 30/30 and 12 box controls passed; evidence-only head checks pending",
   "base": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
   "sourcePRs": [408],
   "relatedIssues": [81, 345],
@@ -62,8 +62,8 @@
     "Existing scrolled content viewport preserved with and without stable gutters; source DOM and offsets unchanged.",
     "Legacy scrollbar rules are inside the captured tree; copying external pseudo scrollbar CSS and full #345 thumb appearance/position remain unresolved.",
     "The parked native-scroll prototype b9e9d5b is not included: two strict WebKit source-pixel failures remain.",
-    "No iPhone currently present in USB inventory; Safari reports devices found but unusable. Earlier #632/#633 native records do not attest to this change.",
-    "The #398 manual page is not validated: USB/LAN unreachable; temporary tunnel could not be established (DNS failure, managed Mac security blocked cloudflared). Security settings unchanged."
+    "The #398 manual page is not validated: USB/LAN unreachable; temporary tunnel could not be established (DNS failure, managed Mac security blocked cloudflared). Security settings unchanged.",
+    "ESM and UMD complete smoke; 10 zero-offset exact authored-SVG/geometry controls plus two strict scrolled content controls. Device uses overlay scrollbars: stable gutter has zero occupied thickness, so desktop occupied-scrollbar branch is not independently exercised on iPhone. No native-element screenshot oracle in the mobile fixture."
   ],
   "cases": [
     {
@@ -667,5 +667,38 @@
     "sourceSkipped": 3,
     "sourceEnginesCompleted": ["chromium", "firefox"],
     "webkitLaunchFailure": "Unknown option --disable-features=OverlayScrollbar,FluentOverlayScrollbar. Chromium-only options were incorrectly passed globally. Limit them to Chromium instances/projects; final run must include WebKit."
+  },
+  "remoteValidatedSource": {
+    "revision": "1626445d4f38d7d6ced9017edc3f794971b2a3c5",
+    "testedMerge": "2f6b44d5edde0f05c4c39560fad76ec9bf61d139",
+    "ciRun": 42976558545,
+    "codeqlRun": 42976558526,
+    "ci": "success",
+    "codeql": "success",
+    "codecov": "patch and project success",
+    "coveragePassed": 349,
+    "coverageSkipped": 1,
+    "sourcePassed": 689,
+    "sourceSkipped": 4,
+    "packagePassed": 138
+  },
+  "native": {
+    "revision": "1626445d4f38d7d6ced9017edc3f794971b2a3c5",
+    "report": "ios-safari-scrollbar-box-1626445.json",
+    "selectedReport": "ios-scrollbar-box-selected-1626445.json",
+    "boxMetrics": "ios-scrollbar-box-metrics-1626445.json",
+    "complete": true,
+    "passed": 30,
+    "failed": 0,
+    "reportId": "3403f165-4db7-4ad2-9ec3-1a730460f531",
+    "platform": "real USB iPhone, not simulator",
+    "platformVersion": "26.6.1",
+    "browserVersion": "26.6.1",
+    "dpr": 3,
+    "boxCases": 12,
+    "skippedCases": 0,
+    "scope": "ESM and UMD complete smoke; 10 zero-offset exact authored-SVG/geometry controls plus two strict scrolled content controls. Device uses overlay scrollbars: stable gutter has zero occupied thickness, so desktop occupied-scrollbar branch is not independently exercised on iPhone. No native-element screenshot oracle in the mobile fixture.",
+    "versionProvenance": "SafariDriver capabilities safari:platformVersion=26.6.1. UA CPU iPhone OS 18_7 is a legacy token, not measured OS version.",
+    "sourceIdentity": "Only evidence/documentation added after native source revision; sourceSHA256 verified unchanged."
   }
 }
