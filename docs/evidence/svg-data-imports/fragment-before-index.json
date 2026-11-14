@@ -1,0 +1,66 @@
+{
+  "archive": "fragment-before-raw.tar.gz",
+  "archiveSHA256": "2fd00b1240111a94491e0d36d4045485c194ce8ea69c311c2de41ea1e132dcdc",
+  "files": [
+    {
+      "path": "chromium-svg-data-import-paint-fragment-authored.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment-capture.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment-native.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment.json",
+      "bytes": 1464,
+      "sha256": "e6cc69f36c7788cb03d43da8986d01fe2ad37559f1c371a2ed34d18eebf4e97c"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-authored.png",
+      "bytes": 159,
+      "sha256": "36ddd78dcad929032890df86dde2afabebc4230a674b90ea443c85fa28c56ac1"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-capture.png",
+      "bytes": 159,
+      "sha256": "36ddd78dcad929032890df86dde2afabebc4230a674b90ea443c85fa28c56ac1"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-native.png",
+      "bytes": 159,
+      "sha256": "36ddd78dcad929032890df86dde2afabebc4230a674b90ea443c85fa28c56ac1"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment.json",
+      "bytes": 1467,
+      "sha256": "fa96e16e4eaacf7d1230d6570b71b9742cee9668b79e26e63a7569944f1f2d70"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment.json",
+      "bytes": 1466,
+      "sha256": "5dc2ef02684fe234f8db327e3285bfe9419ec3b327e8b5a0b4876d1e552a7e2c"
+    }
+  ]
+}

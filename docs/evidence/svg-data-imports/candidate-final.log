@@ -2,8 +2,8 @@
  RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
 
 
- Test Files  18 passed (18)
-      Tests  93 passed (93)
-   Start at  05:21:44
-   Duration  4.46s (tests 67%, worker 29%, import 5%)
+ Test Files  21 passed (21)
+      Tests  138 passed (138)
+   Start at  05:52:31
+   Duration  4.58s (tests 60%, worker 36%, import 3%)
 

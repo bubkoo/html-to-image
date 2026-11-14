@@ -1,6 +1,6 @@
 {
   "archive": "baseline-raw.tar.gz",
-  "archiveSHA256": "f55c74df80cd62313407377226c884c2b375801a52461457652678c1508a012b",
+  "archiveSHA256": "bc27fc8ccb38f90abae2097d41cc659ba42a8ecd8176a4c07e5ee913be6518dc",
   "files": [
     {
       "path": "chromium-svg-data-import-basic-authored.png",
@@ -283,6 +283,26 @@
       "sha256": "1329083bead354f0cca945ba25e958465a8c4fdd5c4b43a8c8b2aa948b12fb61"
     },
     {
+      "path": "chromium-svg-data-import-paint-fragment-authored.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment-capture.png",
+      "bytes": 159,
+      "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment-native.png",
+      "bytes": 158,
+      "sha256": "4e240426bcfa39775cc4d939d6fdf7d23c7638ac416d37e30b101dea0f9ef4ac"
+    },
+    {
+      "path": "chromium-svg-data-import-paint-fragment.json",
+      "bytes": 1464,
+      "sha256": "e6cc69f36c7788cb03d43da8986d01fe2ad37559f1c371a2ed34d18eebf4e97c"
+    },
+    {
       "path": "chromium-svg-data-import-style-type-authored.png",
       "bytes": 159,
       "sha256": "a15f6bed5b2f0161b940bd9216ab3ece2370ee7616473ea864d99922575870ae"
@@ -385,17 +405,17 @@
     {
       "path": "firefox-svg-data-import-basic-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-basic-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-basic-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-basic.json",
@@ -405,17 +425,17 @@
     {
       "path": "firefox-svg-data-import-charset-bom-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-bom-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-bom-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-bom.json",
@@ -425,17 +445,17 @@
     {
       "path": "firefox-svg-data-import-charset-header-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-header-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-header-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-header.json",
@@ -445,17 +465,17 @@
     {
       "path": "firefox-svg-data-import-charset-invalid-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-invalid-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-invalid-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-invalid.json",
@@ -465,17 +485,17 @@
     {
       "path": "firefox-svg-data-import-charset-rule-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-rule-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-rule-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-rule.json",
@@ -485,17 +505,17 @@
     {
       "path": "firefox-svg-data-import-charset-utf16-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-utf16-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-utf16-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-charset-utf16.json",
@@ -505,17 +525,17 @@
     {
       "path": "firefox-svg-data-import-invalid-data-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-invalid-data-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-invalid-data-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-invalid-data.json",
@@ -525,42 +545,42 @@
     {
       "path": "firefox-svg-data-import-layer-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-inline-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-inline-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-inline-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-inline-only-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-inline-only-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-inline-only-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-inline-only.json",
@@ -575,22 +595,22 @@
     {
       "path": "firefox-svg-data-import-layer-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-only-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-only-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-only-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-layer-only.json",
@@ -605,17 +625,17 @@
     {
       "path": "firefox-svg-data-import-media-active-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-media-active-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-media-active-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-media-active.json",
@@ -625,17 +645,17 @@
     {
       "path": "firefox-svg-data-import-media-inactive-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-media-inactive-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-media-inactive-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-media-inactive.json",
@@ -645,17 +665,17 @@
     {
       "path": "firefox-svg-data-import-nested-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-nested-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-nested-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-nested.json",
@@ -663,19 +683,39 @@
       "sha256": "94eb62f78847b6a86cd8e01e58977e93d9ef4384fe5d3e15c0a849fa7e7b1fe9"
     },
     {
+      "path": "firefox-svg-data-import-paint-fragment-authored.png",
+      "bytes": 159,
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-capture.png",
+      "bytes": 159,
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment-native.png",
+      "bytes": 159,
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
+    },
+    {
+      "path": "firefox-svg-data-import-paint-fragment.json",
+      "bytes": 1467,
+      "sha256": "fa96e16e4eaacf7d1230d6570b71b9742cee9668b79e26e63a7569944f1f2d70"
+    },
+    {
       "path": "firefox-svg-data-import-style-type-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-style-type-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-style-type-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-style-type.json",
@@ -685,17 +725,17 @@
     {
       "path": "firefox-svg-data-import-supports-active-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-active-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-active-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-active.json",
@@ -705,17 +745,17 @@
     {
       "path": "firefox-svg-data-import-supports-header-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-header-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-header-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-header.json",
@@ -725,17 +765,17 @@
     {
       "path": "firefox-svg-data-import-supports-inactive-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-inactive-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-inactive-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-supports-inactive.json",
@@ -745,17 +785,17 @@
     {
       "path": "firefox-svg-data-import-wrong-mime-authored.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-wrong-mime-capture.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-wrong-mime-native.png",
       "bytes": 159,
-      "sha256": "2bb45da7d9425a8d05be91d4adbf9c457ad389e96a36bf357fe5aa268a5191ad"
+      "sha256": "ff7c00c271adc540f7d7ab5708d2c6a7e83add43dbebaab560a35cd115fc00bd"
     },
     {
       "path": "firefox-svg-data-import-wrong-mime.json",
@@ -1041,6 +1081,26 @@
       "path": "webkit-svg-data-import-nested.json",
       "bytes": 1432,
       "sha256": "f588a41e1cd66bbc85400eea8b9a1406d58bf75a2090db3bba3f8e161412dfd8"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-authored.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-capture.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment-native.png",
+      "bytes": 241,
+      "sha256": "c1fc9c2eda9af0a74a736ea70d6a7f21e28315524eaf172ab428cbf70be5f9d5"
+    },
+    {
+      "path": "webkit-svg-data-import-paint-fragment.json",
+      "bytes": 1466,
+      "sha256": "5dc2ef02684fe234f8db327e3285bfe9419ec3b327e8b5a0b4876d1e552a7e2c"
     },
     {
       "path": "webkit-svg-data-import-style-type-authored.png",

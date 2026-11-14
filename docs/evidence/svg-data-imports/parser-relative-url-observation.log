@@ -1,0 +1,125 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/svg-style-import-parser.test.ts (3 tests | 1 failed) 101ms
+   × SVG import preparation retains native HTML CSS semantics for urls 86ms
+ ❯ |webkit| test/browser-unit/svg-style-import-parser.test.ts (3 tests | 1 failed) 93ms
+   × SVG import preparation retains native HTML CSS semantics for urls 76ms
+ ❯ |firefox| test/browser-unit/svg-style-import-parser.test.ts (3 tests | 1 failed) 78ms
+   × SVG import preparation retains native HTML CSS semantics for urls 64ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/svg-style-import-parser.test.ts > SVG import preparation retains native HTML CSS semantics for urls
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-import-parser.test.ts/SVG-import-preparation-retains-native-HTML-CSS-semantics-for-urls.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[32m-   "fill": "url(\"#owned-paint\") rgb(0, 128, 0)",[39m
+[32m-   "stroke": "url(\"relative.svg#missing\") rgb(0, 0, 255)",[39m
+[31m+   "fill": "url(\"data:text/css,%40supports%20(display%3Agrid)%7B.shape%7Bfill%3Aurl(%22%23owned-paint%22)%20green%3Bstroke%3Aurl(%22relative.svg%23missing%22)%20blue%7D%7D#owned-paint\") rgb(0, 128, 0)",[39m
+[31m+   "stroke": "url(\"http://localhost:63315/relative.svg#missing\") rgb(0, 0, 255)",[39m
+[2m  }[22m
+
+ ❯ test/browser-unit/svg-style-import-parser.test.ts:57:60
+     55|       doc.body.append(host)
+     56|       const actual = view.getComputedStyle(shadow.querySelector('rect'…
+     57|       expect({ fill: actual.fill, stroke: actual.stroke }).toEqual(exp…
+       |                                                            ^
+     58|     } finally {
+     59|       frame.remove()
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |firefox| test/browser-unit/svg-style-import-parser.test.ts > SVG import preparation retains native HTML CSS semantics for urls
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-import-parser.test.ts/SVG-import-preparation-retains-native-HTML-CSS-semantics-for-urls.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[32m-   "fill": "url(\"#owned-paint\") rgb(0, 128, 0)",[39m
+[32m-   "stroke": "url(\"about:invalid\") rgb(0, 0, 255)",[39m
+[31m+   "fill": "url(\"data:text/css,%40supports%20(display%3Agrid)%7B.shape%7Bfill%3Aurl(%22%23owned-paint%22)%20green%3Bstroke%3Aurl(%22relative.svg%23missing%22)%20blue%7D%7D#owned-paint\") rgb(0, 128, 0)",[39m
+[31m+   "stroke": "url(\"http://localhost:63315/relative.svg#missing\") rgb(0, 0, 255)",[39m
+[2m  }[22m
+
+ ❯ test/browser-unit/svg-style-import-parser.test.ts:57:60
+     55|       doc.body.append(host)
+     56|       const actual = view.getComputedStyle(shadow.querySelector('rect'…
+     57|       expect({ fill: actual.fill, stroke: actual.stroke }).toEqual(exp…
+       |                                                            ^
+     58|     } finally {
+     59|       frame.remove()
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |webkit| test/browser-unit/svg-style-import-parser.test.ts > SVG import preparation retains native HTML CSS semantics for urls
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-import-parser.test.ts/SVG-import-preparation-retains-native-HTML-CSS-semantics-for-urls.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[32m-   "fill": "url(\"#owned-paint\") rgb(0, 128, 0)",[39m
+[32m-   "stroke": "url(\"relative.svg#missing\") rgb(0, 0, 255)",[39m
+[31m+   "fill": "url(\"data:text/css,%40supports%20(display%3Agrid)%7B.shape%7Bfill%3Aurl(%22%23owned-paint%22)%20green%3Bstroke%3Aurl(%22relative.svg%23missing%22)%20blue%7D%7D#owned-paint\") rgb(0, 128, 0)",[39m
+[31m+   "stroke": "url(\"http://localhost:63315/relative.svg#missing\") rgb(0, 0, 255)",[39m
+[2m  }[22m
+
+ ❯ test/browser-unit/svg-style-import-parser.test.ts:57:60
+     55|       doc.body.append(host)
+     56|       const actual = view.getComputedStyle(shadow.querySelector('rect'…
+     57|       expect({ fill: actual.fill, stroke: actual.stroke }).toEqual(exp…
+       |                                                            ^
+     58|     } finally {
+     59|       frame.remove()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  3 failed | 6 passed (9)
+   Start at  05:40:30
+   Duration  1.31s (tests 52%, worker 43%, import 4%)
+

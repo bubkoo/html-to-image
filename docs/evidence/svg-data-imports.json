@@ -1,28 +1,30 @@
 {
-  "productionSource": "577243a58a39435db87fdc86872dc60c829e71d0",
-  "fixtureSource": "cfa7d02b6a63deb0b01da89ad8f5cfa79112d13d",
+  "productionSource": "37ea1172547a74436a5f8449982a2fba52b220f3",
+  "fixtureSource": "37ea1172547a74436a5f8449982a2fba52b220f3",
   "baseCommit": "270ecb426b6fb82845017c8e4dce4fd0635a18ea",
   "contract": "Current browser live-page appearance",
-  "status": "Measured scoped repair; final-head remote gates belong to PR checks",
+  "status": "Final source passed local full suite and real iPhone; final-head remote gates pending",
   "baseline": {
-    "failed": 21,
-    "passed": 72,
-    "sameFinalControls": 93
+    "sameFinalNativeOwnershipControls": 102,
+    "failed": 28,
+    "passed": 74
   },
   "candidate": {
-    "passed": 93,
+    "nativeOwnershipPassed": 102,
+    "nativeHTMLParserPassed": 36,
+    "totalPassed": 138,
     "failed": 0
   },
   "fullLocalProduction": {
-    "coverage": 1015,
+    "coverage": 1060,
     "coverageSkipped": 4,
-    "source": 896,
+    "source": 941,
     "sourceSkipped": 4,
     "package": 153,
     "lintBuildTypesTarballConsumers": "pass"
   },
   "finalFixture": {
-    "targeted": 93,
+    "targeted": 138,
     "package": 153,
     "lint": "pass"
   },
@@ -35,9 +37,9 @@
       "safari:useSimulator": false
     },
     "existingNativeComparisons": 56,
-    "newNativeComparisons": 38,
-    "newBeforeAfterPhotos": 76,
-    "totalNativeComparisons": 94,
+    "newNativeComparisons": 40,
+    "newBeforeAfterPhotos": 80,
+    "totalNativeComparisons": 96,
     "cancellationControls": 4,
     "gcClaim": false,
     "smoke": {
@@ -45,9 +47,10 @@
       "INFO": 2,
       "FAIL": 0
     },
-    "smokeReceipt": "579f7cfe-88fc-476c-96f6-96a69ed21b38",
+    "smokeReceipt": "32c49b91-a4a4-4610-87af-a559e025e47d",
     "sessionEnded": true,
-    "serverEnded": true
+    "serverEnded": true,
+    "sourceCommit": "37ea1172547a74436a5f8449982a2fba52b220f3"
   },
   "cancellationAblation": "Keeping frame removal but reverting resolver race fails forced-GC assertions in Chromium and Firefox; fixed version passes while foreign resolver remains pending. WebKit DOM/reason/source only.",
   "readinessFailure": "Initial geometry-ready source photo was white, later red with unchanged markup. Added two paint frames; exact assertions retained. Original failure photos/JSON overwritten by controller reuse; surviving failure log is retained, not presented as raw photo proof.",
@@ -57,7 +60,8 @@
     "opaque matching rules",
     "restricted CSP full fidelity",
     "HTTP file CSS and file fonts",
-    "broader combinations"
+    "broader combinations",
+    "qualified relative URLs inside opaque data stylesheets"
   ],
   "replay": "svg-data-imports/replay.md",
   "noNpmRelease": true,
@@ -73,5 +77,38 @@
     "assertion": "Private document is collectible while foreign resolver is pending",
     "coverageStage": "passed",
     "status": "Investigating with unchanged strict assertion and native controls"
+  },
+  "verifiedAt": "2026-11-14T21:53:32.418822+00:00",
+  "initialProductionSource": "577243a58a39435db87fdc86872dc60c829e71d0",
+  "initialFixtureSource": "cfa7d02b6a63deb0b01da89ad8f5cfa79112d13d",
+  "rawArchives": {
+    "baseline": 240,
+    "candidate": 240,
+    "iphone": 461,
+    "fragment-before": 12
+  },
+  "rawArchiveFiles": 953,
+  "cachedDocumentAblation": {
+    "promiseClearLineRemovedOnly": true,
+    "failed": 5,
+    "passed": 4,
+    "fixedLifecyclePassed": 9,
+    "gcRequestsUnchanged": 3,
+    "earlierCancellationOnlyAblationPassedOnce": true
+  },
+  "fragmentBefore": {
+    "runtime": "0c5e0dd",
+    "fixture": "same final paint-fragment scene",
+    "native": "blue",
+    "capture": "red",
+    "differentChannels": 800,
+    "sourceUnchanged": true
+  },
+  "remoteCoverageBefore": {
+    "head": "ff432fb1f8073f57ff8de198622b7502d994989e",
+    "patch": 85.32,
+    "target": 86.65,
+    "status": "failed; unchanged gate applies to final head",
+    "evidence": "svg-data-imports/remote-coverage-before.json"
   }
 }

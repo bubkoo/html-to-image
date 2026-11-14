@@ -19,7 +19,7 @@ for format in ['esm','umd']:
   state=execute('return {scene:window.svgNativeScene||null,done:window.svgNativeDone||null}')
   if state['done']:
    summary['runs'].append({**state['done'],'photos':photos})
-   if state['done'].get('error'):raise RuntimeError(json.dumps(state['done']))
+   if state['done'].get('error'):print('Recorded failure: '+json.dumps(state['done']),flush=True)
    break
   scene=state['scene']
   if not scene or scene['sequence']==seen:
@@ -53,6 +53,9 @@ for format in ['esm','umd']:
   for field in ['native','capture','authored']:
    (folder/(name+'-'+field+'.png')).write_bytes(base64.b64decode(record.pop(field)))
  (folder/('data-'+format+'-records.json')).write_text(json.dumps(records,indent=2))
+ if summary['runs'][-1].get('error'):
+  (folder/'data-import-summary.json').write_text(json.dumps(summary,indent=2))
+  raise RuntimeError(summary['runs'][-1]['error'])
  print(json.dumps({'format':format,'passed':summary['runs'][-1].get('passed'),'nativePhotos':len(photos)}),flush=True)
 (folder/'data-import-summary.json').write_text(json.dumps(summary,indent=2))
 print('NATIVE_VERIFIED '+head,flush=True)

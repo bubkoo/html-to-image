@@ -1,6 +1,6 @@
 {
-  "gitHead": "cfa7d02b6a63deb0b01da89ad8f5cfa79112d13d",
-  "origin": "http://169.254.44.203:4373",
+  "gitHead": "37ea1172547a74436a5f8449982a2fba52b220f3",
+  "origin": "http://169.254.2.82:4373",
   "capabilities": {
     "platformName": "iOS",
     "safari:platformVersion": "26.6.1",
@@ -11,7 +11,7 @@
   "runs": [
     {
       "format": "esm",
-      "passed": 19,
+      "passed": 20,
       "photos": [
         {
           "sequence": 1,
@@ -884,6 +884,52 @@
           "sampleScale": 3.0,
           "yellowControlTop": 186,
           "screenSHA256": "3778f41aa1ae2cbf7e7569e0ab021bed9feda168e1ec1b79c51e40bdc9d45a73",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 39,
+          "id": "svg-data-import-20",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6d8ede0f3560c25411123b6581de65622d0d21add167337546e6a69c2e2415c0",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 40,
+          "id": "svg-data-import-20",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6d8ede0f3560c25411123b6581de65622d0d21add167337546e6a69c2e2415c0",
           "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
           "iccProfileSHA256": null
         }
@@ -891,11 +937,11 @@
     },
     {
       "format": "umd",
-      "passed": 19,
+      "passed": 20,
       "photos": [
         {
           "sequence": 1,
-          "id": "svg-data-import-20",
+          "id": "svg-data-import-21",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -912,13 +958,13 @@
           "screenSize": [1206, 2622],
           "sampleScale": 3.0,
           "yellowControlTop": 186,
-          "screenSHA256": "6d8ede0f3560c25411123b6581de65622d0d21add167337546e6a69c2e2415c0",
+          "screenSHA256": "2b316c740feb8a749c805a7508a2a1d0639e4636117c80190e7d19e7504256f4",
           "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
           "iccProfileSHA256": null
         },
         {
           "sequence": 2,
-          "id": "svg-data-import-20",
+          "id": "svg-data-import-21",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -935,13 +981,13 @@
           "screenSize": [1206, 2622],
           "sampleScale": 3.0,
           "yellowControlTop": 186,
-          "screenSHA256": "6d8ede0f3560c25411123b6581de65622d0d21add167337546e6a69c2e2415c0",
+          "screenSHA256": "2b316c740feb8a749c805a7508a2a1d0639e4636117c80190e7d19e7504256f4",
           "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
           "iccProfileSHA256": null
         },
         {
           "sequence": 3,
-          "id": "svg-data-import-21",
+          "id": "svg-data-import-22",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -964,7 +1010,7 @@
         },
         {
           "sequence": 4,
-          "id": "svg-data-import-21",
+          "id": "svg-data-import-22",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -987,7 +1033,7 @@
         },
         {
           "sequence": 5,
-          "id": "svg-data-import-22",
+          "id": "svg-data-import-23",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1010,7 +1056,7 @@
         },
         {
           "sequence": 6,
-          "id": "svg-data-import-22",
+          "id": "svg-data-import-23",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1033,7 +1079,7 @@
         },
         {
           "sequence": 7,
-          "id": "svg-data-import-23",
+          "id": "svg-data-import-24",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1056,7 +1102,7 @@
         },
         {
           "sequence": 8,
-          "id": "svg-data-import-23",
+          "id": "svg-data-import-24",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1079,7 +1125,7 @@
         },
         {
           "sequence": 9,
-          "id": "svg-data-import-24",
+          "id": "svg-data-import-25",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1102,7 +1148,7 @@
         },
         {
           "sequence": 10,
-          "id": "svg-data-import-24",
+          "id": "svg-data-import-25",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1125,7 +1171,7 @@
         },
         {
           "sequence": 11,
-          "id": "svg-data-import-25",
+          "id": "svg-data-import-26",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1148,7 +1194,7 @@
         },
         {
           "sequence": 12,
-          "id": "svg-data-import-25",
+          "id": "svg-data-import-26",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1171,7 +1217,7 @@
         },
         {
           "sequence": 13,
-          "id": "svg-data-import-26",
+          "id": "svg-data-import-27",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1194,7 +1240,7 @@
         },
         {
           "sequence": 14,
-          "id": "svg-data-import-26",
+          "id": "svg-data-import-27",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1217,7 +1263,7 @@
         },
         {
           "sequence": 15,
-          "id": "svg-data-import-27",
+          "id": "svg-data-import-28",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1240,7 +1286,7 @@
         },
         {
           "sequence": 16,
-          "id": "svg-data-import-27",
+          "id": "svg-data-import-28",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1263,7 +1309,7 @@
         },
         {
           "sequence": 17,
-          "id": "svg-data-import-28",
+          "id": "svg-data-import-29",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1286,7 +1332,7 @@
         },
         {
           "sequence": 18,
-          "id": "svg-data-import-28",
+          "id": "svg-data-import-29",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1309,7 +1355,7 @@
         },
         {
           "sequence": 19,
-          "id": "svg-data-import-29",
+          "id": "svg-data-import-30",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1332,7 +1378,7 @@
         },
         {
           "sequence": 20,
-          "id": "svg-data-import-29",
+          "id": "svg-data-import-30",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1355,7 +1401,7 @@
         },
         {
           "sequence": 21,
-          "id": "svg-data-import-30",
+          "id": "svg-data-import-31",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1378,7 +1424,7 @@
         },
         {
           "sequence": 22,
-          "id": "svg-data-import-30",
+          "id": "svg-data-import-31",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1401,7 +1447,7 @@
         },
         {
           "sequence": 23,
-          "id": "svg-data-import-31",
+          "id": "svg-data-import-32",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1424,7 +1470,7 @@
         },
         {
           "sequence": 24,
-          "id": "svg-data-import-31",
+          "id": "svg-data-import-32",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1447,7 +1493,7 @@
         },
         {
           "sequence": 25,
-          "id": "svg-data-import-32",
+          "id": "svg-data-import-33",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1470,7 +1516,7 @@
         },
         {
           "sequence": 26,
-          "id": "svg-data-import-32",
+          "id": "svg-data-import-33",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1493,7 +1539,7 @@
         },
         {
           "sequence": 27,
-          "id": "svg-data-import-33",
+          "id": "svg-data-import-34",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1516,7 +1562,7 @@
         },
         {
           "sequence": 28,
-          "id": "svg-data-import-33",
+          "id": "svg-data-import-34",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1539,7 +1585,7 @@
         },
         {
           "sequence": 29,
-          "id": "svg-data-import-34",
+          "id": "svg-data-import-35",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1562,7 +1608,7 @@
         },
         {
           "sequence": 30,
-          "id": "svg-data-import-34",
+          "id": "svg-data-import-35",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1585,7 +1631,7 @@
         },
         {
           "sequence": 31,
-          "id": "svg-data-import-35",
+          "id": "svg-data-import-36",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1608,7 +1654,7 @@
         },
         {
           "sequence": 32,
-          "id": "svg-data-import-35",
+          "id": "svg-data-import-36",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1631,7 +1677,7 @@
         },
         {
           "sequence": 33,
-          "id": "svg-data-import-36",
+          "id": "svg-data-import-37",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1654,7 +1700,7 @@
         },
         {
           "sequence": 34,
-          "id": "svg-data-import-36",
+          "id": "svg-data-import-37",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1677,7 +1723,7 @@
         },
         {
           "sequence": 35,
-          "id": "svg-data-import-37",
+          "id": "svg-data-import-38",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1700,7 +1746,7 @@
         },
         {
           "sequence": 36,
-          "id": "svg-data-import-37",
+          "id": "svg-data-import-38",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1723,7 +1769,7 @@
         },
         {
           "sequence": 37,
-          "id": "svg-data-import-38",
+          "id": "svg-data-import-39",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1746,7 +1792,7 @@
         },
         {
           "sequence": 38,
-          "id": "svg-data-import-38",
+          "id": "svg-data-import-39",
           "format": "umd",
           "viewport": {
             "width": 402,
@@ -1764,6 +1810,52 @@
           "sampleScale": 3.0,
           "yellowControlTop": 186,
           "screenSHA256": "4d6d1c82712ab5346006d978adadc7f875f3b0bedc9d00e5754b8e62c23c8fbf",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 39,
+          "id": "svg-data-import-40",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "07da306487e7c461959e4ef18fbccc6b7e437586164dd0bba7d2753ad2875114",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 40,
+          "id": "svg-data-import-40",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "07da306487e7c461959e4ef18fbccc6b7e437586164dd0bba7d2753ad2875114",
           "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
           "iccProfileSHA256": null
         }
