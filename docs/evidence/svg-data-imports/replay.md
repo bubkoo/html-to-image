@@ -16,6 +16,8 @@ The same final 93 controls produce 21 failures / 72 passes with the three change
 
 The complete local run on production source passes lint/build/types/tarball/consumers, 1015 coverage tests (+4 inherited skips), 896 uninstrumented source tests (+4 inherited skips), and 153 package tests. The final paint-readiness fixture is separately rechecked with the same 93 controls and all 153 package tests; final remote full-suite gates belong to the PR's exact head.
 
+The first remote Linux CI on PR head `48599c0` failed Firefox's uninstrumented cancellation-GC assertion (895 passes / 1 failure / 4 inherited skips); the instrumented coverage stage passed. `remote-ci-first-failure.log` preserves that run. Follow-up diagnostics keep the same strict assertion and inspect native plain frames, shared-font frames, probe-only private frames and the retained document's remaining nodes. This is an unresolved remote discrepancy until the final PR gates and diagnosis establish otherwise.
+
 ## Real iPhone
 
 Real USB iPhone Safari/iOS 26.6.1, simulator disabled: repeat the existing 56 actual native-photo comparisons on production source. Final fixture head adds 38 comparisons (19 scenes in each of ESM/UMD), each using before/after native photos: 76 new original photos. All exported RGBA channels and both source photographs agree, as do source markup and the independent references. There are 94 scene comparisons in total, not 132 comparisons; 132 is the number of original photographs. Four separate abort/dispose controls pass while the custom font callback remains pending. Full final smoke: 35 PASS / 2 INFO / 0 FAIL. The owned device session and server were ended.

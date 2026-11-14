@@ -61,5 +61,17 @@
   ],
   "replay": "svg-data-imports/replay.md",
   "noNpmRelease": true,
-  "oldPRCommentOrClosureActions": 0
+  "oldPRCommentOrClosureActions": 0,
+  "remoteFirstFailure": {
+    "head": "48599c025ecbc1ec852629b55e37e91a5315d923",
+    "run": 43642732784,
+    "engine": "firefox",
+    "stage": "uninstrumented source",
+    "passed": 895,
+    "failed": 1,
+    "skipped": 4,
+    "assertion": "Private document is collectible while foreign resolver is pending",
+    "coverageStage": "passed",
+    "status": "Investigating with unchanged strict assertion and native controls"
+  }
 }

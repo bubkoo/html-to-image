@@ -3,6 +3,59 @@
 import { expect, test } from 'vitest'
 import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
+import { createSVGStyleEnvironment } from '../../src/svg-style-scope'
+
+async function nativeFrame(fonts: FontFace[]) {
+  const frame = document.createElement('iframe')
+  const loaded = new Promise<void>((resolve) => {
+    frame.onload = () => resolve()
+  })
+  frame.srcdoc = '<body></body>'
+  document.body.append(frame)
+  try {
+    await loaded
+    frame.onload = null
+    const doc = frame.contentDocument!
+    const errors: string[] = []
+    fonts.forEach((font) => {
+      try {
+        ;(doc.fonts as FontFaceSet & { add(font: FontFace): void }).add(font)
+      } catch (error) {
+        errors.push((error as Error).name)
+      }
+    })
+    return { reference: new WeakRef(doc), errors }
+  } finally {
+    frame.remove()
+  }
+}
+
+async function nativeRetention() {
+  const fonts: FontFace[] = []
+  document.fonts.forEach((font) => fonts.push(font))
+  const plain = await nativeFrame([])
+  const shared = await nativeFrame(fonts)
+  const probe = await measuredFrame()
+  await commands.collectGarbage()
+  await commands.collectGarbage()
+  await commands.collectGarbage()
+  return {
+    plain: !!plain.reference.deref(),
+    sharedFonts: !!shared.reference.deref(),
+    measuredProbe: !!probe.deref(),
+    sharingErrors: shared.errors,
+  }
+}
+
+async function measuredFrame() {
+  const environment = createSVGStyleEnvironment(document)
+  try {
+    await environment.measurePolicy(() => {})
+    return new WeakRef(await environment.getDocument())
+  } finally {
+    environment.dispose()
+  }
+}
 
 test('cancellation releases private SVG work while a custom font resolver remains pending', async () => {
   const sheet = document.createElement('style')
@@ -80,7 +133,20 @@ test('cancellation releases private SVG work while a custom font resolver remain
       await commands.collectGarbage()
       await commands.collectGarbage()
       await commands.collectGarbage()
-      expect(reference!.deref()).toBeUndefined()
+      const retained = reference!.deref()
+      const diagnosis = retained
+        ? {
+            native: await nativeRetention(),
+            elements: Array.from(
+              retained.querySelectorAll('*'),
+              (node) => node.localName,
+            ),
+            shadows: Array.from(retained.querySelectorAll('div'), (node) =>
+              node.shadowRoot?.innerHTML.slice(0, 300),
+            ),
+          }
+        : undefined
+      expect(retained, JSON.stringify(diagnosis)).toBeUndefined()
     }
   } finally {
     observer.disconnect()
