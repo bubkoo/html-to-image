@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-14T16:05:54.058552+00:00",
-  "status": "Combined with merged #634: full local phases passed and real iPhone 31/31; final evidence-head remote checks pending",
+  "checkedAt": "2026-11-14T16:12:11.622499+00:00",
+  "status": "Merged PR #635 at 9d2991f; final exact-head PR and master CI/CodeQL passed, PR Codecov patch/project passed",
   "base": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
   "sourcePRs": [498],
   "relatedDiscussions": [
@@ -129,5 +129,32 @@
     "test/browser/smoke.html": "0b697d05ae51e29ba12289bf88e43862953006fb05c588cd824eda5948fedd7c",
     "test/browser/package.test.ts": "cb8d69dc37a30724b29ca7ec6841e49a7a9319ce3c2a316ca4cb867d93fb5f77",
     "test/browser/server.mjs": "e3223d0db6066666361b75e68f073fa0af57e9706c1d3d28fd52f654394da391"
+  },
+  "merged": {
+    "master": "9d2991f45a62bddcaed392a1ad5a8a48ec77732e",
+    "prHead": "2e85b494ffb7a16f9e07fec7e839660fa9d9f91f",
+    "testedMerge": "84ec52e6e6f3bcdbc70ceabb4df0349a60273a51",
+    "ciRun": 43613759043,
+    "codeqlRun": 43613758977,
+    "ci": "success",
+    "codeql": "success",
+    "codecovPatch": "success",
+    "codecovProject": "success",
+    "coveragePassed": 353,
+    "coverageSkipped": 1,
+    "sourcePassed": 701,
+    "sourceSkipped": 4,
+    "builtPackagePassed": 141,
+    "masterCI": 43614127837,
+    "masterCodeQL": 43614127835,
+    "masterStatus": "CI and CodeQL success",
+    "masterCounts": {
+      "coveragePassed": 353,
+      "coverageSkipped": 1,
+      "sourcePassed": 701,
+      "sourceSkipped": 4,
+      "builtPackagePassed": 141
+    },
+    "masterCheckedAt": "2026-11-14T16:14:46.286574+00:00"
   }
 }

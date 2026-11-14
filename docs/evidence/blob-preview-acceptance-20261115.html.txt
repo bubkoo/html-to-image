@@ -1,0 +1,61 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blob preview acceptance</title>
+<style>
+  body { font: 20px system-ui; padding: 20px; }
+  #source { width: 32px; height: 20px; background: red; }
+  #source > div { width: 16px; height: 20px; background: blue; margin-left: 16px; }
+  a, button { display: block; margin: 24px 0; padding: 16px; }
+</style>
+<div id="source"><div></div></div>
+<div id="preview-links"></div>
+<button id="cleanup" disabled>Clean up preview</button>
+<pre id="status">Preparing</pre>
+<script type="module">
+import * as htmlToImage from '/es/index.js';
+window.evidence = { clicks: [], ready: false, cleaned: false };
+const evidence = window.evidence;
+const status = document.querySelector('#status');
+const show = () => { status.textContent = JSON.stringify(evidence, null, 2); };
+async function createPreviewLink(node, container) {
+  const blob = await htmlToImage.toBlob(node);
+  if (!blob) throw new Error('PNG encoding returned no Blob');
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = 'Open PNG preview';
+  container.appendChild(link);
+
+  return () => {
+    link.remove();
+    URL.revokeObjectURL(url);
+  };
+}
+try {
+  const discardPreview = await createPreviewLink(document.querySelector('#source'), document.querySelector('#preview-links'));
+  const link = document.querySelector('a');
+  evidence.url = link.href;
+  evidence.mime = (await (await fetch(link.href)).blob()).type;
+  const image = new Image(); image.src = link.href; await image.decode();
+  const canvas = document.createElement('canvas');
+  canvas.width = image.naturalWidth; canvas.height = image.naturalHeight;
+  const context = canvas.getContext('2d'); context.drawImage(image, 0, 0);
+  evidence.size = [canvas.width, canvas.height];
+  evidence.red = Array.from(context.getImageData(12, 12, 1, 1).data);
+  evidence.blue = Array.from(context.getImageData(canvas.width - 12, 12, 1, 1).data);
+  link.addEventListener('click', event => {
+    evidence.clicks.push({isTrusted: event.isTrusted, active: navigator.userActivation?.isActive, type: event.type}); show();
+  });
+  const button = document.querySelector('#cleanup'); button.disabled = false;
+  button.addEventListener('click', async event => {
+    evidence.cleanupClick = {isTrusted: event.isTrusted, active: navigator.userActivation?.isActive};
+    discardPreview(); evidence.linkRemoved = !document.querySelector('a');
+    try { await fetch(evidence.url); evidence.revoked = false; } catch { evidence.revoked = true; }
+    evidence.cleaned = true; show();
+  });
+  evidence.ready = true; show();
+} catch (error) { evidence.error = String(error); show(); }
+</script>

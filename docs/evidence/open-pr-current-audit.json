@@ -173,14 +173,14 @@
       "reviewedHead": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
       "observedState": "open",
       "requirement": "Safari 子图片初次缺失，尝试延时重绘；标题关联 #461 Issue 与 #478 PR。",
-      "disposition": "有界冻结快照重绘保留；#635 修正额外尝试复用首次不完整 SVG 解码缓存，组合源码本地完整检查与真实 iPhone 31/31 通过，最终远端检查待验。",
+      "disposition": "有界冻结快照重绘保留；#635 已合入，修正额外尝试复用首次不完整 SVG 解码缓存。组合源码本地/远端完整检查与真实 iPhone 31/31 通过。",
       "evidence": [
         "test/spec/renderer.test.ts",
         "docs/v2-release-readiness.md",
         "docs/evidence/svg-raster-retry-cache.json"
       ],
       "remainingBoundary": "完整原应用/资源及历史 WKWebView 场景未整体复验；不把缓存修正等同于全部历史白图问题解决。#591 作者的历史 16/16 与关闭状态单独归档。",
-      "checkedAt": "2026-11-14T16:05:54.058552+00:00"
+      "checkedAt": "2026-11-14T16:12:11.622499+00:00"
     },
     {
       "number": 482,
@@ -314,7 +314,8 @@
         "docs/evidence/scrollbar-box-dimensions.json"
       ],
       "remainingBoundary": "完整原生滚动条与滑块位置仍待解决；原型两项严格 WebKit 像素失败尚未解决。#81 原 sandbox 不可访问，不以当前部分回归宣称全部修复。",
-      "relatedIssues": [81, 345]
+      "relatedIssues": [81, 345],
+      "incremental634": "#634 已合入 f340ddf，占位尺寸根因有桌面三引擎严格对照，iPhone 30/30 及与 #635 组合 31/31；不等于完整原生滚动条外观/滑块解决。"
     },
     {
       "number": 407,
@@ -369,9 +370,11 @@
       "disposition": "README helper 与三引擎交互已验；保留单数 toBlob API",
       "evidence": [
         "docs/evidence/blob-preview-browser-checks.json",
-        "README.md"
+        "README.md",
+        "docs/evidence/blob-preview-device-20261115.json"
       ],
-      "remainingBoundary": "真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击"
+      "remainingBoundary": "真实 iPhone PNG MIME/96×60/red-blue 读取通过；W3C element click 与 touch actions 虽返回成功但页面未收到事件、没有新标签，不算可信点击/清理通过。实际 Wi-Fi 地址导航也失败，物理交互仍缺可达页面及真实点击。",
+      "checkedAt": "2026-11-14T16:13:24.589942+00:00"
     },
     {
       "number": 393,
@@ -501,10 +504,16 @@
     }
   },
   "latestIncrementalUpdate": {
-    "checkedAt": "2026-11-14T16:05:54.058552+00:00",
-    "runtimeSource": "3f8bbdfa1b306a98b126e6a32bacddb9088631e8",
-    "pr": 635,
-    "status": "local and exact-source real iPhone passed; final remote checks pending",
-    "evidence": "docs/evidence/svg-raster-retry-cache.json"
+    "checkedAt": "2026-11-14T16:12:11.622499+00:00",
+    "mergedPRs": [634, 635],
+    "runtimeBase": "9d2991f45a62bddcaed392a1ad5a8a48ec77732e",
+    "status": "final PR and master CI/CodeQL passed; PR Codecov patch/project passed",
+    "evidence": [
+      "docs/evidence/scrollbar-box-dimensions.json",
+      "docs/evidence/svg-raster-retry-cache.json"
+    ],
+    "nativePrototype": "codex/native-scroll-snapshot-v2 at 99cc2ef; two strict WebKit gates still fail, not merged",
+    "masterCI": 43614127837,
+    "masterCodeQL": 43614127835
   }
 }
