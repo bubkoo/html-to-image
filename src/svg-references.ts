@@ -4,6 +4,7 @@ import { ResourceResolverError } from './resource-loader.js'
 import { getTask } from './task.js'
 import { getMimeType } from './mimes.js'
 import { uuid } from './util.js'
+import { getSVGStyleFontCSS } from './embed-webfonts.js'
 import {
   createSVGStyleEnvironment,
   freezeSVGFragmentStyles,
@@ -82,6 +83,10 @@ export async function embedSVGReferences(
     return
   const task = getTask(options)
   const loader = getResourceLoader(options)
+  const loadedFontFamilies: string[] = []
+  source.ownerDocument.fonts?.forEach((font) => {
+    if (font.status === 'loaded') loadedFontFamilies.push(font.family)
+  })
   const targetDocument = root.ownerDocument
   const pageStyles = snapshotSVGPageStyles(
     source.ownerDocument,
@@ -263,7 +268,7 @@ export async function embedSVGReferences(
       : await cloneLocal(original)
     if (!copy) return undefined
     if (scope.styleHost && scope.stylePolicy) {
-      freezeSVGFragmentStyles(
+      await freezeSVGFragmentStyles(
         original,
         copy,
         scope.root,
@@ -284,6 +289,29 @@ export async function embedSVGReferences(
             },
           ),
         pageStyles,
+        (families) =>
+          options.fontEmbedCSS != null
+            ? Promise.resolve(options.fontEmbedCSS)
+            : options.skipFonts
+              ? Promise.resolve('')
+              : getSVGStyleFontCSS(
+                  families,
+                  loadedFontFamilies,
+                  source,
+                  options,
+                ),
+        (error) => {
+          task?.check()
+          loader.warn(
+            Object.freeze({
+              code: 'resource-error',
+              resource: 'external-svg-font-metrics',
+              message:
+                'Unable to load a source font for SVG measurement: ' +
+                (error instanceof Error ? error.message : String(error)),
+            }),
+          )
+        },
       )
     }
     copy.setAttribute('id', id)

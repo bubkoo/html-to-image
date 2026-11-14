@@ -400,6 +400,32 @@ export async function getWebFontCSS<T extends HTMLElement>(
   return (await prepareFontCSS(node, options, styleSource)).cssText
 }
 
+export function getSVGStyleFontCSS(
+  families: readonly string[],
+  loadedFamilies: readonly string[],
+  source: Element,
+  options: Options,
+) {
+  // Only source-page families that were already loaded may affect measurement.
+  // Do not activate @font-face declarations supplied by fetched SVG content.
+  const loaded = new Set(loadedFamilies.map(normalizeFontFamily))
+  const document = source.ownerDocument.implementation.createHTMLDocument()
+  const node = document.createElement('div')
+  families.forEach((value) => {
+    const used = fontFamilies(value).filter((name) =>
+      loaded.has(normalizeFontFamily(name)),
+    )
+    if (used.length) {
+      const span = document.createElement('span')
+      span.style.fontFamily = used.join(', ')
+      node.append(span)
+    }
+  })
+  return node.childElementCount
+    ? getWebFontCSS(node, options, source)
+    : Promise.resolve('')
+}
+
 export async function embedWebFonts<T extends HTMLElement>(
   clonedNode: T,
   options: Options,

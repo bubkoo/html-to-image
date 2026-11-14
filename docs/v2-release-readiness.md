@@ -1,5 +1,15 @@
 # V2 主分支切换记录
 
+## 2026-11-15 外部 SVG 字体单位验收
+
+[源码 7a436c2](https://github.com/bubkoo/html-to-image/commit/7a436c2d5736da563e318d7ed8d27962fc47c3f9) 修正已加载页面字体未进入私有测量文档，导致外部 SVG 的 `ex` 长度改用备用字体的问题。按源文档的已加载字体族，经现有资源加载器准备 data 字体；只等所需字体加载完成，再创建新的测量树，避免非渲染 symbol 保留旧字体度量。`skipFonts` 不下载字体，显式 `fontEmbedCSS` 仍优先；解码失败给诊断，调用者解析失败保留 cause。受检 head 的远端门禁与合入状态以对应 PR 检查/说明为准。
+
+同一最终 33 项对照，旧运行时 11 失败 / 22 通过，候选 33 全过。完整本地 lint/构建/类型/tarball、943 coverage / 824 source / 150 构建包均通过，另有 4 / 4 项既有条件跳过。三引擎 loaded 20px 的真实页面全像素对照全部一致；WebKit 的 30px 和系统字体场景仍差 40 / 20 通道，独立手写 SVG 图片也有完全相同差异，因此这两项只按独立图像/几何控制验收，不算页面像素通过。[证据及重放](evidence/svg-font-units.json)保留首轮 Firefox 全套超时，未增加超时或放宽断言。
+
+同一源码的真实 iPhone Safari/iOS 26.6.1（useSimulator:false）已重复原有 56 项原生截图对照，新增 10 项字体独立图像像素与真实源宽度控制，并通过完整冒烟 34/34（另 2 INFO）。新增 10 项不是额外的原生屏幕像素通过数，宽度另按 0.001px 量化比较。控制会话与测试服务均已结束。#638 合入后的主分支 CI 43634349894 / CodeQL 43634350021 也已通过，计数 922 / 803 / 147。
+
+相对绘制资源/重定向、原生合成器差异、受限 CSP 等剩余边界仍开放；这不是整个 #585 完成声明。未发布 npm、未评论或关闭旧 PR。
+
 ## 2026-11-15 #637 源码门禁与真机验收
 
 [PR #637](https://github.com/bubkoo/html-to-image/pull/637) 已合入 `5b456a1`。最终证据 head `475a4cb` 的 [CI 43632692714](https://github.com/bubkoo/html-to-image/actions/runs/43632692714)、[CodeQL 43632692697](https://github.com/bubkoo/html-to-image/actions/runs/43632692697) 和两项 Codecov 均通过；增量 87.40%、整体 86.33%，原目标 86.12% 未改。合入后 [主分支 CI 43633225813](https://github.com/bubkoo/html-to-image/actions/runs/43633225813)、[CodeQL 43633225800](https://github.com/bubkoo/html-to-image/actions/runs/43633225800) 也通过，仍为 922 / 803 / 147。验证源码/fixture 是 `56e8a22`，生产源码与构建产物仍与 `2a94455` 字节一致。

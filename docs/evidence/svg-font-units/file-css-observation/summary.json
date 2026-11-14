@@ -1,0 +1,101 @@
+{
+  "chromium": {
+    "sourceUnchanged": true,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+    "diags": [],
+    "nativeRequests": [
+      "/probe/3f367f41-c0ac-408a-8514-7d7a05d3dafc/import.svg",
+      "/probe/3f367f41-c0ac-408a-8514-7d7a05d3dafc/inline.svg",
+      "/probe/3f367f41-c0ac-408a-8514-7d7a05d3dafc/font.svg"
+    ],
+    "captureRequests": [
+      "/es/index.js",
+      "/es/renderer.js",
+      "/es/capture.js",
+      "/es/embed-webfonts.js",
+      "/es/task.js",
+      "/es/clone-node.js",
+      "/es/apply-style.js",
+      "/es/embed-images.js",
+      "/es/util.js",
+      "/es/resource-loader.js",
+      "/es/clone-pseudos.js",
+      "/es/mimes.js",
+      "/es/dataurl.js",
+      "/es/embed-resources.js",
+      "/es/svg-references.js",
+      "/es/clone-scroll.js",
+      "/es/svg-style-scope.js",
+      "/probe/3f367f41-c0ac-408a-8514-7d7a05d3dafc/import.svg",
+      "/probe/3f367f41-c0ac-408a-8514-7d7a05d3dafc/inline.svg",
+      "/probe/3f367f41-c0ac-408a-8514-7d7a05d3dafc/font.svg"
+    ]
+  },
+  "firefox": {
+    "sourceUnchanged": true,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:157.0) Gecko/20100101 Firefox/157.0",
+    "diags": [],
+    "nativeRequests": [
+      "/favicon.ico",
+      "/probe/02b11ca5-b80f-46f2-8a66-8216972acd91/inline.svg",
+      "/probe/02b11ca5-b80f-46f2-8a66-8216972acd91/import.svg",
+      "/probe/02b11ca5-b80f-46f2-8a66-8216972acd91/font.svg",
+      "/probe/02b11ca5-b80f-46f2-8a66-8216972acd91/theme.css",
+      "/font.ttf"
+    ],
+    "captureRequests": [
+      "/es/index.js",
+      "/es/renderer.js",
+      "/es/capture.js",
+      "/es/embed-webfonts.js",
+      "/es/task.js",
+      "/es/clone-node.js",
+      "/es/apply-style.js",
+      "/es/embed-images.js",
+      "/es/util.js",
+      "/es/dataurl.js",
+      "/es/embed-resources.js",
+      "/es/resource-loader.js",
+      "/es/clone-pseudos.js",
+      "/es/mimes.js",
+      "/es/svg-references.js",
+      "/es/clone-scroll.js",
+      "/es/svg-style-scope.js",
+      "/probe/02b11ca5-b80f-46f2-8a66-8216972acd91/import.svg",
+      "/probe/02b11ca5-b80f-46f2-8a66-8216972acd91/inline.svg",
+      "/probe/02b11ca5-b80f-46f2-8a66-8216972acd91/font.svg"
+    ]
+  },
+  "webkit": {
+    "sourceUnchanged": true,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+    "diags": [],
+    "nativeRequests": [
+      "/probe/ce02f115-17d4-45d4-9e0d-be7bae3ec22c/import.svg",
+      "/probe/ce02f115-17d4-45d4-9e0d-be7bae3ec22c/inline.svg",
+      "/probe/ce02f115-17d4-45d4-9e0d-be7bae3ec22c/font.svg"
+    ],
+    "captureRequests": [
+      "/es/index.js",
+      "/es/renderer.js",
+      "/es/capture.js",
+      "/es/embed-webfonts.js",
+      "/es/task.js",
+      "/es/clone-node.js",
+      "/es/apply-style.js",
+      "/es/embed-images.js",
+      "/es/resource-loader.js",
+      "/es/util.js",
+      "/es/dataurl.js",
+      "/es/embed-resources.js",
+      "/es/clone-pseudos.js",
+      "/es/mimes.js",
+      "/es/svg-references.js",
+      "/es/clone-scroll.js",
+      "/es/svg-style-scope.js",
+      "/probe/ce02f115-17d4-45d4-9e0d-be7bae3ec22c/import.svg",
+      "/probe/ce02f115-17d4-45d4-9e0d-be7bae3ec22c/inline.svg",
+      "/probe/ce02f115-17d4-45d4-9e0d-be7bae3ec22c/font.svg"
+    ]
+  }
+}
