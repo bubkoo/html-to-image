@@ -1,0 +1,34 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |webkit| test/browser-unit/native-scroll.test.ts (18 tests | 2 failed) 2318ms
+   × native scroll visible-text preserves native glyph placement 206ms
+   × native scroll padding-shadow matches source pixels 170ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |webkit| test/browser-unit/native-scroll.test.ts > native scroll visible-text preserves native glyph placement
+ FAIL  |webkit| test/browser-unit/native-scroll.test.ts > native scroll padding-shadow matches source pixels
+Error: visible-text: native/capture channel 836: 255, expected 241
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png
+  - .vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-padding-shadow-matches-source-pixels.png
+
+ ❯ checkNativeScroll test/browser/fixtures/native-scroll.mjs:208:26
+    206|         if (differingChannels) {
+    207|           const different = image.data.findIndex((v, i) => v !== nativ…
+    208|           throw new Error(
+       |                          ^
+    209|             `${kind}: native/capture channel ${different}: ${image.dat…
+    210|           )
+ ❯ test/browser-unit/native-scroll.test.ts:42:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed | 17 passed (18)
+      Tests  2 failed | 416 passed | 5 skipped (423)
+   Start at  22:55:00
+   Duration  13.75s (tests 71%, worker 26%, import 3%)
+

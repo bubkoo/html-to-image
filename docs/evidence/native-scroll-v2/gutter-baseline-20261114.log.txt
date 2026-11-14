@@ -1,0 +1,89 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/scrollbar-box.test.ts (20 tests | 4 failed | 11 skipped) 1307ms
+   × scrollbar box scrolled-gutter keeps the native content viewport 180ms
+   × scrollbar box scrolled-gutter-rtl keeps the native content viewport 166ms
+   × scrollbar box scrolled-gutter-positioned keeps the native content viewport 165ms
+   × scrollbar box scrolled-gutter-positioned-rtl keeps the native content viewport 150ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box scrolled-gutter keeps the native content viewport
+Error: scrolled-gutter: native content viewport differs in 32 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-scrolled-gutter-keeps-the-native-content-viewport.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:190:19
+    188|             })
+    189|           if (different)
+    190|             throw new Error(
+       |                   ^
+    191|               `${kind}: native content viewport differs in ${different…
+    192|             )
+ ❯ test/browser-unit/scrollbar-box.test.ts:52:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box scrolled-gutter-rtl keeps the native content viewport
+Error: scrolled-gutter-rtl: native content viewport differs in 64 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-scrolled-gutter-rtl-keeps-the-native-content-viewport.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:190:19
+    188|             })
+    189|           if (different)
+    190|             throw new Error(
+       |                   ^
+    191|               `${kind}: native content viewport differs in ${different…
+    192|             )
+ ❯ test/browser-unit/scrollbar-box.test.ts:52:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box scrolled-gutter-positioned keeps the native content viewport
+Error: scrolled-gutter-positioned: native content viewport differs in 32 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-scrolled-gutter-positioned-keeps-the-native-content-viewport.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:190:19
+    188|             })
+    189|           if (different)
+    190|             throw new Error(
+       |                   ^
+    191|               `${kind}: native content viewport differs in ${different…
+    192|             )
+ ❯ test/browser-unit/scrollbar-box.test.ts:52:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box scrolled-gutter-positioned-rtl keeps the native content viewport
+Error: scrolled-gutter-positioned-rtl: native content viewport differs in 64 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-scrolled-gutter-positioned-rtl-keeps-the-native-content-viewport.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:190:19
+    188|             })
+    189|           if (different)
+    190|             throw new Error(
+       |                   ^
+    191|               `${kind}: native content viewport differs in ${different…
+    192|             )
+ ❯ test/browser-unit/scrollbar-box.test.ts:52:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  4 failed | 23 passed | 33 skipped (60)
+   Start at  22:58:19
+   Duration  3.71s (tests 83%, worker 14%, import 3%)
+

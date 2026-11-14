@@ -171,3 +171,14 @@ export async function embedImages<T extends HTMLElement>(
 ) {
   await embedNode(clonedNode, options, {})
 }
+
+export async function embedClonedStyles(
+  css: string,
+  document: Document,
+  options: Options,
+) {
+  const style = document.createElement('style')
+  style.textContent = css
+  await embedStyleRules(style, options, {})
+  return style.textContent || ''
+}

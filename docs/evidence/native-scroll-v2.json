@@ -1,0 +1,180 @@
+{
+  "checkedAt": "2026-11-14T15:14:25.367397+00:00",
+  "status": "WIP; strict source-pixel gates still fail. Not ready for PR or merge.",
+  "parentPR": 634,
+  "parentHead": "1626445d4f38d7d6ced9017edc3f794971b2a3c5",
+  "targeted": {
+    "total": 423,
+    "passed": 416,
+    "failed": 2,
+    "skipped": 5,
+    "skipScope": "Four Firefox unsupported legacy pseudo cases (two scrollbar-box and two native-scrollbars); one existing Chromium native horizontal-thumb fidelity boundary. No native-scroll skips.",
+    "failedCases": ["WebKit visible-text", "WebKit padding-shadow"]
+  },
+  "observations": [
+    {
+      "kind": "native-visible-text",
+      "engine": "webkit",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "offsets": [40, 47],
+      "nativeDifferentChannels": 264,
+      "authoredNativeDifferentChannels": 21,
+      "replayNativeDifferentChannels": 21,
+      "replayAuthoredDifferentChannels": 0,
+      "replayInitialDifferentChannels": 243,
+      "repeatedNativeDifferentChannels": 21,
+      "repeatedInitialDifferentChannels": 243,
+      "commentReplayNativeDifferentChannels": 21,
+      "variants": [
+        {
+          "name": "foreign-overflow-visible",
+          "nativeDifferentChannels": 21
+        },
+        {
+          "name": "foreign-opacity-filter",
+          "nativeDifferentChannels": 21
+        },
+        {
+          "name": "group",
+          "nativeDifferentChannels": 21
+        },
+        {
+          "name": "identity-filter",
+          "nativeDifferentChannels": 21
+        },
+        {
+          "name": "nested-svg-image",
+          "nativeDifferentChannels": 21
+        },
+        {
+          "name": "nested-inline-svg",
+          "nativeDifferentChannels": 21
+        }
+      ],
+      "htmlNativeDifferentChannels": 0,
+      "inlineSvgNativeDifferentChannels": 0,
+      "replayNativeMaxChannelDelta": 1
+    },
+    {
+      "kind": "native-padding-shadow",
+      "engine": "webkit",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "offsets": [40, 40],
+      "nativeDifferentChannels": 234,
+      "authoredNativeDifferentChannels": 234,
+      "replayNativeDifferentChannels": 234,
+      "replayAuthoredDifferentChannels": 0,
+      "replayInitialDifferentChannels": 0,
+      "repeatedNativeDifferentChannels": 234,
+      "repeatedInitialDifferentChannels": 0,
+      "commentReplayNativeDifferentChannels": 234,
+      "variants": [
+        {
+          "name": "foreign-overflow-visible",
+          "nativeDifferentChannels": 234
+        },
+        {
+          "name": "foreign-opacity-filter",
+          "nativeDifferentChannels": 234
+        },
+        {
+          "name": "group",
+          "nativeDifferentChannels": 234
+        },
+        {
+          "name": "identity-filter",
+          "nativeDifferentChannels": 234
+        },
+        {
+          "name": "nested-svg-image",
+          "nativeDifferentChannels": 234
+        },
+        {
+          "name": "nested-inline-svg",
+          "nativeDifferentChannels": 234
+        }
+      ],
+      "htmlNativeDifferentChannels": 0,
+      "inlineSvgNativeDifferentChannels": 0,
+      "replayNativeMaxChannelDelta": 255
+    }
+  ],
+  "limits": [
+    "The 21-channel warmed glyph difference remains a failing exact-native comparison; no tolerance or input color change is used.",
+    "A fresh nonvisual-attribute SVG replay changes the first glyph image by 243 channels while preserving layout/content. The cause is not yet established.",
+    "The 234-channel inset shadow mismatch is reproduced by independently authored SVG and fresh replay. This does not prove no faithful representation is possible.",
+    "Full source checks retain two strict failures; existing package checks passed, but new native-scroll/bar fixture cases are not yet wired into package smoke. New real iPhone verification remains required.",
+    "Preexisting test/browser/blob-preview-probe.html is unrelated and remains untracked/untouched."
+  ],
+  "gutterRegression": {
+    "restoredHelper": "b9e9d5b:src/clone-scroll-native.ts",
+    "selectedCases": 9,
+    "engines": 3,
+    "baseline": {
+      "failed": 4,
+      "passed": 23,
+      "filtered": 33
+    },
+    "candidate": {
+      "failed": 0,
+      "passed": 27,
+      "filtered": 33
+    },
+    "scope": "Full actual content viewport RGBA; LTR/RTL, stable/both-edges, static/positioned. Filtered tests are not unsupported-feature skips."
+  },
+  "fullChecks": {
+    "lint": "passed",
+    "esmCjsUmdBuild": "passed",
+    "types": "passed",
+    "source": {
+      "passed": 772,
+      "failed": 2,
+      "skipped": 6,
+      "total": 780,
+      "note": "Production core unchanged; diagnostic-only refinements after this run do not replace either strict failed gate."
+    },
+    "packageContract": "passed",
+    "builtPackagePassed": 138,
+    "ready": false
+  },
+  "retryProbe": {
+    "one": {
+      "nativeDifferentChannels": 264,
+      "repeatedNativeDifferentChannels": 21,
+      "commentReplayNativeDifferentChannels": 21,
+      "htmlNativeDifferentChannels": 0,
+      "replayNativeMaxChannelDelta": 1
+    },
+    "three": {
+      "nativeDifferentChannels": 264,
+      "repeatedNativeDifferentChannels": 21,
+      "commentReplayNativeDifferentChannels": 21,
+      "htmlNativeDifferentChannels": 0,
+      "replayNativeMaxChannelDelta": 1
+    },
+    "three-fresh-url": {
+      "nativeDifferentChannels": 21,
+      "repeatedNativeDifferentChannels": 21,
+      "commentReplayNativeDifferentChannels": 21,
+      "htmlNativeDifferentChannels": 0,
+      "replayNativeMaxChannelDelta": 1
+    },
+    "scope": "Fresh URL experiment only: XML comment changes decode identity without changing SVG visual content. Default first render and the two strict native tests remain unchanged. Not a production fix yet."
+  },
+  "sourceSHA256": {
+    "src/capture.ts": "e278817a8894c7dc32caad79b0735061f29f597e1b9e1bd898709ac154fedb4e",
+    "src/clone-node.ts": "29cadf6eace3be9f8bcbe5a1a5402084e521e81edd92da47b6677a81e5ad6ed0",
+    "src/clone-scroll.ts": "e336c3e3de32a8e9223a226c20b6e9df17269fb40c6bb4d5da8521b436482810",
+    "src/clone-scroll-native.ts": "0807063180878ff7bc69c11723a3b19fe26ab2251f8675ec42aac3f4db720285",
+    "src/clone-scrollbars.ts": "4800716ccf2b6026e737907533c2f3cd439e1aa495efca3472aaf9c18f8d241e",
+    "src/embed-images.ts": "eacdb006770a53db2a8ee4b680d0cc95236bb7ca28a3d85b49e7b21bdc535609",
+    "src/task.ts": "e722d3cd1210397e0840e7dbd4ab888137ce26436a7332ef3ff8efa5a66c5bfc",
+    "test/browser/fixtures/native-scroll.mjs": "433aa7bf9ef4284c5bc0218e3520f49bebf795ca207d9cfe055297140374d057",
+    "test/browser/fixtures/native-scrollbars.mjs": "39973e981eaf8003263f1c1d00424e9b93037c6b82ba57e1e74cd469865bacb7",
+    "test/browser/fixtures/scrollbar-box.mjs": "52e603ec859083160c855ce07a29b9339c1ae7e10f272196083ee2368354fe49",
+    "test/browser-unit/native-scroll.test.ts": "e8c2164d562386091148f08c53fa400c071e383cd7f5e6136b51ce81e6784536",
+    "test/browser-unit/native-scrollbars.test.ts": "23e99ea6a9c08eba59f0ff66027419839d90400dd1a2219690232ea5ec8ff92a",
+    "test/browser-unit/scrollbar-box.test.ts": "e8fafc29329330179b62ec3efaf661f0ccafe6de3e4778f1a6fc525e2cba3b4f",
+    "vitest.browser.config.mts": "348659cda495eb6f00055ce3aa1d69ddd69864b0b2ed6f3a7fcb12b6d0326b58"
+  }
+}

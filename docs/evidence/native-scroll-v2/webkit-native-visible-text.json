@@ -1,0 +1,43 @@
+{
+  "kind": "native-visible-text",
+  "engine": "webkit",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+  "offsets": [40, 47],
+  "nativeDifferentChannels": 264,
+  "authoredNativeDifferentChannels": 21,
+  "replayNativeDifferentChannels": 21,
+  "replayAuthoredDifferentChannels": 0,
+  "replayInitialDifferentChannels": 243,
+  "repeatedNativeDifferentChannels": 21,
+  "repeatedInitialDifferentChannels": 243,
+  "commentReplayNativeDifferentChannels": 21,
+  "variants": [
+    {
+      "name": "foreign-overflow-visible",
+      "nativeDifferentChannels": 21
+    },
+    {
+      "name": "foreign-opacity-filter",
+      "nativeDifferentChannels": 21
+    },
+    {
+      "name": "group",
+      "nativeDifferentChannels": 21
+    },
+    {
+      "name": "identity-filter",
+      "nativeDifferentChannels": 21
+    },
+    {
+      "name": "nested-svg-image",
+      "nativeDifferentChannels": 21
+    },
+    {
+      "name": "nested-inline-svg",
+      "nativeDifferentChannels": 21
+    }
+  ],
+  "htmlNativeDifferentChannels": 0,
+  "inlineSvgNativeDifferentChannels": 0,
+  "replayNativeMaxChannelDelta": 1
+}

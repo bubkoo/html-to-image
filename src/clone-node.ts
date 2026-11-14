@@ -11,6 +11,7 @@ import { resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
 import { embedSVGReferences, getSVGReference } from './svg-references.js'
 import { cloneScrollState } from './clone-scroll.js'
+import { cloneScrollbarStyles } from './clone-scrollbars.js'
 
 function createCloneDocument(source: Document) {
   // A detached element in a browsing document can still load resources in
@@ -388,6 +389,7 @@ function decorate<T extends HTMLElement>(
       isRoot,
     )
     clonePseudoElements(nativeNode, clonedNode, selected)
+    cloneScrollbarStyles(nativeNode, clonedNode, options, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
     cloneClipPathReferences(nativeNode, clonedNode)
