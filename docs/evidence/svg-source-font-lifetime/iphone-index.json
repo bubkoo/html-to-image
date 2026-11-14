@@ -1,0 +1,161 @@
+{
+  "archive": "iphone-raw.tar.gz",
+  "archiveSHA256": "8f28d4897f581b1492d12cca267ce851c089b3ae1df61400c76852640d9e1bd7",
+  "files": [
+    {
+      "path": "404798d-full.json",
+      "bytes": 4175,
+      "sha256": "7e6c6e9e6e4117ade1a42d81a3c5e21af0dc8adb1e25bc0c2cf1636d6667ab80"
+    },
+    {
+      "path": "cancel-summary.json",
+      "bytes": 1144,
+      "sha256": "c54e18c18c1650c15dac369b8f86aecdadd56370a2b53b8600eb99a106c2f7e2"
+    },
+    {
+      "path": "cancel.log",
+      "bytes": 1145,
+      "sha256": "52028e0676372e6497b4b12e3ca8e6348e1f347125ccd9a9d9f1148da5003e46"
+    },
+    {
+      "path": "client.py",
+      "bytes": 634,
+      "sha256": "b091468b191cb090e1f9c73fe716e5cd8ba22881aec3fe5540e4fedf3da6cf2b"
+    },
+    {
+      "path": "esm-svg-font-units-large-authored.png",
+      "bytes": 293,
+      "sha256": "0a78f42e7a107ce6ec94de7df6ead8ee619dea6d959d18d5fd24a14f81bd6566"
+    },
+    {
+      "path": "esm-svg-font-units-large-capture.png",
+      "bytes": 293,
+      "sha256": "0a78f42e7a107ce6ec94de7df6ead8ee619dea6d959d18d5fd24a14f81bd6566"
+    },
+    {
+      "path": "esm-svg-font-units-loaded-authored.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "esm-svg-font-units-loaded-capture.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "esm-svg-font-units-loaded-explicit-false-authored.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "esm-svg-font-units-loaded-explicit-false-capture.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "esm-svg-font-units-loaded-explicit-true-authored.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "esm-svg-font-units-loaded-explicit-true-capture.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "esm-svg-font-units-system-authored.png",
+      "bytes": 300,
+      "sha256": "b7c1c08d3a5a83b1604103dbb4d582525bc86f03426dfb2e951193977cccc936"
+    },
+    {
+      "path": "esm-svg-font-units-system-capture.png",
+      "bytes": 300,
+      "sha256": "b7c1c08d3a5a83b1604103dbb4d582525bc86f03426dfb2e951193977cccc936"
+    },
+    {
+      "path": "font-summary.json",
+      "bytes": 12344,
+      "sha256": "adc4112af01d9089588890d08f0c1a6925fb13aae25007ad7db87fb494a1bd94"
+    },
+    {
+      "path": "font.log",
+      "bytes": 764,
+      "sha256": "4c03516c7bfdd1cfc6895cf618e157032730d67e4db0ce3e41d2e70e6f4a5a39"
+    },
+    {
+      "path": "run-cancel.py",
+      "bytes": 3408,
+      "sha256": "8bb091640a751e8bbc0d101d0b9c6be8753d8198e0cf14419929b519642781d0"
+    },
+    {
+      "path": "run-fonts.py",
+      "bytes": 2778,
+      "sha256": "fe073f8fddc33e6c5ed70cfaa1f2fa00ed5c029fd3768cf21b604f18a10e50a2"
+    },
+    {
+      "path": "run-smoke.py",
+      "bytes": 1438,
+      "sha256": "722c07eeb7499e0ae42384fe2c9e69a8e71ad72129feb8afb7238ec4947a6759"
+    },
+    {
+      "path": "smoke-server-receipt.json",
+      "bytes": 2346,
+      "sha256": "73adc46f3a8f2ba50e5840617f43d91a623faf5d057e636a901031e1fe4abc6c"
+    },
+    {
+      "path": "smoke.log",
+      "bytes": 4176,
+      "sha256": "9e2cac9163676d64bcd58df0ecd230d3fcb219c632595d9f86dd17df99828ef3"
+    },
+    {
+      "path": "umd-svg-font-units-large-authored.png",
+      "bytes": 293,
+      "sha256": "0a78f42e7a107ce6ec94de7df6ead8ee619dea6d959d18d5fd24a14f81bd6566"
+    },
+    {
+      "path": "umd-svg-font-units-large-capture.png",
+      "bytes": 293,
+      "sha256": "0a78f42e7a107ce6ec94de7df6ead8ee619dea6d959d18d5fd24a14f81bd6566"
+    },
+    {
+      "path": "umd-svg-font-units-loaded-authored.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "umd-svg-font-units-loaded-capture.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "umd-svg-font-units-loaded-explicit-false-authored.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "umd-svg-font-units-loaded-explicit-false-capture.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "umd-svg-font-units-loaded-explicit-true-authored.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "umd-svg-font-units-loaded-explicit-true-capture.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "umd-svg-font-units-system-authored.png",
+      "bytes": 300,
+      "sha256": "b7c1c08d3a5a83b1604103dbb4d582525bc86f03426dfb2e951193977cccc936"
+    },
+    {
+      "path": "umd-svg-font-units-system-capture.png",
+      "bytes": 300,
+      "sha256": "b7c1c08d3a5a83b1604103dbb4d582525bc86f03426dfb2e951193977cccc936"
+    }
+  ]
+}

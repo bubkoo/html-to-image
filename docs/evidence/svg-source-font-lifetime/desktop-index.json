@@ -1,0 +1,96 @@
+{
+  "archive": "desktop-raw.tar.gz",
+  "archiveSHA256": "18274a477ac4208fbacd88f0f6b0cc688e6fc63453ce64ebcd8abe3f79ea9686",
+  "files": [
+    {
+      "path": "after.log",
+      "bytes": 195,
+      "sha256": "ecc66e3afae639922c2bf52f5e707d2f0922cd9f9eb8dc395ccf3b68f87affda"
+    },
+    {
+      "path": "before-final.log",
+      "bytes": 15407,
+      "sha256": "cdc14adfafb20ef8856b4ccf23f493d70ca35dd5d2e8dd3623b52fe46b31045c"
+    },
+    {
+      "path": "before-no-font-control.log",
+      "bytes": 207,
+      "sha256": "906443c9d65e530c7a6ca0bb04221018e4774784fa033cd57145b278fac1e046"
+    },
+    {
+      "path": "before-opened-isolated.log",
+      "bytes": 6704,
+      "sha256": "2af037ad05f99584615d2587856b908a66783f272c9532c9a09fe27559c90597"
+    },
+    {
+      "path": "before-unopened-isolated.log",
+      "bytes": 6710,
+      "sha256": "2783b109a579cf2df7c0093ebc1fac27659930fec2eaf3af880d1b1b63386ef0"
+    },
+    {
+      "path": "before.log",
+      "bytes": 15187,
+      "sha256": "bb6c7b0f2fa0c6aa699705aef49524e1bd56605746a1b707aa6f9e5683cdce6f"
+    },
+    {
+      "path": "format.log",
+      "bytes": 108,
+      "sha256": "459bc72457d1967143b4e49f4723e0ddef623a986edbfef53999a19ba56c07df"
+    },
+    {
+      "path": "full-final.log",
+      "bytes": 22548,
+      "sha256": "63e2692b7ff9764da7ae3b054007511306bfa8d206e3101c761dd0e9bc220576"
+    },
+    {
+      "path": "lint.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "source-commit.log",
+      "bytes": 942,
+      "sha256": "5c11fdfe34fab31b4c05bc42fe2275d98dfd6d2394f46ff608475bb64b1d76cf"
+    },
+    {
+      "path": "svg-font-owner-probe-after.json",
+      "bytes": 1544,
+      "sha256": "46aa25bb13fefdccc1cfe3d2f22ae11553b33a67e3982965bd92fe877a93d8da"
+    },
+    {
+      "path": "svg-font-owner-probe-after.log",
+      "bytes": 1544,
+      "sha256": "46aa25bb13fefdccc1cfe3d2f22ae11553b33a67e3982965bd92fe877a93d8da"
+    },
+    {
+      "path": "svg-font-owner-probe-after.mjs",
+      "bytes": 2568,
+      "sha256": "26380f88eaee814d86d052784d1e4c6e0bd6c4b8784342ae869dd361cc632608"
+    },
+    {
+      "path": "svg-font-owner-probe.json",
+      "bytes": 1525,
+      "sha256": "8882563e16dab642880799b09f39f39eae2da6c046488599e1a50d05194e19dd"
+    },
+    {
+      "path": "svg-font-owner-probe.log",
+      "bytes": 1525,
+      "sha256": "8882563e16dab642880799b09f39f39eae2da6c046488599e1a50d05194e19dd"
+    },
+    {
+      "path": "svg-font-owner-probe.mjs",
+      "bytes": 2541,
+      "sha256": "403b90d213c8af556fb08b1a5af7d173b0c428e3edd21a56decf3e14519b1f70"
+    },
+    {
+      "path": "targeted-after.log",
+      "bytes": 210,
+      "sha256": "0e2f35b378554ff1f31e5987c287291540c6258b0c39163f435ba330b6b0861e"
+    },
+    {
+      "path": "types.log",
+      "bytes": 137,
+      "sha256": "38f0863e0be4625d09f5323fc85bc0390fac422668c68a20a66948296cb13591"
+    }
+  ]
+}

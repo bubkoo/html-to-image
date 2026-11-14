@@ -1,0 +1,80 @@
+{
+  "source": "7206ada plus compiled dispose-only font-list clear experiment",
+  "engines": {
+    "chromium": {
+      "version": "156.0.8078.4",
+      "rows": [
+        {
+          "mode": "plain-none",
+          "collected": true
+        },
+        {
+          "mode": "plain-held",
+          "collected": true
+        },
+        {
+          "mode": "font-none",
+          "collected": true
+        },
+        {
+          "mode": "font-held",
+          "collected": true
+        },
+        {
+          "mode": "font-dropped",
+          "collected": true
+        }
+      ]
+    },
+    "firefox": {
+      "version": "157.0",
+      "rows": [
+        {
+          "mode": "plain-none",
+          "collected": true
+        },
+        {
+          "mode": "plain-held",
+          "collected": true
+        },
+        {
+          "mode": "font-none",
+          "collected": true
+        },
+        {
+          "mode": "font-held",
+          "collected": true
+        },
+        {
+          "mode": "font-dropped",
+          "collected": true
+        }
+      ]
+    },
+    "webkit": {
+      "version": "27.2",
+      "rows": [
+        {
+          "mode": "plain-none",
+          "collected": false
+        },
+        {
+          "mode": "plain-held",
+          "collected": false
+        },
+        {
+          "mode": "font-none",
+          "collected": false
+        },
+        {
+          "mode": "font-held",
+          "collected": false
+        },
+        {
+          "mode": "font-dropped",
+          "collected": false
+        }
+      ]
+    }
+  }
+}
