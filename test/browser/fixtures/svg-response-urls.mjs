@@ -11,8 +11,17 @@ const png = (image) => {
 }
 export async function checkSVGResponseURLs(api, cacheBust, readNative, record) {
   const policy = await readNativeSVGFixturePolicy()
-  const id = crypto.randomUUID(),
-    base = '/test/browser/svg-response-url/' + id + '/'
+  const hex = Array.from(crypto.getRandomValues(new Uint8Array(16)), (value) =>
+    value.toString(16).padStart(2, '0'),
+  ).join('')
+  const id = [
+    hex.slice(0, 8),
+    hex.slice(8, 12),
+    hex.slice(12, 16),
+    hex.slice(16, 20),
+    hex.slice(20),
+  ].join('-')
+  const base = '/test/browser/svg-response-url/' + id + '/'
   const root = document.createElement('div')
   root.id = 'svg-response-' + id
   root.style.cssText = 'display:flex;width:100px;height:20px;background:white'
