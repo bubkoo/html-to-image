@@ -110,9 +110,28 @@ export async function embedSVGReferences(
   const primary = new WeakSet<Element>()
   const ids = new Set<string>()
   let definitions: SVGDefsElement | undefined
-  let stylePolicy: Promise<SVGStylePolicy> | undefined
+  let stylePolicy: Promise<SVGStylePolicy | undefined> | undefined
   const styledScopes = new Map<string, Scope>()
   const activeUses = new Map<string, Element>()
+  const nativeStylePolicy = () => {
+    stylePolicy ||= detectSVGStylePolicy(source.ownerDocument, () =>
+      task?.check(),
+    ).catch((error) => {
+      task?.check()
+      // An unavailable optional probe must not discard a valid SVG resource.
+      loader.warn(
+        Object.freeze({
+          code: 'resource-error',
+          resource: 'external-svg-style-probe',
+          message:
+            'Native SVG stylesheet scope could not be measured; retaining existing definition styles: ' +
+            (error instanceof Error ? error.message : String(error)),
+        }),
+      )
+      return undefined
+    })
+    return stylePolicy
+  }
 
   const withoutHash = (value: string) => {
     const url = new URL(value)
@@ -335,10 +354,8 @@ export async function embedSVGReferences(
     let definition: Element | undefined
     try {
       if (instance && wholeDocument && !id && !local) {
-        stylePolicy ||= detectSVGStylePolicy(source.ownerDocument, () =>
-          task?.check(),
-        )
-        if (!(await stylePolicy).whole) return ''
+        const policy = await nativeStylePolicy()
+        if (policy && !policy.whole) return ''
       }
       owner = local
         ? scope
@@ -346,23 +363,22 @@ export async function embedSVGReferences(
           ? sourceScope
           : await loadScope(target.href)
       if (owner.external && instance && owner !== scope) {
-        stylePolicy ||= detectSVGStylePolicy(source.ownerDocument, () =>
-          task?.check(),
-        )
-        const policy = await stylePolicy
-        const key = JSON.stringify([owner.url, svgStyleContextKey(instance)])
-        let styled = styledScopes.get(key)
-        if (!styled) {
-          styled = {
-            ...owner,
-            root: owner.root.cloneNode(true) as Document,
-            ids: undefined,
-            styleHost: instance,
-            stylePolicy: policy,
+        const policy = await nativeStylePolicy()
+        if (policy) {
+          const key = JSON.stringify([owner.url, svgStyleContextKey(instance)])
+          let styled = styledScopes.get(key)
+          if (!styled) {
+            styled = {
+              ...owner,
+              root: owner.root.cloneNode(true) as Document,
+              ids: undefined,
+              styleHost: instance,
+              stylePolicy: policy,
+            }
+            styledScopes.set(key, styled)
           }
-          styledScopes.set(key, styled)
+          owner = styled
         }
-        owner = styled
       }
       definition = id
         ? find(owner, id)
