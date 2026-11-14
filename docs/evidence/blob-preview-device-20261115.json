@@ -1,0 +1,42 @@
+{
+  "rect": {
+    "y": 101,
+    "x": 201,
+    "width": 402,
+    "height": 714
+  },
+  "input": "W3C pointer actions, touch, viewport coordinates",
+  "response": null,
+  "handles": ["page-DFE870B4-4420-45EF-8255-8994A7831525"],
+  "evidence": {
+    "clicks": [],
+    "ready": true,
+    "mime": "image/png",
+    "size": [96, 60],
+    "cleaned": false,
+    "blue": [0, 0, 255, 255],
+    "red": [255, 0, 0, 255],
+    "url": "blob:http://169.254.75.67:4373/4f522239-6b2c-4af0-8ced-34b5cbe809be"
+  },
+  "checkedAt": "2026-11-14T16:00:14.916521+00:00",
+  "testedRuntimeSource": "1626445d4f38d7d6ced9017edc3f794971b2a3c5",
+  "inputFile": "blob-preview-acceptance-20261115.html.txt",
+  "inputSHA256": "e787d9d6be2293575971bbd827fcf3fec4348e3002a04fc8095e002caea7ae93",
+  "elementClick": "W3C element click returned null; no DOM click event and no new handle",
+  "wifiRoute": {
+    "url": "data:text/html,",
+    "text": "Safari\u6d4f\u89c8\u5668\u6253\u4e0d\u5f00\u8be5\u7f51\u9875\uff0c\u56e0\u4e3a\u5df2\u4e22\u5931\u7f51\u7edc\u8fde\u63a5\u3002"
+  },
+  "conclusion": "PNG encoding, MIME and pixels passed. Trusted gesture/new tab/noopener/cleanup acceptance remains unverified. Neither W3C input dispatched a DOM event. No synthetic click used.",
+  "device": {
+    "platform": "real USB iPhone, not simulator",
+    "platformVersion": "26.6.1",
+    "browserVersion": "26.6.1",
+    "dpr": 3,
+    "versionProvenance": "SafariDriver capabilities"
+  },
+  "trustedClickVerified": false,
+  "newTabVerified": false,
+  "cleanupVerified": false,
+  "networkScope": "USB automation navigation succeeded using the current interface address. Wi-Fi navigation to actual Mac en0 address 10.0.0.6 returned Safari network-lost error. Earlier 100.82.200.24 was not the current Wi-Fi interface address. Neither failure proves a library bug. No security or network settings changed."
+}

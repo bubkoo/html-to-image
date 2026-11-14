@@ -370,9 +370,11 @@
       "disposition": "README helper 与三引擎交互已验；保留单数 toBlob API",
       "evidence": [
         "docs/evidence/blob-preview-browser-checks.json",
-        "README.md"
+        "README.md",
+        "docs/evidence/blob-preview-device-20261115.json"
       ],
-      "remainingBoundary": "真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击"
+      "remainingBoundary": "真实 iPhone PNG MIME/96×60/red-blue 读取通过；W3C element click 与 touch actions 虽返回成功但页面未收到事件、没有新标签，不算可信点击/清理通过。实际 Wi-Fi 地址导航也失败，物理交互仍缺可达页面及真实点击。",
+      "checkedAt": "2026-11-14T16:13:24.589942+00:00"
     },
     {
       "number": 393,

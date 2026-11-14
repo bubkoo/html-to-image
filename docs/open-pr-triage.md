@@ -6,6 +6,10 @@
 
 原生滚动调查保存在 [99cc2ef](https://github.com/bubkoo/html-to-image/blob/99cc2ef/docs/evidence/native-scroll-v2.json)，没有 PR、没有合入。新的 Canvas 四组控制表明：稳定 SVG 字形的末 21 通道差异在 willReadFrequently:true 时为零，但直接全局启用后首次绘制仍失败、独立解码对照也改变；运行时实验已撤回。内阴影仍差 234 通道，两项严格失败未改为通过。下方“待 #634/#635 验收”保留为历史阶段；旧 PR 未评论或关闭，npm 未发布。
 
+### #398 本次真机交互补验
+
+[原始记录和输入](evidence/blob-preview-device-20261115.json)：真实 iPhone 的 README helper 生成 image/png、96×60（DPR 3）红蓝像素均正确。SafariDriver 的原生 element click 与 touch actions 都返回成功，但 click 记录为零、window handles 未增加；未使用合成 click，也没有把命令返回当成可信点击通过。实际 Mac Wi-Fi 地址 10.0.0.6 的手机导航仍报告网络丢失，未修改网络或安全设置。该项仍缺可达页面上的可信打开、新标签 noopener 与清理验证，不能按完整真机验收处理。
+
 ## 2026-11-15 组合验收：#634 已合入，#635 待最终远端检查
 
 #634 已合入 master `f340ddf`：最终文档 head `10dac15` 的 CI 43613028495、CodeQL 43613028389 通过；其运行时与已实测 30/30 的 `1626445` 一致。原源码 Codecov patch/project 通过，文档 head 已成功上传 coverage，尚未单独报告 Codecov 状态。主分支检查另行跟进。[尺寸证据](evidence/scrollbar-box-dimensions.json)明确手机悬浮滚动条与桌面占位滚动条的覆盖范围。
