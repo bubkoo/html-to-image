@@ -91,13 +91,14 @@
     "conclusions": "success",
     "counts": [1084, 965, 153]
   },
-  "rawArchiveFiles": 259,
+  "rawArchiveFiles": 277,
   "archives": {
     "baseline": 25,
     "candidate": 30,
     "initial": 102,
     "iphone": 39,
-    "observations": 63
+    "observations": 63,
+    "remote-first-failure": 18
   },
   "observedRemaining": {
     "iPhone": "Qualified paint uses purple fallback, fragment-only #paint uses containing-page blue while current export embeds file green/red. Flat/color controls and before/after native pixels agree.",
@@ -112,5 +113,56 @@
     "Opaque matching rules and restricted CSP",
     "HTTP file CSS/fonts and native compositor differences",
     "Original 20 MB SPA pressure, browser caches, WebKit/device GC"
-  ]
+  ],
+  "firstRemoteFailure": {
+    "head": "821413c8360790d891fa3625eb39e70cab669fd3",
+    "run": 43653658279,
+    "coverage": {
+      "passed": 1108,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 986,
+      "failed": 3,
+      "skipped": 4
+    },
+    "failedEngine": "firefox",
+    "failedCases": [
+      "removed iframe document collectible with usable snapshot",
+      "disposed SVG environment with probed=true",
+      "cancelled SVG work while font resolver pending"
+    ],
+    "package": "not run",
+    "codeql": {
+      "run": 43653658221,
+      "conclusion": "success"
+    },
+    "artifactFiles": 10,
+    "rootCause": "not established; do not attribute this to final-response metadata or call diagnostics a production fix"
+  },
+  "diagnosticFollowup": {
+    "source": "4aa8640d2434a296a4f0b3036367fc0fa5b69521",
+    "runtimeUnchanged": true,
+    "deviceAndPackageProductionInputsUnchanged": true,
+    "changedInputs": [
+      "test/browser-unit/capture-lifetime.test.ts",
+      "test/browser-unit/resource-resolver-cancellation.test.ts"
+    ],
+    "isolatedMacFirefoxControls": 144,
+    "isolatedReproductions": 0,
+    "method": "Paired native/captured/style environments with/without loaded fonts, same three explicit collections; not a Linux CI reproduction.",
+    "harness": "Pair native removed/probed frames before captured/retained owner, assert both collect; report boolean state/tree strings instead of a Document object. Keep primary collection conditions and three collections unchanged.",
+    "localTargeted": {
+      "passed": 32,
+      "inheritedSkipped": 1
+    },
+    "localAfterDiagnostics": {
+      "coverage": 1108,
+      "source": 989,
+      "coverageSkipped": 4,
+      "sourceSkipped": 4,
+      "lintTypes": "pass"
+    },
+    "remoteStatus": "pending on final subsequent docs head; no source-GC root-cause fix claim"
+  }
 }

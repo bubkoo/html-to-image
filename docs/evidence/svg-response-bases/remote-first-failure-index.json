@@ -1,0 +1,96 @@
+{
+  "archive": "remote-first-failure-raw.tar.gz",
+  "archiveSHA256": "1184456960ef1e86ea5017ffcd1c95a56bcb4e8d919d2ac16411467bb507bbec",
+  "files": [
+    {
+      "path": "artifact/.vitest/attachments/20d01ffc10573d75fd643bcf6d27aef2a3e2f392.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifact/.vitest/attachments/2cd5313322fd9d852e0c0529d37bf1e2b13e1d1f.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifact/.vitest/attachments/bc7b56cc94963585e46e9febd2ee9ed06143f132.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifact/.vitest/attachments/failure-screenshots/capture-lifetime.test.ts/a-removed-iframe-document-is-collectible-while-its-snapshot-remains-usable.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifact/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifact/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "ci.log",
+      "bytes": 334109,
+      "sha256": "4171d0dbd1e484719d8326073237bb659d21d5c9656d9aaefa44224149c68872"
+    },
+    {
+      "path": "gc-diagnostics-full-tests.log",
+      "bytes": 1249,
+      "sha256": "5f45adb12c5ef6a25f89f64130fbd9a0febf9978f346ece766c3cc3fea882cea"
+    },
+    {
+      "path": "gc-diagnostics-lint.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "gc-diagnostics-targeted.log",
+      "bytes": 208,
+      "sha256": "a94e68b5c7709c0dfe63ca19e4ca0510cc7a6ca7cb8b333d714ba56eecc1583a"
+    },
+    {
+      "path": "gc-diagnostics-types.log",
+      "bytes": 137,
+      "sha256": "38f0863e0be4625d09f5323fc85bc0390fac422668c68a20a66948296cb13591"
+    },
+    {
+      "path": "retention-probe.json",
+      "bytes": 16129,
+      "sha256": "69c97678d3a861468452914348d74dd7014d613d509fcaca8cc901de707ba312"
+    },
+    {
+      "path": "retention-probe.log",
+      "bytes": 29,
+      "sha256": "9b1d9aa6c3bfc89401b1012177f833b3dbf210b3e9f49106b6dd95a086eb9d12"
+    },
+    {
+      "path": "retention-probe.mjs",
+      "bytes": 3001,
+      "sha256": "0a711c0fdb6f6d7f868cc6172843237d17faa3cb5eedf5c805dbf8506e538dad"
+    }
+  ]
+}

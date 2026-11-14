@@ -14,7 +14,7 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
-      "disposition": "Final-response SVG file-CSS bases fixed in scoped bafedeb follow-up: same final six native controls 2 fail/4 pass before and six pass after; local full 1108/989/156 and real iPhone inactive-file-CSS controls pass. Exact-head remote gates required. Qualified/query-distinct/fragment paint and relative attribute/inline bases remain open.",
+      "disposition": "Final-response SVG file-CSS bases fixed in scoped bafedeb follow-up: same final six native controls 2 fail/4 pass before and six pass after; local full 1108/989/156 and real iPhone inactive-file-CSS controls pass. Exact-head remote gates required. Qualified/query-distinct/fragment paint and relative attribute/inline bases remain open. First PR 643 CI 43653658279 passed coverage but failed three Firefox source-GC controls (986 pass/3 fail/4 skips), no remote package run; CodeQL passed. Runtime-unchanged diagnostic follow-up 4aa8640 adds paired native and boolean/tree reports; local 1108/989 passes, exact new head remote gates pending; GC cause not established.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",

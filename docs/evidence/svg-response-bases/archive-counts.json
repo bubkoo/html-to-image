@@ -3,5 +3,6 @@
   "candidate": 30,
   "initial": 102,
   "iphone": 39,
-  "observations": 63
+  "observations": 63,
+  "remote-first-failure": 18
 }
