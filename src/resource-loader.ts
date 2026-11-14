@@ -67,6 +67,7 @@ export function blobToDataURL(blob: Blob): Promise<string> {
 
 export class ResourceLoader {
   private pending = new Map<string, Promise<Blob>>()
+  private responseURLs = new Map<string, string>()
 
   constructor(
     private readonly options: Options,
@@ -74,15 +75,27 @@ export class ResourceLoader {
     readonly warn: (diagnostic: CaptureDiagnostic) => void = () => {},
   ) {}
 
-  load(url: string, kind: ResourceKind, contentType?: string): Promise<Blob> {
+  private key(url: string, kind: ResourceKind, contentType?: string) {
     // Full URLs identify resources by default. The legacy option remains opt-in.
     const identity =
       this.options.includeQueryParams === false ? url.replace(/\?.*/, '') : url
-    const key = JSON.stringify([identity, kind, contentType])
+    return JSON.stringify([identity, kind, contentType])
+  }
+
+  responseURL(url: string, kind: ResourceKind, contentType?: string) {
+    return this.responseURLs.get(this.key(url, kind, contentType)) || url
+  }
+
+  load(url: string, kind: ResourceKind, contentType?: string): Promise<Blob> {
+    const key = this.key(url, kind, contentType)
     const existing = this.pending.get(key)
     if (existing) return existing
 
-    const request = this.fetch(url, kind, contentType)
+    const request = this.fetch(url, kind, contentType).then((result) => {
+      if (this.pending.get(key) === request)
+        this.responseURLs.set(key, result.url)
+      return result.blob
+    })
     this.pending.set(key, request)
     request.catch(() => {
       if (this.pending.get(key) === request) this.pending.delete(key)
@@ -118,14 +131,18 @@ export class ResourceLoader {
               ),
             )
           }
-          return result
+          return { blob: result, url }
         }
       }
     }
     const requestURL = new URL(url, document.baseURI)
     requestURL.hash = ''
+    const originalURL = requestURL.href
+    const originalNonce = requestURL.searchParams.getAll('_htmlToImage')
+    let nonce: string | undefined
     if (this.options.cacheBust) {
-      requestURL.searchParams.set('_htmlToImage', String(Date.now()))
+      nonce = String(Date.now())
+      requestURL.searchParams.set('_htmlToImage', nonce)
     }
     const response = await fetch(requestURL.href, {
       ...this.options.fetchRequestInit,
@@ -134,10 +151,22 @@ export class ResourceLoader {
     if (!response.ok) {
       throw new Error(`Resource request failed (${response.status}): ${url}`)
     }
-    return response.blob()
+    const finalURL = new URL(response.url || requestURL.href)
+    if (nonce && finalURL.searchParams.get('_htmlToImage') === nonce) {
+      finalURL.searchParams.delete('_htmlToImage')
+      originalNonce.forEach((value) =>
+        finalURL.searchParams.append('_htmlToImage', value),
+      )
+    }
+    return {
+      blob: await response.blob(),
+      // A transport cache-buster is not part of the SVG document identity.
+      url: response.url === requestURL.href ? originalURL : finalURL.href,
+    }
   }
 
   clear() {
     this.pending.clear()
+    this.responseURLs.clear()
   }
 }

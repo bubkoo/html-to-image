@@ -3,9 +3,12 @@
 import { expect, test } from 'vitest'
 import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
-import { createSVGStyleEnvironment } from '../../src/svg-style-scope'
+import {
+  createSVGStyleEnvironment,
+  detectSVGStylePolicy,
+} from '../../src/svg-style-scope'
 
-async function nativeFrame(fonts: FontFace[]) {
+async function nativeFrame(fonts: FontFace[], probed = false) {
   const frame = document.createElement('iframe')
   const loaded = new Promise<void>((resolve) => {
     frame.onload = () => resolve()
@@ -24,6 +27,7 @@ async function nativeFrame(fonts: FontFace[]) {
         errors.push((error as Error).name)
       }
     })
+    if (probed) await detectSVGStylePolicy(doc, () => {})
     return { reference: new WeakRef(doc), errors }
   } finally {
     frame.remove()
@@ -35,6 +39,7 @@ async function nativeRetention() {
   document.fonts.forEach((font) => fonts.push(font))
   const plain = await nativeFrame([])
   const shared = await nativeFrame(fonts)
+  const nativeProbe = await nativeFrame(fonts, true)
   const probe = await measuredFrame()
   await commands.collectGarbage()
   await commands.collectGarbage()
@@ -42,9 +47,25 @@ async function nativeRetention() {
   return {
     plain: !!plain.reference.deref(),
     sharedFonts: !!shared.reference.deref(),
+    nativeProbe: !!nativeProbe.reference.deref(),
     measuredProbe: !!probe.deref(),
     sharingErrors: shared.errors,
   }
+}
+
+function retainedTree(reference: WeakRef<Document>) {
+  const doc = reference.deref()
+  return doc
+    ? {
+        elements: Array.from(
+          doc.querySelectorAll('*'),
+          (node) => node.localName,
+        ),
+        shadows: Array.from(doc.querySelectorAll('div'), (node) =>
+          node.shadowRoot?.innerHTML.slice(0, 300),
+        ),
+      }
+    : undefined
 }
 
 async function measuredFrame() {
@@ -74,13 +95,21 @@ test.each([false, true])(
   'a disposed SVG environment releases its document with probed=%s',
   async (probed) => {
     const frames = Array.from(document.querySelectorAll('iframe'))
+    const fonts: FontFace[] = []
+    document.fonts.forEach((font) => fonts.push(font))
+    const native = await nativeFrame(fonts, probed)
     const { environment, reference } = await disposedEnvironment(probed)
     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(frames)
     if (server.browser !== 'webkit') {
       await commands.collectGarbage()
       await commands.collectGarbage()
       await commands.collectGarbage()
-      expect(reference.deref()).toBeUndefined()
+      const diagnosis = {
+        nativeCollected: native.reference.deref() === undefined,
+        ownerCollected: reference.deref() === undefined,
+      }
+      expect(diagnosis.ownerCollected, JSON.stringify(diagnosis)).toBe(true)
+      expect(diagnosis.nativeCollected).toBe(true)
     }
     await expect(environment.getDocument()).rejects.toThrow(/disposed/)
     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(frames)
@@ -163,20 +192,14 @@ test('cancellation releases private SVG work while a custom font resolver remain
       await commands.collectGarbage()
       await commands.collectGarbage()
       await commands.collectGarbage()
-      const retained = reference!.deref()
-      const diagnosis = retained
-        ? {
-            native: await nativeRetention(),
-            elements: Array.from(
-              retained.querySelectorAll('*'),
-              (node) => node.localName,
-            ),
-            shadows: Array.from(retained.querySelectorAll('div'), (node) =>
-              node.shadowRoot?.innerHTML.slice(0, 300),
-            ),
-          }
-        : undefined
-      expect(retained, JSON.stringify(diagnosis)).toBeUndefined()
+      const collected = reference!.deref() === undefined
+      const tree = collected ? undefined : retainedTree(reference!)
+      const diagnosis = collected
+        ? undefined
+        : { native: await nativeRetention(), tree }
+      // Report primitive observations rather than rooting the failed document
+      // in the test reporter and contaminating later collection controls.
+      expect(collected, JSON.stringify(diagnosis)).toBe(true)
     }
   } finally {
     observer.disconnect()

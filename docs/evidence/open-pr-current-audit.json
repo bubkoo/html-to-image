@@ -14,7 +14,7 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
-      "disposition": "PR 641 merged as 648443e; exact post-merge master CI 43649156211 and CodeQL 43649156200 passed (1072/953/153). Earlier PR 640 master failure 43645977092 retained. Relative presentation/inline URLs and redirect bases remain independent open work.",
+      "disposition": "Final-response SVG file-CSS bases fixed in scoped bafedeb follow-up: same final six native controls 2 fail/4 pass before and six pass after; local full 1108/989/156 and real iPhone inactive-file-CSS controls pass. Exact-head remote gates required. Qualified/query-distinct/fragment paint and relative attribute/inline bases remain open. First PR 643 CI 43653658279 passed coverage but failed three Firefox source-GC controls (986 pass/3 fail/4 skips), no remote package run; CodeQL passed. Runtime-unchanged diagnostic follow-up 4aa8640 adds paired native and boolean/tree reports; local 1108/989 passes, exact new head remote gates pending; GC cause not established.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
@@ -22,11 +22,13 @@
         "docs/evidence/svg-native-style-scope.json",
         "docs/evidence/svg-font-units.json",
         "docs/evidence/svg-data-imports.json",
-        "docs/evidence/svg-data-relative-urls.json"
+        "docs/evidence/svg-data-relative-urls.json",
+        "docs/evidence/svg-response-bases.json"
       ],
-      "remainingBoundary": "Qualified relative SVG presentation/inline-style bases in Firefox/WebKit, redirect final-response URL metadata, native compositor differences, opaque matching rules, restricted CSP, HTTP file CSS/fonts and broader combinations remain open.",
+      "remainingBoundary": "Attribute/inline relative bases, query-distinct paint URLs, page/file fragment scope and physical-iPhone unsupported qualified paint differ; broader redirects, compositor, opaque rules, restricted CSP and HTTP styles/fonts remain open.",
       "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
-      "dataImportSource": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c"
+      "dataImportSource": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
+      "responseURLSource": "bafedeb9720a89b3c6fad0c98f70b51e2f7bdab1"
     },
     {
       "number": 581,
@@ -99,7 +101,7 @@
       "reviewedHead": "e3f59317b338a2bf8805eb66152c72ea82f6c37f",
       "observedState": "open",
       "requirement": "SPA 不应被模块全局缓存无限持有图片/字体",
-      "disposition": "Scoped source-font ownership follow-up 404798d: dispose clears private borrowed FontFace references; local full and real iPhone output/cancellation controls pass. Exact-head remote gates required; no global clearCache API or whole SPA completion.",
+      "disposition": "Borrowed source-font disposal merged as PR 642 at 29bcc92; exact PR CI/CodeQL/Codecov and post-merge master CI 43652637169/CodeQL 43652637103 passed (1084/965/153). Scope remains narrower than original SPA/cache pressure.",
       "evidence": [
         "test/browser-unit/resource-policy.test.ts",
         "test/browser-unit/capture-lifetime.test.ts",

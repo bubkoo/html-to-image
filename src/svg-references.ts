@@ -240,6 +240,7 @@ export async function embedSVGReferences(
     if (!pending) {
       pending = (async () => {
         const blob = await loader.load(url, 'image', getMimeType(url))
+        const finalURL = loader.responseURL(url, 'image', getMimeType(url))
         const document = new DOMParser().parseFromString(
           await blob.text(),
           'image/svg+xml',
@@ -249,7 +250,8 @@ export async function embedSVGReferences(
           document.documentElement.namespaceURI !== svgNamespace
         )
           throw new Error(`Invalid SVG resource: ${url}`)
-        return { root: document, url, external: true }
+        if (!external.has(finalURL)) external.set(finalURL, pending!)
+        return { root: document, url: finalURL, external: true }
       })()
       external.set(url, pending)
     }

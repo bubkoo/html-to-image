@@ -1,3 +1,4 @@
+import { svgResponseURLServer } from './fixtures/svg-response-url-server.mjs'
 import { createServer } from 'node:http'
 import { randomUUID } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
@@ -24,6 +25,7 @@ const types = {
 const resourcePolicy = resourcePolicyServer(root)
 
 const serve = async (request, response) => {
+  if (svgResponseURLServer(request, response)) return
   if (await resourcePolicy(request, response)) return
   const pathname = decodeURIComponent(
     new URL(request.url || '/', 'http://127.0.0.1').pathname,

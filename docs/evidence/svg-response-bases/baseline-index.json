@@ -1,0 +1,131 @@
+{
+  "archive": "baseline-raw.tar.gz",
+  "archiveSHA256": "df3eee2ca19fbfa7979b28f2ecc07649e3cbef1de3fe9765d8c2f1d4d690a74c",
+  "files": [
+    {
+      "path": "before-final.log",
+      "bytes": 1653,
+      "sha256": "c2d79c16d8885aaae135fbe4988a923422e24de0442883e80ebaa19997a02dfd"
+    },
+    {
+      "path": "chromium-svg-response-urls-false-authored.png",
+      "bytes": 181,
+      "sha256": "1a7ea7c1e024a81648f3dcff668204e3fa97c54a5d7ac14c67083167398dfeed"
+    },
+    {
+      "path": "chromium-svg-response-urls-false-capture.png",
+      "bytes": 188,
+      "sha256": "2c0f59f972a866c2c9c23e50d5aa9066ff6047a111da2a1691b7cad59bc36760"
+    },
+    {
+      "path": "chromium-svg-response-urls-false-native.png",
+      "bytes": 181,
+      "sha256": "1a7ea7c1e024a81648f3dcff668204e3fa97c54a5d7ac14c67083167398dfeed"
+    },
+    {
+      "path": "chromium-svg-response-urls-false.json",
+      "bytes": 2913,
+      "sha256": "cd8dd8c3307921cdcbdb7db5acdcda70fed231949746a5b896f568cbc8a60948"
+    },
+    {
+      "path": "chromium-svg-response-urls-true-authored.png",
+      "bytes": 181,
+      "sha256": "1a7ea7c1e024a81648f3dcff668204e3fa97c54a5d7ac14c67083167398dfeed"
+    },
+    {
+      "path": "chromium-svg-response-urls-true-capture.png",
+      "bytes": 188,
+      "sha256": "2c0f59f972a866c2c9c23e50d5aa9066ff6047a111da2a1691b7cad59bc36760"
+    },
+    {
+      "path": "chromium-svg-response-urls-true-native.png",
+      "bytes": 181,
+      "sha256": "1a7ea7c1e024a81648f3dcff668204e3fa97c54a5d7ac14c67083167398dfeed"
+    },
+    {
+      "path": "chromium-svg-response-urls-true.json",
+      "bytes": 2912,
+      "sha256": "1ac3b99a9502103fd9be52eff71355aca2b54c61eb328b69514ea8cb9231c4c3"
+    },
+    {
+      "path": "firefox-svg-response-urls-false-authored.png",
+      "bytes": 175,
+      "sha256": "8bf0e5b4b139459a5ba9256c8d64cdfeaa30f36dd3f684e181611f29cad963d0"
+    },
+    {
+      "path": "firefox-svg-response-urls-false-capture.png",
+      "bytes": 175,
+      "sha256": "8bf0e5b4b139459a5ba9256c8d64cdfeaa30f36dd3f684e181611f29cad963d0"
+    },
+    {
+      "path": "firefox-svg-response-urls-false-native.png",
+      "bytes": 175,
+      "sha256": "8bf0e5b4b139459a5ba9256c8d64cdfeaa30f36dd3f684e181611f29cad963d0"
+    },
+    {
+      "path": "firefox-svg-response-urls-false.json",
+      "bytes": 2717,
+      "sha256": "4017bbb17328f3b976eb2ed3b398707613bf0f7a0e5e5aee2ba929ca6c8b4db7"
+    },
+    {
+      "path": "firefox-svg-response-urls-true-authored.png",
+      "bytes": 175,
+      "sha256": "8bf0e5b4b139459a5ba9256c8d64cdfeaa30f36dd3f684e181611f29cad963d0"
+    },
+    {
+      "path": "firefox-svg-response-urls-true-capture.png",
+      "bytes": 175,
+      "sha256": "8bf0e5b4b139459a5ba9256c8d64cdfeaa30f36dd3f684e181611f29cad963d0"
+    },
+    {
+      "path": "firefox-svg-response-urls-true-native.png",
+      "bytes": 175,
+      "sha256": "8bf0e5b4b139459a5ba9256c8d64cdfeaa30f36dd3f684e181611f29cad963d0"
+    },
+    {
+      "path": "firefox-svg-response-urls-true.json",
+      "bytes": 2716,
+      "sha256": "ab34921cbf0890901aeff4e15c77a7276c86fca759de557f302691c66586bccc"
+    },
+    {
+      "path": "webkit-svg-response-urls-false-authored.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "webkit-svg-response-urls-false-capture.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "webkit-svg-response-urls-false-native.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "webkit-svg-response-urls-false.json",
+      "bytes": 2716,
+      "sha256": "7022808a0b1346c6dab897597b2c840e7040c0f641866c8f93f7107493d4e39d"
+    },
+    {
+      "path": "webkit-svg-response-urls-true-authored.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "webkit-svg-response-urls-true-capture.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "webkit-svg-response-urls-true-native.png",
+      "bytes": 280,
+      "sha256": "ce21a87fce517dd6825870bd042fbdc11a23582034892f6c3de78fe451ef0052"
+    },
+    {
+      "path": "webkit-svg-response-urls-true.json",
+      "bytes": 2715,
+      "sha256": "1084a75275bd3a29018e04aab77a7077b67a1b74a4178c316e278cf76199f09c"
+    }
+  ]
+}

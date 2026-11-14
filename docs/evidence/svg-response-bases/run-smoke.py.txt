@@ -1,0 +1,23 @@
+from client import call,execute,folder,session
+import json,time,subprocess,sys,urllib.parse,re,os
+kind=sys.argv[1]
+address=re.search(r'\binet\s+(\d+\.\d+\.\d+\.\d+)',subprocess.check_output(['ifconfig',os.environ.get('HTI_PHONE_INTERFACE','en15')],text=True)).group(1)
+url='http://'+address+':4373/test/browser/smoke.html'
+if kind=='selected':url+='?case='+urllib.parse.quote(sys.argv[2] if len(sys.argv)>2 else 'snapshot retries preserve frozen pixels')
+head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+url+=('&' if '?' in url else '?')+'run='+head[:7]+'-'+str(time.time_ns())
+call('/timeouts',{'pageLoad':180000,'script':60000})
+call('/url',{'url':url},timeout=185)
+for step in range(120):
+ state=execute("return {url:location.href,state:document.readyState,text:document.querySelector('#results')?.textContent||document.body.innerText,verdicts:window.__htmlToImageSmoke||[],ua:navigator.userAgent,dpr:devicePixelRatio}")
+ if (kind == 'selected' and 'DONE' in state['text']) or 'REPORT SAVED ' in state['text'] or 'REPORT ERROR' in state['text'] or 'Safari cannot' in state['text']:break
+ time.sleep(1)
+state['gitHead']=head
+cap=session['capabilities'];state['capabilities']={k:cap.get(k) for k in ['platformName','safari:platformVersion','browserVersion','safari:deviceType','safari:useSimulator']}
+(folder/(head[:7]+'-'+kind+'.json')).write_text(json.dumps(state,indent=2))
+print(json.dumps(state,indent=2))
+
+import shutil
+match=re.search(r'REPORT SAVED ([a-z0-9-]+)',state['text'])
+assert match
+shutil.copyfile('test-results/mobile-smoke-reports/'+match[1]+'.json',folder/'smoke-server-receipt.json')
