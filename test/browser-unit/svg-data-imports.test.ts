@@ -24,6 +24,7 @@ test.each([
   'charset-utf16',
   'charset-invalid',
   'invalid-data',
+  'paint-fragment',
 ])('external SVG data CSS import %s preserves native pixels', async (name) => {
   const fixture = await import(/* @vite-ignore */ moduleURL)
   const result = await fixture.checkSVGDataImports(

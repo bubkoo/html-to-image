@@ -6,6 +6,121 @@ export interface SVGImportPolicy {
   importLayers: SVGLayerPolicy
 }
 
+export function rewriteSVGStyleURLs(
+  text: string,
+  resolve: (value: string) => string | undefined,
+) {
+  // Quoted data URLs can contain literal url(...) text. Visit CSS tokens rather
+  // than rewriting such text inside strings or comments as another resource.
+  text = text.split('\u0000').join('\ufffd')
+  let result = ''
+  let start = 0
+  const quotedEnd = (index: number) => {
+    const quote = text[index++]
+    let closed = false
+    while (index < text.length) {
+      if (text[index] === '\\')
+        index += text[index + 1] === '\r' && text[index + 2] === '\n' ? 3 : 2
+      else if (/[\r\n\f]/.test(text[index])) break
+      else if (text[index++] === quote) {
+        closed = true
+        break
+      }
+    }
+    return { end: Math.min(index, text.length), closed }
+  }
+  for (let index = 0; index < text.length;) {
+    if (text.slice(index, index + 2) === '/*') {
+      const end = text.indexOf('*/', index + 2)
+      index = end < 0 ? text.length : end + 2
+    } else if (text[index] === '"' || text[index] === "'") {
+      index = quotedEnd(index).end
+    } else if (
+      text.slice(index, index + 4).toLowerCase() === 'url(' &&
+      (index === 0 || !/[\w\\\u0080-\uffff-]/.test(text[index - 1]))
+    ) {
+      let cursor = index + 4
+      while (/[ \t\r\n\f]/.test(text[cursor] || '') && cursor < text.length)
+        cursor++
+      const quoted = text[cursor] === '"' || text[cursor] === "'"
+      const valueStart = cursor + (quoted ? 1 : 0)
+      let valueEnd: number
+      let valid = true
+      if (quoted) {
+        const end = quotedEnd(cursor)
+        cursor = end.end
+        valid = end.closed
+        valueEnd = cursor - 1
+        while (/[ \t\r\n\f]/.test(text[cursor] || '') && cursor < text.length)
+          cursor++
+      } else {
+        while (cursor < text.length && text[cursor] !== ')') {
+          const char = text[cursor]
+          if (char === '\\') {
+            const escape =
+              /^\\(?:[0-9a-f]{1,6}(?:\r\n|[ \t\r\n\f])?|[^\r\n\f])/i.exec(
+                text.slice(cursor),
+              )
+            if (!escape) valid = false
+            cursor += escape?.[0].length || 1
+          } else if (/[ \t\r\n\f]/.test(char)) {
+            while (
+              /[ \t\r\n\f]/.test(text[cursor] || '') &&
+              cursor < text.length
+            )
+              cursor++
+            if (text[cursor] !== ')') valid = false
+          } else {
+            if (
+              /["'(]/.test(char) ||
+              char.charCodeAt(0) < 0x20 ||
+              char.charCodeAt(0) === 0x7f
+            )
+              valid = false
+            cursor++
+          }
+        }
+        valueEnd = cursor
+      }
+      if (!valid && text[cursor] === ')') {
+        index = cursor + 1
+        continue
+      }
+      if (text[cursor] === ')' && valid) {
+        const raw = quoted
+          ? text.slice(valueStart, valueEnd)
+          : text
+              .slice(valueStart, valueEnd)
+              .replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, '')
+        const value = raw.replace(
+          /\\(?:([0-9a-f]{1,6})(?:\r\n|[ \t\r\n\f])?|(\r\n|[\r\n\f])|([\s\S]))/gi,
+          (match, hex, newline, char) => {
+            if (hex) {
+              const point = parseInt(hex, 16)
+              return String.fromCodePoint(
+                !point ||
+                  point > 0x10ffff ||
+                  (point >= 0xd800 && point <= 0xdfff)
+                  ? 0xfffd
+                  : point,
+              )
+            }
+            return newline ? '' : char
+          },
+        )
+        const replacement = resolve(value)
+        if (replacement !== undefined) {
+          result +=
+            text.slice(start, index) + `url(${JSON.stringify(replacement)})`
+          start = cursor + 1
+        }
+        index = cursor + 1
+      } else index++
+    } else index++
+  }
+  return result + text.slice(start)
+}
+
 function ruleHead(text: string) {
   let quote = ''
   let parentheses = 0
@@ -82,16 +197,14 @@ export async function prepareSVGFileStyle(
     return style
   }
   const resolveURLs = (css: string, base: string) =>
-    css.replace(
-      /url\(\s*(['"]?)([^'"()]+?)\1\s*\)/g,
-      (match, quote, value: string) => {
-        try {
-          return `url("${new URL(value, base).href}")`
-        } catch {
-          return match
-        }
-      },
-    )
+    rewriteSVGStyleURLs(css, (value) => {
+      if (value.startsWith('#')) return undefined
+      try {
+        return new URL(value, base).href
+      } catch {
+        return undefined
+      }
+    })
   const visit = async (
     rules: CSSRuleList,
     layers: SVGLayerPolicy,

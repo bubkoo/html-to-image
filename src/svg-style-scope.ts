@@ -1,5 +1,9 @@
 import { uuid } from './util.js'
-import type { SVGImportPolicy, SVGLayerPolicy } from './svg-style-imports.js'
+import {
+  rewriteSVGStyleURLs,
+  type SVGImportPolicy,
+  type SVGLayerPolicy,
+} from './svg-style-imports.js'
 
 const installedFontCSS = new WeakMap<Document, Set<string>>()
 
@@ -14,16 +18,13 @@ function pageStyleText(
   unavailable: (url: string, error: unknown) => void,
 ) {
   const resolve = (text: string, base: string) =>
-    text.replace(
-      /url\(\s*(['"]?)([^'"()]+?)\1\s*\)/g,
-      (match, quote, value: string) => {
-        try {
-          return `url("${new URL(value, base).href}")`
-        } catch {
-          return match
-        }
-      },
-    )
+    rewriteSVGStyleURLs(text, (value) => {
+      try {
+        return new URL(value, base).href
+      } catch {
+        return undefined
+      }
+    })
   const active = new Set<CSSStyleSheet>()
   const read = (sheet: CSSStyleSheet): string => {
     if (sheet.disabled) return ''

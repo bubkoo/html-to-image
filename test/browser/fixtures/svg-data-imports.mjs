@@ -22,6 +22,7 @@ export const svgDataImportCases = [
   'charset-utf16',
   'charset-invalid',
   'invalid-data',
+  'paint-fragment',
 ]
 let sequence = 0
 let importPolicy
@@ -163,6 +164,7 @@ export async function checkSVGDataImports(
       'invalid-data',
     ].includes(name)
     if (policy.imports && active) color = [0, 128, 0, 255]
+    if (name === 'paint-fragment' && policy.imports) color = [0, 0, 255, 255]
     if (name === 'layer')
       color = policy.file ? [0, 0, 255, 255] : [255, 0, 0, 255]
     if (name === 'layer' && policy.imports && policy.importLayers === 'ordered')

@@ -5,7 +5,10 @@ import { getTask } from './task.js'
 import { getMimeType } from './mimes.js'
 import { uuid } from './util.js'
 import { getSVGStyleFontCSS } from './embed-webfonts.js'
-import { prepareSVGFileStyle } from './svg-style-imports.js'
+import {
+  prepareSVGFileStyle,
+  rewriteSVGStyleURLs,
+} from './svg-style-imports.js'
 import {
   createSVGStyleEnvironment,
   freezeSVGFragmentStyles,
@@ -290,18 +293,15 @@ export async function embedSVGReferences(
         await styleEnvironment.getDocument(),
         scope.stylePolicy,
         (text, style) =>
-          text.replace(
-            /url\(\s*(['"]?)([^'"()]+?)\1\s*\)/g,
-            (match, quote, value: string) => {
-              if (value.startsWith('#')) return match
-              try {
-                return `url("${new URL(value, baseFor(style, scope)).href}")`
-              } catch {
-                // Keep invalid URLs and their native CSS fallback values intact.
-                return match
-              }
-            },
-          ),
+          rewriteSVGStyleURLs(text, (value) => {
+            if (value.startsWith('#')) return undefined
+            try {
+              return new URL(value, baseFor(style, scope)).href
+            } catch {
+              // Keep invalid URLs and their native CSS fallback values intact.
+              return undefined
+            }
+          }),
         pageStyles,
         (families) =>
           options.fontEmbedCSS != null
