@@ -6,7 +6,6 @@ import { getMimeType } from './mimes.js'
 import { uuid } from './util.js'
 import {
   createSVGStyleEnvironment,
-  detectSVGStylePolicy,
   freezeSVGFragmentStyles,
   svgStyleContextKey,
   snapshotSVGPageStyles,
@@ -114,22 +113,22 @@ export async function embedSVGReferences(
   const styledScopes = new Map<string, Scope>()
   const activeUses = new Map<string, Element>()
   const nativeStylePolicy = () => {
-    stylePolicy ||= detectSVGStylePolicy(source.ownerDocument, () =>
-      task?.check(),
-    ).catch((error) => {
-      task?.check()
-      // An unavailable optional probe must not discard a valid SVG resource.
-      loader.warn(
-        Object.freeze({
-          code: 'resource-error',
-          resource: 'external-svg-style-probe',
-          message:
-            'Native SVG stylesheet scope could not be measured; retaining existing definition styles: ' +
-            (error instanceof Error ? error.message : String(error)),
-        }),
-      )
-      return undefined
-    })
+    stylePolicy ||= styleEnvironment
+      .measurePolicy(() => task?.check())
+      .catch((error) => {
+        task?.check()
+        // An unavailable optional probe must not discard a valid SVG resource.
+        loader.warn(
+          Object.freeze({
+            code: 'resource-error',
+            resource: 'external-svg-style-probe',
+            message:
+              'Native SVG stylesheet scope could not be measured; retaining existing definition styles: ' +
+              (error instanceof Error ? error.message : String(error)),
+          }),
+        )
+        return undefined
+      })
     return stylePolicy
   }
 

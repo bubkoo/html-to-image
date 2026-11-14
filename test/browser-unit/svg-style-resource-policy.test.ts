@@ -4,7 +4,10 @@ import { createRenderer } from '../../src'
 
 declare module 'vitest/browser' {
   interface BrowserCommands {
-    startSVGStyleResourceTrace(marker: string): Promise<void>
+    startSVGStyleResourceTrace(
+      marker: string,
+      blobURLs?: string[],
+    ): Promise<void>
     endSVGStyleResourceTrace(marker: string): Promise<string[]>
   }
 }
@@ -25,6 +28,9 @@ test('external SVG style evaluation neither preloads resources nor executes cont
   ).href
   const green =
     '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="green"/></svg>'
+  const blobURL = URL.createObjectURL(
+    new Blob([green], { type: 'image/svg+xml' }),
+  )
   const script =
     'window.__htiSVGStyleScript=1;window.parent.__htiSVGStyleScript=1'
   const xml =
@@ -36,6 +42,8 @@ test('external SVG style evaluation neither preloads resources nor executes cont
     imageURL +
     '" onload="' +
     script +
+    '"/><img src="' +
+    blobURL +
     '"/><iframe src="' +
     frameURL +
     '"/></div></foreignObject></svg>'
@@ -56,12 +64,12 @@ test('external SVG style evaluation neither preloads resources nor executes cont
       resolve: ({ url }) => {
         requests.push(url)
         if (url === sourceURL) return new Blob([xml], { type: 'image/svg+xml' })
-        if (url === imageURL)
+        if (url === imageURL || url === blobURL)
           return new Blob([green], { type: 'image/svg+xml' })
       },
     },
   })
-  await commands.startSVGStyleResourceTrace(marker)
+  await commands.startSVGStyleResourceTrace(marker, [blobURL])
   let stopped = false
   try {
     const image = await renderer.toSvg(root)
@@ -85,6 +93,7 @@ test('external SVG style evaluation neither preloads resources nor executes cont
     )
     expect(decodeURIComponent(image)).toContain('<svg')
     expect(requests).toContain(imageURL)
+    expect(requests).toContain(blobURL)
     expect(network).toEqual([control.pathname + control.search])
     expect(state.__htiSVGStyleScript).toBe(0)
   } finally {
@@ -92,6 +101,7 @@ test('external SVG style evaluation neither preloads resources nor executes cont
     renderer.dispose()
     root.remove()
     delete state.__htiSVGStyleScript
+    URL.revokeObjectURL(blobURL)
   }
 })
 

@@ -31,6 +31,7 @@ const fixtureTypes: Record<string, string> = {
 const root = process.cwd()
 const resourcePolicy = resourcePolicyServer(root)
 const svgStyleTraces = new Map<string, string[]>()
+const svgStyleBlobStops = new Map<string, () => void>()
 
 export default defineConfig({
   optimizeDeps: { include: ['pixelmatch'] },
@@ -112,14 +113,27 @@ export default defineConfig({
       headless: true,
       provider: playwright(),
       commands: {
-        async startSVGStyleResourceTrace(_, marker: string) {
-          svgStyleTraces.set(marker, [])
+        async startSVGStyleResourceTrace(
+          { page },
+          marker: string,
+          blobURLs: string[] = [],
+        ) {
+          const received: string[] = []
+          svgStyleTraces.set(marker, received)
+          const listener = (response: { url(): string }) => {
+            if (blobURLs.includes(response.url()))
+              received.push('blob-response:' + response.url())
+          }
+          page.on('response', listener)
+          svgStyleBlobStops.set(marker, () => page.off('response', listener))
         },
         async endSVGStyleResourceTrace({ page }, marker: string) {
           await page.waitForLoadState('networkidle', { timeout: 5000 })
           const trace = svgStyleTraces.get(marker)
           if (!trace) throw new Error('SVG style trace is missing')
           svgStyleTraces.delete(marker)
+          svgStyleBlobStops.get(marker)?.()
+          svgStyleBlobStops.delete(marker)
           return trace
         },
         async collectGarbage({ page }) {

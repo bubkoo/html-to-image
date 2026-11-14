@@ -26,6 +26,7 @@ export const svgNativeStyleCases = [
   'file-type',
   'file-invalid-url',
   'loaded-page-font',
+  'page-outside-width',
 ]
 let sequence = 0
 let referencePolicy
@@ -113,6 +114,7 @@ async function authoredPixelReference(name) {
         'file-type',
         'file-invalid-url',
         'loaded-page-font',
+        'page-outside-width',
       ].includes(name)
     )
       left = right = yellow
@@ -143,28 +145,27 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
   const root = document.createElement('div')
   root.id = 'svg-native-style-' + ++sequence
   root.style.cssText = 'display:flex;width:60px;height:20px;background:white'
-  const asset =
-    name === 'loaded-page-font'
+  const asset = ['loaded-page-font', 'page-outside-width'].includes(name)
+    ? 'class'
+    : name === 'page-paint'
       ? 'class'
-      : name === 'page-paint'
+      : name === 'unreadable-sheet'
         ? 'class'
-        : name === 'unreadable-sheet'
+        : name === 'late-page-css'
           ? 'class'
-          : name === 'late-page-css'
-            ? 'class'
-            : name === 'nested-style-plain'
-              ? 'nested-style'
-              : ['page-ancestor', 'page-structural'].includes(name)
-                ? 'class'
-                : name === 'main-id'
-                  ? 'cascade'
-                  : name === 'page-outside'
+          : name === 'nested-style-plain'
+            ? 'nested-style'
+            : ['page-ancestor', 'page-structural'].includes(name)
+              ? 'class'
+              : name === 'main-id'
+                ? 'cascade'
+                : name === 'page-outside'
+                  ? 'class'
+                  : name === 'main-tag'
                     ? 'class'
-                    : name === 'main-tag'
-                      ? 'class'
-                      : name === 'host-inherit-no-page'
-                        ? 'host-contexts'
-                        : name
+                    : name === 'host-inherit-no-page'
+                      ? 'host-contexts'
+                      : name
   root.innerHTML =
     '<style>.shared{fill:yellow!important}</style>' +
     '<svg xmlns="' +
@@ -210,6 +211,9 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
       '"><rect width="12" height="20"/></clipPath></defs>'
     root.prepend(definitions)
   }
+  if (name === 'page-outside-width')
+    root.querySelector('style').textContent =
+      'rect{width:20px!important}.shared{fill:yellow!important}'
   if (name === 'page-ancestor') {
     root.className = 'style-context-parent'
     root.querySelector('style').textContent =
@@ -219,7 +223,7 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
     root.querySelector('style').textContent =
       'symbol:first-child>.shared{fill:yellow!important}'
   let outsideStyle
-  if (['page-outside', 'late-page-css'].includes(name)) {
+  if (['page-outside', 'late-page-css', 'page-outside-width'].includes(name)) {
     outsideStyle = root.querySelector('style')
     document.head.append(outsideStyle)
   }

@@ -196,6 +196,15 @@ export function createSVGStyleEnvironment(
   let frame: HTMLIFrameElement | undefined
   let pending: Promise<Document> | undefined
   let cancel: (() => void) | undefined
+  let resourcesLocked = false
+  const lockResources = (document: Document) => {
+    if (resourcesLocked) return
+    const policy = document.createElement('meta')
+    policy.httpEquiv = 'Content-Security-Policy'
+    policy.content = "img-src 'none'"
+    document.head.append(policy)
+    resourcesLocked = true
+  }
   const dispose = () => {
     cancel?.()
     frame?.remove()
@@ -203,7 +212,15 @@ export function createSVGStyleEnvironment(
   }
   return {
     dispose,
-    getDocument(): Promise<Document> {
+    async measurePolicy(check: () => void): Promise<SVGStylePolicy> {
+      const document = await this.getDocument(true)
+      try {
+        return await detectSVGStylePolicy(document, check)
+      } finally {
+        lockResources(document)
+      }
+    },
+    getDocument(trustedProbe = false): Promise<Document> {
       if (!pending) {
         pending = new Promise<Document>((resolve, reject) => {
           frame = document.createElement('iframe')
@@ -262,11 +279,16 @@ export function createSVGStyleEnvironment(
             abort()
             return
           }
-          ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
+          ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src blob:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
           document.documentElement.append(ownFrame)
         })
       }
-      return pending
+      return trustedProbe
+        ? pending
+        : pending.then((document) => {
+            lockResources(document)
+            return document
+          })
     },
   }
 }
