@@ -176,5 +176,69 @@
     "test/browser-unit/native-scrollbars.test.ts": "23e99ea6a9c08eba59f0ff66027419839d90400dd1a2219690232ea5ec8ff92a",
     "test/browser-unit/scrollbar-box.test.ts": "e8fafc29329330179b62ec3efaf661f0ccafe6de3e4778f1a6fc525e2cba3b4f",
     "vitest.browser.config.mts": "348659cda495eb6f00055ce3aa1d69ddd69864b0b2ed6f3a7fcb12b6d0326b58"
+  },
+  "canvasReadbackInvestigation": {
+    "checkedAt": "2026-11-14T16:11:27.357504+00:00",
+    "base": "2e85b494ffb7a16f9e07fec7e839660fa9d9f91f (#635 final head; now merged as 9d2991f)",
+    "fixtureSHA256": "059b1ca01efb4f04c56f079ee0c48de4a0ff3518c29072d797a58a71e4962c6b",
+    "controls": [
+      {
+        "kind": "native-padding-shadow",
+        "originalNativeDifferentChannels": 234,
+        "variants": [
+          {
+            "name": "read-frequently",
+            "nativeDifferentChannels": 234
+          },
+          {
+            "name": "opaque-canvas",
+            "nativeDifferentChannels": 234
+          },
+          {
+            "name": "copy-composite",
+            "nativeDifferentChannels": 234
+          },
+          {
+            "name": "opaque-read-frequently",
+            "nativeDifferentChannels": 234
+          }
+        ]
+      },
+      {
+        "kind": "native-visible-text",
+        "originalNativeDifferentChannels": 264,
+        "variants": [
+          {
+            "name": "read-frequently",
+            "nativeDifferentChannels": 0
+          },
+          {
+            "name": "opaque-canvas",
+            "nativeDifferentChannels": 21
+          },
+          {
+            "name": "copy-composite",
+            "nativeDifferentChannels": 21
+          },
+          {
+            "name": "opaque-read-frequently",
+            "nativeDifferentChannels": 0
+          }
+        ]
+      }
+    ],
+    "runtimeExperiment": "Temporarily enabling willReadFrequently globally changed the first visible-text mismatch to 246 channels, left shadow at 234 and failed the independent fresh-decode font regression. Reverted the runtime change. Restored retry fixture passes 12/12 across all three engines.",
+    "strictResult": {
+      "failed": 2,
+      "filtered": 16,
+      "scope": "Exactly two selected WebKit native-scroll tests; remaining 16 filtered cases are not unsupported-feature skips."
+    },
+    "conclusion": "Warmed SVG drawing with a frequent-read canvas removes the final 21-channel glyph difference. This separates the canvas readback mode from the earlier stale SVG decoding. It is not a verified runtime fix: first-render behavior and independent reference disagree, and inset-shadow remains different.",
+    "runtimeChanged": false,
+    "logs": [
+      "native-scroll-v2/canvas-backend-controls-20261115.log.txt",
+      "native-scroll-v2/read-frequently-negative-20261115.log.txt",
+      "native-scroll-v2/retry-restored-20261115.log.txt"
+    ]
   }
 }

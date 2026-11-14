@@ -13,3 +13,32 @@
 证据：[native-scroll-v2.json](../docs/evidence/native-scroll-v2.json)。
 
 - 普通 HTML 与内联 SVG 的冻结内容源截图都为零差异，差异出现在 SVG Image 栅格化路径。连续三次同 URL 的首次文字差异仍为 264；只以 XML 注释区分解码地址的三次重绘实验降为 21（最大通道差 1）。该结论支持单独审视 stabilizationAttempts 的缓存语义，不等于已修复全部原生滚动或允许默认放宽像素门槛。
+
+## [LRN-20261115-002] knowledge_gap
+
+**Logged**: 2026-11-15T00:11:27+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: rendering
+
+### Summary
+稳定 SVG 的字形末级通道差异与 Canvas 上下文读取模式有关；不能由该正对照直接推出全局修复。
+
+### Details
+同一已稳定 SVG 在 WebKit 默认 Canvas / alpha:false / copy 合成均差 21 通道；willReadFrequently:true 为零，叠加 alpha:false 同样为零。内阴影四种控制均差 234。临时全局启用后首次字形仍差 246，独立新解码回归也失败，因此撤回运行时修改；恢复后新重试回归三引擎 12/12。不是精度容差，尚未证明具体硬件后端或普适解法。
+
+### Suggested Action
+下一步分别核验首解码、Canvas 绘制与读取路径；不要盲目全局切换上下文选项，不要将 warmed 正对照当默认首帧修复。
+
+### Metadata
+- Source: investigation
+- Pattern-Key: webkit.svg-image-canvas-readback-parity
+- Related Files: docs/evidence/native-scroll-v2.json, test/browser/fixtures/native-scroll.mjs
+
+### Context Maintenance
+- Scope: macOS Playwright WebKit 27.2 / Playwright 1.64.1；非真机新验收
+- Authority: 同一冻结 SVG、原生源截图、四种上下文控制及撤回后的三引擎回归
+- Revalidation: 浏览器版本或 Canvas 路径变化时重验
+- Validation: unresolved
+- Last-Validated: 2026-11-15
+- Evidence: docs/evidence/native-scroll-v2.json

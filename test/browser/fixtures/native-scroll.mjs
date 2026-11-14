@@ -269,7 +269,7 @@ async function recordNativeMismatch(
     canvas.getContext('2d').putImageData(data, 0, 0)
     return canvas.toDataURL().split(',')[1]
   }
-  const render = async (svg) => {
+  const render = async (svg, contextOptions, operation) => {
     const img = new Image()
     img.decoding = 'sync'
     img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg)
@@ -277,7 +277,8 @@ async function recordNativeMismatch(
     const canvas = document.createElement('canvas')
     canvas.width = image.width
     canvas.height = image.height
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d', contextOptions)
+    if (operation) ctx.globalCompositeOperation = operation
     ctx.drawImage(img, 0, 0)
     return ctx.getImageData(0, 0, canvas.width, canvas.height)
   }
@@ -370,6 +371,20 @@ async function recordNativeMismatch(
   const inlinePixels = await framePixels(frozen, 'svg')
   const difference = (a, b) =>
     a.data.reduce((count, value, i) => count + (value !== b.data[i] ? 1 : 0), 0)
+  const canvasVariants = await Promise.all(
+    [
+      ['read-frequently', { willReadFrequently: true }],
+      ['opaque-canvas', { alpha: false }],
+      ['copy-composite', undefined, 'copy'],
+      ['opaque-read-frequently', { alpha: false, willReadFrequently: true }],
+    ].map(async ([name, options, operation]) => {
+      const pixels = await render(frozen, options, operation)
+      return {
+        name,
+        nativeDifferentChannels: difference(pixels, native),
+      }
+    }),
+  )
   const variants = []
   const svgNS = 'http://www.w3.org/2000/svg'
   const variant = async (name, change) => {
@@ -448,6 +463,7 @@ async function recordNativeMismatch(
     repeatedNativeDifferentChannels: difference(repeated, native),
     repeatedInitialDifferentChannels: difference(repeated, image),
     commentReplayNativeDifferentChannels: difference(commentReplay, native),
+    canvasVariants,
     variants,
     htmlNativeDifferentChannels: difference(htmlPixels, native),
     inlineSvgNativeDifferentChannels: difference(inlinePixels, native),

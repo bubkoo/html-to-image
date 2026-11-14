@@ -1,0 +1,53 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |webkit| test/browser-unit/raster-retry.test.ts (4 tests | 1 failed | 3 skipped) 171ms
+   × real embedded font retries agree with a fresh SVG decoding 170ms
+ ❯ |webkit| test/browser-unit/native-scroll.test.ts (18 tests | 2 failed | 16 skipped) 689ms
+   × native scroll visible-text preserves native glyph placement 386ms
+   × native scroll padding-shadow matches source pixels 302ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |webkit| test/browser-unit/native-scroll.test.ts > native scroll visible-text preserves native glyph placement
+ FAIL  |webkit| test/browser-unit/native-scroll.test.ts > native scroll padding-shadow matches source pixels
+Error: visible-text: native/capture channel 836: 255, expected 241
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png
+  - .vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-padding-shadow-matches-source-pixels.png
+
+ ❯ checkNativeScroll test/browser/fixtures/native-scroll.mjs:219:26
+    217|             )
+    218|           const different = image.data.findIndex((v, i) => v !== nativ…
+    219|           throw new Error(
+       |                          ^
+    220|             `${kind}: native/capture channel ${different}: ${image.dat…
+    221|           )
+ ❯ test/browser-unit/native-scroll.test.ts:42:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |webkit| test/browser-unit/raster-retry.test.ts > real embedded font retries agree with a fresh SVG decoding
+Error: Repeated SVG font decode differs from a fresh decoding in 21 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/raster-retry.test.ts/real-embedded-font-retries-agree-with-a-fresh-SVG-decoding.png
+
+ ❯ checkRasterRetryFont test/browser/fixtures/raster-retry.mjs:84:22
+     82|       throw new Error('Fresh SVG font reference lost a glyph color')
+     83|     if (different)
+     84|       throw new Error(
+       |                      ^
+     85|         'Repeated SVG font decode differs from a fresh decoding in ' +
+     86|           different +
+ ❯ test/browser-unit/raster-retry.test.ts:8:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 19 skipped (22)
+   Start at  00:09:50
+   Duration  1.91s (tests 78%, worker 18%, import 4%)
+
