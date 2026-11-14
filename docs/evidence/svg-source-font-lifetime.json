@@ -1,0 +1,93 @@
+{
+  "verifiedAt": "2026-11-14T23:10:40.959445+00:00",
+  "sourceCommit": "404798ddc679d70735011840b0c57e6cd8c4e657",
+  "baseCommit": "648443e964126c115857084abc264c296f3bd0f0",
+  "scope": "Release borrowed loaded FontFace references when disposing the SVG style environment; scoped #560, not whole SPA/cache completion.",
+  "rootCause": "The retained environment closure owns loaded source FontFace wrappers after removing its frame and pending document Promise; wrappers can retain the source document. Clear only the private array on dispose.",
+  "baseline": {
+    "combined": {
+      "failed": 5,
+      "passed": 7
+    },
+    "loadedFontUnopenedIsolated": {
+      "failed": 2,
+      "passed": 1,
+      "CLIFiltered": 9
+    },
+    "loadedFontOpenedIsolated": {
+      "failed": 2,
+      "passed": 1,
+      "CLIFiltered": 9
+    },
+    "noFontOpenedIsolated": {
+      "passed": 3,
+      "CLIFiltered": 9
+    },
+    "limit": "Combined before also includes sequence-sensitive native/control failures. Only isolated loaded-font failures and standalone owner controls identify this root; no assertion is weakened."
+  },
+  "candidate": {
+    "sourceLifetime": 12,
+    "targeted": 59,
+    "targetedInheritedSkipped": 1
+  },
+  "full": {
+    "coverage": 1084,
+    "coverageSkipped": 4,
+    "source": 965,
+    "sourceSkipped": 4,
+    "package": 153,
+    "lintBuildTypesTarballConsumers": "pass"
+  },
+  "gc": {
+    "chromium": "Paired native/plain/dropped owners collect; retained disposed loaded-font owner fails before, collects after. Three explicit collections unchanged.",
+    "firefox": "Same isolated loaded-font ownership result.",
+    "webkit": "Native removed iframe also remains; only DOM/source/font-state/terminal-state asserted. No new test.skip.",
+    "deviceClaim": false
+  },
+  "standaloneExperiment": {
+    "baselineSource": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
+    "after": "Only compiled dispose array clear added temporarily; original module restored in finally and hash verified before full source build.",
+    "originalCompiledSHA256": "d536ecddf23579cab09968fff9147228b6eef3974b824dd615b0f1ffaabcdc7a"
+  },
+  "device": {
+    "sourceCommit": "404798ddc679d70735011840b0c57e6cd8c4e657",
+    "capabilities": {
+      "platformName": "iOS",
+      "safari:platformVersion": "26.6.1",
+      "browserVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "fontControls": 10,
+    "fontMethod": "Actual source use.getBBox at CSSOM precision, independent authored SVG-image full pixels. Not fractional native-screen compositor parity.",
+    "cancellationControls": 4,
+    "smoke": {
+      "PASS": 35,
+      "INFO": 2,
+      "FAIL": 0
+    },
+    "smokeReceipt": "b52dfe37-854f-423e-83b7-80371f3337cb",
+    "sessionEnded": true,
+    "serverEnded": true,
+    "gcClaim": false
+  },
+  "previousMain": {
+    "source": "648443e964126c115857084abc264c296f3bd0f0",
+    "ci": 43649156211,
+    "codeql": 43649156200,
+    "conclusions": "success",
+    "counts": [1072, 953, 153],
+    "historicalFailurePreserved": 43645977092
+  },
+  "rawArchiveFiles": 49,
+  "archives": {
+    "desktop": 18,
+    "iphone": 31
+  },
+  "remaining": [
+    "Original 20 MB SPA application pressure fixture",
+    "Browser HTTP/native font cache lifetime",
+    "WebKit/device iframe GC",
+    "SVG relative attribute/inline paint bases and redirect response URL metadata"
+  ]
+}

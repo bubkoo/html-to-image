@@ -1,0 +1,38 @@
+from client import call, execute, folder, session
+import json, subprocess, re, os, time, base64
+
+head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+address = re.search(r'\binet\s+(\d+\.\d+\.\d+\.\d+)', subprocess.check_output(['ifconfig', os.environ.get('HTI_PHONE_INTERFACE', 'en15')], text=True)).group(1)
+call('/timeouts', {'pageLoad': 60000, 'script': 180000})
+call('/url', {'url': 'http://' + address + ':4373/test/browser/svg-native-device.html?font-units=' + head}, timeout=65)
+script = '''
+const format = arguments[0], done = arguments[arguments.length - 1];
+(async () => {
+  const fixture = await import('/test/browser/fixtures/svg-font-units.mjs');
+  const api = format === 'esm' ? await import('/es/index.js') : window.htmlToImage;
+  const results = [], records = [];
+  for (const mode of ['loaded', 'large', 'system']) {
+    const result = await fixture.checkSVGFontUnits(api, mode, undefined, record => records.push(record));
+    results.push({mode, ...result});
+  }
+  for (const skipFonts of [false, true]) {
+    const result = await fixture.checkSVGFontUnits(api, 'loaded', undefined, record => records.push({...record, kind: record.kind + '-explicit-' + skipFonts}), fontEmbedCSS => ({fontEmbedCSS, skipFonts}));
+    results.push({mode:'explicit', skipFonts, ...result});
+  }
+  return {format, results, records};
+})().then(done).catch(error => done({format, error:String(error), stack:error.stack}));
+'''
+summary = {'sourceCommit': head, 'capabilities': {k: session['capabilities'].get(k) for k in ['platformName', 'safari:platformVersion', 'browserVersion', 'safari:deviceType', 'safari:useSimulator']}, 'method': 'Real source use.getBBox width compared at CSSOM serialized precision; exact full exported ImageData compared to independently authored data-font SVG image. This does not certify full native-screen compositor parity for fractional edges.', 'runs': []}
+for format in ['esm', 'umd']:
+    payload = call('/execute/async', {'script': script, 'args': [format]}, timeout=185)
+    if payload.get('error'):
+        (folder / 'font-error.json').write_text(json.dumps(payload, indent=2))
+        raise RuntimeError(payload['error'])
+    for record in payload['records']:
+        for field in ['native', 'capture', 'authored']:
+            png = record.pop(field, None)
+            if png:
+                (folder / (format + '-' + record['kind'] + '-' + field + '.png')).write_bytes(base64.b64decode(png))
+    summary['runs'].append(payload)
+    print(json.dumps({'format': format, 'passed': len(payload['results']), 'widths': [{'mode': r['mode'], 'native': r['nativeUseWidth'], 'captured': r['capturedWidth']} for r in payload['results']]}), flush=True)
+(folder / 'font-summary.json').write_text(json.dumps(summary, indent=2))

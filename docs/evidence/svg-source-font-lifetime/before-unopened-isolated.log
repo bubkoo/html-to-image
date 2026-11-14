@@ -1,0 +1,89 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/svg-style-source-lifetime.test.ts (4 tests | 1 failed | 3 skipped) 134ms
+   × disposed SVG owner releases source with font=true and opened=false 134ms
+ ❯ |firefox| test/browser-unit/svg-style-source-lifetime.test.ts (4 tests | 1 failed | 3 skipped) 135ms
+   × disposed SVG owner releases source with font=true and opened=false 135ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/svg-style-source-lifetime.test.ts > disposed SVG owner releases source with font=true and opened=false
+AssertionError: expected false to be true // Object.is equality
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-true-and-opened-false.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/browser-unit/svg-style-source-lifetime.test.ts:83:52
+     81|       // report and retaining it through subsequent collection control…
+     82|       expect(native.reference.deref() === undefined).toBe(true)
+     83|       expect(held.reference.deref() === undefined).toBe(true)
+       |                                                    ^
+     84|     }
+     85|     await expect(held.environment!.getDocument()).rejects.toThrow(/dis…
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |firefox| test/browser-unit/svg-style-source-lifetime.test.ts > disposed SVG owner releases source with font=true and opened=false
+AssertionError: expected false to be true // Object.is equality
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-true-and-opened-false.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/browser-unit/svg-style-source-lifetime.test.ts:83:52
+     81|       // report and retaining it through subsequent collection control…
+     82|       expect(native.reference.deref() === undefined).toBe(true)
+     83|       expect(held.reference.deref() === undefined).toBe(true)
+       |                                                    ^
+     84|     }
+     85|     await expect(held.environment!.getDocument()).rejects.toThrow(/dis…
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  2 failed | 1 passed | 9 skipped (12)
+   Start at  07:00:17
+   Duration  1.57s (tests 48%, worker 44%, import 9%)
+

@@ -14,7 +14,7 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
-      "disposition": "PR 640 merged, but master CI 43645977092 failed import-probe readiness. Follow-up 7206ada passes local full and scoped true iPhone checks for native readiness and opaque-data URL invalidity; final remote gates required.",
+      "disposition": "PR 641 merged as 648443e; exact post-merge master CI 43649156211 and CodeQL 43649156200 passed (1072/953/153). Earlier PR 640 master failure 43645977092 retained. Relative presentation/inline URLs and redirect bases remain independent open work.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
@@ -99,15 +99,18 @@
       "reviewedHead": "e3f59317b338a2bf8805eb66152c72ea82f6c37f",
       "observedState": "open",
       "requirement": "SPA 不应被模块全局缓存无限持有图片/字体",
-      "disposition": "Capture/renderer cache lifetimes and source-document ownership plus pending-resolver cancellation release; no global clearCache API.",
+      "disposition": "Scoped source-font ownership follow-up 404798d: dispose clears private borrowed FontFace references; local full and real iPhone output/cancellation controls pass. Exact-head remote gates required; no global clearCache API or whole SPA completion.",
       "evidence": [
         "test/browser-unit/resource-policy.test.ts",
         "test/browser-unit/capture-lifetime.test.ts",
         "docs/evidence/capture-source-lifetime.json",
-        "docs/evidence/svg-data-imports.json"
+        "docs/evidence/svg-data-imports.json",
+        "test/browser-unit/svg-style-source-lifetime.test.ts",
+        "docs/evidence/svg-source-font-lifetime.json"
       ],
       "remainingBoundary": "No browser HTTP cache clearing, WebKit/device iframe GC claim, or original 20 MB SPA pressure reproduction.",
-      "pendingResolverCancellation": "Pending foreign resolver is no longer awaited after cancellation; disposal clears the document Promise and prevents reopening. Explicit retained-owner and pending-callback GC controls in Chromium/Firefox; WebKit/iPhone DOM/reason/source only."
+      "pendingResolverCancellation": "Pending foreign resolver is no longer awaited after cancellation; disposal clears the document Promise and prevents reopening. Explicit retained-owner and pending-callback GC controls in Chromium/Firefox; WebKit/iPhone DOM/reason/source only.",
+      "borrowedFontSource": "404798ddc679d70735011840b0c57e6cd8c4e657"
     },
     {
       "number": 540,

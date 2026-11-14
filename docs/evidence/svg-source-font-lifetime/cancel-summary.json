@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "format": "esm",
+      "mode": "abort",
+      "sourceUnchanged": true,
+      "framesBefore": 0,
+      "activeFrames": 1,
+      "afterFrames": 0,
+      "reasonPreserved": true
+    },
+    {
+      "format": "esm",
+      "mode": "dispose",
+      "sourceUnchanged": true,
+      "framesBefore": 0,
+      "activeFrames": 1,
+      "afterFrames": 0,
+      "reasonPreserved": true
+    },
+    {
+      "format": "umd",
+      "mode": "abort",
+      "sourceUnchanged": true,
+      "framesBefore": 0,
+      "activeFrames": 1,
+      "afterFrames": 0,
+      "reasonPreserved": true
+    },
+    {
+      "format": "umd",
+      "mode": "dispose",
+      "sourceUnchanged": true,
+      "framesBefore": 0,
+      "activeFrames": 1,
+      "afterFrames": 0,
+      "reasonPreserved": true
+    }
+  ],
+  "sourceCommit": "404798ddc679d70735011840b0c57e6cd8c4e657",
+  "capabilities": {
+    "platformName": "iOS",
+    "browserVersion": "26.6.1",
+    "safari:platformVersion": "26.6.1",
+    "safari:deviceType": "iPhone",
+    "safari:useSimulator": false
+  },
+  "limit": "DOM removal, cancellation reason and source equality; no device GC verdict"
+}
