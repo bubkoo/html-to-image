@@ -14,18 +14,19 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
-      "disposition": "Scoped native data CSS/layer/fragment repair verified locally and on true iPhone at 37ea117; PR 640 final-head remote gates required. Whole proposal remains partially unresolved.",
+      "disposition": "PR 640 merged, but master CI 43645977092 failed import-probe readiness. Follow-up 7206ada passes local full and scoped true iPhone checks for native readiness and opaque-data URL invalidity; final remote gates required.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
         "docs/evidence/style-copy-performance.json",
         "docs/evidence/svg-native-style-scope.json",
         "docs/evidence/svg-font-units.json",
-        "docs/evidence/svg-data-imports.json"
+        "docs/evidence/svg-data-imports.json",
+        "docs/evidence/svg-data-relative-urls.json"
       ],
-      "remainingBoundary": "Relative paint/redirect bases, qualified relative URLs inside opaque data CSS, native image compositor differences, opaque matching rules, restricted CSP, HTTP file CSS/fonts and broader combinations remain open.",
+      "remainingBoundary": "Qualified relative SVG presentation/inline-style bases in Firefox/WebKit, redirect final-response URL metadata, native compositor differences, opaque matching rules, restricted CSP, HTTP file CSS/fonts and broader combinations remain open.",
       "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
-      "dataImportSource": "37ea1172547a74436a5f8449982a2fba52b220f3"
+      "dataImportSource": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c"
     },
     {
       "number": 581,
@@ -538,12 +539,13 @@
     "implementation": "pending"
   },
   "latestScopedEvidence": {
-    "source": "37ea1172547a74436a5f8449982a2fba52b220f3",
-    "fixture": "37ea1172547a74436a5f8449982a2fba52b220f3",
-    "path": "docs/evidence/svg-data-imports.json",
+    "source": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
+    "fixture": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
+    "path": "docs/evidence/svg-data-relative-urls.json",
+    "localFull": [1072, 953, 153],
+    "nativeDeviceComparisons": 42,
     "originalPRStatesNotRefreshed": true,
-    "pullRequest": "https://github.com/bubkoo/html-to-image/pull/640",
-    "localFull": [1060, 941, 153],
-    "nativeDeviceComparisons": 96
+    "parentMerge": "8f39d751133941a806672cf215d95be28df86151",
+    "parentMasterCIFailed": 43645977092
   }
 }

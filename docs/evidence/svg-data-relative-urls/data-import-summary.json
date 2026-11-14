@@ -1,0 +1,1957 @@
+{
+  "gitHead": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
+  "origin": "http://169.254.2.82:4373",
+  "capabilities": {
+    "platformName": "iOS",
+    "safari:platformVersion": "26.6.1",
+    "browserVersion": "26.6.1",
+    "safari:deviceType": "iPhone",
+    "safari:useSimulator": false
+  },
+  "runs": [
+    {
+      "format": "esm",
+      "passed": 21,
+      "photos": [
+        {
+          "sequence": 1,
+          "id": "svg-data-import-1",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "basic",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "d6033b83d87ef017e819f9e2e0c4be22094297e3369813f9a56f373dcfede702",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 2,
+          "id": "svg-data-import-1",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "basic",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "d6033b83d87ef017e819f9e2e0c4be22094297e3369813f9a56f373dcfede702",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 3,
+          "id": "svg-data-import-2",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "nested",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "0ab0b09819f76b93c1405835e23d9a4cacb43be7e6f4ecd1b86f918e2b9377c1",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 4,
+          "id": "svg-data-import-2",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "nested",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "0ab0b09819f76b93c1405835e23d9a4cacb43be7e6f4ecd1b86f918e2b9377c1",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 5,
+          "id": "svg-data-import-3",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "78b57e1f949e928495def6ba665d4c901a1e2b5a3cffc41ae3fa8fe77a434e28",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 6,
+          "id": "svg-data-import-3",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "78b57e1f949e928495def6ba665d4c901a1e2b5a3cffc41ae3fa8fe77a434e28",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 7,
+          "id": "svg-data-import-4",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "a92fe7282ca03e04f860d49d81fb91a47b10006e207974f750f47d48deb97043",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 8,
+          "id": "svg-data-import-4",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "a92fe7282ca03e04f860d49d81fb91a47b10006e207974f750f47d48deb97043",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 9,
+          "id": "svg-data-import-5",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "b43b8ccba9a9e0b5a4869a09edceba7208642ddfc95fe3cf5aba8fa151b7114c",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 10,
+          "id": "svg-data-import-5",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "b43b8ccba9a9e0b5a4869a09edceba7208642ddfc95fe3cf5aba8fa151b7114c",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 11,
+          "id": "svg-data-import-6",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "50c05ca103792926fd1c09e66b306685f5d34e381ded78b840d58e521435a5a9",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 12,
+          "id": "svg-data-import-6",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "50c05ca103792926fd1c09e66b306685f5d34e381ded78b840d58e521435a5a9",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 13,
+          "id": "svg-data-import-7",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6554336e0a3c7cc4a5811ebe8af8a63b772d75fc47c8edfe1a948375dbdae032",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 14,
+          "id": "svg-data-import-7",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6554336e0a3c7cc4a5811ebe8af8a63b772d75fc47c8edfe1a948375dbdae032",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 15,
+          "id": "svg-data-import-8",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "9be533abf832029e18e942224af4f64fb4e393d841c717021e251f0e865b4f87",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 16,
+          "id": "svg-data-import-8",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "9be533abf832029e18e942224af4f64fb4e393d841c717021e251f0e865b4f87",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 17,
+          "id": "svg-data-import-9",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "8b3c1badd739eac39f717cb07af141d9debada07428211b4970d0fcc4522a9cd",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 18,
+          "id": "svg-data-import-9",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "8b3c1badd739eac39f717cb07af141d9debada07428211b4970d0fcc4522a9cd",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 19,
+          "id": "svg-data-import-10",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e5b5882c3ed2193c79fe4e0b0c45432374a326e42e1179536a13b84188e39cf7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 20,
+          "id": "svg-data-import-10",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e5b5882c3ed2193c79fe4e0b0c45432374a326e42e1179536a13b84188e39cf7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 21,
+          "id": "svg-data-import-11",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "wrong-mime",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e3bd648c23fbbf22a481a254a81aed06028a70f2448807c9ea246c43c46bc53e",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 22,
+          "id": "svg-data-import-11",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "wrong-mime",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e3bd648c23fbbf22a481a254a81aed06028a70f2448807c9ea246c43c46bc53e",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 23,
+          "id": "svg-data-import-12",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "style-type",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "57950ac1c4d57f425a15ffd5921e795e020347fd5e285a1b97068369355d69e3",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 24,
+          "id": "svg-data-import-12",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "style-type",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "57950ac1c4d57f425a15ffd5921e795e020347fd5e285a1b97068369355d69e3",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 25,
+          "id": "svg-data-import-13",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "cea6d1fe1d9ac9035fe8a993932f1ccc36fcb15fe3384f5873b85db65a93e9e7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 26,
+          "id": "svg-data-import-13",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "cea6d1fe1d9ac9035fe8a993932f1ccc36fcb15fe3384f5873b85db65a93e9e7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 27,
+          "id": "svg-data-import-14",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "059ae1b53393708a3f4522577869634976c0996b452ef0804cafe5786663d0a4",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 28,
+          "id": "svg-data-import-14",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "059ae1b53393708a3f4522577869634976c0996b452ef0804cafe5786663d0a4",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 29,
+          "id": "svg-data-import-15",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-rule",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e35c3368895389994f410d8fbd84c41a146d82af1251a5f6d85a772d3947d85a",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 30,
+          "id": "svg-data-import-15",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-rule",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e35c3368895389994f410d8fbd84c41a146d82af1251a5f6d85a772d3947d85a",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 31,
+          "id": "svg-data-import-16",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-bom",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "c141372923245221f051177a6bff6f82e8a5c08e0bf3a56b8052c7244ec6d662",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 32,
+          "id": "svg-data-import-16",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-bom",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "c141372923245221f051177a6bff6f82e8a5c08e0bf3a56b8052c7244ec6d662",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 33,
+          "id": "svg-data-import-17",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-utf16",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "630eecf171ea812204ede029954448c382ee07130831abd1651568171fb15eef",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 34,
+          "id": "svg-data-import-17",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-utf16",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "630eecf171ea812204ede029954448c382ee07130831abd1651568171fb15eef",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 35,
+          "id": "svg-data-import-18",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-invalid",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "84ea1247e602e493d33e0383157a82ec520e72da90a10e48e6353b1d745a8fb6",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 36,
+          "id": "svg-data-import-18",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-invalid",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "84ea1247e602e493d33e0383157a82ec520e72da90a10e48e6353b1d745a8fb6",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 37,
+          "id": "svg-data-import-19",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "invalid-data",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "3778f41aa1ae2cbf7e7569e0ab021bed9feda168e1ec1b79c51e40bdc9d45a73",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 38,
+          "id": "svg-data-import-19",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "invalid-data",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "3778f41aa1ae2cbf7e7569e0ab021bed9feda168e1ec1b79c51e40bdc9d45a73",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 39,
+          "id": "svg-data-import-20",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6d8ede0f3560c25411123b6581de65622d0d21add167337546e6a69c2e2415c0",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 40,
+          "id": "svg-data-import-20",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6d8ede0f3560c25411123b6581de65622d0d21add167337546e6a69c2e2415c0",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 41,
+          "id": "svg-data-import-21",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-relative",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "2b316c740feb8a749c805a7508a2a1d0639e4636117c80190e7d19e7504256f4",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 42,
+          "id": "svg-data-import-21",
+          "format": "esm",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-relative",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "2b316c740feb8a749c805a7508a2a1d0639e4636117c80190e7d19e7504256f4",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        }
+      ]
+    },
+    {
+      "format": "umd",
+      "passed": 21,
+      "photos": [
+        {
+          "sequence": 1,
+          "id": "svg-data-import-22",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "basic",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "1f6db25b27cf117f761cb9caa1611dc4abfb0b11048d3b6b3e18919e73e0a76e",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 2,
+          "id": "svg-data-import-22",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "basic",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "1f6db25b27cf117f761cb9caa1611dc4abfb0b11048d3b6b3e18919e73e0a76e",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 3,
+          "id": "svg-data-import-23",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "nested",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "3bfadd39042b84ddd9092c4024b2719dfe31b9c651047d6e9027d47fbbceb95d",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 4,
+          "id": "svg-data-import-23",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "nested",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "3bfadd39042b84ddd9092c4024b2719dfe31b9c651047d6e9027d47fbbceb95d",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 5,
+          "id": "svg-data-import-24",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "b667323427daaddab37faeaac5163afff3fa8df4b5d2213c2df7b42a37bf0508",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 6,
+          "id": "svg-data-import-24",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "b667323427daaddab37faeaac5163afff3fa8df4b5d2213c2df7b42a37bf0508",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 7,
+          "id": "svg-data-import-25",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "30bd317de7eb7416cf0768b744779528a82319d5ccd793fa555a6dcb2a0677d1",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 8,
+          "id": "svg-data-import-25",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "media-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "30bd317de7eb7416cf0768b744779528a82319d5ccd793fa555a6dcb2a0677d1",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 9,
+          "id": "svg-data-import-26",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6f957939f71ac78e8a617bb8b870147182686bea33de98b29c73e5789fda5340",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 10,
+          "id": "svg-data-import-26",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-active",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "6f957939f71ac78e8a617bb8b870147182686bea33de98b29c73e5789fda5340",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 11,
+          "id": "svg-data-import-27",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "0e690a5e1174426bc8586683fa0b777778fdf75ecc816f74082665f00a9a1172",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 12,
+          "id": "svg-data-import-27",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-inactive",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "0e690a5e1174426bc8586683fa0b777778fdf75ecc816f74082665f00a9a1172",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 13,
+          "id": "svg-data-import-28",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "77dea02c2e0353acba5130e056192d744433fd548b3c9c10558722225b2a1c5f",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 14,
+          "id": "svg-data-import-28",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "77dea02c2e0353acba5130e056192d744433fd548b3c9c10558722225b2a1c5f",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 15,
+          "id": "svg-data-import-29",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "4bb43b6b1da5ab75bdcf77c5953fbaea25092acb2d0ac9d9508a644bad588dc7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 16,
+          "id": "svg-data-import-29",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "4bb43b6b1da5ab75bdcf77c5953fbaea25092acb2d0ac9d9508a644bad588dc7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 17,
+          "id": "svg-data-import-30",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "0bd90b28e66a1c0b68eb90cd00490a16dd0a7cea2f3170e3f371bd433303d7bb",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 18,
+          "id": "svg-data-import-30",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "0bd90b28e66a1c0b68eb90cd00490a16dd0a7cea2f3170e3f371bd433303d7bb",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 19,
+          "id": "svg-data-import-31",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "5843ba9bcfe944676d9fe7ae65ccf3ad55cd275be13d227ab0cf5a149b7c9743",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 20,
+          "id": "svg-data-import-31",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "layer-inline-only",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "5843ba9bcfe944676d9fe7ae65ccf3ad55cd275be13d227ab0cf5a149b7c9743",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 21,
+          "id": "svg-data-import-32",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "wrong-mime",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e6212a318f11e4fb498b58b61f87f31bdebe3ad719ffb0ef1ddec17aaf4d8afc",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 22,
+          "id": "svg-data-import-32",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "wrong-mime",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e6212a318f11e4fb498b58b61f87f31bdebe3ad719ffb0ef1ddec17aaf4d8afc",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 23,
+          "id": "svg-data-import-33",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "style-type",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "bb7a19703b7bcf59ab39ad708e61dafea1a2733de93c16ebce4781bddbba59f3",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 24,
+          "id": "svg-data-import-33",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "style-type",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "bb7a19703b7bcf59ab39ad708e61dafea1a2733de93c16ebce4781bddbba59f3",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 25,
+          "id": "svg-data-import-34",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "60652ffc44ad920048e6e8034f7b1964d4a0e5ec42008e2bb7521cc9e293ceb7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 26,
+          "id": "svg-data-import-34",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "supports-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "60652ffc44ad920048e6e8034f7b1964d4a0e5ec42008e2bb7521cc9e293ceb7",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 27,
+          "id": "svg-data-import-35",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e05cd2c0cb6671524503329a3f7f7e3836784841182c6391fc6c27a6dc87088d",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 28,
+          "id": "svg-data-import-35",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-header",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "e05cd2c0cb6671524503329a3f7f7e3836784841182c6391fc6c27a6dc87088d",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 29,
+          "id": "svg-data-import-36",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-rule",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "adf15b743c07dbc12e1e919ec3732c27296067b1ca91a9cccab7de9114ae0968",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 30,
+          "id": "svg-data-import-36",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-rule",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "adf15b743c07dbc12e1e919ec3732c27296067b1ca91a9cccab7de9114ae0968",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 31,
+          "id": "svg-data-import-37",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-bom",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "b921558792819ea5c900e8389aca1efc4cb6bc6efd1a30a29eeaa6e7436c6ca4",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 32,
+          "id": "svg-data-import-37",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-bom",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "b921558792819ea5c900e8389aca1efc4cb6bc6efd1a30a29eeaa6e7436c6ca4",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 33,
+          "id": "svg-data-import-38",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-utf16",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "9968b9fa68970bf23995624485ec91cbb462f66bb5d993b36ad83692089859e8",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 34,
+          "id": "svg-data-import-38",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-utf16",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "9968b9fa68970bf23995624485ec91cbb462f66bb5d993b36ad83692089859e8",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 35,
+          "id": "svg-data-import-39",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-invalid",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "29e0e485ea13378c78f601eebe6b410654c1ff1e957a65d7882ea93331bc1873",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 36,
+          "id": "svg-data-import-39",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "charset-invalid",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "29e0e485ea13378c78f601eebe6b410654c1ff1e957a65d7882ea93331bc1873",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 37,
+          "id": "svg-data-import-40",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "invalid-data",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "4d6d1c82712ab5346006d978adadc7f875f3b0bedc9d00e5754b8e62c23c8fbf",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 38,
+          "id": "svg-data-import-40",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "invalid-data",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "4d6d1c82712ab5346006d978adadc7f875f3b0bedc9d00e5754b8e62c23c8fbf",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 39,
+          "id": "svg-data-import-41",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "07da306487e7c461959e4ef18fbccc6b7e437586164dd0bba7d2753ad2875114",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 40,
+          "id": "svg-data-import-41",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-fragment",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "07da306487e7c461959e4ef18fbccc6b7e437586164dd0bba7d2753ad2875114",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 41,
+          "id": "svg-data-import-42",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-relative",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "a2908d65db3ebd00958fb3032dbd1771487b9cb096c76822098602e222c26441",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        },
+        {
+          "sequence": 42,
+          "id": "svg-data-import-42",
+          "format": "umd",
+          "viewport": {
+            "width": 402,
+            "dpr": 3,
+            "height": 714
+          },
+          "name": "paint-relative",
+          "rect": {
+            "y": 0,
+            "x": 0,
+            "width": 60,
+            "height": 20
+          },
+          "screenSize": [1206, 2622],
+          "sampleScale": 3.0,
+          "yellowControlTop": 186,
+          "screenSHA256": "a2908d65db3ebd00958fb3032dbd1771487b9cb096c76822098602e222c26441",
+          "nativeRGBA_SHA256": "866a0f5e20779b073f9656ba3ae243f91fa40d6ecaf8bee88da0ed70344a3997",
+          "iccProfileSHA256": null
+        }
+      ]
+    }
+  ]
+}

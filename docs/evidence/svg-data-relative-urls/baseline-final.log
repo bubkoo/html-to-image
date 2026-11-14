@@ -1,0 +1,115 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/svg-data-import-resources.test.ts (4 tests | 1 failed) 1476ms
+   × SVG data import opaque-relative retains resource ownership and isolation 631ms
+ ❯ |chromium| test/browser-unit/svg-data-imports.test.ts (21 tests | 1 failed) 4149ms
+   × external SVG data CSS import paint-relative preserves native pixels 236ms
+ ❯ |chromium| test/browser-unit/svg-import-probe.test.ts (3 tests | 2 failed) 5257ms
+   × positive native import geometry does not require a use load notification 5148ms
+   × an import load notification still requires ready native geometry 67ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-import-resources.test.ts > SVG data import opaque-relative retains resource ownership and isolation
+Error: SVG data import basic differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-import-resources.test.ts/SVG-data-import-opaque-relative-retains-resource-ownership-and-isolation.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:240:13
+    238|       )
+    239|     if (actualDifferentChannels)
+    240|       throw new Error(
+       |             ^
+    241|         'SVG data import ' +
+    242|           name +
+ ❯ test/browser-unit/svg-data-import-resources.test.ts:59:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-data-imports.test.ts > external SVG data CSS import paint-relative preserves native pixels
+Error: SVG data import paint-relative differs in 800 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-paint-relative-preserves-native-pixels.png
+
+ ❯ Module.checkSVGDataImports test/browser/fixtures/svg-data-imports.mjs:240:13
+    238|       )
+    239|     if (actualDifferentChannels)
+    240|       throw new Error(
+       |             ^
+    241|         'SVG data import ' +
+    242|           name +
+ ❯ test/browser-unit/svg-data-imports.test.ts:31:18
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-import-probe.test.ts > positive native import geometry does not require a use load notification
+AssertionError: ["Native SVG data-import probe did not become ready"]: expected { file: true, imports: false, …(2) } to deeply equal { file: true, imports: true, …(2) }
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-import-probe.test.ts/positive-native-import-geometry-does-not-require-a-use-load-notification.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[2m    "file": true,[22m
+[32m-   "fileLayers": "flat",[39m
+[32m-   "importLayers": "flat",[39m
+[32m-   "imports": true,[39m
+[31m+   "fileLayers": "ordered",[39m
+[31m+   "importLayers": "ordered",[39m
+[31m+   "imports": false,[39m
+[2m  }[22m
+
+ ❯ test/browser-unit/svg-import-probe.test.ts:39:73
+     37|       fileLayers: policy.fileLayers,
+     38|       importLayers: policy.importLayers,
+     39|     }, JSON.stringify(errors.map((error) => (error as Error).message))…
+       |                                                                         ^
+     40|     expect(errors).toHaveLength(0)
+     41|     expect(suppressed).toBe(native.file ? 1 : 0)
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-import-probe.test.ts > an import load notification still requires ready native geometry
+AssertionError: ["Native SVG data-import probe did not become ready"]: expected { file: true, imports: false, …(2) } to deeply equal { file: true, imports: true, …(2) }
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-import-probe.test.ts/an-import-load-notification-still-requires-ready-native-geometry.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[2m    "file": true,[22m
+[32m-   "fileLayers": "flat",[39m
+[32m-   "importLayers": "flat",[39m
+[32m-   "imports": true,[39m
+[31m+   "fileLayers": "ordered",[39m
+[31m+   "importLayers": "ordered",[39m
+[31m+   "imports": false,[39m
+[2m  }[22m
+
+ ❯ test/browser-unit/svg-import-probe.test.ts:74:73
+     72|       fileLayers: policy.fileLayers,
+     73|       importLayers: policy.importLayers,
+     74|     }, JSON.stringify(errors.map((error) => (error as Error).message))…
+       |                                                                         ^
+     75|     expect(errors).toHaveLength(0)
+     76|     expect(deferred).toBe(native.file)
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  3 failed | 18 passed (21)
+      Tests  4 failed | 146 passed (150)
+   Start at  06:13:30
+   Duration  6.16s (tests 65%, worker 31%, import 3%)
+

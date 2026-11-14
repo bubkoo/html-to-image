@@ -1,0 +1,98 @@
+{
+  "verifiedAt": "2026-11-14T22:24:07.394018+00:00",
+  "sourceCommit": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
+  "baseCommit": "8f39d751133941a806672cf215d95be28df86151",
+  "contract": "Each current browser live-page appearance",
+  "status": "Local full suite and scoped real iPhone acceptance; exact-head remote gates belong to PR checks and description",
+  "baseline": {
+    "failed": 4,
+    "passed": 146,
+    "sameFinalControls": 150
+  },
+  "candidate": {
+    "passed": 150,
+    "failed": 0
+  },
+  "full": {
+    "coverage": 1072,
+    "coverageSkipped": 4,
+    "source": 953,
+    "sourceSkipped": 4,
+    "package": 153,
+    "lintBuildTypesTarballConsumers": "pass"
+  },
+  "masterFailure": {
+    "run": 43645977092,
+    "source": "8f39d751133941a806672cf215d95be28df86151",
+    "phase": "coverage",
+    "passed": 1059,
+    "failed": 1,
+    "skipped": 4,
+    "case": "Chromium supports-active",
+    "differentChannels": 800,
+    "sourceUnchanged": true,
+    "diagnostic": "external-svg-style-import-probe not ready",
+    "failedCaseMilliseconds": 413,
+    "sourceAndPackageStages": "not run",
+    "codeQL": {
+      "run": 43645977070,
+      "conclusion": "success"
+    }
+  },
+  "probeControls": {
+    "noLoadNotification": "Old logic rejects even with measured widths 1,1,21,1,21,21; diagnostic-only before log retains values",
+    "firstGeometryZero": "Old logic rejects its first zero sample following load; candidate waits for valid geometry",
+    "deadlineMilliseconds": 5000,
+    "expiredProbeFallback": "Still tested and preserved",
+    "originalMainFailureLimitation": "Original diagnostic did not record load/widths; new controlled regressions establish both ordering hazards and diagnostics now record those values"
+  },
+  "relativeURLControl": {
+    "nativeChrome": "purple fallback",
+    "oldExport": "red gradient fetched from containing-page HTTP base",
+    "candidateExport": "purple fallback",
+    "differentChannelsBefore": 800,
+    "candidateHTTP": "Only explicit positive-control target request; no library phantom request",
+    "inactiveFileStyles": "Firefox/WebKit retain native inactive behavior"
+  },
+  "device": {
+    "sourceCommit": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
+    "capabilities": {
+      "platformName": "iOS",
+      "safari:platformVersion": "26.6.1",
+      "browserVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "nativeImportComparisons": 42,
+    "beforeAfterPhotos": 84,
+    "cancellationControls": 4,
+    "gcClaim": false,
+    "activeImportClaim": false,
+    "limit": "Real Safari file CSS remains inactive; native comparisons confirm that behavior. Positive active-import corrections are measured in Chromium.",
+    "smoke": {
+      "PASS": 35,
+      "INFO": 2,
+      "FAIL": 0
+    },
+    "smokeReceipt": "14498a30-a743-4ac5-bf44-ee11de17c934",
+    "sessionEnded": true,
+    "serverEnded": true
+  },
+  "rawArchiveFiles": 817,
+  "archives": {
+    "baseline": 252,
+    "candidate": 252,
+    "iphone": 303,
+    "master-failure": 10
+  },
+  "remaining": [
+    "Qualified relative SVG attribute/inline-style URL bases in Firefox/WebKit",
+    "Redirect final-response URL metadata",
+    "Native image/compositor differences",
+    "Opaque matching rules and restricted CSP fidelity",
+    "HTTP file CSS/fonts and broader combinations"
+  ],
+  "replay": "svg-data-relative-urls/replay.md",
+  "npmRelease": false,
+  "oldPRCommentsOrClosures": 0
+}
