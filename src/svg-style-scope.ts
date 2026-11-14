@@ -317,6 +317,8 @@ export function createSVGStyleEnvironment(
     frame?.remove()
     frame = undefined
     pending = undefined
+    // Loaded FontFace wrappers can retain their source document after disposal.
+    fonts.length = 0
   }
   signal?.addEventListener('abort', dispose, { once: true })
   return {
