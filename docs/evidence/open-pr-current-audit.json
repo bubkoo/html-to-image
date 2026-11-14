@@ -173,14 +173,14 @@
       "reviewedHead": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
       "observedState": "open",
       "requirement": "Safari 子图片初次缺失，尝试延时重绘；标题关联 #461 Issue 与 #478 PR。",
-      "disposition": "保留有界冻结快照重绘；新增额外尝试避开首次解码缓存的独立修正候选，本地完整检查通过。",
+      "disposition": "有界冻结快照重绘保留；#635 修正额外尝试复用首次不完整 SVG 解码缓存，组合源码本地完整检查与真实 iPhone 31/31 通过，最终远端检查待验。",
       "evidence": [
         "test/spec/renderer.test.ts",
         "docs/v2-release-readiness.md",
         "docs/evidence/svg-raster-retry-cache.json"
       ],
-      "remainingBoundary": "原应用完整资源与当前精确提交的真机仍待验；不把缓存修正等同于所有历史 Safari/WKWebView 白图问题解决。#591 作者的旧 V2 16/16 原始夹具报告及关闭状态单独记录。",
-      "checkedAt": "2026-11-14T15:35:55.453034+00:00"
+      "remainingBoundary": "完整原应用/资源及历史 WKWebView 场景未整体复验；不把缓存修正等同于全部历史白图问题解决。#591 作者的历史 16/16 与关闭状态单独归档。",
+      "checkedAt": "2026-11-14T16:05:54.058552+00:00"
     },
     {
       "number": 482,
@@ -501,8 +501,10 @@
     }
   },
   "latestIncrementalUpdate": {
-    "checkedAt": "2026-11-14T15:35:55.453034+00:00",
-    "scope": "Only #498 and linked #461/#478/#591 revalidated in this increment; original 28-entry review baseline remains unchanged. #632/#633 merged; #634 draft with remote checks passed; new raster retry candidate local checks passed, remote/native pending.",
+    "checkedAt": "2026-11-14T16:05:54.058552+00:00",
+    "runtimeSource": "3f8bbdfa1b306a98b126e6a32bacddb9088631e8",
+    "pr": 635,
+    "status": "local and exact-source real iPhone passed; final remote checks pending",
     "evidence": "docs/evidence/svg-raster-retry-cache.json"
   }
 }

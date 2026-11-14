@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-14T15:34:37.372772+00:00",
-  "status": "Local complete check passed; remote CI and exact-commit real iPhone verification pending",
+  "checkedAt": "2026-11-14T16:05:54.058552+00:00",
+  "status": "Combined with merged #634: full local phases passed and real iPhone 31/31; final evidence-head remote checks pending",
   "base": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
   "sourcePRs": [498],
   "relatedDiscussions": [
@@ -61,7 +61,7 @@
     "Does not claim full resolution of all historic #498/#461 reports without their complete applications/assets.",
     "Original #591 author reported the 13-fixture harness complete in 16/16 V2 runs on iPhone 11/iOS 26.2 at 187c4bc, then closed that PR. This is historical third-party evidence, not validation of this candidate.",
     "Not a full native-scroll fix: separate prototype still has a 21-channel/1-level warmed glyph difference and a 234-channel inset-shadow difference against native WebKit source.",
-    "Exact-commit USB iPhone validation remains pending; no current USB iPhone is present. No npm publication or old contributor PR closure/comment."
+    "No npm publication or old contributor PR closure/comment. Final remote checks must use the evidence head; source and fixture bytes remain those of combined native revision."
   ],
   "nativeScrollInvestigation": "https://github.com/bubkoo/html-to-image/blob/2e0fbc76a3123ac3572b805685b44b6d027f1c5c/docs/evidence/native-scroll-v2.json",
   "historical591Report": "https://github.com/bubkoo/html-to-image/pull/591#issuecomment-6575677342",
@@ -71,6 +71,63 @@
     "test/browser/fixtures/raster-retry.mjs": "94c5a1a451957c7f7566743afe9e8e5983f90418968622013ef1827af7ec954c",
     "test/browser/smoke.html": "f3f022a832afdb77e66aa1d1799b76c3eeb07368f592c6fb555850b3b09c70ff",
     "test/browser/package.test.ts": "6b9efa5ee4ec319b3d16a7459d596c868fc72886cf4a7a37bf0b15c2b71ba4cd",
+    "test/browser/server.mjs": "e3223d0db6066666361b75e68f073fa0af57e9706c1d3d28fd52f654394da391"
+  },
+  "initialRemote": {
+    "revision": "8c68469f4f583fa992c964497f6268a2fc48508f",
+    "testedMerge": "defa77bd3b0019f894f2c1c94db17901104d36aa",
+    "ciRun": 43611440395,
+    "codeqlRun": 43611440400,
+    "ci": "success",
+    "codeql": "success",
+    "codecovPatch": "success",
+    "codecovProject": "success",
+    "coveragePassed": 341,
+    "sourcePassed": 665,
+    "sourceSkipped": 1,
+    "builtPackagePassed": 138
+  },
+  "native": {
+    "initialRevision": "8c68469f4f583fa992c964497f6268a2fc48508f",
+    "initialCompleteReport": "ios-safari-raster-retry-8c68469.json",
+    "initialSelectedReport": "ios-raster-retry-selected-8c68469.json",
+    "initialPassed": 30,
+    "combinedRevision": "3f8bbdfa1b306a98b126e6a32bacddb9088631e8",
+    "completeReport": "ios-safari-raster-retry-3f8bbdf.json",
+    "sessionReport": "ios-raster-retry-session-3f8bbdf.json",
+    "complete": true,
+    "passed": 31,
+    "failed": 0,
+    "reportId": "7b2e5989-c1b2-4b4a-90e7-527d9b97219f",
+    "serverVerdicts": 33,
+    "platform": "real USB iPhone, not simulator",
+    "platformVersion": "26.6.1",
+    "browserVersion": "26.6.1",
+    "dpr": 3,
+    "scope": "Complete smoke includes both independent regression cases, ESM and UMD. New retry fixture includes real font and controlled retry/single/healthy modes. Full 33-verdict receipt saved with the bounded 64-verdict limit.",
+    "versionProvenance": "SafariDriver capabilities; CPU iPhone OS 18_7 in the UA is a legacy token."
+  },
+  "combinedFull": {
+    "revision": "3f8bbdfa1b306a98b126e6a32bacddb9088631e8",
+    "base": "f340ddf37536ee7625fcfa32b341ec66158c15ca",
+    "coveragePassed": 353,
+    "coverageSkipped": 1,
+    "sourcePassed": 701,
+    "sourceSkipped": 4,
+    "builtPackagePassed": 141,
+    "lint": true,
+    "esmCjsUmdBuild": true,
+    "types": true,
+    "packageContract": true,
+    "checks": "Initial combined full command passed lint/build/types/coverage, then source phase failed with WebKit transparency in seven existing cases followed by VITEST_BROWSER_CONNECTION_CLOSED. A fresh WebKit selection passed 234 + 1 skip; unchanged full source rerun passed 701 + 4 skips; package contract and all 141 package checks passed. No changed assertions, delays, added skips or tolerances. Cause of the first browser failure is not established.",
+    "inputIdentity": "Reparenting from the already-tested #634 branch to its squash merge on master changed zero of 208 tracked runtime/test/config/package input files."
+  },
+  "combinedSourceSHA256": {
+    "src/capture.ts": "b91081e4f0acfa75c683feac344122b8bddab466690965b24ca7f30bf719b167",
+    "test/browser-unit/raster-retry.test.ts": "89e261bda5a584f4b59ed5a6b7a0620079d6c9a62556d5bca5f2434997255f23",
+    "test/browser/fixtures/raster-retry.mjs": "94c5a1a451957c7f7566743afe9e8e5983f90418968622013ef1827af7ec954c",
+    "test/browser/smoke.html": "0b697d05ae51e29ba12289bf88e43862953006fb05c588cd824eda5948fedd7c",
+    "test/browser/package.test.ts": "cb8d69dc37a30724b29ca7ec6841e49a7a9319ce3c2a316ca4cb867d93fb5f77",
     "test/browser/server.mjs": "e3223d0db6066666361b75e68f073fa0af57e9706c1d3d28fd52f654394da391"
   }
 }

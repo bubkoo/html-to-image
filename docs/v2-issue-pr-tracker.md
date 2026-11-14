@@ -1,5 +1,13 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-15 组合验收：#634 已合入，#635 待最终远端检查
+
+#634 已合入 master `f340ddf`：最终文档 head `10dac15` 的 CI 43613028495、CodeQL 43613028389 通过；其运行时与已实测 30/30 的 `1626445` 一致。原源码 Codecov patch/project 通过，文档 head 已成功上传 coverage，尚未单独报告 Codecov 状态。主分支检查另行跟进。[尺寸证据](evidence/scrollbar-box-dimensions.json)明确手机悬浮滚动条与桌面占位滚动条的覆盖范围。
+
+#635 已基于该主分支组合，源码 `3f8bbdf` 的 lint/构建/类型/tarball、353 coverage（另 1 跳过）、701 source（另 4 跳过）、141 构建包均通过；真实 USB iPhone Safari 26.6.1 完整 31/31，33 条报告已落盘。新增重试场景和尺寸场景同时保留，ESM/UMD 均运行。[原始真机报告](evidence/ios-safari-raster-retry-3f8bbdf.json)与[完整验证记录](evidence/svg-raster-retry-cache.json)已归档。首轮源码检查出现多项 WebKit 透明图后连接关闭；失败记录保留，未修改断言、延时、跳过或容差，新的独立 WebKit检查和完整三引擎检查通过，最初浏览器异常根因未确立。初始独立源码 `8c68469` 的 CI/CodeQL/Codecov 和真机 30/30 也分别归档；不冒充组合提交的远端验收。
+
+以下“等待真机/没有手机/草稿 #634”是历史记录。最终证据 head 仍待远端检查；两项原生滚动 WebKit 严格像素失败、#398 可信点击和外部 SVG 样式语义选择仍保留边界，未关闭旧 PR，未发布 npm。
+
 ## 2026-11-14 SVG 重绘缓存修正候选
 
 #632/#633 已合入 master；#634 的 1626445 仍为检查全绿的草稿、等待真机。原生滚动新原型保留在 [2e0fbc7 调查分支](https://github.com/bubkoo/html-to-image/blob/2e0fbc76a3123ac3572b805685b44b6d027f1c5c/docs/evidence/native-scroll-v2.json)，其两个严格 WebKit 原生像素失败没有删除，也没有并入本候选。

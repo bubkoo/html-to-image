@@ -1,0 +1,19 @@
+{
+  "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+  "dpr": 3,
+  "state": "complete",
+  "text": "INFO Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1 DPR=3\nPASS snapshot retries preserve frozen pixels\nDONE",
+  "url": "http://169.254.75.67:4373/test/browser/smoke.html?case=snapshot%20retries%20preserve%20frozen%20pixels",
+  "verdicts": [
+    "INFO Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1 DPR=3",
+    "PASS snapshot retries preserve frozen pixels"
+  ],
+  "gitHead": "8c68469f4f583fa992c964497f6268a2fc48508f",
+  "capabilities": {
+    "platformName": "iOS",
+    "safari:platformVersion": "26.6.1",
+    "browserVersion": "26.6.1",
+    "safari:deviceType": "iPhone",
+    "safari:useSimulator": false
+  }
+}

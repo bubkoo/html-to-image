@@ -1,0 +1,13 @@
+
+> html-to-image@1.11.13 test:browser:source /Users/bytedance/Documents/Github/html-to-image
+> vitest run --config vitest.browser.config.mts -- test/browser-unit/capture.test.ts test/browser-unit/font-metrics.test.ts test/browser-unit/iframe-fonts.test.ts test/browser-unit/pseudo-resources.test.ts test/browser-unit/resource-policy.test.ts test/browser-unit/svg-dependencies.test.ts test/browser-unit/fixed-scroll.test.ts
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+
+ Test Files  22 passed (22)
+      Tests  234 passed | 1 skipped (235)
+   Start at  00:03:40
+   Duration  5.00s (worker 49%, tests 44%, import 7%)
+
