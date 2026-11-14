@@ -3,7 +3,32 @@ import type {
   ExtensionContext,
   Options,
   ResourceKind,
+  ResourceRequest,
+  ResourceResolver,
 } from './types.js'
+
+async function resolveWithAbort(
+  resolver: ResourceResolver,
+  request: ResourceRequest,
+  context: ExtensionContext,
+): Promise<Blob | undefined> {
+  const { signal } = context
+  let abort!: () => void
+  const cancelled = new Promise<never>((resolve, reject) => {
+    abort = () => reject(signal.reason)
+    signal.addEventListener('abort', abort, { once: true })
+    if (signal.aborted) abort()
+  })
+  const pending = Promise.resolve().then(() => {
+    if (signal.aborted) throw signal.reason
+    return resolver(request, context)
+  })
+  try {
+    return await Promise.race([pending, cancelled])
+  } finally {
+    signal.removeEventListener('abort', abort)
+  }
+}
 
 export class ResourceResolverError extends Error {
   constructor(readonly cause: unknown) {
@@ -79,7 +104,7 @@ export class ResourceLoader {
         let result: Blob | undefined
         try {
           // eslint-disable-next-line no-await-in-loop
-          result = await resolve(request, this.context)
+          result = await resolveWithAbort(resolve, request, this.context)
         } catch (error) {
           if (signal.aborted) throw signal.reason
           throw new ResourceResolverError(error)

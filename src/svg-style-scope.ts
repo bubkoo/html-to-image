@@ -208,10 +208,12 @@ export function createSVGStyleEnvironment(
     resourcesLocked = true
   }
   const dispose = () => {
+    signal?.removeEventListener('abort', dispose)
     cancel?.()
     frame?.remove()
     frame = undefined
   }
+  signal?.addEventListener('abort', dispose, { once: true })
   return {
     dispose,
     async measurePolicy(check: () => void): Promise<SVGStylePolicy> {
