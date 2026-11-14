@@ -27,6 +27,7 @@ export const svgNativeStyleCases = [
   'file-invalid-url',
   'loaded-page-font',
   'page-outside-width',
+  'page-import',
 ]
 let sequence = 0
 let referencePolicy
@@ -115,6 +116,7 @@ async function authoredPixelReference(name) {
         'file-invalid-url',
         'loaded-page-font',
         'page-outside-width',
+        'page-import',
       ].includes(name)
     )
       left = right = yellow
@@ -145,7 +147,11 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
   const root = document.createElement('div')
   root.id = 'svg-native-style-' + ++sequence
   root.style.cssText = 'display:flex;width:60px;height:20px;background:white'
-  const asset = ['loaded-page-font', 'page-outside-width'].includes(name)
+  const asset = [
+    'loaded-page-font',
+    'page-outside-width',
+    'page-import',
+  ].includes(name)
     ? 'class'
     : name === 'page-paint'
       ? 'class'
@@ -211,6 +217,12 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
       '"><rect width="12" height="20"/></clipPath></defs>'
     root.prepend(definitions)
   }
+  if (name === 'page-import') {
+    const style = root.querySelector('style')
+    style.media = 'screen'
+    style.textContent =
+      '@import url("/test/browser/fixtures/svg-styles/page-import.css?direct") layer(native-use) supports(display: block) screen;'
+  }
   if (name === 'page-outside-width')
     root.querySelector('style').textContent =
       'rect{width:20px!important}.shared{fill:yellow!important}'
@@ -223,7 +235,14 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
     root.querySelector('style').textContent =
       'symbol:first-child>.shared{fill:yellow!important}'
   let outsideStyle
-  if (['page-outside', 'late-page-css', 'page-outside-width'].includes(name)) {
+  if (
+    [
+      'page-outside',
+      'late-page-css',
+      'page-outside-width',
+      'page-import',
+    ].includes(name)
+  ) {
     outsideStyle = root.querySelector('style')
     document.head.append(outsideStyle)
   }
@@ -237,6 +256,35 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
     }
   }
   document.body.append(root)
+  let disabledSheet
+  if (name === 'page-import') {
+    disabledSheet = document.createElement('style')
+    disabledSheet.textContent = '.shared{display:none!important}'
+    document.head.append(disabledSheet)
+    disabledSheet.sheet.disabled = true
+    try {
+      let loaded = false
+      for (let attempt = 0; attempt < 60; attempt++) {
+        const imported = outsideStyle.sheet?.cssRules[0]
+        if (
+          imported?.type === CSSRule.IMPORT_RULE &&
+          imported.styleSheet?.cssRules.length
+        ) {
+          loaded = true
+          break
+        }
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((resolve) => requestAnimationFrame(resolve))
+      }
+      if (!loaded)
+        throw new Error('Native page import positive control did not load')
+    } catch (error) {
+      disabledSheet.remove()
+      outsideStyle?.remove()
+      root.remove()
+      throw error
+    }
+  }
   let loadedFontSheet
   let loadedFontCount = 0
   if (name === 'loaded-page-font') {
@@ -420,6 +468,7 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
     capture?.dispose()
     renderer.dispose()
     outsideStyle?.remove()
+    disabledSheet?.remove()
     wholeControl?.remove()
     loadedFontSheet?.remove()
     opaqueSheet?.remove()
