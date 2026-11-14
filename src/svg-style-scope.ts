@@ -246,19 +246,31 @@ async function detectSVGImportPolicy(
   try {
     document.documentElement.append(svg)
     const deadline = Date.now() + 5000
-    while (!loaded && Date.now() < deadline) {
+    let values: number[] = []
+    let measured = false
+    while (Date.now() < deadline) {
       check()
+      values = uses.map((use) => use.getBBox().width)
+      const valid =
+        values[5] === 21 && values.every((value) => value === 1 || value === 21)
+      // Positive effects prove that both imports are ready even if a use load
+      // notification is missing. A load notification alone may precede layout.
+      if (valid && (loaded || (values[0] === 1 && values[3] === 1))) {
+        measured = true
+        break
+      }
       // eslint-disable-next-line no-await-in-loop
       await new Promise<void>((resolve) => setTimeout(resolve, 0))
     }
     check()
-    const values = uses.map((use) => use.getBBox().width)
-    if (
-      !loaded ||
-      values[5] !== 21 ||
-      !values.every((value) => value === 1 || value === 21)
-    )
-      throw new Error('Native SVG data-import probe did not become ready')
+    if (!measured)
+      throw new Error(
+        'Native SVG data-import probe did not become ready (load=' +
+          loaded +
+          '; widths=' +
+          values.join(',') +
+          ')',
+      )
     const mode = (marker: number, priority: number): SVGLayerPolicy =>
       marker === 21 ? 'none' : priority === 1 ? 'ordered' : 'flat'
     return {

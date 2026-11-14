@@ -3,6 +3,82 @@ import { detectSVGStylePolicy } from '../../src/svg-style-scope'
 import { createRenderer } from '../../src'
 
 const moduleURL = '/test/browser/fixtures/svg-native-styles.mjs'
+const importModuleURL = '/test/browser/fixtures/svg-data-imports.mjs'
+
+test('positive native import geometry does not require a use load notification', async () => {
+  const fixture = await import(/* @vite-ignore */ importModuleURL)
+  const native = await fixture.getSVGDataImportFixturePolicy()
+  const original = EventTarget.prototype.addEventListener
+  let suppressed = 0
+  const listener = vi
+    .spyOn(EventTarget.prototype, 'addEventListener')
+    .mockImplementation(function (this: EventTarget, type, callback, options) {
+      if (type === 'load' && this instanceof SVGUseElement) {
+        suppressed++
+        return
+      }
+      original.call(this, type, callback, options)
+    })
+  const errors: unknown[] = []
+  try {
+    const policy = await detectSVGStylePolicy(
+      document,
+      () => {},
+      (error) => errors.push(error),
+    )
+    expect(
+      {
+        file: policy.file,
+        imports: policy.dataImports,
+        fileLayers: policy.fileLayers,
+        importLayers: policy.importLayers,
+      },
+      JSON.stringify(errors.map((error) => (error as Error).message)),
+    ).toEqual(native)
+    expect(errors).toHaveLength(0)
+    expect(suppressed).toBe(native.file ? 1 : 0)
+  } finally {
+    listener.mockRestore()
+  }
+})
+
+test('an import load notification still requires ready native geometry', async () => {
+  const fixture = await import(/* @vite-ignore */ importModuleURL)
+  const native = await fixture.getSVGDataImportFixturePolicy()
+  const original = SVGGraphicsElement.prototype.getBBox
+  let deferred = false
+  const box = vi
+    .spyOn(SVGGraphicsElement.prototype, 'getBBox')
+    .mockImplementation(function (this: SVGGraphicsElement, options) {
+      const result = original.call(this, options)
+      if (!deferred && this.getAttribute('href')?.endsWith('#plain')) {
+        deferred = true
+        return new DOMRect(result.x, result.y, 0, result.height)
+      }
+      return result
+    })
+  const errors: unknown[] = []
+  try {
+    const policy = await detectSVGStylePolicy(
+      document,
+      () => {},
+      (error) => errors.push(error),
+    )
+    expect(
+      {
+        file: policy.file,
+        imports: policy.dataImports,
+        fileLayers: policy.fileLayers,
+        importLayers: policy.importLayers,
+      },
+      JSON.stringify(errors.map((error) => (error as Error).message)),
+    ).toEqual(native)
+    expect(errors).toHaveLength(0)
+    expect(deferred).toBe(native.file)
+  } finally {
+    box.mockRestore()
+  }
+})
 
 test('an expired optional import probe preserves measured base SVG capabilities', async () => {
   const fixture = await import(/* @vite-ignore */ moduleURL)
@@ -36,7 +112,9 @@ test('an expired optional import probe preserves measured base SVG capabilities'
       expect(policy.dataImports).toBe(false)
       expect(errors).toHaveLength(1)
       expect(errors[0]).toMatchObject({
-        message: 'Native SVG data-import probe did not become ready',
+        message: expect.stringContaining(
+          'Native SVG data-import probe did not become ready',
+        ),
       })
     } else expect(errors).toHaveLength(0)
     const capture = await renderer.capture(root)

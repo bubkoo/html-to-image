@@ -25,6 +25,7 @@ test.each([
   'charset-invalid',
   'invalid-data',
   'paint-fragment',
+  'paint-relative',
 ])('external SVG data CSS import %s preserves native pixels', async (name) => {
   const fixture = await import(/* @vite-ignore */ moduleURL)
   const result = await fixture.checkSVGDataImports(
@@ -51,6 +52,12 @@ test.each([
   expect(result.fullPixelMatch).toBe(true)
   expect(result.sourceUnchanged).toBe(true)
   const policy = await fixture.getSVGDataImportFixturePolicy()
+  if (name === 'paint-relative')
+    expect(
+      result.requests.some((request: { url: string }) =>
+        request.url.includes('/paint-target.svg'),
+      ),
+    ).toBe(false)
   const inactive = [
     'media-inactive',
     'supports-inactive',

@@ -1,0 +1,40 @@
+from client import call, execute, folder, session
+import json, subprocess, re, os
+
+head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+address=re.search(r'\binet\s+(\d+\.\d+\.\d+\.\d+)',subprocess.check_output(['ifconfig',os.environ.get('HTI_PHONE_INTERFACE','en15')],text=True)).group(1)
+call('/timeouts',{'pageLoad':60000,'script':120000})
+call('/url',{'url':'http://'+address+':4373/test/browser/svg-native-device.html?cancel='+head},timeout=65)
+script='''
+const done=arguments[arguments.length-1];
+(async()=>{
+  const esm=await import('/es/index.js'),results=[];
+  for(const [format,api] of [['esm',esm],['umd',window.htmlToImage]])for(const mode of ['abort','dispose']){
+    const style=document.createElement('style');style.textContent='@font-face{font-family:"Device Pending SVG Font";src:url("/test/browser/fixtures/font-metrics.ttf")}';document.head.append(style);
+    await document.fonts.load('20px "Device Pending SVG Font"','A');
+    const root=document.createElement('div');root.style.cssText='width:20px;height:20px;font-family:"Device Pending SVG Font"';root.innerHTML='<svg width="20" height="20"><use href="/test/browser/fixtures/svg-styles/class.svg#icon" width="20" height="20" fill="green"/></svg>';document.body.append(root);
+    const source=root.outerHTML,frames=document.querySelectorAll('iframe').length,controller=new AbortController(),reason=new DOMException('owned device resolver cancellation','AbortError');
+    let release,entered;const waiting=new Promise(resolve=>entered=resolve);
+    const renderer=api.createRenderer({signal:controller.signal,resources:{resolve:({kind})=>{if(kind==='font'){entered(true);return new Promise(resolve=>release=resolve)}}}});
+    const operation=renderer.capture(root);
+    try{
+      if(!await Promise.race([waiting,operation.then(()=>false)]))throw new Error('Font callback was not reached');
+      const activeFrames=document.querySelectorAll('iframe').length;
+      if(activeFrames!==frames+1)throw new Error('Private frame positive control missing');
+      if(mode==='abort')controller.abort(reason);else renderer.dispose();
+      let error;try{await operation}catch(value){error=value}
+      const after=document.querySelectorAll('iframe').length;
+      if(error?.name!=='AbortError'||(mode==='abort'&&error!==reason)||after!==frames||root.outerHTML!==source)throw new Error('Cancellation/source/frame control failed');
+      results.push({format,mode,activeFrames,afterFrames:after,framesBefore:frames,sourceUnchanged:true,reasonPreserved:mode==='abort'?error===reason:error.name==='AbortError'});
+    }finally{release?.(new Blob([],{type:'font/ttf'}));await operation.catch(()=>{});await new Promise(resolve=>setTimeout(resolve,0));renderer.dispose();root.remove();style.remove()}
+  }
+  return {results};
+})().then(done).catch(error=>done({error:String(error),stack:error.stack}));
+'''
+result=call('/execute/async',{'script':script,'args':[]},timeout=125)
+result['sourceCommit']=head
+result['capabilities']={k:session['capabilities'].get(k) for k in ['platformName','browserVersion','safari:platformVersion','safari:deviceType','safari:useSimulator']}
+result['limit']='DOM removal, cancellation reason and source equality; no device GC verdict'
+(folder/'cancel-summary.json').write_text(json.dumps(result,indent=2))
+if result.get('error'):raise RuntimeError(result['error'])
+print(json.dumps(result,indent=2))

@@ -1,0 +1,32 @@
+{
+  "kind": "svg-data-import-paint-relative",
+  "policy": {
+    "file": true,
+    "imports": true,
+    "fileLayers": "flat",
+    "importLayers": "flat"
+  },
+  "nativeDifferentChannels": 800,
+  "referenceDifferentChannels": 0,
+  "actualDifferentChannels": 800,
+  "sourceUnchanged": true,
+  "sourceBefore": "<div id=\"svg-data-import-21\" style=\"display: flex; width: 60px; height: 20px; background: white;\"><svg width=\"20\" height=\"20\" style=\"flex: 0 0 auto;\"><use href=\"/test/browser/fixtures/svg-data-imports/paint-relative.svg#icon\" width=\"20\" height=\"20\"></use></svg><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: blue;\"></div><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: yellow;\"></div></div>",
+  "sourceAfter": "<div id=\"svg-data-import-21\" style=\"display: flex; width: 60px; height: 20px; background: white;\"><svg width=\"20\" height=\"20\" style=\"flex: 0 0 auto;\"><use href=\"/test/browser/fixtures/svg-data-imports/paint-relative.svg#icon\" width=\"20\" height=\"20\"></use></svg><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: blue;\"></div><div style=\"flex: 0 0 auto; width: 20px; height: 20px; background: yellow;\"></div></div>",
+  "sourceRasterDifferentChannels": 0,
+  "diagnostics": [],
+  "requests": [
+    {
+      "url": "http://localhost:63315/test/browser/fixtures/svg-data-imports/paint-relative.svg",
+      "kind": "image"
+    },
+    {
+      "url": "data:text/css,.shape%7Bfill%3Aurl(%22%2Ftest%2Fbrowser%2Ffixtures%2Fsvg-data-imports%2Fpaint-target.svg%23paint%22)%20purple!important%7D",
+      "kind": "stylesheet"
+    },
+    {
+      "url": "http://localhost:63315/test/browser/fixtures/svg-data-imports/paint-target.svg",
+      "kind": "image"
+    }
+  ],
+  "engine": "chromium"
+}

@@ -202,7 +202,9 @@ export async function prepareSVGFileStyle(
       try {
         return new URL(value, base).href
       } catch {
-        return undefined
+        // Imported data CSS has an opaque base. Keep an unresolvable URL
+        // invalid instead of giving it the measurement document's HTTP base.
+        return 'about:invalid'
       }
     })
   const visit = async (
