@@ -22,6 +22,7 @@
     import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkSVGUseCycle } from './fixtures/svg-use-cycle.mjs'
+    import { checkSVGFontUnits } from './fixtures/svg-font-units.mjs'
     import { checkSVGNativeStyles, svgNativeStyleCases } from './fixtures/svg-native-styles.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
     import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
@@ -232,6 +233,14 @@
       for (const name of svgNativeStyleCases) {
         await checkSVGNativeStyles({ createRenderer }, name)
         await checkSVGNativeStyles(window.htmlToImage, name)
+      }
+    })
+
+    await test('external SVG font units retain loaded metrics', async () => {
+      await loadUMD()
+      for (const mode of ['loaded', 'large', 'system']) {
+        await checkSVGFontUnits({ createRenderer }, mode)
+        await checkSVGFontUnits(window.htmlToImage, mode)
       }
     })
 

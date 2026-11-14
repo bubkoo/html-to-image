@@ -1,5 +1,7 @@
 import { uuid } from './util.js'
 
+const installedFontCSS = new WeakMap<Document, Set<string>>()
+
 export interface SVGStylePolicy {
   file: boolean
   page: boolean
@@ -279,7 +281,7 @@ export function createSVGStyleEnvironment(
             abort()
             return
           }
-          ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src blob:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
+          ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
           document.documentElement.append(ownFrame)
         })
       }
@@ -293,7 +295,7 @@ export function createSVGStyleEnvironment(
   }
 }
 
-export function freezeSVGFragmentStyles(
+export async function freezeSVGFragmentStyles(
   original: Element,
   copy: Element,
   styleRoot: Document | DocumentFragment | Element,
@@ -302,6 +304,8 @@ export function freezeSVGFragmentStyles(
   policy: SVGStylePolicy,
   resolveURLs: (text: string, style: Element) => string,
   pageStyles: () => string,
+  prepareFonts: (families: readonly string[]) => Promise<string>,
+  reportFontError: (error: unknown) => void,
 ) {
   const view = (document.defaultView || window) as Window & typeof globalThis
   const container = document.createElement('div')
@@ -356,9 +360,17 @@ export function freezeSVGFragmentStyles(
             })
             .join('\n'),
     )
+    const removeFontFaces = (parent: CSSStyleSheet | CSSGroupingRule) => {
+      for (let index = parent.cssRules.length - 1; index >= 0; index--) {
+        const rule = parent.cssRules[index]
+        if (rule.type === CSSRule.FONT_FACE_RULE) parent.deleteRule(index)
+        else if ('cssRules' in rule) removeFontFaces(rule as CSSGroupingRule)
+      }
+    }
+    removeFontFaces(sheet)
     shadow.adoptedStyleSheets = [sheet]
   }
-  const fragment = document.importNode(original, true)
+  let fragment = document.importNode(original, true)
   const neutralizeStyles = (root: Element) =>
     root.querySelectorAll('style').forEach((node) => {
       if (node.textContent)
@@ -368,10 +380,43 @@ export function freezeSVGFragmentStyles(
   shadow.append(fragment)
   document.documentElement.append(container)
   try {
-    const sources = [fragment, ...Array.from(fragment.querySelectorAll('*'))]
+    let sources = [fragment, ...Array.from(fragment.querySelectorAll('*'))]
     const targets = [copy, ...Array.from(copy.querySelectorAll('*'))].filter(
       (node) => node.localName !== 'style',
     )
+    const fontCSS = await prepareFonts(
+      sources.map((source) => view.getComputedStyle(source).fontFamily),
+    )
+    if (fontCSS) {
+      let installed = installedFontCSS.get(document)
+      if (!installed) {
+        installed = new Set()
+        installedFontCSS.set(document, installed)
+      }
+      if (!installed.has(fontCSS)) {
+        const fonts = document.createElement('style')
+        fonts.textContent = fontCSS
+        document.head.append(fonts)
+        installed.add(fontCSS)
+      }
+      const requested = new Set(
+        sources.map((source) => {
+          const style = view.getComputedStyle(source)
+          return style.font || `${style.fontSize} ${style.fontFamily}`
+        }),
+      )
+      await Promise.all(
+        Array.from(requested, (font) =>
+          document.fonts.load(font).catch(reportFontError),
+        ),
+      )
+      // A non-rendering symbol can retain fallback metrics computed before its
+      // face loaded. Evaluate a fresh tree only after those faces are ready.
+      const ready = fragment.cloneNode(true) as Element
+      fragment.replaceWith(ready)
+      fragment = ready
+      sources = [fragment, ...Array.from(fragment.querySelectorAll('*'))]
+    }
     sources.forEach((source, index) => {
       const style = view.getComputedStyle(source)
       const target = targets[index] as HTMLElement

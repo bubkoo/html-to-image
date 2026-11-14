@@ -34,7 +34,9 @@ test('external SVG style evaluation neither preloads resources nor executes cont
   const script =
     'window.__htiSVGStyleScript=1;window.parent.__htiSVGStyleScript=1'
   const xml =
-    '<svg xmlns="http://www.w3.org/2000/svg" id="icon" width="20" height="20"><script>' +
+    '<svg xmlns="http://www.w3.org/2000/svg" id="icon" width="20" height="20"><style>@font-face{font-family:UntrustedSVGFace;src:url("' +
+    imageURL +
+    '")}rect{font-family:UntrustedSVGFace}</style><script>' +
     script +
     '</script><rect width="20" height="20" fill="green"/><image href="' +
     imageURL +
