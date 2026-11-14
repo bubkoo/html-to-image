@@ -1,0 +1,32 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/scrollbar-box.test.ts (13 tests | 1 failed | 1 skipped) 1190ms
+   × scrollbar box scrolled-gutter keeps the native content viewport 119ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/scrollbar-box.test.ts > scrollbar box scrolled-gutter keeps the native content viewport
+Error: scrolled-gutter: source box 78,89 became 56,89
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-scrolled-gutter-keeps-the-native-content-viewport.png
+
+ ❯ Module.checkScrollbarBox test/browser/fixtures/scrollbar-box.mjs:114:17
+    112|             : metrics.serializedOuter
+    113|         if (actual.some((value, i) => value !== expected[i]))
+    114|           throw new Error(`${kind}: source box ${expected} became ${ac…
+       |                 ^
+    115|       } finally {
+    116|         frame.remove()
+ ❯ test/browser-unit/scrollbar-box.test.ts:45:22
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 35 passed | 3 skipped (39)
+   Start at  14:43:47
+   Duration  2.45s (tests 80%, worker 14%, import 6%)
+

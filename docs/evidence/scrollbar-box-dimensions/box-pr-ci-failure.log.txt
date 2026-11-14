@@ -1,0 +1,123 @@
+ci	🧪　Test migrated regressions and browser behavior	﻿2026-11-11T06:50:09.7770649Z ##[group]Run pnpm run test
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:09.7771329Z ^[[36;1mpnpm run test^[[0m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:09.7831679Z shell: /usr/bin/bash -e {0}
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:09.7832060Z env:
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:09.7832449Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:09.7832899Z ##[endgroup]
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.1277638Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.1278807Z > html-to-image@1.11.13 test /home/runner/work/html-to-image/html-to-image
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.1280064Z > pnpm run test:coverage && pnpm run test:browser:source
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.1280635Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.4790773Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.4791707Z > html-to-image@1.11.13 test:coverage /home/runner/work/html-to-image/html-to-image
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.4792753Z > TEST_SUITE=coverage TEST_BROWSER=chromium vitest run --config vitest.browser.config.mts --coverage
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:10.4793304Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:11.2648727Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:11.2650605Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv5.0.5 ^[[39m^[[90m/home/runner/work/html-to-image/html-to-image^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:11.2652142Z       ^[[2mCoverage enabled with ^[[22m^[[33mv8^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:11.2653079Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:29.0250686Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/svg-use.test.ts ^[[2m(^[[22m^[[2m13 tests^[[22m^[[2m)^[[22m^[[33m 342^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:29.0931494Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/renderer.test.ts ^[[2m(^[[22m^[[2m40 tests^[[22m^[[2m)^[[22m^[[33m 401^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:29.6716442Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/webfont.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 204^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:29.8090563Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/svg.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[33m 429^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:30.2123440Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/css-variables.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 210^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:30.3996939Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/scroll.test.ts ^[[2m(^[[22m^[[2m8 tests^[[22m^[[2m)^[[22m^[[32m 205^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:30.7886850Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/capture.test.ts ^[[2m(^[[22m^[[2m25 tests^[[22m^[[2m)^[[22m^[[33m 2121^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:30.7890016Z    ^[[33m^[[2m✓^[[22m^[[39m large clones let browser tasks run between copied nodes^[[33m 826^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:30.7891941Z    ^[[33m^[[2m✓^[[22m^[[39m clone time slicing can be disabled for a stable source^[[33m 658^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:30.8845732Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/font-metrics.test.ts ^[[2m(^[[22m^[[2m11 tests^[[22m^[[2m)^[[22m^[[32m 154^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:31.4169988Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/clip-path.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 218^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:31.8326396Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/iframe-fonts.test.ts ^[[2m(^[[22m^[[2m14 tests^[[22m^[[2m)^[[22m^[[33m 678^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:32.0192008Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/options.test.ts ^[[2m(^[[22m^[[2m11 tests^[[22m^[[2m)^[[22m^[[33m 355^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:32.3149825Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/capture-lifetime.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 187^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:32.4063057Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/svg-style.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 65^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:32.6757161Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/image-errors.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 89^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4342754Z  ^[[31m❯^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/scrollbar-box.test.ts ^[[2m(^[[22m^[[2m13 tests^[[22m^[[2m | ^[[22m^[[31m1 failed^[[39m^[[2m)^[[22m^[[33m 1782^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4345053Z    ^[[32m✓^[[39m scrollbar box content matches all native source pixels^[[32m 209^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4347079Z    ^[[32m✓^[[39m scrollbar box border matches all native source pixels^[[32m 102^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4348786Z    ^[[32m✓^[[39m scrollbar box padding matches all native source pixels^[[32m 121^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4350346Z    ^[[32m✓^[[39m scrollbar box fractional matches all native source pixels^[[32m 110^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4351933Z ^[[31m   ^[[31m×^[[31m scrollbar box gutter matches all native source pixels^[[39m^[[32m 219^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4353471Z    ^[[32m✓^[[39m scrollbar box vertical matches all native source pixels^[[32m 109^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4355030Z    ^[[32m✓^[[39m scrollbar box legacy-fractional matches all native source pixels^[[32m 115^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4356841Z    ^[[32m✓^[[39m scrollbar box legacy-gutter matches all native source pixels^[[32m 112^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4358682Z    ^[[32m✓^[[39m scrollbar box selected-empty matches all native source pixels^[[32m 109^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4360309Z    ^[[32m✓^[[39m scrollbar box selected-logical matches all native source pixels^[[32m 105^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4361949Z    ^[[32m✓^[[39m scrollbar box scrolled keeps the native content viewport^[[32m 249^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4363593Z    ^[[32m✓^[[39m scrollbar box scrolled-gutter keeps the native content viewport^[[32m 192^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.4364759Z    ^[[32m✓^[[39m both-edge gutter keeps the authored box independent of native corner painting^[[32m 29^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.8458297Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/basic.test.ts ^[[2m(^[[22m^[[2m20 tests^[[22m^[[2m)^[[22m^[[33m 4304^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.8459685Z    ^[[32m✓^[[39m basic usage ^[[2m(20)^[[22m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.8461128Z      ^[[33m^[[2m✓^[[22m^[[39m should render with external stylesheet^[[33m 1046^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.8462261Z      ^[[33m^[[2m✓^[[22m^[[39m should render web fonts^[[33m 1127^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.8463024Z      ^[[33m^[[2m✓^[[22m^[[39m should render images^[[33m 575^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:34.8464220Z      ^[[33m^[[2m✓^[[22m^[[39m should render webp images^[[33m 560^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:35.0839149Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/select.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 294^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:35.1825040Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/dimensions.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 42^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:35.5719987Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/special.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 119^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:35.8320440Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/helper.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 30^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:35.9270209Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/resource-policy.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 554^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:36.3633940Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/transformed-svg.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[32m 171^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:36.9415768Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/video.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 267^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:37.2022271Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/embed.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 6^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:38.5748582Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/positioned-scroll.test.ts ^[[2m(^[[22m^[[2m55 tests^[[22m^[[2m)^[[22m^[[33m 5667^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:38.9854732Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/canvas.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 38^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:39.0110909Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/mixed-scroll.test.ts ^[[2m(^[[22m^[[2m14 tests^[[22m^[[2m)^[[22m^[[33m 1553^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:39.4784907Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/xml-comments.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 31^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:39.5894238Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/fixed-scroll.test.ts ^[[2m(^[[22m^[[2m30 tests^[[22m^[[2m)^[[22m^[[33m 3399^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:39.8754169Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/on-image-error-handler.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 44^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:40.3879500Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/svg-dependencies.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[33m 357^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:40.3881887Z    ^[[33m^[[2m✓^[[22m^[[39m external SVG dependency graphs preserve scoped references and resources^[[33m 352^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:40.5297148Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/pseudo-resources.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[33m 303^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:40.5502643Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/svg-font-glyphs.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 1186^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.7098015Z  ^[[32m✓^[[39m ^[[30m^[[43m chromium ^[[49m^[[39m test/spec/video.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[33m 1050^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.7099548Z    ^[[32m✓^[[39m work with video element ^[[2m(1)^[[22m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.7100487Z      ^[[33m^[[2m✓^[[22m^[[39m should render video element with poster^[[33m 1047^[[2mms^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8732058Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8733437Z ^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m^[[1m^[[41m Failed Tests 1 ^[[49m^[[22m^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8734117Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8736549Z ^[[41m^[[1m FAIL ^[[22m^[[49m ^[[30m^[[43m chromium ^[[49m^[[39m test/browser-unit/scrollbar-box.test.ts^[[2m > ^[[22mscrollbar box gutter matches all native source pixels
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8764935Z ^[[31m^[[1mAssertionError^[[22m: expected 22 to be +0 // Object.is equality^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8765733Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8766075Z Failure screenshot:
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8767864Z   - ^[[2m.vitest/attachments/failure-screenshots/scrollbar-box.test.ts/scrollbar-box-gutter-matches-all-native-source-pixels.png^[[22m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8768877Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8769226Z ^[[32m- Expected^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8769882Z ^[[31m+ Received^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8770207Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8770481Z ^[[32m- 0^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8771034Z ^[[31m+ 22^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8771337Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8772099Z ^[[36m ^[[2m❯^[[22m test/browser-unit/scrollbar-box.test.ts:^[[2m73:46^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8783146Z     ^[[90m 71|^[[39m         )
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8783890Z     ^[[90m 72|^[[39m       }
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8784862Z     ^[[90m 73|^[[39m       expect(result.nativeDifferentChannels).toBe(0)
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8786031Z     ^[[90m   |^[[39m                                              ^[[31m^^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8787590Z     ^[[90m 74|^[[39m     },
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8788228Z     ^[[90m 75|^[[39m   )
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8790019Z ^[[90m ^[[2m❯^[[22m node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=fc4ea3d9:^[[2m5237:20^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8791197Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8791754Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯^[[22m^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8792235Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8792323Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8804361Z ^[[2m Test Files ^[[22m ^[[1m^[[31m1 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m33 passed^[[39m^[[22m^[[90m (34)^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8806226Z ^[[2m      Tests ^[[22m ^[[1m^[[31m1 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m349 passed^[[39m^[[22m^[[90m (350)^[[39m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8807667Z ^[[2m   Start at ^[[22m 06:50:11
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8808768Z ^[[2m   Duration ^[[22m 30.60s^[[2m (worker 88%, tests 11%, import 1%)^[[22m
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8817958Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8832075Z 
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:41.8864052Z ##[error]AssertionError: expected 22 to be +0 // Object.is equality
+ci	🧪　Test migrated regressions and browser behavior	
+ci	🧪　Test migrated regressions and browser behavior	- Expected
+ci	🧪　Test migrated regressions and browser behavior	+ Received
+ci	🧪　Test migrated regressions and browser behavior	
+ci	🧪　Test migrated regressions and browser behavior	- 0
+ci	🧪　Test migrated regressions and browser behavior	+ 22
+ci	🧪　Test migrated regressions and browser behavior	
+ci	🧪　Test migrated regressions and browser behavior	 ❯ test/browser-unit/scrollbar-box.test.ts:73:46
+ci	🧪　Test migrated regressions and browser behavior	 ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=fc4ea3d9:5237:20
+ci	🧪　Test migrated regressions and browser behavior	
+ci	🧪　Test migrated regressions and browser behavior	
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:42.0396642Z  ELIFECYCLE  Command failed with exit code 1.
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:42.0952535Z  ELIFECYCLE  Test failed. See above for more details.
+ci	🧪　Test migrated regressions and browser behavior	2026-11-11T06:50:42.1212498Z ##[error]Process completed with exit code 1.

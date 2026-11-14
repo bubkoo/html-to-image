@@ -1,7 +1,7 @@
 {
   "checkedAt": "2026-11-11T02:07:41.358341+00:00",
   "runtimeBase": "132c38d186ac4debd9da164363a8bb8234f3c396",
-  "scope": "The 28 original open PRs; #632 merged, #633 native acceptance passed and master-targeted checks remain required. Not whole-issue completion.",
+  "scope": "The 28 original open PRs; #632/#633 merged with exact-source iPhone acceptance and remote/main checks passed. New scrollbar box dimension candidate has local regression evidence; remote/native pending. Not whole-issue completion.",
   "all28AccountedFor": true,
   "oldPRClosureActions": 0,
   "oldPRCommentActions": 0,
@@ -301,16 +301,17 @@
       "title": "fix: workaround for respecting scrollbar positions",
       "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
       "observedState": "open",
-      "requirement": "保留可见滚动位置",
-      "disposition": "已合入 #630/#631；#633 的三引擎全像素、真机 29/29 和 55 个源截图全像素通过，待主分支检查合入",
+      "requirement": "原关联 #81 要求同时保留 scrollTop/scrollLeft 的内容；#345 要求滚动条尺寸、颜色、轨道/滑块外观和位置。#81 被 stale 机器人关闭不等于修复。",
+      "disposition": "部分布局已随 #630/#633 合入；另有滚动条占位被重复扣除的独立尺寸候选，本地完整检查通过，远端/真机待验。",
       "evidence": [
         "test/browser-unit/mixed-scroll.test.ts",
         "test/browser-unit/fixed-scroll.test.ts",
         "docs/evidence/fixed-scroll.json",
         "test/browser-unit/positioned-scroll.test.ts",
-        "docs/evidence/positioned-scroll.json"
+        "docs/evidence/positioned-scroll.json",
+        "docs/evidence/scrollbar-box-dimensions.json"
       ],
-      "remainingBoundary": "水平文字/inline/contents/float/sticky、捕获树外原点、auto 边距/部分伪元素、竖排和原生滚动条仍有限制；#81 stale 关闭不是修复证据",
+      "remainingBoundary": "完整原生滚动条与滑块位置仍待解决；原型两项严格 WebKit 像素失败尚未解决。#81 原 sandbox 不可访问，不以当前部分回归宣称全部修复。",
       "relatedIssues": [81, 345]
     },
     {

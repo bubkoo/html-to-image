@@ -174,7 +174,7 @@ test.each(['first', 'last'])(
     const image = await toImageData(root, { pixelRatio: 1, skipFonts: true })
     expect(pixel(image, 20, 2)).toEqual([0, 128, 0, 255])
     expect(pixel(image, 20, 13)).toEqual([255, 0, 0, 255])
-    expect(pixel(image, 20, 25)).toEqual([0, 128, 0, 255])
+    expect(pixel(image, 20, 20)).toEqual([0, 128, 0, 255])
     expect(panel.scrollTop).toBe(50)
     expect(fixed.style.transform).toBe('')
   },
