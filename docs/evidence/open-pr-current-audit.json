@@ -14,7 +14,7 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
-      "disposition": "分项处理；#637 最终源码 2a94455 已过三引擎与真实 iPhone；最终远端门禁待完成，不整体移植原提案",
+      "disposition": "Scoped PR 637 verification head 56e8a22 passed source CI/CodeQL/Codecov and true iPhone; final evidence head must pass before merge. Original proposal remains partially unresolved.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
@@ -518,8 +518,9 @@
     "masterCodeQL": 43614127835,
     "styleScopeCandidate": {
       "pr": 637,
-      "source": "2a94455",
-      "status": "99 targeted; full 385/797/144 with inherited skips 1/4; iPhone 54 actual native screenshot matches, 4 extra controls, 32/32 smoke; final remote gates pending",
+      "source": "56e8a22",
+      "runtimeCore": "2a94455",
+      "status": "105 targeted; full 922/803/147 with existing skips 4/4; physical iPhone 56 native screenshot comparisons, 4 controls and 33/33 smoke; source CI/CodeQL/Codecov passed",
       "evidence": "docs/evidence/svg-native-style-scope.json"
     }
   },

@@ -2,7 +2,7 @@
 
 **Logged**: 2026-11-15 (Asia/Shanghai)
 **Priority**: high
-**Status**: local and physical iPhone gates passed; final remote checks pending
+**Status**: source CI, CodeQL, Codecov and physical iPhone passed; final documentation head requires verification
 **Area**: SVG stylesheet evaluation
 
 ### Summary
@@ -25,9 +25,13 @@ CSS 关联的 FontFace 在 Firefox/WebKit 不能加入其他文档的字体集�
 - Pattern-Key: svg.native-style-scope-with-inert-evaluation
 
 ### Context Maintenance
-- Scope: 27 native style fixtures; dependency, resource, abort, CSP fallback and loaded-page-font controls
-- Authority: same final 84 checks old runtime 53 failures / 31 passes; candidate 84 passes plus 15 guards, 99/99 total
+- Scope: 28 native style fixtures; dependency, resource, abort, CSP fallback and loaded-page-font controls
+- Authority: same final 87 checks old runtime 55 failures / 32 passes; candidate 87 passes plus 18 guards, 105/105 total
 - Revalidation: browser SVG/CSS behavior, resource ordering, stylesheet scope, CSP or font/document lifecycle
-- Validation: source 2a94455, full 385 coverage / 797 source / 144 package (inherited skips 1/4); physical iPhone ESM 27 + UMD 27 actual screenshot matches, 4 extra controls and 32/32 smoke; final remote gates pending
+- Validation: verification head 56e8a22, runtime byte-identical to 2a94455; full 922 coverage / 803 source / 147 package (inherited skips 4/4); physical iPhone ESM 28 + UMD 28 actual screenshot matches, 4 extra controls and 33/33 smoke; CI 43630931196, CodeQL 43630931147, Codecov patch 87.40/project 86.33 passed against 86.12
 - Boundary: CSP-denied full style fidelity, matching opaque-sheet rules, file CSS imports/fonts, redirects and broader nested use remain open; do not close #585
 - Last-Validated: 2026-11-15
+
+### Coverage collection
+
+Chromium-only V8 collection missed real Firefox/WebKit branches. Matched Vitest Istanbul now collects all three behavior suites plus the existing Chromium fixed-PNG regressions into a single LCOV. The uninstrumented three-engine suite remains. Readable CSS imports test real layer/supports/media, invalid URL fallback and disabled-sheet isolation; an inert-document API case proves two external use identities close a cycle with one resource load each and no source mutation.

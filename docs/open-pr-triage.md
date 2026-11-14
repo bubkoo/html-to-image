@@ -1,12 +1,14 @@
 # 开放 PR 处理台账
 
-## 2026-11-15 #637 最终候选与真机验收
+## 2026-11-15 #637 源码门禁与真机验收
 
-[PR #637](https://github.com/bubkoo/html-to-image/pull/637) 按已确认的当前浏览器页面保真规则修复外部 SVG 样式作用域，最终远端检查待完成。源码 `2a94455` 的同一套 84 项样式/依赖对照，在旧运行时为 53 失败 / 31 通过，候选 84 全过；另有 15 项资源、取消、CSP 回退和字体归属控制，总计 99 全过。完整本地检查为 385 coverage / 797 source / 144 构建包，原有跳过 1 / 4。
+[PR #637](https://github.com/bubkoo/html-to-image/pull/637) 的验证源码 `56e8a22` 已通过 [CI 43630931196](https://github.com/bubkoo/html-to-image/actions/runs/43630931196)、[CodeQL 43630931147](https://github.com/bubkoo/html-to-image/actions/runs/43630931147)；Codecov 增量 87.40%、整体 86.33%，均通过原目标 86.12%。生产源码和构建产物与 `2a94455` 字节一致；后续仅归档证据的 HEAD 仍须在合入前核对全部检查。
 
-真实 USB iPhone Safari/iOS 26.6.1（能力报告 useSimulator:false）上，ESM / UMD 各 27 组原生源截图逐 8-bit RGBA 通道一致，共 54 项；默认字体和受限 CSP 另 4 项控制、完整冒烟 32/32 也通过。原始 16-bit sRGB 截图、源/导出 PNG、完整记录及逐文件 SHA 索引见 [最终证据](evidence/svg-native-style-scope.json)，已结束设备控制和测试服务。未将 UA 旧系统 token 当作真实系统版本。
+同一套最终 87 项样式/依赖对照，旧运行时为 55 失败 / 32 通过，候选 87 全过；另有 18 项资源、取消、CSP 回退、字体归属与循环引用控制，总计 105 全过。覆盖率改为真实三引擎 Istanbul 合并，固定图片旧回归仍限 Chromium；完整本地及远端为 922 coverage / 803 source / 147 构建包，已有条件跳过分别 4 / 4。真实页面 CSS 导入的 layer/supports/media、无效 URL 回退、禁用样式以及离线文档引用循环均已验证。
 
-可信探测与不可信内容计算分阶段隔离，修复无效 URL、CSS 字体归属、页面几何干扰及探测失败丢资源。CSP 禁止 Blob 时只证明保留原有导出和诊断，完整样式保真仍未解决；不可读规则、外部 CSS 导入/字体、重定向及更广嵌套行为也不在完成范围，不能关闭 #585。初次 Linux CSS 来源及 300 文件大小标签失败保留，已改为独立测试来源和可验证证据包。未发布 npm、未评论或关闭旧 PR。
+真实 USB iPhone Safari/iOS 26.6.1（能力报告 useSimulator:false）上，ESM / UMD 各 28 组原生源截图逐 8-bit RGBA 通道一致，共 56 项；默认字体和受限 CSP 另 4 项控制、完整冒烟 33/33 也通过。原始 16-bit sRGB 截图、源/导出 PNG、完整记录与逐文件 SHA 见 [最终证据](evidence/svg-native-style-scope.json)。已结束设备控制及测试服务，未将 UA 旧系统 token 当作真实系统版本。
+
+CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真仍未解决；不可读匹配规则、外部文件 CSS 导入/字体、重定向及更广嵌套行为仍开放，不能关闭 #585。初次 Linux CSS 来源、300 文件大小标签及 Chromium-only 覆盖率失败均保留；原始数据完整打包，没有改变门槛。未发布 npm、未评论或关闭旧 PR。
 
 ## 2026-11-15 外部 SVG 输出规则已确认
 
@@ -66,7 +68,7 @@
 
 | PR | 原需求 / 当前处置 | 主要证据 | 未覆盖或待定条件 |
 | --- | --- | --- | --- |
-| [#585](https://github.com/bubkoo/html-to-image/pull/585) | 克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案。分项处理；本候选修复变换新增/删除 SVG 引用的资源阶段。 | [transformed-svg-resources.json](evidence/transformed-svg-resources.json) | 外部 SVG 的文件定义与原生页面输出语义待定；不整体移植 live reflow、三态 filter、全新 Cache 或通用 iOS 延时 |
+| [#585](https://github.com/bubkoo/html-to-image/pull/585) | 克隆、资源、iOS、SVG、缓存、尺寸和性能整体提案，按独立缺陷处理。#637 的样式子集已过源码与真机门禁。 | [样式证据](evidence/svg-native-style-scope.json)、[变换资源](evidence/transformed-svg-resources.json) | 用户已选当前浏览器页面保真；受限 CSP、不可读规则、文件 CSS/字体、重定向与更广嵌套仍开放，不整体移植原提案。 |
 | [#581](https://github.com/bubkoo/html-to-image/pull/581) | SVG text 的 font-family 属性应选择并嵌入真实网络字体。核心等价，补齐真实字形验证。 | [svg-font-glyphs.test.ts](../test/browser-unit/svg-font-glyphs.test.ts) | 含直接 SVG 根入口；原中文字库字节、完整原应用及旧平台未整体复测；不移植附带工具链/参考图改动 |
 | [#577](https://github.com/bubkoo/html-to-image/pull/577) | repeating-linear-gradient 经样式序列化仍重复。核心等价。 | [svg-style.test.ts](../test/browser-unit/svg-style.test.ts) | 当前回归核对多个实际色块；不把原补丁 cssText 字符串断言当全部视觉证明 |
 | [#575](https://github.com/bubkoo/html-to-image/pull/575) | SVG 后代应获得计算后的 CSS 变量值。核心等价。 | [svg-style.test.ts](../test/browser-unit/svg-style.test.ts) | 原 Recharts/MUI sandbox 未整体验收；本次网页工具未能访问该链接，若需同项目验收需可导出源码/样式 |
@@ -187,7 +189,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 后续使用真实 HTTP external use 的页面截图重新核对，发现先前“独立 SVG 图片应为绿色/蓝色”的对照不足以证明各引擎页面截图一致。相同输入含两个外部图标、页面内黄色 !important 规则和独立黄色参照块：Chromium 原生为绿/蓝/黄，Firefox 为黄/黄/黄，WebKit 为绿/黑/黄；当前 master 导出三个引擎均为黄/黄/黄。去掉页面内规则后，Chromium 原生仍为绿/蓝/黄、导出为绿/黑/黄；Firefox/WebKit 的原生与导出都是绿/黑/黄。原生 iPhone Safari 在有/无页面规则两种状态都为绿/黑/黄，截图字节相同。
 
-[15 组完整像素记录](evidence/svg-styles-native-matrix.json)、[真机截图](evidence/ios-safari-svg-style-source.png)和[重放方法](evidence/svg-styles-native-replay.md)已保存。这些是差异观测，不是修复通过数。作用域样式原型能按文件产生绿/蓝，但与 Firefox/WebKit 的八组实际页面对照不一致，未合入。已明确提出决策：忠实保留各浏览器当前页面，或统一按外部 SVG 文件样式还原；尚未收到选择，相关运行时改动等待该契约。独立的 SVG 引用依赖修复 #627 保持已有验证范围，#585 仍未整体解决。
+[15 组完整像素记录](evidence/svg-styles-native-matrix.json)、[真机截图](evidence/ios-safari-svg-style-source.png)和[重放方法](evidence/svg-styles-native-replay.md)已保存。这些是差异观测，不是修复通过数。作用域样式原型能按文件产生绿/蓝，但与 Firefox/WebKit 的八组实际页面对照不一致，未合入。已明确提出决策：忠实保留各浏览器当前页面，或统一按外部 SVG 文件样式还原；该阶段尚未收到选择；现已确认当前页面保真，样式后续见 #637。独立的 SVG 引用依赖修复 #627 保持已有验证范围，#585 仍未整体解决。
 
 ## 2026-11-11 大页面与样式复制复核（#473 / #585）
 
@@ -283,7 +285,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 #581/#534 的六种入口/设置已补有效字体与像素：未经修改的发布源码 v1.11.13 默认 15 失败 / 3 通过，手动嵌入 18 通过；当前 V2 18 通过，含直接 SVG 根、负对照和实际源截图。没有新增字体运行时改写。[字体证据](evidence/svg-font-glyphs.json)与[重放](evidence/svg-resource-evidence-replay.md)已归档。
 
-#585 的重定向/相对 paint [最终原生矩阵](evidence/svg-redirect-native-matrix.json)使用独立地址与源截图先后对照，纯色 external use 和黄色块验证源图有效。Chrome/真机 Safari 的相对 paint 为白底，Firefox/桌面 WebKit 为绿色；库输出为重定向红、直连绿。源全图像素保持不变，未合入统一最终 URL 的运行时改动，仍等待既有 SVG 输出契约选择。
+#585 的重定向/相对 paint [最终原生矩阵](evidence/svg-redirect-native-matrix.json)使用独立地址与源截图先后对照，纯色 external use 和黄色块验证源图有效。Chrome/真机 Safari 的相对 paint 为白底，Firefox/桌面 WebKit 为绿色；库输出为重定向红、直连绿。源全图像素保持不变，未合入统一最终 URL 的运行时改动，契约现已确定为当前页面保真，该重定向/相对 paint 修复仍未完成。
 
 当前本地构建、类型、tarball、构建包 132 通过；最终全量 coverage/source 为 282/488（另 1 项既有 GC 跳过），字体 MIME 观察修正后再验三引擎源码 18、ESM/UMD 包 3 均通过。真机和远端待验；不关闭旧 PR，不发布 npm。
 

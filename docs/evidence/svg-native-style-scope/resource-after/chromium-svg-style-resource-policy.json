@@ -1,13 +1,13 @@
 {
   "browser": "chromium",
   "network": [
-    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-d6d30971-7766-403e-a92a-c135b27e44f8&control=1"
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f9129e77-cc6a-47e2-9418-431035daed1d&control=1"
   ],
   "scriptRan": 0,
   "requests": [
     "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
-    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-d6d30971-7766-403e-a92a-c135b27e44f8",
-    "blob:http://localhost:63315/46737132-22ac-4784-a05c-ee8f261f3f99"
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-f9129e77-cc6a-47e2-9418-431035daed1d",
+    "blob:http://localhost:63315/c0e5f6ce-68b1-46cb-af74-b747806085bb"
   ],
   "engine": "chromium",
   "kind": "svg-style-resource-policy"

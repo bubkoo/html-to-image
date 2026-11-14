@@ -1,7 +1,7 @@
 {
-  "id": "a83d42d2-d187-4446-b3f9-d1468d04c47c",
-  "receivedAt": "2026-11-14T18:23:54.079Z",
-  "gitHead": "2a94455aa99cf3da23c62be961a5492535409832",
+  "id": "4f75883d-ef8a-4b4a-b68c-bd72d66d950d",
+  "receivedAt": "2026-11-14T19:15:40.983Z",
+  "gitHead": "56e8a22cf564d21af629d5bf874eec11d59ed691",
   "complete": true,
   "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
   "dpr": 3,
@@ -22,6 +22,7 @@
     "PASS capture source document lifetime",
     "PASS pseudo background and injected mask resources",
     "PASS SVG dependency graphs and reference precedence",
+    "PASS external SVG use cycles preserve scoped identities",
     "PASS external SVG preserves native stylesheet scope",
     "PASS resource cache lifetime",
     "PASS native HTTP cache policy",

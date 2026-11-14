@@ -1,65 +1,67 @@
 
  RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
 
- ❯ |firefox| test/browser-unit/svg-dependencies.test.ts (1 test | 1 failed) 125ms
-   × external SVG dependency graphs preserve scoped references and resources 125ms
- ❯ |firefox| test/browser-unit/svg-native-styles.test.ts (27 tests | 7 failed) 1565ms
-   × external SVG main-id preserves current native-page pixels 62ms
-   × external SVG page-outside preserves current native-page pixels 58ms
-   × external SVG whole-style preserves current native-page pixels 81ms
+ ❯ |firefox| test/browser-unit/svg-dependencies.test.ts (1 test | 1 failed) 138ms
+   × external SVG dependency graphs preserve scoped references and resources 137ms
+ ❯ |firefox| test/browser-unit/svg-native-styles.test.ts (28 tests | 8 failed) 1634ms
+   × external SVG main-id preserves current native-page pixels 69ms
+   × external SVG page-outside preserves current native-page pixels 68ms
+   × external SVG whole-style preserves current native-page pixels 75ms
    × external SVG nested-style-plain preserves current native-page pixels 58ms
-   × external SVG nested-simple preserves current native-page pixels 67ms
-   × external SVG late-page-css preserves current native-page pixels 74ms
-   × external SVG page-outside-width preserves current native-page pixels 61ms
- ❯ |webkit| test/browser-unit/svg-native-styles.test.ts (27 tests | 20 failed) 3435ms
-   × external SVG class preserves current native-page pixels 197ms
-   × external SVG cascade preserves current native-page pixels 127ms
-   × external SVG inheritance preserves current native-page pixels 151ms
+   × external SVG nested-simple preserves current native-page pixels 69ms
+   × external SVG late-page-css preserves current native-page pixels 70ms
+   × external SVG page-outside-width preserves current native-page pixels 58ms
+   × external SVG page-import preserves current native-page pixels 86ms
+ ❯ |webkit| test/browser-unit/svg-native-styles.test.ts (28 tests | 20 failed) 3479ms
+   × external SVG class preserves current native-page pixels 190ms
+   × external SVG cascade preserves current native-page pixels 131ms
+   × external SVG inheritance preserves current native-page pixels 134ms
    × external SVG dependencies preserves current native-page pixels 133ms
-   × external SVG main-tag preserves current native-page pixels 152ms
-   × external SVG host-contexts preserves current native-page pixels 150ms
-   × external SVG page-ancestor preserves current native-page pixels 136ms
-   × external SVG page-structural preserves current native-page pixels 135ms
-   × external SVG whole-style preserves current native-page pixels 132ms
+   × external SVG main-tag preserves current native-page pixels 130ms
+   × external SVG host-contexts preserves current native-page pixels 133ms
+   × external SVG page-ancestor preserves current native-page pixels 134ms
+   × external SVG page-structural preserves current native-page pixels 133ms
+   × external SVG whole-style preserves current native-page pixels 133ms
    × external SVG nested-style preserves current native-page pixels 134ms
-   × external SVG nested-style-plain preserves current native-page pixels 132ms
-   × external SVG nested-simple preserves current native-page pixels 138ms
-   × external SVG nested-external preserves current native-page pixels 135ms
-   × external SVG unreadable-sheet preserves current native-page pixels 118ms
-   × external SVG page-paint preserves current native-page pixels 130ms
-   × external SVG file-media preserves current native-page pixels 134ms
+   × external SVG nested-style-plain preserves current native-page pixels 133ms
+   × external SVG nested-simple preserves current native-page pixels 134ms
+   × external SVG nested-external preserves current native-page pixels 128ms
+   × external SVG unreadable-sheet preserves current native-page pixels 113ms
+   × external SVG page-paint preserves current native-page pixels 144ms
+   × external SVG file-media preserves current native-page pixels 140ms
    × external SVG file-media-active preserves current native-page pixels 134ms
-   × external SVG file-type preserves current native-page pixels 131ms
-   × external SVG file-invalid-url preserves current native-page pixels 136ms
+   × external SVG file-type preserves current native-page pixels 130ms
+   × external SVG file-invalid-url preserves current native-page pixels 132ms
    × external SVG loaded-page-font preserves current native-page pixels 117ms
- ❯ |chromium| test/browser-unit/svg-native-styles.test.ts (27 tests | 25 failed) 4493ms
-   × external SVG class preserves current native-page pixels 228ms
-   × external SVG cascade preserves current native-page pixels 181ms
-   × external SVG inheritance preserves current native-page pixels 184ms
-   × external SVG dependencies preserves current native-page pixels 184ms
-   × external SVG plain preserves current native-page pixels 199ms
-   × external SVG main-tag preserves current native-page pixels 168ms
-   × external SVG host-contexts preserves current native-page pixels 165ms
-   × external SVG main-id preserves current native-page pixels 160ms
-   × external SVG page-outside preserves current native-page pixels 168ms
-   × external SVG page-ancestor preserves current native-page pixels 166ms
-   × external SVG page-structural preserves current native-page pixels 151ms
-   × external SVG whole-style preserves current native-page pixels 182ms
+ ❯ |chromium| test/browser-unit/svg-native-styles.test.ts (28 tests | 26 failed) 4712ms
+   × external SVG class preserves current native-page pixels 230ms
+   × external SVG cascade preserves current native-page pixels 200ms
+   × external SVG inheritance preserves current native-page pixels 182ms
+   × external SVG dependencies preserves current native-page pixels 185ms
+   × external SVG plain preserves current native-page pixels 186ms
+   × external SVG main-tag preserves current native-page pixels 164ms
+   × external SVG host-contexts preserves current native-page pixels 185ms
+   × external SVG main-id preserves current native-page pixels 163ms
+   × external SVG page-outside preserves current native-page pixels 162ms
+   × external SVG page-ancestor preserves current native-page pixels 167ms
+   × external SVG page-structural preserves current native-page pixels 167ms
+   × external SVG whole-style preserves current native-page pixels 167ms
    × external SVG nested-style preserves current native-page pixels 167ms
-   × external SVG nested-style-plain preserves current native-page pixels 167ms
-   × external SVG nested-simple preserves current native-page pixels 166ms
+   × external SVG nested-style-plain preserves current native-page pixels 166ms
+   × external SVG nested-simple preserves current native-page pixels 167ms
    × external SVG nested-external preserves current native-page pixels 184ms
-   × external SVG late-page-css preserves current native-page pixels 151ms
-   × external SVG unreadable-sheet preserves current native-page pixels 149ms
+   × external SVG late-page-css preserves current native-page pixels 149ms
+   × external SVG unreadable-sheet preserves current native-page pixels 167ms
    × external SVG page-paint preserves current native-page pixels 167ms
-   × external SVG file-media preserves current native-page pixels 167ms
-   × external SVG file-media-active preserves current native-page pixels 167ms
-   × external SVG file-type preserves current native-page pixels 165ms
-   × external SVG file-invalid-url preserves current native-page pixels 167ms
+   × external SVG file-media preserves current native-page pixels 166ms
+   × external SVG file-media-active preserves current native-page pixels 150ms
+   × external SVG file-type preserves current native-page pixels 184ms
+   × external SVG file-invalid-url preserves current native-page pixels 166ms
    × external SVG loaded-page-font preserves current native-page pixels 168ms
-   × external SVG page-outside-width preserves current native-page pixels 149ms
+   × external SVG page-outside-width preserves current native-page pixels 166ms
+   × external SVG page-import preserves current native-page pixels 167ms
 
-⎯⎯⎯⎯⎯⎯ Failed Tests 53 ⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯ Failed Tests 55 ⎯⎯⎯⎯⎯⎯⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG class preserves current native-page pixels
 Error: class: exported SVG differs from the native page in 2000 channels
@@ -67,17 +69,17 @@ Error: class: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-class-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG cascade preserves current native-page pixels
 Error: cascade: exported SVG differs from the native page in 2000 channels
@@ -85,17 +87,17 @@ Error: cascade: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-cascade-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG inheritance preserves current native-page pixels
 Error: inheritance: exported SVG differs from the native page in 2000 channels
@@ -103,17 +105,17 @@ Error: inheritance: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-inheritance-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG dependencies preserves current native-page pixels
 Error: dependencies: exported SVG differs from the native page in 1840 channels
@@ -121,17 +123,17 @@ Error: dependencies: exported SVG differs from the native page in 1840 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-dependencies-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG plain preserves current native-page pixels
 Error: plain: exported SVG differs from the native page in 400 channels
@@ -139,17 +141,17 @@ Error: plain: exported SVG differs from the native page in 400 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-plain-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG main-tag preserves current native-page pixels
 Error: main-tag: exported SVG differs from the native page in 2000 channels
@@ -157,17 +159,17 @@ Error: main-tag: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-main-tag-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG host-contexts preserves current native-page pixels
 Error: host-contexts: exported SVG differs from the native page in 2000 channels
@@ -175,17 +177,17 @@ Error: host-contexts: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-host-contexts-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG main-id preserves current native-page pixels
 Error: main-id: exported SVG differs from the native page in 400 channels
@@ -193,17 +195,17 @@ Error: main-id: exported SVG differs from the native page in 400 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-main-id-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG page-outside preserves current native-page pixels
 Error: page-outside: exported SVG differs from the native page in 400 channels
@@ -211,17 +213,17 @@ Error: page-outside: exported SVG differs from the native page in 400 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-outside-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG page-ancestor preserves current native-page pixels
 Error: page-ancestor: exported SVG differs from the native page in 400 channels
@@ -229,17 +231,17 @@ Error: page-ancestor: exported SVG differs from the native page in 400 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-ancestor-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG page-structural preserves current native-page pixels
 Error: page-structural: exported SVG differs from the native page in 2000 channels
@@ -247,17 +249,17 @@ Error: page-structural: exported SVG differs from the native page in 2000 channe
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-structural-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG whole-style preserves current native-page pixels
 Error: whole-style: exported SVG differs from the native page in 2400 channels
@@ -265,17 +267,17 @@ Error: whole-style: exported SVG differs from the native page in 2400 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-whole-style-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG nested-style preserves current native-page pixels
 Error: nested-style: exported SVG differs from the native page in 2000 channels
@@ -283,17 +285,17 @@ Error: nested-style: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-nested-style-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG nested-style-plain preserves current native-page pixels
 Error: nested-style-plain: exported SVG differs from the native page in 400 channels
@@ -301,17 +303,17 @@ Error: nested-style-plain: exported SVG differs from the native page in 400 chan
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-nested-style-plain-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG nested-simple preserves current native-page pixels
 Error: nested-simple: exported SVG differs from the native page in 800 channels
@@ -319,17 +321,17 @@ Error: nested-simple: exported SVG differs from the native page in 800 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-nested-simple-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG nested-external preserves current native-page pixels
 Error: nested-external: exported SVG differs from the native page in 2400 channels
@@ -337,17 +339,17 @@ Error: nested-external: exported SVG differs from the native page in 2400 channe
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-nested-external-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG late-page-css preserves current native-page pixels
 Error: late-page-css: exported SVG differs from the native page in 400 channels
@@ -355,17 +357,17 @@ Error: late-page-css: exported SVG differs from the native page in 400 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-late-page-css-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG unreadable-sheet preserves current native-page pixels
 Error: unreadable-sheet: exported SVG differs from the native page in 2000 channels
@@ -373,17 +375,17 @@ Error: unreadable-sheet: exported SVG differs from the native page in 2000 chann
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-unreadable-sheet-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG page-paint preserves current native-page pixels
 Error: page-paint: exported SVG differs from the native page in 1280 channels
@@ -391,17 +393,17 @@ Error: page-paint: exported SVG differs from the native page in 1280 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-paint-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG file-media preserves current native-page pixels
 Error: file-media: exported SVG differs from the native page in 2000 channels
@@ -409,17 +411,17 @@ Error: file-media: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-file-media-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG file-media-active preserves current native-page pixels
 Error: file-media-active: exported SVG differs from the native page in 2400 channels
@@ -427,17 +429,17 @@ Error: file-media-active: exported SVG differs from the native page in 2400 chan
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-file-media-active-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG file-type preserves current native-page pixels
 Error: file-type: exported SVG differs from the native page in 2000 channels
@@ -445,17 +447,17 @@ Error: file-type: exported SVG differs from the native page in 2000 channels
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-file-type-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG file-invalid-url preserves current native-page pixels
 Error: file-invalid-url: exported SVG differs from the native page in 2000 channels
@@ -463,17 +465,17 @@ Error: file-invalid-url: exported SVG differs from the native page in 2000 chann
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-file-invalid-url-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG loaded-page-font preserves current native-page pixels
 Error: loaded-page-font: exported SVG differs from the native page in 2000 channels
@@ -481,17 +483,17 @@ Error: loaded-page-font: exported SVG differs from the native page in 2000 chann
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-loaded-page-font-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/55]⎯
 
  FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG page-outside-width preserves current native-page pixels
 Error: page-outside-width: exported SVG differs from the native page in 400 channels
@@ -499,17 +501,35 @@ Error: page-outside-width: exported SVG differs from the native page in 400 chan
 Failure screenshot:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-outside-width-preserves-current-native-page-pixels.png
 
- ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:20
- ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:20
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/55]⎯
+
+ FAIL  |chromium| test/browser-unit/svg-native-styles.test.ts > external SVG page-import preserves current native-page pixels
+Error: page-import: exported SVG differs from the native page in 400 channels
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-import-preserves-current-native-page-pixels.png
+
+ ❯ Module.checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
+       |             ^
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:20
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/55]⎯
 
  FAIL  |firefox| test/browser-unit/svg-dependencies.test.ts > external SVG dependency graphs preserve scoped references and resources
 Error: Whole-document reference lost pixels
@@ -526,35 +546,35 @@ Failure screenshot:
      41|   const parse = (dataURL) =>
  ❯ checkSVGDependencies test/browser/fixtures/svg-dependencies.mjs:138:11
  ❯ async* test/browser-unit/svg-dependencies.test.ts:8:24
- ❯ async*withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:4120:35
- ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:26
- ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5725:22
- ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5720:10
- ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5709:22
- ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5673:10
- ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:64
- ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
- ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
- ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:57
- ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:13
- ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:37
- ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
- ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:8
- ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6233:10
- ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:45
- ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
- ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
- ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:31
- ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6450:32
- ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6414:41
- ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
- ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6114:8
- ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6397:10
- ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6481:20
- ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6478:16
- ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6514:9
+ ❯ async*withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/55]⎯
 
  FAIL  |firefox| test/browser-unit/svg-native-styles.test.ts > external SVG main-id preserves current native-page pixels
  FAIL  |firefox| test/browser-unit/svg-native-styles.test.ts > external SVG page-outside preserves current native-page pixels
@@ -563,6 +583,7 @@ Failure screenshot:
  FAIL  |firefox| test/browser-unit/svg-native-styles.test.ts > external SVG nested-simple preserves current native-page pixels
  FAIL  |firefox| test/browser-unit/svg-native-styles.test.ts > external SVG late-page-css preserves current native-page pixels
  FAIL  |firefox| test/browser-unit/svg-native-styles.test.ts > external SVG page-outside-width preserves current native-page pixels
+ FAIL  |firefox| test/browser-unit/svg-native-styles.test.ts > external SVG page-import preserves current native-page pixels
 Error: main-id: exported SVG differs from the native page in 800 channels
 
 Failure screenshots:
@@ -573,45 +594,46 @@ Failure screenshots:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-nested-simple-preserves-current-native-page-pixels.png
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-late-page-css-preserves-current-native-page-pixels.png
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-outside-width-preserves-current-native-page-pixels.png
+  - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-page-import-preserves-current-native-page-pixels.png
 
- ❯ checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:13
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:13
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |             ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ async* test/browser-unit/svg-native-styles.test.ts:40:34
- ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5319:71
- ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:4120:35
- ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5237:26
- ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5725:22
- ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5720:10
- ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5709:22
- ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:5673:10
- ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:64
- ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
- ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
- ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:57
- ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6245:13
- ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:37
- ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
- ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6122:8
- ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6233:10
- ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:45
- ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3857:24
- ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:3867:59
- ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6458:31
- ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6450:32
- ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6414:41
- ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6012:9
- ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6114:8
- ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6397:10
- ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6481:20
- ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6478:16
- ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-WoY62XZM.js?v=8111b4c5:6514:9
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ async* test/browser-unit/svg-native-styles.test.ts:41:34
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/55]⎯
 
  FAIL  |webkit| test/browser-unit/svg-native-styles.test.ts > external SVG class preserves current native-page pixels
  FAIL  |webkit| test/browser-unit/svg-native-styles.test.ts > external SVG cascade preserves current native-page pixels
@@ -657,20 +679,20 @@ Failure screenshots:
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-file-invalid-url-preserves-current-native-page-pixels.png
   - .vitest/attachments/failure-screenshots/svg-native-styles.test.ts/external-SVG-loaded-page-font-preserves-current-native-page-pixels.png
 
- ❯ checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:406:22
-    404|       )
-    405|     if (pixels.width !== 60 || pixels.height !== 20 || different)
-    406|       throw new Error(
+ ❯ checkSVGNativeStyles test/browser/fixtures/svg-native-styles.mjs:454:22
+    452|       )
+    453|     if (pixels.width !== 60 || pixels.height !== 20 || different)
+    454|       throw new Error(
        |                      ^
-    407|         name +
-    408|           ': exported SVG differs from the native page in ' +
- ❯ test/browser-unit/svg-native-styles.test.ts:40:34
+    455|         name +
+    456|           ': exported SVG differs from the native page in ' +
+ ❯ test/browser-unit/svg-native-styles.test.ts:41:34
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/53]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/55]⎯
 
 
  Test Files  4 failed | 2 passed (6)
-      Tests  53 failed | 31 passed (84)
-   Start at  02:18:36
-   Duration  5.02s (tests 93%, worker 5%, import 2%)
+      Tests  55 failed | 32 passed (87)
+   Start at  03:18:36
+   Duration  5.26s (tests 94%, worker 5%, import 1%)
 

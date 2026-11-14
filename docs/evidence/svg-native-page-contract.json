@@ -9,7 +9,7 @@
     "Main-page selectors versus external-file selectors",
     "Referenced paint/clip definitions and redirect cases where source behavior differs"
   ],
-  "implementationStatus": "PR 637 final source 2a94455: 27 desktop native scenes, 99 targeted checks, full 385/797/144 and physical iPhone 54 actual source screenshot matches + 4 controls + 32/32 smoke passed; final remote gates pending. CSP-denied full fidelity and other original 585 scopes remain open.",
+  "implementationStatus": "PR 637 verification source 56e8a22, runtime unchanged from 2a94455: 28 desktop native scenes, 105 targeted, full 922/803/147 and physical iPhone 56 native screenshot matches + 4 controls + 33/33 smoke passed; source CI/CodeQL/Codecov passed. Final evidence head requires checks before merge. CSP-denied full fidelity and other original 585 scopes remain open.",
   "evidence": [
     "svg-styles-native-matrix.json",
     "svg-redirect-native-matrix.json",

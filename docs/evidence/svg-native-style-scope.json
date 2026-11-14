@@ -1,43 +1,44 @@
 {
-  "verifiedAt": "2026-11-14T18:32:54.094829+00:00",
-  "sourceCommit": "2a94455aa99cf3da23c62be961a5492535409832",
+  "verifiedAt": "2026-11-14T19:25:21.454540+00:00",
+  "sourceCommit": "56e8a22cf564d21af629d5bf874eec11d59ed691",
   "pullRequest": "https://github.com/bubkoo/html-to-image/pull/637",
   "contract": "Explicit user choice: preserve each current browser live-page output",
-  "status": "Final runtime/fixtures passed local and real iPhone gates; final documentation head remote gates pending",
+  "status": "Source/fixture head 56e8a22 passed CI, CodeQL and both original Codecov gates; evidence-only head still requires verification before merge",
   "baseline": {
     "runtime": "a64b831",
     "sameFinalFixtures": true,
-    "nativeStyleCasesPerEngine": 27,
-    "total": 84,
-    "failed": 53,
-    "passed": 31,
+    "nativeStyleCasesPerEngine": 28,
+    "total": 87,
+    "failed": 55,
+    "passed": 32,
     "log": "svg-native-style-scope/baseline-final-origin.log"
   },
   "candidate": {
-    "same84": {
-      "passed": 84,
+    "same87": {
+      "passed": 87,
       "failed": 0
     },
     "additional": {
       "resourceBlobScriptAbort": 6,
       "deniedProbePreservesPriorOutput": 3,
-      "loadedCSSFontModes": 6
+      "loadedCSSFontModes": 6,
+      "cyclicDetachedGraph": 3
     },
-    "total": 99,
-    "passed": 99,
+    "total": 105,
+    "passed": 105,
     "log": "svg-native-style-scope/candidate-final-origin.log"
   },
   "full": {
-    "coverage": 385,
-    "coverageSkipped": 1,
-    "source": 797,
+    "coverage": 922,
+    "coverageSkipped": 4,
+    "source": 803,
     "sourceSkipped": 4,
-    "package": 144,
+    "package": 147,
     "lintBuildTypesTarball": "pass",
-    "log": "svg-native-style-scope/final-all-checks.log"
+    "log": "svg-native-style-scope/istanbul-full.log"
   },
   "device": {
-    "sourceCommit": "2a94455aa99cf3da23c62be961a5492535409832",
+    "sourceCommit": "56e8a22cf564d21af629d5bf874eec11d59ed691",
     "capabilities": {
       "platformName": "iOS",
       "safari:platformVersion": "26.6.1",
@@ -46,9 +47,9 @@
       "safari:useSimulator": false
     },
     "actualNativeScreenshots": {
-      "esm": 27,
-      "umd": 27,
-      "passed": 54,
+      "esm": 28,
+      "umd": 28,
+      "passed": 56,
       "pixelTolerance": 0
     },
     "additionalPixelControls": {
@@ -57,10 +58,10 @@
       "passed": 4
     },
     "fullSmoke": {
-      "passed": 32,
+      "passed": 33,
       "info": 2,
       "failed": 0,
-      "receipt": "a83d42d2-d187-4446-b3f9-d1468d04c47c"
+      "receipt": "4f75883d-ef8a-4b4a-b68c-bd72d66d950d"
     },
     "screenshotEncoding": "Original 16-bit PNGs explicitly tagged sRGB (PNG sRGB=0, EXIF ColorSpace=1). Compare 8-bit RGBA at CSS-pixel centers to Canvas ImageData, without palette replacement, rescaling or tolerance. Full original screenshots and sampled source/capture PNGs preserved.",
     "sessionAndServer": "Owned Safari session ended; mobile server stopped"
@@ -93,7 +94,8 @@
     "file-type",
     "file-invalid-url",
     "loaded-page-font",
-    "page-outside-width"
+    "page-outside-width",
+    "page-import"
   ],
   "causalControls": {
     "malformedURL": "Chromium before 1 failed / other 2 passed; preserve invalid CSS URL and its native color fallback",
@@ -109,7 +111,9 @@
     "style media/type, nested styles, and nested cross-file style context with visible fallback",
     "page paint/clip definitions and CSS frozen before resource callbacks",
     "opaque unrelated CSS warning without abort and existing font embedding modes",
-    "fragmentless roots use same-file fragment positive controls"
+    "fragmentless roots use same-file fragment positive controls",
+    "readable page CSS imports with layer/supports/media, invalid paint URL fallback and disabled-sheet isolation",
+    "closed cyclic external-use graphs in a detached document, with one identity and one fetch per asset"
   ],
   "remainingBoundaries": [
     "PR 585 remains incomplete; this is a scoped style correction",
@@ -148,5 +152,34 @@
     "npm publishing",
     "closing or commenting on old contributor PRs",
     "claiming all of PR 585 fixed"
-  ]
+  ],
+  "runtimeCoreSourceCommit": "2a94455aa99cf3da23c62be961a5492535409832",
+  "coverageCollection": {
+    "provider": "@vitest/coverage-istanbul 5.0.5",
+    "browsers": ["chromium", "firefox", "webkit"],
+    "legacyFixedPNG": "Chromium only, unchanged",
+    "report": "test/coverage/lcov.info",
+    "sourceBehaviorRerun": "All three engines also run without instrumentation",
+    "sourceCI": 43630931196,
+    "testedMerge": "c3e0eaf6fc3309e6814930910a95220f44acdc7e",
+    "sourceHead": "56e8a22cf564d21af629d5bf874eec11d59ed691",
+    "codeQL": 43630931147,
+    "codecovPatch": {
+      "percent": 87.4,
+      "target": 86.12,
+      "conclusion": "success"
+    },
+    "codecovProject": {
+      "percent": 86.33,
+      "target": 86.12,
+      "conclusion": "success"
+    },
+    "originalGateFailure": "svg-native-style-scope/coverage-gate-before.json",
+    "checks": "svg-native-style-scope/source-checks-56e8a22.json"
+  },
+  "transportRevalidation": {
+    "discardedAttempt": "A rerun used an obsolete USB IP and was stopped before any test verdict; no pass was recorded",
+    "correction": "Controllers now resolve the current interface address on every navigation; default en15 can be changed with HTI_PHONE_INTERFACE",
+    "verifiedOrigin": "http://169.254.173.98:4373"
+  }
 }

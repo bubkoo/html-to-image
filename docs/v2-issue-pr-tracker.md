@@ -1,12 +1,14 @@
 # V2 Issue / PR 回应台账
 
-## 2026-11-15 #637 最终候选与真机验收
+## 2026-11-15 #637 源码门禁与真机验收
 
-[PR #637](https://github.com/bubkoo/html-to-image/pull/637) 按已确认的当前浏览器页面保真规则修复外部 SVG 样式作用域，最终远端检查待完成。源码 `2a94455` 的同一套 84 项样式/依赖对照，在旧运行时为 53 失败 / 31 通过，候选 84 全过；另有 15 项资源、取消、CSP 回退和字体归属控制，总计 99 全过。完整本地检查为 385 coverage / 797 source / 144 构建包，原有跳过 1 / 4。
+[PR #637](https://github.com/bubkoo/html-to-image/pull/637) 的验证源码 `56e8a22` 已通过 [CI 43630931196](https://github.com/bubkoo/html-to-image/actions/runs/43630931196)、[CodeQL 43630931147](https://github.com/bubkoo/html-to-image/actions/runs/43630931147)；Codecov 增量 87.40%、整体 86.33%，均通过原目标 86.12%。生产源码和构建产物与 `2a94455` 字节一致；后续仅归档证据的 HEAD 仍须在合入前核对全部检查。
 
-真实 USB iPhone Safari/iOS 26.6.1（能力报告 useSimulator:false）上，ESM / UMD 各 27 组原生源截图逐 8-bit RGBA 通道一致，共 54 项；默认字体和受限 CSP 另 4 项控制、完整冒烟 32/32 也通过。原始 16-bit sRGB 截图、源/导出 PNG、完整记录及逐文件 SHA 索引见 [最终证据](evidence/svg-native-style-scope.json)，已结束设备控制和测试服务。未将 UA 旧系统 token 当作真实系统版本。
+同一套最终 87 项样式/依赖对照，旧运行时为 55 失败 / 32 通过，候选 87 全过；另有 18 项资源、取消、CSP 回退、字体归属与循环引用控制，总计 105 全过。覆盖率改为真实三引擎 Istanbul 合并，固定图片旧回归仍限 Chromium；完整本地及远端为 922 coverage / 803 source / 147 构建包，已有条件跳过分别 4 / 4。真实页面 CSS 导入的 layer/supports/media、无效 URL 回退、禁用样式以及离线文档引用循环均已验证。
 
-可信探测与不可信内容计算分阶段隔离，修复无效 URL、CSS 字体归属、页面几何干扰及探测失败丢资源。CSP 禁止 Blob 时只证明保留原有导出和诊断，完整样式保真仍未解决；不可读规则、外部 CSS 导入/字体、重定向及更广嵌套行为也不在完成范围，不能关闭 #585。初次 Linux CSS 来源及 300 文件大小标签失败保留，已改为独立测试来源和可验证证据包。未发布 npm、未评论或关闭旧 PR。
+真实 USB iPhone Safari/iOS 26.6.1（能力报告 useSimulator:false）上，ESM / UMD 各 28 组原生源截图逐 8-bit RGBA 通道一致，共 56 项；默认字体和受限 CSP 另 4 项控制、完整冒烟 33/33 也通过。原始 16-bit sRGB 截图、源/导出 PNG、完整记录与逐文件 SHA 见 [最终证据](evidence/svg-native-style-scope.json)。已结束设备控制及测试服务，未将 UA 旧系统 token 当作真实系统版本。
+
+CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真仍未解决；不可读匹配规则、外部文件 CSS 导入/字体、重定向及更广嵌套行为仍开放，不能关闭 #585。初次 Linux CSS 来源、300 文件大小标签及 Chromium-only 覆盖率失败均保留；原始数据完整打包，没有改变门槛。未发布 npm、未评论或关闭旧 PR。
 
 ## 2026-11-15 外部 SVG 输出规则已确认
 
@@ -68,7 +70,7 @@
 | --- | --- | --- | --- |
 | [PR #376](https://github.com/bubkoo/html-to-image/pull/376) / [PR #407](https://github.com/bubkoo/html-to-image/pull/407) | 需要自定义伪元素及附加 CSS；默认伪元素的背景图也被漏过资源阶段。 | 附加 CSS 使用现有 onClone；候选补齐 CSS 样式规则内背景/遮罩直接 URL 的嵌入，不新增重复选项。 | **独立缺陷候选**：旧源码六项像素回归失败、候选六项通过，本地 210/272/117 与构建/类型/tarball 通过；grouped/relative URL、去重与源不变控制；import 不展开、字体策略不改；源码 `58de76f` 真实 iPhone Safari 23/23 通过；#626 已合入 master，PR/主分支 CI、CodeQL 与 PR Codecov 均通过。原生滚动条外观与滑块位置仍待实际源对照验证，不能称 #345 全部修复。 |
 | [PR #585](https://github.com/bubkoo/html-to-image/pull/585) 的 SVG 子集 / [PR #427](https://github.com/bubkoo/html-to-image/pull/427) / [PR #499](https://github.com/bubkoo/html-to-image/pull/499) / [PR #393](https://github.com/bubkoo/html-to-image/pull/393) | 引用符号的兄弟依赖丢失，跨文档 ID 混淆；空 modern href 错误激活 legacy，筛选后的定义被重新导入。 | #627 已递归补齐属性/行内样式引用，按源文档分配外部 ID，复用资源缓存；补齐 image/feImage、相对资源地址和无片段 use。 | **独立缺陷已合入 #627**：旧源码 29/42 失败，候选三引擎 42/42 通过；真实 HTTP 的嵌套/循环/重叠引用、相对图片、冻结快照与源不变控制。本地完整 220/302/120、lint/构建/类型/tarball 通过（源码另 1 项既有 GC 跳过），源码 `180ff94` 真机 24/24 通过；#627 已合入 master，PR/主分支 CI、CodeQL 与 PR Codecov 通过，见 svg-reference-dependencies.json。外部样式表/字体及 #585 其他设计不作完整解决声明。 |
-| #585 外部 SVG 样式后续核对 | 独立 SVG 图片不等于 live external use 的页面行为；主页面 CSS 与外部样式的作用域在三引擎存在差异。 | 保存 15 组实际页面截图/当前导出像素及真实 iPhone 原生对照，撤回统一绿/蓝即可证明页面保真的假设；运行时原型不合入。 | **契约待选**：页面内黄规则下 Chromium 为绿/蓝、Firefox 黄/黄、WebKit 和真机绿/黑；导出当前均黄/黄。原始像素、输入 hash、真机 PNG 和重放方法见 svg-styles-native-matrix.json。已提出“页面实际显示 / 文件样式统一还原”的具体选择，未推定用户答案；不按 #585 已完成处理。 |
+| #585 外部 SVG 样式后续核对 | 独立 SVG 图片不等于当前浏览器页面；文件与主页面规则存在引擎差异。 | 用户已选当前页面保真；#637 按实际作用域计算样式、冻结规则并隔离资源加载。 | **#637 源码验收通过**：28 组原生场景，105 定向，922/803/147 完整检查；真机 56 截图对照、4 控制、33/33 冒烟，源码 CI/CodeQL/Codecov 通过。见 [证据](evidence/svg-native-style-scope.json)。最终证据 HEAD 合入前核验；受限 CSP 完整保真、外部文件 CSS/字体、重定向等仍开放。 |
 | [PR #473](https://github.com/bubkoo/html-to-image/pull/473) / #585 的样式复制性能 | 页面 CSS 和逐节点计算样式的体积/开销不同；原分片仍先解码完整图片。V2 还把 iframe 类型识别放在每个无关属性前重复执行。 | 实际运行原 head，归档 17000px 宽缩放、20000px 高分片及媒体查询行为；候选仅调整类型判断条件顺序。 | **独立性能修复已合入 #629**：配对 401 节点样例的捕获中位数降低约 8%–30%，三引擎完整 SVG 字节一致，源码/构建包完整检查通过；源码 `c2f78c1` 真机配对 135→124ms 且 SVG 字节相同、构建包完整 24/24 通过，PR/主分支 CI、CodeQL 与 PR Codecov 均通过，合并 b9f2dfd。历史页面 CSS 模式在该样例确有体积与耗时收益；任意页面保真、完整解码和内存上界仍未证明，见 style-copy-performance.json / pr473-historical-controls.json。 |
 | [PR #398](https://github.com/bubkoo/html-to-image/pull/398) | 需要用 Blob 快速查看导出结果；原例无 URL 释放，标题 toBlobs 与实际单数 API 不符。 | README 用现有 toBlob 生成可点击的 PNG 链接，返回删除链接及 revokeObjectURL 的清理函数；null Blob 拒绝。 | **本轮文档补齐**：原样 helper 的 Chrome/Firefox/WebKit 新标签 MIME/尺寸/像素、noopener 和清理验证通过。真机 96×60 PNG 生成/读回通过；自动输入无事件，新标签及清理仍待手动点击，见浏览器证据 JSON。 |
 | [PR #540](https://github.com/bubkoo/html-to-image/pull/540) | 旧 pnpm lock 的 pbkdf2 3.1.2 → 3.1.3。 | 现有 Vitest 工具链已移除该依赖，无需移植旧 lock。 | **已由现有工具链取代**：移除提交 e32e74c；当前 lock 无 pbkdf2、完整安装树无此包，见 maintenance-dependency-review.json。 |
@@ -114,7 +116,7 @@
 
 #581 / #534 补齐真实字体字形与直接 SVG 根入口，旧版使用未经修改的 v1.11.13 源码对照，显式嵌入是正对照、skipFonts 是负对照；[字体证据](evidence/svg-font-glyphs.json)记录范围。这是现有 V2 能力验收，不伪装为本轮新改字体运行时代码。
 
-#585 相对 paint 与重定向的[原生矩阵](evidence/svg-redirect-native-matrix.json)使用独立地址、先截源后导出、直连/纯色 SVG 与黄色参照。Chrome/真机 Safari 的原生相对 paint 区域为空白，Firefox/桌面 WebKit 为绿色；当前导出分别得到重定向红色和直连绿色。源完整像素在前后保持一致。它是语义差异证据，不是通过的修复回归；仍需确认目标是文件定义还是当前浏览器页面输出。
+#585 相对 paint 与重定向的[原生矩阵](evidence/svg-redirect-native-matrix.json)使用独立地址、先截源后导出、直连/纯色 SVG 与黄色参照。Chrome/真机 Safari 的原生相对 paint 区域为空白，Firefox/桌面 WebKit 为绿色；当前导出分别得到重定向红色和直连绿色。源完整像素在前后保持一致。它是语义差异证据，不是通过的修复回归；目标已按用户选择确定为当前浏览器页面输出；该重定向/相对 paint 的修复仍未完成。
 
 ## 2026-11-11 fixed 滚动源页面对照（#408 / #345 / #594）
 
@@ -164,7 +166,7 @@ GitHub 当前的 28 个旧 PR 均仍开放，head 与逐项已读版本一致；
 剩余明确条件：
 
 - 真机：#632 完整 28/28 与六种源字体控制、#633 完整 29/29 与 55 种全像素源对照已通过。#398 仍需手动网络可达后的可信点击和清理。
-- SVG 输出：#585/#427 在“当前浏览器实际页面”和“统一外部文件定义”之间确定目标，现有矩阵已证明二者并不相同。
+- SVG 输出：#585/#427 已按用户选择确定为当前浏览器实际页面；样式子集见 #637，其余原生差异仍需修复。
 - 滚动条保真：#345 原帖已要求轨道/滑块外观和位置，无需另选范围；#408 还关联 #81 的段落双向滚动，现有部分覆盖不足以宣称整体完成。
 
 以上不是目标完成声明；原应用 fixture 的具体缺失条件仍按各 PR 的边界保留，不新增未授权的关闭、评论或 npm 发布。

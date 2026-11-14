@@ -1,13 +1,13 @@
 {
   "browser": "firefox",
   "network": [
-    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-4ae7e8d1-a26c-4718-8d2c-09e467796977&control=1"
+    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-d97176ff-5e13-46ef-aa18-0dcebd20981e&control=1"
   ],
   "scriptRan": 0,
   "requests": [
     "http://localhost:63315/test/browser/fixtures/svg-styles/class.svg",
-    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-4ae7e8d1-a26c-4718-8d2c-09e467796977",
-    "blob:http://localhost:63315/e6d22196-389d-4328-b01b-a30ec78b215c"
+    "http://localhost:63315/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-d97176ff-5e13-46ef-aa18-0dcebd20981e",
+    "blob:http://localhost:63315/151796bf-bd19-491d-bdc4-d8e1bacd7045"
   ],
   "engine": "firefox",
   "kind": "svg-style-resource-policy"
