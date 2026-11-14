@@ -1,0 +1,9 @@
+import json, urllib.request, pathlib
+folder=pathlib.Path(__file__).parent
+session=json.loads((folder/'session.json').read_text())['value']
+sid=session['sessionId']
+def call(path,data=None,method=None,timeout=40):
+ request=urllib.request.Request('http://localhost:4444/session/'+sid+path,data=None if data is None else json.dumps(data).encode(),headers={'Content-Type':'application/json'},method=method)
+ try:return json.load(urllib.request.urlopen(request,timeout=timeout))['value']
+ except urllib.error.HTTPError as e:raise RuntimeError(e.read().decode())
+def execute(script):return call('/execute/sync',{'script':script,'args':[]})

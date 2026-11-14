@@ -1,0 +1,11 @@
+# External SVG import and cancellation ownership
+
+The output contract is the current browser's actual page. A constructed stylesheet drops imports, while Chrome's native external SVG can apply data CSS imports with flattened layer priority. Measure import/layer behavior separately, preserve a successful base policy if the optional probe fails, and parse imports inertly through the existing resolver. MIME/encoding and inactive conditions affect pixels; activating all file CSS uniformly would break Firefox/WebKit's measured source appearance.
+
+Keep fetched SVG trees behind the private document's resource policy. Probe-owned data CSS is permitted only during capability measurement; autonomous CSS/image requests are locked before staging fetched trees. Nested HTTP imports are not silently activated.
+
+DOM removal does not by itself release a suspended async capture. A foreign pending resolver can retain its continuation and the private document. Race awaiting against the capture signal and remove the frame on that signal throughout its lifetime. Chromium/Firefox forced GC while the callback stays pending distinguishes this fix from cosmetic DOM cleanup; the race-reverted ablation fails both. WebKit's native frame-GC limitation and device DOM-only acceptance stay explicit.
+
+For native screenshot tests, a nonzero SVG bounding box need not mean the first paint is ready. Wait for paint before the first source photo and preserve strict before/after markup and pixel comparisons. Universal use-element load-event waits are not portable to the tested Firefox. Save failed raw evidence under unique run directories; controller filename reuse overwrote the initial failure photos here, so only the surviving failure log and observed summary can support that diagnosis.
+
+Evidence: [replay](../docs/evidence/svg-data-imports/replay.md), final fixture `cfa7d02`, production `577243a`, baseline `270ecb4`. Same final desktop controls: 21 fail / 72 pass before, 93 pass after. Complete local source: 1015 / 896 / 153 with 4/4 inherited skips. Real iPhone: 56 existing plus 38 new native comparisons, four cancellation controls, smoke 35 PASS / 2 INFO. Remote gates are recorded with the final PR head.

@@ -1,0 +1,58 @@
+from client import call,execute,folder,session
+import json,time,base64,io,pathlib,hashlib,subprocess,re,os
+from PIL import Image
+head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+address=re.search(r'\binet\s+(\d+\.\d+\.\d+\.\d+)',subprocess.check_output(['ifconfig',os.environ.get('HTI_PHONE_INTERFACE','en15')],text=True)).group(1)
+origin='http://'+address+':4373'
+url=origin+'/test/browser/svg-native-device.html?head='+head
+call('/timeouts',{'pageLoad':60000,'script':60000})
+call('/url',{'url':url},timeout=65)
+for _ in range(80):
+ if execute('return typeof window.runSVGNativeVerification')=='function':break
+ time.sleep(.1)
+else:raise RuntimeError('native page did not initialize')
+summary={'gitHead':head,'origin':origin,'capabilities':{k:session['capabilities'].get(k) for k in ['platformName','safari:platformVersion','browserVersion','safari:deviceType','safari:useSimulator']},'runs':[]}
+for format in ['esm','umd']:
+ execute('window.runSVGNativeVerification('+json.dumps(format)+');return true')
+ seen=0;deadline=time.monotonic()+180;photos=[]
+ while time.monotonic()<deadline:
+  state=execute('return {scene:window.svgNativeScene||null,done:window.svgNativeDone||null}')
+  if state['done']:
+   summary['runs'].append({**state['done'],'photos':photos})
+   if state['done'].get('error'):raise RuntimeError(json.dumps(state['done']))
+   break
+  scene=state['scene']
+  if not scene or scene['sequence']==seen:
+   time.sleep(.1);continue
+  seen=scene['sequence'];name=format+'-'+scene['name']
+  raw=base64.b64decode(call('/screenshot'));(folder/(name+'-screen.png')).write_bytes(raw)
+  image=Image.open(io.BytesIO(raw));profile=image.info.get('icc_profile')
+  # Own fixture consists of flat sRGB primaries; do not remap the measured palette.
+  rgba=image.convert('RGBA');scale=rgba.width/scene['viewport']['width']
+  rect=scene['rect'];cx=round((rect['x']+50.5)*scale)
+  rows=[y for y in range(rgba.height) if rgba.getpixel((cx,y))==(255,255,0,255)]
+  runs=[]
+  for y in rows:
+   if not runs or y!=runs[-1][-1]+1:runs.append([y])
+   else:runs[-1].append(y)
+  valid=[r for r in runs if len(r)==round(20*scale)]
+  if len(valid)!=1:raise RuntimeError('yellow geometry control invalid '+json.dumps({'case':name,'scale':scale,'runs':[(r[0],len(r)) for r in runs]}))
+  top=valid[0][0];left=round(rect['x']*scale);pixels=[]
+  crop=Image.new('RGBA',(60,20))
+  for y in range(20):
+   for x in range(60):
+    value=rgba.getpixel((left+int((x+.5)*scale),top+int((y+.5)*scale)))
+    pixels.extend(value);crop.putpixel((x,y),value)
+  crop.save(folder/(name+'-native.png'))
+  photos.append({**scene,'screenSize':rgba.size,'sampleScale':scale,'yellowControlTop':top,'screenSHA256':hashlib.sha256(raw).hexdigest(),'nativeRGBA_SHA256':hashlib.sha256(bytes(pixels)).hexdigest(),'iccProfileSHA256':hashlib.sha256(profile).hexdigest() if profile else None})
+  execute('window.deliverSVGNativePixels('+json.dumps(pixels)+');return true')
+ else:raise RuntimeError('native verification timed out')
+ records=execute('return window.svgNativeRecords')
+ for record in records:
+  name=format+'-'+record['kind'].removeprefix('external-style-')
+  for field in ['native','capture']:
+   (folder/(name+'-'+field+'.png')).write_bytes(base64.b64decode(record.pop(field)))
+ (folder/(format+'-records.json')).write_text(json.dumps(records,indent=2))
+ print(json.dumps({'format':format,'passed':summary['runs'][-1].get('passed'),'nativePhotos':len(photos)}),flush=True)
+(folder/'native-summary.json').write_text(json.dumps(summary,indent=2))
+print('NATIVE_VERIFIED '+head,flush=True)

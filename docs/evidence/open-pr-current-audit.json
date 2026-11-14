@@ -14,16 +14,18 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
-      "disposition": "Scoped PR 637 verification head 56e8a22 passed source CI/CodeQL/Codecov and true iPhone; final evidence head must pass before merge. Original proposal remains partially unresolved.",
+      "disposition": "Scoped native data-CSS/layer repair measured on production 577243a and final fixture cfa7d02; final-head PR gates remain separate. Original proposal remains partially unresolved.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
         "docs/evidence/style-copy-performance.json",
         "docs/evidence/svg-native-style-scope.json",
-        "docs/evidence/svg-font-units.json"
+        "docs/evidence/svg-font-units.json",
+        "docs/evidence/svg-data-imports.json"
       ],
-      "remainingBoundary": "用户已选当前页面保真；受限 CSP 下完整样式保真、不可读匹配规则、外部 CSS 导入/字体、重定向/相对 paint 及更广嵌套行为仍需核验",
-      "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9"
+      "remainingBoundary": "Relative paint/redirect bases, native image compositor differences, opaque matching rules, restricted-CSP full fidelity, HTTP file CSS/fonts and broader combinations remain open.",
+      "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
+      "dataImportSource": "577243a58a39435db87fdc86872dc60c829e71d0"
     },
     {
       "number": 581,
@@ -96,13 +98,15 @@
       "reviewedHead": "e3f59317b338a2bf8805eb66152c72ea82f6c37f",
       "observedState": "open",
       "requirement": "SPA 不应被模块全局缓存无限持有图片/字体",
-      "disposition": "使用 capture/renderer 生命周期替代全局 clearCache；#625 修复文档持有",
+      "disposition": "Capture/renderer cache lifetimes and source-document ownership plus pending-resolver cancellation release; no global clearCache API.",
       "evidence": [
         "test/browser-unit/resource-policy.test.ts",
         "test/browser-unit/capture-lifetime.test.ts",
-        "docs/evidence/capture-source-lifetime.json"
+        "docs/evidence/capture-source-lifetime.json",
+        "docs/evidence/svg-data-imports.json"
       ],
-      "remainingBoundary": "不宣称浏览器 HTTP 缓存被清空、强制 GC 或原 20 MB SPA 内存压力已复现"
+      "remainingBoundary": "不宣称浏览器 HTTP 缓存被清空、强制 GC 或原 20 MB SPA 内存压力已复现",
+      "pendingResolverCancellation": "Private frame removed and async resolver await cancelled; Chromium/Firefox forced GC passes while foreign callback remains pending. WebKit and iPhone DOM/reason/source controls only."
     },
     {
       "number": 540,
@@ -532,5 +536,11 @@
     "decision": "current-browser live-page output",
     "record": "docs/evidence/svg-native-page-contract.json",
     "implementation": "pending"
+  },
+  "latestScopedEvidence": {
+    "source": "577243a58a39435db87fdc86872dc60c829e71d0",
+    "fixture": "cfa7d02b6a63deb0b01da89ad8f5cfa79112d13d",
+    "path": "docs/evidence/svg-data-imports.json",
+    "originalPRStatesNotRefreshed": true
   }
 }
