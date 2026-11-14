@@ -58,11 +58,27 @@ async function collectGarbage() {
   await commands.collectGarbage()
 }
 
+async function removedFrameControl() {
+  const frame = document.createElement('iframe')
+  frame.srcdoc =
+    '<body style="margin:0;width:20px;height:20px;background:green"></body>'
+  const loaded = new Promise<void>((resolve) => {
+    frame.onload = () => resolve()
+  })
+  document.body.append(frame)
+  try {
+    await loaded
+    return new WeakRef(frame.contentDocument!)
+  } finally {
+    frame.remove()
+  }
+}
+
 test('a frozen snapshot releases its source document before lazy rendering', async () => {
   const { reference, capture, renderer } = await captureDetachedDocument()
   try {
     await collectGarbage()
-    expect(reference.deref()).toBeUndefined()
+    expect(reference.deref() === undefined).toBe(true)
     const image = await capture.toImageData()
     expect([image.width, image.height]).toEqual([20, 20])
     expect(Array.from(image.data.slice(0, 4))).toEqual([0, 128, 0, 255])
@@ -78,7 +94,7 @@ test('holding a disposed capture does not retain its source document', async () 
     capture.dispose()
     renderer.dispose()
     await collectGarbage()
-    expect(reference.deref()).toBeUndefined()
+    expect(reference.deref() === undefined).toBe(true)
     await expect(capture.toSvg()).rejects.toThrow(/disposed/)
   } finally {
     renderer.dispose()
@@ -107,10 +123,16 @@ test('a removed iframe capture returns independent canvases in the library docum
 test.runIf(server.browser !== 'webkit')(
   'a removed iframe document is collectible while its snapshot remains usable',
   async () => {
+    const native = await removedFrameControl()
     const { reference, capture, renderer } = await captureFrame()
     try {
       await collectGarbage()
-      expect(reference.deref()).toBeUndefined()
+      const diagnosis = {
+        nativeCollected: native.deref() === undefined,
+        capturedCollected: reference.deref() === undefined,
+      }
+      expect(diagnosis.capturedCollected, JSON.stringify(diagnosis)).toBe(true)
+      expect(diagnosis.nativeCollected).toBe(true)
       const image = await capture.toImageData()
       expect(Array.from(image.data.slice(0, 4))).toEqual([0, 128, 0, 255])
     } finally {
