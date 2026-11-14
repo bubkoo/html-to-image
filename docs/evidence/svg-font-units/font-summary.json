@@ -1,0 +1,373 @@
+{
+  "sourceCommit": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
+  "capabilities": {
+    "platformName": "iOS",
+    "safari:platformVersion": "26.6.1",
+    "browserVersion": "26.6.1",
+    "safari:deviceType": "iPhone",
+    "safari:useSimulator": false
+  },
+  "method": "Real source use.getBBox width compared at CSSOM serialized precision; exact full exported ImageData compared to independently authored data-font SVG image. This does not certify full native-screen compositor parity for fractional edges.",
+  "runs": [
+    {
+      "results": [
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 10.66,
+          "mode": "loaded",
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 10.65999984741211,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 15.99,
+          "mode": "large",
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 15.989999771118164,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 8.945313,
+          "mode": "system",
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 8.9453125,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 10.66,
+          "mode": "explicit",
+          "skipFonts": false,
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 10.65999984741211,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 10.66,
+          "mode": "explicit",
+          "skipFonts": true,
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 10.65999984741211,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "nativeDifferentChannels": null
+        }
+      ],
+      "format": "esm",
+      "records": [
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 10.66,
+          "nativeUseWidth": 10.65999984741211,
+          "diagnostics": [],
+          "kind": "svg-font-units-loaded",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 15.99,
+          "nativeUseWidth": 15.989999771118164,
+          "diagnostics": [],
+          "kind": "svg-font-units-large",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 8.945313,
+          "nativeUseWidth": 8.9453125,
+          "diagnostics": [],
+          "kind": "svg-font-units-system",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 10.66,
+          "nativeUseWidth": 10.65999984741211,
+          "diagnostics": [],
+          "kind": "svg-font-units-loaded-explicit-false",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 10.66,
+          "nativeUseWidth": 10.65999984741211,
+          "diagnostics": [],
+          "kind": "svg-font-units-loaded-explicit-true",
+          "authoredDifferentChannels": 0
+        }
+      ]
+    },
+    {
+      "results": [
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 10.66,
+          "mode": "loaded",
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 10.65999984741211,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 15.99,
+          "mode": "large",
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 15.989999771118164,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 8.945313,
+          "mode": "system",
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 8.9453125,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 10.66,
+          "mode": "explicit",
+          "skipFonts": false,
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 10.65999984741211,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "nativeDifferentChannels": null
+        },
+        {
+          "fullImageReferenceMatch": true,
+          "capturedWidth": 10.66,
+          "mode": "explicit",
+          "skipFonts": true,
+          "sourceUnchanged": true,
+          "referenceNativeDifferentChannels": null,
+          "nativeUseWidth": 10.65999984741211,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "nativeDifferentChannels": null
+        }
+      ],
+      "format": "umd",
+      "records": [
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 10.66,
+          "nativeUseWidth": 10.65999984741211,
+          "diagnostics": [],
+          "kind": "svg-font-units-loaded",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            },
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/font-metrics.ttf",
+              "kind": "font"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 15.99,
+          "nativeUseWidth": 15.989999771118164,
+          "diagnostics": [],
+          "kind": "svg-font-units-large",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 8.945313,
+          "nativeUseWidth": 8.9453125,
+          "diagnostics": [],
+          "kind": "svg-font-units-system",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 10.66,
+          "nativeUseWidth": 10.65999984741211,
+          "diagnostics": [],
+          "kind": "svg-font-units-loaded-explicit-false",
+          "authoredDifferentChannels": 0
+        },
+        {
+          "sourceUnchanged": true,
+          "nativeDifferentChannels": null,
+          "requests": [
+            {
+              "url": "http://169.254.12.86:4373/test/browser/fixtures/svg-styles/font-units.svg",
+              "kind": "image"
+            }
+          ],
+          "referenceNativeDifferentChannels": null,
+          "capturedWidth": 10.66,
+          "nativeUseWidth": 10.65999984741211,
+          "diagnostics": [],
+          "kind": "svg-font-units-loaded-explicit-true",
+          "authoredDifferentChannels": 0
+        }
+      ]
+    }
+  ]
+}

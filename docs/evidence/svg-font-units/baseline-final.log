@@ -1,0 +1,243 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |chromium| test/browser-unit/svg-style-loaded-font.test.ts (4 tests | 1 failed) 198ms
+   × SVG metric font invalid keeps diagnostics and resolver error ownership 107ms
+ ❯ |webkit| test/browser-unit/svg-style-loaded-font.test.ts (4 tests | 1 failed) 234ms
+   × SVG metric font invalid keeps diagnostics and resolver error ownership 108ms
+ ❯ |webkit| test/browser-unit/svg-font-units.test.ts (5 tests | 4 failed) 681ms
+   × external SVG loaded font units match an independent image reference 249ms
+   × external SVG large font units match an independent image reference 147ms
+   × explicit SVG metric font CSS takes precedence with skipFonts=false 77ms
+   × explicit SVG metric font CSS takes precedence with skipFonts=true 85ms
+ ❯ |firefox| test/browser-unit/svg-style-loaded-font.test.ts (4 tests | 1 failed) 136ms
+   × SVG metric font invalid keeps diagnostics and resolver error ownership 66ms
+ ❯ |firefox| test/browser-unit/svg-font-units.test.ts (5 tests | 4 failed) 391ms
+   × external SVG loaded font units match an independent image reference 158ms
+   × external SVG large font units match an independent image reference 83ms
+   × explicit SVG metric font CSS takes precedence with skipFonts=false 43ms
+   × explicit SVG metric font CSS takes precedence with skipFonts=true 50ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| test/browser-unit/svg-style-loaded-font.test.ts > SVG metric font invalid keeps diagnostics and resolver error ownership
+AssertionError: expected false to be true // Object.is equality
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-loaded-font.test.ts/SVG-metric-font-invalid-keeps-diagnostics-and-resolver-error-ownership.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/browser-unit/svg-style-loaded-font.test.ts:92:11
+     90|             (item) => item.resource === 'external-svg-font-metrics',
+     91|           ),
+     92|         ).toBe(true)
+       |           ^
+     93|         capture.dispose()
+     94|       }
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |firefox| test/browser-unit/svg-font-units.test.ts > external SVG loaded font units match an independent image reference
+ FAIL  |firefox| test/browser-unit/svg-font-units.test.ts > external SVG large font units match an independent image reference
+Error: SVG font width changed from 10.666666984558105 to 9.06667
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/external-SVG-loaded-font-units-match-an-independent-image-reference.png
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/external-SVG-large-font-units-match-an-independent-image-reference.png
+
+ ❯ checkSVGFontUnits test/browser/fixtures/svg-font-units.mjs:133:13
+    131|     // Compare at CSSOM's serialized precision, independently from ras…
+    132|     if (Math.round(nativeUseWidth * 1000) !== Math.round(capturedWidth…
+    133|       throw new Error(
+       |             ^
+    134|         `SVG font width changed from ${nativeUseWidth} to ${capturedWi…
+    135|       )
+ ❯ async* test/browser-unit/svg-font-units.test.ts:11:34
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |firefox| test/browser-unit/svg-font-units.test.ts > explicit SVG metric font CSS takes precedence with skipFonts=false
+ FAIL  |firefox| test/browser-unit/svg-font-units.test.ts > explicit SVG metric font CSS takes precedence with skipFonts=true
+Error: SVG font width changed from 10.666666984558105 to 9.06667
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/explicit-SVG-metric-font-CSS-takes-precedence-with-skipFonts-false.png
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/explicit-SVG-metric-font-CSS-takes-precedence-with-skipFonts-true.png
+
+ ❯ checkSVGFontUnits test/browser/fixtures/svg-font-units.mjs:133:13
+    131|     // Compare at CSSOM's serialized precision, independently from ras…
+    132|     if (Math.round(nativeUseWidth * 1000) !== Math.round(capturedWidth…
+    133|       throw new Error(
+       |             ^
+    134|         `SVG font width changed from ${nativeUseWidth} to ${capturedWi…
+    135|       )
+ ❯ async* test/browser-unit/svg-font-units.test.ts:49:34
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+ ❯ async*runSuiteChild/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:45
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runSuiteChild/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6458:31
+ ❯ runSuiteChild node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6450:32
+ ❯ runSuite/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6414:41
+ ❯ async*callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundAllHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6114:8
+ ❯ runSuite node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6397:10
+ ❯ async*runFiles/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6481:20
+ ❯ runFiles node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6478:16
+ ❯ startTests node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6514:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |firefox| test/browser-unit/svg-style-loaded-font.test.ts > SVG metric font invalid keeps diagnostics and resolver error ownership
+AssertionError: expected false to be true // Object.is equality
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-loaded-font.test.ts/SVG-metric-font-invalid-keeps-diagnostics-and-resolver-error-ownership.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/browser-unit/svg-style-loaded-font.test.ts:92:11
+     90|             (item) => item.resource === 'external-svg-font-metrics',
+     91|           ),
+     92|         ).toBe(true)
+       |           ^
+     93|         capture.dispose()
+     94|       }
+ ❯ async*createTaskCollector/taskFn.each/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5319:71
+ ❯ withFixtures/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:4120:35
+ ❯ withAwaitAsyncAssertions/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5237:26
+ ❯ withCancel/runWithCancel/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5725:22
+ ❯ runWithCancel node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5720:10
+ ❯ withTimeout/runWithTimeout/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5709:22
+ ❯ runWithTimeout node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:5673:10
+ ❯ runTest/</</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:64
+ ❯ run node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3857:24
+ ❯ limiterFn node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:3867:59
+ ❯ runTest/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:57
+ ❯ runTest/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6245:13
+ ❯ async*callAroundEachHooks/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:37
+ ❯ callAroundHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6012:9
+ ❯ callAroundEachHooks node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6122:8
+ ❯ runTest node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=ad4e4e20:6233:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |webkit| test/browser-unit/svg-font-units.test.ts > external SVG loaded font units match an independent image reference
+ FAIL  |webkit| test/browser-unit/svg-font-units.test.ts > external SVG large font units match an independent image reference
+Error: SVG font width changed from 10.65999984741211 to 8.974609
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/external-SVG-loaded-font-units-match-an-independent-image-reference.png
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/external-SVG-large-font-units-match-an-independent-image-reference.png
+
+ ❯ checkSVGFontUnits test/browser/fixtures/svg-font-units.mjs:133:22
+    131|     // Compare at CSSOM's serialized precision, independently from ras…
+    132|     if (Math.round(nativeUseWidth * 1000) !== Math.round(capturedWidth…
+    133|       throw new Error(
+       |                      ^
+    134|         `SVG font width changed from ${nativeUseWidth} to ${capturedWi…
+    135|       )
+ ❯ test/browser-unit/svg-font-units.test.ts:11:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |webkit| test/browser-unit/svg-font-units.test.ts > explicit SVG metric font CSS takes precedence with skipFonts=false
+ FAIL  |webkit| test/browser-unit/svg-font-units.test.ts > explicit SVG metric font CSS takes precedence with skipFonts=true
+Error: SVG font width changed from 10.65999984741211 to 8.974609
+
+Failure screenshots:
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/explicit-SVG-metric-font-CSS-takes-precedence-with-skipFonts-false.png
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/explicit-SVG-metric-font-CSS-takes-precedence-with-skipFonts-true.png
+
+ ❯ checkSVGFontUnits test/browser/fixtures/svg-font-units.mjs:133:22
+    131|     // Compare at CSSOM's serialized precision, independently from ras…
+    132|     if (Math.round(nativeUseWidth * 1000) !== Math.round(capturedWidth…
+    133|       throw new Error(
+       |                      ^
+    134|         `SVG font width changed from ${nativeUseWidth} to ${capturedWi…
+    135|       )
+ ❯ test/browser-unit/svg-font-units.test.ts:49:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |webkit| test/browser-unit/svg-style-loaded-font.test.ts > SVG metric font invalid keeps diagnostics and resolver error ownership
+AssertionError: expected false to be true // Object.is equality
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-loaded-font.test.ts/SVG-metric-font-invalid-keeps-diagnostics-and-resolver-error-ownership.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/browser-unit/svg-style-loaded-font.test.ts:92:11
+     90|             (item) => item.resource === 'external-svg-font-metrics',
+     91|           ),
+     92|         ).toBe(true)
+       |           ^
+     93|         capture.dispose()
+     94|       }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+
+ Test Files  5 failed | 4 passed (9)
+      Tests  11 failed | 22 passed (33)
+   Start at  04:12:49
+   Duration  2.21s (tests 74%, worker 19%, import 6%)
+

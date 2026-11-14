@@ -1,0 +1,21 @@
+{
+  "kind": "svg-font-units-loaded",
+  "nativeDifferentChannels": 0,
+  "referenceNativeDifferentChannels": 0,
+  "authoredDifferentChannels": 0,
+  "nativeUseWidth": 10.666666984558105,
+  "capturedWidth": 10.6667,
+  "sourceUnchanged": true,
+  "requests": [
+    {
+      "url": "http://localhost:63315/test/browser/fixtures/svg-styles/font-units.svg",
+      "kind": "image"
+    },
+    {
+      "url": "http://localhost:63315/test/browser/fixtures/font-metrics.ttf",
+      "kind": "font"
+    }
+  ],
+  "diagnostics": [],
+  "engine": "firefox"
+}

@@ -1,0 +1,113 @@
+
+> html-to-image@1.11.13 test:browser /Users/bytedance/Documents/Github/html-to-image
+> pnpm run lint:check && pnpm run build && pnpm run test:browser:types && pnpm run test && pnpm run test:package && pnpm run test:browser:package
+
+
+> html-to-image@1.11.13 lint:check /Users/bytedance/Documents/Github/html-to-image
+> eslint 'src/**/*.{js,ts}?(x)' vitest.browser.config.mts playwright.config.ts 'test/browser-unit/**/*.ts' 'test/browser/**/*.ts' 'test/browser/**/*.mjs' 'test/spec/**/*.ts' rollup.config.js eslint.config.mjs commitlint.config.cjs 'scripts/*.{js,mjs,cjs}'
+
+
+> html-to-image@1.11.13 build /Users/bytedance/Documents/Github/html-to-image
+> pnpm run clean && pnpm run build:esm && pnpm run build:cjs && pnpm run build:umd
+
+
+> html-to-image@1.11.13 clean /Users/bytedance/Documents/Github/html-to-image
+> node scripts/clean.mjs
+
+
+> html-to-image@1.11.13 build:esm /Users/bytedance/Documents/Github/html-to-image
+> pnpm run build:esm:tsc && pnpm run build:esm:metadata
+
+
+> html-to-image@1.11.13 build:esm:tsc /Users/bytedance/Documents/Github/html-to-image
+> tsc --module esnext --target es2017 --outDir ./es
+
+
+> html-to-image@1.11.13 build:esm:metadata /Users/bytedance/Documents/Github/html-to-image
+> node scripts/mark-esm.mjs
+
+
+> html-to-image@1.11.13 build:cjs /Users/bytedance/Documents/Github/html-to-image
+> tsc --module commonjs --target es5 --outDir ./lib
+
+
+> html-to-image@1.11.13 build:umd /Users/bytedance/Documents/Github/html-to-image
+> rollup -c --bundleConfigAsCjs
+
+
+src/index.ts → dist/html-to-image.js...
+created dist/html-to-image.js in 998ms
+
+> html-to-image@1.11.13 test:browser:types /Users/bytedance/Documents/Github/html-to-image
+> tsc --project tsconfig.browser-tests.json
+
+
+> html-to-image@1.11.13 test /Users/bytedance/Documents/Github/html-to-image
+> pnpm run test:coverage && pnpm run test:browser:source
+
+
+> html-to-image@1.11.13 test:coverage /Users/bytedance/Documents/Github/html-to-image
+> TEST_SUITE=coverage vitest run --config vitest.browser.config.mts --coverage
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+      Coverage enabled with istanbul
+
+
+ Test Files  97 passed (97)
+      Tests  937 passed | 4 skipped (941)
+   Start at  04:09:12
+   Duration  13.94s (worker 84%, tests 14%, import 2%)
+
+ % Coverage report from istanbul
+
+=============================== Coverage summary ===============================
+Statements   : 92.78% ( 1646/1774 )
+Branches     : 83.48% ( 996/1193 )
+Functions    : 95.49% ( 339/355 )
+Lines        : 93.84% ( 1526/1626 )
+================================================================================
+
+> html-to-image@1.11.13 test:browser:source /Users/bytedance/Documents/Github/html-to-image
+> vitest run --config vitest.browser.config.mts
+
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |firefox| test/browser-unit/svg-font-units.test.ts (5 tests | 1 failed) 39984ms
+   × explicit SVG metric font CSS takes precedence with skipFonts=true 30094ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |firefox| test/browser-unit/svg-font-units.test.ts > explicit SVG metric font CSS takes precedence with skipFonts=true
+Error: Test timed out in 30000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-font-units.test.ts/explicit-SVG-metric-font-CSS-takes-precedence-with-skipFonts-true.png
+
+ ❯ task node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=6e9788a4:5136:43
+ ❯ createSuiteCollector/test< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=6e9788a4:5153:20
+ ❯ test$1< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=6e9788a4:4939:28
+ ❯ chain node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=6e9788a4:4336:14
+ ❯ createTaskCollector/taskFn.each/</< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=6e9788a4:5319:15
+ ❯ createTaskCollector/taskFn.each/< node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/plugins.DPQHVT0p-CsiIGTSA.js?v=6e9788a4:5315:10
+ ❯ test/browser-unit/svg-font-units.test.ts:45:25
+     43| )
+     44|
+     45| test.each([false, true])(
+       |                         ^
+     46|   'explicit SVG metric font CSS takes precedence with skipFonts=%s',
+     47|   async (skipFonts) => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 83 passed (84)
+      Tests  1 failed | 817 passed | 4 skipped (822)
+   Start at  04:09:27
+   Duration  42.49s (worker 68%, tests 31%, import 1%)
+
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

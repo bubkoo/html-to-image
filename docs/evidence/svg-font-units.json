@@ -1,0 +1,80 @@
+{
+  "verifiedAt": "2026-11-14T20:18:51.078986+00:00",
+  "sourceCommit": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
+  "baseCommit": "2aa3cdabea6223eb6c2b43575faf650170a50b96",
+  "contract": "Each current browser live-page appearance",
+  "status": "Measured font-unit correction; remote gates and merge state belong to the current PR checks and description",
+  "baseline": {
+    "sameFinalControls": 33,
+    "failed": 11,
+    "passed": 22,
+    "runtime": "2aa3cda",
+    "log": "svg-font-units/baseline-final.log"
+  },
+  "candidate": {
+    "passed": 33,
+    "failed": 0,
+    "log": "svg-font-units/candidate-final.log"
+  },
+  "full": {
+    "coverage": 943,
+    "coverageSkipped": 4,
+    "source": 824,
+    "sourceSkipped": 4,
+    "package": 150,
+    "lintBuildTypesTarball": "pass",
+    "log": "svg-font-units/full-final.log"
+  },
+  "desktop": {
+    "fontInputs": 3,
+    "engines": 3,
+    "fullIndependentImageComparisons": 9,
+    "exactNativePageComparisons": 7,
+    "nativeImageCompositorBoundaries": {
+      "webkit-large": 40,
+      "webkit-system": 20
+    },
+    "pixelTolerance": 0,
+    "geometryComparison": "use.getBBox versus serialized CSS, rounded to 0.001px CSSOM precision"
+  },
+  "device": {
+    "sourceCommit": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
+    "capabilities": {
+      "platformName": "iOS",
+      "browserVersion": "26.6.1",
+      "safari:platformVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "repeatedPriorNativePhotoPasses": 56,
+    "newFontIndependentImageAndGeometryControls": 10,
+    "newFontNativeScreenPixelPasses": "Not claimed; fractional-edge controls use independent image pixels and actual source widths",
+    "fullSmoke": {
+      "passed": 34,
+      "info": 2,
+      "failed": 0,
+      "receipt": "e749911b-2d4f-4eae-8586-82d66a08202a"
+    },
+    "sessionAndServer": "Owned session ended; test server stopped"
+  },
+  "rawArchives": {
+    "baseline": 36,
+    "candidate": 36,
+    "iphone": 196
+  },
+  "totalRawFiles": 268,
+  "firstFullSourceTimeout": {
+    "engine": "firefox",
+    "case": "explicit font CSS, skipFonts=true",
+    "cause": "Stage not established; original failure retained",
+    "changes": "Removed redundant global document-font readiness and fixture RAF waits; no timeout increase or assertion relaxation",
+    "log": "svg-font-units/full-first-source-timeout.log"
+  },
+  "remaining": [
+    "WebKit native SVG-image/compositor fractional-edge differences",
+    "Relative paint/redirect base differences from PR #638",
+    "Opaque matching rules and restricted-CSP full fidelity",
+    "Broader external SVG/font/iframe/animation combinations"
+  ],
+  "replay": "svg-font-units/replay.md"
+}

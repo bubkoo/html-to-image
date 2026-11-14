@@ -1,0 +1,60 @@
+import {createServer} from 'node:http'
+import {readFile,writeFile,mkdir} from 'node:fs/promises'
+import {resolve,extname} from 'node:path'
+import {pathToFileURL} from 'node:url'
+const {chromium,firefox,webkit}=await import(pathToFileURL(resolve(process.cwd(),'node_modules/@playwright/test/index.mjs')).href)
+const root=process.cwd(), out=resolve(root,'output/playwright/svg-file-css-current')
+await mkdir(out,{recursive:true})
+const ns='http://www.w3.org/2000/svg', requests=[]
+const server=createServer(async(req,res)=>{
+ const url=new URL(req.url,'http://localhost');requests.push(url.pathname)
+ const respond=(type,data)=>res.writeHead(200,{'Content-Type':type,'Cache-Control':'no-store'}).end(data)
+ if(url.pathname==='/probe/')return respond('text/html','<!doctype html><body style="margin:0">')
+ if(url.pathname.endsWith('/theme.css'))return respond('text/css','.shape{fill:green!important}')
+ if(url.pathname.endsWith('/import.svg'))return respond('image/svg+xml',`<svg xmlns="${ns}"><style>@import url("theme.css");</style><symbol id="icon" viewBox="0 0 40 30"><rect class="shape" width="40" height="30" fill="red"/></symbol></svg>`)
+ if(url.pathname.endsWith('/font.svg'))return respond('image/svg+xml',`<svg xmlns="${ns}"><style>@font-face{font-family:FileFont;src:url("/font.ttf")} text{font-family:FileFont,serif;font-size:20px}</style><symbol id="icon" viewBox="0 0 40 30"><text x="0" y="20">MI</text></symbol></svg>`)
+ if(url.pathname.endsWith('/inline.svg'))return respond('image/svg+xml',`<svg xmlns="${ns}"><style>.shape{fill:green!important}</style><symbol id="icon" viewBox="0 0 40 30"><rect class="shape" width="40" height="30" fill="red"/></symbol></svg>`)
+ if(url.pathname==='/font.ttf')return respond('font/ttf',await readFile(resolve(root,'test/browser/fixtures/font-metrics.ttf')))
+ if(url.pathname.startsWith('/es/')){
+  const p=resolve(root,'.'+url.pathname)
+  if(!p.startsWith(root+'/es/'))return res.writeHead(403).end()
+  try{return respond(extname(p)==='.js'?'text/javascript':'text/plain',await readFile(p))}catch{}
+ }
+ res.writeHead(404).end()
+})
+await new Promise(r=>server.listen(4495,'127.0.0.1',r))
+const summary={}
+try{
+ for(const [name,engine] of Object.entries({chromium,firefox,webkit})){
+  const browser=await engine.launch()
+  try{
+   const page=await browser.newPage({deviceScaleFactor:1})
+   await page.goto('http://127.0.0.1:4495/probe/')
+   const start=requests.length
+   await page.evaluate(()=>{
+    const ns='http://www.w3.org/2000/svg', root=document.createElement('div');root.id='source';root.style.cssText='display:flex;width:160px;height:30px;background:white'
+    const id=crypto.randomUUID()
+    for(const path of ['import.svg','inline.svg','font.svg']){
+     const svg=document.createElementNS(ns,'svg');svg.setAttribute('width','40');svg.setAttribute('height','30');svg.style.flex='none'
+     const use=document.createElementNS(ns,'use');use.setAttribute('href','/probe/'+id+'/'+path+'#icon');use.setAttribute('width','40');use.setAttribute('height','30');svg.append(use);root.append(svg)
+    }
+    const control=document.createElement('div');control.style.cssText='flex:none;width:40px;height:30px;background:yellow';root.append(control);document.body.append(root);window.__source=root.outerHTML
+   })
+   await page.waitForFunction(()=>[...document.querySelectorAll('use')].every(u=>u.getBBox().width>0))
+   await page.waitForLoadState('networkidle')
+   await page.locator('#source').screenshot({path:resolve(out,name+'-native.png'),scale:'css'})
+   const split=requests.length
+   const result=await page.evaluate(async()=>{
+    const {createRenderer}=await import('/es/index.js'), root=document.querySelector('#source'),diags=[]
+    const renderer=createRenderer({pixelRatio:1,diagnostics:d=>diags.push(d)})
+    try{return {dataURL:await renderer.toPng(root),sourceUnchanged:root.outerHTML===window.__source,userAgent:navigator.userAgent,diags}}
+    finally{renderer.dispose()}
+   })
+   await writeFile(resolve(out,name+'-capture.png'),Buffer.from(result.dataURL.split(',')[1],'base64'));delete result.dataURL
+   await page.locator('#source').screenshot({path:resolve(out,name+'-after.png'),scale:'css'})
+   summary[name]={...result,nativeRequests:requests.slice(start,split),captureRequests:requests.slice(split)}
+   process.stdout.write(JSON.stringify({name,...summary[name]})+'\n')
+  }finally{await browser.close()}
+ }
+}finally{await new Promise(r=>server.close(r))}
+await writeFile(resolve(out,'summary.json'),JSON.stringify(summary,null,2))

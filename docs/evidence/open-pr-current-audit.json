@@ -19,9 +19,11 @@
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
         "docs/evidence/style-copy-performance.json",
-        "docs/evidence/svg-native-style-scope.json"
+        "docs/evidence/svg-native-style-scope.json",
+        "docs/evidence/svg-font-units.json"
       ],
-      "remainingBoundary": "用户已选当前页面保真；受限 CSP 下完整样式保真、不可读匹配规则、外部 CSS 导入/字体、重定向/相对 paint 及更广嵌套行为仍需核验"
+      "remainingBoundary": "用户已选当前页面保真；受限 CSP 下完整样式保真、不可读匹配规则、外部 CSS 导入/字体、重定向/相对 paint 及更广嵌套行为仍需核验",
+      "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9"
     },
     {
       "number": 581,

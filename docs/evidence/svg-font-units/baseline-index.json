@@ -1,0 +1,186 @@
+{
+  "archive": "baseline-raw.tar.gz",
+  "archiveSHA256": "bc737765e3fe7ad618a001124a0b4df8763e970ee18efde61117b75914e4e6c7",
+  "files": [
+    {
+      "path": "chromium-svg-font-units-large-authored.png",
+      "bytes": 211,
+      "sha256": "0a34882daba00891a69991e0f83265a07f318d48799bbd53ea87209ddeebfe9b"
+    },
+    {
+      "path": "chromium-svg-font-units-large-capture.png",
+      "bytes": 211,
+      "sha256": "0a34882daba00891a69991e0f83265a07f318d48799bbd53ea87209ddeebfe9b"
+    },
+    {
+      "path": "chromium-svg-font-units-large-native.png",
+      "bytes": 211,
+      "sha256": "0a34882daba00891a69991e0f83265a07f318d48799bbd53ea87209ddeebfe9b"
+    },
+    {
+      "path": "chromium-svg-font-units-large.json",
+      "bytes": 536,
+      "sha256": "a63342a99faa0181ff9a2188912bd19f34cf4b919f67666ff608eed397a869fa"
+    },
+    {
+      "path": "chromium-svg-font-units-loaded-authored.png",
+      "bytes": 215,
+      "sha256": "1e192c0f96f5cf16740789b18bcf016b2c63f00c706024f727933d67bd33ebf5"
+    },
+    {
+      "path": "chromium-svg-font-units-loaded-capture.png",
+      "bytes": 215,
+      "sha256": "1e192c0f96f5cf16740789b18bcf016b2c63f00c706024f727933d67bd33ebf5"
+    },
+    {
+      "path": "chromium-svg-font-units-loaded-native.png",
+      "bytes": 215,
+      "sha256": "1e192c0f96f5cf16740789b18bcf016b2c63f00c706024f727933d67bd33ebf5"
+    },
+    {
+      "path": "chromium-svg-font-units-loaded.json",
+      "bytes": 536,
+      "sha256": "c18b5b8534f0a678a50ecc69e75c634eae22e948650ebb09b4da4fd3443ea17c"
+    },
+    {
+      "path": "chromium-svg-font-units-system-authored.png",
+      "bytes": 213,
+      "sha256": "da1977c5e18faf9b10b9065d19319d7c8695cf03f926fa54504aad9e3265d9db"
+    },
+    {
+      "path": "chromium-svg-font-units-system-capture.png",
+      "bytes": 213,
+      "sha256": "da1977c5e18faf9b10b9065d19319d7c8695cf03f926fa54504aad9e3265d9db"
+    },
+    {
+      "path": "chromium-svg-font-units-system-native.png",
+      "bytes": 213,
+      "sha256": "da1977c5e18faf9b10b9065d19319d7c8695cf03f926fa54504aad9e3265d9db"
+    },
+    {
+      "path": "chromium-svg-font-units-system.json",
+      "bytes": 420,
+      "sha256": "b5bdbd4cbe8eab8f4e00724cc4b725fb1cd5c0b7cb11c999b2fb3b0ad3e17b17"
+    },
+    {
+      "path": "firefox-svg-font-units-large-authored.png",
+      "bytes": 204,
+      "sha256": "5a3dea1534e497abaae79aa3d5500ca3f7dcb90161581341cb867e411f20048e"
+    },
+    {
+      "path": "firefox-svg-font-units-large-capture.png",
+      "bytes": 212,
+      "sha256": "7842fb9e1ecd0c575c5f10cfc21dff6207351e65a8fe334898a4505eee821641"
+    },
+    {
+      "path": "firefox-svg-font-units-large-native.png",
+      "bytes": 204,
+      "sha256": "5a3dea1534e497abaae79aa3d5500ca3f7dcb90161581341cb867e411f20048e"
+    },
+    {
+      "path": "firefox-svg-font-units-large.json",
+      "bytes": 541,
+      "sha256": "3143b55bb0dcbc726846805e365bcbc78a38956541114733423eac602363ae25"
+    },
+    {
+      "path": "firefox-svg-font-units-loaded-authored.png",
+      "bytes": 210,
+      "sha256": "8b3f53c4b56e238a0ebe1490ceb141d20f6124ef3a405f8d11533268fc739779"
+    },
+    {
+      "path": "firefox-svg-font-units-loaded-capture.png",
+      "bytes": 211,
+      "sha256": "e381221fba689a0a61728b07c7004531e16fd6afdafd7498e7a8cb7bb1d0dfff"
+    },
+    {
+      "path": "firefox-svg-font-units-loaded-native.png",
+      "bytes": 210,
+      "sha256": "8b3f53c4b56e238a0ebe1490ceb141d20f6124ef3a405f8d11533268fc739779"
+    },
+    {
+      "path": "firefox-svg-font-units-loaded.json",
+      "bytes": 542,
+      "sha256": "f418fbe1b577f4e6ee5554eca0555e2cf344b4f2db6ad429318af0a3d4eeb26d"
+    },
+    {
+      "path": "firefox-svg-font-units-system-authored.png",
+      "bytes": 211,
+      "sha256": "e381221fba689a0a61728b07c7004531e16fd6afdafd7498e7a8cb7bb1d0dfff"
+    },
+    {
+      "path": "firefox-svg-font-units-system-capture.png",
+      "bytes": 211,
+      "sha256": "e381221fba689a0a61728b07c7004531e16fd6afdafd7498e7a8cb7bb1d0dfff"
+    },
+    {
+      "path": "firefox-svg-font-units-system-native.png",
+      "bytes": 211,
+      "sha256": "e381221fba689a0a61728b07c7004531e16fd6afdafd7498e7a8cb7bb1d0dfff"
+    },
+    {
+      "path": "firefox-svg-font-units-system.json",
+      "bytes": 425,
+      "sha256": "46d9baf953070435d1c1570a86f59e95e005c9658be8f661d716f08700af1583"
+    },
+    {
+      "path": "webkit-svg-font-units-large-authored.png",
+      "bytes": 293,
+      "sha256": "0a78f42e7a107ce6ec94de7df6ead8ee619dea6d959d18d5fd24a14f81bd6566"
+    },
+    {
+      "path": "webkit-svg-font-units-large-capture.png",
+      "bytes": 297,
+      "sha256": "d4f86980640ade7a2f1231ebe478fe8789ca51110929fb990de5062aca3ab30f"
+    },
+    {
+      "path": "webkit-svg-font-units-large-native.png",
+      "bytes": 294,
+      "sha256": "df4dc3ccf41691b2c005d016b6a6688921c8794ce68374571e33aa163be2b8e1"
+    },
+    {
+      "path": "webkit-svg-font-units-large.json",
+      "bytes": 543,
+      "sha256": "2188fe48ae41652fdaa435d44a025cc65af18a21e691ebb974e0d9be764493e5"
+    },
+    {
+      "path": "webkit-svg-font-units-loaded-authored.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "webkit-svg-font-units-loaded-capture.png",
+      "bytes": 298,
+      "sha256": "9640d7fdc875dd7824ed41e6d88777b90eacbdd08ca8f3fb8666979efb74ea00"
+    },
+    {
+      "path": "webkit-svg-font-units-loaded-native.png",
+      "bytes": 295,
+      "sha256": "ddc9a6661ed156215c386e9bd161ab85f90476390350543d7a6fd7572fb0e0f8"
+    },
+    {
+      "path": "webkit-svg-font-units-loaded.json",
+      "bytes": 541,
+      "sha256": "beb76ac5f7941a8e1df42f70b7aff48a12eab8c3928577bc928ddbf9d5aed229"
+    },
+    {
+      "path": "webkit-svg-font-units-system-authored.png",
+      "bytes": 298,
+      "sha256": "9640d7fdc875dd7824ed41e6d88777b90eacbdd08ca8f3fb8666979efb74ea00"
+    },
+    {
+      "path": "webkit-svg-font-units-system-capture.png",
+      "bytes": 298,
+      "sha256": "9640d7fdc875dd7824ed41e6d88777b90eacbdd08ca8f3fb8666979efb74ea00"
+    },
+    {
+      "path": "webkit-svg-font-units-system-native.png",
+      "bytes": 297,
+      "sha256": "bcbe78ab79d9b3fbcb9fb7f05b042fa2af1925ab6ad3bb53ca5da0915faa956e"
+    },
+    {
+      "path": "webkit-svg-font-units-system.json",
+      "bytes": 421,
+      "sha256": "0d5561fac4ca8ad2df118087933263d0a2b7f37a75781f846f815c08256c0947"
+    }
+  ]
+}
