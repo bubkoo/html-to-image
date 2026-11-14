@@ -23,6 +23,7 @@
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkSVGUseCycle } from './fixtures/svg-use-cycle.mjs'
     import { checkSVGFontUnits } from './fixtures/svg-font-units.mjs'
+    import { checkSVGResponseURLs } from './fixtures/svg-response-urls.mjs'
     import { checkSVGDataImports, svgDataImportCases } from './fixtures/svg-data-imports.mjs'
     import { checkSVGNativeStyles, svgNativeStyleCases } from './fixtures/svg-native-styles.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
@@ -250,6 +251,14 @@
       for (const name of svgDataImportCases) {
         await checkSVGDataImports({ createRenderer }, name)
         await checkSVGDataImports(window.htmlToImage, name)
+      }
+    })
+
+    await test('external SVG redirects preserve file CSS bases', async () => {
+      await loadUMD()
+      for (const cacheBust of [false, true]) {
+        await checkSVGResponseURLs({ createRenderer }, cacheBust)
+        await checkSVGResponseURLs(window.htmlToImage, cacheBust)
       }
     })
 

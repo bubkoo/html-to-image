@@ -1,3 +1,4 @@
+import { svgResponseURLServer } from './test/browser/fixtures/svg-response-url-server.mjs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
@@ -66,6 +67,7 @@ export default defineConfig({
           svgStyleTraces.forEach((urls, marker) => {
             if (path.includes(marker)) urls.push(path)
           })
+          if (svgResponseURLServer(request, response)) return
           if (await resourcePolicy(request, response)) return
           const pathname = new URL(request.url || '/', 'http://localhost')
             .pathname
