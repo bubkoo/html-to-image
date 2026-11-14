@@ -1,0 +1,47 @@
+{
+  "kind": "shadow-isolation-blue-order-swapped",
+  "engine": "webkit",
+  "variant": {
+    "name": "blue-order-swapped",
+    "shadow": "inset 0 20px blue,inset 20px 0 blue"
+  },
+  "offsets": [40, 40],
+  "nativeDifferentChannels": 234,
+  "topRows": [
+    {
+      "y": 1,
+      "native": [0, 0, 255, 255],
+      "capture": [0, 128, 0, 255]
+    },
+    {
+      "y": 2,
+      "native": [0, 0, 255, 255],
+      "capture": [0, 128, 0, 255]
+    },
+    {
+      "y": 3,
+      "native": [0, 0, 255, 255],
+      "capture": [0, 128, 0, 255]
+    },
+    {
+      "y": 4,
+      "native": [0, 128, 0, 255],
+      "capture": [0, 128, 0, 255]
+    },
+    {
+      "y": 10,
+      "native": [0, 128, 0, 255],
+      "capture": [0, 128, 0, 255]
+    },
+    {
+      "y": 13,
+      "native": [0, 128, 0, 255],
+      "capture": [0, 128, 0, 255]
+    },
+    {
+      "y": 14,
+      "native": [0, 128, 0, 255],
+      "capture": [0, 128, 0, 255]
+    }
+  ]
+}

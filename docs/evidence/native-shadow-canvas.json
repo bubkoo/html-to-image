@@ -1,0 +1,1157 @@
+{
+  "checkedAt": "2026-11-14T16:30:09.182409+00:00",
+  "status": "Reduced engine-specific SVG-to-canvas inset-shadow mismatch; no runtime fix. Diagnostics are not passing native-fidelity regressions.",
+  "diagnosticRevision": "99cc2ef2168e87bc6e1baf110e453c8ccbed347f",
+  "runtimeModified": false,
+  "sourcePRs": [408, 585],
+  "method": "Six text-free 40x40 authored CSS boxes with no scroller. Compare actual HTML element screenshot, native screenshot of generated SVG <img>, and exported canvas full RGBA. Also inspect drawing overloads, canvas context/filter/OffscreenCanvas and reversible axis transforms.",
+  "cases": [
+    {
+      "engine": "chromium",
+      "kind": "plain-shadow-bottom",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "kind": "plain-shadow-left",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "kind": "plain-shadow-right",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "kind": "plain-shadow-spread",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "kind": "plain-shadow-top-blur",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "kind": "plain-shadow-top",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "kind": "plain-shadow-bottom",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "kind": "plain-shadow-left",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "kind": "plain-shadow-right",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "kind": "plain-shadow-spread",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "kind": "plain-shadow-top-blur",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "kind": "plain-shadow-top",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "plain-shadow-bottom",
+      "sourceVsCapture": 800,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "pattern",
+          "error": "SecurityError: The operation is insecure."
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "plain-shadow-left",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "error": "SecurityError: The operation is insecure."
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "plain-shadow-right",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "error": "SecurityError: The operation is insecure."
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "plain-shadow-spread",
+      "sourceVsCapture": 0,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "pattern",
+          "error": "SecurityError: The operation is insecure."
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 0
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 2400,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 2400,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 2400,
+          "maxDelta": 255
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "plain-shadow-top-blur",
+      "sourceVsCapture": 1792,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 1792
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 1792
+        },
+        {
+          "mode": "pattern",
+          "error": "SecurityError: The operation is insecure."
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 1792
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 1792
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 796,
+          "maxDelta": 6
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 1184,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 1184,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 1184,
+          "maxDelta": 255
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 544,
+          "maxDelta": 13
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 796,
+          "maxDelta": 6
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 544,
+          "maxDelta": 13
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "plain-shadow-top",
+      "sourceVsCapture": 800,
+      "sourceVsNativeSVGImage": 0,
+      "drawModes": [
+        {
+          "mode": "three-argument",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "nine-argument",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "pattern",
+          "error": "SecurityError: The operation is insecure."
+        },
+        {
+          "mode": "canvas-filter",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "offscreen",
+          "nativeDifferentChannels": 800
+        },
+        {
+          "mode": "flip-y",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-x",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-90",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "rotate-180",
+          "nativeDifferentChannels": 800,
+          "maxDelta": 255
+        },
+        {
+          "mode": "flip-y-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-read-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "mode": "flip-y-draw-software",
+          "nativeDifferentChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    }
+  ],
+  "conclusions": [
+    "All 18 native SVG <img> controls match source HTML exactly. Chromium and Firefox exported canvas also match all six source cases.",
+    "WebKit positive and negative vertical zero-blur inset shadows differ by 800 channels; blurred top differs by 1792. Horizontal and spread-only controls are exact. This reproduces without scroll state or the native-scroll helper.",
+    "Reversible vertical flip around SVG draw fixes unblurred vertical shadows and preserves the other zero-blur controls on this browser, but blurred shadow remains different: 796 channels/max6 with default contexts, 544/max13 with frequent-read source context. It is not accepted as a general fix.",
+    "CanvasPattern attempts raise SecurityError for foreignObject content. Other draw overloads, OffscreenCanvas and an identity canvas filter did not remove the mismatch. No security settings changed."
+  ],
+  "scope": "Desktop observations only, no real iPhone acceptance. The archived collector reports differences and checks source stability, not library/native equality. Three collector tests passed (three filtered): do not count them as three fixed regressions. The original two native-scroll gates remain failing.",
+  "collector": "native-shadow-canvas/native-shadow-paint-probe.test.ts.txt",
+  "collectorSHA256": "91a6480bbb0f6999eb8bcb48577cdc3e797aded3cab026b902d4d64230bc331e",
+  "logs": [
+    "native-shadow-canvas/plain-shadow-final.log.txt",
+    "native-shadow-canvas/shadow-isolation-extended.log.txt"
+  ]
+}

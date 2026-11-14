@@ -1,0 +1,48 @@
+{
+  "kind": "shadow-isolation-blue-x40-y0",
+  "engine": "webkit",
+  "variant": {
+    "name": "blue-x40-y0",
+    "shadow": "inset 20px 0 blue,inset 0 20px blue",
+    "y": 0
+  },
+  "offsets": [40, 0],
+  "nativeDifferentChannels": 1478,
+  "topRows": [
+    {
+      "y": 1,
+      "native": [255, 0, 0, 255],
+      "capture": [255, 0, 0, 255]
+    },
+    {
+      "y": 2,
+      "native": [255, 0, 0, 255],
+      "capture": [255, 0, 0, 255]
+    },
+    {
+      "y": 3,
+      "native": [255, 0, 0, 255],
+      "capture": [255, 0, 0, 255]
+    },
+    {
+      "y": 4,
+      "native": [255, 0, 0, 255],
+      "capture": [255, 0, 0, 255]
+    },
+    {
+      "y": 10,
+      "native": [255, 0, 0, 255],
+      "capture": [255, 0, 0, 255]
+    },
+    {
+      "y": 13,
+      "native": [255, 0, 0, 255],
+      "capture": [255, 0, 0, 255]
+    },
+    {
+      "y": 14,
+      "native": [255, 0, 0, 255],
+      "capture": [255, 0, 0, 255]
+    }
+  ]
+}

@@ -240,5 +240,10 @@
       "native-scroll-v2/read-frequently-negative-20261115.log.txt",
       "native-scroll-v2/retry-restored-20261115.log.txt"
     ]
+  },
+  "shadowReduction": {
+    "checkedAt": "2026-11-14T16:30:09.182409+00:00",
+    "evidence": "native-shadow-canvas.json",
+    "conclusion": "More specific than the earlier SVG-image boundary: native SVG <img> screenshots match HTML, while converting that SVG image to canvas loses vertical inset shadow even with no scrolling or text. Reversible Y transform fixes zero blur only; blurred negative control still fails. No runtime workaround adopted."
   }
 }

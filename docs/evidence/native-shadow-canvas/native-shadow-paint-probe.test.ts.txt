@@ -1,0 +1,339 @@
+import { test, expect } from 'vitest'
+import { commands } from 'vitest/browser'
+import * as api from '../../src'
+
+test('diagnose native scroller padding and inset shadow paint separately', async () => {
+  const moduleURL = '/test/browser/fixtures/native-scroll.mjs'
+  const fixture = await import(/* @vite-ignore */ moduleURL)
+  const variants = [
+    { name: 'red', shadow: 'inset 20px 0 red,inset 0 20px red' },
+    { name: 'blue', shadow: 'inset 20px 0 blue,inset 0 20px blue' },
+    { name: 'none', shadow: 'none' },
+    {
+      name: 'blue-no-padding',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      padding: '0px',
+    },
+    {
+      name: 'blue-no-border',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      border: '0px',
+    },
+    { name: 'blue-y30', shadow: 'inset 20px 0 blue,inset 0 20px blue', y: 30 },
+    { name: 'blue-y50', shadow: 'inset 20px 0 blue,inset 0 20px blue', y: 50 },
+    { name: 'blue-y20', shadow: 'inset 20px 0 blue,inset 0 20px blue', y: 20 },
+    {
+      name: 'blue-x0-y0',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      x: 0,
+      y: 0,
+    },
+    {
+      name: 'blue-x0-y40',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      x: 0,
+    },
+    {
+      name: 'blue-x40-y0',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      y: 0,
+    },
+    {
+      name: 'blue-positioned-panel',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      positioned: true,
+    },
+    {
+      name: 'blue-marker-filter',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      markerStyle: { filter: 'opacity(1)' },
+    },
+    {
+      name: 'blue-marker-transform',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      markerStyle: { transform: 'translate(0, 0)' },
+    },
+    {
+      name: 'blue-marker-clip',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      markerStyle: { clipPath: 'inset(0)' },
+    },
+    {
+      name: 'blue-marker-outline',
+      shadow: 'inset 20px 0 blue,inset 0 20px blue',
+      markerStyle: { outline: '1px solid transparent' },
+    },
+    {
+      name: 'blue-order-swapped',
+      shadow: 'inset 0 20px blue,inset 20px 0 blue',
+    },
+    { name: 'blue-top-only', shadow: 'inset 0 20px blue' },
+    { name: 'blue-left-only', shadow: 'inset 20px 0 blue' },
+    {
+      name: 'blue-top-lime-left',
+      shadow: 'inset 20px 0 lime,inset 0 20px blue',
+    },
+    {
+      name: 'blue-order-swapped-x0-y0',
+      shadow: 'inset 0 20px blue,inset 20px 0 blue',
+      x: 0,
+      y: 0,
+    },
+    { name: 'blue-bottom-only', shadow: 'inset 0 -20px blue' },
+    {
+      name: 'blue-bottom-only-x0-y0',
+      shadow: 'inset 0 -20px blue',
+      x: 0,
+      y: 0,
+    },
+  ]
+  for (let i = 0; i < variants.length; i++) {
+    const variant = variants[i]
+    // eslint-disable-next-line no-await-in-loop
+    const scene = await fixture.createNativeScrollScene('padding-shadow')
+    const { root, panel } = scene
+    const marker = panel.querySelector('[id$="-marker"]') as HTMLElement
+    marker.style.boxShadow = variant.shadow
+    if (variant.padding) panel.style.padding = variant.padding
+    if (variant.border) panel.style.border = variant.border
+    if (variant.positioned) panel.style.position = 'relative'
+    Object.assign(marker.style, variant.markerStyle || {})
+    panel.scrollLeft = variant.x ?? 40
+    panel.scrollTop = variant.y ?? 40
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+    )
+    const source = root.outerHTML
+    const offsets = [panel.scrollLeft, panel.scrollTop]
+    // eslint-disable-next-line no-await-in-loop
+    const native = await commands.screenshotScrollSource('#' + root.id)
+    const image = new Image()
+    image.src = 'data:image/png;base64,' + native
+    // eslint-disable-next-line no-await-in-loop
+    await image.decode()
+    const nativeCanvas = document.createElement('canvas')
+    nativeCanvas.width = image.naturalWidth
+    nativeCanvas.height = image.naturalHeight
+    nativeCanvas.getContext('2d')!.drawImage(image, 0, 0)
+    const expected = nativeCanvas.getContext('2d')!.getImageData(0, 0, 40, 40)
+    // eslint-disable-next-line no-await-in-loop
+    const canvas = await api.toCanvas(root, { pixelRatio: 1, skipFonts: true })
+    const actual = canvas.getContext('2d')!.getImageData(0, 0, 40, 40)
+    const point = (data: ImageData, x: number, y: number) =>
+      Array.from(data.data.slice((y * 40 + x) * 4, (y * 40 + x) * 4 + 4))
+    const different = actual.data.reduce(
+      (n, v, j) => n + (v === expected.data[j] ? 0 : 1),
+      0,
+    )
+    // eslint-disable-next-line no-await-in-loop
+    await commands.recordScrollbarBoxEvidence(
+      JSON.stringify({
+        kind: 'shadow-isolation-' + variant.name,
+        engine: /Firefox/.test(navigator.userAgent)
+          ? 'firefox'
+          : /Chrome/.test(navigator.userAgent)
+            ? 'chromium'
+            : 'webkit',
+        variant,
+        offsets,
+        nativeDifferentChannels: different,
+        topRows: [1, 2, 3, 4, 10, 13, 14].map((y) => ({
+          y,
+          native: point(expected, 20, y),
+          capture: point(actual, 20, y),
+        })),
+        native,
+        capture: canvas.toDataURL().split(',')[1],
+      }),
+    )
+    expect(root.outerHTML).toBe(source)
+    expect([panel.scrollLeft, panel.scrollTop]).toEqual(offsets)
+    root.remove()
+  }
+})
+
+test('diagnose inset shadows without any scroll container or text', async () => {
+  const cases = [
+    ['top', 'inset 0 10px blue'],
+    ['bottom', 'inset 0 -10px blue'],
+    ['left', 'inset 10px 0 blue'],
+    ['right', 'inset -10px 0 blue'],
+    ['top-blur', 'inset 0 10px 2px blue'],
+    ['spread', 'inset 0 0 0 10px blue'],
+  ]
+  for (let i = 0; i < cases.length; i++) {
+    const [name, shadow] = cases[i]
+    const root = document.createElement('div')
+    root.id = 'plain-inset-' + i
+    root.style.cssText =
+      'position:absolute;left:0;top:0;width:40px;height:40px;background:green;box-shadow:' +
+      shadow
+    document.body.append(root)
+    // eslint-disable-next-line no-await-in-loop
+    const native = await commands.screenshotScrollSource('#' + root.id)
+    const image = new Image()
+    image.src = 'data:image/png;base64,' + native
+    // eslint-disable-next-line no-await-in-loop
+    await image.decode()
+    const nativeCanvas = document.createElement('canvas')
+    nativeCanvas.width = nativeCanvas.height = 40
+    nativeCanvas.getContext('2d')!.drawImage(image, 0, 0)
+    const expected = nativeCanvas.getContext('2d')!.getImageData(0, 0, 40, 40)
+    const renderer = api.createRenderer({ pixelRatio: 1, skipFonts: true })
+    // eslint-disable-next-line no-await-in-loop
+    const capture = await renderer.capture(root)
+    // eslint-disable-next-line no-await-in-loop
+    const actual = await capture.toImageData()
+    const png = document.createElement('canvas')
+    png.width = png.height = 40
+    png.getContext('2d')!.putImageData(actual, 0, 0)
+    // eslint-disable-next-line no-await-in-loop
+    const svg = await capture.toSvg()
+    const svgImage = new Image()
+    svgImage.id = 'plain-svg-image-' + i
+    svgImage.style.cssText =
+      'position:absolute;left:60px;top:0;width:40px;height:40px'
+    svgImage.src = svg
+    // eslint-disable-next-line no-await-in-loop
+    await svgImage.decode()
+    document.body.append(svgImage)
+    // eslint-disable-next-line no-await-in-loop
+    const svgNativePNG = await commands.screenshotScrollSource(
+      '#' + svgImage.id,
+    )
+    const svgNativeImage = new Image()
+    svgNativeImage.src = 'data:image/png;base64,' + svgNativePNG
+    // eslint-disable-next-line no-await-in-loop
+    await svgNativeImage.decode()
+    const svgNativeCanvas = document.createElement('canvas')
+    svgNativeCanvas.width = svgNativeCanvas.height = 40
+    svgNativeCanvas.getContext('2d')!.drawImage(svgNativeImage, 0, 0)
+    const difference = (pixels: ImageData) =>
+      pixels.data.reduce((n, v, j) => n + (v === expected.data[j] ? 0 : 1), 0)
+    const renderModes = [
+      'three-argument',
+      'nine-argument',
+      'pattern',
+      'canvas-filter',
+      'offscreen',
+      'flip-y',
+      'flip-x',
+      'rotate-90',
+      'rotate-180',
+      'flip-y-software',
+      'flip-y-read-software',
+      'flip-y-draw-software',
+    ]
+    const drawModes = renderModes.map((mode) => {
+      try {
+        const target =
+          mode === 'offscreen'
+            ? new OffscreenCanvas(40, 40)
+            : document.createElement('canvas')
+        target.width = target.height = 40
+        const drawSoftware =
+          mode === 'flip-y-software' || mode === 'flip-y-draw-software'
+        const ctx = target.getContext('2d', {
+          willReadFrequently: drawSoftware,
+        }) as CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D
+        if (
+          [
+            'flip-y',
+            'flip-x',
+            'rotate-90',
+            'rotate-180',
+            'flip-y-software',
+            'flip-y-read-software',
+            'flip-y-draw-software',
+          ].includes(mode)
+        ) {
+          const matrices: Record<string, number[]> = {
+            'flip-y': [1, 0, 0, -1, 0, 40],
+            'flip-x': [-1, 0, 0, 1, 40, 0],
+            'rotate-90': [0, 1, -1, 0, 40, 0],
+            'rotate-180': [-1, 0, 0, -1, 40, 40],
+          }
+          const matrix = mode.startsWith('flip-y')
+            ? matrices['flip-y']
+            : matrices[mode]
+          ctx.setTransform(
+            ...(matrix as [number, number, number, number, number, number]),
+          )
+          ctx.drawImage(svgImage, 0, 0)
+          const normal = document.createElement('canvas')
+          normal.width = normal.height = 40
+          const normalCtx = normal.getContext('2d', {
+            willReadFrequently:
+              mode === 'flip-y-software' || mode === 'flip-y-read-software',
+          })!
+          normalCtx.setTransform(
+            ...((mode === 'rotate-90' ? [0, -1, 1, 0, 0, 40] : matrix) as [
+              number,
+              number,
+              number,
+              number,
+              number,
+              number,
+            ]),
+          )
+          normalCtx.drawImage(target, 0, 0)
+          const pixels = normalCtx.getImageData(0, 0, 40, 40)
+          return {
+            mode,
+            nativeDifferentChannels: difference(pixels),
+            maxDelta: pixels.data.reduce(
+              (m, v, j) => Math.max(m, Math.abs(v - expected.data[j])),
+              0,
+            ),
+            png: normal.toDataURL().split(',')[1],
+          }
+        }
+        if (mode === 'pattern') {
+          ctx.fillStyle = ctx.createPattern(svgImage, 'no-repeat')!
+          ctx.fillRect(0, 0, 40, 40)
+        } else if (mode === 'nine-argument') {
+          ctx.drawImage(svgImage, 0, 0, 40, 40, 0, 0, 40, 40)
+        } else {
+          if (mode === 'canvas-filter') ctx.filter = 'opacity(1)'
+          ctx.drawImage(svgImage, 0, 0)
+        }
+        return {
+          mode,
+          nativeDifferentChannels: difference(ctx.getImageData(0, 0, 40, 40)),
+        }
+      } catch (error) {
+        return { mode, error: String(error) }
+      }
+    })
+    const svgImageNativeDifferentChannels = difference(
+      svgNativeCanvas.getContext('2d')!.getImageData(0, 0, 40, 40),
+    )
+    // eslint-disable-next-line no-await-in-loop
+    await commands.recordScrollbarBoxEvidence(
+      JSON.stringify({
+        engine: /Firefox/.test(navigator.userAgent)
+          ? 'firefox'
+          : /Chrome/.test(navigator.userAgent)
+            ? 'chromium'
+            : 'webkit',
+        kind: 'plain-shadow-' + name,
+        source: root.outerHTML,
+        frozenSvg: decodeURIComponent(svg.split(',').slice(1).join(',')),
+        nativeDifferentChannels: actual.data.reduce(
+          (n, v, j) => n + (v === expected.data[j] ? 0 : 1),
+          0,
+        ),
+        svgImageNativeDifferentChannels,
+        svgImageNativePNG: svgNativePNG,
+        drawModes,
+        native,
+        capture: png.toDataURL().split(',')[1],
+      }),
+    )
+    capture.dispose()
+    renderer.dispose()
+    svgImage.remove()
+    root.remove()
+  }
+})

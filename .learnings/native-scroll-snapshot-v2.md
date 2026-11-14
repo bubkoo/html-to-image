@@ -42,3 +42,32 @@
 - Validation: unresolved
 - Last-Validated: 2026-11-15
 - Evidence: docs/evidence/native-scroll-v2.json
+
+## [LRN-20261115-004] knowledge_gap
+
+**Logged**: 2026-11-15
+**Priority**: high
+**Status**: pending
+**Area**: rendering
+
+### Summary
+竖向内阴影差异可在无滚动纯色盒重现；原生 SVG 图片正确，转 Canvas 后错误。
+
+### Details
+六组 40×40 无文字/无滚动盒在三引擎取真实 HTML 与 SVG img 截图。18 组 img 全像素相同；Chromium/Firefox Canvas 也全相同。WebKit 纵向 ±10px inset 分别差 800 通道，2px blur 差 1792；水平与 spread 正对照为零。可逆 Y 翻转恢复无 blur，但 blur 仍差 796/max6，频繁读取源 Canvas 为 544/max13；不能当作完整修复。Pattern 路径因 foreignObject 报 SecurityError，其他 drawImage 重载、OffscreenCanvas、identity Canvas filter 无效。
+
+### Suggested Action
+以无滚动最小输入定位 SVG 到 Canvas 的绘制差异；必须保留模糊阴影反例，不能仅凭无 blur 正对照接入运行时。不要再把差异笼统归因于滚动坐标或 SVG 文件显示。
+
+### Metadata
+- Source: investigation
+- Pattern-Key: webkit.svg-to-canvas-inset-offset-parity
+- Related Files: docs/evidence/native-shadow-canvas.json
+
+### Context Maintenance
+- Scope: Playwright 1.64.1 WebKit 27.2；Chromium/Firefox 同输入正对照
+- Authority: 18 组原生 HTML/img 截图、完整 RGBA 与可逆轴变换反例
+- Revalidation: 浏览器版本、绘制路径变化时重验，仍需 iPhone 验收
+- Validation: unresolved
+- Last-Validated: 2026-11-15
+- Evidence: docs/evidence/native-shadow-canvas.json
