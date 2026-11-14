@@ -21,6 +21,8 @@
     import { checkRasterRetry, checkRasterRetryFont } from './fixtures/raster-retry.mjs'
     import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
+    import { checkSVGUseCycle } from './fixtures/svg-use-cycle.mjs'
+    import { checkSVGNativeStyles, svgNativeStyleCases } from './fixtures/svg-native-styles.mjs'
     import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
     import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
     import { checkScrollbarBox, scrollbarBoxCases } from './fixtures/scrollbar-box.mjs'
@@ -217,6 +219,20 @@
       await checkSVGDependencies({ createRenderer })
       await loadUMD()
       await checkSVGDependencies(window.htmlToImage)
+    })
+
+    await test('external SVG use cycles preserve scoped identities', async () => {
+      await loadUMD()
+      await checkSVGUseCycle({ createRenderer })
+      await checkSVGUseCycle(window.htmlToImage)
+    })
+
+    await test('external SVG preserves native stylesheet scope', async () => {
+      await loadUMD()
+      for (const name of svgNativeStyleCases) {
+        await checkSVGNativeStyles({ createRenderer }, name)
+        await checkSVGNativeStyles(window.htmlToImage, name)
+      }
     })
 
     await test('resource cache lifetime', async () => {

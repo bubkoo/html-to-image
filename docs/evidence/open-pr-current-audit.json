@@ -14,13 +14,14 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "克隆、资源、iOS、SVG、缓存、尺寸和性能的整体替代方案",
-      "disposition": "分项处理；本候选修复变换新增/删除 SVG 引用的资源阶段",
+      "disposition": "Scoped PR 637 verification head 56e8a22 passed source CI/CodeQL/Codecov and true iPhone; final evidence head must pass before merge. Original proposal remains partially unresolved.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
-        "docs/evidence/style-copy-performance.json"
+        "docs/evidence/style-copy-performance.json",
+        "docs/evidence/svg-native-style-scope.json"
       ],
-      "remainingBoundary": "外部 SVG 的文件定义与原生页面输出语义待定；不整体移植 live reflow、三态 filter、全新 Cache 或通用 iOS 延时"
+      "remainingBoundary": "用户已选当前页面保真；受限 CSP 下完整样式保真、不可读匹配规则、外部 CSS 导入/字体、重定向/相对 paint 及更广嵌套行为仍需核验"
     },
     {
       "number": 581,
@@ -514,6 +515,20 @@
     ],
     "nativePrototype": "codex/native-scroll-snapshot-v2 at 99cc2ef; two strict WebKit gates still fail, not merged",
     "masterCI": 43614127837,
-    "masterCodeQL": 43614127835
+    "masterCodeQL": 43614127835,
+    "styleScopeCandidate": {
+      "pr": 637,
+      "source": "56e8a22",
+      "runtimeCore": "2a94455",
+      "status": "105 targeted; full 922/803/147 with existing skips 4/4; physical iPhone 56 native screenshot comparisons, 4 controls and 33/33 smoke; source CI/CodeQL/Codecov passed",
+      "evidence": "docs/evidence/svg-native-style-scope.json"
+    }
+  },
+  "externalSVGOutputDecision": {
+    "date": "2026-11-15T00:31:21+08:00",
+    "source": "explicit user answer",
+    "decision": "current-browser live-page output",
+    "record": "docs/evidence/svg-native-page-contract.json",
+    "implementation": "pending"
   }
 }

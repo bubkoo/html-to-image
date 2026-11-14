@@ -1,0 +1,76 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Native SVG pixel verification</title>
+<style>
+  body {
+    margin: 0;
+    background: white;
+  }
+  #status {
+    position: absolute;
+    top: 100px;
+    left: 0;
+  }
+</style>
+<pre id="status">Ready for native screenshot verification</pre>
+<script src="../../dist/html-to-image.js"></script>
+<script type="module">
+  import * as esm from '../../es/index.js'
+  import {
+    svgNativeStyleCases,
+    checkSVGNativeStyles,
+  } from './fixtures/svg-native-styles.mjs'
+  window.runSVGNativeVerification = (format) => {
+    const api = format === 'esm' ? esm : window.htmlToImage
+    window.svgNativeDone = undefined
+    window.svgNativeRecords = []
+    let sequence = 0
+    ;(async () => {
+      for (const name of svgNativeStyleCases) {
+        await checkSVGNativeStyles(
+          api,
+          name,
+          (id) =>
+            new Promise((resolve) => {
+              const rect = document.getElementById(id).getBoundingClientRect()
+              window.deliverSVGNativePixels = (pixels) => {
+                window.svgNativeScene = undefined
+                resolve(new ImageData(new Uint8ClampedArray(pixels), 60, 20))
+              }
+              window.svgNativeScene = {
+                sequence: ++sequence,
+                format,
+                name,
+                id,
+                rect: {
+                  x: rect.x,
+                  y: rect.y,
+                  width: rect.width,
+                  height: rect.height,
+                },
+                viewport: {
+                  width: innerWidth,
+                  height: innerHeight,
+                  dpr: devicePixelRatio,
+                },
+              }
+            }),
+          (record) => {
+            window.svgNativeRecords.push(record)
+          },
+        )
+        document.getElementById('status').textContent =
+          format + ': ' + name + ' passed'
+      }
+      window.svgNativeDone = { format, passed: svgNativeStyleCases.length }
+    })().catch((error) => {
+      window.svgNativeDone = {
+        format,
+        error: String(error),
+        stack: error.stack,
+      }
+      document.getElementById('status').textContent = String(error)
+    })
+  }
+</script>

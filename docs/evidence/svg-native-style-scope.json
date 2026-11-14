@@ -1,0 +1,185 @@
+{
+  "verifiedAt": "2026-11-14T19:25:21.454540+00:00",
+  "sourceCommit": "56e8a22cf564d21af629d5bf874eec11d59ed691",
+  "pullRequest": "https://github.com/bubkoo/html-to-image/pull/637",
+  "contract": "Explicit user choice: preserve each current browser live-page output",
+  "status": "Source/fixture head 56e8a22 passed CI, CodeQL and both original Codecov gates; evidence-only head still requires verification before merge",
+  "baseline": {
+    "runtime": "a64b831",
+    "sameFinalFixtures": true,
+    "nativeStyleCasesPerEngine": 28,
+    "total": 87,
+    "failed": 55,
+    "passed": 32,
+    "log": "svg-native-style-scope/baseline-final-origin.log"
+  },
+  "candidate": {
+    "same87": {
+      "passed": 87,
+      "failed": 0
+    },
+    "additional": {
+      "resourceBlobScriptAbort": 6,
+      "deniedProbePreservesPriorOutput": 3,
+      "loadedCSSFontModes": 6,
+      "cyclicDetachedGraph": 3
+    },
+    "total": 105,
+    "passed": 105,
+    "log": "svg-native-style-scope/candidate-final-origin.log"
+  },
+  "full": {
+    "coverage": 922,
+    "coverageSkipped": 4,
+    "source": 803,
+    "sourceSkipped": 4,
+    "package": 147,
+    "lintBuildTypesTarball": "pass",
+    "log": "svg-native-style-scope/istanbul-full.log"
+  },
+  "device": {
+    "sourceCommit": "56e8a22cf564d21af629d5bf874eec11d59ed691",
+    "capabilities": {
+      "platformName": "iOS",
+      "safari:platformVersion": "26.6.1",
+      "browserVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "actualNativeScreenshots": {
+      "esm": 28,
+      "umd": 28,
+      "passed": 56,
+      "pixelTolerance": 0
+    },
+    "additionalPixelControls": {
+      "defaultFontEmbedding": 2,
+      "CSPDeniedProbeRetainsPriorOutput": 2,
+      "passed": 4
+    },
+    "fullSmoke": {
+      "passed": 33,
+      "info": 2,
+      "failed": 0,
+      "receipt": "4f75883d-ef8a-4b4a-b68c-bd72d66d950d"
+    },
+    "screenshotEncoding": "Original 16-bit PNGs explicitly tagged sRGB (PNG sRGB=0, EXIF ColorSpace=1). Compare 8-bit RGBA at CSS-pixel centers to Canvas ImageData, without palette replacement, rescaling or tolerance. Full original screenshots and sampled source/capture PNGs preserved.",
+    "sessionAndServer": "Owned Safari session ended; mobile server stopped"
+  },
+  "oracle": "Actual source screenshots in each engine; source DOM and geometry remain unchanged. Authored package references are also checked against those actual source pixels via independent static HTTP fixture geometry, separate from production Blob probes.",
+  "nativeCases": [
+    "class",
+    "cascade",
+    "inheritance",
+    "dependencies",
+    "plain",
+    "main-tag",
+    "host-contexts",
+    "host-inherit-no-page",
+    "host-vars",
+    "main-id",
+    "page-outside",
+    "page-ancestor",
+    "page-structural",
+    "whole-style",
+    "nested-style",
+    "nested-style-plain",
+    "nested-simple",
+    "nested-external",
+    "late-page-css",
+    "unreadable-sheet",
+    "page-paint",
+    "file-media",
+    "file-media-active",
+    "file-type",
+    "file-invalid-url",
+    "loaded-page-font",
+    "page-outside-width",
+    "page-import"
+  ],
+  "causalControls": {
+    "malformedURL": "Chromium before 1 failed / other 2 passed; preserve invalid CSS URL and its native color fallback",
+    "CSP": "Original pre-feature pixels 3 passed; feature before failure isolation 3 failed; final existing-output plus diagnostic checks 3 passed. This is regression prevention, not complete CSP style fidelity.",
+    "fontOwnership": "Firefox/WebKit reject CSS-connected FontFace transfers; without ownership guard final two-mode controls 4 failed / 2 passed; final 6 passed",
+    "pageGeometry": "Main-page rect width rules corrupt a probe in the source document (Firefox 1600 channel differences); probe now runs in the private document",
+    "activeContent": "Source-document staging caused real HTTP bypasses in all 3 engines; final staging permits only the explicit control HTTP fetch and no scripts/events",
+    "blobLock": "Allowing Blob images during untrusted staging caused an observable WebKit Blob response (1 failed / 2 passed). Trusted probes may use only owned Blob URLs; an additional img-src none policy is applied before importing any fetched content."
+  },
+  "scope": [
+    "file versus page selectors, specificity, inherited styles and custom properties",
+    "independent host contexts with one resource fetch and reserved cycle identities",
+    "style media/type, nested styles, and nested cross-file style context with visible fallback",
+    "page paint/clip definitions and CSS frozen before resource callbacks",
+    "opaque unrelated CSS warning without abort and existing font embedding modes",
+    "fragmentless roots use same-file fragment positive controls",
+    "readable page CSS imports with layer/supports/media, invalid paint URL fallback and disabled-sheet isolation",
+    "closed cyclic external-use graphs in a detached document, with one identity and one fetch per asset"
+  ],
+  "remainingBoundaries": [
+    "PR 585 remains incomplete; this is a scoped style correction",
+    "When CSP denies Blob probes, preserve existing definition embedding with a diagnostic. Native stylesheet and fragmentless-root fidelity under that restriction remains open",
+    "Matching rules in unreadable cross-origin stylesheets remain unavailable",
+    "External-file CSS imports/fonts and arbitrary SVG font-relative metrics remain uncertified; loaded-font controls prove compatibility, not all text fidelity",
+    "Redirect/relative-paint native differences remain open",
+    "Broader nested-use native support is not certified; the nested style fixture has an authored visible fallback"
+  ],
+  "rawEvidence": {
+    "baseline": {
+      "archive": "baseline-raw.tar.gz",
+      "index": "baseline-index.json"
+    },
+    "candidate": {
+      "archive": "candidate-raw.tar.gz",
+      "index": "candidate-index.json"
+    },
+    "iphone": {
+      "archive": "iphone-raw.tar.gz",
+      "index": "iphone-index.json"
+    }
+  },
+  "ciRepairs": {
+    "initialRuntimeHead": "c17bd3a",
+    "coverageRun": 43622948757,
+    "codeQLRun": 43622948778,
+    "sizeLabelRun": 43622948783,
+    "failures": [
+      "Linux localhost/127 dual-stack alias did not provide a reachable CSS origin; tests now serve a dedicated second origin",
+      "Monolithic GitHub diff API rejects more than 300 files; all raw evidence now archived with per-file SHA indices"
+    ],
+    "noWorkflowBypass": true
+  },
+  "notDone": [
+    "npm publishing",
+    "closing or commenting on old contributor PRs",
+    "claiming all of PR 585 fixed"
+  ],
+  "runtimeCoreSourceCommit": "2a94455aa99cf3da23c62be961a5492535409832",
+  "coverageCollection": {
+    "provider": "@vitest/coverage-istanbul 5.0.5",
+    "browsers": ["chromium", "firefox", "webkit"],
+    "legacyFixedPNG": "Chromium only, unchanged",
+    "report": "test/coverage/lcov.info",
+    "sourceBehaviorRerun": "All three engines also run without instrumentation",
+    "sourceCI": 43630931196,
+    "testedMerge": "c3e0eaf6fc3309e6814930910a95220f44acdc7e",
+    "sourceHead": "56e8a22cf564d21af629d5bf874eec11d59ed691",
+    "codeQL": 43630931147,
+    "codecovPatch": {
+      "percent": 87.4,
+      "target": 86.12,
+      "conclusion": "success"
+    },
+    "codecovProject": {
+      "percent": 86.33,
+      "target": 86.12,
+      "conclusion": "success"
+    },
+    "originalGateFailure": "svg-native-style-scope/coverage-gate-before.json",
+    "checks": "svg-native-style-scope/source-checks-56e8a22.json"
+  },
+  "transportRevalidation": {
+    "discardedAttempt": "A rerun used an obsolete USB IP and was stopped before any test verdict; no pass was recorded",
+    "correction": "Controllers now resolve the current interface address on every navigation; default en15 can be changed with HTI_PHONE_INTERFACE",
+    "verifiedOrigin": "http://169.254.173.98:4373"
+  }
+}

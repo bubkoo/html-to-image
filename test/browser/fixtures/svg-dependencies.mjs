@@ -132,11 +132,18 @@ export async function checkSVGDependencies({ createRenderer }) {
       use.setAttribute('href', directory + 'assets/tile.svg'),
     )
     image = await renderer.toImageData(root)
+    const { readNativeSVGFixturePolicy } =
+      await import('./svg-native-styles.mjs')
+    const wholePolicy = await readNativeSVGFixturePolicy()
     assert(
-      pixel(image, 10) === '0,128,0,255' && pixel(image, 30) === '0,128,0,255',
+      pixel(image, 10) === (wholePolicy.whole ? '0,128,0,255' : '0,0,0,0') &&
+        pixel(image, 30) === (wholePolicy.whole ? '0,128,0,255' : '0,0,0,0'),
       'Whole-document reference lost pixels',
     )
-    assert(requests.length === 1, 'Whole-document resource refetched')
+    assert(
+      requests.length === (wholePolicy.whole ? 1 : 0),
+      'Whole-document resource request does not match native support',
+    )
 
     requests.length = 0
     const emptyImage = document.createElementNS(namespace, 'image')

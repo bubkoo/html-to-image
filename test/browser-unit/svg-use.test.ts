@@ -202,7 +202,12 @@ test('an empty modern href does not activate the deprecated reference', async ()
   expect(use.getAttribute('href')).toBe('')
 })
 
-test('an external use without a fragment selects the SVG document root', async () => {
+test('an external use without a fragment preserves native root support', async () => {
+  const moduleURL = '/test/browser/fixtures/svg-native-styles.mjs'
+  const { readNativeSVGFixturePolicy } = await import(
+    /* @vite-ignore */ moduleURL
+  )
+  const policy = await readNativeSVGFixturePolicy()
   const { root } = scene('https://assets.example.test/whole.svg')
   const image = await toImageData(root, {
     skipFonts: true,
@@ -217,7 +222,9 @@ test('an external use without a fragment selects the SVG document root', async (
         ),
     },
   })
-  expect(imagePixel(image)).toEqual([0, 128, 0, 255])
+  expect(imagePixel(image)).toEqual(
+    policy.whole ? [0, 128, 0, 255] : [0, 0, 0, 0],
+  )
 })
 
 test('encoded local paint IDs preserve native SVG pixels after URL rewriting', async () => {

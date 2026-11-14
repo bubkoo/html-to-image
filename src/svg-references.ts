@@ -4,6 +4,13 @@ import { ResourceResolverError } from './resource-loader.js'
 import { getTask } from './task.js'
 import { getMimeType } from './mimes.js'
 import { uuid } from './util.js'
+import {
+  createSVGStyleEnvironment,
+  freezeSVGFragmentStyles,
+  svgStyleContextKey,
+  snapshotSVGPageStyles,
+  type SVGStylePolicy,
+} from './svg-style-scope.js'
 
 export const svgNamespace = 'http://www.w3.org/2000/svg'
 const xlinkNamespace = 'http://www.w3.org/1999/xlink'
@@ -57,6 +64,8 @@ interface Scope {
   url: string
   external: boolean
   ids?: Map<string, Element>
+  styleHost?: Element
+  stylePolicy?: SVGStylePolicy
 }
 
 export async function embedSVGReferences(
@@ -74,6 +83,23 @@ export async function embedSVGReferences(
   const task = getTask(options)
   const loader = getResourceLoader(options)
   const targetDocument = root.ownerDocument
+  const pageStyles = snapshotSVGPageStyles(
+    source.ownerDocument,
+    (resource, error) =>
+      loader.warn(
+        Object.freeze({
+          code: 'resource-error',
+          resource,
+          message:
+            'Unable to read native page CSS for an external SVG: ' +
+            (error instanceof Error ? error.message : String(error)),
+        }),
+      ),
+  )
+  const styleEnvironment = createSVGStyleEnvironment(
+    source.ownerDocument,
+    task?.context.signal,
+  )
   const scopes = new Map<Node, Scope>()
   const external = new Map<string, Promise<Scope>>()
   const copies = new Map<Element, Element>()
@@ -83,6 +109,28 @@ export async function embedSVGReferences(
   const primary = new WeakSet<Element>()
   const ids = new Set<string>()
   let definitions: SVGDefsElement | undefined
+  let stylePolicy: Promise<SVGStylePolicy | undefined> | undefined
+  const styledScopes = new Map<string, Scope>()
+  const activeUses = new Map<string, Element>()
+  const nativeStylePolicy = () => {
+    stylePolicy ||= styleEnvironment
+      .measurePolicy(() => task?.check())
+      .catch((error) => {
+        task?.check()
+        // An unavailable optional probe must not discard a valid SVG resource.
+        loader.warn(
+          Object.freeze({
+            code: 'resource-error',
+            resource: 'external-svg-style-probe',
+            message:
+              'Native SVG stylesheet scope could not be measured; retaining existing definition styles: ' +
+              (error instanceof Error ? error.message : String(error)),
+          }),
+        )
+        return undefined
+      })
+    return stylePolicy
+  }
 
   const withoutHash = (value: string) => {
     const url = new URL(value)
@@ -214,6 +262,30 @@ export async function embedSVGReferences(
       ? targetDocument.importNode(original, true)
       : await cloneLocal(original)
     if (!copy) return undefined
+    if (scope.styleHost && scope.stylePolicy) {
+      freezeSVGFragmentStyles(
+        original,
+        copy,
+        scope.root,
+        scope.styleHost,
+        await styleEnvironment.getDocument(),
+        scope.stylePolicy,
+        (text, style) =>
+          text.replace(
+            /url\(\s*(['"]?)([^'"()]+?)\1\s*\)/g,
+            (match, quote, value: string) => {
+              if (value.startsWith('#')) return match
+              try {
+                return `url("${new URL(value, baseFor(style, scope)).href}")`
+              } catch {
+                // Keep invalid URLs and their native CSS fallback values intact.
+                return match
+              }
+            },
+          ),
+        pageStyles,
+      )
+    }
     copy.setAttribute('id', id)
     const register = (native: Element, node: Element) => {
       const old = copies.get(native)
@@ -256,6 +328,7 @@ export async function embedSVGReferences(
     original: Element,
     scope: Scope,
     wholeDocument = false,
+    instance?: Element,
   ) => {
     if (!value.trim()) return value
     let target: URL
@@ -270,10 +343,42 @@ export async function embedSVGReferences(
       return scope.external ? target.href : value
     target.hash = ''
     const local = value.startsWith('#') || target.href === scope.url
+    const edgeKey = JSON.stringify([target.href, id])
+    const active = instance && activeUses.get(edgeKey)
+    if (active) {
+      const alias = aliases.get(active)
+      if (alias) return `#${encodeURIComponent(alias)}`
+    }
     let owner: Scope
     let definition: Element | undefined
     try {
-      owner = local ? scope : await loadScope(target.href)
+      if (instance && wholeDocument && !id && !local) {
+        const policy = await nativeStylePolicy()
+        if (policy && !policy.whole) return ''
+      }
+      owner = local
+        ? scope
+        : target.href === sourceScope.url
+          ? sourceScope
+          : await loadScope(target.href)
+      if (owner.external && instance && owner !== scope) {
+        const policy = await nativeStylePolicy()
+        if (policy) {
+          const key = JSON.stringify([owner.url, svgStyleContextKey(instance)])
+          let styled = styledScopes.get(key)
+          if (!styled) {
+            styled = {
+              ...owner,
+              root: owner.root.cloneNode(true) as Document,
+              ids: undefined,
+              styleHost: instance,
+              stylePolicy: policy,
+            }
+            styledScopes.set(key, styled)
+          }
+          owner = styled
+        }
+      }
       definition = id
         ? find(owner, id)
         : owner.root.nodeType === Node.DOCUMENT_NODE
@@ -300,8 +405,14 @@ export async function embedSVGReferences(
       // A previous iframe pass may already have localized this reference.
       return value
     }
-    const alias = await copyDefinition(definition, owner)
-    return alias ? `#${encodeURIComponent(alias)}` : value
+    // Context-specific copies still share a reserved identity on a cyclic path.
+    if (instance) activeUses.set(edgeKey, definition)
+    try {
+      const alias = await copyDefinition(definition, owner)
+      return alias ? `#${encodeURIComponent(alias)}` : value
+    } finally {
+      if (instance) activeUses.delete(edgeKey)
+    }
   }
   const paintValue = async (
     value: string,
@@ -342,7 +453,13 @@ export async function embedSVGReferences(
       if (href && definitionLinks.has(node.localName))
         setSVGReference(
           node,
-          await reference(href, original, scope, node.localName === 'use'),
+          await reference(
+            href,
+            original,
+            scope,
+            node.localName === 'use',
+            node.localName === 'use' ? node : undefined,
+          ),
         )
       else if (
         href &&
@@ -390,5 +507,9 @@ export async function embedSVGReferences(
       await visit(children[index], scope)
     }
   }
-  await visit(root, sourceScope)
+  try {
+    await visit(root, sourceScope)
+  } finally {
+    styleEnvironment.dispose()
+  }
 }

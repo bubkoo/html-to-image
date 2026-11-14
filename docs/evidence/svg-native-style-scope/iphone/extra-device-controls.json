@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "format": "esm",
+      "control": "loaded-CSS-font-default-embedding",
+      "diagnostics": [],
+      "width": 20,
+      "differentChannels": 0,
+      "height": 20
+    },
+    {
+      "format": "umd",
+      "control": "loaded-CSS-font-default-embedding",
+      "diagnostics": [],
+      "width": 20,
+      "differentChannels": 0,
+      "height": 20
+    },
+    {
+      "format": "esm",
+      "control": "denied-probe-preserves-existing-output",
+      "diagnostics": [
+        {
+          "message": "Native SVG stylesheet scope could not be measured; retaining existing definition styles: External SVG style probe did not become ready",
+          "code": "resource-error",
+          "resource": "external-svg-style-probe"
+        }
+      ],
+      "width": 20,
+      "differentChannels": 0,
+      "height": 20
+    },
+    {
+      "format": "umd",
+      "control": "denied-probe-preserves-existing-output",
+      "diagnostics": [
+        {
+          "message": "Native SVG stylesheet scope could not be measured; retaining existing definition styles: External SVG style probe did not become ready",
+          "code": "resource-error",
+          "resource": "external-svg-style-probe"
+        }
+      ],
+      "width": 20,
+      "differentChannels": 0,
+      "height": 20
+    }
+  ],
+  "ok": true,
+  "gitHead": "56e8a22cf564d21af629d5bf874eec11d59ed691"
+}

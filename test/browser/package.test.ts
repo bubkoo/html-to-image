@@ -14,6 +14,8 @@ const cases = [
   'capture source document lifetime',
   'pseudo background and injected mask resources',
   'SVG dependency graphs and reference precedence',
+  'external SVG preserves native stylesheet scope',
+  'external SVG use cycles preserve scoped identities',
   'resource cache lifetime',
   'native HTTP cache policy',
   'per-URL resource credentials',

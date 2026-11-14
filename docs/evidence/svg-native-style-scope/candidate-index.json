@@ -1,0 +1,2700 @@
+{
+  "archive": "candidate-raw.tar.gz",
+  "archiveSHA256": "da5d8421f564f7e2f94fec6e81e2d29a5fe9ee7c2e57b3fc5b217e29e53cf470",
+  "files": [
+    {
+      "path": "chromium-external-style-cascade-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-cascade-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-cascade.json",
+      "bytes": 99810,
+      "sha256": "fa8c69b38545117c858f73c43254602631929f8781a580b21cd5eb0dae71b523",
+      "measurement": {
+        "kind": "external-style-cascade",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-class-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-class-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-class.json",
+      "bytes": 99789,
+      "sha256": "6769e8a0ef6ad54972ffdcd8df894bf9528722b582a5a6ef25c92fbb4122041e",
+      "measurement": {
+        "kind": "external-style-class",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-dependencies-capture.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-external-style-dependencies-native.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-external-style-dependencies.json",
+      "bytes": 141568,
+      "sha256": "2e0c1e7fd11b100bac60d71d3bcae36c8b440c1b6efb35da43caf4a2be41e4c6",
+      "measurement": {
+        "kind": "external-style-dependencies",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-file-invalid-url-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-file-invalid-url-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-file-invalid-url.json",
+      "bytes": 99836,
+      "sha256": "c0b5c2c569d029ff8e55382a6ce3cdb682c9bf52a569d1a29cdbb90fa860082d",
+      "measurement": {
+        "kind": "external-style-file-invalid-url",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-file-media-active-capture.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-file-media-active-native.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-file-media-active.json",
+      "bytes": 99816,
+      "sha256": "8872bef5af8c0a9360a3e8e8c76d91c31ea9e8373cf036c6ddeb26ef7e465224",
+      "measurement": {
+        "kind": "external-style-file-media-active",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-file-media-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-file-media-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-file-media.json",
+      "bytes": 99803,
+      "sha256": "ad0419588fcc8d43a38314905600f338182d7de26ff3587d5a658b853d1648e4",
+      "measurement": {
+        "kind": "external-style-file-media",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-file-type-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-file-type-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-file-type.json",
+      "bytes": 99802,
+      "sha256": "9a3ede87c12a51c2c5ecce6da0491f97e04de873987827de53894afe623c5c24",
+      "measurement": {
+        "kind": "external-style-file-type",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-host-contexts-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-host-contexts-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-host-contexts.json",
+      "bytes": 99819,
+      "sha256": "6235cfa11fecdf5cd59ed2f0ad2d7eaaa43fc66ec28e7e612c6a3b1c3a357277",
+      "measurement": {
+        "kind": "external-style-host-contexts",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-host-inherit-no-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-host-inherit-no-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-host-inherit-no-page.json",
+      "bytes": 92713,
+      "sha256": "996b660405fa8fb7f36593e8bf1ef03631948da38d23f54a5882842aebb6e4f9",
+      "measurement": {
+        "kind": "external-style-host-inherit-no-page",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-host-vars-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-host-vars-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-host-vars.json",
+      "bytes": 92885,
+      "sha256": "21e620224465fb3980ade53076b923774744c9ef61d848438cecbe17076bb2f0",
+      "measurement": {
+        "kind": "external-style-host-vars",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-inheritance-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-inheritance-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-inheritance.json",
+      "bytes": 99799,
+      "sha256": "eaa34832c949ca03f73725371e022de7b2f6577985c0beddafb2e02a05fdcb25",
+      "measurement": {
+        "kind": "external-style-inheritance",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-late-page-css-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-late-page-css-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-late-page-css.json",
+      "bytes": 92693,
+      "sha256": "524fc1701c002c1d0342ee2760becb48d1bbc333f1354c3ca8fba45f1f503b81",
+      "measurement": {
+        "kind": "external-style-late-page-css",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-loaded-page-font-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-loaded-page-font-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-loaded-page-font.json",
+      "bytes": 100133,
+      "sha256": "effca7a368fee8e23de9a1723b1ca49882bab8aff2f22dd7a942e2e9c86f086e",
+      "measurement": {
+        "kind": "external-style-loaded-page-font",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 1
+      }
+    },
+    {
+      "path": "chromium-external-style-main-id-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-main-id-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-main-id.json",
+      "bytes": 99810,
+      "sha256": "315df65469df244948854c4fe8f8ac3dec5d4483d87179cbe385261518daef62",
+      "measurement": {
+        "kind": "external-style-main-id",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-main-tag-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-main-tag-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-main-tag.json",
+      "bytes": 99793,
+      "sha256": "0e6eecf75541fa1c0145daaaf1e5c1aec797d1cf0c232035b30ba637d8519eb1",
+      "measurement": {
+        "kind": "external-style-main-tag",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-nested-external-capture.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-nested-external-native.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-nested-external.json",
+      "bytes": 131158,
+      "sha256": "1e4f344b96a2fca4ea14532dd16ce9f00726b66e9a4ea04f64642f9b66fc0335",
+      "measurement": {
+        "kind": "external-style-nested-external",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-nested-simple-capture.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-nested-simple-native.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-nested-simple.json",
+      "bytes": 92760,
+      "sha256": "f325d1f657d1203570d3cb1d0c6b8abe679594f080c1d16b73b0c80a3f456eeb",
+      "measurement": {
+        "kind": "external-style-nested-simple",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-nested-style-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-nested-style-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-nested-style-plain-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-nested-style-plain-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-nested-style-plain.json",
+      "bytes": 92757,
+      "sha256": "a3e39dda922eb64f1b1df27f2cbe195d7ee4ecda88eb338c3b493cff689cc492",
+      "measurement": {
+        "kind": "external-style-nested-style-plain",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-nested-style.json",
+      "bytes": 99862,
+      "sha256": "e226b6c5ab75bc53a50a6ae7f3006efdc247382b5f277638d3ca8df71f01f5c1",
+      "measurement": {
+        "kind": "external-style-nested-style",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-page-ancestor-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-ancestor-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-ancestor.json",
+      "bytes": 99855,
+      "sha256": "ddf284833f617801b1b2f3f68c59b3a4123c958360105c07b78a5c6b857df8c0",
+      "measurement": {
+        "kind": "external-style-page-ancestor",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-page-import-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-import-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-import.json",
+      "bytes": 92718,
+      "sha256": "ccd64cbcf89a9d3e5a1a78ae8c3184421edb4088fd89580538624a8cd0cf2be0",
+      "measurement": {
+        "kind": "external-style-page-import",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-page-outside-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-outside-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-outside-width-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-outside-width-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-outside-width.json",
+      "bytes": 92698,
+      "sha256": "d41841b1766b8e694dba06bb7a826a7da5d32b34ec2bf00efe77336385af4104",
+      "measurement": {
+        "kind": "external-style-page-outside-width",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-page-outside.json",
+      "bytes": 92688,
+      "sha256": "da7eb7863914b751acaab80f792943bcf7812d023dbab664ff11c135a4af718f",
+      "measurement": {
+        "kind": "external-style-page-outside",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-page-paint-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-paint-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-paint.json",
+      "bytes": 142552,
+      "sha256": "b4f7b00b30f57337300e104ea97f294c30fc9ea5660b1335f23c68955ee528fe",
+      "measurement": {
+        "kind": "external-style-page-paint",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-page-structural-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-structural-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-page-structural.json",
+      "bytes": 99826,
+      "sha256": "5e9e93184cd15f77a36f14e97baf09668ada00ff51d1d483c582977329eaa4c2",
+      "measurement": {
+        "kind": "external-style-page-structural",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-plain-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-plain-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-plain.json",
+      "bytes": 92680,
+      "sha256": "9dbacc7c9a7877d4874f372844d4820fd93cdaf61d07c22735107772087e8b94",
+      "measurement": {
+        "kind": "external-style-plain",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-unreadable-sheet-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-unreadable-sheet-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-external-style-unreadable-sheet.json",
+      "bytes": 99809,
+      "sha256": "9a1812bcc52fb1632d916c3a23cdd6624d5c4f1414a1eef368955250c7f9a72f",
+      "measurement": {
+        "kind": "external-style-unreadable-sheet",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "chromium-external-style-whole-style-capture.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-whole-style-native.png",
+      "bytes": 161,
+      "sha256": "3ce53a51da68cf2551639dd65c4158dfe271d67eae1aa81097277138d7e8a96c"
+    },
+    {
+      "path": "chromium-external-style-whole-style.json",
+      "bytes": 99937,
+      "sha256": "2345da5d0f452bc995d94afcac48d941ec338c6d7d59fd0243763e2623fe2ac9",
+      "measurement": {
+        "kind": "external-style-whole-style",
+        "engine": "chromium",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [128, 0, 128, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-cascade-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-cascade-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-cascade.json",
+      "bytes": 83959,
+      "sha256": "c58affd50dd351af6b0c7480c8d586278fec72ff4a85bc7e3c88a730ce30fd18",
+      "measurement": {
+        "kind": "external-style-cascade",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-class-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-class-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-class.json",
+      "bytes": 83938,
+      "sha256": "4d67426ca8adc33d087c628149ada340ff74aec5063b6f401623680b7f297095",
+      "measurement": {
+        "kind": "external-style-class",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-dependencies-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-dependencies-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-dependencies.json",
+      "bytes": 83949,
+      "sha256": "fef4745a3fb14a5b83f89a26e816f488b1de114871bed133650bc6888132f3dd",
+      "measurement": {
+        "kind": "external-style-dependencies",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-file-invalid-url-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-invalid-url-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-invalid-url.json",
+      "bytes": 83958,
+      "sha256": "c9860288ea3d13b0cb20874c1422b3650dd0ad6dced09983cd8d57b96da4ab2f",
+      "measurement": {
+        "kind": "external-style-file-invalid-url",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-file-media-active-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-media-active-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-media-active.json",
+      "bytes": 83959,
+      "sha256": "75172a9cc7cb419cec4b78e8492439e144d81184c9098723258030009d8be3cb",
+      "measurement": {
+        "kind": "external-style-file-media-active",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-file-media-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-media-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-media.json",
+      "bytes": 83952,
+      "sha256": "7554b6504c4d906c5e9b689cad5c9323e6866104bba04266236596ac1c8fd359",
+      "measurement": {
+        "kind": "external-style-file-media",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-file-type-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-type-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-file-type.json",
+      "bytes": 83951,
+      "sha256": "f7197d7a37cd26502f54962c7a92b90f2a302259a4a2ab6192babca37164fc3f",
+      "measurement": {
+        "kind": "external-style-file-type",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-host-contexts-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-host-contexts-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-host-contexts.json",
+      "bytes": 83968,
+      "sha256": "565434b689b20aba461de0611a57ac66d3cd45e305f86d88a80dee17022669be",
+      "measurement": {
+        "kind": "external-style-host-contexts",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-host-inherit-no-page-capture.png",
+      "bytes": 159,
+      "sha256": "8911a319c5799fcdb96a84d04968fc25d513c647f9b62ccef92210579f3b5fae"
+    },
+    {
+      "path": "firefox-external-style-host-inherit-no-page-native.png",
+      "bytes": 159,
+      "sha256": "8911a319c5799fcdb96a84d04968fc25d513c647f9b62ccef92210579f3b5fae"
+    },
+    {
+      "path": "firefox-external-style-host-inherit-no-page.json",
+      "bytes": 78031,
+      "sha256": "f38f9d626b4f9e4b254f884447fcc1f4c1f1a25475cc6f2376ee4728e920641e",
+      "measurement": {
+        "kind": "external-style-host-inherit-no-page",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-host-vars-capture.png",
+      "bytes": 159,
+      "sha256": "8911a319c5799fcdb96a84d04968fc25d513c647f9b62ccef92210579f3b5fae"
+    },
+    {
+      "path": "firefox-external-style-host-vars-native.png",
+      "bytes": 159,
+      "sha256": "8911a319c5799fcdb96a84d04968fc25d513c647f9b62ccef92210579f3b5fae"
+    },
+    {
+      "path": "firefox-external-style-host-vars.json",
+      "bytes": 78203,
+      "sha256": "8f73802e34f4824181741fcffd82d8cf0e33bdff1be0c959ba7e79c155286b9c",
+      "measurement": {
+        "kind": "external-style-host-vars",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-inheritance-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-inheritance-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-inheritance.json",
+      "bytes": 83948,
+      "sha256": "a000906ccd220a4bdd55cc0ece9caaf044e720eb8db985ac753fbcc2d587bb79",
+      "measurement": {
+        "kind": "external-style-inheritance",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-late-page-css-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-late-page-css-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-late-page-css.json",
+      "bytes": 78023,
+      "sha256": "b30b9f3875730459135e2c4ade9f2cff16342d6d71c8960335fa046e1d8ecd73",
+      "measurement": {
+        "kind": "external-style-late-page-css",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-loaded-page-font-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-loaded-page-font-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-loaded-page-font.json",
+      "bytes": 84282,
+      "sha256": "e31b04a3301b728c29781a10f1bc3170748d7954d03004d030e1b404af3ac274",
+      "measurement": {
+        "kind": "external-style-loaded-page-font",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 1
+      }
+    },
+    {
+      "path": "firefox-external-style-main-id-capture.png",
+      "bytes": 158,
+      "sha256": "19aa295bae91b694fbe1d122fc56c43985adebcd53af182efd143c33b622fede"
+    },
+    {
+      "path": "firefox-external-style-main-id-native.png",
+      "bytes": 158,
+      "sha256": "19aa295bae91b694fbe1d122fc56c43985adebcd53af182efd143c33b622fede"
+    },
+    {
+      "path": "firefox-external-style-main-id.json",
+      "bytes": 83947,
+      "sha256": "dd80c1d3f308af2a53370bd4ac914c3ea5dfd4dbddd6908f3c948730574e78a9",
+      "measurement": {
+        "kind": "external-style-main-id",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-main-tag-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-main-tag-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-main-tag.json",
+      "bytes": 83942,
+      "sha256": "18ed7a84a562047dbe44d4cb7eda8d916945f2ac50b7ca57bf905169902ffd68",
+      "measurement": {
+        "kind": "external-style-main-tag",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-nested-external-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-nested-external-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-nested-external.json",
+      "bytes": 110495,
+      "sha256": "67df36a099a20875e93d85d99d3f3ae7a4ff841f30942d4c323806bf32c3a71f",
+      "measurement": {
+        "kind": "external-style-nested-external",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-nested-simple-capture.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-nested-simple-native.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-nested-simple.json",
+      "bytes": 78066,
+      "sha256": "25d86abeac50802782a5ffd935678fe1cd0f84d688495870ffaeee880b1d1ccf",
+      "measurement": {
+        "kind": "external-style-nested-simple",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-nested-style-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-nested-style-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-nested-style-plain-capture.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-nested-style-plain-native.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-nested-style-plain.json",
+      "bytes": 78067,
+      "sha256": "321981be5342e9fe5ea8e9f6052c8597ecc9d67e6161092737f3e2e9bbb04762",
+      "measurement": {
+        "kind": "external-style-nested-style-plain",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-nested-style.json",
+      "bytes": 84011,
+      "sha256": "672a1ab2efc1950fe25bbe6bdf0208fad1cc412ebd9512f0981927e96703615a",
+      "measurement": {
+        "kind": "external-style-nested-style",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-page-ancestor-capture.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-page-ancestor-native.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-page-ancestor.json",
+      "bytes": 83986,
+      "sha256": "19d196d06ee5d6c9a70c655d0150bfac68c7befdb9944cddb8af2b75ff9bf39b",
+      "measurement": {
+        "kind": "external-style-page-ancestor",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-page-import-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-import-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-import.json",
+      "bytes": 78114,
+      "sha256": "261f8ce870064d9a85a9a979b7ea0be0a90e119414dd7a09b089c681c6a30083",
+      "measurement": {
+        "kind": "external-style-page-import",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-page-outside-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-outside-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-outside-width-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-outside-width-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-outside-width.json",
+      "bytes": 78028,
+      "sha256": "459dd3d7e6b0847508d39c31d7c020a63cb2bffff72fce5488ce8cac9013441e",
+      "measurement": {
+        "kind": "external-style-page-outside-width",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-page-outside.json",
+      "bytes": 78018,
+      "sha256": "69b24383029035f26286cb4d5395c6a4529f396e4e7874a2c8420c609e652f30",
+      "measurement": {
+        "kind": "external-style-page-outside",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-page-paint-capture.png",
+      "bytes": 184,
+      "sha256": "e0497994699ea94a4a056e697ecd0995c743562bc085a4f509145deac536393a"
+    },
+    {
+      "path": "firefox-external-style-page-paint-native.png",
+      "bytes": 184,
+      "sha256": "e0497994699ea94a4a056e697ecd0995c743562bc085a4f509145deac536393a"
+    },
+    {
+      "path": "firefox-external-style-page-paint.json",
+      "bytes": 119714,
+      "sha256": "c091d74c3fa9176dd3ce6065e0197b828696cdadbebbc3011ef14a36057d4b72",
+      "measurement": {
+        "kind": "external-style-page-paint",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 0, 255, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 0, 255, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-page-structural-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-structural-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-page-structural.json",
+      "bytes": 83975,
+      "sha256": "dc5f76080095f89dcd3cfff69a4bf13035c30b64b515dad238211437fdfb1a7d",
+      "measurement": {
+        "kind": "external-style-page-structural",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-plain-capture.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-plain-native.png",
+      "bytes": 158,
+      "sha256": "71e871dbb705aee8826381a1fe392fbbb43a6953fa88c452966f5a1545314797"
+    },
+    {
+      "path": "firefox-external-style-plain.json",
+      "bytes": 77992,
+      "sha256": "484a7db6e3052c8658fd77bf01e9c9a3ee286eb24d4847d854511c0d19f8b9ab",
+      "measurement": {
+        "kind": "external-style-plain",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-unreadable-sheet-capture.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-unreadable-sheet-native.png",
+      "bytes": 136,
+      "sha256": "dd0076947498e7723f132d1976b127322b5b703538a40790806d79d0e0329f75"
+    },
+    {
+      "path": "firefox-external-style-unreadable-sheet.json",
+      "bytes": 84251,
+      "sha256": "246cf2d1f2d860eb65f82c2807fb503df225d24f25687bb145fffeb30daf5a26",
+      "measurement": {
+        "kind": "external-style-unreadable-sheet",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 0, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [
+          {
+            "code": "resource-error",
+            "resource": "http://localhost:63316/test/browser/fixtures/svg-styles/unrelated.css?direct",
+            "message": "Unable to read native page CSS for an external SVG: CSSStyleSheet.cssRules getter: Not allowed to access cross-origin stylesheet"
+          }
+        ],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "firefox-external-style-whole-style-capture.png",
+      "bytes": 153,
+      "sha256": "3e2147627a9f5012bd433d7ecf30a451f5ec05783814edbf8c0a03e5e1bec97c"
+    },
+    {
+      "path": "firefox-external-style-whole-style-native.png",
+      "bytes": 153,
+      "sha256": "3e2147627a9f5012bd433d7ecf30a451f5ec05783814edbf8c0a03e5e1bec97c"
+    },
+    {
+      "path": "firefox-external-style-whole-style.json",
+      "bytes": 66251,
+      "sha256": "6f0878b48d16f2e40519f26fd63113d77ba7df6e6eea84d63653d469d57e314e",
+      "measurement": {
+        "kind": "external-style-whole-style",
+        "engine": "firefox",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [255, 255, 255, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [255, 255, 255, 255],
+          [255, 255, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-cascade-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-cascade-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-cascade.json",
+      "bytes": 100259,
+      "sha256": "2d20196daf43ac140a7dbbbc8c10c1ae09a18bade7897595bc8fc24b2c9c827d",
+      "measurement": {
+        "kind": "external-style-cascade",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-class-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-class-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-class.json",
+      "bytes": 100238,
+      "sha256": "f3d23a9b2263235bcf0d3cd9e8b45186b3b323b6afe90b5a206373c12e778395",
+      "measurement": {
+        "kind": "external-style-class",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-dependencies-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-dependencies-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-dependencies.json",
+      "bytes": 100249,
+      "sha256": "7cc6ba13307bad0e9290b6490413c7280d60a2294b9c0f9290530b394e0a7498",
+      "measurement": {
+        "kind": "external-style-dependencies",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-file-invalid-url-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-invalid-url-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-invalid-url.json",
+      "bytes": 100258,
+      "sha256": "12b115aa4932fb6effbd8680d1c25d1715b507fc79608c50014baca38182ba86",
+      "measurement": {
+        "kind": "external-style-file-invalid-url",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-file-media-active-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-media-active-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-media-active.json",
+      "bytes": 100259,
+      "sha256": "ad797179afe388e51e5a005fe2d1fb8c4e2f72764b2dbc6475c0404678ace3b6",
+      "measurement": {
+        "kind": "external-style-file-media-active",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-file-media-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-media-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-media.json",
+      "bytes": 100252,
+      "sha256": "90bcf97e4ec3fd36085e9fdf952c89667270f77f7b776089be48c636cbe5b428",
+      "measurement": {
+        "kind": "external-style-file-media",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-file-type-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-type-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-file-type.json",
+      "bytes": 100251,
+      "sha256": "2d0d7841035e44d4d531746dd22e858516b83e8c740868bb4fbb86cc7374c046",
+      "measurement": {
+        "kind": "external-style-file-type",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-host-contexts-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-external-style-host-contexts-native.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-external-style-host-contexts.json",
+      "bytes": 100274,
+      "sha256": "bd8e6f03ea5c82a32225257241d48004e95dcbfdeea9c94ee8edfcb4b94f3b48",
+      "measurement": {
+        "kind": "external-style-host-contexts",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-host-inherit-no-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-external-style-host-inherit-no-page-native.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-external-style-host-inherit-no-page.json",
+      "bytes": 93153,
+      "sha256": "861acec5bdb6397351c3de6e525457670a003387249a21f0910bcf5fa8a8d6a3",
+      "measurement": {
+        "kind": "external-style-host-inherit-no-page",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-host-vars-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-external-style-host-vars-native.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-external-style-host-vars.json",
+      "bytes": 93325,
+      "sha256": "3c4d6bcb6d7fca8c2aa18cc64d028cb23967c2fc7fd2fe2fbd29c428ba7f8d7b",
+      "measurement": {
+        "kind": "external-style-host-vars",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 255, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-inheritance-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-inheritance-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-inheritance.json",
+      "bytes": 100248,
+      "sha256": "eed635aed3241975b0274691f868c05ea02652394edc8b17330ac47b5b5cd8db",
+      "measurement": {
+        "kind": "external-style-inheritance",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-late-page-css-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-late-page-css-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-late-page-css.json",
+      "bytes": 93127,
+      "sha256": "8e5a3987d59aa959d657464ed8d73b07c576adf7b53797e1852c1080eaa953ee",
+      "measurement": {
+        "kind": "external-style-late-page-css",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-loaded-page-font-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-loaded-page-font-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-loaded-page-font.json",
+      "bytes": 100306,
+      "sha256": "df4ee4462a3a91a5de4370ed6248de91b8c54160f730cd10952503afc4ce292d",
+      "measurement": {
+        "kind": "external-style-loaded-page-font",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 1
+      }
+    },
+    {
+      "path": "webkit-external-style-main-id-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-main-id-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-main-id.json",
+      "bytes": 100259,
+      "sha256": "e79f59c82e39c2f1e53b80632f9b9497d8728b9dd687aa014a5a69cc205e272e",
+      "measurement": {
+        "kind": "external-style-main-id",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-main-tag-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-main-tag-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-main-tag.json",
+      "bytes": 100242,
+      "sha256": "7410ebd2f242f0a107362644a774eea97622c34647318567011e7456e8919920",
+      "measurement": {
+        "kind": "external-style-main-tag",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-nested-external-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-external-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-external.json",
+      "bytes": 131868,
+      "sha256": "fb1d4cbec8baf64d7e2acfd4ffd6ab00936c8ce59189caff7bb260a4bd5e6317",
+      "measurement": {
+        "kind": "external-style-nested-external",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-nested-simple-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-simple-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-simple.json",
+      "bytes": 93188,
+      "sha256": "8be72458117ebabcb31125c4f2f9fe48bdee69f01438c385f043ea42b4ae1d8d",
+      "measurement": {
+        "kind": "external-style-nested-simple",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-nested-style-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-style-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-style-plain-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-style-plain-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-nested-style-plain.json",
+      "bytes": 93189,
+      "sha256": "ff73f028ee3fa572192b2c6ec03a3ac8d26fa6360f579ee2d7ea99e04bc7788c",
+      "measurement": {
+        "kind": "external-style-nested-style-plain",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-nested-style.json",
+      "bytes": 100311,
+      "sha256": "86ec459b984e427a5d058af4876a2f8417da4a12cd2fb7be09f1451b3da52236",
+      "measurement": {
+        "kind": "external-style-nested-style",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-page-ancestor-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-ancestor-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-ancestor.json",
+      "bytes": 100304,
+      "sha256": "43fe65ee8aa19541ecebc34e356458370faff6d714fbfdded93a33534c9cf43b",
+      "measurement": {
+        "kind": "external-style-page-ancestor",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-page-import-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-import-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-import.json",
+      "bytes": 93151,
+      "sha256": "710852744bf54cbeb8d8dc3601f745a59811c288987f42984a3c0bb622e02868",
+      "measurement": {
+        "kind": "external-style-page-import",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-page-outside-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-outside-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-outside-width-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-outside-width-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-outside-width.json",
+      "bytes": 93132,
+      "sha256": "d67f040119dc06303d2860cd0c9caf2b8341c78c0fb07396b99fba253a0bace9",
+      "measurement": {
+        "kind": "external-style-page-outside-width",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-page-outside.json",
+      "bytes": 93122,
+      "sha256": "3a27cafa1289dcfb9f06595b5015bd116d3197dd7732f1bcb17aeb0077befa61",
+      "measurement": {
+        "kind": "external-style-page-outside",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-page-paint-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-paint-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-paint.json",
+      "bytes": 143087,
+      "sha256": "2e0771e3a9ad44870ef24866c5cd515fc0b0c1c81641bafdabebf5eb106f511b",
+      "measurement": {
+        "kind": "external-style-page-paint",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-page-structural-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-structural-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-page-structural.json",
+      "bytes": 100275,
+      "sha256": "0e4535aeca3689f94351460d1ec2812a6a575122602231b202f8f80b6bb31c6a",
+      "measurement": {
+        "kind": "external-style-page-structural",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-plain-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-plain-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-plain.json",
+      "bytes": 93114,
+      "sha256": "8f6adb58c5b31dfdfef0e987cada8df6c8830520dcfb3d02404e6c359c7aeee3",
+      "measurement": {
+        "kind": "external-style-plain",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-unreadable-sheet-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-unreadable-sheet-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-unreadable-sheet.json",
+      "bytes": 100258,
+      "sha256": "7778c7b7cd336f34f2bf92d63433015d04fb8fbc1a291b9082f1d1c8f356f8a7",
+      "measurement": {
+        "kind": "external-style-unreadable-sheet",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    },
+    {
+      "path": "webkit-external-style-whole-style-capture.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-whole-style-native.png",
+      "bytes": 239,
+      "sha256": "9d50fa33e6b06fdf5893e079ce8e2b8606cac1236631c5c1b3e1b3287a974cb7"
+    },
+    {
+      "path": "webkit-external-style-whole-style.json",
+      "bytes": 100374,
+      "sha256": "66317e7151417973397fb782224e777ad23f8b9fcc9062f8dcbfcdee31094d5b",
+      "measurement": {
+        "kind": "external-style-whole-style",
+        "engine": "webkit",
+        "nativeDifferentChannels": 0,
+        "nativeCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "captureCenters": [
+          [0, 128, 0, 255],
+          [0, 0, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "diagnostics": [],
+        "loadedFontCount": 0
+      }
+    }
+  ]
+}

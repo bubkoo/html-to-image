@@ -1,5 +1,19 @@
 # V2 主分支切换记录
 
+## 2026-11-15 #637 源码门禁与真机验收
+
+[PR #637](https://github.com/bubkoo/html-to-image/pull/637) 的验证源码 `56e8a22` 已通过 [CI 43630931196](https://github.com/bubkoo/html-to-image/actions/runs/43630931196)、[CodeQL 43630931147](https://github.com/bubkoo/html-to-image/actions/runs/43630931147)；Codecov 增量 87.40%、整体 86.33%，均通过原目标 86.12%。生产源码和构建产物与 `2a94455` 字节一致；后续仅归档证据的 HEAD 仍须在合入前核对全部检查。
+
+同一套最终 87 项样式/依赖对照，旧运行时为 55 失败 / 32 通过，候选 87 全过；另有 18 项资源、取消、CSP 回退、字体归属与循环引用控制，总计 105 全过。覆盖率改为真实三引擎 Istanbul 合并，固定图片旧回归仍限 Chromium；完整本地及远端为 922 coverage / 803 source / 147 构建包，已有条件跳过分别 4 / 4。真实页面 CSS 导入的 layer/supports/media、无效 URL 回退、禁用样式以及离线文档引用循环均已验证。
+
+真实 USB iPhone Safari/iOS 26.6.1（能力报告 useSimulator:false）上，ESM / UMD 各 28 组原生源截图逐 8-bit RGBA 通道一致，共 56 项；默认字体和受限 CSP 另 4 项控制、完整冒烟 33/33 也通过。原始 16-bit sRGB 截图、源/导出 PNG、完整记录与逐文件 SHA 见 [最终证据](evidence/svg-native-style-scope.json)。已结束设备控制及测试服务，未将 UA 旧系统 token 当作真实系统版本。
+
+CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真仍未解决；不可读匹配规则、外部文件 CSS 导入/字体、重定向及更广嵌套行为仍开放，不能关闭 #585。初次 Linux CSS 来源、300 文件大小标签及 Chromium-only 覆盖率失败均保留；原始数据完整打包，没有改变门槛。未发布 npm、未评论或关闭旧 PR。
+
+## 2026-11-15 外部 SVG 输出规则已确认
+
+用户已选择以当前浏览器页面实际显示作为外部 SVG 的输出标准。[决策记录](evidence/svg-native-page-contract.json)覆盖 `<use>` 的文件/主页面样式作用域、继承、依赖与重定向原生差异。后续须与同一引擎真实源页面做像素/几何对照，不能仅凭独立 SVG 文件重放一致就称保真。现有矩阵仍是失败观测，运行时修复尚未交付；下方“契约待选”属历史阶段。#636 合入后主分支 `e73c405` 的 CI 43614944731、CodeQL 43614944730 也已通过。未发布 npm、未评论或关闭旧 PR。
+
 ## 2026-11-15 最新合入结果与未完成边界
 
 [#634](https://github.com/bubkoo/html-to-image/pull/634) 已合入 `f340ddf`，[#635](https://github.com/bubkoo/html-to-image/pull/635) 已合入 `9d2991f`。#635 最终 head `2e85b49` 的 CI 43613759043（测试合并提交 `84ec52e` 的第二父提交即该 head）、CodeQL 43613758977、Codecov patch/project 全部通过；远端与本地组合检查均为 353 coverage（另 1 跳过）、701 source（另 4 跳过）、141 构建包。真实 iPhone 精确组合源码 `3f8bbdf` 完整 31/31，最终提交只补文档/证据，输入 hash 一致。[详细记录](evidence/svg-raster-retry-cache.json)保留首轮 WebKit 连接关闭及透明输出的失败日志，随后独立及完整复核通过；初次异常根因未定。合入后主分支 CI 43614127837 / CodeQL 43614127835 也已通过；CI 校验实际 checkout 为 `9d2991f`，计数仍为 353/701/141（另 1/4/0 跳过）。

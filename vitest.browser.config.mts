@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
@@ -29,6 +30,8 @@ const fixtureTypes: Record<string, string> = {
 }
 const root = process.cwd()
 const resourcePolicy = resourcePolicyServer(root)
+const svgStyleTraces = new Map<string, string[]>()
+const svgStyleBlobStops = new Map<string, () => void>()
 
 export default defineConfig({
   optimizeDeps: { include: ['pixelmatch'] },
@@ -36,7 +39,33 @@ export default defineConfig({
     {
       name: 'serve-legacy-fixtures',
       configureServer(server) {
+        // A real second origin avoids relying on localhost/127 dual-stack aliases.
+        const cssOrigin = createServer(async (request, response) => {
+          const pathname = new URL(request.url || '/', 'http://localhost')
+            .pathname
+          if (pathname !== '/test/browser/fixtures/svg-styles/unrelated.css') {
+            response.writeHead(404).end()
+            return
+          }
+          const css = await readFile(resolve(root, pathname.slice(1)))
+          response
+            .writeHead(200, {
+              'Content-Type': 'text/css',
+              'Cache-Control': 'no-store',
+            })
+            .end(css)
+        })
+        server.httpServer?.once('listening', () => {
+          const address = server.httpServer!.address()
+          if (address && typeof address !== 'string')
+            cssOrigin.listen(address.port + 1)
+        })
+        server.httpServer?.once('close', () => cssOrigin.close())
         server.middlewares.use(async (request, response, next) => {
+          const path = request.url || ''
+          svgStyleTraces.forEach((urls, marker) => {
+            if (path.includes(marker)) urls.push(path)
+          })
           if (await resourcePolicy(request, response)) return
           const pathname = new URL(request.url || '/', 'http://localhost')
             .pathname
@@ -74,7 +103,7 @@ export default defineConfig({
           : ['test/browser-unit/**/*.test.ts', 'test/spec/**/*.test.ts'],
     testTimeout: 30000,
     coverage: {
-      provider: 'v8',
+      provider: 'istanbul',
       reporter: ['text-summary', 'lcov'],
       reportsDirectory: 'test/coverage',
       include: ['src/**/*.ts'],
@@ -84,6 +113,29 @@ export default defineConfig({
       headless: true,
       provider: playwright(),
       commands: {
+        async startSVGStyleResourceTrace(
+          { page },
+          marker: string,
+          blobURLs: string[] = [],
+        ) {
+          const received: string[] = []
+          svgStyleTraces.set(marker, received)
+          const listener = (response: { url(): string }) => {
+            if (blobURLs.includes(response.url()))
+              received.push('blob-response:' + response.url())
+          }
+          page.on('response', listener)
+          svgStyleBlobStops.set(marker, () => page.off('response', listener))
+        },
+        async endSVGStyleResourceTrace({ page }, marker: string) {
+          await page.waitForLoadState('networkidle', { timeout: 5000 })
+          const trace = svgStyleTraces.get(marker)
+          if (!trace) throw new Error('SVG style trace is missing')
+          svgStyleTraces.delete(marker)
+          svgStyleBlobStops.get(marker)?.()
+          svgStyleBlobStops.delete(marker)
+          return trace
+        },
         async collectGarbage({ page }) {
           await page.requestGC()
         },
@@ -125,11 +177,14 @@ export default defineConfig({
       },
       instances: (selected
         ? [selected]
-        : suite === 'browser'
-          ? names
-          : ['chromium']
+        : suite === 'regression'
+          ? ['chromium']
+          : names
       ).map((browser) => ({
         browser: browser as (typeof names)[number],
+        ...(suite === 'coverage' && browser !== 'chromium'
+          ? { exclude: ['test/spec/**'] }
+          : {}),
         provider: playwright({
           launchOptions:
             browser === 'chromium'

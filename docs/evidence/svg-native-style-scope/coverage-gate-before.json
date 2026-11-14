@@ -1,0 +1,23 @@
+{
+  "head": "df34a143ae8f15a81f5bf2b41722fb4c782946b7",
+  "base": "e73c40508d8acbeb99d05677879320998206686d",
+  "ci": {
+    "id": 43627565895,
+    "conclusion": "success"
+  },
+  "codecov": {
+    "patch": {
+      "id": 132548279183,
+      "conclusion": "failure",
+      "percent": 77.95,
+      "target": 86.12
+    },
+    "project": {
+      "id": 132548273551,
+      "conclusion": "failure",
+      "percent": 85.15,
+      "target": 86.12
+    }
+  },
+  "root": "Chromium-only V8 collection omitted real Firefox/WebKit paths; readable imported CSS and scoped external use-cycle controls were also missing."
+}

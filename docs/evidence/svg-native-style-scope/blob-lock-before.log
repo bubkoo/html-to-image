@@ -1,0 +1,38 @@
+
+ RUN  v5.0.5 /Users/bytedance/Documents/Github/html-to-image
+
+ ❯ |webkit| test/browser-unit/svg-style-resource-policy.test.ts (2 tests | 1 failed | 1 skipped) 625ms
+   × external SVG style evaluation neither preloads resources nor executes content 625ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |webkit| test/browser-unit/svg-style-resource-policy.test.ts > external SVG style evaluation neither preloads resources nor executes content
+AssertionError: expected [ …(2) ] to deeply equal [ Array(1) ]
+
+Failure screenshot:
+  - .vitest/attachments/failure-screenshots/svg-style-resource-policy.test.ts/external-SVG-style-evaluation-neither-preloads-resources-nor-executes-content.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "blob-response:blob:http://localhost:63315/919c8420-065d-414f-825c-89f376d034b1",[39m
+[2m    "/test/browser/fixtures/svg-styles/plain.svg?scope=svg-style-safety-1822650f-f2e4-4348-ab54-eba9b7b75e93&control=1",[22m
+[2m  ][22m
+
+ ❯ test/browser-unit/svg-style-resource-policy.test.ts:97:21
+     95|     expect(requests).toContain(imageURL)
+     96|     expect(requests).toContain(blobURL)
+     97|     expect(network).toEqual([control.pathname + control.search])
+       |                     ^
+     98|     expect(state.__htiSVGStyleScript).toBe(0)
+     99|   } finally {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 2 passed | 3 skipped (6)
+   Start at  02:13:22
+   Duration  1.86s (tests 85%, worker 12%, import 4%)
+
