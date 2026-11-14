@@ -1,0 +1,297 @@
+{
+  "checkedAt": "2026-11-14T19:44:49.334362+00:00",
+  "sourceCommit": "5b456a17627548c04d71db1cbf573a0a750ad3f0",
+  "runtimeUnchangedFrom": "2a94455aa99cf3da23c62be961a5492535409832",
+  "contract": "Preserve each current browser live-page appearance",
+  "status": "Observation only; current Firefox and desktop WebKit mismatch remains unresolved",
+  "device": "No new iPhone session or verdict",
+  "observations": {
+    "chromium": {
+      "input": {
+        "id": "2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b",
+        "prefix": "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/",
+        "visibility": "visible",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
+      },
+      "result": {
+        "pixels": [
+          [255, 255, 255, 255],
+          [255, 255, 255, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "sourceUnchanged": true,
+        "requests": [
+          "http://127.0.0.1:4493/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/redirect.svg",
+          "http://127.0.0.1:4493/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/sprite.svg",
+          "http://127.0.0.1:4493/probe/sprite.svg",
+          "http://127.0.0.1:4493/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/direct.svg",
+          "http://127.0.0.1:4493/probe/direct.svg",
+          "http://127.0.0.1:4493/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/flat.svg"
+        ],
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "visibility": "visible",
+        "hit": [
+          {
+            "tag": "svg",
+            "href": null
+          },
+          {
+            "tag": "svg",
+            "href": null
+          },
+          {
+            "tag": "use",
+            "href": "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/flat.svg#icon"
+          },
+          {
+            "tag": "div",
+            "href": null
+          }
+        ]
+      },
+      "nativeHTTPRequests": [
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/redirect.svg",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/assets/sprite.svg",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/direct.svg",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/flat.svg",
+        "/probe/sprite.svg",
+        "/probe/direct.svg"
+      ],
+      "captureHTTPRequests": [
+        "/es/index.js",
+        "/es/renderer.js",
+        "/es/capture.js",
+        "/es/embed-webfonts.js",
+        "/es/task.js",
+        "/es/clone-node.js",
+        "/es/apply-style.js",
+        "/es/embed-images.js",
+        "/es/embed-resources.js",
+        "/es/clone-pseudos.js",
+        "/es/util.js",
+        "/es/mimes.js",
+        "/es/dataurl.js",
+        "/es/resource-loader.js",
+        "/es/svg-references.js",
+        "/es/clone-scroll.js",
+        "/es/svg-style-scope.js",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/redirect.svg",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/assets/sprite.svg",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/sprite.svg",
+        "/probe/sprite.svg",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/direct.svg",
+        "/probe/direct.svg",
+        "/probe/2bcb2afd-5adf-fca2-09f0-cbf6e64bda5b/flat.svg"
+      ],
+      "nativeCenters": [
+        [255, 255, 255, 255],
+        [255, 255, 255, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "nativeSourceUnchanged": true,
+      "differentChannels": 0,
+      "rgbaSHA256": {
+        "nativeBefore": "ca951962293037eba06d823f68c7afef3aa626482ec8737a9b7b87c9bca9a76f",
+        "nativeAfter": "ca951962293037eba06d823f68c7afef3aa626482ec8737a9b7b87c9bca9a76f",
+        "capture": "ca951962293037eba06d823f68c7afef3aa626482ec8737a9b7b87c9bca9a76f"
+      }
+    },
+    "firefox": {
+      "input": {
+        "id": "4a99890d-fa2f-137a-a61c-9cef61a80ac4",
+        "prefix": "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/",
+        "visibility": "visible",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:157.0) Gecko/20100101 Firefox/157.0"
+      },
+      "result": {
+        "pixels": [
+          [255, 255, 255, 255],
+          [255, 255, 255, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "sourceUnchanged": true,
+        "requests": [
+          "http://127.0.0.1:4493/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/redirect.svg",
+          "http://127.0.0.1:4493/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/sprite.svg",
+          "http://127.0.0.1:4493/probe/sprite.svg",
+          "http://127.0.0.1:4493/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/direct.svg",
+          "http://127.0.0.1:4493/probe/direct.svg",
+          "http://127.0.0.1:4493/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/flat.svg"
+        ],
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:157.0) Gecko/20100101 Firefox/157.0",
+        "visibility": "visible",
+        "hit": [
+          {
+            "tag": "use",
+            "href": "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/redirect.svg#icon"
+          },
+          {
+            "tag": "use",
+            "href": "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/direct.svg#icon"
+          },
+          {
+            "tag": "use",
+            "href": "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/flat.svg#icon"
+          },
+          {
+            "tag": "div",
+            "href": null
+          }
+        ]
+      },
+      "nativeHTTPRequests": [
+        "/favicon.ico",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/direct.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/redirect.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/flat.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/assets/sprite.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/assets/sprite.svg"
+      ],
+      "captureHTTPRequests": [
+        "/es/index.js",
+        "/es/renderer.js",
+        "/es/capture.js",
+        "/es/embed-webfonts.js",
+        "/es/task.js",
+        "/es/clone-node.js",
+        "/es/apply-style.js",
+        "/es/embed-images.js",
+        "/es/util.js",
+        "/es/dataurl.js",
+        "/es/embed-resources.js",
+        "/es/resource-loader.js",
+        "/es/clone-pseudos.js",
+        "/es/mimes.js",
+        "/es/svg-references.js",
+        "/es/clone-scroll.js",
+        "/es/svg-style-scope.js",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/redirect.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/assets/sprite.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/sprite.svg",
+        "/probe/sprite.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/direct.svg",
+        "/probe/direct.svg",
+        "/probe/4a99890d-fa2f-137a-a61c-9cef61a80ac4/flat.svg"
+      ],
+      "nativeCenters": [
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "nativeSourceUnchanged": true,
+      "differentChannels": 2400,
+      "rgbaSHA256": {
+        "nativeBefore": "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf",
+        "nativeAfter": "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf",
+        "capture": "ca951962293037eba06d823f68c7afef3aa626482ec8737a9b7b87c9bca9a76f"
+      }
+    },
+    "webkit": {
+      "input": {
+        "id": "872b3529-78b8-9b63-42a7-7c8356f7f98e",
+        "prefix": "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/",
+        "visibility": "visible",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+      },
+      "result": {
+        "pixels": [
+          [255, 255, 255, 255],
+          [255, 255, 255, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "sourceUnchanged": true,
+        "requests": [
+          "http://127.0.0.1:4493/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/redirect.svg",
+          "http://127.0.0.1:4493/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/sprite.svg",
+          "http://127.0.0.1:4493/probe/sprite.svg",
+          "http://127.0.0.1:4493/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/direct.svg",
+          "http://127.0.0.1:4493/probe/direct.svg",
+          "http://127.0.0.1:4493/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/flat.svg"
+        ],
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+        "visibility": "visible",
+        "hit": [
+          {
+            "tag": "use",
+            "href": "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/redirect.svg#icon"
+          },
+          {
+            "tag": "use",
+            "href": "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/direct.svg#icon"
+          },
+          {
+            "tag": "use",
+            "href": "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/flat.svg#icon"
+          },
+          {
+            "tag": "div",
+            "href": null
+          }
+        ]
+      },
+      "nativeHTTPRequests": [
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/redirect.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/direct.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/flat.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/assets/sprite.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/direct.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/assets/sprite.svg"
+      ],
+      "captureHTTPRequests": [
+        "/es/index.js",
+        "/es/renderer.js",
+        "/es/capture.js",
+        "/es/embed-webfonts.js",
+        "/es/task.js",
+        "/es/clone-node.js",
+        "/es/apply-style.js",
+        "/es/embed-images.js",
+        "/es/resource-loader.js",
+        "/es/util.js",
+        "/es/dataurl.js",
+        "/es/clone-pseudos.js",
+        "/es/mimes.js",
+        "/es/embed-resources.js",
+        "/es/svg-references.js",
+        "/es/clone-scroll.js",
+        "/es/svg-style-scope.js",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/redirect.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/assets/sprite.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/sprite.svg",
+        "/probe/sprite.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/direct.svg",
+        "/probe/direct.svg",
+        "/probe/872b3529-78b8-9b63-42a7-7c8356f7f98e/flat.svg"
+      ],
+      "nativeCenters": [
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [0, 128, 0, 255],
+        [255, 255, 0, 255]
+      ],
+      "nativeSourceUnchanged": true,
+      "differentChannels": 2400,
+      "rgbaSHA256": {
+        "nativeBefore": "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf",
+        "nativeAfter": "17ebb99403106967a32efc58959a9124dc88bcf3030737e67680ea37d26e0ecf",
+        "capture": "ca951962293037eba06d823f68c7afef3aa626482ec8737a9b7b87c9bca9a76f"
+      }
+    }
+  },
+  "files": {
+    "chromium-before.png": "4d009671175d5b8b19c9a60876737e26ef2af67e8f81dc1b6d20574f19ed1ded",
+    "chromium-after.png": "4d009671175d5b8b19c9a60876737e26ef2af67e8f81dc1b6d20574f19ed1ded",
+    "chromium-capture.png": "e4e836cdf557f8b35c3786c87cd3938103202b95da7dc62d49099e65fcb6a5ec",
+    "firefox-before.png": "194f62a4030ae1fe5bc0d55fb64db9da1d377796a42d8c03b706b4082385227d",
+    "firefox-after.png": "194f62a4030ae1fe5bc0d55fb64db9da1d377796a42d8c03b706b4082385227d",
+    "firefox-capture.png": "deddad654db55dcd569ef84774707ef20c0f55a5d26bd21baede0d1dcbd1de52",
+    "webkit-before.png": "a92670d28a800b21c9448aaa65f4ec97a89fda62de9d61bdf1d8162e93619352",
+    "webkit-after.png": "a92670d28a800b21c9448aaa65f4ec97a89fda62de9d61bdf1d8162e93619352",
+    "webkit-capture.png": "ba8e45acb8e4f00310bfc2babbe02eb4c2b3ed6a456b2b498cbef2e02650ee31"
+  }
+}

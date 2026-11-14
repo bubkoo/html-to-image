@@ -2,7 +2,9 @@
 
 ## 2026-11-15 #637 源码门禁与真机验收
 
-[PR #637](https://github.com/bubkoo/html-to-image/pull/637) 的验证源码 `56e8a22` 已通过 [CI 43630931196](https://github.com/bubkoo/html-to-image/actions/runs/43630931196)、[CodeQL 43630931147](https://github.com/bubkoo/html-to-image/actions/runs/43630931147)；Codecov 增量 87.40%、整体 86.33%，均通过原目标 86.12%。生产源码和构建产物与 `2a94455` 字节一致；后续仅归档证据的 HEAD 仍须在合入前核对全部检查。
+[PR #637](https://github.com/bubkoo/html-to-image/pull/637) 已合入 `5b456a1`。最终证据 head `475a4cb` 的 [CI 43632692714](https://github.com/bubkoo/html-to-image/actions/runs/43632692714)、[CodeQL 43632692697](https://github.com/bubkoo/html-to-image/actions/runs/43632692697) 和两项 Codecov 均通过；增量 87.40%、整体 86.33%，原目标 86.12% 未改。合入后 [主分支 CI 43633225813](https://github.com/bubkoo/html-to-image/actions/runs/43633225813)、[CodeQL 43633225800](https://github.com/bubkoo/html-to-image/actions/runs/43633225800) 也通过，仍为 922 / 803 / 147。验证源码/fixture 是 `56e8a22`，生产源码与构建产物仍与 `2a94455` 字节一致。
+
+合入后的[相对绘制资源新观测](evidence/svg-relative-paint-current/replay.md)确认：Chrome 的源与导出全像素一致，Firefox/WebKit 各差 2400 通道；三引擎的源 DOM 与前后原生截图均未改变。请求路径证明原生 URL 基准不同，不能统一改为最终响应地址。该项仍未修复，本轮没有新增真机结论。
 
 同一套最终 87 项样式/依赖对照，旧运行时为 55 失败 / 32 通过，候选 87 全过；另有 18 项资源、取消、CSP 回退、字体归属与循环引用控制，总计 105 全过。覆盖率改为真实三引擎 Istanbul 合并，固定图片旧回归仍限 Chromium；完整本地及远端为 922 coverage / 803 source / 147 构建包，已有条件跳过分别 4 / 4。真实页面 CSS 导入的 layer/supports/media、无效 URL 回退、禁用样式以及离线文档引用循环均已验证。
 
