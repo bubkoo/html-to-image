@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
@@ -37,6 +38,28 @@ export default defineConfig({
     {
       name: 'serve-legacy-fixtures',
       configureServer(server) {
+        // A real second origin avoids relying on localhost/127 dual-stack aliases.
+        const cssOrigin = createServer(async (request, response) => {
+          const pathname = new URL(request.url || '/', 'http://localhost')
+            .pathname
+          if (pathname !== '/test/browser/fixtures/svg-styles/unrelated.css') {
+            response.writeHead(404).end()
+            return
+          }
+          const css = await readFile(resolve(root, pathname.slice(1)))
+          response
+            .writeHead(200, {
+              'Content-Type': 'text/css',
+              'Cache-Control': 'no-store',
+            })
+            .end(css)
+        })
+        server.httpServer?.once('listening', () => {
+          const address = server.httpServer!.address()
+          if (address && typeof address !== 'string')
+            cssOrigin.listen(address.port + 1)
+        })
+        server.httpServer?.once('close', () => cssOrigin.close())
         server.middlewares.use(async (request, response, next) => {
           const path = request.url || ''
           svgStyleTraces.forEach((urls, marker) => {

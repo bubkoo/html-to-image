@@ -234,9 +234,7 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
       '/test/browser/fixtures/svg-styles/unrelated.css?direct',
       location.href,
     )
-    if (['localhost', '127.0.0.1'].includes(url.hostname))
-      url.hostname = url.hostname === 'localhost' ? '127.0.0.1' : 'localhost'
-    else url.port = String(Number(url.port) + 1)
+    url.port = String(Number(url.port) + 1)
     opaqueSheet.href = url.href
     const loaded = new Promise((resolve, reject) => {
       opaqueSheet.onload = resolve
