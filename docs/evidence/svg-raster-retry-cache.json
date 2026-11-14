@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-11-14T16:12:11.622499+00:00",
-  "status": "Merged PR #635 at 9d2991f after final exact-head CI/CodeQL/Codecov; master checks tracked separately",
+  "status": "Merged PR #635 at 9d2991f; final exact-head PR and master CI/CodeQL passed, PR Codecov patch/project passed",
   "base": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
   "sourcePRs": [498],
   "relatedDiscussions": [
@@ -147,6 +147,14 @@
     "builtPackagePassed": 141,
     "masterCI": 43614127837,
     "masterCodeQL": 43614127835,
-    "masterStatus": "pending"
+    "masterStatus": "CI and CodeQL success",
+    "masterCounts": {
+      "coveragePassed": 353,
+      "coverageSkipped": 1,
+      "sourcePassed": 701,
+      "sourceSkipped": 4,
+      "builtPackagePassed": 141
+    },
+    "masterCheckedAt": "2026-11-14T16:14:46.286574+00:00"
   }
 }

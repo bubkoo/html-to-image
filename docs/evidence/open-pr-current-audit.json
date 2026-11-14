@@ -507,11 +507,13 @@
     "checkedAt": "2026-11-14T16:12:11.622499+00:00",
     "mergedPRs": [634, 635],
     "runtimeBase": "9d2991f45a62bddcaed392a1ad5a8a48ec77732e",
-    "status": "final PR gates passed; master gates tracked separately",
+    "status": "final PR and master CI/CodeQL passed; PR Codecov patch/project passed",
     "evidence": [
       "docs/evidence/scrollbar-box-dimensions.json",
       "docs/evidence/svg-raster-retry-cache.json"
     ],
-    "nativePrototype": "codex/native-scroll-snapshot-v2 at 99cc2ef; two strict WebKit gates still fail, not merged"
+    "nativePrototype": "codex/native-scroll-snapshot-v2 at 99cc2ef; two strict WebKit gates still fail, not merged",
+    "masterCI": 43614127837,
+    "masterCodeQL": 43614127835
   }
 }

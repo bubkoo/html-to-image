@@ -2,7 +2,7 @@
 
 ## 2026-11-15 最新合入结果与未完成边界
 
-[#634](https://github.com/bubkoo/html-to-image/pull/634) 已合入 `f340ddf`，[#635](https://github.com/bubkoo/html-to-image/pull/635) 已合入 `9d2991f`。#635 最终 head `2e85b49` 的 CI 43613759043（测试合并提交 `84ec52e` 的第二父提交即该 head）、CodeQL 43613758977、Codecov patch/project 全部通过；远端与本地组合检查均为 353 coverage（另 1 跳过）、701 source（另 4 跳过）、141 构建包。真实 iPhone 精确组合源码 `3f8bbdf` 完整 31/31，最终提交只补文档/证据，输入 hash 一致。[详细记录](evidence/svg-raster-retry-cache.json)保留首轮 WebKit 连接关闭及透明输出的失败日志，随后独立及完整复核通过；初次异常根因未定。主分支 CI 43614127837 / CodeQL 43614127835 另行跟进，不把 PR 检查代替主分支结果。
+[#634](https://github.com/bubkoo/html-to-image/pull/634) 已合入 `f340ddf`，[#635](https://github.com/bubkoo/html-to-image/pull/635) 已合入 `9d2991f`。#635 最终 head `2e85b49` 的 CI 43613759043（测试合并提交 `84ec52e` 的第二父提交即该 head）、CodeQL 43613758977、Codecov patch/project 全部通过；远端与本地组合检查均为 353 coverage（另 1 跳过）、701 source（另 4 跳过）、141 构建包。真实 iPhone 精确组合源码 `3f8bbdf` 完整 31/31，最终提交只补文档/证据，输入 hash 一致。[详细记录](evidence/svg-raster-retry-cache.json)保留首轮 WebKit 连接关闭及透明输出的失败日志，随后独立及完整复核通过；初次异常根因未定。合入后主分支 CI 43614127837 / CodeQL 43614127835 也已通过；CI 校验实际 checkout 为 `9d2991f`，计数仍为 353/701/141（另 1/4/0 跳过）。
 
 原生滚动调查保存在 [99cc2ef](https://github.com/bubkoo/html-to-image/blob/99cc2ef/docs/evidence/native-scroll-v2.json)，没有 PR、没有合入。新的 Canvas 四组控制表明：稳定 SVG 字形的末 21 通道差异在 willReadFrequently:true 时为零，但直接全局启用后首次绘制仍失败、独立解码对照也改变；运行时实验已撤回。内阴影仍差 234 通道，两项严格失败未改为通过。下方“待 #634/#635 验收”保留为历史阶段；旧 PR 未评论或关闭，npm 未发布。
 
