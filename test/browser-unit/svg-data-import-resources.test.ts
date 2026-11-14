@@ -5,14 +5,16 @@ import type { Options } from '../../src/types'
 
 const moduleURL = '/test/browser/fixtures/svg-data-imports.mjs'
 
-test.each(['cycle', 'reject', 'http-child'])(
+test.each(['cycle', 'reject', 'http-child', 'opaque-relative'])(
   'SVG data import %s retains resource ownership and isolation',
   async (mode) => {
     const fixture = await import(/* @vite-ignore */ moduleURL)
     const policy = await fixture.getSVGDataImportFixturePolicy()
     const marker = 'svg-import-safety-' + crypto.randomUUID()
     const httpURL = new URL(
-      '/test/browser/fixtures/svg-styles/unrelated.css?scope=' + marker,
+      (mode === 'opaque-relative'
+        ? '/test/browser/fixtures/svg-data-imports/paint-target.svg?scope='
+        : '/test/browser/fixtures/svg-styles/unrelated.css?scope=') + marker,
       location.href,
     ).href
     const reason = new Error('owned CSS resolver rejection')
@@ -23,6 +25,15 @@ test.each(['cycle', 'reject', 'http-child'])(
           if (kind !== 'stylesheet') return undefined
           calls.push(url)
           if (mode === 'reject') throw reason
+          if (mode === 'opaque-relative') {
+            const target = new URL(httpURL)
+            return new Blob(
+              [
+                `.shape{fill:url("${target.pathname + target.search}#paint") green!important}`,
+              ],
+              { type: 'text/css' },
+            )
+          }
           const target = mode === 'cycle' ? url : httpURL
           return new Blob(
             [`@import url("${target}");.shape{fill:green!important}`],
@@ -32,7 +43,8 @@ test.each(['cycle', 'reject', 'http-child'])(
       },
     }
     const frames = Array.from(document.querySelectorAll('iframe'))
-    if (mode === 'http-child') await commands.startSVGStyleResourceTrace(marker)
+    const trace = mode === 'http-child' || mode === 'opaque-relative'
+    if (trace) await commands.startSVGStyleResourceTrace(marker)
     let stopped = false
     try {
       const result = fixture.checkSVGDataImports(
@@ -46,7 +58,7 @@ test.each(['cycle', 'reject', 'http-child'])(
         await expect(result).rejects.toMatchObject({ cause: reason })
       else expect((await result).fullPixelMatch).toBe(true)
       expect(calls).toHaveLength(policy.imports ? 1 : 0)
-      if (mode === 'http-child') {
+      if (trace) {
         const control = new URL(httpURL)
         control.searchParams.set('control', '1')
         await fetch(control, { cache: 'no-store' })
@@ -56,8 +68,7 @@ test.each(['cycle', 'reject', 'http-child'])(
       }
       expect(Array.from(document.querySelectorAll('iframe'))).toEqual(frames)
     } finally {
-      if (mode === 'http-child' && !stopped)
-        await commands.endSVGStyleResourceTrace(marker)
+      if (trace && !stopped) await commands.endSVGStyleResourceTrace(marker)
     }
   },
 )
