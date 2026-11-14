@@ -515,5 +515,12 @@
     "nativePrototype": "codex/native-scroll-snapshot-v2 at 99cc2ef; two strict WebKit gates still fail, not merged",
     "masterCI": 43614127837,
     "masterCodeQL": 43614127835
+  },
+  "externalSVGOutputDecision": {
+    "date": "2026-11-15T00:31:21+08:00",
+    "source": "explicit user answer",
+    "decision": "current-browser live-page output",
+    "record": "docs/evidence/svg-native-page-contract.json",
+    "implementation": "pending"
   }
 }

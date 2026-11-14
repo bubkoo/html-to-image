@@ -1,0 +1,17 @@
+{
+  "decidedAt": "2026-11-15T00:31:21+08:00",
+  "source": "Explicit user answer in this chat",
+  "sourcePR": 585,
+  "decision": "Preserve each current browser live-page output",
+  "acceptance": "Compare to actual source element screenshots in the same browser; preserve source DOM and resource identities; exact RGBA and geometry controls. A standalone SVG file is not a universal oracle for external use.",
+  "scope": [
+    "External SVG use stylesheet scope and inherited style",
+    "Main-page selectors versus external-file selectors",
+    "Referenced paint/clip definitions and redirect cases where source behavior differs"
+  ],
+  "implementationStatus": "Not fixed yet. Previous matrices are failing observations, not passing regressions.",
+  "evidence": [
+    "svg-styles-native-matrix.json",
+    "svg-redirect-native-matrix.json"
+  ]
+}
