@@ -1,7 +1,7 @@
 from pathlib import Path
 import json,hashlib,tarfile
 r=Path(__file__).parent
-for name in ['before-and-boundaries','candidate-desktop','first-remote','second-remote']:
+for name in ['before-and-boundaries','candidate-desktop','first-remote','second-remote','physical-device']:
  d=json.loads((r/(name+'-index.json')).read_text());p=r/d['archive'];assert hashlib.sha256(p.read_bytes()).hexdigest()==d['archiveSHA256']
  with tarfile.open(p,'r:gz') as t:
   assert set(t.getnames())=={name+'/'+f['path'] for f in d['files']}

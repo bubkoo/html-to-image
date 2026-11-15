@@ -33,9 +33,38 @@
     "sourceAndInputHashesUnchanged": true
   },
   "device": {
-    "status": "pending, SafariDriver found devices but could not establish iPhone session",
-    "passed": false,
-    "simulatorClaim": false
+    "status": "passed on physical iPhone; own session and server released",
+    "passed": true,
+    "sourceCommit": "783e9c4f48071b4fbcf51b9a337702937065d9c0",
+    "runtimeSource": "ea97a25a45cb9db202d30d0f8dd704d57d7de3af",
+    "capabilities": {
+      "platformName": "iOS",
+      "safari:platformVersion": "26.6.1",
+      "browserVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "nativePairs": 6,
+    "nativePhotos": 12,
+    "allNativeChannelsExact": true,
+    "sourceBeforeAfterExact": true,
+    "cancelControls": 4,
+    "smoke": {
+      "PASS": 38,
+      "INFO": 2,
+      "FAIL": 0
+    },
+    "inputHashesUnchanged": 104,
+    "deviceGCClaim": false,
+    "cleanup": {
+      "ownedServerStopped": true,
+      "port4373ListenerPresent": false,
+      "ownSafariSessionDeleted": true,
+      "systemSafariDriverNotStopped": true
+    },
+    "oracle": "12 physical screenshots, four-border calibration, CSS-pixel centers; no resampling or tolerance",
+    "channelsPerCase": 11264,
+    "sessionIdentifierArchived": false
   },
   "posterHistory": {
     "scope": "same recorded public state in separate controlled WebKit scenes; not a proof about every possible browser API",
@@ -67,12 +96,13 @@
     "before-and-boundaries": 41,
     "candidate-desktop": 75,
     "first-remote": 27,
-    "second-remote": 12
+    "second-remote": 12,
+    "physical-device": 48
   },
-  "totalRawFiles": 155,
+  "totalRawFiles": 203,
   "inputHashes": "video-empty-frame/input-sha256.json",
   "remoteGates": {
-    "status": "not accepted; both observed exact-head CI runs failed",
+    "status": "physical device passed; final evidence commit requires fresh exact-head checks",
     "pr": 647,
     "firstHead": "a388d1a83130ad361b44ad23c2dbbe6dd65cad49",
     "testedMerge": "8ea5a308eb979847f518a4dfee2ee316dfeba816",
@@ -97,8 +127,8 @@
       "conclusion": "success"
     },
     "rootCause": "not established; preserve preexisting lifecycle failures, do not claim this video fix resolves them",
-    "latestHead": "requires fresh checks after evidence commit; iPhone remains pending",
-    "latestObserved": {
+    "latestHead": "fresh final-head checks pending after this evidence commit",
+    "previousObserved": {
       "head": "9ee095127805c61205658e18587de533f7ffe6af",
       "testedMerge": "a787b0708a6ffab59abd7317dd7058b8a2544c4a",
       "ci": {
@@ -123,6 +153,25 @@
       },
       "inputs": "all 104 runtime/test input hashes unchanged",
       "acceptance": "not accepted; draft, physical iPhone and lifecycle failures remain open"
+    },
+    "latestObserved": {
+      "head": "783e9c4f48071b4fbcf51b9a337702937065d9c0",
+      "testedMerge": "04507b84ae14d6d5c489bd856f011cdf5d2ac9cc",
+      "ci": {
+        "run": 43676719909,
+        "conclusion": "success",
+        "coveragePassed": 1234,
+        "sourcePassed": 1115,
+        "packagesPassed": 162,
+        "inheritedSkips": [4, 4]
+      },
+      "codeql": {
+        "run": 43676719916,
+        "conclusion": "success"
+      },
+      "allChecks": "success, including Codecov patch/project",
+      "inputs": "104 runtime/test input hashes unchanged",
+      "limitation": "unchanged runtime does not establish a lifecycle fix for earlier failed runs"
     }
   },
   "npmPublished": false,

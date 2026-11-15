@@ -35,7 +35,8 @@
         "scope": "HAVE_NOTHING without poster; transparent styled media box",
         "evidence": "docs/evidence/video-empty-frame.json",
         "local": "before 9 fail/3 pass, after 12 pass; full 1234/1115/162, inherited skips 4/4; 18 desktop native pairs exact",
-        "remaining": "physical iPhone and exact-head remote gates pending; poster-history and broader media states not resolved"
+        "remaining": "fresh final-head remote gates pending; poster-history and broader media states not resolved; no device GC claim",
+        "device": "physical iPhone Safari/iOS 26.6.1: 6 exact native pairs, 12 source photos, 38 PASS / 2 INFO smoke and 4 cancellation controls; 104 inputs unchanged; session/server released"
       }
     },
     {
@@ -250,7 +251,8 @@
         "scope": "HAVE_NOTHING without poster; transparent styled media box",
         "evidence": "docs/evidence/video-empty-frame.json",
         "local": "before 9 fail/3 pass, after 12 pass; full 1234/1115/162, inherited skips 4/4; 18 desktop native pairs exact",
-        "remaining": "physical iPhone and exact-head remote gates pending; poster-history and broader media states not resolved"
+        "remaining": "fresh final-head remote gates pending; poster-history and broader media states not resolved; no device GC claim",
+        "device": "physical iPhone Safari/iOS 26.6.1: 6 exact native pairs, 12 source photos, 38 PASS / 2 INFO smoke and 4 cancellation controls; 104 inputs unchanged; session/server released"
       }
     },
     {
