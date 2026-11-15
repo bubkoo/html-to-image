@@ -72,27 +72,6 @@ jobs:
       - name: 📦　Test built package in browsers
         run: pnpm run test:browser:package
 
-      # Investigation only: retain the failed normal gate and keep traces separate.
-      - name: 🔬　Trace Firefox retaining roots after failure
-        if: ${{ failure() && (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') }}
-        env:
-          TEST_BROWSER: firefox
-          GC_OBSERVER_DIAGNOSTICS: '1'
-          GC_ROOT_TRACE: '1'
-          MOZ_CC_LOG_ALL: '1'
-          MOZ_CC_LOG_PROCESS: content
-          MOZ_CC_LOG_THREAD: main
-          MOZ_DISABLE_CONTENT_SANDBOX: t
-        run: |
-          export MOZ_CC_LOG_DIRECTORY="$PWD/.vitest/attachments/gc-root-graphs"
-          mkdir -p "$MOZ_CC_LOG_DIRECTORY"
-          trace_status=0
-          pnpm exec vitest run --config vitest.browser.config.mts > .vitest/attachments/gc-root-trace.log 2>&1 || trace_status=$?
-          tar -czf "$RUNNER_TEMP/gc-root-graphs.tar.gz" -C "$MOZ_CC_LOG_DIRECTORY" .
-          rm -r "$MOZ_CC_LOG_DIRECTORY"
-          mv "$RUNNER_TEMP/gc-root-graphs.tar.gz" .vitest/attachments/
-          exit "$trace_status"
-
       - name: 📋　Upload browser report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4

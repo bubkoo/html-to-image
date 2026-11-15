@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 182,
+  "totalRawFiles": 360,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -110,6 +110,16 @@
       "lint": "passed",
       "types": "passed"
     },
-    "LinuxRootCause": "pending; logging perturbs timing"
+    "LinuxRootCause": "pending; logging perturbs timing",
+    "LinuxResult": "normal source push 1101 pass / 5 fail / 4 skip; PR 1100 pass / 6 fail / 4 skip; both coverage 1225 pass / 4 skip; packages not run; both Firefox trace 368 pass / 2 inherited skips; root cause unresolved",
+    "confounds": [
+      "logging and file-system timing",
+      "Firefox-only trace versus three-engine normal suite",
+      "separate browser process and execution"
+    ],
+    "fullRemoteGraphArchivesDownloaded": false,
+    "selectedRawFiles": 178,
+    "summary": "gc-observer-controls/root-trace-pair-summary.json",
+    "temporaryTraceRemovedAfterNegativeReproduction": true
   }
 }
