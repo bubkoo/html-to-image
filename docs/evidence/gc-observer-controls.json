@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 377,
+  "totalRawFiles": 529,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -143,6 +143,35 @@
       "types": "passed"
     },
     "rawFiles": 17,
-    "LinuxResult": "pending; entry can already differ from earlier cached primary after module/command boundary"
+    "LinuxResult": "three failed Firefox documents remain at entry, after microtask and after one timer task in both jobs; no explicit GC, no canary collected, held control survives",
+    "runs": {
+      "push": 43670464573,
+      "pr": 43670467884
+    },
+    "normalGate": {
+      "push": "coverage 1225 pass / 4 skip; source 1100 pass / 6 fail / 4 skip; packages not run",
+      "pr": "coverage 1225 pass / 4 skip; source 1103 pass / 3 fail / 4 skip; packages not run"
+    }
+  },
+  "checkpointRunRawFiles": 134,
+  "ccOnlyTrace": {
+    "scope": "separate source runs after normal failure, all three engines; no TEST_BROWSER selection",
+    "firstControl": "same graph-writing configuration, no logging",
+    "traceCondition": "only if configuration control still fails",
+    "runtimeValidatedFlag": "MOZ_CC_DISABLE_GC_LOG=1",
+    "noPerCollectionFileIO": true,
+    "primaryHelpersAndGCCommandUnchanged": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "lint": "passed",
+      "types": "passed",
+      "ccFiles": 75,
+      "gcFiles": 0,
+      "incompleteFiles": 0,
+      "graphBytes": 99898550,
+      "fullLocalGraphArchiveCommitted": false
+    },
+    "selectedRawFiles": 18,
+    "LinuxResult": "pending"
   }
 }

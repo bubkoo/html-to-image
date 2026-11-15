@@ -1,0 +1,233 @@
+{
+  "pre-checkpoint-push": {
+    "run": 43670168332,
+    "head": "1e4c799",
+    "records": 18,
+    "negativeOriginals": []
+  },
+  "pre-checkpoint-pr": {
+    "run": 43670171072,
+    "head": "1e4c799",
+    "records": 18,
+    "negativeOriginals": [
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "checkpoint": null,
+        "afterDiagnostics": true
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "checkpoint": null,
+        "afterDiagnostics": true
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": false,
+          "nativeDiagnosticCollections": 3,
+          "diagnosis": {
+            "native": {
+              "plain": false,
+              "sharedFonts": false,
+              "nativeProbe": false,
+              "measuredProbe": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            "tree": {
+              "elements": ["html", "head", "meta", "style", "meta", "body"],
+              "shadows": []
+            }
+          }
+        },
+        "checkpoint": null,
+        "afterDiagnostics": false
+      }
+    ]
+  },
+  "no-collection-push": {
+    "run": 43670464573,
+    "head": "31e2952",
+    "records": 18,
+    "negativeOriginals": [
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "checkpoint": {
+          "explicitCollections": 0,
+          "atEntry": false,
+          "afterMicrotask": false,
+          "afterTask": false,
+          "elapsedMs": 0,
+          "canaryCollected": false,
+          "strongControlPreserved": true
+        },
+        "afterDiagnostics": true
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "checkpoint": {
+          "explicitCollections": 0,
+          "atEntry": false,
+          "afterMicrotask": false,
+          "afterTask": false,
+          "elapsedMs": 1,
+          "canaryCollected": false,
+          "strongControlPreserved": true
+        },
+        "afterDiagnostics": true
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": false,
+          "nativeDiagnosticCollections": 3,
+          "diagnosis": {
+            "native": {
+              "plain": false,
+              "sharedFonts": false,
+              "nativeProbe": false,
+              "measuredProbe": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            "tree": {
+              "elements": ["html", "head", "meta", "style", "meta", "body"],
+              "shadows": []
+            }
+          }
+        },
+        "checkpoint": {
+          "explicitCollections": 0,
+          "atEntry": false,
+          "afterMicrotask": false,
+          "afterTask": false,
+          "elapsedMs": 0,
+          "canaryCollected": false,
+          "strongControlPreserved": true
+        },
+        "afterDiagnostics": true
+      },
+      {
+        "suite": "browser",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": false
+        },
+        "checkpoint": {
+          "explicitCollections": 0,
+          "atEntry": false,
+          "afterMicrotask": false,
+          "afterTask": false,
+          "elapsedMs": 0,
+          "canaryCollected": false,
+          "strongControlPreserved": true
+        },
+        "afterDiagnostics": true
+      }
+    ]
+  },
+  "no-collection-pr": {
+    "run": 43670467884,
+    "head": "31e2952",
+    "records": 18,
+    "negativeOriginals": [
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "checkpoint": {
+          "explicitCollections": 0,
+          "atEntry": false,
+          "afterMicrotask": false,
+          "afterTask": false,
+          "elapsedMs": 0,
+          "canaryCollected": false,
+          "strongControlPreserved": true
+        },
+        "afterDiagnostics": true
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "checkpoint": {
+          "explicitCollections": 0,
+          "atEntry": false,
+          "afterMicrotask": false,
+          "afterTask": false,
+          "elapsedMs": 0,
+          "canaryCollected": false,
+          "strongControlPreserved": true
+        },
+        "afterDiagnostics": true
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": false,
+          "nativeDiagnosticCollections": 3,
+          "diagnosis": {
+            "native": {
+              "plain": false,
+              "sharedFonts": false,
+              "nativeProbe": false,
+              "measuredProbe": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            "tree": {
+              "elements": ["html", "head", "meta", "style", "meta", "body"],
+              "shadows": []
+            }
+          }
+        },
+        "checkpoint": {
+          "explicitCollections": 0,
+          "atEntry": false,
+          "afterMicrotask": false,
+          "afterTask": false,
+          "elapsedMs": 0,
+          "canaryCollected": false,
+          "strongControlPreserved": true
+        },
+        "afterDiagnostics": false
+      }
+    ]
+  }
+}

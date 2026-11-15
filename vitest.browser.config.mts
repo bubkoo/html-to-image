@@ -1,5 +1,5 @@
 import { svgResponseURLServer } from './test/browser/fixtures/svg-response-url-server.mjs'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
 import { cpus, freemem, totalmem } from 'node:os'
@@ -164,14 +164,28 @@ export default defineConfig({
             totalMemory: totalmem(),
             freeMemory: freemem(),
           }
-          const folder = resolve('.vitest/attachments/gc-observers')
+          const phase = process.env.GC_OBSERVER_PHASE
+          if (phase && !['sandbox-control', 'cc-only-trace'].includes(phase))
+            throw new Error('Unsupported GC observer diagnostic phase')
+          const folder = resolve(
+            '.vitest/attachments/gc-observers',
+            phase || '.',
+          )
+          const graphFiles =
+            phase === 'cc-only-trace'
+              ? (await readdir(process.env.MOZ_CC_LOG_DIRECTORY!)).sort()
+              : undefined
           await mkdir(folder, { recursive: true })
           const name = String(
             suite + '-' + data.engine + '-' + data.kind,
           ).replace(/[^a-z0-9-]/gi, '_')
           await writeFile(
             resolve(folder, name + '.json'),
-            JSON.stringify({ ...data, execution }, null, 2) + '\n',
+            JSON.stringify(
+              { ...data, execution, phase, observedAt: Date.now(), graphFiles },
+              null,
+              2,
+            ) + '\n',
           )
         },
         async screenshotScrollSource({ iframe }, selector: string) {
