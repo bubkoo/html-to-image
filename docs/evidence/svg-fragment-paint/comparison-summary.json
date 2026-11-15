@@ -1,0 +1,856 @@
+{
+  "desktop": [
+    {
+      "case": "firefox-svg-fragment-pattern-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-nested-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-siblings-local",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-siblings-removed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-siblings-removed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-resolved-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-resolved-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-siblings-renamed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-siblings-local",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-siblings-collision",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-siblings-collision",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-siblings-renamed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-siblings-removed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-siblings-kept",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-siblings-local",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-inline-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-shadow-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-siblings-renamed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-gradient-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-siblings-collision",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-shadow-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-resolved-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-inner-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-siblings-kept",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-gradient-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "chromium-svg-fragment-pattern-shadow-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-attribute-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "firefox-svg-fragment-siblings-kept",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "firefox-svg-fragment-pattern-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-pattern-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "webkit-svg-fragment-gradient-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    }
+  ],
+  "iphone": [
+    {
+      "case": "esm-svg-fragment-pattern-shadow-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-gradient-inner-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "esm-svg-fragment-siblings-kept",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-resolved-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-siblings-removed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-gradient-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-siblings-renamed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-siblings-local",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-inner-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-gradient-nested-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "umd-svg-fragment-pattern-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-inline-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "esm-svg-fragment-gradient-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-nested-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-gradient-attribute-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "esm-svg-fragment-pattern-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-graph-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-attribute-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "umd-svg-fragment-pattern-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-siblings-local",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-siblings-kept",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-siblings-renamed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-resolved-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-siblings-removed",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-graph-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-gradient-nested-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-gradient-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-shadow-attribute-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-nested-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-inline-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-gradient-inner-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-inline-missing",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-siblings-collision",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "umd-svg-fragment-pattern-shadow-attribute-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-pattern-inner-page",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    },
+    {
+      "case": "esm-svg-fragment-gradient-inline-page",
+      "nativeDifferentChannels": 153,
+      "maximumChannelDelta": 1
+    },
+    {
+      "case": "esm-svg-fragment-siblings-collision",
+      "nativeDifferentChannels": 0,
+      "maximumChannelDelta": 0
+    }
+  ]
+}

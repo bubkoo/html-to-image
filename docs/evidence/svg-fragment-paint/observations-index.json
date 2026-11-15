@@ -1,0 +1,41 @@
+{
+  "archive": "observations-raw.tar.gz",
+  "archiveSHA256": "9d627cad8b9fdb5782208cafc2f6c1bc79c20173050a339dd8ffab9505af84f5",
+  "files": [
+    {
+      "path": "clip-private-context.json",
+      "bytes": 11915,
+      "sha256": "007a09964fa824c3b17069e82d553bb1c919d8d255a80524505137cf3f53d949"
+    },
+    {
+      "path": "clip-private-context.log",
+      "bytes": 11915,
+      "sha256": "007a09964fa824c3b17069e82d553bb1c919d8d255a80524505137cf3f53d949"
+    },
+    {
+      "path": "clip-private-context.mjs",
+      "bytes": 3301,
+      "sha256": "45ca8fc044570ddf91f90903145ad80d7552b8768990e762ee67f5044d20e1a5"
+    },
+    {
+      "path": "svg-fragment-shadow-sources.log",
+      "bytes": 41,
+      "sha256": "26268227c8c7c8ff27e27e851b801f8ff4d811ad504c2c945c26cd19274c532c"
+    },
+    {
+      "path": "svg-fragment-shadow-sources.mjs",
+      "bytes": 5721,
+      "sha256": "606ac3229795987bf6b0596ed505f0fa4d8e137ea62cf018ebef68fe540851f5"
+    },
+    {
+      "path": "svg-fragment-sources.log",
+      "bytes": 41,
+      "sha256": "26268227c8c7c8ff27e27e851b801f8ff4d811ad504c2c945c26cd19274c532c"
+    },
+    {
+      "path": "svg-fragment-sources.mjs",
+      "bytes": 5242,
+      "sha256": "6468a3fcb4b053ad68a9130ae62a92f835759afb2c425dc52a57891dd9944b08"
+    }
+  ]
+}
