@@ -67,20 +67,40 @@ jobs:
         # Temporary paired observers on the investigation branch only.
         env:
           GC_OBSERVER_DIAGNOSTICS: ${{ (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') && '1' || '0' }}
-        run: pnpm run test
+        run: |
+          if [ "$GC_OBSERVER_DIAGNOSTICS" = "1" ]; then
+            pnpm run test:coverage
+            node scripts/gc-diagnostic-cache.mjs save
+            pnpm run test:browser:source
+          else
+            pnpm run test
+          fi
 
       - name: 📦　Test built package in browsers
         run: pnpm run test:browser:package
 
+      # Restore the pre-source sorting inputs so failures are not moved first.
+      - name: 🔬　Repeat source with the same configuration and sort cache
+        id: gc_same_configuration_control
+        if: ${{ failure() && (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') }}
+        env:
+          GC_OBSERVER_DIAGNOSTICS: '1'
+          GC_OBSERVER_PHASE: same-configuration-control
+        run: |
+          node scripts/gc-diagnostic-cache.mjs restore same-configuration-control
+          pnpm run test:browser:source > .vitest/attachments/gc-same-configuration-control.log 2>&1
+
       # Temporary controls keep normal failures and three-engine concurrency.
       - name: 🔬　Check graph-writing configuration without logging
         id: gc_sandbox_control
-        if: ${{ failure() && (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') }}
+        if: ${{ failure() && steps.gc_same_configuration_control.conclusion == 'failure' }}
         env:
           GC_OBSERVER_DIAGNOSTICS: '1'
           GC_OBSERVER_PHASE: sandbox-control
           MOZ_DISABLE_CONTENT_SANDBOX: t
-        run: pnpm exec vitest run --config vitest.browser.config.mts > .vitest/attachments/gc-sandbox-control.log 2>&1
+        run: |
+          node scripts/gc-diagnostic-cache.mjs restore sandbox-control
+          pnpm run test:browser:source > .vitest/attachments/gc-sandbox-control.log 2>&1
 
       - name: 🔬　Trace cycle references if the control still fails
         if: ${{ failure() && steps.gc_sandbox_control.conclusion == 'failure' }}
@@ -95,8 +115,9 @@ jobs:
         run: |
           export MOZ_CC_LOG_DIRECTORY="$PWD/.vitest/attachments/gc-cc-only-graphs"
           mkdir -p "$MOZ_CC_LOG_DIRECTORY"
+          node scripts/gc-diagnostic-cache.mjs restore cc-only-trace
           trace_status=0
-          pnpm exec vitest run --config vitest.browser.config.mts > .vitest/attachments/gc-cc-only-trace.log 2>&1 || trace_status=$?
+          pnpm run test:browser:source > .vitest/attachments/gc-cc-only-trace.log 2>&1 || trace_status=$?
           tar -czf "$RUNNER_TEMP/gc-cc-only-graphs.tar.gz" -C "$MOZ_CC_LOG_DIRECTORY" .
           rm -r "$MOZ_CC_LOG_DIRECTORY"
           mv "$RUNNER_TEMP/gc-cc-only-graphs.tar.gz" .vitest/attachments/

@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 529,
+  "totalRawFiles": 644,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -172,6 +172,25 @@
       "fullLocalGraphArchiveCommitted": false
     },
     "selectedRawFiles": 18,
-    "LinuxResult": "pending"
+    "LinuxResult": "Both normal gates fail, but all-three-engine no-log graph-writing configuration control passes 1106 / 4 inherited skips in both jobs; CC-only trace skipped. Test ordering cache changes on failure, so configuration is not isolated."
+  },
+  "ccConfigurationPairRawFiles": 92,
+  "orderCacheControl": {
+    "why": "installed Vitest BaseSequencer prioritizes last failed files, then cached duration; ordinary resource file completes fifth, retry completes first in both runs",
+    "orderObservationScope": "completion sequence, not exact start sequence",
+    "method": "save only results.json after coverage and before source; restore and SHA256 verify before each subsequent source control; leave optimized bundles alone",
+    "sameConfigurationControlFirst": true,
+    "samePnPMScriptInEverySourcePhase": true,
+    "primaryGCCommandAndHelpersUnchanged": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "lint": "passed",
+      "types": "passed",
+      "snapshotRestoreSHA256Verified": true,
+      "restoredAfterRealTestMutation": true,
+      "realRestoreReceipt": "gc-observer-controls/order-cache-real-restore.json"
+    },
+    "localRawFiles": 23,
+    "remoteResult": "pending"
   }
 }

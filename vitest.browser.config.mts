@@ -165,7 +165,14 @@ export default defineConfig({
             freeMemory: freemem(),
           }
           const phase = process.env.GC_OBSERVER_PHASE
-          if (phase && !['sandbox-control', 'cc-only-trace'].includes(phase))
+          if (
+            phase &&
+            ![
+              'same-configuration-control',
+              'sandbox-control',
+              'cc-only-trace',
+            ].includes(phase)
+          )
             throw new Error('Unsupported GC observer diagnostic phase')
           const folder = resolve(
             '.vitest/attachments/gc-observers',
