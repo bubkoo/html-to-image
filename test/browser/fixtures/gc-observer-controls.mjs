@@ -11,11 +11,16 @@ function nativeEnvironment(source, detectPolicy, timed = true) {
       pending ||= new Promise((resolve, reject) => {
         frame = document.createElement('iframe')
         const owned = frame
-        if (timed)
-          timer = setTimeout(
-            () => reject(new Error('Native frame not ready')),
-            5000,
-          )
+        if (timed) {
+          const timeout =
+            timed === 'capture-frame'
+              ? () => {
+                  owned.remove()
+                  reject(new Error('Native frame not ready'))
+                }
+              : () => reject(new Error('Native frame not ready'))
+          timer = setTimeout(timeout, 5000)
+        }
         owned.onload = () => {
           clearTimeout(timer)
           owned.onload = null
@@ -89,6 +94,54 @@ async function clearedLocal(create, probed) {
   }
 }
 
+function instrumentProbeRemoval(create, clearReferences) {
+  const environment = create()
+  const getDocument = environment.getDocument
+  const seen = new WeakSet()
+  const counts = { uses: 0, removedSVGs: 0, clearedReferences: 0 }
+  environment.observerCleanupCounts = counts
+  environment.getDocument = async function (...args) {
+    const target = await getDocument.apply(this, args)
+    if (!seen.has(target)) {
+      seen.add(target)
+      const uses = []
+      const trackUse = (node) => {
+        uses.push(new WeakRef(node))
+        counts.uses++
+        const clone = node.cloneNode
+        node.cloneNode = function (deep) {
+          const copy = clone.call(this, deep)
+          trackUse(copy)
+          return copy
+        }
+      }
+      const createElement = target.createElementNS
+      target.createElementNS = function (...parameters) {
+        const node = createElement.apply(this, parameters)
+        if (node.localName === 'use') trackUse(node)
+        if (node.localName === 'svg') {
+          const remove = node.remove
+          node.remove = function () {
+            counts.removedSVGs++
+            uses.forEach((reference) => {
+              const use = reference.deref()
+              const hasReference = use?.hasAttribute('href')
+              if (hasReference && clearReferences) {
+                use.removeAttribute('href')
+                counts.clearedReferences++
+              }
+            })
+            return remove.call(this)
+          }
+        }
+        return node
+      }
+    }
+    return target
+  }
+  return environment
+}
+
 export async function sampleEnvironmentObservers(
   createEnvironment,
   detectPolicy,
@@ -104,8 +157,20 @@ export async function sampleEnvironmentObservers(
   const rows = []
   const owners = [
     ['native-timed', () => nativeEnvironment(document, detectPolicy)],
+    [
+      'native-frame-timed',
+      () => nativeEnvironment(document, detectPolicy, 'capture-frame'),
+    ],
     ['native-untimed', () => nativeEnvironment(document, detectPolicy, false)],
     ['library', () => createEnvironment(document)],
+    [
+      'library-removal-control',
+      () => instrumentProbeRemoval(() => createEnvironment(document), false),
+    ],
+    [
+      'library-cleared-references',
+      () => instrumentProbeRemoval(() => createEnvironment(document), true),
+    ],
   ]
   const helpers = [
     ['await-document', awaitDocument],
@@ -118,7 +183,8 @@ export async function sampleEnvironmentObservers(
       const [helper, observe] = helpers[helperIndex]
       try {
         // eslint-disable-next-line no-await-in-loop
-        rows.push({ owner, helper, value: await observe(create, probed) })
+        const value = await observe(create, probed)
+        rows.push({ owner, helper, value, readyAt: performance.now() })
       } catch (error) {
         rows.push({ owner, helper, error: String(error) })
       }
@@ -129,21 +195,25 @@ export async function sampleEnvironmentObservers(
   await collect()
   await collect()
   await collect()
+  const sampledAt = performance.now()
   return {
     diagnosticCollections: 3,
     originalCollectedAfterDiagnostic: original.deref() === undefined,
     strongControlPreserved: heldReference.deref() === held,
     framesRestored: document.querySelectorAll('iframe').length === frames,
     sourceFonts,
-    rows: rows.map(({ owner, helper, value, error }) => ({
+    rows: rows.map(({ owner, helper, value, error, readyAt }, order) => ({
       owner,
       helper,
+      order,
+      disposedAgeMs: readyAt === undefined ? undefined : sampledAt - readyAt,
       error,
       documentCollected: value
         ? value.reference.deref() === undefined
         : undefined,
       canaryCollected: value ? value.canary.deref() === undefined : undefined,
       sharingErrors: value?.environment.sharingErrors,
+      cleanupCounts: value?.environment.observerCleanupCounts,
     })),
   }
 }
@@ -163,13 +233,14 @@ function captureSource() {
   return source
 }
 
-async function awaitCapture(createRenderer) {
+async function awaitCapture(createRenderer, timeout) {
   const source = captureSource()
   const renderer = createRenderer({
     width: 60,
     height: 20,
     pixelRatio: 1,
     skipFonts: true,
+    timeout,
   })
   try {
     return {
@@ -212,13 +283,15 @@ export async function sampleCaptureObservers(
   try {
     const helpers = [
       ['await-capture', awaitCapture],
+      ['await-capture-no-timeout', (create) => awaitCapture(create, 0)],
       ['cleared-source', clearedSource],
     ]
     for (let index = 0; index < helpers.length; index++) {
       const [helper, observe] = helpers[index]
       try {
         // eslint-disable-next-line no-await-in-loop
-        rows.push({ helper, value: await observe(createRenderer) })
+        const value = await observe(createRenderer)
+        rows.push({ helper, value, readyAt: performance.now() })
       } catch (error) {
         rows.push({ helper, error: String(error) })
       }
@@ -226,11 +299,15 @@ export async function sampleCaptureObservers(
     await collect()
     await collect()
     await collect()
+    const sampledAt = performance.now()
     return {
       diagnosticCollections: 3,
       originalCollectedAfterDiagnostic: original.deref() === undefined,
-      rows: rows.map(({ helper, value, error }) => ({
+      rows: rows.map(({ helper, value, error, readyAt }, order) => ({
         helper,
+        order,
+        captureReadyAgeMs:
+          readyAt === undefined ? undefined : sampledAt - readyAt,
         error,
         documentCollected: value
           ? value.reference.deref() === undefined

@@ -1,0 +1,2623 @@
+{
+  "push": {
+    "run": 43667097221,
+    "records": 18,
+    "samples": [
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13476306944
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13459152896
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 12572700672
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [
+          {
+            "family": "Pending SVG Font",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13462630400
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13691904000
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13705146368
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13481324544
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [
+          {
+            "family": "\"Pending SVG Font\"",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13705416704
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13249019904
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13914660864
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13827260416
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13113495552
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [
+          {
+            "family": "Pending SVG Font",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13785796608
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13869785088
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13882499072
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13212180480
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [
+          {
+            "family": "\"Pending SVG Font\"",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13863116800
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "push",
+          "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+          "run": "43667097221",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759435264,
+          "freeMemory": 13173256192
+        }
+      }
+    ]
+  },
+  "pr": {
+    "run": 43667274475,
+    "records": 18,
+    "samples": [
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12934836224
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12912447488
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12222320640
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [
+          {
+            "family": "Pending SVG Font",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12882026496
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13308964864
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "originalCollectedAfterDiagnostic": false,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": false,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": false,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": false,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13305847808
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12949798912
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": false,
+          "nativeDiagnosticCollections": 3,
+          "diagnosis": {
+            "native": {
+              "plain": false,
+              "sharedFonts": false,
+              "nativeProbe": true,
+              "measuredProbe": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            "tree": {
+              "elements": ["html", "head", "meta", "style", "meta", "body"],
+              "shadows": []
+            }
+          }
+        },
+        "originalCollectedAfterDiagnostic": false,
+        "sourceFonts": [
+          {
+            "family": "\"Pending SVG Font\"",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": false,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": false,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": false,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13305860096
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12915998720
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13631545344
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13633208320
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12747526144
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [
+          {
+            "family": "Pending SVG Font",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13638156288
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13658587136
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": []
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13645762560
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12924964864
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [
+          {
+            "family": "\"Pending SVG Font\"",
+            "status": "loaded"
+          }
+        ],
+        "strongControlPreserved": true,
+        "framesRestored": true,
+        "rows": [
+          {
+            "owner": "native-timed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-timed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "native-untimed",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          {
+            "owner": "library",
+            "helper": "await-document",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "weak-promise",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "owner": "library",
+            "helper": "cleared-local",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 13635522560
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "originalCollectedAfterDiagnostic": true,
+        "sourceFonts": [],
+        "strongControlPreserved": null,
+        "framesRestored": null,
+        "rows": [
+          {
+            "helper": "await-capture",
+            "documentCollected": true,
+            "canaryCollected": true
+          },
+          {
+            "helper": "cleared-source",
+            "documentCollected": true,
+            "canaryCollected": true
+          }
+        ],
+        "execution": {
+          "event": "pull_request",
+          "head": "28d9b42dcdb7a7cb88a57bb4f67d5ddc8fa1602a",
+          "run": "43667274475",
+          "image": "20261111.82.6",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "cpuCount": 4,
+          "totalMemory": 16463409152,
+          "freeMemory": 12796395520
+        }
+      }
+    ]
+  }
+}
