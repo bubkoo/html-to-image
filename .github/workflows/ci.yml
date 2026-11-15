@@ -62,10 +62,25 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: 🧪　Test migrated regressions and browser behavior
+        id: behavior-tests
         run: pnpm run test
 
       - name: 📦　Test built package in browsers
         run: pnpm run test:browser:package
+
+      # Temporary investigation on this branch; primary tests remain unchanged.
+      - name: 🔬　Record Firefox document-retention graphs
+        if: ${{ !cancelled() && steps.behavior-tests.outcome != 'skipped' && github.head_ref == 'codex/svg-environment-release-gc' }}
+        env:
+          TEST_BROWSER: firefox
+          MOZ_CC_LOG_DIRECTORY: ${{ github.workspace }}/test-results/firefox-gc-diagnostic/heap
+          MOZ_CC_LOG_ALL: '1'
+          MOZ_CC_LOG_PROCESS: content
+          MOZ_CC_LOG_THREAD: main
+          MOZ_DISABLE_CONTENT_SANDBOX: t
+        run: |
+          mkdir -p test-results/firefox-gc-diagnostic/heap
+          pnpm run test:browser:source > test-results/firefox-gc-diagnostic/test.log 2>&1
 
       - name: 📋　Upload browser report
         if: ${{ !cancelled() }}
