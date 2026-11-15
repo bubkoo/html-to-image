@@ -1,5 +1,5 @@
 import { svgResponseURLServer } from './test/browser/fixtures/svg-response-url-server.mjs'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
 import { cpus, freemem, totalmem } from 'node:os'
@@ -34,6 +34,8 @@ const root = process.cwd()
 const resourcePolicy = resourcePolicyServer(root)
 const svgStyleTraces = new Map<string, string[]>()
 const svgStyleBlobStops = new Map<string, () => void>()
+let graphCollectionSequence = 0
+const recordedGraphFiles = new Set<string>()
 
 export default defineConfig({
   optimizeDeps: { include: ['pixelmatch'] },
@@ -145,6 +147,18 @@ export default defineConfig({
           // Firefox's parent-process GC request can finish before child GC/CC.
           // Round-trip through the test frame before resuming its assertions.
           await target.evaluate(() => undefined)
+          if (process.env.GC_ROOT_TRACE === '1') {
+            const directory = process.env.MOZ_CC_LOG_DIRECTORY!
+            const files = (await readdir(directory)).sort()
+            const added = files.filter((name) => !recordedGraphFiles.has(name))
+            files.forEach((name) => recordedGraphFiles.add(name))
+            const folder = resolve('.vitest/attachments/gc-root-sequence')
+            await mkdir(folder, { recursive: true })
+            await writeFile(
+              resolve(folder, `${++graphCollectionSequence}.json`),
+              JSON.stringify({ frame: target.url(), added, files }, null, 2),
+            )
+          }
         },
         async gcObserverDiagnosticsEnabled() {
           return process.env.GC_OBSERVER_DIAGNOSTICS === '1'
@@ -164,14 +178,21 @@ export default defineConfig({
             totalMemory: totalmem(),
             freeMemory: freemem(),
           }
-          const folder = resolve('.vitest/attachments/gc-observers')
+          const folder = resolve(
+            '.vitest/attachments/gc-observers',
+            process.env.GC_ROOT_TRACE === '1' ? 'root-trace' : '.',
+          )
           await mkdir(folder, { recursive: true })
           const name = String(
             suite + '-' + data.engine + '-' + data.kind,
           ).replace(/[^a-z0-9-]/gi, '_')
           await writeFile(
             resolve(folder, name + '.json'),
-            JSON.stringify({ ...data, execution }, null, 2) + '\n',
+            JSON.stringify(
+              { ...data, execution, graphCollectionSequence },
+              null,
+              2,
+            ) + '\n',
           )
         },
         async screenshotScrollSource({ iframe }, selector: string) {

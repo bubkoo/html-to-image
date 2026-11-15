@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 115,
+  "totalRawFiles": 182,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -80,5 +80,36 @@
     "observerErrors": 0,
     "productionChange": false
   },
-  "expandedLocalRawFiles": 16
+  "expandedLocalRawFiles": 16,
+  "expandedPair": {
+    "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+    "pushRun": 43668909662,
+    "push": "failure: four source cases, including WebKit frozen SVG source",
+    "prRun": 43668914513,
+    "pr": "failure: three Firefox source cases",
+    "coverage": "1225 pass and four inherited skips in both",
+    "source": "push 1102 pass / 4 fail / 4 skip; PR 1103 pass / 3 fail / 4 skip",
+    "packages": "not run in either",
+    "hrefClearingNotSufficient": true,
+    "sourceCaptureTimerObservation": "Firefox supplemental original capture retained, timeout=0 and cleared-source collect in both; primary Firefox capture passes",
+    "summary": "gc-observer-controls/expanded-pair-summary.json"
+  },
+  "expandedPairRawFiles": 67,
+  "rootTrace": {
+    "scope": "separate Firefox source run only after normal failure; temporary branch-only step",
+    "ordinaryFailurePreserved": true,
+    "observerRecordNamespace": "root-trace",
+    "graphFileSequencePerCollection": true,
+    "local": {
+      "existingFirefoxTestsPassed": 4,
+      "collectionCommands": 24,
+      "gcFiles": 75,
+      "ccFiles": 75,
+      "incompleteFilesAtEnd": 0,
+      "graphs": "local investigation output only, not committed as full raw archive",
+      "lint": "passed",
+      "types": "passed"
+    },
+    "LinuxRootCause": "pending; logging perturbs timing"
+  }
 }
