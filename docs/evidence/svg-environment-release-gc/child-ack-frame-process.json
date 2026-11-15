@@ -1,0 +1,77 @@
+{
+  "processIdentifiedBy": "ownedAckFrameReference in GC heap graph",
+  "pid": "81183",
+  "cases": 10,
+  "incompleteBeforeBarrier": 10,
+  "incompleteAfterBarrier": 0,
+  "rows": [
+    {
+      "iteration": 0,
+      "before": [
+        "incomplete-cc-edges.81183.log",
+        "incomplete-gc-edges.81183.log"
+      ],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 1,
+      "before": [
+        "incomplete-cc-edges.81183.log",
+        "incomplete-gc-edges.81183.log"
+      ],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 2,
+      "before": [
+        "incomplete-cc-edges.81183.log",
+        "incomplete-gc-edges.81183.log"
+      ],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 3,
+      "before": [
+        "incomplete-cc-edges.81183.log",
+        "incomplete-gc-edges.81183.log"
+      ],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 4,
+      "before": ["incomplete-gc-edges.81183.log"],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 5,
+      "before": ["incomplete-gc-edges.81183.log"],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 6,
+      "before": [
+        "incomplete-cc-edges.81183.log",
+        "incomplete-gc-edges.81183.log"
+      ],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 7,
+      "before": ["incomplete-gc-edges.81183.log"],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 8,
+      "before": ["incomplete-gc-edges.81183.log"],
+      "afterContentBarrier": []
+    },
+    {
+      "iteration": 9,
+      "before": [
+        "incomplete-cc-edges.81183.log",
+        "incomplete-gc-edges.81183.log"
+      ],
+      "afterContentBarrier": []
+    }
+  ]
+}

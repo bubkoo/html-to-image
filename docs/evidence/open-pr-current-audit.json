@@ -554,5 +554,14 @@
     "parentMerge": "be2cf35d2e67c9bc672007f4fa2d6e8d79085c56",
     "parentMasterCI": 43655366497,
     "parentMasterCodeQL": 43655366483
+  },
+  "latestTestInfrastructureEvidence": {
+    "path": "docs/evidence/svg-environment-release-gc.json",
+    "source": "771df535abba081c6206ab7291913d727c8754f3",
+    "scope": "GC request/test-frame synchronization only; no production change",
+    "parentMaster": "8d4991e3fb399ac5a7e7c823bc06009944032ed8",
+    "parentMasterCIFailed": 43661748647,
+    "newRemoteGates": "pending",
+    "originalPRStatesNotRefreshed": true
   }
 }

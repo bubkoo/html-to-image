@@ -1,0 +1,41 @@
+{
+  "archive": "linux-diagnostic-raw.tar.gz",
+  "archiveSHA256": "7420bb7cc0fb5cb3d39dacb60e624e3296575faa1737ae4d79e04c076b673f80",
+  "files": [
+    {
+      "path": "diagnostic-test.log",
+      "bytes": 12322,
+      "sha256": "ddfb76e9c386f6fcbf9a92bd4dd52203cd7c3df6fecce921f9d08fe6efdbb1db"
+    },
+    {
+      "path": "initial-artifacts.json",
+      "bytes": 746,
+      "sha256": "677bd6950fccf880a8116ff82b8b249ee8dba242e9f84af1c9a6bba40795b34b"
+    },
+    {
+      "path": "inputs/.github/workflows/ci.yml",
+      "bytes": 3497,
+      "sha256": "782327f09d90c09f4a2d98996d039f92897935e69ce77c73803d5ce0a53ee554"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 7191,
+      "sha256": "8a848949b10b843dc278eae1b9162e354571fc5c8a5359681ee2d6675a50a5cc"
+    },
+    {
+      "path": "pr-initial-ci-final.log",
+      "bytes": 381010,
+      "sha256": "e9e1978e32598a4f714ef08f35059f75a118ced20f5604c464c721cbe141e32c"
+    },
+    {
+      "path": "pr-initial-codeql-final.json",
+      "bytes": 99,
+      "sha256": "da68ba32c521df96a58e99150bfdde6cfaa3a4c9baefa1282502b918a87dcc15"
+    },
+    {
+      "path": "zip-entry-index.json",
+      "bytes": 73539,
+      "sha256": "958400c1cb99e7067f0df8de3caf5dc404398f07ba27c9552f32f04a5d49ef0b"
+    }
+  ]
+}

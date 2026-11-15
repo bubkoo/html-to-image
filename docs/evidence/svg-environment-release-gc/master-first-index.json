@@ -1,0 +1,106 @@
+{
+  "archive": "master-first-raw.tar.gz",
+  "archiveSHA256": "1ce5f5af24d8e1d6ab3ac728d5493f5f34e5056695c1bcb7d2214951c8be88cc",
+  "files": [
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/20d01ffc10573d75fd643bcf6d27aef2a3e2f392.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/bc7b56cc94963585e46e9febd2ee9ed06143f132.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/e85427bf1c4992c6b604540e723b057e824dc2f0.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "inputs/src/svg-style-scope.ts",
+      "bytes": 21777,
+      "sha256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef"
+    },
+    {
+      "path": "inputs/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 7166,
+      "sha256": "f1a4416a87f63a8edb4e226341aa75073e12b79fda7ce34723c09ab92694e220"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 7191,
+      "sha256": "8a848949b10b843dc278eae1b9162e354571fc5c8a5359681ee2d6675a50a5cc"
+    },
+    {
+      "path": "master-ci-first-failure.log",
+      "bytes": 331480,
+      "sha256": "c76a63f0559d645df0e2a7a67a4afbcf90b8ee5a392db253da3c65a3fa91e344"
+    },
+    {
+      "path": "master-ci-status.json",
+      "bytes": 3746,
+      "sha256": "de84198841af36bff51f8dd7d04d233b84af7c9b332a0164a51e8d4543b62d0d"
+    },
+    {
+      "path": "master-codeql-status.json",
+      "bytes": 99,
+      "sha256": "caf8ad6421ca8815f448efc9aacf55004df49839fbfe463d854770d3e10f645d"
+    },
+    {
+      "path": "master-first-artifacts.json",
+      "bytes": 715,
+      "sha256": "55680a6891b10e4d528cf781be7434d636215b067682c08cad74c1dd55468c03"
+    },
+    {
+      "path": "pr-ci-final.log",
+      "bytes": 349836,
+      "sha256": "2008fda74100e7b01a493864e46e8d0e1acfdbdffdd301bf11e4261823d04efc"
+    },
+    {
+      "path": "pr-final-checks.json",
+      "bytes": 1916,
+      "sha256": "9da0a45a1609feec927efc77eeae93a98c7f01bc458816b8ad07563d0d757857"
+    },
+    {
+      "path": "pr-merged.json",
+      "bytes": 174,
+      "sha256": "4d4a174a2fa6d374922d97e1583d0216cbb190a16b502b720fcc7e58c3cafec7"
+    }
+  ]
+}
