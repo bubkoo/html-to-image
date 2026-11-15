@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 917,
+  "totalRawFiles": 1238,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -623,5 +623,138 @@
     "head": "9a391dc5639ab80085d73e411ffea5738279d201",
     "conclusion": "All new native sandbox/policy-document/reaction/lock rows collect without errors. Those differences alone do not reproduce the retained original. Ordinary source still fails in both events; the identical-sort repeat fails in PR and passes in push. No production fix or unique cause established."
   },
-  "nativeControlsLinuxRawFiles": 93
+  "nativeControlsLinuxRawFiles": 93,
+  "localLinuxControl": {
+    "status": "Local Linux control, stable related failure; no root/fix established",
+    "sourceHead": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "hostDocumentationHead": "805c695c9a345c6452b95ce3d27206014809b9fe",
+    "officialImageIndexDigest": "sha256:2f05f8a734509a7b3f26a912639488ee08f58a7b292d14d62271bcff9038768f",
+    "amd64ManifestDigest": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+    "runtime": {
+      "node": "v24.22.2",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpus": 14,
+      "availableParallelism": 4,
+      "memory": 8216498176,
+      "browsers": {
+        "chromium": "156.0.8078.80",
+        "firefox": "157.0",
+        "webkit": "27.2"
+      }
+    },
+    "container": {
+      "id": "f0aa2ceefdbe5e8f18cc05fd36698f790f916226fddbd2f7d2a222c93f3878fa",
+      "platform": "linux",
+      "image": "mcr.microsoft.com/playwright:v1.64.1-noble",
+      "imageId": "sha256:2f05f8a734509a7b3f26a912639488ee08f58a7b292d14d62271bcff9038768f",
+      "limits": {
+        "nanoCpus": 4000000000,
+        "memory": 6442450944,
+        "shm": 1073741824
+      },
+      "labels": {
+        "codex.purpose": "gc-native-controls",
+        "codex.thread": "01a1c6f5-024e-7a03-b9ba-4aba9ec736ea",
+        "org.opencontainers.image.version": "24.04"
+      }
+    },
+    "host": "Apple Silicon Docker Desktop Linux VM, linux/amd64 emulation; not a GitHub Actions runner",
+    "stages": {
+      "coverage": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "second-coverage": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "focused-capture-lifetime": {
+        "summary": [
+          "Test Files  3 passed (3)",
+          "Tests  11 passed | 1 skipped (12)"
+        ],
+        "failures": []
+      },
+      "full-source-after-failed-coverage": {
+        "summary": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ],
+        "failures": []
+      },
+      "boundary-a1-none": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "boundary-b1-round-trip": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "boundary-c1-message-task": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "timer-d1-timeout-zero": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "owner-e1-library-document": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      }
+    },
+    "assertion": "nativeCollected=true, capturedCollected=false after three original requests",
+    "negativeControls": [
+      "additional pre-GC Frame round trip: same failure",
+      "pre-GC MessageChannel task: same failure",
+      "only failed helper timeout:0: same failure; file byte length preserved to avoid size-sort change",
+      "only clone document creator changed from source.implementation to library document.implementation: same failure; source restored afterwards"
+    ],
+    "gates": "First baseline stops at coverage: lint/build/package-entry/types passed; source and browser-package steps not run. Later focused/source runs are separate diagnostics, not a replacement baseline pass.",
+    "sourceCacheScope": "The diagnostic full source restores the snapshot written after failed coverage; this differs from CI after passing coverage. Subsequent coverage controls deliberately remove only results.json and retain optimized bundles.",
+    "sourceRestored": true,
+    "nextAction": "Inspect actual retaining paths after cached failure without enabling pre-collection heap logging; no source fix, extra GC requests, timeout extension or assertion relaxation claimed",
+    "apiContract": {
+      "url": "https://playwright.dev/docs/api/class-page#page-request-gc",
+      "localPackage": "playwright-core@1.64.1/types/types.d.ts:4401",
+      "note": "Collection is best-effort and does not guarantee collecting every unreachable object. This alone neither proves nor excludes a library retaining root."
+    }
+  },
+  "localLinuxControlRawFiles": 321
 }
