@@ -1,0 +1,75 @@
+{
+  "scope": "#585 / #451 incremental empty-video surfaces, not general media-state support",
+  "contract": "preserve the actual visible styled video box when HAVE_NOTHING and no poster; do not draw an unavailable frame or invent a poster",
+  "source": "ea97a25a45cb9db202d30d0f8dd704d57d7de3af",
+  "parent": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "rootCause": "currentSrc means media selection, not decoded image availability. Zero intrinsic dimensions produce canvas data:, which cannot be loaded as an image. No-poster empty surfaces have no media pixels to rasterize. An element without a selected resource instead tries to load an empty poster URL; that is also not a media image.",
+  "fix": "use the default transparent canvas image for this unambiguous state; normal frame and poster branches remain unchanged",
+  "sameFixtureBefore": {
+    "failed": 9,
+    "passed": 3,
+    "engines": ["chromium", "firefox", "webkit"],
+    "normalDecodedVideoControlsPassed": 3
+  },
+  "sameFixtureAfter": {
+    "passed": 12,
+    "normalDecodedVideoControlsPassed": 3
+  },
+  "localFull": {
+    "coverage": 1234,
+    "source": 1115,
+    "packages": 162,
+    "inheritedSkips": [4, 4],
+    "lintBuildTypesTarballConsumers": "passed",
+    "scope": "working-tree input hashes later match committed ea97a25; local smoke HEAD metadata was the parent before commit"
+  },
+  "desktopNative": {
+    "pairs": 18,
+    "formats": ["esm", "umd"],
+    "modes": ["empty", "selected", "play-pause"],
+    "allRGBAChannelsPerCase": 11264,
+    "differentChannels": 0,
+    "sourceBeforeAfterExact": true,
+    "sourceAndInputHashesUnchanged": true
+  },
+  "device": {
+    "status": "pending, SafariDriver found devices but could not establish iPhone session",
+    "passed": false,
+    "simulatorClaim": false
+  },
+  "posterHistory": {
+    "scope": "same recorded public state in separate controlled WebKit scenes; not a proof about every possible browser API",
+    "comparedStates": ["webkit-poster", "webkit-poster-play-pause"],
+    "recordedStateKeys": [
+      "readyState",
+      "currentSrc",
+      "videoWidth",
+      "videoHeight",
+      "paused",
+      "played",
+      "markup",
+      "primitive",
+      "seeking",
+      "networkState",
+      "currentTime"
+    ],
+    "sameRecordedState": true,
+    "initialNativeCenter": [255, 0, 0, 255],
+    "afterPlayPauseNativeCenter": [0, 0, 255, 255],
+    "automaticPosterFallbackNotShipped": true
+  },
+  "remaining": [
+    "poster/history cases remain open; no readyState-based poster fallback",
+    "HAVE_METADATA without current frame, buffering/previously played media, controls, streaming/CORS and broad media states are not claimed",
+    "generic Linux lifecycle checks remain under separate draft PR #646"
+  ],
+  "archives": {
+    "before-and-boundaries": 41,
+    "candidate-desktop": 75
+  },
+  "totalRawFiles": 116,
+  "inputHashes": "video-empty-frame/input-sha256.json",
+  "remoteGates": "pending new PR exact-head and subsequent master checks",
+  "npmPublished": false,
+  "oldContributorPRCommentOrClosureActions": 0
+}
