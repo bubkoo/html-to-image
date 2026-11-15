@@ -1,0 +1,117 @@
+{
+  "status": "Bounded equivalent behavior, no production fix",
+  "sourceBase": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "testCheckout": "9a391dc5639ab80085d73e411ffea5738279d201",
+  "contract": "Preserve each current browser live-page appearance, as explicitly chosen by the user",
+  "scope": "Real same-origin HTTP basic and nested @import inside an external SVG use, plus inline CSS and flat-yellow controls",
+  "comparisons": {
+    "svg-http-import-native": {
+      "chromium": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "all6400CaptureChannelsEqual": true,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ]
+      },
+      "firefox": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "all6400CaptureChannelsEqual": true,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [255, 255, 0, 255]
+        ]
+      },
+      "webkit": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "all6400CaptureChannelsEqual": true,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [255, 255, 0, 255]
+        ]
+      }
+    },
+    "svg-http-import-native-controlled": {
+      "chromium": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "all6400CaptureChannelsEqual": true,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ],
+        "standaloneCenters": [
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ]
+      },
+      "firefox": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "all6400CaptureChannelsEqual": true,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [255, 255, 0, 255]
+        ],
+        "standaloneCenters": [
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ]
+      },
+      "webkit": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "all6400CaptureChannelsEqual": true,
+        "nativeCenters": [
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [128, 0, 128, 255],
+          [255, 255, 0, 255]
+        ],
+        "standaloneCenters": [
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [0, 128, 0, 255],
+          [255, 255, 0, 255]
+        ]
+      }
+    }
+  },
+  "conclusion": "All three current desktop engines ignore HTTP-imported fill rules in this external-use scene. Export matches every source channel. The same SVG opened as a standalone document applies both imports in all three engines, proving resources/rules are valid. Firefox requesting external CSS is not proof it applies the rule.",
+  "exportFormats": ["ESM only in this native observation"],
+  "productionChange": false,
+  "device": "not tested; desktop WebKit does not substitute for physical iPhone",
+  "remaining": [
+    "Other HTTP import conditions and font behavior remain unproven",
+    "Qualified relative attribute/inline paint defects remain open",
+    "Restricted CSP and unreadable styles remain open"
+  ],
+  "rawFiles": 34,
+  "archive": "svg-http-import-native/native-observations.tar.gz",
+  "verifier": "svg-http-import-native/verify-archive.py",
+  "replay": "svg-http-import-native/replay.md",
+  "environment": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "node": "v22.21.1",
+    "deviceScaleFactor": 1,
+    "scope": "Observed desktop environment only; no Linux or physical iPhone extrapolation"
+  }
+}

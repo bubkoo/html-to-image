@@ -1,0 +1,176 @@
+{
+  "archive": "native-observations.tar.gz",
+  "archiveSHA256": "714e928feb83a4ea2b93b61ce4bb4efa5c16f7c4f9c18a9f0bbbad627f2ea05a",
+  "files": [
+    {
+      "path": "comparison.json",
+      "bytes": 4005,
+      "sha256": "a8d703c33bdc37f6202c23ff07cbeb4ba5f97769c0816fed6f7c77773c17b38d"
+    },
+    {
+      "path": "inputs/es/svg-references.js",
+      "bytes": 21957,
+      "sha256": "ff9bdadecd536c11e065852f0f283a8de3479ab5f64925c7d6d3d72175434bb2"
+    },
+    {
+      "path": "inputs/es/svg-style-imports.js",
+      "bytes": 12103,
+      "sha256": "d396f83daf0bff1d61f22907f80ef5e64a6ec927d9bc8541f123e70a43f51eb7"
+    },
+    {
+      "path": "inputs/es/svg-style-scope.js",
+      "bytes": 23142,
+      "sha256": "b7f92d7dd856c92310da52f7dff07343e13a98d02c896a95f3b66f0b1064d4c0"
+    },
+    {
+      "path": "inputs/src/svg-references.ts",
+      "bytes": 20365,
+      "sha256": "d7c7b204d537c0fa0122e50e012b510f7d45aae0d61ee7930f5cf58d63c3d57b"
+    },
+    {
+      "path": "inputs/src/svg-style-imports.ts",
+      "bytes": 10702,
+      "sha256": "a32a9344b6f60b7db66a2708cbfb9649ac95b7b4f11af37df5e6db4059270849"
+    },
+    {
+      "path": "inputs/src/svg-style-scope.ts",
+      "bytes": 21777,
+      "sha256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef"
+    },
+    {
+      "path": "svg-http-import-native-controlled.log",
+      "bytes": 38,
+      "sha256": "7f2271f9326bedfaf06736c97de0a5638990f45378d09af2a3b5ffc6259ebd87"
+    },
+    {
+      "path": "svg-http-import-native-controlled.mjs",
+      "bytes": 4269,
+      "sha256": "682973a9dbb5d0ef6bde08e6b6bc8264a6705d8d02b455c3923e8de965531e1b"
+    },
+    {
+      "path": "svg-http-import-native-controlled/chromium-after.png",
+      "bytes": 133,
+      "sha256": "94c3255828c7de1b02ac7831416b4096db4c6b86c8733c16bdfb02b4099339ed"
+    },
+    {
+      "path": "svg-http-import-native-controlled/chromium-before.png",
+      "bytes": 133,
+      "sha256": "94c3255828c7de1b02ac7831416b4096db4c6b86c8733c16bdfb02b4099339ed"
+    },
+    {
+      "path": "svg-http-import-native-controlled/chromium-capture.png",
+      "bytes": 173,
+      "sha256": "bfdcfbbdc797aa547ab219b8d9ba9a16851e45c5d471acbeb12d21eaa97c3516"
+    },
+    {
+      "path": "svg-http-import-native-controlled/chromium-standalone.png",
+      "bytes": 130,
+      "sha256": "9fa57dd9fae9b9c188263f6e2c36807178606f14f960df47cd4bbd88ef13d266"
+    },
+    {
+      "path": "svg-http-import-native-controlled/firefox-after.png",
+      "bytes": 130,
+      "sha256": "ade358dbab51ce75b0722857506425b99e4c352b7ff721855cce6fbcf665717a"
+    },
+    {
+      "path": "svg-http-import-native-controlled/firefox-before.png",
+      "bytes": 130,
+      "sha256": "ade358dbab51ce75b0722857506425b99e4c352b7ff721855cce6fbcf665717a"
+    },
+    {
+      "path": "svg-http-import-native-controlled/firefox-capture.png",
+      "bytes": 158,
+      "sha256": "40f1ac1255c207a0af86e2377dfaf9367b7a7763998e7875d65f610a6ea41b78"
+    },
+    {
+      "path": "svg-http-import-native-controlled/firefox-standalone.png",
+      "bytes": 130,
+      "sha256": "194f62a4030ae1fe5bc0d55fb64db9da1d377796a42d8c03b706b4082385227d"
+    },
+    {
+      "path": "svg-http-import-native-controlled/observation.json",
+      "bytes": 2970,
+      "sha256": "399a906351bba235351b7de61566a842745919dd1bda19d63f3fb3fa3c8a6201"
+    },
+    {
+      "path": "svg-http-import-native-controlled/webkit-after.png",
+      "bytes": 245,
+      "sha256": "487dcde9e83f88c4bef3986560ef2fa6d4705a8730507c93cb8c4e10468bce3d"
+    },
+    {
+      "path": "svg-http-import-native-controlled/webkit-before.png",
+      "bytes": 245,
+      "sha256": "487dcde9e83f88c4bef3986560ef2fa6d4705a8730507c93cb8c4e10468bce3d"
+    },
+    {
+      "path": "svg-http-import-native-controlled/webkit-capture.png",
+      "bytes": 245,
+      "sha256": "487dcde9e83f88c4bef3986560ef2fa6d4705a8730507c93cb8c4e10468bce3d"
+    },
+    {
+      "path": "svg-http-import-native-controlled/webkit-standalone.png",
+      "bytes": 244,
+      "sha256": "a92670d28a800b21c9448aaa65f4ec97a89fda62de9d61bdf1d8162e93619352"
+    },
+    {
+      "path": "svg-http-import-native.log",
+      "bytes": 38,
+      "sha256": "7f2271f9326bedfaf06736c97de0a5638990f45378d09af2a3b5ffc6259ebd87"
+    },
+    {
+      "path": "svg-http-import-native.mjs",
+      "bytes": 3552,
+      "sha256": "e1c675312ed9151c74738032407698cb58aaf76453a41a5ed02e2611101ffaa8"
+    },
+    {
+      "path": "svg-http-import-native/chromium-after.png",
+      "bytes": 133,
+      "sha256": "94c3255828c7de1b02ac7831416b4096db4c6b86c8733c16bdfb02b4099339ed"
+    },
+    {
+      "path": "svg-http-import-native/chromium-before.png",
+      "bytes": 133,
+      "sha256": "94c3255828c7de1b02ac7831416b4096db4c6b86c8733c16bdfb02b4099339ed"
+    },
+    {
+      "path": "svg-http-import-native/chromium-capture.png",
+      "bytes": 173,
+      "sha256": "bfdcfbbdc797aa547ab219b8d9ba9a16851e45c5d471acbeb12d21eaa97c3516"
+    },
+    {
+      "path": "svg-http-import-native/firefox-after.png",
+      "bytes": 130,
+      "sha256": "ade358dbab51ce75b0722857506425b99e4c352b7ff721855cce6fbcf665717a"
+    },
+    {
+      "path": "svg-http-import-native/firefox-before.png",
+      "bytes": 130,
+      "sha256": "ade358dbab51ce75b0722857506425b99e4c352b7ff721855cce6fbcf665717a"
+    },
+    {
+      "path": "svg-http-import-native/firefox-capture.png",
+      "bytes": 158,
+      "sha256": "839c44d50520f3e9283634f6b886dbc0a131e3133de3a3a37007505f816f6730"
+    },
+    {
+      "path": "svg-http-import-native/observation.json",
+      "bytes": 2228,
+      "sha256": "a470f051e4234d5c9bd7f6d4cafafc9a45f513154c683f83bb51970fea0857ba"
+    },
+    {
+      "path": "svg-http-import-native/webkit-after.png",
+      "bytes": 245,
+      "sha256": "487dcde9e83f88c4bef3986560ef2fa6d4705a8730507c93cb8c4e10468bce3d"
+    },
+    {
+      "path": "svg-http-import-native/webkit-before.png",
+      "bytes": 245,
+      "sha256": "487dcde9e83f88c4bef3986560ef2fa6d4705a8730507c93cb8c4e10468bce3d"
+    },
+    {
+      "path": "svg-http-import-native/webkit-capture.png",
+      "bytes": 245,
+      "sha256": "487dcde9e83f88c4bef3986560ef2fa6d4705a8730507c93cb8c4e10468bce3d"
+    }
+  ]
+}

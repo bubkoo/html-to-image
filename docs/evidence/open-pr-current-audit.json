@@ -25,13 +25,25 @@
         "docs/evidence/svg-data-relative-urls.json",
         "docs/evidence/svg-response-bases.json",
         "docs/evidence/svg-fragment-paint.json",
-        "docs/evidence/gc-observer-controls.json"
+        "docs/evidence/gc-observer-controls.json",
+        "docs/evidence/svg-http-import-native.json",
+        "docs/evidence/svg-file-font-native.json"
       ],
-      "remainingBoundary": "Qualified attribute/inline relative and absolute paint URLs, different-query paint, physical iPhone qualified-paint fallback, restricted CSP/opaque rules, HTTP styles/fonts, broad SPA/performance and generic WebKit/device GC remain open. Output follows the current browser live page, as selected by the user.",
+      "remainingBoundary": "Qualified attribute/inline relative and absolute paint URLs, different-query paint, physical iPhone qualified-paint fallback, restricted CSP/opaque rules, other HTTP style/font states beyond the bounded native-use controls, broad SPA/performance and generic WebKit/device GC remain open. Output follows the current browser live page, as selected by the user.",
       "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
       "dataImportSource": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
       "responseURLSource": "bafedeb9720a89b3c6fad0c98f70b51e2f7bdab1",
-      "fragmentPaintSource": "f3ab93785ee07ad53f8db9c43e98b28342951861"
+      "fragmentPaintSource": "f3ab93785ee07ad53f8db9c43e98b28342951861",
+      "httpNativeSubset": {
+        "sourceBase": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+        "imports": "Same-origin basic/nested HTTP imports match live external-use output in all three desktop engines; standalone file positive controls apply them. No production change.",
+        "font": "Controlled file-local HTTP face is not the live external-use font; independent fallback geometry matches. Chromium/Firefox pixels exact; WebKit 55 channels by 1 match independent authored SVG-image boundary, not an exact native pass.",
+        "formats": "ESM only; no new UMD or physical iPhone acceptance",
+        "evidence": [
+          "docs/evidence/svg-http-import-native.json",
+          "docs/evidence/svg-file-font-native.json"
+        ]
+      }
     },
     {
       "number": 581,

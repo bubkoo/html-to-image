@@ -1,0 +1,237 @@
+{
+  "status": "Bounded font fallback geometry matched; WebKit strict native-pixel gap retained, not a full pass",
+  "sourceBase": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "testCheckout": "9a391dc5639ab80085d73e411ffea5738279d201",
+  "contract": "Current browser live-page appearance",
+  "scope": "One same-origin external SVG use with file-local HTTP font-face, default font embedding option, actual native screenshots and standalone/independent fallback controls",
+  "comparison": {
+    "svg-file-font-native-controlled": {
+      "chromium": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "sourceToCapture": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "sourceBBox": {
+          "x": -0.01953125,
+          "y": 0,
+          "width": 120.01953125,
+          "height": 30
+        },
+        "standaloneLoadedTextWidth": 40
+      },
+      "firefox": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "sourceToCapture": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "sourceBBox": {
+          "x": -2,
+          "y": 0,
+          "width": 122,
+          "height": 30
+        },
+        "standaloneLoadedTextWidth": 40
+      },
+      "webkit": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "sourceToCapture": {
+          "differentChannels": 55,
+          "maximumDifference": 1
+        },
+        "sourceBBox": {
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 30
+        },
+        "standaloneLoadedTextWidth": 40
+      }
+    },
+    "svg-file-font-native-reference": {
+      "chromium": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "sourceToCapture": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "sourceBBox": {
+          "x": -0.01953125,
+          "y": 0,
+          "width": 120.01953125,
+          "height": 30
+        },
+        "standaloneLoadedTextWidth": 40,
+        "sourceToAuthored": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "captureToAuthored": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "nativeFallbackFontSize": 20,
+        "fallbackGeometry": {
+          "native": {
+            "x": -0.01953125,
+            "y": 4,
+            "width": 24.12109375,
+            "height": 23
+          },
+          "candidates": [
+            {
+              "size": 16,
+              "bbox": {
+                "x": -0.015625,
+                "y": 8,
+                "width": 19.296875,
+                "height": 18
+              }
+            },
+            {
+              "size": 20,
+              "bbox": {
+                "x": -0.01953125,
+                "y": 4,
+                "width": 24.12109375,
+                "height": 23
+              }
+            }
+          ]
+        }
+      },
+      "firefox": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "sourceToCapture": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "sourceBBox": {
+          "x": -2,
+          "y": 0,
+          "width": 122,
+          "height": 30
+        },
+        "standaloneLoadedTextWidth": 40,
+        "sourceToAuthored": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "captureToAuthored": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "nativeFallbackFontSize": 16,
+        "fallbackGeometry": {
+          "native": {
+            "x": -2,
+            "y": 7,
+            "width": 23.266666412353516,
+            "height": 19
+          },
+          "candidates": [
+            {
+              "size": 16,
+              "bbox": {
+                "x": -2,
+                "y": 7,
+                "width": 23.266666412353516,
+                "height": 19
+              }
+            },
+            {
+              "size": 20,
+              "bbox": {
+                "x": -2,
+                "y": 3,
+                "width": 28.066667556762695,
+                "height": 24
+              }
+            }
+          ]
+        }
+      },
+      "webkit": {
+        "sourceDOMUnchanged": true,
+        "sourceBeforeAfterExact": true,
+        "sourceToCapture": {
+          "differentChannels": 55,
+          "maximumDifference": 1
+        },
+        "sourceBBox": {
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 30
+        },
+        "standaloneLoadedTextWidth": 40,
+        "sourceToAuthored": {
+          "differentChannels": 55,
+          "maximumDifference": 1
+        },
+        "captureToAuthored": {
+          "differentChannels": 0,
+          "maximumDifference": 0
+        },
+        "nativeFallbackFontSize": 16,
+        "fallbackGeometry": {
+          "native": {
+            "x": 0,
+            "y": 7.9375,
+            "width": 19.203125,
+            "height": 18
+          },
+          "candidates": [
+            {
+              "size": 16,
+              "bbox": {
+                "x": 0,
+                "y": 7.9375,
+                "width": 19.203125,
+                "height": 18
+              }
+            },
+            {
+              "size": 20,
+              "bbox": {
+                "x": 0,
+                "y": 3.921875,
+                "width": 24.015625,
+                "height": 23
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "finding": "The external-use text matches independently authored fallback geometry (Chromium 20px; Firefox/WebKit 16px). Standalone SVG applies the valid file font and has 40px text advance. Forcing the file font into export would change the native appearance. Firefox downloading a font does not prove it was used.",
+  "pixelBoundary": "Chromium/Firefox source-capture exact. WebKit differs by 55 channels, each by 1, and the independent authored fallback SVG image has exactly the same difference while matching capture byte-for-byte. No tolerance or pixel substitution applied; not claimed as an exact native pass.",
+  "initialProbeFailure": "Required use.getBBox().width===120; glyph left overhang makes actual native width 120.01953125 in Chromium and 122 in Firefox. Preserve timeout; corrected readiness waits for nonempty geometry, records full boxes, and checks unchanged source before/after. Production code/tests unchanged.",
+  "exportFormats": ["ESM only in this observation"],
+  "productionChange": false,
+  "device": "Not verified; no desktop-to-iPhone extrapolation",
+  "rawFiles": 43,
+  "archive": "svg-file-font-native/native-observations.tar.gz",
+  "verifier": "svg-file-font-native/verify-archive.py",
+  "replay": "svg-file-font-native/replay.md",
+  "remaining": [
+    "Other font loading/state/history conditions",
+    "Physical iPhone behavior",
+    "WebKit exact native raster bytes",
+    "Other HTTP stylesheet and qualified URL cases"
+  ],
+  "environment": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "node": "v22.21.1",
+    "deviceScaleFactor": 1,
+    "scope": "Observed desktop environment only; no Linux or physical iPhone extrapolation"
+  }
+}
