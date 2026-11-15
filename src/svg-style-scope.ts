@@ -11,6 +11,60 @@ export interface SVGStylePolicy extends SVGImportPolicy {
   file: boolean
   page: boolean
   whole: boolean
+  fragment?: 'file' | 'page'
+}
+
+export async function detectSVGFragmentPolicy(
+  document: Document,
+  check: () => void,
+): Promise<'file' | 'page'> {
+  const view = document.defaultView
+  if (!view || view.innerWidth < 16 || view.innerHeight < 11)
+    throw new Error('SVG fragment scope probe needs a larger active viewport')
+  const ns = 'http://www.w3.org/2000/svg'
+  const id = uuid()
+  const svg = document.createElementNS(ns, 'svg')
+  svg.setAttribute('width', '20')
+  svg.setAttribute('height', '20')
+  svg.style.cssText =
+    'position:absolute!important;left:0!important;top:0!important;width:20px!important;height:20px!important'
+  svg.innerHTML = `<defs><clipPath id="${id}"><rect width="12" height="20"/></clipPath></defs>`
+  const xml = `<svg xmlns="${ns}"><defs><clipPath id="${id}"><rect width="6" height="20"/></clipPath></defs><g id="probe"><rect width="20" height="20" fill="green" clip-path="url(#${id})"/></g><g id="flat"><rect width="20" height="20" fill="green"/></g></svg>`
+  const url = URL.createObjectURL(new Blob([xml], { type: 'image/svg+xml' }))
+  const use = document.createElementNS(ns, 'use')
+  use.setAttribute('href', url + '#probe')
+  const control = document.createElementNS(ns, 'use')
+  control.setAttribute('href', url + '#flat')
+  svg.append(use, control)
+  try {
+    document.documentElement.append(svg)
+    const deadline = Date.now() + 5000
+    while (Date.now() < deadline) {
+      check()
+      use.style.removeProperty('display')
+      control.style.display = 'none'
+      const ready = use.getBBox().width === 20
+      const inside = document.elementFromPoint(2, 10) === use
+      const outside = document.elementFromPoint(15, 10) !== use
+      const page = document.elementFromPoint(8, 10) === use
+      use.style.display = 'none'
+      control.style.removeProperty('display')
+      const flat =
+        control.getBBox().width === 20 &&
+        document.elementFromPoint(15, 10) === control
+      if (ready && inside && outside && flat) return page ? 'page' : 'file'
+      // Readiness includes applied clipping, not only loaded use geometry.
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise<void>((resolve) => setTimeout(resolve, 0))
+    }
+    check()
+    throw new Error('SVG fragment scope clipping controls did not become ready')
+  } finally {
+    use.removeAttribute('href')
+    control.removeAttribute('href')
+    svg.remove()
+    URL.revokeObjectURL(url)
+  }
 }
 
 function pageStyleText(
@@ -135,6 +189,7 @@ export async function detectSVGStylePolicy(
   document: Document,
   check: () => void,
   reportImportError?: (error: unknown) => void,
+  reportFragmentError?: (error: unknown) => void,
 ): Promise<SVGStylePolicy> {
   const widths: number[] = []
   for (let index = 0; index < 4; index++) {
@@ -179,6 +234,13 @@ export async function detectSVGStylePolicy(
   }
   if (widths[2] !== 21)
     throw new Error('External SVG style probe control was not visible')
+  let fragment: SVGStylePolicy['fragment']
+  try {
+    fragment = await detectSVGFragmentPolicy(document, check)
+  } catch (error) {
+    check()
+    reportFragmentError?.(error)
+  }
   let imports: SVGImportPolicy = {
     dataImports: false,
     fileLayers: 'ordered',
@@ -196,6 +258,7 @@ export async function detectSVGStylePolicy(
     file: widths[0] === 1,
     page: widths[1] === 1,
     whole: widths[3] === 21,
+    fragment,
     ...imports,
   }
 }
@@ -326,10 +389,16 @@ export function createSVGStyleEnvironment(
     async measurePolicy(
       check: () => void,
       reportImportError?: (error: unknown) => void,
+      reportFragmentError?: (error: unknown) => void,
     ): Promise<SVGStylePolicy> {
       const document = await this.getDocument(true)
       try {
-        return await detectSVGStylePolicy(document, check, reportImportError)
+        return await detectSVGStylePolicy(
+          document,
+          check,
+          reportImportError,
+          reportFragmentError,
+        )
       } finally {
         lockResources(document)
       }

@@ -1,0 +1,82 @@
+{
+  "scope": "native external SVG fragment paint tree scope and referenced target identity; bounded #585/#427 subcase",
+  "contract": "current-browser live-page appearance, explicitly selected by user",
+  "source": "f3ab93785ee07ad53f8db9c43e98b28342951861",
+  "parent": "be2cf35d2e67c9bc672007f4fa2d6e8d79085c56",
+  "before": {
+    "runtime": "be2cf35",
+    "sameFinalFixtureCases": 102,
+    "fail": 38,
+    "pass": 64,
+    "nativeSemanticReferenceFailures": 0
+  },
+  "after": {
+    "focused": 102,
+    "fail": 0,
+    "independentImageExact": 102,
+    "nativeScreenExact": 98,
+    "gradientBoundaryCases": 4,
+    "gradientBoundaryChannelsEach": 153,
+    "maximumChannelDelta": 1
+  },
+  "localFull": {
+    "coverage": 1225,
+    "source": 1106,
+    "package": 159,
+    "inheritedSkips": [4, 4],
+    "lintBuildTypesTarball": "pass"
+  },
+  "device": {
+    "source": "f3ab937",
+    "platform": "physical iPhone Safari/iOS 26.6.1",
+    "simulator": false,
+    "comparisons": 68,
+    "photographs": 136,
+    "independentImageExact": 68,
+    "nativeSemanticReferenceExact": 68,
+    "nativeScreenExact": 60,
+    "gradientBoundaryCases": 8,
+    "gradientBoundaryChannelsEach": 153,
+    "cancellations": 4,
+    "smoke": {
+      "PASS": 37,
+      "INFO": 2,
+      "FAIL": 0
+    },
+    "sourceAndPackageHashesUnchanged": true,
+    "ownedSessionAndServerEnded": true,
+    "gcClaim": false
+  },
+  "archives": {
+    "baseline": 409,
+    "candidate": 411,
+    "diagnostics": 1632,
+    "iphone-initial": 258,
+    "iphone": 489,
+    "observations": 7
+  },
+  "totalRawFiles": 3206,
+  "replay": "svg-fragment-paint/replay.md",
+  "verifier": "svg-fragment-paint/verify-archives.py",
+  "initialFailuresPreserved": [
+    "old fragment paint failures",
+    "native nested graph controls",
+    "duplicate-only namespace collision failures",
+    "invalid collision fixture attempt",
+    "eager namespace full suite: 3 iframe ID assertion failures plus 3 Firefox GC failures of unknown cause",
+    "initial902 phone limited corpus",
+    "older gradient boundary and oracle diagnostics"
+  ],
+  "remaining": [
+    "qualified relative/absolute paint URLs",
+    "different-document query paint",
+    "restricted CSP",
+    "opaque matching rules",
+    "HTTP file CSS/fonts",
+    "original large SPA and broader performance",
+    "general WebKit/device GC"
+  ],
+  "oldContributorPRCommentsOrClosures": false,
+  "npmPublished": false,
+  "remoteGates": "pending current new PR exact-head checks"
+}

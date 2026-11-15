@@ -1,0 +1,2051 @@
+{
+  "archive": "baseline-raw.tar.gz",
+  "archiveSHA256": "26e8ce8c6ba7064cb77d601231b6b14b71154c095df0ded2a086a8c337e07952",
+  "files": [
+    {
+      "path": "before.log",
+      "bytes": 22706,
+      "sha256": "8baa053b2b308a002b6c3d1b469740df74e3f8e9037dff40095aae040cde8562"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-missing-authored.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-missing-capture.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-missing-native.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-missing.json",
+      "bytes": 2424,
+      "sha256": "ee62b029ab06f11d144938875cdeb916629768a261b9af2e8bc132b5abe5deff"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-page-authored.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-page-capture.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-page-native.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-attribute-page.json",
+      "bytes": 2620,
+      "sha256": "d25b064345173c6435053f0905c41d4e2bb094543b7f976cc41a521129d97950"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-missing.json",
+      "bytes": 2353,
+      "sha256": "1fd0fc3fa7aa418b4dcfa4430f89fbd5288c57a317db634ace944333aa560168"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inline-page.json",
+      "bytes": 2551,
+      "sha256": "3f12aabf2e17d10b1ecfc62645acfd86567a43c1a494ca9c8b8147088de0774d"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-missing.json",
+      "bytes": 2351,
+      "sha256": "0acf4441a2fe563f15826a0dc9450ae74b7f922336f6deed8fa51d1034bcec59"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-inner-page.json",
+      "bytes": 2559,
+      "sha256": "429dfa23cfac099ac92ef860df6af4922deea842f332e7defd7791288c2eb30f"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-missing.json",
+      "bytes": 2355,
+      "sha256": "db5573afd711aa69d675442d788c0981732b1d627dfa439c84f6cf3db0029840"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-gradient-nested-page.json",
+      "bytes": 2549,
+      "sha256": "d56a5d27ae81b9a98981cd8b1cd0babb26dface88bf5d9a28fb2c4569727bc38"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-missing-authored.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-missing-capture.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-missing-native.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-missing.json",
+      "bytes": 2494,
+      "sha256": "dc5c5e5cd5bff40eb4393e8625e19cc9e2c8f67bee29fc237243b45e01ca841e"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-page-authored.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-page-capture.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-page-native.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-attribute-page.json",
+      "bytes": 2822,
+      "sha256": "477cd0e91caf86a8757be9b07e281860a461f617e1348b15804e8b72a945b5d4"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-missing-authored.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-missing-capture.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-missing-native.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-missing.json",
+      "bytes": 3248,
+      "sha256": "af876215c33b67f65180442db780ba19bcaa4eba959de7d604a6b9a21b54eeb2"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-page-authored.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-page-capture.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-page-native.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-graph-page.json",
+      "bytes": 4270,
+      "sha256": "59151d3d50e0ac258d440314aa814c2aebfdbfccb91e80a051471026087c2f1a"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-missing.json",
+      "bytes": 2425,
+      "sha256": "2b7df703afd131c98a12ddaf058ad90c78f4037f1f78fe53b08eb85a55cee9a9"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inline-page.json",
+      "bytes": 2751,
+      "sha256": "9e705e2278251666380f7e319dd1f80a1ebb37869f1867266b79960c6d10e184"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-missing.json",
+      "bytes": 2419,
+      "sha256": "fab1ae51da5a45cc1b214f7e645e12dbd04fceacbbd50aefbc5a5ca5b63a41b2"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-inner-page.json",
+      "bytes": 2761,
+      "sha256": "8b31cb25e1c71ef5a2ebc991d5e4cf74eabca1107dcfe04a84681eadd3522439"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-missing.json",
+      "bytes": 2425,
+      "sha256": "a15581c216c7b3c104d778af408401b50dfb3f1acab69e32981a5333bbf62e20"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-nested-page.json",
+      "bytes": 2753,
+      "sha256": "6af750e327c2c22afef885ff02bb95a3a9a773fd052a430deb4be9d9830cdc05"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-resolved-inline-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-resolved-inline-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-resolved-inline-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-resolved-inline-page.json",
+      "bytes": 2784,
+      "sha256": "5381e1ec24fd7f045fce4ea2a9b44281ea3ea2868094b6a45f3710687159fa0f"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-missing-authored.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-missing-capture.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-missing-native.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-missing.json",
+      "bytes": 3002,
+      "sha256": "7cc74e46b5c5045a7dc3073f97bae1c1eb80090bb33338d87f6cf24d408e8a6e"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-page-authored.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-page-capture.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-page-native.png",
+      "bytes": 179,
+      "sha256": "af1c0e410591cf63e9fe5cb8547cf89c4d09714720689ff80901c97c1bafefb7"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-attribute-page.json",
+      "bytes": 3328,
+      "sha256": "89e644ac62df36a22a8d27b13b0841834529b5e363b738cdb426c0c6d7121668"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-missing-authored.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-missing-capture.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-missing-native.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-missing.json",
+      "bytes": 3734,
+      "sha256": "aaedaf556d1c10a40ffca37ce2f15d1c2e46cd347d1d785c92f4d2d1556753b9"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-page-authored.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-page-capture.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-page-native.png",
+      "bytes": 168,
+      "sha256": "d19b09bc0422537be53f5142513427c6f2947ab290d0f61287f754e25def6731"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-graph-page.json",
+      "bytes": 4760,
+      "sha256": "7dc3ee28a6b52db5ec8b4352d2fc31a9ec93e28fa309fc1db892032a99f75514"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-missing.json",
+      "bytes": 2931,
+      "sha256": "32f5230197b3e1a2c25481c8bffa1a5b54f700adc51d9961c5896b00803e3f51"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inline-page.json",
+      "bytes": 3259,
+      "sha256": "ce9e1be007f748a87f3e78f031c4b2496a55534ff15031da5cfb8f4b60a9e69a"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-missing.json",
+      "bytes": 2937,
+      "sha256": "020fa5d2c8e7c801c582e4baa0f2f53e78e7a827400c2eec012c60568738239f"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-inner-page.json",
+      "bytes": 3279,
+      "sha256": "51c2d76e260b862e745ba6ceb0478848863cbec53f547f02c24e8cd608cf4e5d"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-missing-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-missing-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-missing-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-missing.json",
+      "bytes": 2929,
+      "sha256": "cd47c162e94f0c44e6ed1d035d0f9d91a2cffc7aa4500b8431cbf215a5146df8"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-page-authored.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-page-capture.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-page-native.png",
+      "bytes": 160,
+      "sha256": "157bad7c9b19779a593bb0e4677e769102e6861864abd679fc568a0dc757088c"
+    },
+    {
+      "path": "chromium-svg-fragment-pattern-shadow-nested-page.json",
+      "bytes": 3259,
+      "sha256": "e874cb812792e942233fc4eab4d5cc4104e8b989f4b26264923154340ebc147a"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-collision-authored.png",
+      "bytes": 203,
+      "sha256": "02a0920c7f89975e6e8b7116cdf499ac9a9337f59e8bc730eaec47db10c775f5"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-collision-capture.png",
+      "bytes": 194,
+      "sha256": "4b373189c175ca8860df4d437c13d8f2d7cd19e6838f2e1d62143cf3da64032c"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-collision-native.png",
+      "bytes": 203,
+      "sha256": "02a0920c7f89975e6e8b7116cdf499ac9a9337f59e8bc730eaec47db10c775f5"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-collision.json",
+      "bytes": 328,
+      "sha256": "6cd5a26c644ea3c0128fb7e90ace4f1964c832348246ff0d968065d1df5bc00f"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-kept-authored.png",
+      "bytes": 174,
+      "sha256": "bcaa50f3125bcc0e98beb4ec8d0749ead8bb05c5f7cb0c2afd6c21a0ed4c9718"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-kept-capture.png",
+      "bytes": 174,
+      "sha256": "bcaa50f3125bcc0e98beb4ec8d0749ead8bb05c5f7cb0c2afd6c21a0ed4c9718"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-kept-native.png",
+      "bytes": 174,
+      "sha256": "bcaa50f3125bcc0e98beb4ec8d0749ead8bb05c5f7cb0c2afd6c21a0ed4c9718"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-kept.json",
+      "bytes": 312,
+      "sha256": "5af4fed46ec9dbafe77e44eb0456732630265bd2604fef9d0be51562d51c4dac"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-local-authored.png",
+      "bytes": 204,
+      "sha256": "0831b4982d1cb408c59d0fdf068149eca4020a188c9344df331b1082b635ee30"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-local-capture.png",
+      "bytes": 196,
+      "sha256": "056e986f92f3730d82d4db7a275d4c3064a5ba29dbb1e5b4e6f52369cb064b4d"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-local-native.png",
+      "bytes": 204,
+      "sha256": "0831b4982d1cb408c59d0fdf068149eca4020a188c9344df331b1082b635ee30"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-local.json",
+      "bytes": 318,
+      "sha256": "d41d76d2702520803eb122c8f29c79e0d8c1ebaa7a3fda23f4dd8e2809b21cd7"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-removed-authored.png",
+      "bytes": 174,
+      "sha256": "bcaa50f3125bcc0e98beb4ec8d0749ead8bb05c5f7cb0c2afd6c21a0ed4c9718"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-removed-capture.png",
+      "bytes": 174,
+      "sha256": "bcaa50f3125bcc0e98beb4ec8d0749ead8bb05c5f7cb0c2afd6c21a0ed4c9718"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-removed-native.png",
+      "bytes": 174,
+      "sha256": "bcaa50f3125bcc0e98beb4ec8d0749ead8bb05c5f7cb0c2afd6c21a0ed4c9718"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-removed.json",
+      "bytes": 318,
+      "sha256": "76b7b18496f87a27cd303d14b20dd22bf4d246a288d7dabf95466e174c4cba36"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-renamed-authored.png",
+      "bytes": 204,
+      "sha256": "0831b4982d1cb408c59d0fdf068149eca4020a188c9344df331b1082b635ee30"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-renamed-capture.png",
+      "bytes": 196,
+      "sha256": "056e986f92f3730d82d4db7a275d4c3064a5ba29dbb1e5b4e6f52369cb064b4d"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-renamed-native.png",
+      "bytes": 204,
+      "sha256": "0831b4982d1cb408c59d0fdf068149eca4020a188c9344df331b1082b635ee30"
+    },
+    {
+      "path": "chromium-svg-fragment-siblings-renamed.json",
+      "bytes": 322,
+      "sha256": "c1947fd308ec8e1520796785aebc81eb9fd5266dc31d060d9852515806d75fa9"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-missing.json",
+      "bytes": 2361,
+      "sha256": "22acc268c5cbf3d0aba649825cd0167e23fa401eec9b5a65e0b5a14dd9cadbef"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-attribute-page.json",
+      "bytes": 2559,
+      "sha256": "c3e08cd349482e58d436f3fb744f51a29b285d1d3863f514277fb1bee71b3281"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-missing.json",
+      "bytes": 2351,
+      "sha256": "cb06cf70865c65eba87facf323a84651f3517ea6dfb7cd362eb66c77039d2be6"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inline-page.json",
+      "bytes": 2547,
+      "sha256": "f74d9d17f45dbbcbe6bf4c62c7261cd39fcc681efb33a7562cd323357dbd9a88"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-missing.json",
+      "bytes": 2345,
+      "sha256": "8b03980d63879142a70e26f749d71723a954af82532b599fb638b59ac98d6db9"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-inner-page.json",
+      "bytes": 2555,
+      "sha256": "e059c0ad9d5c6278af6f058799d36d6d53293478d7ee0350aeda3be000a89976"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-missing.json",
+      "bytes": 2351,
+      "sha256": "2db934921222b5335eb59535124bc949e7897a7d23addbd8468481403fe385a6"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-gradient-nested-page.json",
+      "bytes": 2547,
+      "sha256": "3b0d0e97a89ac90ceb080a012d78f1c58644e5cc1f8d52cf467f9382fc01c212"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-missing.json",
+      "bytes": 2433,
+      "sha256": "6d018aa22ac0f5c2b8f36368038ca30e147549a2decf1b74f401492fd6fac058"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-attribute-page.json",
+      "bytes": 2759,
+      "sha256": "660cfe7018014fa2ce882f2ef85fd1978ae37f85b91a25db7787e38d8e4ea4ad"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-missing-authored.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-missing-capture.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-missing-native.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-missing.json",
+      "bytes": 3256,
+      "sha256": "787b47710ffe1dd840b2d92691f94634c8daa7612fea97019a5af8d7f68b7856"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-page-authored.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-page-capture.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-page-native.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-graph-page.json",
+      "bytes": 4278,
+      "sha256": "654e3211d75bc560333aaa5b3dff8f4ac1a6b4eca0f4e1d963e00c3d8bd3e110"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-missing.json",
+      "bytes": 2421,
+      "sha256": "b66c2b401c3a98557378278b79cc12d9a098f21573dc14309e7bb627ffcf9e14"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inline-page.json",
+      "bytes": 2749,
+      "sha256": "fabf4560afed14f17691e89ca822d5d8066caeb8ff4bdab7b69024f82e2a44dc"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-missing.json",
+      "bytes": 2417,
+      "sha256": "d65360590664f9dcada8e51468f60bd7fdff1f00c25c6d336eff02eefef9a306"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-inner-page.json",
+      "bytes": 2755,
+      "sha256": "18f4162799c0448adf9094fade60c759146e56257bd2f8c74c9197ef6c65c4de"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-missing.json",
+      "bytes": 2419,
+      "sha256": "6e76265a1644dcd705cfa950e5866fa02bbb488a8c06f9fe9999585e5579fdd0"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-nested-page.json",
+      "bytes": 2749,
+      "sha256": "281b2554dc9d0447cfddc4c18f3733c5971cef30dfdc8039b5caa3c9e43f9236"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-resolved-inline-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-resolved-inline-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-resolved-inline-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-resolved-inline-page.json",
+      "bytes": 2780,
+      "sha256": "98e5c76ea95df99b2f532187697245d6aa85079e1110dc50618bed61916396d4"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-missing.json",
+      "bytes": 2939,
+      "sha256": "e6d85376fbcc49ce5cc6bbb7b723f8e9c86a4beffb8f55c399ef17f8604ff050"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-attribute-page.json",
+      "bytes": 3267,
+      "sha256": "c008b1ce39964920c2c187d071e2e11b6924183da79356135ad60b64dd972e9e"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-missing-authored.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-missing-capture.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-missing-native.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-missing.json",
+      "bytes": 3742,
+      "sha256": "b8b8394421212dd373e74b1acea1b099a51c025a2fe2c4bf672d0223f4ec8c2e"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-page-authored.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-page-capture.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-page-native.png",
+      "bytes": 172,
+      "sha256": "b71b09639b8ff0fcad744b0cf7852457038ea9142592c9ccf7869e288e1a1861"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-graph-page.json",
+      "bytes": 4764,
+      "sha256": "b21699220ded9c03b56cee2244192ff89a40d30375f444411b2df40ce60cc9c8"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-missing.json",
+      "bytes": 2927,
+      "sha256": "f7131f5f4aa719702576c52651055ea52e5a87cc871a417b10e5c5fb144aff1a"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inline-page.json",
+      "bytes": 3255,
+      "sha256": "a6c299cd98253564394898de57b3945f716855bb1789a90bf4f278937b0f15c2"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-missing.json",
+      "bytes": 2933,
+      "sha256": "a02eec544b9bf9d1d979ea84fccf62e4c2542df5c4d69db94656f9229390973c"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-inner-page.json",
+      "bytes": 3275,
+      "sha256": "81119544d328aadb136b9674cdc9a9b02beebda8add758c3c6afa81bb6a5fd3a"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-missing-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-missing-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-missing-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-missing.json",
+      "bytes": 2927,
+      "sha256": "6562fd1a58b1e59113f2464b3728440712cc669d139c9465e593d9c480869af4"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-page-authored.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-page-capture.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-page-native.png",
+      "bytes": 159,
+      "sha256": "e7e266ec205626691bc6249dd45b055006cae8040623e2a65734a6ff53a81cce"
+    },
+    {
+      "path": "firefox-svg-fragment-pattern-shadow-nested-page.json",
+      "bytes": 3253,
+      "sha256": "efc78fc2d6b4960639bbcc22e08227f17167fbdb5f1e70941f5a4ced2f37f4fe"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-collision-authored.png",
+      "bytes": 193,
+      "sha256": "f0ce6e6e922f301555e42e6f2d1fe276dbe8c6bb51fb5c77544c5c685044c391"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-collision-capture.png",
+      "bytes": 167,
+      "sha256": "2bb5eb369e615c2e80aa31c6dfa588adb341b3473240c4e769b97b53e5fd27dd"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-collision-native.png",
+      "bytes": 193,
+      "sha256": "f0ce6e6e922f301555e42e6f2d1fe276dbe8c6bb51fb5c77544c5c685044c391"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-collision.json",
+      "bytes": 328,
+      "sha256": "e4fe97727cf5ee58ee33349443f72635ed384267678f9317930942e31c202396"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-kept-authored.png",
+      "bytes": 165,
+      "sha256": "e12c2866e49616e8c4801ae08b3d7065af32f40ca0a080f963975c13709c2d3a"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-kept-capture.png",
+      "bytes": 165,
+      "sha256": "e12c2866e49616e8c4801ae08b3d7065af32f40ca0a080f963975c13709c2d3a"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-kept-native.png",
+      "bytes": 165,
+      "sha256": "e12c2866e49616e8c4801ae08b3d7065af32f40ca0a080f963975c13709c2d3a"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-kept.json",
+      "bytes": 312,
+      "sha256": "9964aac3ec23264b4394bf11203faaefcaab93da50a3b2edbe2f29ed3d43328c"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-local-authored.png",
+      "bytes": 165,
+      "sha256": "7ce382403eb7902e19b6c3c492861ddc7f0eff1770d7025eb07eeabbfc64e4f5"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-local-capture.png",
+      "bytes": 157,
+      "sha256": "5e955b7e838145bbc78ad06e690924170dadbba830e8762946aff043741df01f"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-local-native.png",
+      "bytes": 165,
+      "sha256": "7ce382403eb7902e19b6c3c492861ddc7f0eff1770d7025eb07eeabbfc64e4f5"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-local.json",
+      "bytes": 318,
+      "sha256": "12470be650548ba65f3c07096c3e93f6d7865f70ef638eefd6832052e1e8a544"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-removed-authored.png",
+      "bytes": 165,
+      "sha256": "e12c2866e49616e8c4801ae08b3d7065af32f40ca0a080f963975c13709c2d3a"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-removed-capture.png",
+      "bytes": 165,
+      "sha256": "e12c2866e49616e8c4801ae08b3d7065af32f40ca0a080f963975c13709c2d3a"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-removed-native.png",
+      "bytes": 165,
+      "sha256": "e12c2866e49616e8c4801ae08b3d7065af32f40ca0a080f963975c13709c2d3a"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-removed.json",
+      "bytes": 318,
+      "sha256": "b7c875f671df6a3749602598978ad2c1973c00a0e12f41bb5cc009164aa404d2"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-renamed-authored.png",
+      "bytes": 165,
+      "sha256": "7ce382403eb7902e19b6c3c492861ddc7f0eff1770d7025eb07eeabbfc64e4f5"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-renamed-capture.png",
+      "bytes": 157,
+      "sha256": "5e955b7e838145bbc78ad06e690924170dadbba830e8762946aff043741df01f"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-renamed-native.png",
+      "bytes": 165,
+      "sha256": "7ce382403eb7902e19b6c3c492861ddc7f0eff1770d7025eb07eeabbfc64e4f5"
+    },
+    {
+      "path": "firefox-svg-fragment-siblings-renamed.json",
+      "bytes": 322,
+      "sha256": "a57eec49a1b11b64ea9968023ced5a84193c48c5244b09631ab8610bf594d9c7"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-missing-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-missing.json",
+      "bytes": 2394,
+      "sha256": "af3c142889bc8a173a10e3fa9d841246b3c455f0895b49e9eb8e252d5a6d8e54"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-page-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-attribute-page.json",
+      "bytes": 2666,
+      "sha256": "681087aa7ed8c4e7b444f7611fe0c53f129f3f0a7f4f2b1c8fcdc45a00bff10d"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-missing-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-missing.json",
+      "bytes": 2382,
+      "sha256": "ec097ced0e5755980a1f4d5aff00693fd60ec19191516bde1f0e37cb20173e3e"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-page-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inline-page.json",
+      "bytes": 2654,
+      "sha256": "7d3db106b4d8bed1862826d7fa4cf9e899f4a10b7018218d1f8776482afd8504"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-missing-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-missing.json",
+      "bytes": 2378,
+      "sha256": "b5908a0f5310907a5b3b798b5949aac5f34ca3966643d34ad44d07d7f8e0aae4"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-page-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-inner-page.json",
+      "bytes": 2660,
+      "sha256": "3b5e81ce6b1c8a84c94b1196275cc2ca384b283e303b2c8dbbe6fcf2fd5272bb"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-missing-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-missing.json",
+      "bytes": 2384,
+      "sha256": "ad344a3691e2dfafaa21d0267f3d44b876a7cc4e4f412f891d61e7538e04b180"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-page-capture.png",
+      "bytes": 687,
+      "sha256": "00ef74b5e2b78fc137f7670a4311633631a888f8d30ce5c8a68b3d8528c304a8"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-gradient-nested-page.json",
+      "bytes": 2654,
+      "sha256": "26e351b691d86dd5039284166b119ec9429ff977aac92555eb4a698f24b97579"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-missing.json",
+      "bytes": 2400,
+      "sha256": "2c18c0afbf6984784f1caaa9593d7566750a9a5d7de1b14152acc18873513e22"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-attribute-page.json",
+      "bytes": 2866,
+      "sha256": "41ed922f9d425aeff2eb520b3d6211d9f392d0489942abbe4fa361069e7fdeab"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-missing-authored.png",
+      "bytes": 239,
+      "sha256": "482f270c3b480f17a6f31df1093d1d589af8d671bfe90e768fd2d931db049895"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-missing-capture.png",
+      "bytes": 328,
+      "sha256": "6e008d81d22c86b02f951b29401241f6da98dd7e1be6198b55dfb84eb7d14e20"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-missing-native.png",
+      "bytes": 239,
+      "sha256": "482f270c3b480f17a6f31df1093d1d589af8d671bfe90e768fd2d931db049895"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-missing.json",
+      "bytes": 2875,
+      "sha256": "0d8f30c9d29899c8665ec2e317f0805a07b0a5739e7dbb027683c95863dcfbbf"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-page-authored.png",
+      "bytes": 243,
+      "sha256": "d6efd7d6f7859509103e6063bfb6ef52ef53ffe08f5457ef814cf955ae4bbcb4"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-page-capture.png",
+      "bytes": 328,
+      "sha256": "6e008d81d22c86b02f951b29401241f6da98dd7e1be6198b55dfb84eb7d14e20"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-page-native.png",
+      "bytes": 243,
+      "sha256": "d6efd7d6f7859509103e6063bfb6ef52ef53ffe08f5457ef814cf955ae4bbcb4"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-graph-page.json",
+      "bytes": 4115,
+      "sha256": "dabe54a6c053b0f9c13e44363e8bd13211d198515a2be919f45545867343c6fb"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-missing.json",
+      "bytes": 2388,
+      "sha256": "e7c214f864a59c67e56c97149114a225d9488557ff88ac9a8ef8204969e9a72d"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inline-page.json",
+      "bytes": 2854,
+      "sha256": "0fbd7955bed22ceed85324674e19a16f4af69c866759b6e850bfeacfd590595c"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-missing.json",
+      "bytes": 2382,
+      "sha256": "a01cfc3f9a1e17e524229452ec0c1d3c5f9a8f2e399cace801c75e58ac4e2340"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-inner-page.json",
+      "bytes": 2862,
+      "sha256": "df760517bc98c6fc759286879a44e10cd4066ec43a8daf58b0aa377f139af80d"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-missing.json",
+      "bytes": 2386,
+      "sha256": "d8f45ecc605fd8e65f9b9dacf44af9fa2bfa737ec9acb59e987ec6686fd9a79f"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-nested-page.json",
+      "bytes": 2852,
+      "sha256": "401420e2b8602f734d992a67ffadb479642b1e701cef358bde292f39b7731bee"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-resolved-inline-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-resolved-inline-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-resolved-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-resolved-inline-page.json",
+      "bytes": 2885,
+      "sha256": "1770c6b00eb63400c7a8970ea18959a2f75455621e6d567dd44a3bc34ebb2713"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-missing.json",
+      "bytes": 2906,
+      "sha256": "a633f6e5c4f8363fe03b7c0dd95598521ad038981308ff90f98738389dd19df5"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-attribute-page.json",
+      "bytes": 3372,
+      "sha256": "e816d5a275283111e5c6e71475f1d4a8412857fe34bafb767c81ac87b39df75b"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-missing-authored.png",
+      "bytes": 239,
+      "sha256": "482f270c3b480f17a6f31df1093d1d589af8d671bfe90e768fd2d931db049895"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-missing-capture.png",
+      "bytes": 328,
+      "sha256": "6e008d81d22c86b02f951b29401241f6da98dd7e1be6198b55dfb84eb7d14e20"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-missing-native.png",
+      "bytes": 239,
+      "sha256": "482f270c3b480f17a6f31df1093d1d589af8d671bfe90e768fd2d931db049895"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-missing.json",
+      "bytes": 3363,
+      "sha256": "c566a3db89f602f8e230cc863e5630fe580aa00b1870a3d82dc5416ec692d991"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-page-authored.png",
+      "bytes": 243,
+      "sha256": "d6efd7d6f7859509103e6063bfb6ef52ef53ffe08f5457ef814cf955ae4bbcb4"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-page-capture.png",
+      "bytes": 328,
+      "sha256": "6e008d81d22c86b02f951b29401241f6da98dd7e1be6198b55dfb84eb7d14e20"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-page-native.png",
+      "bytes": 243,
+      "sha256": "d6efd7d6f7859509103e6063bfb6ef52ef53ffe08f5457ef814cf955ae4bbcb4"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-graph-page.json",
+      "bytes": 4603,
+      "sha256": "ee5abce2f3eb5e42d66ab82c40eb523a03e27aa02ad04f15935d6ec7ee2bbfd7"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-missing.json",
+      "bytes": 2894,
+      "sha256": "bb0484fba84091a94cad77142e9da36b2a9aa2b695bd6eb84d581ad343a85798"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inline-page.json",
+      "bytes": 3360,
+      "sha256": "9acd3d9befd611965903dae38553235f5dbf92e8221b87ab8b5c42c500d44a77"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-missing.json",
+      "bytes": 2900,
+      "sha256": "ba6b3655bd2b6862e3f13c999c4b7cd31a55d6f1db1b93e77d8b101f1496e8ae"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-inner-page.json",
+      "bytes": 3380,
+      "sha256": "71ff5b5653cc9df4fb9df6f1c5507026133edf18caaf147ffbd313e3abf5fa0f"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-missing-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-missing.json",
+      "bytes": 2894,
+      "sha256": "4f10699b7cfac83bc7441d48e69888008cfc44c8a61519ad02658716b0aea20b"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-page-capture.png",
+      "bytes": 240,
+      "sha256": "1fb27238e05f4c124b3eaeae4f2968e45f18def0026b684b0a4a46e0743b6b81"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "webkit-svg-fragment-pattern-shadow-nested-page.json",
+      "bytes": 3360,
+      "sha256": "5ae521b1e22362e6b6850cd77228e7c4a010ceafd74ac27435abaecd3512c528"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-collision-authored.png",
+      "bytes": 288,
+      "sha256": "a159985c5f1385df7dddce219c9d55de1381c421203756e91a98e88963f7bfeb"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-collision-capture.png",
+      "bytes": 286,
+      "sha256": "04d5aca39142a2737c9fa05c6c4c85d3639659510a8a3a0b10e978b1fcedccf5"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-collision-native.png",
+      "bytes": 288,
+      "sha256": "a159985c5f1385df7dddce219c9d55de1381c421203756e91a98e88963f7bfeb"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-collision.json",
+      "bytes": 324,
+      "sha256": "34720d1b8b4197dd1026175455c0428153e81dedfdc1b82324c450f8321d6ccb"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-kept-authored.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-kept-capture.png",
+      "bytes": 249,
+      "sha256": "1a98790773e352ac82ba917e1a7e91ba94a50af7273216371e0bb2d760dc8d13"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-kept-native.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-kept.json",
+      "bytes": 316,
+      "sha256": "7526597f57cb17a1481cf61ee0b8ff083098c44e91b8b87852a311828996e30c"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-local-authored.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-local-capture.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-local-native.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-local.json",
+      "bytes": 312,
+      "sha256": "a80ac2f06f82b967f33cd59d814f7dfc61539721693ab87638f5af0c7985c458"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-removed-authored.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-removed-capture.png",
+      "bytes": 249,
+      "sha256": "1a98790773e352ac82ba917e1a7e91ba94a50af7273216371e0bb2d760dc8d13"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-removed-native.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-removed.json",
+      "bytes": 322,
+      "sha256": "8cd8f9349635492ea8f755db72b2f556800d3d370958f472a3933a7ef5d3e452"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-renamed-authored.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-renamed-capture.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-renamed-native.png",
+      "bytes": 253,
+      "sha256": "79d327d28fb61d764351222d03b8681a200a9b95acaa680049341244a38b1b7a"
+    },
+    {
+      "path": "webkit-svg-fragment-siblings-renamed.json",
+      "bytes": 316,
+      "sha256": "89b42ef72b580dc775638f7fed7e1adc35fbbd163b0a1f1296bf613ab89b78bb"
+    }
+  ]
+}

@@ -1,0 +1,1296 @@
+{
+  "archive": "iphone-initial-raw.tar.gz",
+  "archiveSHA256": "101bcf4e83f3b3c90774fb4735732f2911d6d8c6a3383990702023c30382cebd",
+  "files": [
+    {
+      "path": "client.py",
+      "bytes": 634,
+      "sha256": "b091468b191cb090e1f9c73fe716e5cd8ba22881aec3fe5540e4fedf3da6cf2b"
+    },
+    {
+      "path": "esm-gradient-attribute-missing-7-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-gradient-attribute-missing-7-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-gradient-attribute-missing-8-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-gradient-attribute-missing-8-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-gradient-attribute-page-1-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-gradient-attribute-page-1-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "esm-gradient-attribute-page-2-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-gradient-attribute-page-2-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "esm-gradient-inline-missing-19-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-gradient-inline-missing-19-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-gradient-inline-missing-20-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-gradient-inline-missing-20-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-gradient-inline-page-13-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-gradient-inline-page-13-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "esm-gradient-inline-page-14-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-gradient-inline-page-14-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "esm-gradient-inner-missing-31-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-gradient-inner-missing-31-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-gradient-inner-missing-32-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-gradient-inner-missing-32-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-gradient-inner-page-25-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-gradient-inner-page-25-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "esm-gradient-inner-page-26-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-gradient-inner-page-26-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "esm-pattern-attribute-missing-10-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-attribute-missing-10-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-attribute-missing-9-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-attribute-missing-9-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-attribute-page-3-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-attribute-page-3-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-attribute-page-4-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-attribute-page-4-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-inline-missing-21-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-inline-missing-21-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-inline-missing-22-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-inline-missing-22-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-inline-page-15-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-inline-page-15-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-inline-page-16-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-inline-page-16-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-inner-missing-33-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-inner-missing-33-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-inner-missing-34-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-inner-missing-34-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-inner-page-27-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-inner-page-27-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-inner-page-28-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-inner-page-28-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-missing-11-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-missing-11-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-missing-12-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-missing-12-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-page-5-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-page-5-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-page-6-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-shadow-attribute-page-6-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-missing-23-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-missing-23-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-missing-24-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-missing-24-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-page-17-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-page-17-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-page-18-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-shadow-inline-page-18-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-missing-35-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-missing-35-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-missing-36-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-missing-36-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-page-29-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-page-29-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-page-30-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "esm-pattern-shadow-inner-page-30-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-attribute-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-attribute-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-attribute-page-capture.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inline-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inline-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inline-page-capture.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inner-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inner-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inner-page-capture.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "esm-svg-fragment-gradient-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-attribute-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-attribute-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-attribute-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inline-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inline-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inline-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inner-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inner-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inner-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-attribute-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-attribute-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-attribute-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inline-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inline-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inline-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inner-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inner-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inner-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "esm-svg-fragment-pattern-shadow-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "fragment-summary.json",
+      "bytes": 170910,
+      "sha256": "1d2cb718c33c37ea8202048b5dd1fa13867e962fdba1cb3bdc046a96778b1536"
+    },
+    {
+      "path": "fragment.log",
+      "bytes": 685,
+      "sha256": "5cc4a3552450ea246c2f54cb90b23dbf4f666be16e719ca4c0318de6b4387467"
+    },
+    {
+      "path": "run-cancel.py",
+      "bytes": 3408,
+      "sha256": "8bb091640a751e8bbc0d101d0b9c6be8753d8198e0cf14419929b519642781d0"
+    },
+    {
+      "path": "run-fragment.py",
+      "bytes": 4652,
+      "sha256": "838a630ce8e2bd16316f319541a35ec654109e8722c1087ebe51ec8d76feddd5"
+    },
+    {
+      "path": "run-smoke.py",
+      "bytes": 1632,
+      "sha256": "4161b8e8ddd1ff53864244cf9887a5dcd428f3a847c61f2f2b977d80e63756d1"
+    },
+    {
+      "path": "umd-gradient-attribute-missing-43-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-gradient-attribute-missing-43-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-gradient-attribute-missing-44-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-gradient-attribute-missing-44-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-gradient-attribute-page-37-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-gradient-attribute-page-37-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "umd-gradient-attribute-page-38-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-gradient-attribute-page-38-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "umd-gradient-inline-missing-55-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-gradient-inline-missing-55-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-gradient-inline-missing-56-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-gradient-inline-missing-56-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-gradient-inline-page-49-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-gradient-inline-page-49-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "umd-gradient-inline-page-50-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-gradient-inline-page-50-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "umd-gradient-inner-missing-67-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-gradient-inner-missing-67-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-gradient-inner-missing-68-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-gradient-inner-missing-68-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-gradient-inner-page-61-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-gradient-inner-page-61-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "umd-gradient-inner-page-62-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-gradient-inner-page-62-screen.png",
+      "bytes": 136320,
+      "sha256": "d162060d74ec9b163cf9d2c2dacb6a04fc6178d4a2bdbf09df05a10457aa270d"
+    },
+    {
+      "path": "umd-pattern-attribute-missing-45-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-attribute-missing-45-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-attribute-missing-46-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-attribute-missing-46-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-attribute-page-39-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-attribute-page-39-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-attribute-page-40-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-attribute-page-40-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-inline-missing-57-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-inline-missing-57-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-inline-missing-58-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-inline-missing-58-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-inline-page-51-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-inline-page-51-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-inline-page-52-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-inline-page-52-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-inner-missing-69-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-inner-missing-69-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-inner-missing-70-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-inner-missing-70-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-inner-page-63-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-inner-page-63-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-inner-page-64-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-inner-page-64-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-missing-47-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-missing-47-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-missing-48-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-missing-48-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-page-41-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-page-41-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-page-42-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-shadow-attribute-page-42-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-missing-59-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-missing-59-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-missing-60-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-missing-60-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-page-53-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-page-53-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-page-54-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-shadow-inline-page-54-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-missing-71-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-missing-71-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-missing-72-native.png",
+      "bytes": 127,
+      "sha256": "ef27a77ef30c42bf4f075bed3b0e0b673ef0bd86788e65eaffac731f2c8268b6"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-missing-72-screen.png",
+      "bytes": 131414,
+      "sha256": "08654972d84cb7ec3e8b8ea5d70f980a9f476292ceac1d0d4679c24c1b6f2c04"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-page-65-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-page-65-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-page-66-native.png",
+      "bytes": 121,
+      "sha256": "6b47ba57dc39686e53c0f348755f3dc2422f34611d46b450a3b1e0769ecf5dc9"
+    },
+    {
+      "path": "umd-pattern-shadow-inner-page-66-screen.png",
+      "bytes": 131451,
+      "sha256": "70de73b68bf85d42c808f433260b685190c2db4c452c92e069e938994f9fe641"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-attribute-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-attribute-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-attribute-page-capture.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inline-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inline-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inline-page-capture.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inner-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inner-page-authored.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inner-page-capture.png",
+      "bytes": 641,
+      "sha256": "992f909353e326d8e64e070f55061a9db8598fb715edd3172de9dbaa9d14a7c9"
+    },
+    {
+      "path": "umd-svg-fragment-gradient-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-attribute-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-attribute-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-attribute-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inline-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inline-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inline-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inner-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inner-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inner-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-attribute-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-attribute-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-attribute-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-attribute-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-attribute-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-attribute-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inline-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inline-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inline-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inline-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inline-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inline-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inner-missing-authored.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inner-missing-capture.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inner-missing-native.png",
+      "bytes": 242,
+      "sha256": "34a941bfa57768b715ff835938ff81926b88132cf4e7ce5a09b0fda6d36074b1"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inner-page-authored.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inner-page-capture.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    },
+    {
+      "path": "umd-svg-fragment-pattern-shadow-inner-page-native.png",
+      "bytes": 237,
+      "sha256": "c43d8e23ab056ab2eee59bee822c72445e516b2dc524492c4783e143e150fab3"
+    }
+  ]
+}

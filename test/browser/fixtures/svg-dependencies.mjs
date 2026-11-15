@@ -1,5 +1,7 @@
 const namespace = 'http://www.w3.org/2000/svg'
-const directory = '/test/browser/fixtures/svg-dependencies/'
+// This suite explicitly imports a virtual dependency graph. Default HTTP
+// display fidelity is verified against native screenshots in fragment tests.
+const directory = '/test/browser/fixtures/virtual-svg-dependencies/'
 
 export async function checkSVGDependencies({ createRenderer }) {
   const root = document.createElement('div')
@@ -24,6 +26,9 @@ export async function checkSVGDependencies({ createRenderer }) {
     resources: {
       resolve: ({ url }) => {
         requests.push(url)
+        return fetch(
+          url.replace('/virtual-svg-dependencies/', '/svg-dependencies/'),
+        ).then((response) => response.blob())
       },
     },
   })
