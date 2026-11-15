@@ -65,11 +65,39 @@
   ],
   "archives": {
     "before-and-boundaries": 41,
-    "candidate-desktop": 75
+    "candidate-desktop": 75,
+    "first-remote": 27
   },
-  "totalRawFiles": 116,
+  "totalRawFiles": 143,
   "inputHashes": "video-empty-frame/input-sha256.json",
-  "remoteGates": "pending new PR exact-head and subsequent master checks",
+  "remoteGates": {
+    "status": "not accepted; first exact-head CI failed",
+    "pr": 647,
+    "firstHead": "a388d1a83130ad361b44ad23c2dbbe6dd65cad49",
+    "testedMerge": "8ea5a308eb979847f518a4dfee2ee316dfeba816",
+    "ci": {
+      "run": 43675541223,
+      "coveragePassed": 1234,
+      "coverageSkipped": 4,
+      "sourcePassed": 1111,
+      "sourceFailed": 4,
+      "sourceSkipped": 4,
+      "packages": "not run",
+      "videoCasesPassedPerSuite": 12
+    },
+    "failedCases": [
+      "Firefox disposed SVG environment probed=false",
+      "Firefox disposed SVG environment probed=true",
+      "Firefox pending-font cancellation",
+      "WebKit frozen SVG source document"
+    ],
+    "codeql": {
+      "run": 43675541268,
+      "conclusion": "success"
+    },
+    "rootCause": "not established; preserve preexisting lifecycle failures, do not claim this video fix resolves them",
+    "latestHead": "requires fresh checks after evidence commit; iPhone remains pending"
+  },
   "npmPublished": false,
   "oldContributorPRCommentOrClosureActions": 0
 }
