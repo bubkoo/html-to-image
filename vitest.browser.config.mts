@@ -138,8 +138,12 @@ export default defineConfig({
           svgStyleBlobStops.delete(marker)
           return trace
         },
-        async collectGarbage({ page }) {
+        async collectGarbage({ page, frame }) {
+          const target = await frame()
           await page.requestGC()
+          // Firefox's parent-process GC request can finish before child GC/CC.
+          // Round-trip through the test frame before resuming its assertions.
+          await target.evaluate(() => undefined)
         },
         async screenshotScrollSource({ iframe }, selector: string) {
           const png = await iframe
