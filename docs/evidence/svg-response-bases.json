@@ -163,6 +163,18 @@
       "sourceSkipped": 4,
       "lintTypes": "pass"
     },
-    "remoteStatus": "pending on final subsequent docs head; no source-GC root-cause fix claim"
+    "remoteStatus": "Final docs head bbb6a55 passed PR CI 43654581144; merged as be2cf35, post-merge CI 43655366497 passed. The earlier failed run remains preserved; no generic source-GC root-cause claim."
+  },
+  "finalRemoteGates": {
+    "pr": 643,
+    "finalHead": "bbb6a552c2baaf69234f81e4c773b1be3a03e3a9",
+    "mergedAs": "be2cf35d2e67c9bc672007f4fa2d6e8d79085c56",
+    "prCI": 43654581144,
+    "postMergeCI": 43655366497,
+    "conclusion": "both success",
+    "counts": [1108, 989, 156],
+    "inheritedSkips": [4, 4],
+    "laterMasterLifecycleFailures": "preserved separately in gc-observer-controls.json; do not substitute this earlier pass",
+    "refreshedAt": "2026-11-15T03:16:12.671352+00:00"
   }
 }

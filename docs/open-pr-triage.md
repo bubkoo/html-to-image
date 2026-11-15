@@ -1,5 +1,11 @@
 # 开放 PR 处理台账
 
+## 2026-11-15 原始 28 项状态重新核对
+
+[本次只读查询](evidence/open-pr-live-refs-20261115.json)确认 28 项提交 head 均未变化，目前 27 项开放；#398 于北京时间 2026-11-15 03:38 由 bubkoo 关闭且未合并。关闭不等于真实点击验收，手机可信点击/新标签页的缺口继续保留。本次未评论或关闭任何旧 PR。
+
+当前主分支为 `901c4bc`。索引已补齐 #632/#633 合入与真机状态，以及 #643/#644 已验收的 SVG 子项；移除仍写“待合入/待远端”的过期描述，同时保留 #644 主分支 GC 失败与草稿 #646 的未解决边界。原始 28 项继续作为完整清单，不因 #398 已关闭而减少目标范围。
+
 ## 2026-11-15 一次任务边界不足以解释失败，改用同并发的循环引用日志
 
 #646 head `31e2952` 两轮失败的三个 Firefox 文档，在入口、微任务后、一次任务后均保留（零显式 GC）；普通对象未回收，强对象控制有效。因此不支持靠增加一次任务延时解决。PR CI 43670467884 为 source 1103 通过 / 3 失败；push CI 43670464573 为 1100 通过 / 6 失败，另有两个 Firefox opened-source 和一个 WebKit 冻结源失败。两轮 coverage 1225 通过 / 4 既有跳过，构建包未运行。
@@ -192,13 +198,13 @@ CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真�
 
 | PR | 原需求 / 当前处置 | 主要证据 | 未覆盖或待定条件 |
 | --- | --- | --- | --- |
-| [#585](https://github.com/bubkoo/html-to-image/pull/585) | 克隆、资源、iOS、SVG、缓存、尺寸和性能整体提案，按独立缺陷处理。#637 的样式子集已过源码与真机门禁。 | [样式证据](evidence/svg-native-style-scope.json)、[变换资源](evidence/transformed-svg-resources.json) | 用户已选当前浏览器页面保真；受限 CSP、不可读规则、文件 CSS/字体、重定向与更广嵌套仍开放，不整体移植原提案。 |
+| [#585](https://github.com/bubkoo/html-to-image/pull/585) | 整体提案按独立根因处理；样式、导入、重定向最终地址与所在树片段作用域已有修复，至 #644 已合入并有准确源码的真机证据。 | [样式证据](evidence/svg-native-style-scope.json)、[片段绘制](evidence/svg-fragment-paint.json)、[重定向地址](evidence/svg-response-bases.json) | 按用户选定的当前浏览器显示；限定 paint、CSP、不可读规则、HTTP 文件 CSS/字体、广泛性能及一般 GC 仍开放，不整体移植原提案。 |
 | [#581](https://github.com/bubkoo/html-to-image/pull/581) | SVG text 的 font-family 属性应选择并嵌入真实网络字体。核心等价，补齐真实字形验证。 | [svg-font-glyphs.test.ts](../test/browser-unit/svg-font-glyphs.test.ts) | 含直接 SVG 根入口；原中文字库字节、完整原应用及旧平台未整体复测；不移植附带工具链/参考图改动 |
 | [#577](https://github.com/bubkoo/html-to-image/pull/577) | repeating-linear-gradient 经样式序列化仍重复。核心等价。 | [svg-style.test.ts](../test/browser-unit/svg-style.test.ts) | 当前回归核对多个实际色块；不把原补丁 cssText 字符串断言当全部视觉证明 |
 | [#575](https://github.com/bubkoo/html-to-image/pull/575) | SVG 后代应获得计算后的 CSS 变量值。核心等价。 | [svg-style.test.ts](../test/browser-unit/svg-style.test.ts) | 原 Recharts/MUI sandbox 未整体验收；本次网页工具未能访问该链接，若需同项目验收需可导出源码/样式 |
 | [#574](https://github.com/bubkoo/html-to-image/pull/574) | 更新旧 Rollup 3.x 锁文件依赖。已被现行工具链替代，不移植旧锁。 | [maintenance-dependency-review.json](evidence/maintenance-dependency-review.json) | 只证明该旧 bump 的目的与现行安装树；不代表完整依赖安全审计 |
 | [#568](https://github.com/bubkoo/html-to-image/pull/568) | srcdoc iframe 中的跨 realm 子元素不能被 instanceof 丢弃。核心等价；相关文档字体缺陷已由 #623 修复。 | [iframe-fonts.test.ts](../test/browser-unit/iframe-fonts.test.ts) | 不可读跨源 iframe、纯 JS FontFace 字节不在范围 |
-| [#560](https://github.com/bubkoo/html-to-image/pull/560) | SPA 不应被模块全局缓存无限持有图片/字体。使用 capture/renderer 生命周期替代全局 clearCache；#625 修复文档持有。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 不宣称浏览器 HTTP 缓存被清空、强制 GC 或原 20 MB SPA 内存压力已复现 |
+| [#560](https://github.com/bubkoo/html-to-image/pull/560) | SPA 缓存使用 capture/renderer 生命周期；#625 与 #642 分别修复已证实的文档/借用字体引用根因。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts)、[字体生命周期](evidence/svg-source-font-lifetime.json)、[后续 GC 排查](evidence/gc-observer-controls.json) | 后续严格 Linux GC 检查仍有失败，不能概括为一般释放已解决；不宣称清空浏览器缓存或复现原 20 MB SPA。 |
 | [#540](https://github.com/bubkoo/html-to-image/pull/540) | 旧锁中的 pbkdf2 3.1.2 升级。相关旧依赖已移除，不重新引入旧测试链。 | [maintenance-dependency-review.json](evidence/maintenance-dependency-review.json) | 不代表无关依赖不存在其他问题 |
 | [#533](https://github.com/bubkoo/html-to-image/pull/533) | 后台导出不应强制等待 requestAnimationFrame。已有路径不等待 RAF，不增加重复等待开关。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 只证明库内路径；不保证浏览器或系统不暂停后台页面 |
 | [#511](https://github.com/bubkoo/html-to-image/pull/511) | 禁用字体字号缩小以保留字形和换行。#621 已移除全局取整/缩小，不新增 opt-out 开关。 | [font-metrics.test.ts](../test/browser-unit/font-metrics.test.ts) | 不外推全部原段落、字体、旧浏览器组合 |
@@ -211,13 +217,13 @@ CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真�
 | [#443](https://github.com/bubkoo/html-to-image/pull/443) | 不同 URL 需要不同 RequestInit。以 resources.resolve 替代第二套生成器 API。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 受控私有 Cookie 图片与公开图/字体双源已验证；原业务 URL/登录及完整 fixture 未取得，resolver 自行管理请求选项和 signal |
 | [#442](https://github.com/bubkoo/html-to-image/pull/442) | 图片与公开字体的凭据配置不同，并报告 iOS 空白。URL/kind resolver 覆盖混合凭据核心需求；原 iOS 故障保留条件。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 原私有资源 URL、CORS 响应、凭据和完整故障 fixture 未验；include 不是所有 iOS 请求的统一要求 |
 | [#430](https://github.com/bubkoo/html-to-image/pull/430) | 缓存进行中的请求避免短时间重复加载。核心等价；#622 另消除 WebKit 副本的额外原生请求。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 缓存限单次捕获，不承诺跨捕获响应永不变化 |
-| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts) | 外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成 |
+| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的依赖、变换后引用、样式子集、重定向最终地址与所在树片段作用域已有分批修复，至 #644 已合入。 | [svg-fragment-paint.json](evidence/svg-fragment-paint.json)、[svg-response-bases.json](evidence/svg-response-bases.json) | 限定/相对 paint、文件 CSS/字体、CSP 等仍开放；输出按用户选定的当前浏览器显示，不宣称任意 sprite 完成。 |
 | [#409](https://github.com/bubkoo/html-to-image/pull/409) | CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致。#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁。 | [dimensions.test.ts](../test/browser-unit/dimensions.test.ts) | 原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证 |
-| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631 已合入；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入的三引擎全像素和构建包通过，待真机。 | [positioned-scroll.json](evidence/positioned-scroll.json) | 捕获树外 absolute 坐标、水平文本/inline/contents/float/sticky、auto 边距/部分伪元素、竖排及原生滚动条仍保留边界；#633 尚未合并 |
+| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631/#633 及占位尺寸 #634 已合入，受测源码有真实 iPhone 对照。 | [positioned-scroll.json](evidence/positioned-scroll.json)、[scrollbar-box-dimensions.json](evidence/scrollbar-box-dimensions.json) | 原生滚动条外观/滑块与原型两个严格 WebKit 像素失败仍开放；其他布局和原应用条件不外推。 |
 | [#407](https://github.com/bubkoo/html-to-image/pull/407) | 把额外 CSS 放进输出副本。使用 onClone 插入 style 的现有原语，不新增 extraStyleContent。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 自定义 CSS 注入不等于源原生滚动条外观/位置已保留 |
 | [#401](https://github.com/bubkoo/html-to-image/pull/401) | 应调用并等待 decode，而不是覆盖方法。核心等价；保留可用图片 decode 拒绝不悬挂的边界。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 图片可解码不等于所有 WebKit foreignObject 首绘问题已解决 |
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
-| [#398](https://github.com/bubkoo/html-to-image/pull/398) | Blob PNG 在新标签页预览。README helper 与三引擎交互已验；保留单数 toBlob API。 | [blob-preview-browser-checks.json](evidence/blob-preview-browser-checks.json) | 真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击 |
+| [#398](https://github.com/bubkoo/html-to-image/pull/398) | 原 PR 已于 2026-11-15（北京时间）被 bubkoo 关闭且未合并；内容 head 未变。Blob PNG 在新标签页预览。README helper 与三引擎交互已验；保留单数 toBlob API。 | [blob-preview-browser-checks.json](evidence/blob-preview-browser-checks.json) | 真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击 |
 | [#393](https://github.com/bubkoo/html-to-image/pull/393) | 支持 SVG use href 属性。核心等价，现代/旧命名空间及优先级有回归。 | [svg-use.test.ts](../test/browser-unit/svg-use.test.ts) | 同 #499 的属性级结论，不扩大为全部外部 SVG 样式兼容 |
 | [#376](https://github.com/bubkoo/html-to-image/pull/376) | 允许额外伪元素，尤其非标准滚动条。不把通用伪元素列表等同于滚动条完成；继续原生外观验证。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 按 #345 保留源轨道/滑块外观和位置的明确要求验证；非标准伪元素有引擎差异 |
 
@@ -348,7 +354,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 | PR | 处理 |
 | --- | --- |
-| [#427](https://github.com/bubkoo/html-to-image/pull/427), [#499](https://github.com/bubkoo/html-to-image/pull/499), [#393](https://github.com/bubkoo/html-to-image/pull/393) | V2 原来只读取 `xlink:href` 并把整个引用当 CSS 选择器，无法处理现代 `href`、特殊字符 ID 和外部 SVG。`codex/open-pr-triage` 现从原文档复制本地符号，外部符号经统一资源加载器导入，再将**副本**引用改为本地 ID；加入源码和构建 ESM 的像素回归。外部符号依赖外部样式、字体或其他定义的复杂 sprite 尚未验证。 |
+| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的依赖、变换后引用、样式子集、重定向最终地址与所在树片段作用域已有分批修复，至 #644 已合入。 | [svg-fragment-paint.json](evidence/svg-fragment-paint.json)、[svg-response-bases.json](evidence/svg-response-bases.json) | 限定/相对 paint、文件 CSS/字体、CSP 等仍开放；输出按用户选定的当前浏览器显示，不宣称任意 sprite 完成。 |
 | [#575](https://github.com/bubkoo/html-to-image/pull/575), [#577](https://github.com/bubkoo/html-to-image/pull/577), [#581](https://github.com/bubkoo/html-to-image/pull/581) | V2 当前实现已通过新增 Chromium、Firefox、WebKit 回归：SVG 后代的 CSS 变量、重复渐变的多个周期、SVG `font-family` 属性选中的字体文件。无需移植旧补丁；原 PR 的完整 fixture 尚未运行。 |
 
 ## 部分覆盖：保留讨论，不按完整修复关闭
