@@ -68,6 +68,7 @@ export function blobToDataURL(blob: Blob): Promise<string> {
 export class ResourceLoader {
   private pending = new Map<string, Promise<Blob>>()
   private responseURLs = new Map<string, string>()
+  private customResponses = new Set<string>()
 
   constructor(
     private readonly options: Options,
@@ -86,14 +87,20 @@ export class ResourceLoader {
     return this.responseURLs.get(this.key(url, kind, contentType)) || url
   }
 
+  isCustomResponse(url: string, kind: ResourceKind, contentType?: string) {
+    return this.customResponses.has(this.key(url, kind, contentType))
+  }
+
   load(url: string, kind: ResourceKind, contentType?: string): Promise<Blob> {
     const key = this.key(url, kind, contentType)
     const existing = this.pending.get(key)
     if (existing) return existing
 
     const request = this.fetch(url, kind, contentType).then((result) => {
-      if (this.pending.get(key) === request)
+      if (this.pending.get(key) === request) {
         this.responseURLs.set(key, result.url)
+        if (result.custom) this.customResponses.add(key)
+      }
       return result.blob
     })
     this.pending.set(key, request)
@@ -131,7 +138,7 @@ export class ResourceLoader {
               ),
             )
           }
-          return { blob: result, url }
+          return { blob: result, url, custom: true }
         }
       }
     }
@@ -162,11 +169,13 @@ export class ResourceLoader {
       blob: await response.blob(),
       // A transport cache-buster is not part of the SVG document identity.
       url: response.url === requestURL.href ? originalURL : finalURL.href,
+      custom: false,
     }
   }
 
   clear() {
     this.pending.clear()
     this.responseURLs.clear()
+    this.customResponses.clear()
   }
 }

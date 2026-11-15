@@ -46,10 +46,14 @@ test('custom resolvers sharing a Blob retain each requested base', async () => {
     second = 'https://custom.invalid/two/source.svg'
   expect(await loader.load(first, 'image')).toBe(blob)
   expect(await loader.load(second, 'image')).toBe(blob)
+  expect(loader.isCustomResponse(first, 'image')).toBe(true)
+  expect(loader.isCustomResponse(second, 'image')).toBe(true)
+  expect(loader.isCustomResponse(first, 'stylesheet')).toBe(false)
   expect(loader.responseURL(first, 'image')).toBe(first)
   expect(loader.responseURL(second, 'image')).toBe(second)
   expect(resolver).toHaveBeenCalledTimes(2)
   loader.clear()
+  expect(loader.isCustomResponse(first, 'image')).toBe(false)
 })
 
 test('query-omitting legacy cache keeps metadata with the bytes actually reused', async () => {
@@ -114,4 +118,26 @@ test('failed HTTP loads leave no response base and remain retryable', async () =
   expect(second).not.toBe(first)
   await expect(second).rejects.toThrow(/404/)
   loader.clear()
+})
+
+test('clearing a pending custom result does not restore its provenance', async () => {
+  let release!: (blob: Blob) => void
+  const loader = new ResourceLoader(
+    {
+      resources: {
+        resolve: () =>
+          new Promise<Blob>((resolve) => {
+            release = resolve
+          }),
+      },
+    },
+    { signal: new AbortController().signal },
+  )
+  const url = 'https://custom.invalid/late.svg',
+    pending = loader.load(url, 'image')
+  await Promise.resolve()
+  loader.clear()
+  release(new Blob(['<svg/>']))
+  await pending
+  expect(loader.isCustomResponse(url, 'image')).toBe(false)
 })

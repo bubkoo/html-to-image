@@ -71,6 +71,8 @@ interface Scope {
   ids?: Map<string, Element>
   styleHost?: Element
   stylePolicy?: SVGStylePolicy
+  custom?: boolean
+  fragmentScope?: Scope
 }
 
 export async function embedSVGReferences(
@@ -120,6 +122,34 @@ export async function embedSVGReferences(
   let definitions: SVGDefsElement | undefined
   let stylePolicy: Promise<SVGStylePolicy | undefined> | undefined
   const styledScopes = new Map<string, Scope>()
+  const fragmentRoots = new WeakMap<Node, number>()
+  let fragmentSequence = 0
+  const fragmentKey = (scope: Scope | undefined) => {
+    if (!scope) return 0
+    let key = fragmentRoots.get(scope.root)
+    if (!key) {
+      key = ++fragmentSequence
+      fragmentRoots.set(scope.root, key)
+    }
+    return key
+  }
+  const nativeInstance = (instance: Element, value: string) => {
+    const original = task?.getCloneSource(instance)
+    if (!original?.isConnected || original.localName !== 'use') return false
+    try {
+      const href = getSVGReference(original)
+      if (
+        href == null ||
+        new URL(href, original.baseURI).href !==
+          new URL(value, original.baseURI).href
+      )
+        return false
+      const box = (original as SVGUseElement).getBBox()
+      return box.width > 0 || box.height > 0
+    } catch {
+      return false
+    }
+  }
   const activeUses = new Map<string, Element>()
   const nativeStylePolicy = () => {
     stylePolicy ||= styleEnvironment
@@ -262,7 +292,12 @@ export async function embedSVGReferences(
         )
           throw new Error(`Invalid SVG resource: ${url}`)
         if (!external.has(finalURL)) external.set(finalURL, pending!)
-        return { root: document, url: finalURL, external: true }
+        return {
+          root: document,
+          url: finalURL,
+          external: true,
+          custom: loader.isCustomResponse(url, 'image', getMimeType(url)),
+        }
       })()
       external.set(url, pending)
     }
@@ -442,7 +477,16 @@ export async function embedSVGReferences(
       if (owner.external && instance && owner !== scope) {
         const policy = await nativeStylePolicy()
         if (policy) {
-          const key = JSON.stringify([owner.url, svgStyleContextKey(instance)])
+          const fragmentScope = scope.external
+            ? scope.fragmentScope
+            : !owner.custom || nativeInstance(instance, value)
+              ? scope
+              : undefined
+          const key = JSON.stringify([
+            owner.url,
+            svgStyleContextKey(instance),
+            fragmentKey(fragmentScope),
+          ])
           let styled = styledScopes.get(key)
           if (!styled) {
             styled = {
@@ -451,6 +495,7 @@ export async function embedSVGReferences(
               ids: undefined,
               styleHost: instance,
               stylePolicy: policy,
+              fragmentScope,
             }
             styledScopes.set(key, styled)
           }
@@ -515,7 +560,7 @@ export async function embedSVGReferences(
           scope.external &&
             scope.stylePolicy?.fragment === 'page' &&
             resolved.startsWith('#')
-            ? sourceScope
+            ? scope.fragmentScope || scope
             : scope,
         )
       }
