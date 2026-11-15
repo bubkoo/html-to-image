@@ -1,0 +1,66 @@
+{
+  "archive": "local-raw.tar.gz",
+  "archiveSHA256": "6b9bc9247e1aaf2c944d8493341e08e1f843c64d05875090ed35a5d8b1887d01",
+  "files": [
+    {
+      "path": "browser-chromium-environment-false.json",
+      "bytes": 2082,
+      "sha256": "4abefea09907ff848b31fa670cad9cd30d8d9df518182835ee05feb868f89d59"
+    },
+    {
+      "path": "browser-chromium-environment-true.json",
+      "bytes": 2081,
+      "sha256": "7a7b4f0ab63b1b11954ef58d2f93ae4fe12e98b7c14c33b6e44a8168ffd55346"
+    },
+    {
+      "path": "browser-chromium-frozen-svg-source.json",
+      "bytes": 672,
+      "sha256": "068e34090ff706d3e0161494d68eaf8db471cfd8a6952a4b7468015d9bc8871d"
+    },
+    {
+      "path": "browser-chromium-pending-font.json",
+      "bytes": 2171,
+      "sha256": "9401453d4142e211582b3aa1b496cf8a7f935a2256c7cedb40108f7d248d098a"
+    },
+    {
+      "path": "browser-firefox-environment-false.json",
+      "bytes": 2080,
+      "sha256": "68f374a0fab05043388a0401daa9ea1190f066d9852baedceba5d6ff368022b6"
+    },
+    {
+      "path": "browser-firefox-environment-true.json",
+      "bytes": 2079,
+      "sha256": "6307ef7ebd35d74d2e243539cb1bbf2e06cec37e1f1775519f5d71b38b349844"
+    },
+    {
+      "path": "browser-firefox-frozen-svg-source.json",
+      "bytes": 670,
+      "sha256": "7904d40cd13a82156537950ce4e6941b627e4dc04acc59c413c8870e0d7a8597"
+    },
+    {
+      "path": "browser-firefox-pending-font.json",
+      "bytes": 2450,
+      "sha256": "30f9d0f8452a82365f95b1d8e525cc6525c1bcf63347dc10490e49772039480a"
+    },
+    {
+      "path": "browser-webkit-frozen-svg-source.json",
+      "bytes": 670,
+      "sha256": "a0dd81187deedd3c48bb88f3354fe4d2201e0f1d9449cf909dfc8c1c9fe488d1"
+    },
+    {
+      "path": "observer-focused-final.log",
+      "bytes": 195,
+      "sha256": "a7ea2d2ff7b4f28b35897f96f2cee5263a76612164d51c953a41fc472bd2bf71"
+    },
+    {
+      "path": "observer-lint-final.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "observer-types-final.log",
+      "bytes": 137,
+      "sha256": "38f0863e0be4625d09f5323fc85bc0390fac422668c68a20a66948296cb13591"
+    }
+  ]
+}

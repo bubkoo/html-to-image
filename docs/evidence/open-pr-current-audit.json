@@ -563,5 +563,15 @@
     "parentMasterCIFailed": 43661748647,
     "newRemoteGates": "pending",
     "originalPRStatesNotRefreshed": true
+  },
+  "latestLifecycleInvestigation": {
+    "path": "docs/evidence/gc-observer-controls.json",
+    "base": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+    "masterCIFailed": 43664877371,
+    "masterCodeQLPassed": 43664877309,
+    "sameTreeAsAcceptedPR": true,
+    "productionChange": false,
+    "fixClaim": false,
+    "originalPRStatesNotRefreshed": true
   }
 }

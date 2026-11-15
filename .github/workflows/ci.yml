@@ -9,6 +9,8 @@ on:
       - next-major
       - alpha
       - beta
+      # Temporary direct-head comparison for the lifecycle investigation.
+      - codex/gc-observer-lifetime-controls
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -62,6 +64,9 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: 🧪　Test migrated regressions and browser behavior
+        # Temporary paired observers on the investigation branch only.
+        env:
+          GC_OBSERVER_DIAGNOSTICS: ${{ (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') && '1' || '0' }}
         run: pnpm run test
 
       - name: 📦　Test built package in browsers

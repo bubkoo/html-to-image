@@ -1,0 +1,59 @@
+{
+  "status": "investigation only, no fix claimed",
+  "master": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "masterCI": 43664877371,
+  "masterCodeQL": 43664877309,
+  "masterResult": {
+    "coveragePassed": 1225,
+    "coverageSkipped": 4,
+    "sourcePassed": 1102,
+    "sourceFailed": 4,
+    "sourceSkipped": 4,
+    "package": "not run",
+    "CodeQL": "success"
+  },
+  "failures": [
+    "Firefox disposed environment, probed=false",
+    "Firefox disposed environment, probed=true",
+    "Firefox pending-font cancellation",
+    "WebKit frozen SVG source document"
+  ],
+  "sameTreeAsAcceptedPRMerge": {
+    "09e905520ecf6cbf8f64e1a7e58ff03d404f92fc": "db3c38deb9d40948966cd268d321c228fce3a55f",
+    "901c4bc0c71087ae41de95458b9e04bce5eb5ff3": "db3c38deb9d40948966cd268d321c228fce3a55f"
+  },
+  "uploadedArtifactFilesPreserved": 12,
+  "masterRawFiles": 24,
+  "primaryHelperBodiesByteIdentical": true,
+  "primaryConditionsUnchanged": true,
+  "primaryCollections": 3,
+  "diagnosticCollectionsAfterPrimarySnapshot": 3,
+  "pendingFontExistingNativeDiagnosticCollections": 3,
+  "local": {
+    "existingTestsPassed": 12,
+    "recordedPrimarySamples": 9,
+    "supplementalObservations": 60,
+    "observerErrors": 0,
+    "reproducedFailure": false,
+    "allSupplementalDocumentsCollected": true,
+    "allCanariesCollected": true,
+    "productionChange": false
+  },
+  "matrix": [
+    "native owner with timeout",
+    "native owner without timeout",
+    "library owner",
+    "await Document then create WeakRef",
+    "Promise maps Document to WeakRef",
+    "explicitly clear temporary Document",
+    "original capture helper",
+    "clear source local after capture"
+  ],
+  "temporaryWorkflowChanges": [
+    "branch-only direct push plus PR comparison",
+    "branch-only always-record observer flag; remove before merge"
+  ],
+  "gates": "original sampled booleans still asserted; later collections never replace primary failure",
+  "localRawFiles": 12,
+  "totalRawFiles": 36
+}
