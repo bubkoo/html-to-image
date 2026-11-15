@@ -1,4 +1,25 @@
 // Diagnostic observers only: their results never replace the primary GC gate.
+async function checkpointWithoutCollection(original) {
+  const startedAt = performance.now()
+  const held = { marker: 'held across task boundary' }
+  const heldReference = new WeakRef(held)
+  const canary = new WeakRef({})
+  const atEntry = original.deref() === undefined
+  await Promise.resolve()
+  const afterMicrotask = original.deref() === undefined
+  // A task boundary, not a new collection request or a primary retry.
+  await new Promise((resolve) => setTimeout(resolve, 0))
+  return {
+    explicitCollections: 0,
+    atEntry,
+    afterMicrotask,
+    afterTask: original.deref() === undefined,
+    elapsedMs: performance.now() - startedAt,
+    canaryCollected: canary.deref() === undefined,
+    strongControlPreserved: heldReference.deref() === held,
+  }
+}
+
 function nativeEnvironment(source, detectPolicy, timed = true) {
   let frame, pending, timer
   const fonts = []
@@ -149,6 +170,7 @@ export async function sampleEnvironmentObservers(
   collect,
   original,
 ) {
+  const noCollectionCheckpoint = await checkpointWithoutCollection(original)
   const frames = document.querySelectorAll('iframe').length
   const sourceFonts = []
   document.fonts.forEach((font) => {
@@ -197,6 +219,7 @@ export async function sampleEnvironmentObservers(
   await collect()
   const sampledAt = performance.now()
   return {
+    noCollectionCheckpoint,
     diagnosticCollections: 3,
     originalCollectedAfterDiagnostic: original.deref() === undefined,
     strongControlPreserved: heldReference.deref() === held,
@@ -279,6 +302,7 @@ export async function sampleCaptureObservers(
   collect,
   original,
 ) {
+  const noCollectionCheckpoint = await checkpointWithoutCollection(original)
   const rows = []
   try {
     const helpers = [
@@ -301,6 +325,7 @@ export async function sampleCaptureObservers(
     await collect()
     const sampledAt = performance.now()
     return {
+      noCollectionCheckpoint,
       diagnosticCollections: 3,
       originalCollectedAfterDiagnostic: original.deref() === undefined,
       rows: rows.map(({ helper, value, error, readyAt }, order) => ({

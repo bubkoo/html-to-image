@@ -5,7 +5,7 @@ import json
 import tarfile
 
 root = Path(__file__).parent
-for name in ['master-failure', 'local', 'first-pair', 'expanded-local', 'expanded-pair', 'root-trace-pair-selected']:
+for name in ['master-failure', 'local', 'first-pair', 'expanded-local', 'expanded-pair', 'root-trace-pair-selected', 'no-collection-local']:
     index = json.loads((root / (name + "-index.json")).read_text())
     archive = root / index["archive"]
     assert hashlib.sha256(archive.read_bytes()).hexdigest() == index["archiveSHA256"]

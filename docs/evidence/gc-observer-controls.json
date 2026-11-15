@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 360,
+  "totalRawFiles": 377,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -121,5 +121,28 @@
     "selectedRawFiles": 178,
     "summary": "gc-observer-controls/root-trace-pair-summary.json",
     "temporaryTraceRemovedAfterNegativeReproduction": true
+  },
+  "noCollectionCheckpoint": {
+    "scope": "supplementary, before constructing new observers; primary result already cached",
+    "explicitCollections": 0,
+    "samples": [
+      "entry",
+      "after Promise.resolve microtask",
+      "after setTimeout(resolve, 0) task boundary"
+    ],
+    "notAFixOrPrimaryRetry": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "primaryRecords": 9,
+      "supplementalObservations": 117,
+      "sourceAlreadyCollectedAtAllThreeSamples": true,
+      "microtaskIdentityControl": true,
+      "strongControlPreserved": true,
+      "canariesRemainWithoutRequestedCollection": true,
+      "lint": "passed",
+      "types": "passed"
+    },
+    "rawFiles": 17,
+    "LinuxResult": "pending; entry can already differ from earlier cached primary after module/command boundary"
   }
 }
