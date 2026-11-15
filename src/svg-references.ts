@@ -136,6 +136,17 @@ export async function embedSVGReferences(
             }),
           )
         },
+        (error) => {
+          loader.warn(
+            Object.freeze({
+              code: 'resource-error',
+              resource: 'external-svg-fragment-scope-probe',
+              message:
+                'Native SVG fragment scope could not be measured; retaining existing fragment definitions: ' +
+                (error instanceof Error ? error.message : String(error)),
+            }),
+          )
+        },
       )
       .catch((error) => {
         task?.check()
@@ -498,7 +509,15 @@ export async function embedSVGReferences(
           resolved = new URL(resolved, baseFor(original, scope)).href
       } else {
         // eslint-disable-next-line no-await-in-loop
-        resolved = await reference(resolved, original, scope)
+        resolved = await reference(
+          resolved,
+          original,
+          scope.external &&
+            scope.stylePolicy?.fragment === 'page' &&
+            resolved.startsWith('#')
+            ? sourceScope
+            : scope,
+        )
       }
       result +=
         value.slice(offset, match.index) +
