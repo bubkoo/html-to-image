@@ -1,0 +1,241 @@
+{
+  "status": "Unfixed native-page baseline and rejected capability probe; no production change",
+  "contract": "Explicit user choice: export each current browser live-page appearance",
+  "runtimeSource": "ea97a25a45cb9db202d30d0f8dd704d57d7de3af",
+  "svgRuntimeBase": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "runtimeInputs": "104 inputs match video-empty-frame/input-sha256.json before and after these experiments",
+  "comparison": {
+    "chromium": {
+      "sourceBeforeAfterExact": true,
+      "differentChannels": 0,
+      "columns": [
+        {
+          "name": "attribute",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "inline",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "other-file",
+          "nativeCenter": [255, 165, 0, 255],
+          "captureCenter": [255, 165, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "parent-file",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "different-query",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "absent-id",
+          "nativeCenter": [128, 0, 128, 255],
+          "captureCenter": [128, 0, 128, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "absolute-other",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "fragment",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "absolute-self",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "flat",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "yellow",
+          "nativeCenter": [255, 255, 0, 255],
+          "captureCenter": [255, 255, 0, 255],
+          "differentChannels": 0
+        }
+      ]
+    },
+    "firefox": {
+      "sourceBeforeAfterExact": true,
+      "differentChannels": 2400,
+      "columns": [
+        {
+          "name": "attribute",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 800
+        },
+        {
+          "name": "inline",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 800
+        },
+        {
+          "name": "other-file",
+          "nativeCenter": [255, 165, 0, 255],
+          "captureCenter": [255, 165, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "parent-file",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "different-query",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 800
+        },
+        {
+          "name": "absent-id",
+          "nativeCenter": [128, 0, 128, 255],
+          "captureCenter": [128, 0, 128, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "absolute-other",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "fragment",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "absolute-self",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "flat",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "yellow",
+          "nativeCenter": [255, 255, 0, 255],
+          "captureCenter": [255, 255, 0, 255],
+          "differentChannels": 0
+        }
+      ]
+    },
+    "webkit": {
+      "sourceBeforeAfterExact": true,
+      "differentChannels": 2400,
+      "columns": [
+        {
+          "name": "attribute",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 800
+        },
+        {
+          "name": "inline",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 800
+        },
+        {
+          "name": "other-file",
+          "nativeCenter": [255, 165, 0, 255],
+          "captureCenter": [255, 165, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "parent-file",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "different-query",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 800
+        },
+        {
+          "name": "absent-id",
+          "nativeCenter": [128, 0, 128, 255],
+          "captureCenter": [128, 0, 128, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "absolute-other",
+          "nativeCenter": [255, 0, 0, 255],
+          "captureCenter": [255, 0, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "fragment",
+          "nativeCenter": [128, 0, 128, 255],
+          "captureCenter": [128, 0, 128, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "absolute-self",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "flat",
+          "nativeCenter": [0, 128, 0, 255],
+          "captureCenter": [0, 128, 0, 255],
+          "differentChannels": 0
+        },
+        {
+          "name": "yellow",
+          "nativeCenter": [255, 255, 0, 255],
+          "captureCenter": [255, 255, 0, 255],
+          "differentChannels": 0
+        }
+      ]
+    }
+  },
+  "nativeMatrix": {
+    "engines": 3,
+    "columnsPerEngine": 11,
+    "sourceBeforeAfterExact": true,
+    "pixelTolerance": 0,
+    "qualification": "Distinct source directories, same basename, other basename, parent directory, query, absent ID, absolute other/self, fragment, flat, yellow controls. Differing-query files deliberately have equal green bytes; this does not prove general query identity correctness."
+  },
+  "finding": "For this actual HTTP fixture, relative attribute/inline/query paints resolve from the page directory in Chromium and the file directory in Firefox/WebKit. Export resolves all three from the page directory. Other-file, parent-file and absolute controls rule out indiscriminate fragment-only lookup. Correct query-resource identity beyond these equal-byte controls remains open.",
+  "rejectedProbe": {
+    "kind": "Owned Blob SVG relative clip plus local clip and flat controls in HTTP page and srcdoc",
+    "result": "Geometry/hit tests do not cleanly distinguish HTTP paint base behavior. No runtime policy is derived.",
+    "initialFailure": "An attempted srcdoc History.replaceState was rejected by Chromium SecurityError; partial artifacts and failure log retained; subsequent complete run omits this mutation."
+  },
+  "device": "Not verified on this candidate; prior physical Safari differences are not desktop WebKit acceptance",
+  "archive": "native-observations.tar.gz",
+  "rawFiles": 34
+}
