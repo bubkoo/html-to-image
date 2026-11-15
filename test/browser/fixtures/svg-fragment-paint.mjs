@@ -293,7 +293,9 @@ export async function checkSVGFragmentSiblingScopes(
     hosts = [],
     uses = []
   root.id = 'svg-fragment-siblings-' + Math.random().toString(36).slice(2)
-  root.style.cssText = 'display:flex;width:80px;height:20px;background:white'
+  const width = mode === 'collision' ? 100 : 80
+  const localReference = ['local', 'renamed', 'collision'].includes(mode)
+  root.style.cssText = `display:flex;width:${width}px;height:20px;background:white`
   ;['blue', 'red'].forEach((color) => {
     const host = document.createElement('div')
     host.style.cssText = 'width:20px;height:20px;flex:none;line-height:0'
@@ -305,7 +307,7 @@ export async function checkSVGFragmentSiblingScopes(
     defs.innerHTML =
       '<defs>' +
       paintDefinition('pattern', 'fragment-paint', color) +
-      (mode === 'local'
+      (localReference
         ? '<symbol id="fragment-leaf" viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#fragment-paint)"/></symbol>'
         : '') +
       '</defs>'
@@ -316,7 +318,7 @@ export async function checkSVGFragmentSiblingScopes(
     svg.style.display = 'block'
     use.setAttribute(
       'href',
-      mode === 'local'
+      localReference
         ? '#fragment-leaf'
         : '/test/browser/fixtures/svg-fragment-pattern.svg#inline',
     )
@@ -328,6 +330,19 @@ export async function checkSVGFragmentSiblingScopes(
     uses.push(use)
     root.append(host)
   })
+  if (mode === 'collision') {
+    const invalid = document.createElement('div')
+    invalid.id = 'fragment-paint'
+    invalid.style.cssText = 'position:absolute;width:0;height:0'
+    root.append(invalid)
+    const svg = document.createElementNS(ns, 'svg')
+    svg.setAttribute('width', '20')
+    svg.setAttribute('height', '20')
+    svg.style.flex = 'none'
+    svg.innerHTML =
+      '<rect width="20" height="20" fill="url(#fragment-paint) purple"/>'
+    root.append(svg)
+  }
   ;['blue', 'yellow'].forEach((color) => {
     const control = document.createElement('div')
     control.style.cssText = `width:20px;height:20px;flex:none;background:${color}`
@@ -342,7 +357,22 @@ export async function checkSVGFragmentSiblingScopes(
           onClone: ({ root }) =>
             root.querySelectorAll('defs').forEach((node) => node.remove()),
         }
-      : {}),
+      : mode === 'renamed'
+        ? {
+            onClone: ({ root }) => {
+              root
+                .querySelectorAll('symbol')
+                .forEach(
+                  (node, index) => (node.id = 'override-symbol-' + index),
+                )
+              root
+                .querySelectorAll('use')
+                .forEach((node, index) =>
+                  node.setAttribute('href', '#override-symbol-' + index),
+                )
+            },
+          }
+        : {}),
   })
   let capture
   try {
@@ -363,10 +393,10 @@ export async function checkSVGFragmentSiblingScopes(
         hosts.map((host) => host.shadowRoot.innerHTML).join(''),
       source = markup(),
       before = readNative ? await readNative(root.id) : undefined,
-      expected = new ImageData(80, 20)
-    const local = mode === 'local' || policy.fragmentPage
+      expected = new ImageData(width, 20)
+    const local = localReference || policy.fragmentPage
     for (let y = 0; y < 20; y++)
-      for (let x = 0; x < 80; x++)
+      for (let x = 0; x < width; x++)
         expected.data.set(
           x < 20
             ? local
@@ -376,10 +406,12 @@ export async function checkSVGFragmentSiblingScopes(
               ? local
                 ? [255, 0, 0, 255]
                 : [0, 128, 0, 255]
-              : x < 60
-                ? [0, 0, 255, 255]
-                : [255, 255, 0, 255],
-          4 * (y * 80 + x),
+              : x < width - 40
+                ? [128, 0, 128, 255]
+                : x < width - 20
+                  ? [0, 0, 255, 255]
+                  : [255, 255, 0, 255],
+          4 * (y * width + x),
         )
     capture = await renderer.capture(root)
     const actual = await capture.toImageData(),

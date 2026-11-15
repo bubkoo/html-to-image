@@ -57,7 +57,7 @@ test.each([...cases, ...resolvedCases])(
   },
 )
 
-test.each(['removed', 'kept', 'local'])(
+test.each(['removed', 'kept', 'local', 'renamed', 'collision'])(
   'sibling SVG tree scopes %s remain distinct',
   async (mode) => {
     const fixture = await import(/* @vite-ignore */ moduleURL)

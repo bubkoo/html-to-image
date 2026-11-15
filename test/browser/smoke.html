@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <meta charset="utf-8" />
   <title>html-to-image browser smoke</title>
@@ -14,25 +14,62 @@
   <h1>Browser smoke</h1>
   <pre id="results">Running...</pre>
   <script type="module">
-    import { createRenderer, toCanvas, toImageData, toPng, toSvg } from '../../es/index.js'
+    import {
+      createRenderer,
+      toCanvas,
+      toImageData,
+      toPng,
+      toSvg,
+    } from '../../es/index.js'
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
     import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
     import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
-    import { checkRasterRetry, checkRasterRetryFont } from './fixtures/raster-retry.mjs'
+    import {
+      checkRasterRetry,
+      checkRasterRetryFont,
+    } from './fixtures/raster-retry.mjs'
     import { checkPseudoResources } from './fixtures/pseudo-resources.mjs'
     import { checkSVGDependencies } from './fixtures/svg-dependencies.mjs'
     import { checkSVGUseCycle } from './fixtures/svg-use-cycle.mjs'
     import { checkSVGFontUnits } from './fixtures/svg-font-units.mjs'
     import { checkSVGResponseURLs } from './fixtures/svg-response-urls.mjs'
-    import { checkSVGFragmentPaint, svgFragmentPaintCases } from './fixtures/svg-fragment-paint.mjs'
-    import { checkSVGDataImports, svgDataImportCases } from './fixtures/svg-data-imports.mjs'
-    import { checkSVGNativeStyles, svgNativeStyleCases } from './fixtures/svg-native-styles.mjs'
-    import { checkMixedScroll, mixedScrollCases } from './fixtures/mixed-scroll.mjs'
-    import { checkFixedScroll, fixedScrollCases } from './fixtures/fixed-scroll.mjs'
-    import { checkScrollbarBox, scrollbarBoxCases } from './fixtures/scrollbar-box.mjs'
-    import { checkPositionedScroll, positionedScrollCases } from './fixtures/positioned-scroll.mjs'
-    import { checkSVGFontGlyphs, svgFontModes } from './fixtures/svg-font-glyphs.mjs'
-    import { checkTransformedSVG, transformedSVGModes } from './fixtures/transformed-svg.mjs'
+    import {
+      checkSVGFragmentPaint,
+      checkSVGFragmentSiblingScopes,
+      svgFragmentPaintCases,
+    } from './fixtures/svg-fragment-paint.mjs'
+    import {
+      checkSVGDataImports,
+      svgDataImportCases,
+    } from './fixtures/svg-data-imports.mjs'
+    import {
+      checkSVGNativeStyles,
+      svgNativeStyleCases,
+    } from './fixtures/svg-native-styles.mjs'
+    import {
+      checkMixedScroll,
+      mixedScrollCases,
+    } from './fixtures/mixed-scroll.mjs'
+    import {
+      checkFixedScroll,
+      fixedScrollCases,
+    } from './fixtures/fixed-scroll.mjs'
+    import {
+      checkScrollbarBox,
+      scrollbarBoxCases,
+    } from './fixtures/scrollbar-box.mjs'
+    import {
+      checkPositionedScroll,
+      positionedScrollCases,
+    } from './fixtures/positioned-scroll.mjs'
+    import {
+      checkSVGFontGlyphs,
+      svgFontModes,
+    } from './fixtures/svg-font-glyphs.mjs'
+    import {
+      checkTransformedSVG,
+      transformedSVGModes,
+    } from './fixtures/transformed-svg.mjs'
     import {
       checkResourceCache,
       checkNativeCachePolicy,
@@ -88,7 +125,9 @@
       decoded.src = png
       await decoded.decode()
       if (decoded.naturalWidth !== 32 || decoded.naturalHeight !== 32)
-        throw new Error(`PNG dimensions ${decoded.naturalWidth}x${decoded.naturalHeight}`)
+        throw new Error(
+          `PNG dimensions ${decoded.naturalWidth}x${decoded.naturalHeight}`,
+        )
       const canvas = document.createElement('canvas')
       canvas.width = canvas.height = 32
       const context = canvas.getContext('2d')
@@ -127,7 +166,10 @@
       context.fillStyle = 'blue'
       context.fillRect(8, 0, 8, 8)
       document.body.append(canvas)
-      const image = await toImageData(canvas, { pixelRatio: 1, skipFonts: true })
+      const image = await toImageData(canvas, {
+        pixelRatio: 1,
+        skipFonts: true,
+      })
       if (image.width !== 32 || image.height !== 16)
         throw new Error(`canvas dimensions ${image.width}x${image.height}`)
       for (const [x, expected] of [
@@ -136,7 +178,9 @@
       ]) {
         const color = pixel(image, x, 8).join(',')
         if (color !== expected)
-          throw new Error(`canvas pixel ${x},8: expected ${expected}, got ${color}`)
+          throw new Error(
+            `canvas pixel ${x},8: expected ${expected}, got ${color}`,
+          )
       }
     })
 
@@ -147,29 +191,52 @@
       const renderer = createRenderer({ skipFonts: true, pixelRatio: 2 })
       try {
         const canvas = await renderer.toCanvas(node, {
-          width: 24, height: 18, canvasWidth: 40, canvasHeight: 30,
+          width: 24,
+          height: 18,
+          canvasWidth: 40,
+          canvasHeight: 30,
         })
-        if (canvas.width !== 80 || canvas.height !== 60 ||
-            canvas.style.width !== '40px' || canvas.style.height !== '30px')
-          throw new Error(`scaled dimensions ${canvas.width}x${canvas.height}, CSS ${canvas.style.cssText}`)
-        const color = Array.from(canvas.getContext('2d').getImageData(78, 58, 1, 1).data)
+        if (
+          canvas.width !== 80 ||
+          canvas.height !== 60 ||
+          canvas.style.width !== '40px' ||
+          canvas.style.height !== '30px'
+        )
+          throw new Error(
+            `scaled dimensions ${canvas.width}x${canvas.height}, CSS ${canvas.style.cssText}`,
+          )
+        const color = Array.from(
+          canvas.getContext('2d').getImageData(78, 58, 1, 1).data,
+        )
         if (color.join(',') !== '255,0,0,255')
           throw new Error(`scaled corner pixel ${color}`)
         for (const dimension of ['width', 'height']) {
           const capture = await renderer.capture(node, { [dimension]: 0 })
           const svg = new DOMParser().parseFromString(
-            decodeURIComponent((await capture.toSvg()).split(',')[1]), 'image/svg+xml',
+            decodeURIComponent((await capture.toSvg()).split(',')[1]),
+            'image/svg+xml',
           )
-          if (capture[dimension] !== 0 || svg.documentElement.getAttribute(dimension) !== '0' ||
-              svg.querySelector('foreignObject > div').style[dimension] !== '0px')
+          if (
+            capture[dimension] !== 0 ||
+            svg.documentElement.getAttribute(dimension) !== '0' ||
+            svg.querySelector('foreignObject > div').style[dimension] !== '0px'
+          )
             throw new Error(`zero ${dimension} was replaced`)
           let rasterError = ''
-          try { await capture.toCanvas() } catch (error) { rasterError = error.message }
+          try {
+            await capture.toCanvas()
+          } catch (error) {
+            rasterError = error.message
+          }
           capture.dispose()
           if (!rasterError.includes('zero-sized'))
             throw new Error(`zero ${dimension} rasterized`)
           let invalidError = ''
-          try { await renderer.capture(node, { [dimension]: NaN }) } catch (error) { invalidError = error.message }
+          try {
+            await renderer.capture(node, { [dimension]: NaN })
+          } catch (error) {
+            invalidError = error.message
+          }
           if (!invalidError.includes('dimensions must be finite'))
             throw new Error(`NaN ${dimension} was accepted`)
         }
@@ -261,6 +328,10 @@
         await checkSVGFragmentPaint({ createRenderer }, mode)
         await checkSVGFragmentPaint(window.htmlToImage, mode)
       }
+      for (const mode of ['removed', 'kept', 'local', 'renamed', 'collision']) {
+        await checkSVGFragmentSiblingScopes({ createRenderer }, mode)
+        await checkSVGFragmentSiblingScopes(window.htmlToImage, mode)
+      }
     })
 
     await test('external SVG redirects preserve file CSS bases', async () => {
@@ -340,7 +411,9 @@
       const frame = document.createElement('iframe')
       frame.style.cssText =
         'display:block;width:40px;height:40px;border:0;flex:none'
-      const loaded = new Promise((resolve) => { frame.onload = resolve })
+      const loaded = new Promise((resolve) => {
+        frame.onload = resolve
+      })
       frame.srcdoc =
         '<style>html,body{margin:0}</style>' +
         '<div style="position:fixed;top:0;left:0;width:40px;height:8px;background:blue"></div>' +
@@ -365,7 +438,9 @@
         if (frame.contentWindow.scrollY !== 40)
           throw new Error('source iframe vertical scroll changed')
 
-        const reloaded = new Promise((resolve) => { frame.onload = resolve })
+        const reloaded = new Promise((resolve) => {
+          frame.onload = resolve
+        })
         frame.srcdoc =
           '<style>html,body{margin:0}body{width:80px;display:flex}</style>' +
           '<div style="width:40px;height:40px;flex:none;background:red"></div>' +
@@ -447,7 +522,8 @@
       const scene = document.createElement('div')
       scene.style.cssText = 'width:40px;height:40px;overflow:hidden'
       const panel = document.createElement('div')
-      panel.style.cssText = 'width:40px;height:40px;overflow:auto;transform:translate(0,0)'
+      panel.style.cssText =
+        'width:40px;height:40px;overflow:auto;transform:translate(0,0)'
       panel.innerHTML =
         '<div style="position:fixed;top:0;left:0;width:40px;height:4px;background:blue"></div>' +
         '<div style="width:40px;height:40px;background:blue"></div>' +
@@ -464,8 +540,14 @@
         const overlay = pixel(image, 20, 2).join(',')
         const sticky = pixel(image, 20, 13).join(',')
         const content = pixel(image, 20, 20).join(',')
-        if (overlay !== '0,128,0,255' || sticky !== '255,0,0,255' || content !== '0,128,0,255') {
-          throw new Error(`overlay/sticky/content pixels ${overlay} / ${sticky} / ${content}`)
+        if (
+          overlay !== '0,128,0,255' ||
+          sticky !== '255,0,0,255' ||
+          content !== '0,128,0,255'
+        ) {
+          throw new Error(
+            `overlay/sticky/content pixels ${overlay} / ${sticky} / ${content}`,
+          )
         }
         if (panel.scrollTop !== 50)
           throw new Error('source sticky scroll position changed')
@@ -498,7 +580,9 @@
       svg.append(defs, rect)
       scene.append(svg)
       document.body.append(scene)
-      const svgText = await fetch(await toSvg(scene, { skipFonts: true })).then((response) => response.text())
+      const svgText = await fetch(await toSvg(scene, { skipFonts: true })).then(
+        (response) => response.text(),
+      )
       if (!svgText.includes('clip-path="url(#package-clip)"'))
         throw new Error('same-document clip path was not localized')
       if (rect.getAttribute('clip-path') !== `url("${reference}")`)
@@ -553,7 +637,8 @@
       try {
         await new Promise((resolve, reject) => {
           link.onload = resolve
-          link.onerror = () => reject(new Error('cross-origin CSS did not load'))
+          link.onerror = () =>
+            reject(new Error('cross-origin CSS did not load'))
           document.head.append(link)
         })
         let blocked = false
@@ -573,8 +658,14 @@
         const color = pixel(image, 16, 16)
         if (color.join(',') !== '255,0,0,255')
           throw new Error(`cross-origin styled pixel ${color}`)
-        if (!warnings.some((item) => item.resource === url && item.code === 'resource-error'))
-          throw new Error(`expected cross-origin resource diagnostic, got ${JSON.stringify(warnings)}`)
+        if (
+          !warnings.some(
+            (item) => item.resource === url && item.code === 'resource-error',
+          )
+        )
+          throw new Error(
+            `expected cross-origin resource diagnostic, got ${JSON.stringify(warnings)}`,
+          )
       } finally {
         link.remove()
         node.remove()
@@ -584,9 +675,14 @@
     await test('repeated Content-Type embeds image and CSS', async () => {
       const url = '/test/browser/duplicate-content-type'
       const response = await fetch(url)
-      const types = response.headers.get('Content-Type')?.split(',').map((type) => type.trim())
+      const types = response.headers
+        .get('Content-Type')
+        ?.split(',')
+        .map((type) => type.trim())
       if (types?.length !== 2 || types.some((type) => type !== 'image/svg+xml'))
-        throw new Error(`duplicate response header missing: ${response.headers.get('Content-Type')}`)
+        throw new Error(
+          `duplicate response header missing: ${response.headers.get('Content-Type')}`,
+        )
       const node = document.createElement('div')
       node.style.cssText = 'width:40px;height:20px;display:flex'
       const image = document.createElement('img')
@@ -598,7 +694,9 @@
       node.append(image, background)
       document.body.append(node)
       const options = { pixelRatio: 1, skipFonts: true }
-      const svg = await fetch(await toSvg(node, options)).then((res) => res.text())
+      const svg = await fetch(await toSvg(node, options)).then((res) =>
+        res.text(),
+      )
       if (!svg.includes('data:image/svg+xml;base64,'))
         throw new Error('repeated media type was not normalized')
       const output = await toImageData(node, options)
@@ -614,16 +712,19 @@
     await test('asynchronous image error recovery', async () => {
       const node = document.createElement('div')
       node.style.cssText = 'width:20px;height:20px'
-      node.innerHTML = '<img src="data:image/png;base64,broken" width="20" height="20">'
+      node.innerHTML =
+        '<img src="data:image/png;base64,broken" width="20" height="20">'
       document.body.append(node)
       const source = node.firstChild
       try {
         const image = await toImageData(node, {
-          skipFonts: true, pixelRatio: 1,
+          skipFonts: true,
+          pixelRatio: 1,
           onImageErrorHandler: async function () {
             await new Promise((resolve) => setTimeout(resolve, 30))
             const replacement = document.createElement('div')
-            replacement.style.cssText = 'width:20px;height:20px;background:green'
+            replacement.style.cssText =
+              'width:20px;height:20px;background:green'
             this.replaceWith(replacement)
           },
         })
@@ -640,9 +741,13 @@
             skipFonts: true,
             onImageErrorHandler: () => rejected,
           })
-        } catch (error) { message = error.message }
+        } catch (error) {
+          message = error.message
+        }
         if (message !== 'recovery failed')
-          throw new Error(`async handler failure was not propagated: ${message}`)
+          throw new Error(
+            `async handler failure was not propagated: ${message}`,
+          )
       } finally {
         node.remove()
       }
@@ -712,7 +817,9 @@
       ]) {
         const actual = pixel(result, x * 2 + 1, y * 2 + 1)
         if (actual.join(',') !== expected.join(','))
-          throw new Error(`large image pixel ${x},${y}: expected ${expected}, got ${actual}`)
+          throw new Error(
+            `large image pixel ${x},${y}: expected ${expected}, got ${actual}`,
+          )
       }
     })
 

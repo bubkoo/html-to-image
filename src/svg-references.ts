@@ -231,15 +231,28 @@ export async function embedSVGReferences(
     return scope.ids.get(id)
   }
   const sourceScope = localScope(source)
-  ;[root, ...Array.from(root.querySelectorAll('*'))].forEach((node) => {
-    primary.add(node)
+  const primaryNodes = [root, ...Array.from(root.querySelectorAll('*'))]
+  primaryNodes.forEach((node) => {
     if (node.id) ids.add(node.id)
+  })
+  primaryNodes.forEach((node) => {
+    primary.add(node)
     const original = task?.getCloneSource(node)
     if (original) {
+      const scope = localScope(original)
+      // Flattened shadow trees share the output ID space. Namespace their
+      // original SVG IDs while respecting explicit clone-time ID changes.
+      if (
+        node.id &&
+        node.id === original.id &&
+        scope.root !== sourceScope.root &&
+        node.namespaceURI === svgNamespace
+      )
+        node.id = privateId()
       copies.set(original, node)
       origins.set(node, {
         source: original,
-        scope: localScope(original),
+        scope,
       })
     }
   })
@@ -256,7 +269,7 @@ export async function embedSVGReferences(
     }
     definitions.append(node)
   }
-  const privateId = () => {
+  function privateId() {
     let id = uuid()
     while (ids.has(id)) id = uuid()
     ids.add(id)
