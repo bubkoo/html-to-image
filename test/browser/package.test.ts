@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises'
 const cases = [
   'ESM import and basic PNG',
   'UMD global and pixels',
+  'empty video preserves background and border',
   'canvas snapshot pixels',
   'explicit dimensions and pixel ratio',
   'fractional fonts and tight last word',

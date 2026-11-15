@@ -31,6 +31,11 @@ async function cloneCanvasElement(canvas: HTMLCanvasElement, options: Options) {
 }
 
 async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
+  if (!video.poster && video.readyState === video.HAVE_NOTHING) {
+    // No media image exists yet; preserve the styled, transparent replaced box.
+    const empty = document.createElement('canvas')
+    return createImage(empty.toDataURL(), options)
+  }
   if (video.currentSrc) {
     const canvas = document.createElement('canvas')
     const ctx = canvas.getContext('2d')
