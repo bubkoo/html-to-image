@@ -1,0 +1,22 @@
+{
+  "focusedTestsPassed": 12,
+  "full": {
+    "coveragePassed": 1225,
+    "sourcePassed": 1106,
+    "packagePassed": 159,
+    "coverageSkipped": 4,
+    "sourceSkipped": 4,
+    "lintBuildTypesPackedConsumers": "pass"
+  },
+  "records": 18,
+  "supplementalObservations": 306,
+  "newNativeObservationsPerSuite": 36,
+  "errors": 0,
+  "allObservedSupplementalDocumentsAndCanariesCollected": true,
+  "productionSourceMatchesMaster": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "primaryTestFilesAndGCCommandUnchangedFrom": "6b6150aa46a5388151c73824c98bb2c81f172c4e",
+  "LinuxReproduced": false,
+  "deviceOrProductionFixClaim": false,
+  "inputHashes": 96,
+  "configurationScope": "New six native owners only in unprobed diagnostic samples; primary booleans cached before any supplementary owner is created; no WebKit GC acceptance expansion."
+}

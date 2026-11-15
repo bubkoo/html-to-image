@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 644,
+  "totalRawFiles": 824,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -192,5 +192,150 @@
     },
     "localRawFiles": 23,
     "remoteResult": "pending"
-  }
+  },
+  "frozenOrderPair": {
+    "pr": {
+      "run": 43672198368,
+      "sortInputsRestoredAndVerified": true,
+      "sortInputSHA256": [
+        "05f8e72066ae7fef4ef55f39ec4a31bd280ea3485ef98275bb6f3aaacad3bdf4"
+      ],
+      "phases": {
+        "normal": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)",
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "same-configuration-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "sandbox-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "cc-only-trace": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ]
+      },
+      "records": {
+        "same-configuration-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "sandbox-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "cc-only-trace": {
+          "records": 9,
+          "primaryRetained": []
+        }
+      }
+    },
+    "push": {
+      "run": 43672195617,
+      "sortInputsRestoredAndVerified": true,
+      "sortInputSHA256": [
+        "96e663a0da065c83e98434f041d369373a8a13ce42320406c2593dea3f5bdf95"
+      ],
+      "phases": {
+        "normal": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)",
+          "Test Files  2 failed | 115 passed (117)",
+          "Tests  4 failed | 1102 passed | 4 skipped (1110)"
+        ],
+        "same-configuration-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "sandbox-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "cc-only-trace": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ]
+      },
+      "records": {
+        "same-configuration-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "sandbox-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "cc-only-trace": {
+          "records": 9,
+          "primaryRetained": []
+        }
+      }
+    },
+    "head": "6b6150aa46a5388151c73824c98bb2c81f172c4e",
+    "conclusion": "Both ordinary, exact-sort same-configuration and sandbox-only controls fail; CC-only logged phases pass. No production fix or failed-primary retaining root is established.",
+    "graphs": {
+      "prFullInnerArchiveDownloadedAndValidated": true,
+      "prGraphs": 150,
+      "prUncompressedBytes": 458889508,
+      "pushFullGraphsDownloaded": false,
+      "committedGraphs": 2,
+      "privateDocumentObservations": 1006,
+      "notMarkedGarbageObservations": 34,
+      "retainedSrcdocObservations": 12,
+      "retainedSrcdocGraphs": 2,
+      "allTraces": false,
+      "parserLimitation": "Unsupported WeakMapEntry value=(nil) lines; CC garbage result membership is available, complete weak-map root reconstruction is not claimed."
+    },
+    "rootBoundaries": [
+      "Graph 15: orphan SVG use with one unknown refcount edge reaches srcdoc via NodeInfo manager.",
+      "Graph 58: ImageData with one unknown refcount edge reaches scrollbar fixture module/global and a srcdoc document.",
+      "These are transient roots in passing logged execution; no identity ties them to any ordinary failed primary. The unprobed ordinary case also fails, so an SVG-only hypothesis is insufficient."
+    ]
+  },
+  "frozenOrderPairRawFiles": 149,
+  "nativeControlsLocal": {
+    "focusedTestsPassed": 12,
+    "full": {
+      "coveragePassed": 1225,
+      "sourcePassed": 1106,
+      "packagePassed": 159,
+      "coverageSkipped": 4,
+      "sourceSkipped": 4,
+      "lintBuildTypesPackedConsumers": "pass"
+    },
+    "records": 18,
+    "supplementalObservations": 306,
+    "newNativeObservationsPerSuite": 36,
+    "errors": 0,
+    "allObservedSupplementalDocumentsAndCanariesCollected": true,
+    "productionSourceMatchesMaster": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+    "primaryTestFilesAndGCCommandUnchangedFrom": "6b6150aa46a5388151c73824c98bb2c81f172c4e",
+    "LinuxReproduced": false,
+    "deviceOrProductionFixClaim": false,
+    "inputHashes": 96,
+    "configurationScope": "New six native owners only in unprobed diagnostic samples; primary booleans cached before any supplementary owner is created; no WebKit GC acceptance expansion."
+  },
+  "nativeControlsLocalRawFiles": 31,
+  "nextDiagnostic": "Native unprobed iframe controls isolate sandbox, CSP, fulfilled-Promise reaction and post-load policy. Retain ordinary and exact-sort same-configuration source runs, remove the known-perturbing sandbox/CC-only automatic steps."
 }

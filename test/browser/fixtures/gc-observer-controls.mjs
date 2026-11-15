@@ -20,7 +20,7 @@ async function checkpointWithoutCollection(original) {
   }
 }
 
-function nativeEnvironment(source, detectPolicy, timed = true) {
+function nativeEnvironment(source, detectPolicy, timed = true, controls = {}) {
   let frame, pending, timer
   const fonts = []
   const sharingErrors = []
@@ -55,9 +55,22 @@ function nativeEnvironment(source, detectPolicy, timed = true) {
           })
           resolve(target)
         }
-        owned.srcdoc = '<!doctype html><body></body>'
+        if (controls.sandbox) owned.setAttribute('sandbox', 'allow-same-origin')
+        owned.srcdoc = controls.policy
+          ? `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline' data:; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
+          : '<!doctype html><body></body>'
         document.body.append(owned)
       })
+      if (controls.reaction)
+        return pending.then((target) => {
+          if (controls.lock) {
+            const policy = target.createElement('meta')
+            policy.httpEquiv = 'Content-Security-Policy'
+            policy.content = "img-src 'none'; style-src 'unsafe-inline'"
+            target.head.append(policy)
+          }
+          return target
+        })
       return pending
     },
     async measurePolicy(check) {
@@ -72,6 +85,7 @@ function nativeEnvironment(source, detectPolicy, timed = true) {
       fonts.length = 0
     },
     sharingErrors,
+    observerConfiguration: controls,
   }
 }
 
@@ -194,6 +208,30 @@ export async function sampleEnvironmentObservers(
       () => instrumentProbeRemoval(() => createEnvironment(document), true),
     ],
   ]
+  // The unprobed primary also fails. Isolate its non-SVG differences before
+  // interpreting a retained SVG use from a later, passing logged execution.
+  if (!probed) {
+    const configurations = [
+      ['native-sandbox', { sandbox: true }],
+      ['native-policy', { policy: true }],
+      ['native-sandbox-policy', { sandbox: true, policy: true }],
+      ['native-reaction', { reaction: true }],
+      [
+        'native-reaction-sandbox-policy',
+        { reaction: true, sandbox: true, policy: true },
+      ],
+      [
+        'native-reaction-sandbox-policy-lock',
+        { reaction: true, sandbox: true, policy: true, lock: true },
+      ],
+    ]
+    configurations.forEach(([name, controls]) =>
+      owners.push([
+        name,
+        () => nativeEnvironment(document, detectPolicy, true, controls),
+      ]),
+    )
+  }
   const helpers = [
     ['await-document', awaitDocument],
     ['weak-promise', weakPromise],
@@ -236,6 +274,7 @@ export async function sampleEnvironmentObservers(
         : undefined,
       canaryCollected: value ? value.canary.deref() === undefined : undefined,
       sharingErrors: value?.environment.sharingErrors,
+      configuration: value?.environment.observerConfiguration,
       cleanupCounts: value?.environment.observerCleanupCounts,
     })),
   }
