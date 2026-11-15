@@ -1,0 +1,8 @@
+{
+  "package": "playwright 1.64.1",
+  "firefox": "157.0",
+  "installedPageHandlerSHA256": "54ab9e046f1c825171a80794411e6eea03ea67d4c531164e9fd10636c526b6cc",
+  "methodObservation": "Heap.collectGarbage notifies child GC/CC and forces parent GC/CC without awaiting child completion",
+  "publicSource": "https://github.com/microsoft/playwright/blob/main/browser_patches/firefox/juggler/protocol/PageHandler.js",
+  "heapgraphRevision": "604babd18e4da49a61eb6e1532dcf6e0f7e30fbb"
+}

@@ -1,0 +1,486 @@
+{
+  "archive": "acknowledgement-raw.tar.gz",
+  "archiveSHA256": "f3b1faf93e42076c02a587000e577dea3f639c40b78d478df86ea9dc6ee2fa49",
+  "files": [
+    {
+      "path": "about-memory-capabilities.json",
+      "bytes": 62,
+      "sha256": "491b9266a94e099d37a7f22f9e75ab7c47f0121693d9075443c10401da16f58c"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-1.log",
+      "bytes": 279682,
+      "sha256": "8f037162fc977105b0bd7a02efddcbe3e305f33a3d70283411ed96297de596f2"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-2.log",
+      "bytes": 277399,
+      "sha256": "c10bf75faae425cc40dfebb50481382e5b1bb8089cbf831dea27a1cabf283fbc"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-3.log",
+      "bytes": 277399,
+      "sha256": "74d72a0ca6bfe1eee2d98be9b575410853b5ee488c159b75b046fc43cd465492"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-4.log",
+      "bytes": 277399,
+      "sha256": "74d72a0ca6bfe1eee2d98be9b575410853b5ee488c159b75b046fc43cd465492"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-5.log",
+      "bytes": 277399,
+      "sha256": "74d72a0ca6bfe1eee2d98be9b575410853b5ee488c159b75b046fc43cd465492"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-6.log",
+      "bytes": 277399,
+      "sha256": "74d72a0ca6bfe1eee2d98be9b575410853b5ee488c159b75b046fc43cd465492"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-7.log",
+      "bytes": 277399,
+      "sha256": "74d72a0ca6bfe1eee2d98be9b575410853b5ee488c159b75b046fc43cd465492"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-8.log",
+      "bytes": 277399,
+      "sha256": "74d72a0ca6bfe1eee2d98be9b575410853b5ee488c159b75b046fc43cd465492"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179-9.log",
+      "bytes": 277399,
+      "sha256": "74d72a0ca6bfe1eee2d98be9b575410853b5ee488c159b75b046fc43cd465492"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81179.log",
+      "bytes": 2480643,
+      "sha256": "8b4370a4dcdde02d9b7934dd9a8e66b9759286aa2bbd5a7a333e41515fe82d85"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-1.log",
+      "bytes": 2370831,
+      "sha256": "a97b3f4a189cd6d2548c053ae2c1ea69ad35ecb0b8bd9652e7f053529bb17e86"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-2.log",
+      "bytes": 192969,
+      "sha256": "ac956cc2fd9de91ad58cc102a5de488388db873292d132d92e91f43211e9eb0b"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-3.log",
+      "bytes": 2370211,
+      "sha256": "a1e43db7f2e9cc5db210d1d2ac8a9d51a49be169c5c47e59bdfb8289054a4e90"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-4.log",
+      "bytes": 4547461,
+      "sha256": "4b281c9d0487c0e87bb9c3424147235309e61e37a2cb5209861dfad3ef7b8167"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-5.log",
+      "bytes": 2368280,
+      "sha256": "45ced671a6671086ff2b3b0a993994c6352585a56bac759a8990799e021a4954"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-6.log",
+      "bytes": 193703,
+      "sha256": "f6331cfd757e2c8a3482d0d935ea064023564e9e82238ff9d100666519a2c56e"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-7.log",
+      "bytes": 4548011,
+      "sha256": "1490fc0d029402445d4eef5224de21ce422d191f1ebd82edf78ead71b3c5e55e"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-8.log",
+      "bytes": 2371136,
+      "sha256": "a1f32eed52201255b26a0b56f52dc60133a811220fe70dc26e37e6ede9e69603"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183-9.log",
+      "bytes": 194033,
+      "sha256": "646f3ebd457f91b33d2d388b0abc9c06612de195f517a4002c0f1f867762d7c8"
+    },
+    {
+      "path": "ack-frame-graphs/cc-edges.81183.log",
+      "bytes": 2387769,
+      "sha256": "83a515c103b544f1bdc773936ac0a9563813d6b1b1a447b8d566fcb8bf6ec0ae"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-1.log",
+      "bytes": 12862119,
+      "sha256": "57de8f72373a5c2ab46177c236a78824170372c2ae33b1d239433b09402d6a9a"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-2.log",
+      "bytes": 12860016,
+      "sha256": "305f31c4fe5d7a18ba7db704062765ecad771e572c81d33d341da4645ad3ce81"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-3.log",
+      "bytes": 12860016,
+      "sha256": "982e37a3efb02c155f5df548852bdeb291b95fde9e31ca1cf8c28525cf3bd453"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-4.log",
+      "bytes": 12860016,
+      "sha256": "305f31c4fe5d7a18ba7db704062765ecad771e572c81d33d341da4645ad3ce81"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-5.log",
+      "bytes": 12860016,
+      "sha256": "982e37a3efb02c155f5df548852bdeb291b95fde9e31ca1cf8c28525cf3bd453"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-6.log",
+      "bytes": 12860016,
+      "sha256": "305f31c4fe5d7a18ba7db704062765ecad771e572c81d33d341da4645ad3ce81"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-7.log",
+      "bytes": 12860016,
+      "sha256": "982e37a3efb02c155f5df548852bdeb291b95fde9e31ca1cf8c28525cf3bd453"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-8.log",
+      "bytes": 12860016,
+      "sha256": "305f31c4fe5d7a18ba7db704062765ecad771e572c81d33d341da4645ad3ce81"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179-9.log",
+      "bytes": 12860016,
+      "sha256": "982e37a3efb02c155f5df548852bdeb291b95fde9e31ca1cf8c28525cf3bd453"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81179.log",
+      "bytes": 14879525,
+      "sha256": "49ae882bcbb5a182b8d07de28498a22a34f3d2fb1ba7377d8da1747dd9853fe5"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-1.log",
+      "bytes": 3519531,
+      "sha256": "989792f54a75c7eaee39c1c09361869ee1a1d4596876213556b4a50c149d30e7"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-2.log",
+      "bytes": 3517382,
+      "sha256": "ff463e32b5d2241a170dbeb810d172b2ef6d34377561a0e54e13a3d3323998f0"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-3.log",
+      "bytes": 3781165,
+      "sha256": "03b59dfb0a11aab7a043daf838ba372f4195488b95064aaeab76c148a9836f72"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-4.log",
+      "bytes": 3781412,
+      "sha256": "ae8fe91be0984ed355311de00df07d62c8e46a5b1dc2d224c1a500711113334a"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-5.log",
+      "bytes": 3513177,
+      "sha256": "9b8ea8fdcdf9fb8a2af72b43183a5fca1b6e397e37395656f7312cf7a46e3fb3"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-6.log",
+      "bytes": 3517512,
+      "sha256": "3d1e9ed04c428a5252226e57d6631ee615ebc6d63bffc34fcc4c0a2cca92702a"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-7.log",
+      "bytes": 3781374,
+      "sha256": "af40f1a946f8a9b06a6e2702839c8ca1ef5beb60f93a0fb0dc8ba4353dd5ab4a"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-8.log",
+      "bytes": 3517703,
+      "sha256": "80fc541f8d4c461a651db789b2280ac322e82df90146b4312ddedfbc6d2e92fa"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183-9.log",
+      "bytes": 3517542,
+      "sha256": "269703e2dec976a2986c8825cb3427c1716a834f1238df5a17b1da5d64c10220"
+    },
+    {
+      "path": "ack-frame-graphs/gc-edges.81183.log",
+      "bytes": 3525660,
+      "sha256": "9f1580f958647d3de7e7f5a8d8639d3a6001890fe1e5de2da4c5a809fdd48cad"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-1.log",
+      "bytes": 278424,
+      "sha256": "eaeafca515d4fc0c3192dff123cbb955605afce522d480da65c73fc495cda6a5"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-2.log",
+      "bytes": 275957,
+      "sha256": "1f48cdd58cf0d855220e143eeaf201d920f3c3c2ac79a636e8c27d68a8c417b5"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-3.log",
+      "bytes": 275957,
+      "sha256": "f9636ad841da61837b01fc813153d94898b6ba89a619a1c45f3c558d13a5b155"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-4.log",
+      "bytes": 275957,
+      "sha256": "f9636ad841da61837b01fc813153d94898b6ba89a619a1c45f3c558d13a5b155"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-5.log",
+      "bytes": 275957,
+      "sha256": "f9636ad841da61837b01fc813153d94898b6ba89a619a1c45f3c558d13a5b155"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-6.log",
+      "bytes": 275957,
+      "sha256": "f9636ad841da61837b01fc813153d94898b6ba89a619a1c45f3c558d13a5b155"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-7.log",
+      "bytes": 275957,
+      "sha256": "f9636ad841da61837b01fc813153d94898b6ba89a619a1c45f3c558d13a5b155"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-8.log",
+      "bytes": 275957,
+      "sha256": "f9636ad841da61837b01fc813153d94898b6ba89a619a1c45f3c558d13a5b155"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659-9.log",
+      "bytes": 275957,
+      "sha256": "f9636ad841da61837b01fc813153d94898b6ba89a619a1c45f3c558d13a5b155"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80659.log",
+      "bytes": 2488423,
+      "sha256": "a4f72262f8aab0b2231d151d25a7266a5ff3086366fd3efdd555849c0ceffa14"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-1.log",
+      "bytes": 2360261,
+      "sha256": "a02738c43a27ddb5699f09c454826ae31e6c303beaf72b469371680b9aab0f45"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-2.log",
+      "bytes": 2359452,
+      "sha256": "b7b72ef05c28cf0e4aadc13d34b632752b0ff7d9dd233821c7bf4fea94fedbc8"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-3.log",
+      "bytes": 182603,
+      "sha256": "a90a6da1b2ab8236f4b132bd74c73ce16671921bb3429d755570c62bdc281cc1"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-4.log",
+      "bytes": 4536875,
+      "sha256": "b96e9b2044dae596c1b032b93c6bfaf554fb044fede41893377d52b181edec6f"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-5.log",
+      "bytes": 2360033,
+      "sha256": "0f732728c42ad9166b1dd74e34fb8ca60960cab43c66be0997c0c52345f8dfd9"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-6.log",
+      "bytes": 183155,
+      "sha256": "0c00024c9aab9d780c6070377c554e23fddcd627abae06d26786aac0406f0c3a"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-7.log",
+      "bytes": 2360394,
+      "sha256": "81b4a3dbf70f60999a05dad6b48cad534ddbf159f5c84a15342a277edd7fd84e"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-8.log",
+      "bytes": 2360578,
+      "sha256": "b425d5afaccef10da0050845f4580bd17d1edc0d95981dbb245a10dc5e1a87e2"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661-9.log",
+      "bytes": 4537793,
+      "sha256": "9a5aba725289e4021aa071fc5cb9bbf47654f5286d2bd92f0750a5861658c520"
+    },
+    {
+      "path": "ack-graphs/cc-edges.80661.log",
+      "bytes": 2370133,
+      "sha256": "17b7f38906440d72b622be97859158cc61f7ef2b2837e06afebc00fbd27f6116"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-1.log",
+      "bytes": 12889555,
+      "sha256": "c4ca92f66a9eb3d8c4372885a9ddf12a15a721448f38032309a9984370afc487"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-2.log",
+      "bytes": 12867310,
+      "sha256": "60587f950c224b3a43d34849a135d77fd70a34a200f1dfa53cc67ee911992025"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-3.log",
+      "bytes": 12867310,
+      "sha256": "18768d16dcb66ed1ea7a9aa91646a87021ae590a38217e3a7069100779546c8f"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-4.log",
+      "bytes": 12867310,
+      "sha256": "60587f950c224b3a43d34849a135d77fd70a34a200f1dfa53cc67ee911992025"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-5.log",
+      "bytes": 12867310,
+      "sha256": "18768d16dcb66ed1ea7a9aa91646a87021ae590a38217e3a7069100779546c8f"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-6.log",
+      "bytes": 12867310,
+      "sha256": "60587f950c224b3a43d34849a135d77fd70a34a200f1dfa53cc67ee911992025"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-7.log",
+      "bytes": 12867310,
+      "sha256": "18768d16dcb66ed1ea7a9aa91646a87021ae590a38217e3a7069100779546c8f"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-8.log",
+      "bytes": 12867310,
+      "sha256": "60587f950c224b3a43d34849a135d77fd70a34a200f1dfa53cc67ee911992025"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659-9.log",
+      "bytes": 12867310,
+      "sha256": "a0d18e709ea29524d8bdd19f6f5817292aacde446a5be0d4b6f9bb6dcd6bef81"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80659.log",
+      "bytes": 14903292,
+      "sha256": "24b1c523bb4ac1856570b86260d04a634cb1fcb2bf55dbfc1f5c1af0a1cae244"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-1.log",
+      "bytes": 3023653,
+      "sha256": "e03b00753d13f00ca853cba218956d421c2b8fb7ecb073c8de3603e710e4498c"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-2.log",
+      "bytes": 3021520,
+      "sha256": "542d24232fddaec89336a93dc8b4ed50a1afa52a129785a2741451a468dbe5a2"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-3.log",
+      "bytes": 3021541,
+      "sha256": "fc478879305df2405737c1c7ab4db777b36d969dfaad2199fc799970af7dda66"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-4.log",
+      "bytes": 3286629,
+      "sha256": "45de7619940f49f1112f35799f3d2e9d3817b7b489bddd059961027ead494a89"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-5.log",
+      "bytes": 3021619,
+      "sha256": "46dd51d88a209803f087299b8179f361d24fc2330d156d436b795f5d35ee749e"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-6.log",
+      "bytes": 3021416,
+      "sha256": "cbe6aebf5b82f028c72ba41fa44240cd11dbc546612753313d433239d175875f"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-7.log",
+      "bytes": 3286554,
+      "sha256": "8ebb463169e39b2e1ab56cd3ed3abb913fb166e65b45e7cbe5cf34ff5472e8c1"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-8.log",
+      "bytes": 3286861,
+      "sha256": "404924e937890da2f8a0fb69e4900b8a778a21ee260658243470701c13a1ef5f"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661-9.log",
+      "bytes": 3286868,
+      "sha256": "3e12c535cac6fdab98b040308e9dd5f9d2046dd96a42b8f2d2c8a06351793f9a"
+    },
+    {
+      "path": "ack-graphs/gc-edges.80661.log",
+      "bytes": 3015473,
+      "sha256": "fc4b35d1658aa634e946ce708174f0f92c10388cd8fb130c5b3e5c9379e6b7f7"
+    },
+    {
+      "path": "barrier-focused.log",
+      "bytes": 210,
+      "sha256": "b478e4245f3a3c7fff30903a2b3ab59818551d2f76125f7336b1176fe642ef0a"
+    },
+    {
+      "path": "barrier-full.log",
+      "bytes": 23335,
+      "sha256": "b23b2fc992072c204f73344a4f215ddc4c7b043843052179f84160fc258583dd"
+    },
+    {
+      "path": "barrier-lint.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "barrier-types.log",
+      "bytes": 137,
+      "sha256": "38f0863e0be4625d09f5323fc85bc0390fac422668c68a20a66948296cb13591"
+    },
+    {
+      "path": "cc-local-summary.json",
+      "bytes": 1463,
+      "sha256": "480263dbff637f717058d132143195b55dbe33e97a6763f4a0809eff75280a48"
+    },
+    {
+      "path": "cc-local.log",
+      "bytes": 192,
+      "sha256": "8fff4e439ec41e7d30bcca197c138b844115d9f405e36988bfce85c68e7b086a"
+    },
+    {
+      "path": "child-ack-current-process.json",
+      "bytes": 1806,
+      "sha256": "fe4c0b9c9d216ac6261ed0b306c46c1a4dc5fdad40216ccc988ead29b2cda915"
+    },
+    {
+      "path": "child-ack-frame-probe.json",
+      "bytes": 4191,
+      "sha256": "7ded1b4de0c4e83f46c7b4985545a2c5e2335a102b961359c30450714111fe09"
+    },
+    {
+      "path": "child-ack-frame-probe.log",
+      "bytes": 2925,
+      "sha256": "f050cf413baa917c0f6048ed208fbe32ba2c8bf0f6e5a0b44e8f60c77c880996"
+    },
+    {
+      "path": "child-ack-frame-probe.mjs",
+      "bytes": 1798,
+      "sha256": "65e1615f9d6e661422cc9b5a8a9243e2f46cae84a7b77ea848cf45c248823e16"
+    },
+    {
+      "path": "child-ack-frame-process.json",
+      "bytes": 1770,
+      "sha256": "cc3ba06aeaa2f0121a2edcdd3a0328b9f10b5e7724690ac278b08c207dd33a2c"
+    },
+    {
+      "path": "child-ack-probe.json",
+      "bytes": 4144,
+      "sha256": "d34291a43d5d511140b2bf115e29795666956db3e1560d113846513b3fa55503"
+    },
+    {
+      "path": "child-ack-probe.log",
+      "bytes": 2894,
+      "sha256": "55226955f3046ce789c7f0b18b1115f2f26d4d4ed4cdc8ba39adea2c7f73c429"
+    },
+    {
+      "path": "child-ack-probe.mjs",
+      "bytes": 1457,
+      "sha256": "a8e8ac337bbd50f7a005b2b6f4aef44e2faaad9bda60344ffdcda4d8039d005b"
+    },
+    {
+      "path": "local-cc7-roots.log",
+      "bytes": 460,
+      "sha256": "e3937d2a328b91439f49bffd3f607f7bd1b9259afbecae75ed1b993ffb686e06"
+    }
+  ]
+}

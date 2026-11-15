@@ -1,0 +1,8 @@
+{
+  "productionAndFixturesAndPackagesUnchanged": true,
+  "comparedFiles": 273,
+  "changed": ["vitest.browser.config.mts"],
+  "baseline": "f3ab937, merged8d4991e",
+  "testHarnessSource": "771df535abba081c6206ab7291913d727c8754f3",
+  "newDeviceRun": false
+}

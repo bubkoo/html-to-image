@@ -1,5 +1,5 @@
 {
-  "status": "investigating, no production fix claimed",
+  "status": "test-harness acknowledgement fix locally accepted; new exact-head remote gates pending; no production memory fix claimed",
   "parentPR": 644,
   "parentPRHead": "e664f65bcb2db760605a1221420130ff7321d292",
   "master": "8d4991e3fb399ac5a7e7c823bc06009944032ed8",
@@ -48,6 +48,45 @@
     "existing skips",
     "package/device inputs"
   ],
-  "diagnostic": "temporary branch-only Linux rerun with official Firefox GC/CC graph logging; never substitutes for primary CI",
-  "docs": "https://firefox-source-docs.mozilla.org/performance/memory/gc_and_cc_logs.html"
+  "diagnostic": "temporary branch-only logging removed; primary GC command now awaits a test-frame content round trip after the same requestGC call",
+  "docs": "https://firefox-source-docs.mozilla.org/performance/memory/gc_and_cc_logs.html",
+  "testHarnessSource": "771df535abba081c6206ab7291913d727c8754f3",
+  "acknowledgementExperiment": {
+    "platform": "darwin arm64",
+    "firefox": "157.0",
+    "mainPageCases": 10,
+    "testFrameCases": 10,
+    "activeProcessIdentifiedIndependentlyBy": "owned marker in GC heap graph",
+    "writingIncompleteAtRequestReturn": 20,
+    "writingIncompleteAfterTargetRoundTrip": 0,
+    "otherProcessesMayStillWrite": true,
+    "doesNotGuaranteeAllUnreachableObjectsCollect": true
+  },
+  "diagnosticBaseline": {
+    "head": "ffa8c988f9682e069a82dd79df0c2daa50e7e9d5",
+    "ci": 43662607630,
+    "codeQL": 43662607463,
+    "primaryCounts": [1225, 1106, 159],
+    "primarySkips": [4, 4],
+    "loggedFirefoxPassed": 368,
+    "loggedFirefoxSkipped": 2,
+    "noAcknowledgementFixYet": true,
+    "largeArtifactBytes": 438483988,
+    "selectedViaRangeBytes": 47036,
+    "largeArtifactGraphsNotClaimedArchived": true
+  },
+  "localAfter": {
+    "focused": 35,
+    "focusedSkipped": 1,
+    "full": [1225, 1106, 159],
+    "fullSkipped": [4, 4],
+    "lintBuildTypesTarball": "pass"
+  },
+  "runtimeChange": false,
+  "rawArchives": {
+    "master-first": 20,
+    "acknowledgement": 96,
+    "linux-diagnostic": 7
+  },
+  "totalArchivedRawFiles": 123
 }
