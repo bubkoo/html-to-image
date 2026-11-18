@@ -147,3 +147,11 @@ These are native result builders without library clone/capture in the measured s
 Replay in the pinned isolated exact-9a391dc environment: install one archived fixture as test/browser-unit/capture-lifetime.test.ts, preserve current inputs/config hashes/artifacts and sorting results, remove only results.json, retain optimized bundles, then GC_OBSERVER_DIAGNOSTICS=1 pnpm run test:coverage.
 Save the complete terminal log and artifacts before changing stages and restore the original test afterwards. Do not change assertions, three requests, timeouts or inherited skips.
 The archive also preserves complete logs/metadata/uploads for a94c02d PR CI 44364243412 success and 93d83ee PR CI 44365244006 failure. These remote executions are separate from the emulated controls and neither establishes a GC fix.
+
+## Native baseline counterexample
+
+Q1 adds an unused source.implementation property read to the native I3 helper; S1 restores the exact bytes of the previously passing I3 fixture. Both complete coverage runs fail the same original Firefox iframe GC assertion (1224 pass / one failure / four inherited skips), nativeCollected=true, capturedCollected=false. Output assertions after this failure are not reached.
+Consequently earlier creator/import/read contrasts are individual observations, not stable isolation of a necessary or unique cause. No production root or fix is established. Inspect native-copy and test/Promise retaining contexts, not only the renderer/capture roots of the earlier bounded graph.
+
+The native-baseline archive preserves both full logs/artifacts, 4520-byte stage fixtures and input/cache receipts. Replay each in the pinned exact-9a391dc isolated environment using the same reset-only-results procedure and GC_OBSERVER_DIAGNOSTICS=1 pnpm run test:coverage; restore original test afterwards. No additional requests or relaxed conditions are required.
+Pinned upstream source revision fdd757a2e09c9471cddf383e64e631e4ce178499 comes from the Playwright v1.64.1 UPSTREAM_CONFIG.sh. Document caches implementation, and implementation owns document; both participate in native CC traversal/unlink. Source ownership edges explain a cycle but do not identify a rooted path or why this patched binary failed collection. Original source/license headers and download hashes are preserved.

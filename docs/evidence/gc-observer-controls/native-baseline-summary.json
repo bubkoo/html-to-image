@@ -1,0 +1,34 @@
+{
+  "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+  "scope": "same isolated emulated Linux coverage diagnostic, not current branch/remote/device acceptance",
+  "stages": {
+    "q1-read": {
+      "summary": [
+        "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+        "Test Files  1 failed | 129 passed (130)",
+        "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+      ],
+      "nativeCollected": true,
+      "capturedCollected": false
+    },
+    "s1-baseline": {
+      "summary": [
+        "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+        "Test Files  1 failed | 129 passed (130)",
+        "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+      ],
+      "nativeCollected": true,
+      "capturedCollected": false
+    }
+  },
+  "comparison": "S1 fixture is byte-identical to previously passing I3; Q1 adds only an unused source-document implementation read and adjusts inert padding. Both now fail the original primary, native bare-removal control passes.",
+  "conclusion": "The native baseline is not stable across these runs. Source implementation access/creation cannot be treated as necessary or a uniquely isolated cause from earlier contrasts. No library root or fix established. Inspect native-copy and test execution contexts.",
+  "sourceReview": {
+    "upstreamRevision": "fdd757a2e09c9471cddf383e64e631e4ce178499",
+    "selection": "Playwright v1.64.1 browser_patches/firefox/UPSTREAM_CONFIG.sh",
+    "facts": "Document caches DOMImplementation; implementation strongly owns its document; both edges participate in cycle-collection traversal/unlink. Native cycle alone does not prove a leak or retaining root.",
+    "limits": "Pinned upstream source, not proof of the patched browser binary root"
+  },
+  "assertions": "Original primary conditions, three requests, timeouts and inherited skips unchanged. Q1/S1 fail before output assertion. Full coverage 1224/1/4 each; no source/package gate claimed.",
+  "next": "Inspect actual retaining paths after cached primary failure; include native-copy and test/Promise contexts, separate introduced inspector roots."
+}
