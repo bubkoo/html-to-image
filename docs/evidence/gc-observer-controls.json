@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 1661,
+  "totalRawFiles": 1691,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -931,5 +931,61 @@
     "assertions": "Original primary conditions, three requests, timeouts and inherited skips unchanged. Q1/S1 fail before output assertion. Full coverage 1224/1/4 each; no source/package gate claimed.",
     "next": "Inspect actual retaining paths after cached primary failure; include native-copy and test/Promise contexts, separate introduced inspector roots."
   },
-  "nativeBaselineRawFiles": 68
+  "nativeBaselineRawFiles": 68,
+  "heapToolControls": {
+    "scope": "Standalone positive/negative tool controls only; actual failing suite not instrumented or sampled",
+    "browser": "isolated-container Firefox 157.0, Playwright1.64.1",
+    "source": "source checkpoint9a391dc; host evidence branch e7705bf",
+    "positive": "unqualified capture -> proxy target -> knownOwnedDocument path found",
+    "negative": {
+      "weakOrInspectorLabels": [
+        "[weak]",
+        "WeakMap entry",
+        "Debugger.Object referent"
+      ],
+      "negativeRawPaths": 3,
+      "negativeUnqualifiedPaths": 0,
+      "limits": "Only returned paths (cap20); absence of an unqualified path is not complete unreachability proof"
+    },
+    "registration": {
+      "opened": [
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "closed": [
+        {
+          "before": true,
+          "after": false
+        }
+      ],
+      "passiveParentListener": "uses official notifyDevToolsOpened/Closed, only at explicit capture, no guard removal"
+    },
+    "snapshot": {
+      "file": "positive-qualified.fxsnapshot",
+      "bytes": 185095,
+      "sha256": "b2251085e2c2212da4e4fdcd65a85705ced4225dd65e1c09d81d9a67580af4c2",
+      "rootPathCount": 5,
+      "rawGraph": "positive-qualified.json",
+      "introducedRoots": "probe, comparison target and raw wrapper holds; root paths include inspector artifacts"
+    },
+    "negativeToolResults": [
+      "before registration, parent heap-file IPC guard kills child; cgroup OOM counters all zero",
+      "IDs calculated before snapshot can move; before/after IDs preserved",
+      "privileged cross-compartment wrapper ID differs from underlying HTMLDocument; census/direct proxy edge resolves target",
+      "raw shortest paths include weak and inspector paths; cap20 can miss other strong paths, no complete absence proof"
+    ],
+    "replayLimits": "Final builder/scripts and controls are replayable from the original official image/omni hash. Earlier failed variant logs retained; not all intermediate binary ZIPs retained. Full browser ZIPs excluded; patched runtime/parent source and per-file hashes included.",
+    "cleanup": {
+      "pristineFirefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "expectedSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "sourceConfigAndTestDiffEmpty": true,
+      "ownedContainerStopped": true,
+      "ownedBrowsersClosed": true,
+      "systemSafariDriverUntouched": true
+    },
+    "next": "When resumed, add after-cached-failure hook, first check patched-browser/no-hook baseline, then inspect actual paths and label introduced/conditional edges. Production root remains unknown."
+  },
+  "heapToolControlsRawFiles": 30
 }
