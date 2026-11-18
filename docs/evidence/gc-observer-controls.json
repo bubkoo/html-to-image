@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 1238,
+  "totalRawFiles": 1331,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -756,5 +756,39 @@
       "note": "Collection is best-effort and does not guarantee collecting every unreachable object. This alone neither proves nor excludes a library retaining root."
     }
   },
-  "localLinuxControlRawFiles": 321
+  "localLinuxControlRawFiles": 321,
+  "recoveredPostFailure": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "Separate emulated Linux diagnostic, not current merged runtime acceptance",
+    "postFailureGraph": {
+      "nodes": 54,
+      "edges": 195,
+      "matches": [],
+      "errors": [],
+      "limitations": {
+        "maxNodes": 1800,
+        "maxDepth": 16,
+        "maxProperties": 90,
+        "firstTwoLexicalScopesAllBindings": true,
+        "otherScopesSelectedBindings": true,
+        "weakEdgesAreNotStrongOwnership": true,
+        "abortSignalListenersIncluded": true,
+        "otherNativeInternalsExcluded": true
+      },
+      "targetHold": "introduced only after original boolean cached; excluded from roots"
+    },
+    "nativeStyleControl": {
+      "summary": [
+        "Test Files  130 passed (130)",
+        "Tests  1225 passed | 4 skipped (1229)"
+      ],
+      "meaning": "Native style-copy/serialization control passes the original assertion and output checks in this run; it does not invoke renderer.capture for this case. Empty renderer remains retained. Earlier pristine library baseline failed, but a same-session restored-library pair is still required before attributing the difference. No full-library ownership cause established.",
+      "testBytes": 4520,
+      "interruptedI2": "No terminal result; preserved as partial only",
+      "I3": "fresh run after explicit pause/restart; results.json already absent; optimized bundles retained"
+    },
+    "recovery": "Tracked branch restored from Git; container logs, graph, positive-control scripts, native fixture and raw artifacts recovered. Host-only patched Firefox source/ZIP and scripts were unavailable; do not claim full reproduction of those past graph experiments from this archive.",
+    "next": "Split native computed-style reads from style copying and serialization; retain original GC assertions/counts. Native internals and optimized-out bindings still limit graph conclusions."
+  },
+  "recoveredPostFailureRawFiles": 93
 }

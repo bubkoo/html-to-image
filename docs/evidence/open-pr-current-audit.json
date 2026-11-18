@@ -27,7 +27,8 @@
         "docs/evidence/svg-fragment-paint.json",
         "docs/evidence/gc-observer-controls.json",
         "docs/evidence/svg-http-import-native.json",
-        "docs/evidence/svg-file-font-native.json"
+        "docs/evidence/svg-file-font-native.json",
+        "docs/evidence/video-empty-frame.json"
       ],
       "remainingBoundary": "Qualified attribute/inline relative and absolute paint URLs, different-query paint, physical iPhone qualified-paint fallback, restricted CSP/opaque rules, other HTTP style/font states beyond the bounded native-use controls, broad SPA/performance and generic WebKit/device GC remain open. Output follows the current browser live page, as selected by the user.",
       "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
@@ -49,7 +50,7 @@
         "scope": "HAVE_NOTHING without poster; transparent styled media box",
         "evidence": "docs/evidence/video-empty-frame.json",
         "local": "before 9 fail/3 pass, after 12 pass; full 1234/1115/162, inherited skips 4/4; 18 desktop native pairs exact",
-        "remaining": "fresh final-head remote gates pending; poster-history and broader media states not resolved; no device GC claim",
+        "remaining": "PR #647 merged f8d1c4b after final-head checks passed; master CI 44363483198 failed three Firefox lifecycle checks (1234 coverage, 1112 source, packages not run). Poster history/broader media states and device GC remain unclaimed.",
         "device": "physical iPhone Safari/iOS 26.6.1: 6 exact native pairs, 12 source photos, 38 PASS / 2 INFO smoke and 4 cancellation controls; 104 inputs unchanged; session/server released"
       }
     },
@@ -276,7 +277,7 @@
         "scope": "HAVE_NOTHING without poster; transparent styled media box",
         "evidence": "docs/evidence/video-empty-frame.json",
         "local": "before 9 fail/3 pass, after 12 pass; full 1234/1115/162, inherited skips 4/4; 18 desktop native pairs exact",
-        "remaining": "fresh final-head remote gates pending; poster-history and broader media states not resolved; no device GC claim",
+        "remaining": "PR #647 merged f8d1c4b after final-head checks passed; master CI 44363483198 failed three Firefox lifecycle checks (1234 coverage, 1112 source, packages not run). Poster history/broader media states and device GC remain unclaimed.",
         "device": "physical iPhone Safari/iOS 26.6.1: 6 exact native pairs, 12 source photos, 38 PASS / 2 INFO smoke and 4 cancellation controls; 104 inputs unchanged; session/server released"
       }
     },
