@@ -1,8 +1,9 @@
 import { svgResponseURLServer } from './test/browser/fixtures/svg-response-url-server.mjs'
 import { videoReadinessServer } from './test/browser/fixtures/video-readiness-server.mjs'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
+import { cpus, freemem, totalmem } from 'node:os'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
 import { resourcePolicyServer } from './test/browser/fixtures/resource-policy-server.mjs'
@@ -146,6 +147,55 @@ export default defineConfig({
           // Firefox's parent-process GC request can finish before child GC/CC.
           // Round-trip through the test frame before resuming its assertions.
           await target.evaluate(() => undefined)
+        },
+        async gcObserverDiagnosticsEnabled() {
+          return process.env.GC_OBSERVER_DIAGNOSTICS === '1'
+        },
+        async recordGCObserverEvidence(_, record: string) {
+          const data = JSON.parse(record)
+          const execution = {
+            event: process.env.GITHUB_EVENT_NAME,
+            head: process.env.GITHUB_SHA,
+            run: process.env.GITHUB_RUN_ID,
+            image: process.env.ImageVersion,
+            platform: process.platform,
+            architecture: process.arch,
+            node: process.version,
+            cpu: cpus()[0]?.model,
+            cpuCount: cpus().length,
+            totalMemory: totalmem(),
+            freeMemory: freemem(),
+          }
+          const phase = process.env.GC_OBSERVER_PHASE
+          if (
+            phase &&
+            ![
+              'same-configuration-control',
+              'sandbox-control',
+              'cc-only-trace',
+            ].includes(phase)
+          )
+            throw new Error('Unsupported GC observer diagnostic phase')
+          const folder = resolve(
+            '.vitest/attachments/gc-observers',
+            phase || '.',
+          )
+          const graphFiles =
+            phase === 'cc-only-trace'
+              ? (await readdir(process.env.MOZ_CC_LOG_DIRECTORY!)).sort()
+              : undefined
+          await mkdir(folder, { recursive: true })
+          const name = String(
+            suite + '-' + data.engine + '-' + data.kind,
+          ).replace(/[^a-z0-9-]/gi, '_')
+          await writeFile(
+            resolve(folder, name + '.json'),
+            JSON.stringify(
+              { ...data, execution, phase, observedAt: Date.now(), graphFiles },
+              null,
+              2,
+            ) + '\n',
+          )
         },
         async screenshotScrollSource({ iframe }, selector: string) {
           const png = await iframe

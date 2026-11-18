@@ -1,0 +1,121 @@
+{
+  "archive": "order-cache-local-raw.tar.gz",
+  "archiveSHA256": "9dbdeb95f62ef77b41ccb3e9d62624c38e23e529dad6395b49a2961dda4a0f59",
+  "files": [
+    {
+      "path": "cache/initial/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+      "bytes": 16762,
+      "sha256": "c406f3f8ee4225d831b4b47081b59964db5ee8e9af285b02aaece2e581565ff5"
+    },
+    {
+      "path": "cache/local-roundtrip-restored.json",
+      "bytes": 262,
+      "sha256": "89d73031b27ebc4eddfa748ff61dd1d1460c4e6a3645bc4e0ad4b242113a3567"
+    },
+    {
+      "path": "cache/manifest.json",
+      "bytes": 209,
+      "sha256": "f134a68b7a34630b5609e11b56079c5ed8172a96c869f434823f72506a8a0e6d"
+    },
+    {
+      "path": "inputs/.github/workflows/ci.yml",
+      "bytes": 5606,
+      "sha256": "596b23d88b086b469b7d9545923e60a7367494ec359039c9b3e31b877419fc86"
+    },
+    {
+      "path": "inputs/scripts/gc-diagnostic-cache.mjs",
+      "bytes": 2941,
+      "sha256": "dbf5aa146d9153e15e55d45fe7d678572f0755f63c663b48527b7c411676246a"
+    },
+    {
+      "path": "inputs/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 8371,
+      "sha256": "660b31d222bcbb7d87807d03f3387320db8c2f58e6bac1910e91b1b952033c54"
+    },
+    {
+      "path": "inputs/test/browser-unit/svg-fragment-lifetime.test.ts",
+      "bytes": 2874,
+      "sha256": "c7a041193dfd91ffca61168207a8841170d1711e7b1adb2b2d7e1ab97493abf6"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/gc-observer-controls.mjs",
+      "bytes": 10905,
+      "sha256": "f9b215fc06dfdd4c1298a510f28cf81056af04feb3ca2a87e108933f2c61f7b3"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 9264,
+      "sha256": "7229a518b6ddd424a93a01689913c29f807789f14d59f8e43372da7ab7add83f"
+    },
+    {
+      "path": "logs/order-cache-focused.log",
+      "bytes": 195,
+      "sha256": "06d7d780f424cc1b5c21e4db2361862e66b501c787c6d7f7952cddcd293a0631"
+    },
+    {
+      "path": "logs/order-cache-lint.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "logs/order-cache-local-restore.log",
+      "bytes": 212,
+      "sha256": "9d9c63ffcf10c071df31614627dac6f6ac10f2c87c68e7de858c309e6cdf7c73"
+    },
+    {
+      "path": "logs/order-cache-local-save.log",
+      "bytes": 183,
+      "sha256": "495652d978fa50673a58bfb82c719e1f4b9ad6fcc89dd56bce5239586df96805"
+    },
+    {
+      "path": "logs/order-cache-types.log",
+      "bytes": 137,
+      "sha256": "38f0863e0be4625d09f5323fc85bc0390fac422668c68a20a66948296cb13591"
+    },
+    {
+      "path": "observations/browser-chromium-environment-false.json",
+      "bytes": 5821,
+      "sha256": "bf962a6f4f36834d416cda15087028641c578754fb2fae9fbc58eb076574289a"
+    },
+    {
+      "path": "observations/browser-chromium-environment-true.json",
+      "bytes": 5824,
+      "sha256": "aa5160a7fd597de4b5ff23ea0214797a0edd840bbcc316010eb22bd0c2eaf3f4"
+    },
+    {
+      "path": "observations/browser-chromium-frozen-svg-source.json",
+      "bytes": 1318,
+      "sha256": "b421d5a5bf7da319e1bc3469a4470bf3ea582d2850738bab01e2b832f3309edc"
+    },
+    {
+      "path": "observations/browser-chromium-pending-font.json",
+      "bytes": 5871,
+      "sha256": "07acf1f1d68290a8e43373593963f249dc86818d90e9db8dca386bae53991653"
+    },
+    {
+      "path": "observations/browser-firefox-environment-false.json",
+      "bytes": 5560,
+      "sha256": "b734eae4372f109dc036f679a589500d8e13f68ba76faaa510199e1a2e8197b1"
+    },
+    {
+      "path": "observations/browser-firefox-environment-true.json",
+      "bytes": 5569,
+      "sha256": "5db032a61772f06cc389abed184a0e3ac4c242711bda104e6956a4b4c31432eb"
+    },
+    {
+      "path": "observations/browser-firefox-frozen-svg-source.json",
+      "bytes": 1273,
+      "sha256": "562e58cfaa208794399cf656f5eafeccd88f06417cb54c8e651e20555c10f6c1"
+    },
+    {
+      "path": "observations/browser-firefox-pending-font.json",
+      "bytes": 6078,
+      "sha256": "71badbe44c2285847f92cc1b32038098feef7dc102885f257016c3c9b35e53d3"
+    },
+    {
+      "path": "observations/browser-webkit-frozen-svg-source.json",
+      "bytes": 1270,
+      "sha256": "b24ca258c29f4f1e3fa34e8f1a16daa4d02a34b76b33768ca4cb342583588643"
+    }
+  ]
+}

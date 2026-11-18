@@ -1,0 +1,991 @@
+{
+  "status": "investigation only, no fix claimed",
+  "master": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "masterCI": 43664877371,
+  "masterCodeQL": 43664877309,
+  "masterResult": {
+    "coveragePassed": 1225,
+    "coverageSkipped": 4,
+    "sourcePassed": 1102,
+    "sourceFailed": 4,
+    "sourceSkipped": 4,
+    "package": "not run",
+    "CodeQL": "success"
+  },
+  "failures": [
+    "Firefox disposed environment, probed=false",
+    "Firefox disposed environment, probed=true",
+    "Firefox pending-font cancellation",
+    "WebKit frozen SVG source document"
+  ],
+  "sameTreeAsAcceptedPRMerge": {
+    "09e905520ecf6cbf8f64e1a7e58ff03d404f92fc": "db3c38deb9d40948966cd268d321c228fce3a55f",
+    "901c4bc0c71087ae41de95458b9e04bce5eb5ff3": "db3c38deb9d40948966cd268d321c228fce3a55f"
+  },
+  "uploadedArtifactFilesPreserved": 12,
+  "masterRawFiles": 24,
+  "primaryHelperBodiesByteIdentical": true,
+  "primaryConditionsUnchanged": true,
+  "primaryCollections": 3,
+  "diagnosticCollectionsAfterPrimarySnapshot": 3,
+  "pendingFontExistingNativeDiagnosticCollections": 3,
+  "local": {
+    "existingTestsPassed": 12,
+    "recordedPrimarySamples": 9,
+    "supplementalObservations": 60,
+    "observerErrors": 0,
+    "reproducedFailure": false,
+    "allSupplementalDocumentsCollected": true,
+    "allCanariesCollected": true,
+    "productionChange": false
+  },
+  "matrix": [
+    "native owner with timeout",
+    "native owner without timeout",
+    "library owner",
+    "await Document then create WeakRef",
+    "Promise maps Document to WeakRef",
+    "explicitly clear temporary Document",
+    "original capture helper",
+    "clear source local after capture",
+    "native timer callback captures iframe",
+    "paired instrumented SVG removal: unchanged href versus cleared href",
+    "supplementary capture with timeout=0",
+    "observation order and age at sample"
+  ],
+  "temporaryWorkflowChanges": [
+    "branch-only direct push plus PR comparison",
+    "branch-only always-record observer flag; remove before merge"
+  ],
+  "gates": "original sampled booleans still asserted; later collections never replace primary failure",
+  "localRawFiles": 12,
+  "totalRawFiles": 1691,
+  "firstPair": {
+    "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+    "pushRun": 43667097221,
+    "push": "success",
+    "prRun": 43667274475,
+    "pr": "failure: three Firefox source cases; coverage passed; package not run",
+    "suiteLabelsPreserved": true,
+    "eventImageAndCPUConfounded": true,
+    "summary": "gc-observer-controls/first-pair-summary.json"
+  },
+  "firstPairRawFiles": 63,
+  "expandedLocal": {
+    "existingTestsPassed": 12,
+    "recordedPrimarySamples": 9,
+    "supplementalObservations": 117,
+    "allSupplementalDocumentsCollected": true,
+    "allCanariesCollected": true,
+    "observerErrors": 0,
+    "productionChange": false
+  },
+  "expandedLocalRawFiles": 16,
+  "expandedPair": {
+    "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+    "pushRun": 43668909662,
+    "push": "failure: four source cases, including WebKit frozen SVG source",
+    "prRun": 43668914513,
+    "pr": "failure: three Firefox source cases",
+    "coverage": "1225 pass and four inherited skips in both",
+    "source": "push 1102 pass / 4 fail / 4 skip; PR 1103 pass / 3 fail / 4 skip",
+    "packages": "not run in either",
+    "hrefClearingNotSufficient": true,
+    "sourceCaptureTimerObservation": "Firefox supplemental original capture retained, timeout=0 and cleared-source collect in both; primary Firefox capture passes",
+    "summary": "gc-observer-controls/expanded-pair-summary.json"
+  },
+  "expandedPairRawFiles": 67,
+  "rootTrace": {
+    "scope": "separate Firefox source run only after normal failure; temporary branch-only step",
+    "ordinaryFailurePreserved": true,
+    "observerRecordNamespace": "root-trace",
+    "graphFileSequencePerCollection": true,
+    "local": {
+      "existingFirefoxTestsPassed": 4,
+      "collectionCommands": 24,
+      "gcFiles": 75,
+      "ccFiles": 75,
+      "incompleteFilesAtEnd": 0,
+      "graphs": "local investigation output only, not committed as full raw archive",
+      "lint": "passed",
+      "types": "passed"
+    },
+    "LinuxRootCause": "pending; logging perturbs timing",
+    "LinuxResult": "normal source push 1101 pass / 5 fail / 4 skip; PR 1100 pass / 6 fail / 4 skip; both coverage 1225 pass / 4 skip; packages not run; both Firefox trace 368 pass / 2 inherited skips; root cause unresolved",
+    "confounds": [
+      "logging and file-system timing",
+      "Firefox-only trace versus three-engine normal suite",
+      "separate browser process and execution"
+    ],
+    "fullRemoteGraphArchivesDownloaded": false,
+    "selectedRawFiles": 178,
+    "summary": "gc-observer-controls/root-trace-pair-summary.json",
+    "temporaryTraceRemovedAfterNegativeReproduction": true
+  },
+  "noCollectionCheckpoint": {
+    "scope": "supplementary, before constructing new observers; primary result already cached",
+    "explicitCollections": 0,
+    "samples": [
+      "entry",
+      "after Promise.resolve microtask",
+      "after setTimeout(resolve, 0) task boundary"
+    ],
+    "notAFixOrPrimaryRetry": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "primaryRecords": 9,
+      "supplementalObservations": 117,
+      "sourceAlreadyCollectedAtAllThreeSamples": true,
+      "microtaskIdentityControl": true,
+      "strongControlPreserved": true,
+      "canariesRemainWithoutRequestedCollection": true,
+      "lint": "passed",
+      "types": "passed"
+    },
+    "rawFiles": 17,
+    "LinuxResult": "three failed Firefox documents remain at entry, after microtask and after one timer task in both jobs; no explicit GC, no canary collected, held control survives",
+    "runs": {
+      "push": 43670464573,
+      "pr": 43670467884
+    },
+    "normalGate": {
+      "push": "coverage 1225 pass / 4 skip; source 1100 pass / 6 fail / 4 skip; packages not run",
+      "pr": "coverage 1225 pass / 4 skip; source 1103 pass / 3 fail / 4 skip; packages not run"
+    }
+  },
+  "checkpointRunRawFiles": 134,
+  "ccOnlyTrace": {
+    "scope": "separate source runs after normal failure, all three engines; no TEST_BROWSER selection",
+    "firstControl": "same graph-writing configuration, no logging",
+    "traceCondition": "only if configuration control still fails",
+    "runtimeValidatedFlag": "MOZ_CC_DISABLE_GC_LOG=1",
+    "noPerCollectionFileIO": true,
+    "primaryHelpersAndGCCommandUnchanged": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "lint": "passed",
+      "types": "passed",
+      "ccFiles": 75,
+      "gcFiles": 0,
+      "incompleteFiles": 0,
+      "graphBytes": 99898550,
+      "fullLocalGraphArchiveCommitted": false
+    },
+    "selectedRawFiles": 18,
+    "LinuxResult": "Both normal gates fail, but all-three-engine no-log graph-writing configuration control passes 1106 / 4 inherited skips in both jobs; CC-only trace skipped. Test ordering cache changes on failure, so configuration is not isolated."
+  },
+  "ccConfigurationPairRawFiles": 92,
+  "orderCacheControl": {
+    "why": "installed Vitest BaseSequencer prioritizes last failed files, then cached duration; ordinary resource file completes fifth, retry completes first in both runs",
+    "orderObservationScope": "completion sequence, not exact start sequence",
+    "method": "save only results.json after coverage and before source; restore and SHA256 verify before each subsequent source control; leave optimized bundles alone",
+    "sameConfigurationControlFirst": true,
+    "samePnPMScriptInEverySourcePhase": true,
+    "primaryGCCommandAndHelpersUnchanged": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "lint": "passed",
+      "types": "passed",
+      "snapshotRestoreSHA256Verified": true,
+      "restoredAfterRealTestMutation": true,
+      "realRestoreReceipt": "gc-observer-controls/order-cache-real-restore.json"
+    },
+    "localRawFiles": 23,
+    "remoteResult": "pending"
+  },
+  "frozenOrderPair": {
+    "pr": {
+      "run": 43672198368,
+      "sortInputsRestoredAndVerified": true,
+      "sortInputSHA256": [
+        "05f8e72066ae7fef4ef55f39ec4a31bd280ea3485ef98275bb6f3aaacad3bdf4"
+      ],
+      "phases": {
+        "normal": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)",
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "same-configuration-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "sandbox-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "cc-only-trace": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ]
+      },
+      "records": {
+        "same-configuration-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "sandbox-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "cc-only-trace": {
+          "records": 9,
+          "primaryRetained": []
+        }
+      }
+    },
+    "push": {
+      "run": 43672195617,
+      "sortInputsRestoredAndVerified": true,
+      "sortInputSHA256": [
+        "96e663a0da065c83e98434f041d369373a8a13ce42320406c2593dea3f5bdf95"
+      ],
+      "phases": {
+        "normal": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)",
+          "Test Files  2 failed | 115 passed (117)",
+          "Tests  4 failed | 1102 passed | 4 skipped (1110)"
+        ],
+        "same-configuration-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "sandbox-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "cc-only-trace": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ]
+      },
+      "records": {
+        "same-configuration-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "sandbox-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "cc-only-trace": {
+          "records": 9,
+          "primaryRetained": []
+        }
+      }
+    },
+    "head": "6b6150aa46a5388151c73824c98bb2c81f172c4e",
+    "conclusion": "Both ordinary, exact-sort same-configuration and sandbox-only controls fail; CC-only logged phases pass. No production fix or failed-primary retaining root is established.",
+    "graphs": {
+      "prFullInnerArchiveDownloadedAndValidated": true,
+      "prGraphs": 150,
+      "prUncompressedBytes": 458889508,
+      "pushFullGraphsDownloaded": false,
+      "committedGraphs": 2,
+      "privateDocumentObservations": 1006,
+      "notMarkedGarbageObservations": 34,
+      "retainedSrcdocObservations": 12,
+      "retainedSrcdocGraphs": 2,
+      "allTraces": false,
+      "parserLimitation": "Unsupported WeakMapEntry value=(nil) lines; CC garbage result membership is available, complete weak-map root reconstruction is not claimed."
+    },
+    "rootBoundaries": [
+      "Graph 15: orphan SVG use with one unknown refcount edge reaches srcdoc via NodeInfo manager.",
+      "Graph 58: ImageData with one unknown refcount edge reaches scrollbar fixture module/global and a srcdoc document.",
+      "These are transient roots in passing logged execution; no identity ties them to any ordinary failed primary. The unprobed ordinary case also fails, so an SVG-only hypothesis is insufficient."
+    ]
+  },
+  "frozenOrderPairRawFiles": 149,
+  "nativeControlsLocal": {
+    "focusedTestsPassed": 12,
+    "full": {
+      "coveragePassed": 1225,
+      "sourcePassed": 1106,
+      "packagePassed": 159,
+      "coverageSkipped": 4,
+      "sourceSkipped": 4,
+      "lintBuildTypesPackedConsumers": "pass"
+    },
+    "records": 18,
+    "supplementalObservations": 306,
+    "newNativeObservationsPerSuite": 36,
+    "errors": 0,
+    "allObservedSupplementalDocumentsAndCanariesCollected": true,
+    "productionSourceMatchesMaster": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+    "primaryTestFilesAndGCCommandUnchangedFrom": "6b6150aa46a5388151c73824c98bb2c81f172c4e",
+    "LinuxReproduced": false,
+    "deviceOrProductionFixClaim": false,
+    "inputHashes": 96,
+    "configurationScope": "New six native owners only in unprobed diagnostic samples; primary booleans cached before any supplementary owner is created; no WebKit GC acceptance expansion."
+  },
+  "nativeControlsLocalRawFiles": 31,
+  "nextDiagnostic": "Native unprobed iframe controls isolate sandbox, CSP, fulfilled-Promise reaction and post-load policy. Retain ordinary and exact-sort same-configuration source runs, remove the known-perturbing sandbox/CC-only automatic steps.",
+  "nativeControlsLinux": {
+    "pr": {
+      "run": 43677392127,
+      "ordinary": [
+        "Test Files  130 passed (130)",
+        "Tests  1225 passed | 4 skipped (1229)",
+        "Test Files  1 failed | 116 passed (117)",
+        "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+      ],
+      "repeat": [
+        "Test Files  1 failed | 116 passed (117)",
+        "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+      ],
+      "sortingRestorationVerified": true,
+      "phases": {
+        "normal": {
+          "records": 18,
+          "retainedPrimary": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ],
+          "newNativeRows": 72,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "frozen-svg-source",
+              "owner": null,
+              "helper": "await-capture"
+            }
+          ],
+          "noCollectionCheckpoints": {
+            "firefox-pending-font": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-true": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 1,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-false": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 1,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            }
+          }
+        },
+        "same-configuration-control": {
+          "records": 9,
+          "retainedPrimary": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ],
+          "newNativeRows": 36,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "cleared-local"
+            }
+          ],
+          "noCollectionCheckpoints": {
+            "firefox-pending-font": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-true": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-false": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            }
+          }
+        }
+      }
+    },
+    "push": {
+      "run": 43677387222,
+      "ordinary": [
+        "Test Files  130 passed (130)",
+        "Tests  1225 passed | 4 skipped (1229)",
+        "Test Files  1 failed | 116 passed (117)",
+        "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+      ],
+      "repeat": [
+        "Test Files  117 passed (117)",
+        "Tests  1106 passed | 4 skipped (1110)"
+      ],
+      "sortingRestorationVerified": true,
+      "phases": {
+        "normal": {
+          "records": 18,
+          "retainedPrimary": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ],
+          "newNativeRows": 72,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "cleared-local"
+            }
+          ],
+          "noCollectionCheckpoints": {
+            "firefox-pending-font": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-true": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-false": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            }
+          }
+        },
+        "same-configuration-control": {
+          "records": 9,
+          "retainedPrimary": [],
+          "newNativeRows": 36,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [],
+          "noCollectionCheckpoints": {}
+        }
+      }
+    },
+    "head": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "conclusion": "All new native sandbox/policy-document/reaction/lock rows collect without errors. Those differences alone do not reproduce the retained original. Ordinary source still fails in both events; the identical-sort repeat fails in PR and passes in push. No production fix or unique cause established."
+  },
+  "nativeControlsLinuxRawFiles": 93,
+  "localLinuxControl": {
+    "status": "Local Linux control, stable related failure; no root/fix established",
+    "sourceHead": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "hostDocumentationHead": "805c695c9a345c6452b95ce3d27206014809b9fe",
+    "officialImageIndexDigest": "sha256:2f05f8a734509a7b3f26a912639488ee08f58a7b292d14d62271bcff9038768f",
+    "amd64ManifestDigest": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+    "runtime": {
+      "node": "v24.22.2",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpus": 14,
+      "availableParallelism": 4,
+      "memory": 8216498176,
+      "browsers": {
+        "chromium": "156.0.8078.80",
+        "firefox": "157.0",
+        "webkit": "27.2"
+      }
+    },
+    "container": {
+      "id": "f0aa2ceefdbe5e8f18cc05fd36698f790f916226fddbd2f7d2a222c93f3878fa",
+      "platform": "linux",
+      "image": "mcr.microsoft.com/playwright:v1.64.1-noble",
+      "imageId": "sha256:2f05f8a734509a7b3f26a912639488ee08f58a7b292d14d62271bcff9038768f",
+      "limits": {
+        "nanoCpus": 4000000000,
+        "memory": 6442450944,
+        "shm": 1073741824
+      },
+      "labels": {
+        "codex.purpose": "gc-native-controls",
+        "codex.thread": "01a1c6f5-024e-7a03-b9ba-4aba9ec736ea",
+        "org.opencontainers.image.version": "24.04"
+      }
+    },
+    "host": "Apple Silicon Docker Desktop Linux VM, linux/amd64 emulation; not a GitHub Actions runner",
+    "stages": {
+      "coverage": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "second-coverage": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "focused-capture-lifetime": {
+        "summary": [
+          "Test Files  3 passed (3)",
+          "Tests  11 passed | 1 skipped (12)"
+        ],
+        "failures": []
+      },
+      "full-source-after-failed-coverage": {
+        "summary": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ],
+        "failures": []
+      },
+      "boundary-a1-none": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "boundary-b1-round-trip": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "boundary-c1-message-task": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "timer-d1-timeout-zero": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "owner-e1-library-document": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      }
+    },
+    "assertion": "nativeCollected=true, capturedCollected=false after three original requests",
+    "negativeControls": [
+      "additional pre-GC Frame round trip: same failure",
+      "pre-GC MessageChannel task: same failure",
+      "only failed helper timeout:0: same failure; file byte length preserved to avoid size-sort change",
+      "only clone document creator changed from source.implementation to library document.implementation: same failure; source restored afterwards"
+    ],
+    "gates": "First baseline stops at coverage: lint/build/package-entry/types passed; source and browser-package steps not run. Later focused/source runs are separate diagnostics, not a replacement baseline pass.",
+    "sourceCacheScope": "The diagnostic full source restores the snapshot written after failed coverage; this differs from CI after passing coverage. Subsequent coverage controls deliberately remove only results.json and retain optimized bundles.",
+    "sourceRestored": true,
+    "nextAction": "Inspect actual retaining paths after cached failure without enabling pre-collection heap logging; no source fix, extra GC requests, timeout extension or assertion relaxation claimed",
+    "apiContract": {
+      "url": "https://playwright.dev/docs/api/class-page#page-request-gc",
+      "localPackage": "playwright-core@1.64.1/types/types.d.ts:4401",
+      "note": "Collection is best-effort and does not guarantee collecting every unreachable object. This alone neither proves nor excludes a library retaining root."
+    }
+  },
+  "localLinuxControlRawFiles": 321,
+  "recoveredPostFailure": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "Separate emulated Linux diagnostic, not current merged runtime acceptance",
+    "postFailureGraph": {
+      "nodes": 54,
+      "edges": 195,
+      "matches": [],
+      "errors": [],
+      "limitations": {
+        "maxNodes": 1800,
+        "maxDepth": 16,
+        "maxProperties": 90,
+        "firstTwoLexicalScopesAllBindings": true,
+        "otherScopesSelectedBindings": true,
+        "weakEdgesAreNotStrongOwnership": true,
+        "abortSignalListenersIncluded": true,
+        "otherNativeInternalsExcluded": true
+      },
+      "targetHold": "introduced only after original boolean cached; excluded from roots"
+    },
+    "nativeStyleControl": {
+      "summary": [
+        "Test Files  130 passed (130)",
+        "Tests  1225 passed | 4 skipped (1229)"
+      ],
+      "meaning": "Native style-copy/serialization control passes the original assertion and output checks in this run; it does not invoke renderer.capture for this case. Empty renderer remains retained. Earlier pristine library baseline failed, but a same-session restored-library pair is still required before attributing the difference. No full-library ownership cause established.",
+      "testBytes": 4520,
+      "interruptedI2": "No terminal result; preserved as partial only",
+      "I3": "fresh run after explicit pause/restart; results.json already absent; optimized bundles retained"
+    },
+    "recovery": "Tracked branch restored from Git; container logs, graph, positive-control scripts, native fixture and raw artifacts recovered. Host-only patched Firefox source/ZIP and scripts were unavailable; do not claim full reproduction of those past graph experiments from this archive.",
+    "next": "Split native computed-style reads from style copying and serialization; retain original GC assertions/counts. Native internals and optimized-out bindings still limit graph conclusions."
+  },
+  "recoveredPostFailureRawFiles": 93,
+  "matchedClone": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "hostBranch": "a94c02d; merged current master is not the container test runtime",
+    "environment": "Same isolated Linux/amd64 emulation documented in local-linux-summary.json; Node24.22.2/pnpm10.34.9; three engines, coverage suite only",
+    "sorting": "Before each stage remove only results.json; preserve optimized bundles. Preserve input/previous-result receipts. Test file always 4520 bytes.",
+    "stages": {
+      "j1-library": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "k1-clone": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "l1-native-pseudo": {
+        "summary": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": false
+      }
+    },
+    "nativePrior": "I3 native computed-style copy/XML serialization passes 1225/four skips; raw input/log in recovered-postfailure archive",
+    "meaning": "Matched library path and direct clone-only path both retain the source after the original three requests. Renderer capture/task/snapshot ownership is not necessary to reproduce this local case. Clone-only output check is not reached after its GC assertion fails.",
+    "limits": "No root or production fix established; not the three remote source failures; no extra GC, skip, timeout or assertion changes. Native-pseudo variant also omits redundant xmlns assignment; do not infer a unique cause from a green result.",
+    "next": "Reduce the native operations of clone-only; keep public export semantics and all original gates."
+  },
+  "matchedCloneRawFiles": 95,
+  "nativeOperations": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "Same isolated emulated Linux native-operation controls; not current source/remote/iPhone acceptance",
+    "stages": {
+      "m1-import": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "o1-global-import": {
+        "summary": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": false
+      },
+      "p1-source-body": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      }
+    },
+    "changes": {
+      "m1-import": "Native I3 result builder, but source.implementation creates the target document and importNode(node,false) supplies its body. No renderer.capture or library clone call in this scene; empty renderer retained.",
+      "o1-global-import": "Only replace source.implementation with main document.implementation plus inert padding; retain importNode.",
+      "p1-source-body": "Native I3 result builder, but source.implementation creates target document; use its empty body, no importNode."
+    },
+    "sorting": "Every fixture 4520 bytes; remove/save only results.json; keep optimized bundles. Original assertions, three requests, timeouts/skips unchanged.",
+    "meaning": "The local primary can fail with source-created empty body, without importNode or library clone/capture. Main-created body (I3) and main-created import (O1) pass. No claim about every native Document/importNode or a universal native leak.",
+    "negativePrior": "E1 changed the creator in the full library clone path and still failed, preserved in local-linux-controls. These native subsets do not overturn that counterexample or establish a full-library fix.",
+    "remoteObserved": {
+      "head": "a94c02daa5a5e084b1b164bd1d0c6a8f7ce075da",
+      "testedMerge": "70826ffa88df132bd473bfc9fd70a625b36eccac",
+      "ci": 44364243412,
+      "conclusion": "success",
+      "coverage": 1234,
+      "source": 1115,
+      "packages": 162,
+      "inheritedSkips": [
+        4,
+        4
+      ],
+      "note": "One independent remote pass, not a lifecycle fix or acceptance for a later head"
+    },
+    "next": "Reduce source.implementation property access versus createHTMLDocument invocation, then inspect the actual retained native relationship. No production change.",
+    "latestObservedFailure": {
+      "conclusion": "failure",
+      "event": "pull_request",
+      "headSha": "93d83eee0a30f4ea22a676e733e39033dc65aa03",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/44365244006",
+      "run": 44365244006,
+      "coverage": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "skips": [
+        4,
+        4
+      ],
+      "packages": "not run",
+      "scope": "three Firefox environment/cancellation checks; not the local iframe control; root not established"
+    },
+    "causalityUpdate": "Subsequent byte-identical I3 native baseline S1 also fails; earlier contrasts are individual outcomes, not unique causal isolation. See native-baseline-summary.json."
+  },
+  "nativeOperationsRawFiles": 167,
+  "nativeBaseline": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "same isolated emulated Linux coverage diagnostic, not current branch/remote/device acceptance",
+    "stages": {
+      "q1-read": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "nativeCollected": true,
+        "capturedCollected": false
+      },
+      "s1-baseline": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "nativeCollected": true,
+        "capturedCollected": false
+      }
+    },
+    "comparison": "S1 fixture is byte-identical to previously passing I3; Q1 adds only an unused source-document implementation read and adjusts inert padding. Both now fail the original primary, native bare-removal control passes.",
+    "conclusion": "The native baseline is not stable across these runs. Source implementation access/creation cannot be treated as necessary or a uniquely isolated cause from earlier contrasts. No library root or fix established. Inspect native-copy and test execution contexts.",
+    "sourceReview": {
+      "upstreamRevision": "fdd757a2e09c9471cddf383e64e631e4ce178499",
+      "selection": "Playwright v1.64.1 browser_patches/firefox/UPSTREAM_CONFIG.sh",
+      "facts": "Document caches DOMImplementation; implementation strongly owns its document; both edges participate in cycle-collection traversal/unlink. Native cycle alone does not prove a leak or retaining root.",
+      "limits": "Pinned upstream source, not proof of the patched browser binary root"
+    },
+    "assertions": "Original primary conditions, three requests, timeouts and inherited skips unchanged. Q1/S1 fail before output assertion. Full coverage 1224/1/4 each; no source/package gate claimed.",
+    "next": "Inspect actual retaining paths after cached primary failure; include native-copy and test/Promise contexts, separate introduced inspector roots."
+  },
+  "nativeBaselineRawFiles": 68,
+  "heapToolControls": {
+    "scope": "Standalone positive/negative tool controls only; actual failing suite not instrumented or sampled",
+    "browser": "isolated-container Firefox 157.0, Playwright1.64.1",
+    "source": "source checkpoint9a391dc; host evidence branch e7705bf",
+    "positive": "unqualified capture -> proxy target -> knownOwnedDocument path found",
+    "negative": {
+      "weakOrInspectorLabels": [
+        "[weak]",
+        "WeakMap entry",
+        "Debugger.Object referent"
+      ],
+      "negativeRawPaths": 3,
+      "negativeUnqualifiedPaths": 0,
+      "limits": "Only returned paths (cap20); absence of an unqualified path is not complete unreachability proof"
+    },
+    "registration": {
+      "opened": [
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "closed": [
+        {
+          "before": true,
+          "after": false
+        }
+      ],
+      "passiveParentListener": "uses official notifyDevToolsOpened/Closed, only at explicit capture, no guard removal"
+    },
+    "snapshot": {
+      "file": "positive-qualified.fxsnapshot",
+      "bytes": 185095,
+      "sha256": "b2251085e2c2212da4e4fdcd65a85705ced4225dd65e1c09d81d9a67580af4c2",
+      "rootPathCount": 5,
+      "rawGraph": "positive-qualified.json",
+      "introducedRoots": "probe, comparison target and raw wrapper holds; root paths include inspector artifacts"
+    },
+    "negativeToolResults": [
+      "before registration, parent heap-file IPC guard kills child; cgroup OOM counters all zero",
+      "IDs calculated before snapshot can move; before/after IDs preserved",
+      "privileged cross-compartment wrapper ID differs from underlying HTMLDocument; census/direct proxy edge resolves target",
+      "raw shortest paths include weak and inspector paths; cap20 can miss other strong paths, no complete absence proof"
+    ],
+    "replayLimits": "Final builder/scripts and controls are replayable from the original official image/omni hash. Earlier failed variant logs retained; not all intermediate binary ZIPs retained. Full browser ZIPs excluded; patched runtime/parent source and per-file hashes included.",
+    "cleanup": {
+      "pristineFirefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "expectedSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "sourceConfigAndTestDiffEmpty": true,
+      "ownedContainerStopped": true,
+      "ownedBrowsersClosed": true,
+      "systemSafariDriverUntouched": true
+    },
+    "next": "When resumed, add after-cached-failure hook, first check patched-browser/no-hook baseline, then inspect actual paths and label introduced/conditional edges. Production root remains unknown."
+  },
+  "heapToolControlsRawFiles": 30
+}

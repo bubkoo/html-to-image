@@ -8,7 +8,11 @@
   "sameFixtureBefore": {
     "failed": 9,
     "passed": 3,
-    "engines": ["chromium", "firefox", "webkit"],
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
     "normalDecodedVideoControlsPassed": 3
   },
   "sameFixtureAfter": {
@@ -19,14 +23,24 @@
     "coverage": 1234,
     "source": 1115,
     "packages": 162,
-    "inheritedSkips": [4, 4],
+    "inheritedSkips": [
+      4,
+      4
+    ],
     "lintBuildTypesTarballConsumers": "passed",
     "scope": "working-tree input hashes later match committed ea97a25; local smoke HEAD metadata was the parent before commit"
   },
   "desktopNative": {
     "pairs": 18,
-    "formats": ["esm", "umd"],
-    "modes": ["empty", "selected", "play-pause"],
+    "formats": [
+      "esm",
+      "umd"
+    ],
+    "modes": [
+      "empty",
+      "selected",
+      "play-pause"
+    ],
     "allRGBAChannelsPerCase": 11264,
     "differentChannels": 0,
     "sourceBeforeAfterExact": true,
@@ -68,7 +82,10 @@
   },
   "posterHistory": {
     "scope": "same recorded public state in separate controlled WebKit scenes; not a proof about every possible browser API",
-    "comparedStates": ["webkit-poster", "webkit-poster-play-pause"],
+    "comparedStates": [
+      "webkit-poster",
+      "webkit-poster-play-pause"
+    ],
     "recordedStateKeys": [
       "readyState",
       "currentSrc",
@@ -83,8 +100,18 @@
       "currentTime"
     ],
     "sameRecordedState": true,
-    "initialNativeCenter": [255, 0, 0, 255],
-    "afterPlayPauseNativeCenter": [0, 0, 255, 255],
+    "initialNativeCenter": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "afterPlayPauseNativeCenter": [
+      0,
+      0,
+      255,
+      255
+    ],
     "automaticPosterFallbackNotShipped": true
   },
   "remaining": [
@@ -102,7 +129,7 @@
   "totalRawFiles": 203,
   "inputHashes": "video-empty-frame/input-sha256.json",
   "remoteGates": {
-    "status": "physical device passed; final evidence commit requires fresh exact-head checks",
+    "status": "final PR checks passed; merged; master failed three Firefox lifecycle assertions",
     "pr": 647,
     "firstHead": "a388d1a83130ad361b44ad23c2dbbe6dd65cad49",
     "testedMerge": "8ea5a308eb979847f518a4dfee2ee316dfeba816",
@@ -127,7 +154,7 @@
       "conclusion": "success"
     },
     "rootCause": "not established; preserve preexisting lifecycle failures, do not claim this video fix resolves them",
-    "latestHead": "fresh final-head checks pending after this evidence commit",
+    "latestHead": "9a2e38f106eda91b48c90e941b1ad2a9df436d9c",
     "previousObserved": {
       "head": "9ee095127805c61205658e18587de533f7ffe6af",
       "testedMerge": "a787b0708a6ffab59abd7317dd7058b8a2544c4a",
@@ -163,7 +190,10 @@
         "coveragePassed": 1234,
         "sourcePassed": 1115,
         "packagesPassed": 162,
-        "inheritedSkips": [4, 4]
+        "inheritedSkips": [
+          4,
+          4
+        ]
       },
       "codeql": {
         "run": 43676719916,
@@ -172,6 +202,31 @@
       "allChecks": "success, including Codecov patch/project",
       "inputs": "104 runtime/test input hashes unchanged",
       "limitation": "unchanged runtime does not establish a lifecycle fix for earlier failed runs"
+    },
+    "finalAccepted": {
+      "head": "9a2e38f106eda91b48c90e941b1ad2a9df436d9c",
+      "testedMerge": "4e3dfe305dd62a429ae7094f9a299b292fa1e19f",
+      "ci": 43682587522,
+      "codeql": 43682587514,
+      "coverage": 1234,
+      "source": 1115,
+      "packages": 162,
+      "inheritedSkips": [
+        4,
+        4
+      ],
+      "allChecks": "success",
+      "reviews": 0,
+      "unresolvedThreads": 0,
+      "merge": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "masterCI": 44363483198,
+      "masterStatus": "failure",
+      "fullPRLog": "gc-observer-controls/recovered-postfailure-raw.tar.gz:recovered-postfailure/video-pr-ci.log",
+      "masterCoverage": 1234,
+      "masterSourcePassed": 1112,
+      "masterSourceFailed": 3,
+      "masterPackages": "not run",
+      "masterRaw": "gc-observer-controls/recovered-postfailure-raw.tar.gz"
     }
   },
   "npmPublished": false,

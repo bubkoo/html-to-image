@@ -1,0 +1,5790 @@
+{
+  "push": {
+    "run": 43668909662,
+    "samples": [
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 273.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 258.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 245.29999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 238,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 225.90000000002328,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 216,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 205.79999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 197.60000000003492,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 188.90000000002328,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 180.90000000002328,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 171.29999999998836,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 162.60000000003492,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 154.60000000003492,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 148.40000000002328,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 134.10000000003492,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 121.10000000003492,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 102.79999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 91,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13512036352
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1094.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 1048.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 999.7000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 947.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 874.4000000000233,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 822.0999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 767.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 722.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 682.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 641.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 590.5,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 538.4000000000233,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 499.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 453.20000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 406,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 364.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 314.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 255.40000000002328,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13553037312
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 374.5,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 273.0999999999767,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 164.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 12535189504
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "Pending SVG Font",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1065.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 1031.899999999965,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 984.3999999999651,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 953.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 894.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 861.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 798.7999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 745.3999999999651,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 689.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 640.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 607,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 555,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 506.79999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 453,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 406.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 339.79999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 268,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 215.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13556133888
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 403,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 390,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 380,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 369,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 346,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 334,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 322,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 311,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 300,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 283,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 271,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 261,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 251,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 237,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 224,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 212,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 199,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 188,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13764583424
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 612,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 588,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 562,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 537,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 515,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 490,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 467,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 448,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 421,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 393,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 370,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 338,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 307,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 275,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 249,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 224,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 197,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 174,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13781090304
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 321,
+              "documentCollected": false,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 252,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 189,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13564346368
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": false,
+          "nativeDiagnosticCollections": 3,
+          "diagnosis": {
+            "native": {
+              "plain": false,
+              "sharedFonts": false,
+              "nativeProbe": false,
+              "measuredProbe": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            "tree": {
+              "elements": ["html", "head", "meta", "style", "meta", "body"],
+              "shadows": []
+            }
+          }
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "\"Pending SVG Font\"",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 642,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 617,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 595,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 568,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 541,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 518,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 493,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 464,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 442,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 415,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 393,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 365,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 333,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 310,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 281,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 253,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 229,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 200,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13754441728
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 479,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 353,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 234,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13223981056
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 315.80000000001746,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 298.30000000001746,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 281,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 268.20000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 259.3999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 249.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 236.89999999999418,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 216.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 204.80000000001746,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 191.30000000001746,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 176,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 161.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 149.10000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 137.20000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 127.10000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 115.10000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 89,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 75.60000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13538660352
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1539.8000000000175,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 1475.1000000000058,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 1391.1000000000058,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 1326.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 1220.7000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 1158.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 1102.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 1057.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 972.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 878.3999999999942,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 803,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 717.3000000000175,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 641.8000000000175,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 571.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 487.20000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 424.70000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 372,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 259.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13535580160
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 246.79999999998836,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 176.89999999996508,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 101.59999999997672,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13059293184
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "Pending SVG Font",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1365.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 1323.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 1253.7999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 1168.1999999999825,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 1070.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 988.6999999999825,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 920,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 850.6999999999825,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 793.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 746,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 694.0999999999767,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 645.6999999999825,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 602.0999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 551.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 509,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 459.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 408.69999999998254,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 349.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13517242368
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 458,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 438,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 426,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 415,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 400,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 391,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 381,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 374,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 366,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 357,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 347,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 336,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 328,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 312,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 282,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 269,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 254,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 236,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13542801408
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 831,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 788,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 749,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 709,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 681,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 650,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 619,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 586,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 548,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 523,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 488,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 442,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 413,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 383,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 353,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 324,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 300,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 280,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13538578432
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 359,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 285,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 181,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13296320512
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "\"Pending SVG Font\"",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 824,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 792,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 754,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 721,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 686,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 658,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 618,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 580,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 542,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 506,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 480,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 458,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 430,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 394,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 360,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 317,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 283,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 247,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13538500608
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 433,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 335,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 205,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "push",
+          "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+          "run": "43668909662",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 7763 64-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759431168,
+          "freeMemory": 13283524608
+        }
+      }
+    ]
+  },
+  "pr": {
+    "run": 43668914513,
+    "samples": [
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 131.89999999999418,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 127,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 122.19999999998254,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 113.79999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 108.39999999999418,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 104.89999999999418,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 101.29999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 97.29999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 94,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 90.39999999999418,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 86.19999999998254,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 81.60000000000582,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 75.89999999999418,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 71.29999999998836,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 65,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 60.60000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 49.69999999998254,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 38.39999999999418,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13461229568
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1026.1000000000058,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 989,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 950.3000000000175,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 901.9000000000233,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 832.8000000000175,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 790.9000000000233,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 753.7000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 709.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 668.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 613.4000000000233,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 573.5,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 528.3000000000175,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 473,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 407.80000000001746,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 354,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 299.1000000000058,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 253.40000000002328,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 212.30000000001746,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13463474176
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 210.5,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 131.20000000001164,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 64.39999999999418,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 12244721664
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "Pending SVG Font",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1203.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 1152.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 1103.6999999999825,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 1056.0999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 999.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 960.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 915,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 872.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 821,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 775.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 714.6999999999825,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 655.2999999999884,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 586.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 525.5999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 472.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 371.69999999998254,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 299.0999999999767,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 225.69999999998254,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13480132608
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 324,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 315,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 307,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 300,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 294,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 286,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 277,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 269,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 259,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 248,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 238,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 229,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 219,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 210,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 197,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 184,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 174,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 162,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13642354688
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 489,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 471,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 456,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 435,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 415,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 398,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 380,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 361,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 344,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 324,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 301,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 275,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 254,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 227,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 209,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 191,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 168,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 149,
+              "documentCollected": false,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13654274048
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 293,
+              "documentCollected": false,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 232,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 165,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13496041472
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": false,
+          "nativeDiagnosticCollections": 3,
+          "diagnosis": {
+            "native": {
+              "plain": false,
+              "sharedFonts": false,
+              "nativeProbe": false,
+              "measuredProbe": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            "tree": {
+              "elements": ["html", "head", "meta", "style", "meta", "body"],
+              "shadows": []
+            }
+          }
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": false,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "\"Pending SVG Font\"",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 520,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 502,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 485,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 468,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 447,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 424,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 403,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 380,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 359,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 339,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 318,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 297,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 276,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 258,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 240,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 220,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 195,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 169,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13661057024
+        }
+      },
+      {
+        "suite": "browser",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 306,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 232,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 174,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13358731264
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 307.6999999999971,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 296.3999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 284.3000000000029,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 267.3000000000029,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 248.6999999999971,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 231.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 211.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 198.10000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 186.6999999999971,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 173.1999999999971,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 161.1999999999971,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 147.60000000000582,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 134.10000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 125.19999999999709,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 112.80000000000291,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 97.19999999999709,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 84.89999999999418,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 75.60000000000582,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13550358528
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1419.5,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 1340.7000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 1279.4000000000087,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 1222.4000000000087,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 1163.1000000000058,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 1119.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 1057.300000000003,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 995.9000000000087,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 927.4000000000087,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 855.7000000000116,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 784.5,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 709.4000000000087,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 647.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 584,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 536.2000000000116,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 486.90000000000873,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 411.1000000000058,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 316.20000000001164,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13554769920
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 181.09999999999127,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 127,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 72.09999999999127,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 12983488512
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "chromium",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "Pending SVG Font",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 1179.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 1124.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 1075.800000000003,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 1031.199999999997,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 978.3999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 935.1999999999971,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 890.5999999999913,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 846.5999999999913,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 803.0999999999913,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 757.5,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 711,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 658.3000000000029,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 587.3000000000029,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 529.8999999999942,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 458.8000000000029,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 374.59999999999127,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 314.1999999999971,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 236.1999999999971,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 16,
+                "removedSVGs": 6,
+                "clearedReferences": 14
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13509849088
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 431,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 416,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 395,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 383,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 371,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 353,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 340,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 329,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 318,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 309,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 296,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 283,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 271,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 263,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 251,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 239,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 228,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 214,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 0,
+                "removedSVGs": 0,
+                "clearedReferences": 0
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13555384320
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "environment-true",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 773,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 753,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 734,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 709,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 672,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 643,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 621,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 598,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 573,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": []
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 541,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 505,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 466,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 441,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 401,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 366,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 337,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 308,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 275,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13534937088
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 294,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 241,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 196,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13180567552
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "firefox",
+        "kind": "pending-font",
+        "primary": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "strongControlPreserved": true,
+          "framesRestored": true,
+          "sourceFonts": [
+            {
+              "family": "\"Pending SVG Font\"",
+              "status": "loaded"
+            }
+          ],
+          "rows": [
+            {
+              "owner": "native-timed",
+              "helper": "await-document",
+              "order": 0,
+              "disposedAgeMs": 864,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "weak-promise",
+              "order": 1,
+              "disposedAgeMs": 833,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-timed",
+              "helper": "cleared-local",
+              "order": 2,
+              "disposedAgeMs": 797,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "await-document",
+              "order": 3,
+              "disposedAgeMs": 766,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "weak-promise",
+              "order": 4,
+              "disposedAgeMs": 729,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-frame-timed",
+              "helper": "cleared-local",
+              "order": 5,
+              "disposedAgeMs": 683,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "await-document",
+              "order": 6,
+              "disposedAgeMs": 650,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "weak-promise",
+              "order": 7,
+              "disposedAgeMs": 618,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "native-untimed",
+              "helper": "cleared-local",
+              "order": 8,
+              "disposedAgeMs": 596,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "sharingErrors": ["InvalidModificationError"]
+            },
+            {
+              "owner": "library",
+              "helper": "await-document",
+              "order": 9,
+              "disposedAgeMs": 571,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "weak-promise",
+              "order": 10,
+              "disposedAgeMs": 539,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library",
+              "helper": "cleared-local",
+              "order": 11,
+              "disposedAgeMs": 500,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "await-document",
+              "order": 12,
+              "disposedAgeMs": 450,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "weak-promise",
+              "order": 13,
+              "disposedAgeMs": 415,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-removal-control",
+              "helper": "cleared-local",
+              "order": 14,
+              "disposedAgeMs": 378,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 0
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "await-document",
+              "order": 15,
+              "disposedAgeMs": 346,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "weak-promise",
+              "order": 16,
+              "disposedAgeMs": 306,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            },
+            {
+              "owner": "library-cleared-references",
+              "helper": "cleared-local",
+              "order": 17,
+              "disposedAgeMs": 275,
+              "documentCollected": true,
+              "canaryCollected": true,
+              "cleanupCounts": {
+                "uses": 10,
+                "removedSVGs": 5,
+                "clearedReferences": 8
+              }
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13567610880
+        }
+      },
+      {
+        "suite": "coverage",
+        "engine": "webkit",
+        "kind": "frozen-svg-source",
+        "primary": {
+          "ownerCollected": true
+        },
+        "observers": {
+          "diagnosticCollections": 3,
+          "originalCollectedAfterDiagnostic": true,
+          "rows": [
+            {
+              "helper": "await-capture",
+              "order": 0,
+              "captureReadyAgeMs": 484,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "await-capture-no-timeout",
+              "order": 1,
+              "captureReadyAgeMs": 398,
+              "documentCollected": true,
+              "canaryCollected": true
+            },
+            {
+              "helper": "cleared-source",
+              "order": 2,
+              "captureReadyAgeMs": 298,
+              "documentCollected": true,
+              "canaryCollected": true
+            }
+          ]
+        },
+        "execution": {
+          "event": "pull_request",
+          "head": "827fb5ab9c514007d0d1cd56477cdcb5b36961a5",
+          "run": "43668914513",
+          "image": "20261111.196.1",
+          "platform": "linux",
+          "architecture": "x64",
+          "node": "v24.22.2",
+          "cpu": "AMD EPYC 9V74 80-Core Processor",
+          "cpuCount": 4,
+          "totalMemory": 16759439360,
+          "freeMemory": 13182386176
+        }
+      }
+    ]
+  }
+}
