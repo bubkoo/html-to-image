@@ -14,5 +14,10 @@
     "svg-styles-native-matrix.json",
     "svg-redirect-native-matrix.json",
     "svg-native-style-scope.json"
-  ]
+  ],
+  "qualifiedPaintFollowup": {
+    "evidence": "svg-qualified-paint-bases.json",
+    "status": "still open; native HTTP relative-base difference reproduced, Blob capability rejected",
+    "contract": "User reaffirmed current-browser live-page appearance; no cross-engine normalization"
+  }
 }

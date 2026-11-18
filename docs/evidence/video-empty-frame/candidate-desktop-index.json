@@ -1,0 +1,381 @@
+{
+  "archive": "candidate-desktop-raw.tar.gz",
+  "archiveSHA256": "deb94ec433ba34428335d48b3e5545a300060825c2ecbd4af0cebb6d59e28225",
+  "files": [
+    {
+      "path": "input-sha256.json",
+      "bytes": 9653,
+      "sha256": "2c2eae2dbaafb583a028b3d4d8f216f7fe122f6dc48c8285b640d9646a44d647"
+    },
+    {
+      "path": "inputs/dist/html-to-image.js",
+      "bytes": 77449,
+      "sha256": "6fbfc15ae975b597947fc9683faa3d3b7ea55a04019726dc4618f33ee2e252dd"
+    },
+    {
+      "path": "inputs/es/clone-node.js",
+      "bytes": 15735,
+      "sha256": "f250435f518bafe23d543cb86b4e027075264e8887acdda2248bf4dddf01a73d"
+    },
+    {
+      "path": "inputs/lib/clone-node.js",
+      "bytes": 23787,
+      "sha256": "5b5bd70659b3668fec51800e706cfb885facc77395399e6d7811f3b8f86d8abe"
+    },
+    {
+      "path": "inputs/src/clone-node.ts",
+      "bytes": 15383,
+      "sha256": "308652bf26b5e84c24f18beb53daa82a3dde3a1f592e203391a0869325cc5676"
+    },
+    {
+      "path": "inputs/test/browser-unit/video.test.ts",
+      "bytes": 2266,
+      "sha256": "952fe5b6796ab71e8d4520630fc59342084cd9745556943fae11fe36f7b074b8"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/empty-video.mjs",
+      "bytes": 2791,
+      "sha256": "c9f923572b2e3394aa22f089ea52c3789b89dc65cfe26eefd6329928b9bc2e73"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/video-readiness-server.d.mts",
+      "bytes": 170,
+      "sha256": "def9fceb11ac3337ca08beaa897904f4eb041a57b6e385d5d2302a70da292a61"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/video-readiness-server.mjs",
+      "bytes": 499,
+      "sha256": "ce8f69df1f37be9d7a2b281a5d499229f0e00678fe7e200f561045079f3f98e3"
+    },
+    {
+      "path": "inputs/test/browser/package.test.ts",
+      "bytes": 24318,
+      "sha256": "50e9303976c17110afbab697f0d069c2f2f1defb49c9f366ac2ff016db17c9d3"
+    },
+    {
+      "path": "inputs/test/browser/server.mjs",
+      "bytes": 4872,
+      "sha256": "6bba8c7bdb0f98822db1c132473fce733e7cf8716f5f535b0db321bd8b71d465"
+    },
+    {
+      "path": "inputs/test/browser/smoke.html",
+      "bytes": 32492,
+      "sha256": "b152f26fac5865418ec5748c77a02fa7f830ce952cee2b810e8b198aa2aa3923"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 7597,
+      "sha256": "f1287f366819557384eae73b3e211b64d9449041e71158f60f0172f430fe9668"
+    },
+    {
+      "path": "native/chromium-esm-empty-after.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-esm-empty-before.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-esm-empty-capture.png",
+      "bytes": 238,
+      "sha256": "b93af953284e831189680e3fad3419cb23112a67cbab528e1bdd3d3732ccd0d4"
+    },
+    {
+      "path": "native/chromium-esm-play-pause-after.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-esm-play-pause-before.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-esm-play-pause-capture.png",
+      "bytes": 238,
+      "sha256": "b93af953284e831189680e3fad3419cb23112a67cbab528e1bdd3d3732ccd0d4"
+    },
+    {
+      "path": "native/chromium-esm-selected-after.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-esm-selected-before.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-esm-selected-capture.png",
+      "bytes": 238,
+      "sha256": "b93af953284e831189680e3fad3419cb23112a67cbab528e1bdd3d3732ccd0d4"
+    },
+    {
+      "path": "native/chromium-umd-empty-after.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-umd-empty-before.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-umd-empty-capture.png",
+      "bytes": 238,
+      "sha256": "b93af953284e831189680e3fad3419cb23112a67cbab528e1bdd3d3732ccd0d4"
+    },
+    {
+      "path": "native/chromium-umd-play-pause-after.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-umd-play-pause-before.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-umd-play-pause-capture.png",
+      "bytes": 238,
+      "sha256": "b93af953284e831189680e3fad3419cb23112a67cbab528e1bdd3d3732ccd0d4"
+    },
+    {
+      "path": "native/chromium-umd-selected-after.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-umd-selected-before.png",
+      "bytes": 164,
+      "sha256": "fe0ff0197a230a602070b79d13b7b270f0c6491d7c5427a28bba97298197883a"
+    },
+    {
+      "path": "native/chromium-umd-selected-capture.png",
+      "bytes": 238,
+      "sha256": "b93af953284e831189680e3fad3419cb23112a67cbab528e1bdd3d3732ccd0d4"
+    },
+    {
+      "path": "native/comparison.json",
+      "bytes": 1716,
+      "sha256": "161f54304f1bdf482619cae1ff456661dfd823669a5709528cb4496c737abea6"
+    },
+    {
+      "path": "native/firefox-esm-empty-after.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-esm-empty-before.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-esm-empty-capture.png",
+      "bytes": 216,
+      "sha256": "09505d3405fbebfa327e2fd07e2df1e15a3c65ce491c8826a6c70b9e86b045ae"
+    },
+    {
+      "path": "native/firefox-esm-play-pause-after.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-esm-play-pause-before.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-esm-play-pause-capture.png",
+      "bytes": 216,
+      "sha256": "d623b03090f2f5ffffdb5a7c1dfa9ada3ab1f8ca273b12287c9ec13dace628cf"
+    },
+    {
+      "path": "native/firefox-esm-selected-after.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-esm-selected-before.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-esm-selected-capture.png",
+      "bytes": 216,
+      "sha256": "a2405f8b6b6d978a91d65de56878a85a8a7e59650268423da7d5eedafffd9760"
+    },
+    {
+      "path": "native/firefox-umd-empty-after.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-umd-empty-before.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-umd-empty-capture.png",
+      "bytes": 216,
+      "sha256": "6fb62f24029c56aa54f3ba423548990f995d09034e7f6e31ea8bd75642abd3e2"
+    },
+    {
+      "path": "native/firefox-umd-play-pause-after.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-umd-play-pause-before.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-umd-play-pause-capture.png",
+      "bytes": 216,
+      "sha256": "c77a6c2c229156462bba3d4ea97f81805079b9e2d0b5ad9aa3573ecc75380c67"
+    },
+    {
+      "path": "native/firefox-umd-selected-after.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-umd-selected-before.png",
+      "bytes": 188,
+      "sha256": "cfc641ccaedcf474316e590bbf7b4738b074712908a80c60f3c887e81d8f7d0f"
+    },
+    {
+      "path": "native/firefox-umd-selected-capture.png",
+      "bytes": 216,
+      "sha256": "7dcead6506129322f2a39438fee0c604635ffc1d45933b41b950e74993bc4411"
+    },
+    {
+      "path": "native/observations.json",
+      "bytes": 4956,
+      "sha256": "860b326d5411932202ec14acc5cdd52af712606943249781cea43160834b51be"
+    },
+    {
+      "path": "native/webkit-esm-empty-after.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-empty-before.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-empty-capture.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-play-pause-after.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-play-pause-before.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-play-pause-capture.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-selected-after.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-selected-before.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-esm-selected-capture.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-empty-after.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-empty-before.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-empty-capture.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-play-pause-after.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-play-pause-before.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-play-pause-capture.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-selected-after.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-selected-before.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "native/webkit-umd-selected-capture.png",
+      "bytes": 294,
+      "sha256": "4ce7edd41e3a0d25b4a2022c0e93ceae6bfb6fe2da992fcdf2a1b46e80071265"
+    },
+    {
+      "path": "video-empty-after.log",
+      "bytes": 195,
+      "sha256": "f2b9a361a545b5c3791e222f4750faf9ff08a56c2b10e70799feaac9af0034e7"
+    },
+    {
+      "path": "video-empty-full.log",
+      "bytes": 23715,
+      "sha256": "21d914d1d38d57f6bbddcbe4d3dfb8ff45d1a7175805605854d8c59ae268f875"
+    },
+    {
+      "path": "video-empty-lint.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "video-empty-native.log",
+      "bytes": 42,
+      "sha256": "7b7bfd9ca16a2d30876623256f2c1af21aa8a32337d5a43ca95eaa4d663bd8c7"
+    },
+    {
+      "path": "video-empty-native.mjs",
+      "bytes": 2529,
+      "sha256": "7233627bee57478e1330cbb779fcac08015bcf177981990a17bfeb1eb9b914f8"
+    },
+    {
+      "path": "video-empty-types.log",
+      "bytes": 137,
+      "sha256": "38f0863e0be4625d09f5323fc85bc0390fac422668c68a20a66948296cb13591"
+    }
+  ]
+}

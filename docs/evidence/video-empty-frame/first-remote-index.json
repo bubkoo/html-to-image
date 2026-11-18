@@ -1,0 +1,141 @@
+{
+  "archive": "first-remote-raw.tar.gz",
+  "archiveSHA256": "b3625e1deb59f6dc07d8be1020e884328e07409eb4f573a6a096569011ecb108",
+  "files": [
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/20d01ffc10573d75fd643bcf6d27aef2a3e2f392.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/61f5a0f5b876211e260230925145a258d27dd064.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/bc7b56cc94963585e46e9febd2ee9ed06143f132.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/e85427bf1c4992c6b604540e723b057e824dc2f0.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/failure-screenshots/svg-fragment-lifetime.test.ts/a-frozen-SVG-host-tree-capture-releases-its-source-document-before-rendering.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "device-precondition/session-error-minimal.json",
+      "bytes": 174,
+      "sha256": "9ca00a323bcb92c76449390d20ff012dba99f9bd26b1a70dd0237d5352aab083"
+    },
+    {
+      "path": "device-precondition/session-error.json",
+      "bytes": 174,
+      "sha256": "9ca00a323bcb92c76449390d20ff012dba99f9bd26b1a70dd0237d5352aab083"
+    },
+    {
+      "path": "inputs/src/clone-node.ts",
+      "bytes": 15383,
+      "sha256": "308652bf26b5e84c24f18beb53daa82a3dde3a1f592e203391a0869325cc5676"
+    },
+    {
+      "path": "inputs/test/browser-unit/video.test.ts",
+      "bytes": 2266,
+      "sha256": "952fe5b6796ab71e8d4520630fc59342084cd9745556943fae11fe36f7b074b8"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/empty-video.mjs",
+      "bytes": 2791,
+      "sha256": "c9f923572b2e3394aa22f089ea52c3789b89dc65cfe26eefd6329928b9bc2e73"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/video-readiness-server.d.mts",
+      "bytes": 170,
+      "sha256": "def9fceb11ac3337ca08beaa897904f4eb041a57b6e385d5d2302a70da292a61"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/video-readiness-server.mjs",
+      "bytes": 499,
+      "sha256": "ce8f69df1f37be9d7a2b281a5d499229f0e00678fe7e200f561045079f3f98e3"
+    },
+    {
+      "path": "inputs/test/browser/package.test.ts",
+      "bytes": 24318,
+      "sha256": "50e9303976c17110afbab697f0d069c2f2f1defb49c9f366ac2ff016db17c9d3"
+    },
+    {
+      "path": "inputs/test/browser/server.mjs",
+      "bytes": 4872,
+      "sha256": "6bba8c7bdb0f98822db1c132473fce733e7cf8716f5f535b0db321bd8b71d465"
+    },
+    {
+      "path": "inputs/test/browser/smoke.html",
+      "bytes": 32492,
+      "sha256": "b152f26fac5865418ec5748c77a02fa7f830ce952cee2b810e8b198aa2aa3923"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 7597,
+      "sha256": "f1287f366819557384eae73b3e211b64d9449041e71158f60f0172f430fe9668"
+    },
+    {
+      "path": "video-empty-ci-run.json",
+      "bytes": 3895,
+      "sha256": "e81002321c542a33c786d69f4b9e65c0547b6a926cbbf13e703327e6f59df385"
+    },
+    {
+      "path": "video-empty-ci.log",
+      "bytes": 342834,
+      "sha256": "4b31af9d6a8f6aceed1d4fcb6a78a05b72a9d99dadb11041349e66b45851238c"
+    },
+    {
+      "path": "video-empty-codeql-run.json",
+      "bytes": 195,
+      "sha256": "0d08b71fda51ec2a6456d750c815f9964cd6b99fac5fb34d1a3745e1b17f0293"
+    },
+    {
+      "path": "video-empty-safaridriver-status.json",
+      "bytes": 37,
+      "sha256": "bf7a79df671dbec38d22143e7dfe98ad408a48739241d88b4d3749d784159556"
+    }
+  ]
+}

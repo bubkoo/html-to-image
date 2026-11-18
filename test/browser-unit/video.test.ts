@@ -1,6 +1,24 @@
 import { expect, test } from 'vitest'
 import { toImageData } from '../../src'
 
+test.each(['empty', 'selected', 'play-pause'])(
+  'a video without a frame or poster preserves its visible background: %s',
+  async (mode) => {
+    const url = '/test/browser/fixtures/empty-video.mjs'
+    const { createEmptyVideoFixture } = await import(/* @vite-ignore */ url)
+    const fixture = await createEmptyVideoFixture(mode)
+    try {
+      const result = await fixture.run(toImageData)
+      expect([result.width, result.height]).toEqual([64, 44])
+      expect(result.sourceUnchanged).toBe(true)
+      expect(result.readyState).toBe(0)
+      expect(result.selectedSource).toBe(mode !== 'empty')
+    } finally {
+      fixture.dispose()
+    }
+  },
+)
+
 test('a video frame keeps its intrinsic aspect ratio inside object-fit: contain', async () => {
   const root = document.createElement('div')
   root.style.cssText = 'width:240px;height:160px'
