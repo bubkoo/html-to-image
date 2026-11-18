@@ -1,0 +1,21 @@
+{
+  "scope": "same recorded public state in separate controlled WebKit scenes; not a proof about every possible browser API",
+  "comparedStates": ["webkit-poster", "webkit-poster-play-pause"],
+  "recordedStateKeys": [
+    "readyState",
+    "currentSrc",
+    "videoWidth",
+    "videoHeight",
+    "paused",
+    "played",
+    "markup",
+    "primitive",
+    "seeking",
+    "networkState",
+    "currentTime"
+  ],
+  "sameRecordedState": true,
+  "initialNativeCenter": [255, 0, 0, 255],
+  "afterPlayPauseNativeCenter": [0, 0, 255, 255],
+  "automaticPosterFallbackNotShipped": true
+}

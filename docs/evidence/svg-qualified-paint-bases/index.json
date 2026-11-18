@@ -1,0 +1,176 @@
+{
+  "archive": "native-observations.tar.gz",
+  "archiveSHA256": "b5a3f9ddf0e17ad97a9e325a9aa6f622df9c37eea6bf65db857ad881d4588ebe",
+  "files": [
+    {
+      "path": "inputs/docs/evidence/video-empty-frame/input-sha256.json",
+      "bytes": 9653,
+      "sha256": "2c2eae2dbaafb583a028b3d4d8f216f7fe122f6dc48c8285b640d9646a44d647"
+    },
+    {
+      "path": "inputs/es/svg-references.js",
+      "bytes": 21957,
+      "sha256": "ff9bdadecd536c11e065852f0f283a8de3479ab5f64925c7d6d3d72175434bb2"
+    },
+    {
+      "path": "inputs/es/svg-style-imports.js",
+      "bytes": 12103,
+      "sha256": "d396f83daf0bff1d61f22907f80ef5e64a6ec927d9bc8541f123e70a43f51eb7"
+    },
+    {
+      "path": "inputs/es/svg-style-scope.js",
+      "bytes": 23142,
+      "sha256": "b7f92d7dd856c92310da52f7dff07343e13a98d02c896a95f3b66f0b1064d4c0"
+    },
+    {
+      "path": "inputs/src/svg-references.ts",
+      "bytes": 20365,
+      "sha256": "d7c7b204d537c0fa0122e50e012b510f7d45aae0d61ee7930f5cf58d63c3d57b"
+    },
+    {
+      "path": "inputs/src/svg-style-imports.ts",
+      "bytes": 10702,
+      "sha256": "a32a9344b6f60b7db66a2708cbfb9649ac95b7b4f11af37df5e6db4059270849"
+    },
+    {
+      "path": "inputs/src/svg-style-scope.ts",
+      "bytes": 21777,
+      "sha256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity.log",
+      "bytes": 41,
+      "sha256": "26268227c8c7c8ff27e27e851b801f8ff4d811ad504c2c945c26cd19274c532c"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity.mjs",
+      "bytes": 5251,
+      "sha256": "61599fae7fa49f7169236f1fc0777c1a7837885ede65b24d524acf446db97c74"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/chromium-after.png",
+      "bytes": 180,
+      "sha256": "16c1d49a791a818a02d5c10be72da375e15ac9daa5b8281ec1f268bbf30ed273"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/chromium-before.png",
+      "bytes": 180,
+      "sha256": "16c1d49a791a818a02d5c10be72da375e15ac9daa5b8281ec1f268bbf30ed273"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/chromium-capture.png",
+      "bytes": 286,
+      "sha256": "549ad0ca03aa1162292e443f89a135917f0686b3df5943223c21034490c8c109"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/comparison.json",
+      "bytes": 9043,
+      "sha256": "d0688946e9d16b2360ab1c41729553d22bbc23201fea9d87b4060b0224e33dba"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/firefox-after.png",
+      "bytes": 277,
+      "sha256": "7e136eab1990344aaecf57d701f1ec8259b46729826d02091c12d9c8ee2727a7"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/firefox-before.png",
+      "bytes": 277,
+      "sha256": "7e136eab1990344aaecf57d701f1ec8259b46729826d02091c12d9c8ee2727a7"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/firefox-capture.png",
+      "bytes": 266,
+      "sha256": "e76ecf739f818890dbb66334bdc21b188753f327d341dfeb3b447420ab4f8be9"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/observation.json",
+      "bytes": 13742,
+      "sha256": "62843a1400496b0dde2f259a8a0c901afef879780cf842b358c00f207e640a58"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/webkit-after.png",
+      "bytes": 355,
+      "sha256": "64a907e50f0404002e3330efb3fb9650a65bfc1027986d8faeef30da92a153b9"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/webkit-before.png",
+      "bytes": 355,
+      "sha256": "64a907e50f0404002e3330efb3fb9650a65bfc1027986d8faeef30da92a153b9"
+    },
+    {
+      "path": "svg-qualified-paint-url-identity/webkit-capture.png",
+      "bytes": 353,
+      "sha256": "0759b3c3b27534e4deb869cc732a5c8f35539f6b2e0e4ce3fa0f064b43faf98b"
+    },
+    {
+      "path": "svg-relative-base-capability-complete.log",
+      "bytes": 1470,
+      "sha256": "86fdf91af805c2fb43898c131dd74b314457569af6e1b3a795bffd192d4f71d1"
+    },
+    {
+      "path": "svg-relative-base-capability-complete.mjs",
+      "bytes": 2937,
+      "sha256": "87ae254e9a27e3505cf2ecf5fc9b5d07471154b533bf042620bcd1138bdd36aa"
+    },
+    {
+      "path": "svg-relative-base-capability-complete/chromium-page.png",
+      "bytes": 4353,
+      "sha256": "c8052dd69becc209dba59b1bbd05e6e2e604b5b2946b1fc9815e93c5fab70569"
+    },
+    {
+      "path": "svg-relative-base-capability-complete/chromium-srcdoc.png",
+      "bytes": 4353,
+      "sha256": "c8052dd69becc209dba59b1bbd05e6e2e604b5b2946b1fc9815e93c5fab70569"
+    },
+    {
+      "path": "svg-relative-base-capability-complete/firefox-page.png",
+      "bytes": 5313,
+      "sha256": "9c62c369bb4730c5ac772440649701e947a4bb61e27a072a6103670400eba612"
+    },
+    {
+      "path": "svg-relative-base-capability-complete/firefox-srcdoc.png",
+      "bytes": 5313,
+      "sha256": "9c62c369bb4730c5ac772440649701e947a4bb61e27a072a6103670400eba612"
+    },
+    {
+      "path": "svg-relative-base-capability-complete/observations.json",
+      "bytes": 2586,
+      "sha256": "9c917ccf46aa4e67b27758d0ef2dc8e14cbb4609e01e44d284903b363746de37"
+    },
+    {
+      "path": "svg-relative-base-capability-complete/webkit-page.png",
+      "bytes": 18663,
+      "sha256": "4068ad39e6f86fe3bccc1367c35bc802c8285adf7a2e54bb81748142ee2f635e"
+    },
+    {
+      "path": "svg-relative-base-capability-complete/webkit-srcdoc.png",
+      "bytes": 18663,
+      "sha256": "4068ad39e6f86fe3bccc1367c35bc802c8285adf7a2e54bb81748142ee2f635e"
+    },
+    {
+      "path": "svg-relative-base-capability.log",
+      "bytes": 1035,
+      "sha256": "51de54444cdc1a70c4b3f1d3065f4023300e601eb914b916dbde64f4a5b72ec3"
+    },
+    {
+      "path": "svg-relative-base-capability.mjs",
+      "bytes": 2945,
+      "sha256": "2fcf7c1efbc546c34d3b0f0891ad2d19dc7c7a70d4f24267abe5b694e781ea37"
+    },
+    {
+      "path": "svg-relative-base-capability/chromium-page.png",
+      "bytes": 4353,
+      "sha256": "c8052dd69becc209dba59b1bbd05e6e2e604b5b2946b1fc9815e93c5fab70569"
+    },
+    {
+      "path": "svg-relative-base-capability/chromium-srcdoc.png",
+      "bytes": 4353,
+      "sha256": "c8052dd69becc209dba59b1bbd05e6e2e604b5b2946b1fc9815e93c5fab70569"
+    },
+    {
+      "path": "svg-relative-base-capability/observations.json",
+      "bytes": 894,
+      "sha256": "00f265ac59bab2e5e394e1edcb725cc9c63d9753c3311b7e2626bfa191299864"
+    }
+  ]
+}

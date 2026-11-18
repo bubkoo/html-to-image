@@ -1,4 +1,5 @@
 import { svgResponseURLServer } from './test/browser/fixtures/svg-response-url-server.mjs'
+import { videoReadinessServer } from './test/browser/fixtures/video-readiness-server.mjs'
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
@@ -69,6 +70,7 @@ export default defineConfig({
             if (path.includes(marker)) urls.push(path)
           })
           if (svgResponseURLServer(request, response)) return
+          if (videoReadinessServer(request, response)) return
           if (await resourcePolicy(request, response)) return
           const pathname = new URL(request.url || '/', 'http://localhost')
             .pathname

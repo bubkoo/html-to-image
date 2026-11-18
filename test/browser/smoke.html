@@ -24,6 +24,7 @@
     import { checkFontMetrics } from './fixtures/font-metrics.mjs'
     import { checkIframeFonts } from './fixtures/iframe-fonts.mjs'
     import { checkCaptureLifetime } from './fixtures/capture-lifetime.mjs'
+    import { createEmptyVideoFixture } from './fixtures/empty-video.mjs'
     import {
       checkRasterRetry,
       checkRasterRetryFont,
@@ -153,6 +154,19 @@
       const color = pixel(image, 10, 10)
       if (color.join(',') !== '255,0,0,255')
         throw new Error(`UMD center pixel ${color}`)
+    })
+
+    await test('empty video preserves background and border', async () => {
+      await loadUMD()
+      for (const mode of ['empty', 'selected', 'play-pause']) {
+        const fixture = await createEmptyVideoFixture(mode)
+        try {
+          await fixture.run(toImageData)
+          await fixture.run(window.htmlToImage.toImageData)
+        } finally {
+          fixture.dispose()
+        }
+      }
     })
 
     await test('canvas snapshot pixels', async () => {
