@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 1426,
+  "totalRawFiles": 1593,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -826,5 +826,74 @@
     "limits": "No root or production fix established; not the three remote source failures; no extra GC, skip, timeout or assertion changes. Native-pseudo variant also omits redundant xmlns assignment; do not infer a unique cause from a green result.",
     "next": "Reduce the native operations of clone-only; keep public export semantics and all original gates."
   },
-  "matchedCloneRawFiles": 95
+  "matchedCloneRawFiles": 95,
+  "nativeOperations": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "Same isolated emulated Linux native-operation controls; not current source/remote/iPhone acceptance",
+    "stages": {
+      "m1-import": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "o1-global-import": {
+        "summary": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": false
+      },
+      "p1-source-body": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      }
+    },
+    "changes": {
+      "m1-import": "Native I3 result builder, but source.implementation creates the target document and importNode(node,false) supplies its body. No renderer.capture or library clone call in this scene; empty renderer retained.",
+      "o1-global-import": "Only replace source.implementation with main document.implementation plus inert padding; retain importNode.",
+      "p1-source-body": "Native I3 result builder, but source.implementation creates target document; use its empty body, no importNode."
+    },
+    "sorting": "Every fixture 4520 bytes; remove/save only results.json; keep optimized bundles. Original assertions, three requests, timeouts/skips unchanged.",
+    "meaning": "The local primary can fail with source-created empty body, without importNode or library clone/capture. Main-created body (I3) and main-created import (O1) pass. No claim about every native Document/importNode or a universal native leak.",
+    "negativePrior": "E1 changed the creator in the full library clone path and still failed, preserved in local-linux-controls. These native subsets do not overturn that counterexample or establish a full-library fix.",
+    "remoteObserved": {
+      "head": "a94c02daa5a5e084b1b164bd1d0c6a8f7ce075da",
+      "testedMerge": "70826ffa88df132bd473bfc9fd70a625b36eccac",
+      "ci": 44364243412,
+      "conclusion": "success",
+      "coverage": 1234,
+      "source": 1115,
+      "packages": 162,
+      "inheritedSkips": [
+        4,
+        4
+      ],
+      "note": "One independent remote pass, not a lifecycle fix or acceptance for a later head"
+    },
+    "next": "Reduce source.implementation property access versus createHTMLDocument invocation, then inspect the actual retained native relationship. No production change.",
+    "latestObservedFailure": {
+      "conclusion": "failure",
+      "event": "pull_request",
+      "headSha": "93d83eee0a30f4ea22a676e733e39033dc65aa03",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/44365244006",
+      "run": 44365244006,
+      "coverage": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "skips": [
+        4,
+        4
+      ],
+      "packages": "not run",
+      "scope": "three Firefox environment/cancellation checks; not the local iframe control; root not established"
+    }
+  },
+  "nativeOperationsRawFiles": 167
 }
