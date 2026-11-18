@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 1331,
+  "totalRawFiles": 1426,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -790,5 +790,41 @@
     "recovery": "Tracked branch restored from Git; container logs, graph, positive-control scripts, native fixture and raw artifacts recovered. Host-only patched Firefox source/ZIP and scripts were unavailable; do not claim full reproduction of those past graph experiments from this archive.",
     "next": "Split native computed-style reads from style copying and serialization; retain original GC assertions/counts. Native internals and optimized-out bindings still limit graph conclusions."
   },
-  "recoveredPostFailureRawFiles": 93
+  "recoveredPostFailureRawFiles": 93,
+  "matchedClone": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "hostBranch": "a94c02d; merged current master is not the container test runtime",
+    "environment": "Same isolated Linux/amd64 emulation documented in local-linux-summary.json; Node24.22.2/pnpm10.34.9; three engines, coverage suite only",
+    "sorting": "Before each stage remove only results.json; preserve optimized bundles. Preserve input/previous-result receipts. Test file always 4520 bytes.",
+    "stages": {
+      "j1-library": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "k1-clone": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "l1-native-pseudo": {
+        "summary": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": false
+      }
+    },
+    "nativePrior": "I3 native computed-style copy/XML serialization passes 1225/four skips; raw input/log in recovered-postfailure archive",
+    "meaning": "Matched library path and direct clone-only path both retain the source after the original three requests. Renderer capture/task/snapshot ownership is not necessary to reproduce this local case. Clone-only output check is not reached after its GC assertion fails.",
+    "limits": "No root or production fix established; not the three remote source failures; no extra GC, skip, timeout or assertion changes. Native-pseudo variant also omits redundant xmlns assignment; do not infer a unique cause from a green result.",
+    "next": "Reduce the native operations of clone-only; keep public export semantics and all original gates."
+  },
+  "matchedCloneRawFiles": 95
 }
