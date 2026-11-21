@@ -9,7 +9,11 @@ import {
 import { getMimeType } from './mimes.js'
 import { resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
-import { embedSVGReferences, getSVGReference } from './svg-references.js'
+import {
+  embedSVGReferences,
+  getSVGReference,
+  svgNamespace,
+} from './svg-references.js'
 import { cloneScrollState } from './clone-scroll.js'
 
 function createCloneDocument(source: Document) {
@@ -180,6 +184,34 @@ function cloneCSSStyle<T extends HTMLElement>(
   if (sourceStyle.cssText && selected == null) {
     targetStyle.cssText = sourceStyle.cssText
     targetStyle.transformOrigin = sourceStyle.transformOrigin
+    // A serialized computed cssText omits custom properties, so var()
+    // definitions would be lost in the exported SVG. Copy them explicitly,
+    // keeping the same inherited-value skip as the per-property path.
+    const task = getTask(options)
+    const shadowHost = (nativeNode.getRootNode() as ShadowRoot).host
+    const parent = isRoot
+      ? null
+      : nativeNode.assignedSlot || nativeNode.parentElement || shadowHost
+    let inheritedStyle: CSSStyleDeclaration | undefined
+    getStyleProperties(sourceStyle).forEach((name) => {
+      if (!name.startsWith('--')) return
+      const value = sourceStyle.getPropertyValue(name)
+      if (parent) {
+        if (task) {
+          if (value === task.getInheritedStyleValue(parent, name)) return
+        } else {
+          inheritedStyle ||= (
+            nativeNode.ownerDocument.defaultView || window
+          ).getComputedStyle(parent)
+          if (value === inheritedStyle.getPropertyValue(name)) return
+        }
+      }
+      targetStyle.setProperty(
+        name,
+        value,
+        sourceStyle.getPropertyPriority(name),
+      )
+    })
   } else {
     let inheritedStyle: CSSStyleDeclaration | undefined
     const task = getTask(options)
@@ -220,6 +252,24 @@ function cloneCSSStyle<T extends HTMLElement>(
     })
   }
   return sourceStyle
+}
+
+function resolveVariableAttributes<T extends HTMLElement>(
+  clonedNode: T,
+  sourceStyle: CSSStyleDeclaration,
+) {
+  // Presentation attributes are serialized verbatim, so a var() reference in
+  // one (e.g. fill="var(--brand)") would stay unresolved in the standalone
+  // SVG unless the custom property is inlined as well. Replace such
+  // references with their computed values.
+  if (clonedNode.namespaceURI !== svgNamespace) return
+  Array.from(clonedNode.attributes).forEach((attribute) => {
+    if (!attribute.value.includes('var(')) return
+    const resolved = sourceStyle.getPropertyValue(attribute.localName)
+    if (resolved && !resolved.includes('var(')) {
+      clonedNode.setAttribute(attribute.name, resolved)
+    }
+  })
 }
 
 function restoreScrollbarBox<T extends HTMLElement>(
@@ -392,6 +442,7 @@ function decorate<T extends HTMLElement>(
       selected,
       isRoot,
     )
+    if (sourceStyle) resolveVariableAttributes(clonedNode, sourceStyle)
     clonePseudoElements(nativeNode, clonedNode, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
