@@ -367,15 +367,10 @@ export function createSVGStyleEnvironment(
   let disposed = false
   const lockResources = (document: Document) => {
     if (resourcesLocked) return
-    // Counterfactual: use this module's realm for private-document operations.
-    const policy = globalThis.document.createElement('meta')
+    const policy = document.createElement('meta')
     policy.httpEquiv = 'Content-Security-Policy'
     policy.content = "img-src 'none'; style-src 'unsafe-inline'"
-    const head = Object.getOwnPropertyDescriptor(
-      Document.prototype,
-      'head',
-    )!.get!.call(document) as HTMLHeadElement
-    Element.prototype.append.call(head, policy)
+    document.head.append(policy)
     resourcesLocked = true
   }
   const dispose = () => {

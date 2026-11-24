@@ -493,3 +493,22 @@ Compare normal exact-head remote primary results/paths and keep any repeat
 separate; do not infer causality from a lone passing candidate on unstable
 baselines. Before acceptance, all output/full package/CI/device requirements and
 the broader original issue scope still apply.
+
+
+### B outcome and A reversal
+
+At1995c32 PR45338308309 tests merge bbe7ad9. Static/tool/coverage1234/four gates
+pass; all three original Firefox lifecycle primaries pass in both normal source
+and the separate control. Both environments sample nativeCollected=true and
+ownerCollected=true; pending-font samples ownerCollected=true with no extra native
+diagnostic collection. Normal source nevertheless fails one WebKit frozen SVG
+source test (1114pass/onefail/four skips), packages not run; CodeQL45338308376
+passes. WebKit collects only after extra diagnostic collection; separate source
+passes1115/four but cannot substitute for the failed normal pipeline.
+
+Because unchanged baselines have varied, restore only lockResources to exact
+1e5117b/4a70ef0 bytes for an A-B-A reversal; retain B in1995c32 and all original
+failure data. Tests/observer/config/three primary requests/deadlines/skips remain
+unchanged. Compare actual Firefox results/cache witnesses before attribution;
+no single passing B, later WebKit collection or passing repeat is a fix claim.
+See [reversal preflight](../gc-lock-operations-reversal-preflight.json).

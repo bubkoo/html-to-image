@@ -1,5 +1,13 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-24 对照通过三项 Firefox，但完整 CI 仍失败
+
+准确 `1995c32` 的 [PR CI 45338308309](https://github.com/bubkoo/html-to-image/actions/runs/45338308309) 测试合并提交 `bbe7ad9`：静态/工具检查与 coverage 1234 / 4 跳过通过；原三项 Firefox 环境/待字体回收在正常 source 与独立 source 对照中均通过，两项环境保留 nativeCollected=true / ownerCollected=true，待字体 ownerCollected=true、无额外 native 诊断回收。
+
+正常 source 仍为 1114 通过 / 1 项 WebKit 冻结 SVG 源文档回收失败 / 4 跳过，浏览器包未运行；CodeQL 45338308376 通过。WebKit 原始 ownerCollected=false，额外诊断后才回收；独立 source 对照 1115 / 4 跳过通过，不能替换正常失败，也不能认定此次改动引入该失败或修复了整个生命周期。
+
+由于历史同基线已有波动，当前只把 lockResources 恢复为 `1e5117b`/`4a70ef0` 的准确原字节，保留 B 代码与全部结果，准备 A-B-A 反向对照；测试、采集器与默认配置不改。[本次结果和反向对照预检](evidence/gc-lock-operations-reversal-preflight.json)明确保留原始失败。下一步观察三项 Firefox 和其 Document 属性包装/原型缓存是否恢复；未宣称根因或可合入修复。
+
 ## 2026-11-24 仅 lockResources 操作入口的因果对照
 
 未加载库的原生最小页完成五项冷/预热/借用入口/恢复直接入口控制：直接入口含 20,000 次预热及同代码重放，全部文档回收、弱/强控制有效，未形成独立原生复现；不能认定某个 DOM 方法本身为根因。
