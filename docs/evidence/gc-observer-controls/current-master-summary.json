@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-24",
+  "status": "Pause checkpoint only; no lifecycle fix claimed",
+  "remote646": {
+    "head": "f267e03739f11c5651700d6c4dd53ca9ccb9a091",
+    "testedMerge": "dc35672e52358409d5a4e4b66c45c81d9af48d9a",
+    "CI": "https://github.com/bubkoo/html-to-image/actions/runs/45324323268",
+    "conclusion": "success",
+    "coveragePassed": 1234,
+    "sourcePassed": 1115,
+    "skipped": "four/four",
+    "browserPackagesPassed": 162,
+    "CodeQL": "https://github.com/bubkoo/html-to-image/actions/runs/45324323422",
+    "CodeQLConclusion": "success",
+    "limits": "One passing run does not establish a fix; earlier failures remain evidence; draft unmerged"
+  },
+  "remote649": {
+    "head": "94ae2db7411e5575c79ebf6a73da430964bc5d18",
+    "CI": "https://github.com/bubkoo/html-to-image/actions/runs/45325019386",
+    "conclusion": "failure",
+    "sizeScriptLintBuildEntriesTypes": "passed",
+    "coveragePassed": 1234,
+    "sourcePassed": 1112,
+    "sourceFailed": 3,
+    "failures": [
+      "Firefox disposed environment probed=false",
+      "Firefox disposed environment probed=true",
+      "Firefox pending-font cancellation"
+    ],
+    "skipped": "four/four",
+    "browserPackages": "not run",
+    "CodeQL": "success",
+    "state": "draft unmerged",
+    "activation": "Not active until merged base workflow and subsequent pull_request_target event; no rerun waiver"
+  },
+  "sizeRepair": {
+    "cause": "Full diff download exceeds GitHub 20000-line limit (HTTP406)",
+    "change": "Paginated file metadata, fresh labels and complete changed_files count verification",
+    "liveReadOnly": {
+      "head": "f267e03",
+      "files": 106,
+      "lines": 25590,
+      "size": "XXL",
+      "mutations": false
+    },
+    "limits": "Exact script passes, complete required CI and real workflow activation remain open"
+  },
+  "localCurrentMaster": {
+    "head": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "staticGates": "frozen install, lint, build, published entries and browser types passed",
+    "normalPipeline": "pnpm test",
+    "coveragePassed": 1233,
+    "coverageFailed": 1,
+    "coverageSkipped": 4,
+    "failedCase": "Firefox removed iframe document collectible while snapshot usable",
+    "primary": {
+      "nativeCollected": true,
+      "capturedCollected": false
+    },
+    "source": "not run",
+    "browserPackages": "not run",
+    "measuredInputsUnchanged": 400,
+    "probe": "Reference-only v7 passive patched Firefox; no hook/heap collection in suite; inherited tool inputs in reference-only archive",
+    "limits": "Not the three remote resource-resolver failures; local amd64 emulation has different CPU, memory and timing; not CI or device acceptance"
+  },
+  "nativeInertDocumentControl": {
+    "cases": 4,
+    "primary": "all native/read/canary documents collected; strong controls alive",
+    "libraryLoaded": false,
+    "interpretation": "No independent native defect reproduced; no unique getter diagnosis"
+  },
+  "preparedHook": {
+    "state": "generated only, not installed or executed",
+    "limits": "Printer/normalization check is not browser type or runtime acceptance"
+  },
+  "preflight": "Legacy hash helper rejected absent branch-only fixture before any measured test; replaced with actual-version tracked+built input scope",
+  "cleanup": {
+    "at": "2026-11-24T04:35:32.552410+00:00",
+    "container": "/html-to-image-gc-linux-9a391dc",
+    "running": false,
+    "source": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "trackedDiff": "empty after run",
+    "measuredInputsUnchanged": 400,
+    "firefoxRestoredSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+    "deviceTouched": false,
+    "measuredSuites": "terminal",
+    "hostProductionEdits": false
+  },
+  "rawFiles": 62,
+  "nextWhenResumed": "On existing diagnostic branch, preserve original primary failures and inspect existing WeakRef only to capture actual remote resource-resolver owner paths. Do not relax assertions, add retries, disable JIT or merge the size repair before required full CI is understood.",
+  "pause": "User requested pause after next small milestone; this checkpoint closes evidence collection only; no next experiment started."
+}

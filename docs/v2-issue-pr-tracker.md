@@ -1,5 +1,15 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-24 阶段归档并暂停
+
+尺寸标签独立修复已提交草稿 [#649](https://github.com/bubkoo/html-to-image/pull/649)，准确 `94ae2db`。同一 #646 输入中旧完整 diff 请求 HTTP406，新脚本完整读取 106 文件 / 25,590 行，得出 XXL，无标签写入；分页、重命名和不完整列表等检查通过。其 CI 45325019386 的自身检查、lint、构建、入口与类型通过，coverage 1234 / 4 跳过；source 1112 通过 / 3 项 Firefox 回收失败 / 4 跳过，浏览器包未运行，CodeQL 通过。草稿未合入，新标签流程尚未生效。
+
+最新 #646 准确 `f267e03` 的 PR CI 45324323268 在合并测试提交 `dc35672` 完整通过：coverage 1234 / source 1115 / 浏览器包 162，各前两阶段 4 跳过，CodeQL 45324323422 通过。这一次通过不能解释先前失败或当作回收修复，#646 仍是诊断草稿。
+
+本地改用当前主分支 `f8d1c4b`，静态检查通过；正常流程先在 Firefox 移除 iframe 回收处失败，coverage 1233 / 1 失败 / 4 跳过，保留 nativeCollected=true / capturedCollected=false，未进入 source 和浏览器包，不能算复现远端三项失败。400 项受测输入前后相同；另四项未加载库的原生惰性文档控制均回收，尚无独立原生复现。新的 WeakRef 钩子仅生成，未安装或执行。
+
+[本阶段输入、完整日志、上传物及清理回执](evidence/gc-observer-controls/current-master-summary.json)已归档。Firefox 原文件已恢复，自有容器已停止，真机未操作。按用户要求在本小目标后暂停；恢复后再采集实际远端回收失败的持有图，保留原断言和失败结果，不以重跑通过代替根因。
+
 ## 2026-11-24 仅已有 WeakRef 的失败采集
 
 新探针只携带已有 WeakRef，不再解包 capture、renderer、negative 或源文档。准确历史源码 `9a391dc` 的无采集基线 F1 为 1225 通过 / 4 跳过；G1 仍复现原始 iframe 回收失败，1224 通过 / 1 失败 / 4 跳过，保留 nativeCollected=true / capturedCollected=false。类型通过，103 个受测输入仅 fixture/config 改变，生产和构建字节未动；原三次请求、断言、超时和跳过均保留，完整 source/浏览器包未运行。
