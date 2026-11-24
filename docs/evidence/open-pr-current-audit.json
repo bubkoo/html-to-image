@@ -5,7 +5,7 @@
   "all28AccountedFor": true,
   "oldPRClosureActions": 0,
   "oldPRCommentActions": 0,
-  "notACompletionAttestation": "This is an evidence index. Passing counts and remaining product/fixture conditions must be read from each linked source. It is not a claim that all historical PRs or their whole applications are fixed.",
+  "notACompletionAttestation": true,
   "entries": [
     {
       "number": 585,
@@ -24,7 +24,8 @@
         "docs/evidence/svg-data-imports.json",
         "docs/evidence/svg-data-relative-urls.json",
         "docs/evidence/svg-response-bases.json",
-        "docs/evidence/video-empty-frame.json"
+        "docs/evidence/video-empty-frame.json",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
       "remainingBoundary": "Attribute/inline relative bases, query-distinct paint URLs, page/file fragment scope and physical-iPhone unsupported qualified paint differ; broader redirects, compositor, opaque rules, restricted CSP and HTTP styles/fonts remain open.",
       "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
@@ -52,6 +53,43 @@
         "date": "2026-11-25",
         "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
         "status": "HTTP distinct-query identity verified; import/computed-style provenance loss isolated; xml:base route rejected; no runtime fix"
+      },
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
       }
     },
     {
@@ -337,7 +375,7 @@
         "test/browser-unit/transformed-svg.test.ts",
         "docs/evidence/svg-reference-dependencies.json"
       ],
-      "remainingBoundary": "外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成",
+      "remainingBoundary": "已确定跟随当前浏览器页面外观；外部兄弟CSS/字体、相对attribute/inline paint来源及重定向/片段范围仍有开放边界，不按任意sprite已完成。",
       "domPropertyLifetimeCandidate": {
         "pr": 650,
         "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
@@ -382,12 +420,50 @@
         "docs/evidence/fixed-scroll.json",
         "test/browser-unit/positioned-scroll.test.ts",
         "docs/evidence/positioned-scroll.json",
-        "docs/evidence/scrollbar-box-dimensions.json"
+        "docs/evidence/scrollbar-box-dimensions.json",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
       "remainingBoundary": "完整原生滚动条与滑块位置仍待解决；原型两项严格 WebKit 像素失败尚未解决。#81 原 sandbox 不可访问，不以当前部分回归宣称全部修复。",
       "relatedIssues": [81, 345],
       "incremental634": "#634 已合入 f340ddf，占位尺寸根因有桌面三引擎严格对照，iPhone 30/30 及与 #635 组合 31/31；不等于完整原生滚动条外观/滑块解决。",
       "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+      },
+      "previousNativeScrollFidelityFollowup": {
         "date": "2026-11-25",
         "source": "f3a00b069fadea920606b805221f1996711f09a9",
         "branch": "codex/native-scroll-fidelity",
@@ -417,10 +493,48 @@
       "disposition": "使用 onClone 插入 style 的现有原语，不新增 extraStyleContent",
       "evidence": [
         "docs/evidence/scrollbar-extension-probes.json",
-        "test/browser-unit/pseudo-resources.test.ts"
+        "test/browser-unit/pseudo-resources.test.ts",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
       "remainingBoundary": "自定义 CSS 注入不等于源原生滚动条外观/位置已保留",
       "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+      },
+      "previousNativeScrollFidelityFollowup": {
         "date": "2026-11-25",
         "source": "f3a00b069fadea920606b805221f1996711f09a9",
         "branch": "codex/native-scroll-fidelity",
@@ -515,10 +629,48 @@
       "disposition": "不把通用伪元素列表等同于滚动条完成；按 #345 明确的外观/位置要求继续验证",
       "evidence": [
         "docs/evidence/scrollbar-extension-probes.json",
-        "docs/evidence/pseudo-style-resources.json"
+        "docs/evidence/pseudo-style-resources.json",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
       "remainingBoundary": "原帖已要求源轨道/滑块颜色、尺寸与位置，不是用户待选范围；非标准伪元素和原 Windows/Edge 环境仍待验证",
       "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+      },
+      "previousNativeScrollFidelityFollowup": {
         "date": "2026-11-25",
         "source": "f3a00b069fadea920606b805221f1996711f09a9",
         "branch": "codex/native-scroll-fidelity",
@@ -728,22 +880,40 @@
   },
   "latestNativeScrollFidelityFollowup": {
     "date": "2026-11-25",
-    "source": "f3a00b069fadea920606b805221f1996711f09a9",
+    "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
     "branch": "codex/native-scroll-fidelity",
-    "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
-    "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+    "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+    "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+    "sameFixtureComparison": {
+      "beforeFailed": 62,
+      "beforePassed": 2,
+      "afterPassed": 64,
+      "unsupportedFirefoxLegacy": 32
+    },
     "defaultCoverage": {
-      "passed": 1397,
+      "passed": 1461,
       "failed": 2,
-      "skipped": 13,
+      "skipped": 45,
       "sourcePhaseNotRun": true
     },
+    "separateFullSource": {
+      "passed": 1342,
+      "failed": 2,
+      "skipped": 45
+    },
+    "fullBuiltPackages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    },
     "remaining": [
-      "opaque stylesheet overrides; resource integration in progress",
-      "actual native-part hover state",
-      "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+      "actual native-part hover state and ShadowRoot qualified-selector application",
+      "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+      "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+      "first Firefox native preparation failures retained; root cause not proven",
+      "exact-source remote CI and deferred physical-device acceptance"
     ],
-    "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+    "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
   },
   "previousDomAccessValidation": {
     "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
@@ -764,5 +934,24 @@
         "coverage": 87.48
       }
     }
+  },
+  "previousNativeScrollFidelityFollowup": {
+    "date": "2026-11-25",
+    "source": "f3a00b069fadea920606b805221f1996711f09a9",
+    "branch": "codex/native-scroll-fidelity",
+    "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+    "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+    "defaultCoverage": {
+      "passed": 1397,
+      "failed": 2,
+      "skipped": 13,
+      "sourcePhaseNotRun": true
+    },
+    "remaining": [
+      "opaque stylesheet overrides; resource integration in progress",
+      "actual native-part hover state",
+      "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+    ],
+    "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
   }
 }
