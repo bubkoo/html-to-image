@@ -124,6 +124,13 @@
         },
         "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
         "physicalDevice": "deferred, not performed"
+      },
+      "currentIntegratedFontAndCancellationDeviceSubset": {
+        "evidence": "docs/evidence/ios-integrated-acceptance.json",
+        "loadedDataTTFFont": true,
+        "cancelReasonIdentityCases": 14,
+        "remainingPaintProvenanceBoundaryUnchanged": true,
+        "notCompleteOriginalScope": true
       }
     },
     {
@@ -696,7 +703,8 @@
       "evidence": [
         "docs/evidence/blob-preview-browser-checks.json",
         "README.md",
-        "docs/evidence/blob-preview-device-20261115.json"
+        "docs/evidence/blob-preview-device-20261115.json",
+        "docs/evidence/ios-integrated-acceptance.json"
       ],
       "remainingBoundary": "真实 iPhone PNG MIME/96×60/red-blue 读取通过；W3C element click 与 touch actions 虽返回成功但页面未收到事件、没有新标签，不算可信点击/清理通过。实际 Wi-Fi 地址导航也失败，物理交互仍缺可达页面及真实点击。",
       "checkedAt": "2026-11-14T16:13:24.589942+00:00",
@@ -705,6 +713,12 @@
         "merged": false,
         "readbackAt": "2026-11-24T12:39:54.233Z",
         "actorOrReasonNotInferred": true
+      },
+      "physicalBlobPreviewAcceptance": {
+        "evidence": "docs/evidence/ios-integrated-acceptance.json",
+        "state": "passed exact integrated UMD trusted pointer/new PNG tab/cleanup",
+        "at": "2026-11-24T22:24:56.058Z",
+        "oldPRStateUnchanged": true
       }
     },
     {
@@ -882,12 +896,6 @@
     }
   },
   "remainingAcceptanceGates": [
-    {
-      "kind": "manual-network-access",
-      "prs": [398],
-      "condition": "真实iPhone PNG生成通过，但可信点击、新标签和清理尚未在可手动操作的Safari页面验收。旧PR关闭不是验收通过；后续方案仍不得修改Mac网络或安全设置，不用合成点击替代。",
-      "sourcePRState": "closed, unmerged since 2026-11-14T19:38:55Z"
-    },
     {
       "kind": "external-svg-remaining-boundaries",
       "prs": [585, 427],
@@ -1083,7 +1091,7 @@
       "first Firefox native preparation failures retained; root cause not proven",
       "exact-source remote CI and deferred physical-device acceptance"
     ],
-    "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+    "physicalDevice": "Current integrated UMD9c090fc2 subset passed; see latestIntegratedCurrentChecks20261125. Earlier e014 runtime not independently retested; no strict native-scroll pixel acceptance.",
     "pr": 651,
     "remoteHead": "b6bd47bac5cc9b88150443b876832e60f564f541",
     "latestRemoteEvidence": "docs/evidence/svg-style-environment-remote.json",
@@ -1322,7 +1330,8 @@
       "CI": 45489531716,
       "CIConclusion": "failure",
       "CodeQL": "success",
-      "packages": "not run"
+      "packages": "not run",
+      "physicalDevice": "Current mixed integrated UMD public14 reason cases passed; not isolated PR654 full factory/image/device suite; see ios-integrated-acceptance.json."
     },
     "devDependencies": {
       "pr": 653,
@@ -1373,7 +1382,31 @@
     },
     "inputCount": 449,
     "strictCausalAttribution": false,
-    "physicalDevice": "waiting period elapsed; Mirroring connected; no current integrated acceptance yet",
+    "physicalDevice": {
+      "evidence": "docs/evidence/ios-integrated-acceptance.json",
+      "recordSHA256": "eb9c7fd5eba7aca7ea00d65a69e1f6b521618cb48a1cfa0aae8b46546762c9b9",
+      "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+      "sourceFingerprint": "b29cfa7e5bb1e90c87f64a3be3976794acf120a747c580b24466e1dda130f746",
+      "cancelPublicIdentityPassed": 14,
+      "crossRealmLoadedFont": true,
+      "fontStabilizationAttempts": 3,
+      "PNG": {
+        "width": 160,
+        "height": 80,
+        "redPixels": 6400,
+        "bluePixels": 6400
+      },
+      "trustedNewTabAndCleanup": true,
+      "ownedResourceCountsZero": true,
+      "bootstrapRequiresPublicHTTPS": true,
+      "completePhoneNetworkTraceCollected": false,
+      "fullDeviceSuite": false,
+      "GCProof": false,
+      "nativePixelEqualityProof": false,
+      "sessionEnded": true,
+      "clipboardAndInputRestored": true,
+      "MacNetworkChanges": false
+    },
     "npmPublication": false,
     "MacNetworkChanges": false
   },
@@ -1392,5 +1425,18 @@
     "localDefaultFailureRetained": true,
     "old25eCIAlsoSuccess": true,
     "merged": false
-  }
+  },
+  "resolvedScopedAcceptanceGates": [
+    {
+      "kind": "iphone-blob-preview-native-pointer",
+      "originalPR": 398,
+      "state": "scoped acceptance complete",
+      "sourcePRState": "closed, unmerged since 2026-11-14T19:38:55Z",
+      "deviceClickAt": "2026-11-24T22:24:17.091Z",
+      "deviceCleanupAt": "2026-11-24T22:24:56.058Z",
+      "evidence": "docs/evidence/ios-integrated-acceptance.json",
+      "newSourcePRAction": false,
+      "limits": "Exact integrated UMD and default160x80 PNG only; not old contributor PR merged, full device suite, native pixel fidelity or device GC."
+    }
+  ]
 }

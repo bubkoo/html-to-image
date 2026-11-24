@@ -1,0 +1,180 @@
+{
+  "createdUTC": "2026-11-24T22:23:37.506585+00:00",
+  "conclusion": "Exact247-character data bootstrap can fetch immutable GitHub Raw HTML from opaque origin and execute unchanged inline scripts in all three desktop engines. Phone verification remains separate.",
+  "fixture": {
+    "publicPath": "docs/evidence/ios-offline.html",
+    "commit": "b921bf7877eca62c46bd06deffdb22cdbf63c314",
+    "rawURL": "https://raw.githubusercontent.com/bubkoo/html-to-image/b921bf7877eca62c46bd06deffdb22cdbf63c314/docs/evidence/ios-offline.html",
+    "bytes": 126151,
+    "sha256": "204f0f433f17b81e0bb0df56f033d7f8a580c114542dcb19fb5d38896d8aff34",
+    "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+    "sourceFingerprint": "b29cfa7e5bb1e90c87f64a3be3976794acf120a747c580b24466e1dda130f746",
+    "originalHTMLModified": false
+  },
+  "shortEntry": {
+    "characters": 247,
+    "value": "data:text/html,<script>fetch('https://raw.githubusercontent.com/bubkoo/html-to-image/b921bf7877eca62c46bd06deffdb22cdbf63c314/docs/evidence/ios-offline.html').then(r=>r.text()).then(t=>{document.open();document.write(t);document.close()})</script>",
+    "scriptSequence": "fetch -> response.text -> document.open/write/close",
+    "actualExactEntryTested": true,
+    "diagnosticEntryBudgetMs": 15000,
+    "budgetScope": "New bootstrap diagnostics only; page cancellation/font/PNG deadlines/options are unchanged."
+  },
+  "actualGitHubDesktop": {
+    "allPassed": true,
+    "startedUTC": "2026-11-24T22:22:34.129Z",
+    "completedUTC": "2026-11-24T22:22:40.077Z",
+    "cases": [
+      {
+        "engine": "chromium",
+        "version": "156.0.8078.4",
+        "passed": true,
+        "opaqueOrigin": "null",
+        "responseBody": {
+          "bytes": 126151,
+          "sha256": "204f0f433f17b81e0bb0df56f033d7f8a580c114542dcb19fb5d38896d8aff34"
+        },
+        "inlineUMDAPI": "function",
+        "pageReady": {
+          "name": "page-ready",
+          "at": "2026-11-24T22:22:35.769Z",
+          "performanceTime": 1440
+        },
+        "buildFingerprintMatches": true,
+        "stateAtEntryObservation": "preparing",
+        "frozenPageTestsReasserted": false
+      },
+      {
+        "engine": "firefox",
+        "version": "157.0",
+        "passed": true,
+        "opaqueOrigin": "null",
+        "responseBody": {
+          "bytes": 126151,
+          "sha256": "204f0f433f17b81e0bb0df56f033d7f8a580c114542dcb19fb5d38896d8aff34"
+        },
+        "inlineUMDAPI": "function",
+        "pageReady": {
+          "name": "page-ready",
+          "at": "2026-11-24T22:22:38.148Z",
+          "performanceTime": 1222
+        },
+        "buildFingerprintMatches": true,
+        "stateAtEntryObservation": "preparing",
+        "frozenPageTestsReasserted": false
+      },
+      {
+        "engine": "webkit",
+        "version": "27.2",
+        "passed": true,
+        "opaqueOrigin": "null",
+        "responseBody": {
+          "bytes": 126151,
+          "sha256": "204f0f433f17b81e0bb0df56f033d7f8a580c114542dcb19fb5d38896d8aff34"
+        },
+        "inlineUMDAPI": "function",
+        "pageReady": {
+          "name": "page-ready",
+          "at": "2026-11-24T22:22:39.925Z",
+          "performanceTime": 1089
+        },
+        "buildFingerprintMatches": true,
+        "stateAtEntryObservation": "preparing",
+        "frozenPageTestsReasserted": false
+      }
+    ],
+    "raw": "immutable-entry-results.json",
+    "scope": "Entry, real raw HTTPS transport, inline execution, and exact build/response fingerprints. Full14/font/PNG/pointer/GC tests are not claimed rerun by this phase."
+  },
+  "actualRawSmallControl": {
+    "allThreeOpaqueOriginFetchPassed": true,
+    "resource": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309/package.json",
+    "bytes": 3998,
+    "sha256": "3e760a8757dc678b95b6f09ae5e0c6b8eb3961364427811d2078681c38f4b419",
+    "responseType": "cors",
+    "responseACAOrigin": "*"
+  },
+  "localCORSControls": {
+    "FirefoxAndWebKit": {
+      "fullFrozenPagePassed": true,
+      "cancellationCasesEach": 14,
+      "crossRealmFont": true,
+      "fontStabilizationAttempts": 3,
+      "PNG": "160x80;12800 red/blue pixels exact; PNG defaultstabilization1",
+      "trustedPointerNewTab": true,
+      "openerNull": true,
+      "blobRevoked": true
+    },
+    "Chromium": {
+      "passed": false,
+      "entryWaiterTimeoutMs": 120000,
+      "serverSawFixtureRequest": false,
+      "reportedError": "Access to fetch at 'http://127.0.0.1:54927/fixture' from origin 'null' has been blocked by CORS policy: The request client is not a secure context and the resource is in more-private address space `loopback`.",
+      "interpretation": "Explicit non-secure opaque-origin request to more-private loopback blocked by browser. This is not a GitHub Raw external HTTPS failure and no flags were bypassed."
+    },
+    "noACAONegativeControl": "All three browsers reject same-loopback request without ACAO header; Chromium loopback private-network boundary is separately retained.",
+    "raw": "desktop-bootstrap-results.json"
+  },
+  "initialIncompleteAttempt": {
+    "actualExitCode": 130,
+    "reason": "Initial unbounded capability attempt had no terminal engine result, was interrupted and owned process/server closed; preserved without assigning transport/CORS cause.",
+    "raw": [
+      "initial-pending-interruption.json",
+      "initial-terminal-cleanup.json",
+      "initial-unbounded-remote-preflight.mjs",
+      "initial-run.log"
+    ]
+  },
+  "inputGuard": {
+    "entries": 449,
+    "stableAcrossCompleteRuns": true,
+    "frozenHTMLByteIdentity": true,
+    "noProductionOrOriginalArchiveWritten": true
+  },
+  "boundaries": [
+    "Desktop entry execution does not establish iPhone typed-entry or trusted-click/new-tab/return/cleanup acceptance.",
+    "Original frozen three-engine full desktop acceptance remains in its own prior report; do not pool it with this entry-only remote phase.",
+    "Font test uses original explicit stabilizationAttempts=3 and does not prove default first-frame or native-pixel fidelity.",
+    "No phone or Mac network settings were operated here.",
+    "Only new fixture/public records and this output folder were written; root owns commit/push."
+  ],
+  "cleanup": {
+    "atUTC": "2026-11-24T22:23:37.504074+00:00",
+    "heldExecTerminal": [
+      {
+        "session": 40310,
+        "actualExitCode": 130,
+        "boundary": "Initial unbounded capability preflight interrupted, no complete result."
+      },
+      {
+        "session": 99018,
+        "actualExitCode": 0,
+        "boundary": "Completed diagnostic includes one local Chromium CORS failure; exit0 must not be read as all-pass."
+      },
+      {
+        "session": 66829,
+        "actualExitCode": 0,
+        "boundary": "Exact immutable short entry3/3 passed."
+      }
+    ],
+    "serverPortsConnectEx": {
+      "54423": 61,
+      "54927": 61
+    },
+    "allOurBrowserLifecyclesClosed": true,
+    "phoneActions": 0,
+    "networkSettingsChanged": false,
+    "sourceTestsConfigBundleChanges": false,
+    "fixtureOriginalAndCommittedCopyIdentical": true,
+    "noFurtherBrowserPlanned": true
+  },
+  "rawArchive": {
+    "path": "ios-offline-bootstrap-raw.tar.gz",
+    "bytes": 74817,
+    "sha256": "bc17b7a3115891f9bfddd12c8957e8a94aacc439ad89ba6c99d90f56a3443508"
+  },
+  "rawIndex": {
+    "path": "ios-offline-bootstrap-index.json",
+    "sha256": "f5843de2f52fff58f91bf29f170581c8935dca3317bb855db15054401bc933ac",
+    "fileCount": 25
+  }
+}
