@@ -55,7 +55,7 @@ cases.forEach((name) => {
 })
 
 ;(['ESM', 'UMD'] as const).forEach((format) => {
-  ;(['scroll', 'scrollbars'] as const).forEach((group) => {
+  ;(['scroll', 'scrollbars', 'style-resources'] as const).forEach((group) => {
     test(`built ${format}: native ${group} matches actual source pixels`, async ({
       page,
     }, testInfo) => {
@@ -81,16 +81,23 @@ cases.forEach((name) => {
             format === 'UMD' ? scope.htmlToImage : await import(apiURL)
           if (!api?.createRenderer)
             throw new Error(`${format} createRenderer export is missing`)
-          const fixtureURL = `/test/browser/fixtures/native-${group}.mjs`
+          const fixtureURL =
+            group === 'style-resources'
+              ? '/test/browser/fixtures/scrollbar-style-resources.mjs'
+              : `/test/browser/fixtures/native-${group}.mjs`
           const fixture = await import(fixtureURL)
           const kinds: string[] =
             group === 'scroll'
               ? fixture.nativeScrollCases
-              : fixture.nativeScrollbarCases
+              : group === 'scrollbars'
+                ? fixture.nativeScrollbarCases
+                : fixture.scrollbarStyleResourceCases
           const check =
             group === 'scroll'
               ? fixture.checkNativeScroll
-              : fixture.checkNativeScrollbars
+              : group === 'scrollbars'
+                ? fixture.checkNativeScrollbars
+                : fixture.checkScrollbarStyleResources
           const readNative = async (id: string) => {
             const png = await scope.__nativeScrollSourcePNG(id)
             const image = new Image()
@@ -118,8 +125,8 @@ cases.forEach((name) => {
           for (let index = 0; index < kinds.length; index += 1) {
             const kind = kinds[index]
             if (
-              group === 'scrollbars' &&
-              kind.startsWith('legacy') &&
+              (group === 'style-resources' ||
+                (group === 'scrollbars' && kind.startsWith('legacy'))) &&
               !supportsLegacy
             ) {
               report.unsupported.push({
@@ -160,6 +167,11 @@ cases.forEach((name) => {
         })
       })
       expect(report.listed).toBeGreaterThan(0)
+      if (
+        !report.executed.length &&
+        report.unsupported.length === report.listed
+      )
+        test.skip(true, 'Native scrollbar styling is not supported')
       expect(report.executed.length).toBeGreaterThan(0)
       expect(report.executed.length + report.unsupported.length).toBe(
         report.listed,
