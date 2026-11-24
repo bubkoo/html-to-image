@@ -1472,5 +1472,29 @@
     "previousOldMergeRefNotCurrentHeadTest": true,
     "patchSizeTooLargeIsSeparateLabelWorkflow": true,
     "reportBranch": "codex/native-scroll-a2-receipts"
+  },
+  "latestPatchSizePagination": {
+    "PR": 656,
+    "head": "172b95e73240130aa85deed4db84527f2b85cd78",
+    "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "evidence": "docs/evidence/pr-size-pagination.json",
+    "remoteEvidence": "docs/evidence/pr-size-pagination-remote.json",
+    "inlineCasesPassed": 47,
+    "capturedActualFiles": 128,
+    "actualLabelWrites": 0,
+    "CI": 45504036605,
+    "CodeQL": 45504036411,
+    "conclusions": "success",
+    "coveragePassed": 1234,
+    "sourcePassed": 1115,
+    "existingSkipsEach": 4,
+    "packagesPassed": 162,
+    "applicationSourcePackageLockUnchanged": true,
+    "notCausalComparisonWithOtherPRs": true,
+    "newTargetWorkflowDeployed": false,
+    "newTargetWorkflowExecutedRemotely": false,
+    "oldSizeWorkflowSuccessNotCandidateExecution": true,
+    "state": "open draft; no master merge or npm publication",
+    "original28ContributorPRActions": 0
   }
 }

@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-24T22:58:14.444358Z",
+  "archive": {
+    "file": "pr-size-pagination-remote-raw.tar.gz",
+    "bytes": 452944,
+    "sha256": "6b84b90251308e19c38ffcab487660d6eef43e5d3bd8c006db8dfe1ed86a700e",
+    "format": "Deterministic gzip + USTAR, regular files only"
+  },
+  "selection": {
+    "directory": "pr-size-pagination-remote-20261125",
+    "memberCount": 18,
+    "indexSHA256": "448d79540e05cfa85af9da7016922449141effde7624dfeea122de34a27f9c30",
+    "scope": "Minimal terminal CI/CodeQL and exact tested identity, artifact ZIP and member index, old-action identity. No repeated owner47-case validation corpus or poll history."
+  },
+  "members": [
+    {
+      "path": "pr-size-pagination-remote-20261125/artifact-verification.json",
+      "bytes": 2727,
+      "sha256": "8b8ee15453dfe7087dd383ebdb669d796e64cb2b616e5a33658377fe6db957f8",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/ci-artifacts-api.json",
+      "bytes": 2268,
+      "sha256": "9703f91b0006feb2b47f0a3bcbc81d70bfdec7757105598ea2f1e76959600911",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/ci-job-log-api.json",
+      "bytes": 296504,
+      "sha256": "84b3c0fcf57978fe1a24a0d31930308c338c384e5ce7b95e748478473b95c916",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/ci-job.log",
+      "bytes": 267119,
+      "sha256": "319f8ccb9cf8a47bc214ddc46c47f545066fa4f47d0eaafa282b7afb02635ec0",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/ci-jobs-api-poll06.json",
+      "bytes": 10552,
+      "sha256": "481a9d07dd54af9a6ce6ed56141f1ad4df95d25f01a806f98cf0b90a3800a34f",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/ci-run-api-poll06.json",
+      "bytes": 27609,
+      "sha256": "71845e3c085bfe03295ba4a83c819640e7cc932f6841b94f9bd0a97bc7aa8988",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/codeql-job-log-api.json",
+      "bytes": 368109,
+      "sha256": "08e7e844c76dc2d8ee3a7ddcb3fe22d1a0c01dce4978ac52527bce5f308c4338",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/codeql-job.log",
+      "bytes": 364678,
+      "sha256": "3fd733e65ebc31b1827981a4b8fc37d767ba939a599f07da5e1a8b16de3458d4",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/codeql-jobs-api-poll01.json",
+      "bytes": 5944,
+      "sha256": "1c41d84e65617a734dae2484bace54d4b863c206333618598bdf53aaa7551921",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/codeql-run-api-poll01.json",
+      "bytes": 27629,
+      "sha256": "3d1e19b85f7015468496c4553f03907f89b0816ab8c057ee2e1adedcb6f6c889",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/head-commit-api.json",
+      "bytes": 3248,
+      "sha256": "1c3b288766c4117b3e656c403492b204e8d4f89ff64e383ce784c40dee6c089e",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/old-patch-size-jobs-api.json",
+      "bytes": 5740,
+      "sha256": "154c7e748247b018cffb6a32663c89c1564b4932839b88265819ff315e4e1b19",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/pr-api-terminal.json",
+      "bytes": 38338,
+      "sha256": "9fd973cfcd152be6eb57b5a71e1bb8edab17cd3a7947959e478d6ef2ab7f5f6f",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/pr656-ci-45504036605.zip",
+      "bytes": 259212,
+      "sha256": "5467054ea584ecb06a100f9b7c374c1519434fbe46ff9efc45134f48da5d389d",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/public-remote-assessment.json",
+      "bytes": 7425,
+      "sha256": "5e0ceab3ae8c516047e90081c3ba4f0ec4c648c7a2a233847bfea3f554237a23",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/public-scope-extract.json",
+      "bytes": 1323,
+      "sha256": "cbb60fc259782c1e88c8e5178a112c903dea3706ce011bd1b013572bb7d44b42",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/public-selection-index.json",
+      "bytes": 2937,
+      "sha256": "448d79540e05cfa85af9da7016922449141effde7624dfeea122de34a27f9c30",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "pr-size-pagination-remote-20261125/test-merge-commit-api.json",
+      "bytes": 6258,
+      "sha256": "c8a031994d78f2b4ac1aae060e027c50a901f3951e019413400fb013a555665d",
+      "sourceBytesVerified": true
+    }
+  ],
+  "innerArtifactZIP": {
+    "file": "pr656-ci-45504036605.zip",
+    "bytes": 259212,
+    "sha256": "5467054ea584ecb06a100f9b7c374c1519434fbe46ff9efc45134f48da5d389d",
+    "APIDigestMatched": true,
+    "CRCVerified": true,
+    "members": [
+      {
+        "file": "playwright-report/index.html",
+        "bytes": 591116,
+        "crc32": "29546091",
+        "sha256": "eb89058c06a80caf0324cb99debad35a0ed595c100b6975a32816e6108da96d2"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/25c52000-81d4-46fa-89b2-741779b97422.json",
+        "bytes": 2472,
+        "crc32": "b25669ea",
+        "sha256": "514b46477dbc39ee27f7ac611b0dfb42abf4fc27ae8556dc5e8633a92ffb8cc8"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/1b329355-54dc-4688-9916-e087ec12f373.json",
+        "bytes": 2404,
+        "crc32": "5e6b63ae",
+        "sha256": "c8501c8b6aeef34bf94539fbe848c57f440c77345ef0ac2e3975c7f80fde9640"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/e83b2adf-0cf1-422f-8850-6d53019d762a.json",
+        "bytes": 2478,
+        "crc32": "c09c969e",
+        "sha256": "576ae1a478444477d58ca87d98c9a49b481f96f4230d1551cb93f3a3db83adc1"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+        "bytes": 943,
+        "crc32": "5e1738bb",
+        "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter.json",
+        "bytes": 30313,
+        "crc32": "b95ebb0c",
+        "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+      }
+    ],
+    "embeddedReport": {
+      "bytes": 55715,
+      "sha256": "446c6831ee6a6ba52b88a1d8365bdc74b915e6b6fc0ea2c9bc4eb97ecf2ba628",
+      "CRCVerified": true,
+      "members": [
+        {
+          "file": "4e8ddae762eb9923822f.json",
+          "bytes": 812725,
+          "sha256": "4b0992e487362d5172c00e0d7f81940954ab3f501025564df71a5d075a67c3b2"
+        },
+        {
+          "file": "report.json",
+          "bytes": 84326,
+          "sha256": "f238e9b11c76a0801e853510a76c4488d2249333cc72d48fd511e15968ebb332"
+        }
+      ],
+      "stats": {
+        "total": 162,
+        "expected": 162,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    }
+  },
+  "provenance": {
+    "public-scope-extract.json": "Derived path-only compare extract, not rawAPI",
+    "public-remote-assessment.json": "Derived terminal assessment",
+    "ownerValidation": "Already separately published, not repacked here"
+  },
+  "privacyScan": {
+    "credentialOrSignedURLPatternHits": 0,
+    "temporaryDownloadURLPersisted": false
+  }
+}

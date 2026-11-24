@@ -1,0 +1,206 @@
+{
+  "sealedAt": "2026-11-24T22:58:14.444358Z",
+  "pullRequest": {
+    "number": 656,
+    "url": "https://github.com/bubkoo/html-to-image/pull/656",
+    "head": "172b95e73240130aa85deed4db84527f2b85cd78",
+    "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "state": "open",
+    "draft": true
+  },
+  "testedRevision": {
+    "merge": "31ee97b285f930cfe1c1507d71244aaa6ad6b9a1",
+    "parents": [
+      "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "172b95e73240130aa85deed4db84527f2b85cd78"
+    ],
+    "headAndTestMergeTree": "62a4f484eb69c0bd3b0fa378cd12716d389f4a86",
+    "proof": "GitHub Commit API and actual CI/CodeQL checkout logs"
+  },
+  "scope": {
+    "kind": "Derived path-only scope extract; not a full raw API response",
+    "sourceEndpoint": "https://api.github.com/repos/bubkoo/html-to-image/compare/f8d1c4b1abb7decf143fdf418ad08fa8b22bd309...172b95e73240130aa85deed4db84527f2b85cd78",
+    "sourceEnvelopeSHA256": "26598c145e19c148a95592165332f800b27114b230953eb846f10ea387dd6745",
+    "files": [
+      {
+        "path": ".github/workflows/pr-label-patch-size.yml",
+        "status": "modified",
+        "blobSHA": "d82f21950deecc7419120d2be3c85c44fb6adb92"
+      },
+      {
+        "path": "docs/evidence/pr-size-pagination-index.json",
+        "status": "added",
+        "blobSHA": "2439e9c7d4da3e3e95b3991b55e89efeea7f5497"
+      },
+      {
+        "path": "docs/evidence/pr-size-pagination-raw.tar.gz",
+        "status": "added",
+        "blobSHA": "1301ab178b3d5214b711333d68c2ad69fb3db555"
+      },
+      {
+        "path": "docs/evidence/pr-size-pagination-verify.mjs",
+        "status": "added",
+        "blobSHA": "ec93121f0a960bb95553b1dc6dadbf9cb081bed0"
+      },
+      {
+        "path": "docs/evidence/pr-size-pagination.json",
+        "status": "added",
+        "blobSHA": "7b03a5ce8f410b565ade9a118d66f0e7f7e9c68f"
+      }
+    ],
+    "srcPackageLockChanged": false,
+    "note": "The full compare response is retained privately; its owner-validation document patches are omitted from this minimal remote archive."
+  },
+  "ci": {
+    "run": 45504036605,
+    "job": 138834453968,
+    "event": "pull_request",
+    "attempt": 1,
+    "conclusion": "success",
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45504036605",
+    "started": "2026-11-24T22:46:31Z",
+    "completed": "2026-11-24T22:53:35Z",
+    "coverage": { "passed": 1234, "skipped": 4 },
+    "source": { "passed": 1115, "skipped": 4 },
+    "package": { "passed": 162 },
+    "nativeOrHeldFailuresObserved": 0,
+    "unexecutedTestPhases": []
+  },
+  "codeql": {
+    "run": 45504036411,
+    "job": 138834453653,
+    "attempt": 1,
+    "conclusion": "success",
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45504036411",
+    "started": "2026-11-24T22:46:31Z",
+    "completed": "2026-11-24T22:47:38Z"
+  },
+  "oldPatchSizeWorkflow": {
+    "run": 45504036905,
+    "job": 138834460405,
+    "event": "pull_request_target",
+    "conclusion": "success",
+    "action": "pascalgn/size-label-action@v0.1.1",
+    "proof": "Original steps and decoded action log; base workflow source is archived separately.",
+    "boundary": "Old base/master workflow success is not execution or deployment acceptance of the new inline candidate."
+  },
+  "candidateDeploymentBoundary": {
+    "newRemoteWorkflowExecuted": false,
+    "deployedToMaster": false,
+    "separateOwnerValidation": "https://github.com/bubkoo/html-to-image/blob/172b95e73240130aa85deed4db84527f2b85cd78/docs/evidence/pr-size-pagination.json",
+    "ownerReportNotRepacked": true,
+    "labelWritesByThisCollection": 0
+  },
+  "artifact": {
+    "artifactID": 14971778549,
+    "file": "pr656-ci-45504036605.zip",
+    "bytes": 259212,
+    "sha256": "5467054ea584ecb06a100f9b7c374c1519434fbe46ff9efc45134f48da5d389d",
+    "matchesPublishedAPIDigest": true,
+    "zipCRCVerified": true,
+    "members": [
+      {
+        "file": "playwright-report/index.html",
+        "bytes": 591116,
+        "crc32": "29546091",
+        "sha256": "eb89058c06a80caf0324cb99debad35a0ed595c100b6975a32816e6108da96d2"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/25c52000-81d4-46fa-89b2-741779b97422.json",
+        "bytes": 2472,
+        "crc32": "b25669ea",
+        "sha256": "514b46477dbc39ee27f7ac611b0dfb42abf4fc27ae8556dc5e8633a92ffb8cc8"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/1b329355-54dc-4688-9916-e087ec12f373.json",
+        "bytes": 2404,
+        "crc32": "5e6b63ae",
+        "sha256": "c8501c8b6aeef34bf94539fbe848c57f440c77345ef0ac2e3975c7f80fde9640"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/e83b2adf-0cf1-422f-8850-6d53019d762a.json",
+        "bytes": 2478,
+        "crc32": "c09c969e",
+        "sha256": "576ae1a478444477d58ca87d98c9a49b481f96f4230d1551cb93f3a3db83adc1"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+        "bytes": 943,
+        "crc32": "5e1738bb",
+        "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter.json",
+        "bytes": 30313,
+        "crc32": "b95ebb0c",
+        "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+      }
+    ],
+    "embeddedReport": {
+      "bytes": 55715,
+      "sha256": "446c6831ee6a6ba52b88a1d8365bdc74b915e6b6fc0ea2c9bc4eb97ecf2ba628",
+      "CRCVerified": true,
+      "members": [
+        {
+          "file": "4e8ddae762eb9923822f.json",
+          "bytes": 812725,
+          "sha256": "4b0992e487362d5172c00e0d7f81940954ab3f501025564df71a5d075a67c3b2"
+        },
+        {
+          "file": "report.json",
+          "bytes": 84326,
+          "sha256": "f238e9b11c76a0801e853510a76c4488d2249333cc72d48fd511e15968ebb332"
+        }
+      ],
+      "stats": {
+        "total": 162,
+        "expected": 162,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    "temporaryDownloadURLPersisted": false
+  },
+  "boundaries": [
+    "This exact-head green result is not a controlled causal comparison with653/654/655. It neither attributes their native/held failures to those patches nor dismisses them as automation flakiness. Their original failures remain separate evidence.",
+    "Application src/package/lock equalf8d; no new runtime patch is tested here.",
+    "The changed workflow is not deployed to master. Old Patch Size success, owner47 behavioral cases and the read-only128-file dry run have distinct scopes.",
+    "A single attempt is not universal GC/native-fidelity or device acceptance."
+  ],
+  "operations": {
+    "readOnlyCollection": true,
+    "noWorkflowRerun": true,
+    "noNewLocalTestOrBrowser": true,
+    "noLabelWrites": true,
+    "noPRBodyCommentSourceBranchCommitPushOrPhoneOperation": true,
+    "writeScope": "Own output and new independent docs/evidence triplet"
+  },
+  "schemaVersion": 1,
+  "artifacts": {
+    "rawArchive": {
+      "file": "pr-size-pagination-remote-raw.tar.gz",
+      "bytes": 452944,
+      "sha256": "6b84b90251308e19c38ffcab487660d6eef43e5d3bd8c006db8dfe1ed86a700e"
+    },
+    "memberIndex": {
+      "file": "pr-size-pagination-remote-index.json",
+      "sha256": "1dad0193da156b91545446f84560a841d7f39e00316aab3af42bfc5276d2e8b6"
+    }
+  },
+  "rawMemberCount": 18,
+  "minimalArchive": true
+}
