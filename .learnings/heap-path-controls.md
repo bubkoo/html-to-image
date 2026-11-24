@@ -71,3 +71,28 @@ Preserve full GC/CC logs, cached verdicts, explicit exclusion policies and contr
 - Source: actual native-holder and WeakRef-only experiments
 - Related Files: docs/evidence/gc-observer-controls/native-holder-summary.json
 - Tags: weakref, cacheir, ion, cycle-collector, debugger, graph-controls
+
+## [LRN-20261124-003] best_practice
+
+**Logged**: 2026-11-24
+**Priority**: high
+**Status**: resolved
+**Area**: testing
+
+### Summary
+Read Firefox settings after Playwright applies them and verify the content engine; ordinary CC omissions and post-inspection paths are not root-cause proofs.
+
+### Details
+Playwright's Firefox driver applies firefoxUserPrefs in Browser.enable after Juggler startup. A startup log with default true values led to an incorrect ignored-setting interpretation; after-enable logging and content getJitCompilerOptions corrected it. D3 verifies ion/baseline/blinterp enable=0 and passes; restored defaults E1/E2 verify enable=1 but pass/fail respectively. Treat configuration, early preference readings and actual engine state separately. Temporary profile files were unavailable during attempted reads, so those attempts provide no effective-state proof.
+
+Ordinary CC omits both an actual retained target and an explicitly held positive; omission is not collection or a garbage verdict. Full GC logs show black source-document paths through compiled module accessors: explicit CacheIR shape paths in px/cloneSingleNode and an ambiguous cacheir-weak-shape path in cloneCSSStyle. Explicit dimensions still fail. Native eval and HTTP module getter-only controls all collect, rejecting a universal getter-only cause.
+
+The inspection still unwraps capture and negative objects. Transitive ungraying/observer effects can affect graph coloring even without directly holding the target. These post-verdict paths are witnesses, not a unique pre-inspection root. Do not turn them into a runtime getter rewrite merely to pass the test.
+
+### Suggested Action
+Remove application-object exposure from the next probe, use only the existing WeakRef to identify the target, and preserve full GC roots, ordinary CC coverage, effective engine settings and contradicting controls. Minimize the real module/inert-document/coverage context before diagnosing an engine limitation or changing production behavior.
+
+### Metadata
+- Source: ordinary CC and effective-JIT controls
+- Related Files: docs/evidence/gc-observer-controls/ordinary-cc-summary.json
+- Tags: playwright, firefox, preferences, jit, cacheir, observer-effect

@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 2121,
+  "totalRawFiles": 2401,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -1352,5 +1352,466 @@
     },
     "next": "Collect ordinary CC after cached failure without target dereference, preserving GC logs and original primary verdict; distinguish original retention from full-trace instrumentation and conditional/observer roots. No assertion relaxation or production patch without cause.",
     "rawFiles": 218
-  }
+  },
+  "ordinaryCC": {
+    "status": "Concrete post-verdict compiled-accessor paths observed; no unique/pre-inspection root or production fix; goal active",
+    "date": "2026-11-24",
+    "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "localCoverage": {
+      "a1": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "b1": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "c1": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "d1": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "d2": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "d3": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "e1": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "e2": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      }
+    },
+    "originalGates": "Original three collection requests, assertions, deadlines and inherited skips retained. Extra heap/CC only after cached failure; these diagnostic collections never replace primary result.",
+    "sourceAndBuiltInputs": {
+      "count": 103,
+      "changedFromA1": {
+        "a1": [],
+        "b1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "c1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "d1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "d2": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "d3": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "e1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "e2": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ]
+      },
+      "b1EqualsE1EqualsE2": true,
+      "d1EqualsD2EqualsD3": true,
+      "c1VersusB1": "only fixture, explicit width/height",
+      "d3VersusE2": "only config, Firefox JIT preferences",
+      "productionAndBuiltInputsUnchanged": true,
+      "limits": "Source/built/config hashes only, not entire process/cache/timing or all browser-tool variants."
+    },
+    "browserTypes": "B1/C1/D1 typed variants pass before execution; later equivalent configs/fixtures reuse those checks",
+    "ordinaryCC": {
+      "wantAllTraces": false,
+      "nodes": 3486,
+      "edges": 6448,
+      "targetWrapperVisited": false,
+      "nativeHolderVisited": false,
+      "targetGarbageVerdict": "absent, not a passed collection",
+      "positiveControl": "ordinary CC also omits the known-held target; log absence is not collection proof"
+    },
+    "rootWitnesses": {
+      "b1": {
+        "target": "0x10a0e1359388",
+        "targetRows": [
+          "0x10a0e1359388 B Preserved wrapper, holder 0x7fffe1cc3600",
+          "0x10a0e1359388 B HTMLDocument <unknown object>"
+        ],
+        "functionNodes": [
+          "0x175b8874fd98 B Function px",
+          "0x23a3133a1420 B ModuleEnvironmentObject",
+          "0x23a3133d6c90 B script http://localhost:63315/src/util.ts:3797"
+        ],
+        "path": [
+          {
+            "from": "0x35053003ef88",
+            "edge": "toSvg",
+            "to": "0x3519e82790b0"
+          },
+          {
+            "from": "0x3519e82790b0",
+            "edge": "**UNKNOWN SLOT 1**",
+            "to": "0x175b887c05e8"
+          },
+          {
+            "from": "0x175b887c05e8",
+            "edge": "enclosing_environment",
+            "to": "0x3519e8205fb8"
+          },
+          {
+            "from": "0x3519e8205fb8",
+            "edge": "enclosing_environment",
+            "to": "0x3505300b7790"
+          },
+          {
+            "from": "0x3505300b7790",
+            "edge": "**UNKNOWN SLOT 2**",
+            "to": "0x3505300b6af0"
+          },
+          {
+            "from": "0x3505300b6af0",
+            "edge": "module bindings environment",
+            "to": "0x23a3133a1420"
+          },
+          {
+            "from": "0x23a3133a1420",
+            "edge": "px",
+            "to": "0x175b8874fd98"
+          },
+          {
+            "from": "0x175b8874fd98",
+            "edge": "JSFunction script",
+            "to": "0x23a3133d6c90"
+          },
+          {
+            "from": "0x23a3133d6c90",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+            "to": "0x113a93f29900"
+          },
+          {
+            "from": "0x113a93f29900",
+            "edge": "base",
+            "to": "0x2f9695804e38"
+          },
+          {
+            "from": "0x2f9695804e38",
+            "edge": "baseshape_global",
+            "to": "0x23a3133c7088"
+          },
+          {
+            "from": "0x23a3133c7088",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x10a0e1359388"
+          }
+        ],
+        "strength": "explicit cacheir-shape guarded property path, no debugger/weak edge in this witness",
+        "limit": "Post-cached-verdict and heap inspection; path observed, not proven unique/pre-inspection cause. Capture wrappers were inspected and may affect coloring."
+      },
+      "c1": {
+        "target": "0x308eb0758388",
+        "targetRows": [
+          "0x308eb0758388 B Preserved wrapper, holder 0x7fffd9edfc00",
+          "0x308eb0758388 B HTMLDocument <unknown object>"
+        ],
+        "functionNodes": [
+          "0x2a61b9634d28 B Function cloneCSSStyle",
+          "0xa47e9e58550 B ModuleEnvironmentObject",
+          "0xa47e9ed1240 B script http://localhost:63315/src/clone-node.ts:6164"
+        ],
+        "path": [
+          {
+            "from": "0xd3db178e088",
+            "edge": "toSvg",
+            "to": "0xd3db178f2e0"
+          },
+          {
+            "from": "0xd3db178f2e0",
+            "edge": "**UNKNOWN SLOT 1**",
+            "to": "0xd3db179d090"
+          },
+          {
+            "from": "0xd3db179d090",
+            "edge": "enclosing_environment",
+            "to": "0xd3db1792670"
+          },
+          {
+            "from": "0xd3db1792670",
+            "edge": "enclosing_environment",
+            "to": "0x2938ec4116a0"
+          },
+          {
+            "from": "0x2938ec4116a0",
+            "edge": "**UNKNOWN SLOT 2**",
+            "to": "0xa47e9e43430"
+          },
+          {
+            "from": "0xa47e9e43430",
+            "edge": "module bindings environment",
+            "to": "0xa47e9e58550"
+          },
+          {
+            "from": "0xa47e9e58550",
+            "edge": "cloneCSSStyle",
+            "to": "0x2a61b9634d28"
+          },
+          {
+            "from": "0x2a61b9634d28",
+            "edge": "JSFunction script",
+            "to": "0xa47e9ed1240"
+          },
+          {
+            "from": "0xa47e9ed1240",
+            "edge": "cacheir-weak-shape",
+            "to": "0x2dc71ad1d8a0"
+          },
+          {
+            "from": "0x2dc71ad1d8a0",
+            "edge": "base",
+            "to": "0x214bccde0118"
+          },
+          {
+            "from": "0x214bccde0118",
+            "edge": "baseshape_global",
+            "to": "0xa47e9ee2ef8"
+          },
+          {
+            "from": "0xa47e9ee2ef8",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x308eb0758388"
+          }
+        ],
+        "strength": "unprefixed cacheir-weak-shape ambiguous",
+        "limit": "Post-cached-verdict and heap inspection; path observed, not proven unique/pre-inspection cause. Capture wrappers were inspected and may affect coloring."
+      },
+      "e2": {
+        "target": "0x3a69b1f53388",
+        "targetRows": [
+          "0x3a69b1f53388 B Preserved wrapper, holder 0x7fffd6d21200",
+          "0x3a69b1f53388 B HTMLDocument <unknown object>"
+        ],
+        "functionNodes": [
+          "0x3ec80b415b8 B Function cloneSingleNode",
+          "0x1749e20cd128 B ModuleEnvironmentObject",
+          "0x1749e20ce150 B script http://localhost:63315/src/clone-node.ts:6044"
+        ],
+        "path": [
+          {
+            "from": "0x249122683088",
+            "edge": "toSvg",
+            "to": "0x249122686350"
+          },
+          {
+            "from": "0x249122686350",
+            "edge": "**UNKNOWN SLOT 1**",
+            "to": "0x249122693090"
+          },
+          {
+            "from": "0x249122693090",
+            "edge": "enclosing_environment",
+            "to": "0x249122688790"
+          },
+          {
+            "from": "0x249122688790",
+            "edge": "enclosing_environment",
+            "to": "0x2c43fbc84f88"
+          },
+          {
+            "from": "0x2c43fbc84f88",
+            "edge": "**UNKNOWN SLOT 2**",
+            "to": "0x2c43fbcb1af0"
+          },
+          {
+            "from": "0x2c43fbcb1af0",
+            "edge": "module bindings environment",
+            "to": "0x1749e20cd128"
+          },
+          {
+            "from": "0x1749e20cd128",
+            "edge": "cloneSingleNode",
+            "to": "0x3ec80b415b8"
+          },
+          {
+            "from": "0x3ec80b415b8",
+            "edge": "JSFunction script",
+            "to": "0x1749e20ce150"
+          },
+          {
+            "from": "0x1749e20ce150",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x2d41b9927800"
+          },
+          {
+            "from": "0x2d41b9927800",
+            "edge": "base",
+            "to": "0x2782f5504e38"
+          },
+          {
+            "from": "0x2782f5504e38",
+            "edge": "baseshape_global",
+            "to": "0x2d41b994fea0"
+          },
+          {
+            "from": "0x2d41b994fea0",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x3a69b1f53388"
+          }
+        ],
+        "strength": "explicit cacheir-shape guarded property path, no debugger/weak edge in this witness",
+        "limit": "Post-cached-verdict and heap inspection; path observed, not proven unique/pre-inspection cause. Capture wrappers were inspected and may affect coloring."
+      }
+    },
+    "interpretation": "B1 and E2 preserve explicit cacheir-shape property-cache paths from retained module functions to source Window/Document. C1 bypasses dimension reads but still fails through cloneCSSStyle with ambiguous undecorated cacheir-weak-shape. One getter is insufficient as a unique cause. Normal CC omits the black/known-live target; source skip paths are consistent with that, not uniquely proven by native instrumentation.",
+    "JITControls": {
+      "verifiedRuntime": {
+        "d3": {
+          "readbacks": 2,
+          "engineFlags": {
+            "ion.enable": 0,
+            "baseline.enable": 0,
+            "blinterp.enable": 0
+          },
+          "postEnablePrefs": [
+            {
+              "javascript.options.blinterp": false,
+              "javascript.options.baselinejit": false,
+              "javascript.options.ion": false
+            }
+          ]
+        },
+        "e1": {
+          "readbacks": 2,
+          "engineFlags": {
+            "ion.enable": 1,
+            "baseline.enable": 1,
+            "blinterp.enable": 1
+          },
+          "postEnablePrefs": [
+            {
+              "javascript.options.blinterp": true,
+              "javascript.options.baselinejit": true,
+              "javascript.options.ion": true
+            }
+          ]
+        },
+        "e2": {
+          "readbacks": 2,
+          "engineFlags": {
+            "ion.enable": 1,
+            "baseline.enable": 1,
+            "blinterp.enable": 1
+          },
+          "postEnablePrefs": [
+            {
+              "javascript.options.blinterp": true,
+              "javascript.options.baselinejit": true,
+              "javascript.options.ion": true
+            }
+          ]
+        }
+      },
+      "d1": "configured off, no direct engine readback",
+      "d2": "configured off; startup-only true readback precedes Browser.enable preference application, so it is not an effective-state reading",
+      "correctedReadPoint": "BrowserHandler after applying userPrefs plus content-process getJitCompilerOptions",
+      "conclusion": "Verified disabled D3 passes, verified default E1 passes and same-input E2 fails. No deterministic iff or production workaround established."
+    },
+    "nativeSimplifications": {
+      "native-reader-eval-results": {
+        "cases": 4,
+        "allNativeAndReadDocumentsCollected": true,
+        "simpleCanaryAndStrongControlValid": true,
+        "libraryLoaded": false,
+        "conclusion": "Does not reproduce full-suite retention; not proof of a universal browser cause."
+      },
+      "native-reader-module-results": {
+        "cases": 4,
+        "allNativeAndReadDocumentsCollected": true,
+        "simpleCanaryAndStrongControlValid": true,
+        "libraryLoaded": false,
+        "conclusion": "Does not reproduce full-suite retention; not proof of a universal browser cause."
+      }
+    },
+    "nativeFixtureLimits": "Eval version resolves load Event; HTTP module version uses original void onload shape. Both collect in cold/warm/default/disabled cases. Neither reproduces the full-suite module/inert-document context.",
+    "observerLimits": "The probe still unwraps capture and negative objects. Transitive ungraying or inspector effect remains possible. These are post-verdict witnesses, not proof the same path caused the original primary failure.",
+    "toolVariants": "Base ordinary-CC tool for A1/B1/C1/D1; startup-pref logging for D2; post-enable and content-engine logging for D3/E1/E2. Final variant sources/hash retained. D2 intermediate installed-binary hash was not separately recorded; it is not runtime-verified acceptance.",
+    "remote53de33f": {
+      "pr": {
+        "headSha": "53de33f801bd87e003bd2da15b4743cd65e54f52",
+        "event": "pull_request",
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45318408024",
+        "conclusion": "failure",
+        "coveragePassed": 1234,
+        "coverageSkipped": 4,
+        "sourcePassed": 1112,
+        "sourceFailed": 3,
+        "sourceSkipped": 4,
+        "browserPackages": "not run"
+      },
+      "push": {
+        "headSha": "53de33f801bd87e003bd2da15b4743cd65e54f52",
+        "event": "push",
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45318400315",
+        "conclusion": "failure",
+        "coveragePassed": 1234,
+        "coverageSkipped": 4,
+        "sourcePassed": 1112,
+        "sourceFailed": 3,
+        "sourceSkipped": 4,
+        "browserPackages": "not run"
+      }
+    },
+    "CodeQL53de33f": "success, exact PR check readback retained",
+    "productionChange": false,
+    "newDeviceValidation": false,
+    "cleanup": {
+      "at": "2026-11-24T03:51:34.535393+00:00",
+      "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+      "trackedSourceConfigAndFixtureRestored": true,
+      "finalToolOmniSHA256": "74fbe4158f672b635e07d69ce3e4b3ff1ae10a94929172c93c6b307e6cc3d7cb",
+      "restoredOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "ownedContainerRunning": true,
+      "measuredSuites": "all terminal",
+      "nativeReaderServer": "closed by finally after all four contexts",
+      "productionChange": false,
+      "systemSafariOrPhoneTouched": false
+    },
+    "next": "Remove capture/negative object inspection and locate target only through the existing WeakRef; inspect ordinary GC roots without exposing library objects. Then minimize actual module/inert-document/coverage context as needed. Do not filter ambiguous CacheIR edges or patch runtime/getters merely to pass.",
+    "rawFiles": 280
+  },
+  "ordinaryCCRawFiles": 280
 }

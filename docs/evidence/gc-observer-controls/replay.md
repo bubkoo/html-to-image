@@ -266,3 +266,63 @@ conditional/native ownership need further evidence. Do not call this a fix.
 
 The original browser, tracked config and fixture are restored. Container is left
 idle, all measured processes terminal; goal active. No phone/system Safari used.
+
+
+## Ordinary CC and compiled-accessor witnesses
+
+Historical source 9a391dc, not current-master acceptance. Eight complete coverage
+runs preserve four failures (A1/B1/C1/E2:1224/one/four skips) and four passes
+(D1/D2/D3/E1:1225/four skips). Original gates unchanged. Source/browser packages
+not run. See input-comparison.json for 103 exact source/built/config hashes;
+these do not prove entire cache/process/timing or browser-tool identity.
+
+Base ordinary tool creates a CC logger without allTraces after cached verdict and
+JS heap. B1's target and holder are absent from ordinary CC; known-held positive
+is also absent. Do not call absence collection success. The full JS GC log has
+a black target and concrete module -> px -> property CacheIR shape -> source
+Window -> source Document path. E2 has an analogous cloneSingleNode path; C1's
+explicit dimensions still fail with an ambiguous cacheir-weak-shape path through
+cloneCSSStyle. root-witnesses.json saves exact addresses, script URLs and paths.
+Parsers keep undecorated CacheIR fields conservative and preserve raw observer
+paths/qualified views, as described by the previous native-holder archive.
+
+Crucial timing correction: Playwright sets Firefox userPrefs in Browser.enable
+after initial Juggler startup. Startup true values are not proof off settings were
+ignored. D1 has only launch configuration, D2 only early startup values. Final
+pref-tool logs after Browser.enable and also records actual content engine JIT
+options. D3 verifies three enable flags=0 and passes; E1/E2 verify flags=1, with
+E1 pass and E2 failure. No deterministic iff claim or source fix follows.
+
+The probe never dereferences the target again but still unwraps capture/negative;
+transitive ungraying/observer effects remain. Graph witnesses are after cached
+failure, not proof of pre-inspection cause. Next remove these application-object
+exposures before promoting a retaining path to a root-cause diagnosis.
+
+Two native simplifications (eval and HTTP ESM) load no library. Cold/warm/default/
+disabled cases all collect native and read-probed documents; simple/strong
+controls valid. This negative evidence rejects a universal getter-only cause.
+Eval onload resolves Event; HTTP ESM uses the void callback matching the original.
+Neither reproduces full-suite module/inert-document/coverage context. Their
+servers/pages/browsers close, and no failure heap exists because all collect.
+
+Rebuild browser patches from pinned pristine omni.ja and build.py, preserving
+the original ZIP entries, Runtime/Juggler and optional BrowserHandler replacement.
+No original/patched 44MB ZIP binaries are committed. Base tool hash/source and
+final pref-tool hash/source are explicit; D2's intermediate binary hash is a
+recorded gap, not inferred acceptance. Build-post-enable.py preserves the
+intermediate recipe; default-positive-control preceded that addition. Use
+pref-tool/current build for D3/E1/E2. All use ordinary Runtime version6 semantics.
+
+Actual suite configurations: vitest-heap-hook.config.mts for B1/C1/E1/E2 and
+vitest-no-jit.config.mts for D1/D2/D3. C1 copies only explicit-size fixture; its
+generator's extra config is unexecuted. Types pass before changed typed variants.
+Reset only previous sort results with the archived helper, preserve receipts,
+and never edit/build while a measured suite is running. Source/built bytes
+unchanged, full coverage runs distinct; normal package/device gates not claimed.
+
+Source-inputs are exact 9a files matching measured hashes. Provenance is shared
+with the pinned heap-actual/native-holder environment. Remote exact 53de33f PR
+and push both fail three Firefox source checks (1234 coverage /1112 source,
+four/four skips, packages not run); complete logs/artifacts/check readback saved.
+No npm or old contributor PR mutation. Original Firefox and tracked source/test/
+config restored; owned container idle, all measured processes terminal; goal active.
