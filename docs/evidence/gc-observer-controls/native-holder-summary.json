@@ -1,0 +1,185 @@
+{
+  "status": "Actual native and JS graphs captured with no added target dereference; investigation active, no production fix",
+  "date": "2026-11-24",
+  "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+  "provenance": "Same owned pinned container/runtime as heap-actual; source/config/fixture restored afterward. Exact manifest and runtime receipt included.",
+  "remote913014e": {
+    "pr": {
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45314820687",
+      "headSha": "913014e26d156b2bea921302ec17930d786d63ae",
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "coverageSkipped": 4,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "sourceSkipped": 4,
+      "browserPackages": "not run"
+    },
+    "push": {
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45314812053",
+      "headSha": "913014e26d156b2bea921302ec17930d786d63ae",
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "coverageSkipped": 4,
+      "sourcePassed": 1110,
+      "sourceFailed": 5,
+      "sourceSkipped": 4,
+      "browserPackages": "not run"
+    }
+  },
+  "localRuns": {
+    "W1 v4 no hook": {
+      "coveragePassed": 1225,
+      "coverageFailed": 0,
+      "coverageSkipped": 4,
+      "fullSource": "not run",
+      "browserPackages": "not run"
+    },
+    "X1 v4 after-primary": {
+      "coveragePassed": 1225,
+      "coverageFailed": 0,
+      "coverageSkipped": 4,
+      "fullSource": "not run",
+      "browserPackages": "not run"
+    },
+    "X2 v4 identical-input repeat": {
+      "coveragePassed": 1224,
+      "coverageFailed": 1,
+      "coverageSkipped": 4,
+      "fullSource": "not run",
+      "browserPackages": "not run"
+    },
+    "Y1 v5 no hook": {
+      "coveragePassed": 1225,
+      "coverageFailed": 0,
+      "coverageSkipped": 4,
+      "fullSource": "not run",
+      "browserPackages": "not run"
+    },
+    "Z1 v5 WeakRef-only": {
+      "coveragePassed": 1225,
+      "coverageFailed": 0,
+      "coverageSkipped": 4,
+      "fullSource": "not run",
+      "browserPackages": "not run"
+    },
+    "Z2 v5 identical-input repeat": {
+      "coveragePassed": 1224,
+      "coverageFailed": 1,
+      "coverageSkipped": 4,
+      "fullSource": "not run",
+      "browserPackages": "not run"
+    }
+  },
+  "inputComparison": {
+    "inputCount": 103,
+    "w1EqualsY1": true,
+    "x1EqualsX2": true,
+    "z1EqualsZ2": true,
+    "baselineVsHookChangedOnly": [
+      "vitest.browser.config.mts",
+      "test/browser-unit/capture-lifetime.test.ts"
+    ],
+    "productionAndBuiltInputsUnchanged": true,
+    "limits": "These 103 source/built/config inputs do not establish entire process/cache/timing identity."
+  },
+  "types": "X1 and Z1 browser types passed before execution; no build/package/runtime acceptance expansion",
+  "originalGates": "Original helper/three collection requests/assertions/deadlines/inherited skips retained; extra native CC only after cached failure and JS heap; no replacement of primary verdict",
+  "v4": "Probe target edge removed, but explicit raw target hold/debugger references remain; X2 captured real failure and native document holder.",
+  "v5": {
+    "fixtureBytes": 4520,
+    "rawTargetDereferenceAdded": false,
+    "explicitTargetHold": false,
+    "targetIdentification": "privileged wrapper -> WeakRef -> WeakRefObject::target, no target dereference",
+    "primary": {
+      "nativeCollected": true,
+      "capturedCollected": false
+    },
+    "registration": {
+      "opened": [
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "closed": [
+        {
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "errors": [],
+    "fullGCGraph": {
+      "nodes": 181166,
+      "rootAddresses": 2795,
+      "unparsedRows": 0,
+      "conditionalWeakMapRecords": 71,
+      "capturePath": null,
+      "negativePath": null,
+      "remainingRoots": "Five gray native preserved-wrapper roots under the explicit weak-edge policy; not a complete runtime unreachability proof"
+    },
+    "nativeCCGraph": {
+      "nodes": 144291,
+      "edges": 496208,
+      "weakMapRecords": 76,
+      "holder": {
+        "address": "0x7fffd6d13200",
+        "description": "[rc=6] Document normal (xhtml) about:srcdoc",
+        "result": null,
+        "incoming": [
+          {
+            "from": "0x7fffd6f3e480",
+            "edge": "mImpl->GetDocument()"
+          },
+          {
+            "from": "0x7fffe1d38780",
+            "edge": "mDocument"
+          },
+          {
+            "from": "0x7fffd9eb4340",
+            "edge": "mOwner"
+          },
+          {
+            "from": "0x2d511a262388",
+            "edge": "UnwrapDOMObject(obj)"
+          },
+          {
+            "from": "0x7fffd9bbc400",
+            "edge": "mDoc"
+          },
+          {
+            "from": "0x7fffd6699e80",
+            "edge": "mDocument"
+          }
+        ]
+      },
+      "conditionalBoundaryRoots": 0,
+      "limits": "No ordinary black/RC-root path under parser exclusions; conditional WeakMap semantics and full-trace observer effects remain. Do not infer native unreachability or a unique root."
+    }
+  },
+  "parserControls": {
+    "knownOwnedMember": "found direct content edge",
+    "rawIndependentNegative": "raw graph reaches held positive through realm debugger, privileged global and remote-object probe; explicitly retained as observer path",
+    "qualifiedIndependentNegative": "no path after separately excluding realm debugger and Debugger.Object referent",
+    "cacheIR": "Do not exclude undecorated cacheir-weak-* by name. ShouldTraceWeakEdgeInStub traces IonIC fields strongly; they remain in the conservative graph.",
+    "earlyControlFailure": "Unqualified negative-none assertion failed; raw observer path retained. Refined graph views label observer boundaries rather than deleting raw evidence."
+  },
+  "sourceLimits": {
+    "allTraces": "TraversalTracer explicitly traces weak edges, and WantAllTraces visits black JS nodes. Full-trace CC logs cannot alone establish original strong ownership. No claim this caused the original failure.",
+    "requests": "Pinned ContentChild receives GC/CC synchronously at receiver; this source does not itself establish completion ordering versus the parent protocol acknowledgment."
+  },
+  "productionChange": false,
+  "newPhoneValidation": false,
+  "cleanup": {
+    "at": "2026-11-24T03:09:07.631064+00:00",
+    "sourceConfigFixtureRestored": true,
+    "firefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+    "ownedContainerRunning": true,
+    "ownedMeasuredSuites": "all terminal",
+    "productionChange": false,
+    "systemSafariOrDeviceTouched": false
+  },
+  "next": "Collect ordinary CC after cached failure without target dereference, preserving GC logs and original primary verdict; distinguish original retention from full-trace instrumentation and conditional/observer roots. No assertion relaxation or production patch without cause.",
+  "rawFiles": 218
+}

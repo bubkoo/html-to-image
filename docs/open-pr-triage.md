@@ -1,5 +1,17 @@
 # 开放 PR 处理台账
 
+## 2026-11-24 恢复推进：原生持有图与只读 WeakRef 采集
+
+准确历史源码 `9a391dc` 新增六轮完整 coverage：W1/X1/Y1/Z1 为 1225 通过 / 4 跳过；相同 103 个受测输入的 X2/Z2 均为同一 Firefox iframe 回收失败，1224 通过 / 1 失败 / 4 跳过。两种钩子的类型检查均通过；这些输入哈希不代表整个进程、缓存和时序相同。没有修改生产源码、断言、三次原始回收、超时或跳过项，完整 source/浏览器包未运行。
+
+Z2 只传递已有 WeakRef，不重新取出或强持有目标；失败布尔值固定后，沿堆图弱边识别实际文档，保存完整 JS GC 与 all-traces 原生 CC 图。原生 holder 定位为被测 Document（RC=6），周围窗口/字体集/DOMImplementation 等形成内部引用。普通边图的保守搜索未找到 capture 到目标的路径，剩余五个灰色原生包装器入口；条件 WeakMap、原生回收语义及采集影响仍未解释，不能据此证明不可达或宣布库修复。
+
+解析器正向控制能找到明确成员持有；独立负向样本的原始图含 realm-debugger/检查器路径，已保留并单独标记，不声称原始负向不可达。`cacheir-weak-*` 在 IonIC 中可能按强边追踪，未按名称一律排除；全追踪 CC 本身也记录弱边与黑色 JS 节点。下一步用普通 CC 核对，避免把全追踪图直接当作原始强持有根。
+
+准确证据提交 `913014e` 的远端 PR CI 为 coverage 1234 / source 1112 通过、3 项 Firefox 失败；push CI 为 coverage 1234 / source 1110 通过、5 项失败（含 iframe 与 WebKit SVG 源文档回收）；两轮 coverage/source 各 4 跳过，浏览器包均未运行，CodeQL 通过。
+
+[218 份源码、控制、完整日志/上传物、GC/CC 原图及输入记录](evidence/gc-observer-controls/native-holder-summary.json)已归档。Firefox 原文件、配置和 fixture 已恢复，自有容器仅空闲，真机未操作；目标继续推进，本次仍无生产 GC 修复。
+
 ## 2026-11-24 实际失败现场堆采集完成，按要求暂停
 
 准确历史源码 `9a391dc` 的隔离 Linux 环境已按固定镜像摘要重建。被动工具/no-hook 基线 U1 与失败后采集 V1 均完整运行 coverage：1224 通过、同一项 Firefox removed-iframe 回收失败、4 项既有跳过。V1 在原始布尔值固定后才采集，保留 `nativeCollected=true / capturedCollected=false`；没有增加回收次数、放宽断言或更改生产源码。

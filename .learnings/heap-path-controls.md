@@ -46,3 +46,28 @@ Run types before fixture execution; compare normalized emitted code, not strippe
 - Source: actual failing-suite heap capture and fixture generator type failure
 - Related Files: docs/evidence/gc-observer-controls/heap-actual-summary.json
 - Tags: typescript, module-augmentation, weakref, native-wrapper, observer-effect
+
+## [LRN-20261124-002] best_practice
+
+**Logged**: 2026-11-24
+**Priority**: high
+**Status**: resolved
+**Area**: testing
+
+### Summary
+Inspect an existing WeakRef through its heap edge instead of adding a strong target hold, and preserve raw observer paths when qualifying graph controls.
+
+### Details
+V5 passes only the existing WeakRef, capture and negative sample after the original verdict. The privileged reference wrapper has a proxy-target edge to the WeakRef, whose WeakRefObject::target edge identifies the actual document without a second dereference or an explicit raw document hold. Positive controls validate this identity and the existing ownership member; the actual failing run preserves nativeCollected=true / capturedCollected=false and balanced DevTools registration.
+
+The complete GC log reveals paths hidden by bounded shortest-path queries. A raw independent negative can reach the deliberately held positive through realm debugger, privileged global and remote-object ownership. Keep these paths; distinguish privileged wrapper and unwrapped content starts, then label a separate observer-qualified view. An initial raw-negative-unreachable assertion failed and must not be reported as a pass.
+
+Names alone do not define edge strength. The pinned CacheIR compiler traces WeakShape/Object/etc. strongly for IonICStub, even when their labels contain cacheir-weak. Keep undecorated CacheIR edges conservative. The CC TraversalTracer explicitly requests weak edges, and all-traces visits black JS nodes; native all-traces output alone is not proof of original application ownership. Gray native preserved-wrapper roots and unmodeled conditional WeakMap semantics remain unresolved. Identical measured source/built inputs do not prove entire cache/process/timing identity.
+
+### Suggested Action
+Preserve full GC/CC logs, cached verdicts, explicit exclusion policies and contradicting runs. Check ordinary CC without target dereference next; never relax the original gate or infer a production fix from the diagnostic graph.
+
+### Metadata
+- Source: actual native-holder and WeakRef-only experiments
+- Related Files: docs/evidence/gc-observer-controls/native-holder-summary.json
+- Tags: weakref, cacheir, ion, cycle-collector, debugger, graph-controls

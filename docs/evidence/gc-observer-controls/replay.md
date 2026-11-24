@@ -216,3 +216,53 @@ the actual V1 hashes. Across 103 measured inputs only fixture and config differ.
 No new remote CI or physical-device result is credited to these local runs.
 pause-cleanup.json confirms tracked source/config/fixture and original Firefox
 bytes restored, owned container stopped, and no system Safari/device operation.
+
+
+## Native holder and WeakRef-only capture
+
+See [native-holder-summary.json](native-holder-summary.json) and its raw archive.
+
+Historical exact source 9a391dc, not latest-master acceptance. Six complete
+coverage runs are preserved separately: W1/X1/Y1/Z1 pass 1225 with four skips;
+identical measured input repeats X2/Z2 fail the same original removed-iframe
+case (1224/one/four). Production and built inputs do not change. Input hashes do
+not claim whole process/cache/timing identity. Source and browser-package suites
+were not run in this experiment. Remote 913014e failures are independent.
+
+V4 removes the probe's direct target member but explicitly holds raw target.
+V5 carries only the existing WeakRef, capture and negative. Its heap graph finds
+the actual HTMLDocument through the two-edge wrapper/WeakRef target path; no
+new target dereference or strong hold is introduced. Extra CC logging follows
+the cached primary failure and heap, and never substitutes for the assertion.
+
+Build tool variants from the original Firefox omni.ja supplied by the pinned
+image and verified by original-manifest.json; build.py replaces Runtime/Juggler
+entries. Binaries and original Git seed are excluded. See heap-actual archive
+for environment bootstrap. Each variant's passive/no-hook control precedes its
+typed hook runs. Scripts positive.cjs provide known ownership and an independent
+negative; all uploaded remote artifacts and actual GC/CC logs are preserved.
+
+Replay offline analyses with analyze-cc.py or analyze-gc.py: each takes heap JSON,
+matching CC/GC log and output JSON. Complete ordinary rows parse with zero unknown
+rows and matching node IDs. WeakMap records are retained separately, not assumed
+to be ordinary edges. A finite graph is not a complete runtime proof.
+
+Important parser control: the raw independent negative DOES have a path through
+realm debugger/remote-object ownership to the deliberately held positive. The
+initial negative-none assertion failed. Raw privileged and content starts remain
+in the report; a separately labelled observer-qualified view finds known member
+ownership and no application-member path from negative. Never present the raw
+negative as unreachable. Undecorated cacheir-weak-* fields remain conservative:
+the pinned compiler traces those fields strongly for IonICStub, so their names
+alone cannot justify filtering. Known [weak], WeakRef target and conditional
+WeakMap edges have explicit separate policies.
+
+For actual Z2, both conservative capture/negative paths are absent under that
+policy; five gray native preserved-wrapper roots remain. The exact native holder
+is the source Document, RC=6, with window/font/fragment/DOMImplementation/node-info
+cycle edges. AllTraces traverses weak edges and black nodes and affects visibility;
+these graphs do not identify a unique original retaining root. Ordinary CC and
+conditional/native ownership need further evidence. Do not call this a fix.
+
+The original browser, tracked config and fixture are restored. Container is left
+idle, all measured processes terminal; goal active. No phone/system Safari used.
