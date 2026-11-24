@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-24",
+  "sourceHead": "1e208d44b94df468ee369605c15df3e22567b9d3",
+  "status": "Remote full sequence passes; local original source collection failures remain unresolved; draft only",
+  "defaultCI": {
+    "id": 45369299428,
+    "testedMerge": "0924183be542a6fef4921f37f58847881acec658",
+    "verifiedPRHead": true,
+    "result": "success",
+    "coverage": {
+      "passed": 1249,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 1130,
+      "skipped": 4
+    },
+    "packagesPassed": 162,
+    "artifactId": 14907299742,
+    "artifactDigestVerified": true,
+    "artifactMembers": 8
+  },
+  "codeql": {
+    "id": 45369299463,
+    "result": "success"
+  },
+  "localNormal": {
+    "command": "pnpm run test",
+    "result": "failure",
+    "coverage": {
+      "passed": 1249,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 1128,
+      "failed": 2,
+      "skipped": 4
+    },
+    "failures": [
+      {
+        "engine": "Firefox",
+        "test": "disposed SVG owner releases source with font=false and opened=true",
+        "failedAt": "svg-style-source-lifetime.test.ts:83",
+        "nativeCollected": true,
+        "heldCollected": false
+      },
+      {
+        "engine": "Firefox",
+        "test": "disposed SVG owner releases source with font=true and opened=true",
+        "failedAt": "svg-style-source-lifetime.test.ts:82",
+        "nativeCollected": false,
+        "heldAssertion": "not reached"
+      }
+    ],
+    "packages": "not run in normal sequence",
+    "inputs": 408,
+    "inputHashesUnchanged": true,
+    "originalFirefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+  },
+  "separateLocalPackages": {
+    "command": "pnpm run test:browser:package",
+    "passed": 162,
+    "inputs": 408,
+    "inputHashesUnchanged": true,
+    "doesNotReplaceOriginalNormalFailure": true
+  },
+  "physicalOfflineUMD": {
+    "device": "physical iPhone Safari/iOS26.6.1, not simulator",
+    "passed": 112,
+    "failed": 0,
+    "inputs": 411,
+    "inputHashesUnchanged": true,
+    "umdSHA256": "caad29161ec19826f630100038fec9fafe9ed7120b09126f4a7053058de8a973",
+    "httpResources": [],
+    "sessionEnded": true,
+    "ownedDriverStopped": true,
+    "computerNetworkSettingsModified": false,
+    "scope": "unchanged original five-fixture UMD offline subset only; no ESM, HTTP, external SVG/CSP, loaded fonts, source screenshots or device GC acceptance"
+  },
+  "conclusion": [
+    "Complete typed Document-access isolation is insufficient to establish stable collection under the original gate.",
+    "The failed native control must be diagnosed separately; it does not excuse the independently failed held source.",
+    "One remote pass and the existing same-source baseline variability do not establish deterministic causality or lifecycle completion.",
+    "Original three collection requests/assertions/deadlines/skips/browser configuration/workflows/scripts remain unchanged; no extra GC or skip introduced."
+  ],
+  "reference": {
+    "url": "https://playwright.dev/docs/api/class-page#page-request-gc",
+    "statement": "The API requests collection but does not guarantee that all unreachable objects collect. This limitation does not change or waive the original project gate."
+  },
+  "nextStep": "Collect controlled actual reference paths after cached primary failure in a reproduced process, with positive and negative identity controls, before further production edits. Do not expand reflection based on unsupported holder guesses.",
+  "archive": "access-validation-raw.tar.gz",
+  "index": "access-validation-index.json",
+  "rawFiles": 38
+}

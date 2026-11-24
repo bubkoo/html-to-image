@@ -1,12 +1,16 @@
 # V2 Issue / PR 回应台账
 
-## 2026-11-24 Document 访问类完整审计候选
+## 2026-11-24 Document 访问类验收：远端通过，本地回收失败
 
-四创建入口版本 `79faeec` 的完整本地流程通过 1234 coverage / 1115 source / 162 构建包（4/4 既有跳过），407 个输入未变；其正常远端 CI [45359790863](https://github.com/bubkoo/html-to-image/actions/runs/45359790863) 仍为 source 1112 通过 / 3 失败 / 4 跳过：Firefox 私有环境 probed=true、待字体取消及 WebKit 冻结 SVG 源文档回收。coverage 1234 通过、CodeQL 45359790974 通过，浏览器包未运行，保留全部日志与校验过的 10 份上传物。该版本真机 UMD 离线五 fixture 子集 112/112 通过、410 输入未变；不覆盖 HTTP、外部 SVG/CSP、字体、ESM、源截图或设备 GC，电脑网络配置未改。
+候选 `1e208d4` 在 [#650](https://github.com/bubkoo/html-to-image/pull/650) 的默认 CI [45369299428](https://github.com/bubkoo/html-to-image/actions/runs/45369299428) 完整通过 1249 coverage / 1130 source / 162 构建包（4/4 既有跳过），实际合并测试 `0924183` 已验证含准确 head；CodeQL 45369299463 通过，8 份上传物已下载并核对摘要。
 
-类型审计还定位 9 文件 69 处 Document 直接访问（SVG 策略模块占 30 处）。新候选将该类全部转移到通用反射入口；方法先取值、后求值参数，并保留原接收者和重载类型。静态 Document/含 Document 联合类型直接读取归零；不把该审计外推至 Node、any 或动态路径。新增 5 个行为对照在三引擎共 15 项通过，输入前后相同；主机和固定 Linux 的 lint/构建/包入口/TS4.9 与当前类型检查通过。原三次回收、严格断言、期限、跳过、浏览器设置、工作流与脚本均未改。
+相同源码的固定 Linux 正常本地流程仍失败：coverage 1249 通过，source 1128 通过 / 2 项 Firefox 失败 / 4 跳过。`font=false, opened=true` 在第 83 行被测源文档未回收；`font=true, opened=true` 在第 82 行原生对照未回收，后续被测断言未执行。正常流程未运行构建包；另行独立执行的构建包 162 项通过，不能替换原失败。两次测量各 408 个输入前后未变，Firefox 为原始未改版本。
 
-[上一版完整结果、失败上传物、当前审计与行为对照](evidence/document-property-lifetime/access-preflight.json)已归档并核对成员哈希。新候选准确提交的完整本地/远端和真机仍待验收，#650 保持草稿，不能认定生命周期修复或旧 Issue/PR 完成。
+当前 UMD 在真实 iPhone Safari/iOS 26.6.1 离线五 fixture 子集 112/112 通过，411 个输入前后未变，无 HTTP 资源请求；设备会话和自有驱动均已释放，电脑网络设置未改。不覆盖 ESM、HTTP、外部 SVG/CSP、已加载字体、源截图或设备 GC。
+
+此前审计的 9 文件 69 处 Document 直接访问已转移到反射入口；静态 Document/含 Document 联合类型直接读取归零，Node、any 和动态路径不在审计范围。方法读取保持原接收者、参数求值顺序和重载类型，新增 5 个行为对照在三引擎 15/15 通过，主机与固定 Linux 的静态/构建/包入口检查通过。原三次回收、严格断言、期限、跳过、浏览器配置、工作流及脚本未改。[预检和上一版失败](evidence/document-property-lifetime/access-preflight.json)、[本轮完整日志、上传物、真机和输入回执](evidence/document-property-lifetime/access-validation.json)均已归档，成员哈希逐项验证。
+
+该访问类隔离尚不足以证明稳定修复；原生对照失败需单独诊断，不能据此忽略另一次被测对象保留。下一步在再次复现的失败进程采集有身份对照的实际引用路径，再决定生产改动，不凭猜测扩大反射范围。#650 保持草稿，旧 Issue/PR、#585 当前浏览器外观/资源/字体边界继续开放，无 npm 发布。
 
 ## 2026-11-24 WebKit 原生复现与四处文档创建入口
 

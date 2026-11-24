@@ -1,12 +1,11 @@
 {
   "date": "2026-11-24",
-  "status": "Draft production candidate; unresolved default CI collection failures",
+  "status": "Default remote gates pass; local source collection failures remain; production PR stays draft",
   "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
-  "sourceMatchesMeasuredCandidate": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
   "branch": "codex/document-property-lifetime",
-  "productionScope": "10 source files: generic Reflect.get for15 defaultView accesses and private CSP createElement/head; original private-document method receiver, node realm, policy text and order preserved",
+  "productionScope": "13 production source files: Reflect.get for Document/defaultView/private CSP/four factory reads and all69 remaining statically Document-typed accesses; Reflect.apply forwarding preserves original method receiver, allocation realm, overloads, argument evaluation and policy order",
   "unchangedFromBase": [
-    "tests and original collection assertions",
+    "existing tests and original collection assertions",
     "three primary collection requests/deadlines/skips",
     "default browser/sandbox/JIT configuration",
     "CI workflows and scripts"
@@ -114,13 +113,28 @@
       }
     }
   ],
-  "codeql": {
+  "causalLimits": [
+    "Different jobs/order/timing and prior observed same-source passes prevent a deterministic before/after root-cause claim",
+    "A90 remote uses diagnostic Firefox and branch observers; those results do not replace unmodified production-branch CI",
+    "Known wrapper/prototype/cache paths justify isolating these reads; no universal claim that every possible retention path is fixed",
+    "Current physical UMD offline112 subset passes; full HTTP/external SVG/CSP/fonts/ESM/source screenshots and device GC are outside this acceptance"
+  ],
+  "diagnosticHistory": "https://github.com/bubkoo/html-to-image/pull/646",
+  "broaderScope": "Old28 PR/Issue dispositions remain in both trackers; #585 current-browser appearance/resource/font/native scope and manual #398 trusted-click acceptance stay open. No npm publication or old contributor PR closure.",
+  "index": "document-property-lifetime/index.json",
+  "latestFactoryPreflight": "document-property-lifetime/factory-preflight.json",
+  "latestStatus": "1e208d4 default CI1249/1130/162 and CodeQL pass, physical offline112 pass. Local normal source1128/2Firefox failures/4skips includes one native control failure; standalone packages162 pass. Draft only; collect actual failing holder paths before more production changes.",
+  "latestAccessPreflight": "document-property-lifetime/access-preflight.json",
+  "latestAccessValidation": "document-property-lifetime/access-validation.json",
+  "currentSourceHead": "1e208d44b94df468ee369605c15df3e22567b9d3",
+  "initialSourceMatchesMeasuredCandidate": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
+  "initialDiagnosticCodeql": {
     "run": 45346620038,
     "head": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
     "result": "success"
   },
-  "local": "Measured C passed complete normal Linux1234/1115/162 with original Firefox and diagnostic flags unset;414 source/config/build hashes stable. Independent production-base host lint/build/tarball ESM CJS UMD/TS4.9-current entries/browser types also passed.",
-  "device": {
+  "initialLocal": "Measured C passed complete normal Linux1234/1115/162 with original Firefox and diagnostic flags unset;414 source/config/build hashes stable. Independent production-base host lint/build/tarball ESM CJS UMD/TS4.9-current entries/browser types also passed.",
+  "initialUSBHTTPAttempt": {
     "connection": "Actual iPhone Safari26.6.1 non-simulator session established after unlock",
     "httpAttempt": "Safari reports network connection lost before any test verdict",
     "acceptance": "not run; no device GC claim",
@@ -131,17 +145,17 @@
     "computerNetworkConstraint": "No computer network settings changes; preserve Wi-Fi, proxy, routes and interfaces. Only read-only diagnosis performed.",
     "listenersAtResume": "none on4444/4373; no test process still running"
   },
-  "causalLimits": [
-    "Different jobs/order/timing and prior observed same-source passes prevent a deterministic before/after root-cause claim",
-    "A90 remote uses diagnostic Firefox and branch observers; those results do not replace unmodified production-branch CI",
-    "Known wrapper/prototype/cache paths justify isolating these reads; no universal claim that every possible retention path is fixed",
-    "No successful current device test verdict; HTTP-specific and original issue acceptance remain open"
-  ],
-  "diagnosticHistory": "https://github.com/bubkoo/html-to-image/pull/646",
-  "broaderScope": "Old28 PR/Issue dispositions remain in both trackers; #585 current-browser appearance/resource/font/native scope and manual #398 trusted-click acceptance stay open. No npm publication or old contributor PR closure.",
-  "rawFiles": 104,
-  "index": "document-property-lifetime/index.json",
-  "latestFactoryPreflight": "document-property-lifetime/factory-preflight.json",
-  "latestStatus": "79faeec local1234/1115/162 and offline physical112 pass, but default CI45359790863 retains2Firefox+1WebKit failures. Audited extension removes69 typed Document accesses; new behavior15/15, static checks pass; full exact-head gates pending.",
-  "latestAccessPreflight": "document-property-lifetime/access-preflight.json"
+  "initialRawFiles": 104,
+  "addedBehaviorTests": {
+    "file": "test/browser-unit/document-access.test.ts",
+    "cases": 5,
+    "threeEnginePassed": 15
+  },
+  "rawFiles": 303,
+  "indexes": [
+    "document-property-lifetime/index.json",
+    "document-property-lifetime/followup-index.json",
+    "document-property-lifetime/access-preflight-index.json",
+    "document-property-lifetime/access-validation-index.json"
+  ]
 }
