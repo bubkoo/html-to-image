@@ -1,5 +1,15 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-24 已采集实际远端三项失败
+
+准确 `4a70ef0` 的 [PR CI 45335352750](https://github.com/bubkoo/html-to-image/actions/runs/45335352750) 在合并测试提交 `f8028b2` 上通过探针正反控制、lint、构建、入口/类型和 coverage 1234 / 4 跳过；source 1112 通过 / 3 项 Firefox 回收失败 / 4 跳过，浏览器包未运行。独立同配置 source 对照同为 1112 / 3 / 4，不替换原始失败；CodeQL 45335352731 通过。push 45335344685 与旧版 PR 45334553916 在保存回读时仍安装浏览器，未声称最终结果。
+
+原始/对照六份图均成功识别目标，采集/原生跨进程日志错误为零，完整 GC 行解析无未知行，目标 ID 与快照对应。未探测环境的路径经 createSVGStyleEnvironment 的嵌套脚本及 lockResources；已探测/待字体两项经 detectSVGStylePolicy 的 DOM 访问缓存到私有窗口和文档。六份普通 GC 原图均保留明确 GetProp cacheir-shape 路径；排除两类具名观察器边后仍有 76/77 个模块候选。快照里含 weak 的缓存字段仅保守保留，不据名称认定强弱；这些是失败之后的图，尚不是唯一原始根因或已验收修复。
+
+离线解析器直接读取 gzip/protobuf 快照，按上游顺序还原两种字符串表，核对完整消息、引用、文档 census 与 Firefox 自带的每条给定路径（实际六图共 374 条路径）。原始布尔值在堆/额外 CC 前已落盘：未探测项 nativeCollected=true / ownerCollected=false，后续已探测项 nativeCollected=false / ownerCollected=false，待字体 collected=false；后续观测可能被先前诊断影响，不能概括为仅库对象保留。主三次请求/断言/期限/跳过和默认 sandbox/JIT 未改；没有解包 capture/environment/source。
+
+[254 份原始输入、三版工具、失败预检、六图、完整日志及分析](evidence/gc-observer-controls/remote-reference-summary.json)已归档。远端 PR 和本地 Firefox 均恢复原字节，本地受测输入恢复，自有容器停止；无生产改动、新增真机结论或 npm 发布。下一步仅针对实际路径所指的私有文档 DOM 读取做因果对照，再按完整输出与生命周期门禁评估修复，目标继续进行。
+
 ## 2026-11-24 已确认远端采集权限差异
 
 准确 `571a9ba` 的 push CI 45334546135 证明父进程快照分析成功，并找到工具已知成员路径；子进程读同一文件明确返回 NS_ERROR_FILE_ACCESS_DENIED（2152857621）。子进程直接 forceCC 未生成 GC/CC 文件，工具自检因此失败，正常测试尚未运行。其 PR CI 45334553916 在已保存回读时仍安装浏览器，不推断最终结果。

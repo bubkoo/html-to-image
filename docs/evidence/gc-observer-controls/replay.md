@@ -444,3 +444,34 @@ pass; target identity and explicit member join are verified. Snapshot IDs must b
 verified in each later GC graph before joining across the extra collection.
 See [preflight](../gc-reference-native-logs-preflight.json) and the referenced
 [Firefox implementation](https://raw.githubusercontent.com/mozilla-firefox/firefox/main/xpcom/base/nsMemoryInfoDumper.cpp).
+
+
+### Actual remote source failures captured
+
+At4a70ef0 PR45335352750 tests mergef8028b2. Tool controls/static/build/entry/types
+pass, coverage1234/four skips passes, source1112/three Firefox failures/four skips
+fails; browser packages do not run. The diagnostic same-configuration source
+repeat is also1112/three/four. Original failure remains authoritative; CodeQL
+45335352731 passes. The live push45335344685 and older PR45334553916 remain browser
+installation at saved readback, with no terminal claim.
+
+All six primary/repeat owner targets are identified without capture/environment
+unwrapping. GC rows parse completely and IDs join the pre-CC snapshots. Unprobed
+paths run through createSVGStyleEnvironment/nested lockResources script; probed
+and pending-font through detectSVGStylePolicy. Each ordinary GC log has an
+explicit GetProp cacheir-shape path through private Window/Document. Snapshot
+weak-named fields are conservative candidates, not automatically strong edges.
+Unknown native ownership and observer effects remain; these are post-primary
+witnesses, not a unique original cause or accepted runtime fix. Later native
+control retention is preserved, not described as library-only failure.
+
+The offline snapshot parser decodes gzip/length-delimited protobuf with separate
+one/two-byte intern tables and the source deserializer's stack/property order.
+Complete frames/IDs/referents, document census and all provided Firefox path
+steps are cross-checked; actual six files verify374 native paths in total. It
+adds no live observation or collection. The full original images/API results and
+complete emitted GC graph remain authoritative. See the indexed
+[254-file archive](remote-reference-summary.json), including observer versions,
+failed remote tool preflights, controls, raw files, complete logs and cleanup.
+A future counterfactual must change only the observed private-document access
+sites, retain output/primary-lifetime contracts and all full CI/device gates.
