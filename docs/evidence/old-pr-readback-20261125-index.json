@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "scope": "Original 28 PR GitHub connector metadata readback; state/head/base/merged/updated UTC observations",
+  "fileCount": 33,
+  "rawResponseCount": 28,
+  "sourceIndexPayloadCount": 32,
+  "sourceIndexSelfExcluded": 1,
+  "archive": {
+    "path": "old-pr-readback-20261125-raw.tar.gz",
+    "bytes": 28034,
+    "sha256": "20d0005b9f491d254bdaabf9fbfe8f288779b5bfa1442c42bbbdbeacbe513746"
+  },
+  "files": [
+    {
+      "path": "output/playwright/old-pr-readback-20261125/baseline.json",
+      "size": 8954,
+      "sha256": "06c423b8bd4a56023fb0def2704e163bb6acf8ff5dac221bc27e331f289bef45"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/index.json",
+      "size": 4936,
+      "sha256": "6407545b83ca2abd7ee020cbf1848990415048642b5caa22ece529952eb980ac"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-376.json",
+      "size": 3911,
+      "sha256": "b81391f83d600dfcbb92b767dd79fc3ac904347fb2bf54775a6f3d2ed39a8bb9"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-393.json",
+      "size": 2683,
+      "sha256": "6422174c6acdb41d5f59ada216f5c4ab32a71df8f16e592efbfaef8da0332fc8"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-398.json",
+      "size": 3627,
+      "sha256": "b6ea5fb8afe3a92f422714b686ba49fc64983b9ec0c861afb7c0ae03e27e352a"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-400.json",
+      "size": 3661,
+      "sha256": "9bbc1908f862f191f28077fb7b4e6d3419d9ab471613a938995183508ec6788e"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-401.json",
+      "size": 3697,
+      "sha256": "f8f825aa0c2f535d3c07fab5cc481b17b825c3b1def1b019c01f88f36625881f"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-407.json",
+      "size": 3405,
+      "sha256": "87a83680217864d7391229aa49de536e1a113c296cdd288d7e87b9d273332bcd"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-408.json",
+      "size": 3443,
+      "sha256": "2dcb21639075c3677bcddc592b57be1c584663095b45e77f03cb0a2cdfba108c"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-409.json",
+      "size": 3595,
+      "sha256": "598984d805fd06bda2cfe619cf5c10262cb360385c637f9de3cba83193870b87"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-427.json",
+      "size": 4430,
+      "sha256": "ca1a6880a2c305dca92f1843bdcb41f44d059ad3eaf3b64cee6b639b78290006"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-430.json",
+      "size": 3677,
+      "sha256": "cb3d5457d8ec25663a8282df4bc476c0fbe97fbf061a0694e3b14ba3cee45ad3"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-442.json",
+      "size": 5148,
+      "sha256": "dd4495b5aa4ca3d12bc6666fca70a0d1f1a686ef483b062533d7564190e794ad"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-443.json",
+      "size": 3786,
+      "sha256": "820a7b1822457dfc236ce56ba55f9e14be178cd525acde5f4a5b66210ce4ee33"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-451.json",
+      "size": 3459,
+      "sha256": "0f574c5be1bcaca2208d790e2417e94c7bb7ef8a00eab1cf910273fea27adb6b"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-473.json",
+      "size": 3687,
+      "sha256": "89628fca75ae9675b7f88b85b69e0a9500cba85973ee9d28d043d9f7ed2e0418"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-482.json",
+      "size": 3752,
+      "sha256": "36deaa2e835917e6be137f270fad4cce429fba38dc93f58327b100eed6da989f"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-498.json",
+      "size": 3618,
+      "sha256": "abfd75778cc93d87a501b536a8c4cdd9e4185cdb1a96d3b4b42c91cec7bdc478"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-499.json",
+      "size": 3901,
+      "sha256": "86ffde86d838441f6501326000cef3ad4d0bbac514089356f2c021c38890c5e4"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-504.json",
+      "size": 5369,
+      "sha256": "3519071c06bb81ac7769a4e2b20da51ec04b7fb3fe8c3a9c920d68eb645a611f"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-511.json",
+      "size": 3828,
+      "sha256": "fc58f6a32a5862b49ea1cf36f1d833e3189fafa00f301259b9de9d7459c91829"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-533.json",
+      "size": 3929,
+      "sha256": "8aba6990bc38edf6be092d5c4d7db195faa1a8b2bfbdf216782e2d990f259479"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-540.json",
+      "size": 10242,
+      "sha256": "ab408a3cec11c87a694dfd0ba91aca3280d72c623db343cf57c6c255a23999ae"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-560.json",
+      "size": 3387,
+      "sha256": "b50d6dbe58313a53aa3e8e1556ff92ae09c8fc0b792121ee4a3b07bdf7777647"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-568.json",
+      "size": 4271,
+      "sha256": "3ef212868b6c691a21781272eb5307bd3c841734f258fbe93838a1dc7c293e58"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-574.json",
+      "size": 9323,
+      "sha256": "2186e07ced2937c7085b8da8739dd3d46678bfe809714dacf72fde742f28dd9e"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-575.json",
+      "size": 3302,
+      "sha256": "6c4583be114a77aa91cde5985645467e3581a5b14b13ca7a61f68fe3efbf2ee1"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-577.json",
+      "size": 2299,
+      "sha256": "ed1cbc2e7a0e080ec144e18b888ef5d7b0c0ec06efb4567fb52f4a3cafa79397"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-581.json",
+      "size": 3644,
+      "sha256": "9f12461f36d0dfa014f72c92a1ff7cff5112e339627b6327873b349283df0bec"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/raw/pr-585.json",
+      "size": 5336,
+      "sha256": "5266ab23425f5fdecbccd383d19a651e639dc8d7f286f53d70b62591e1afb9d6"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/redactions.json",
+      "size": 191,
+      "sha256": "5a11f51232c8df229323e0f7a9a2fa72c25ab8956e995d32d0513f3856dbba07"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/summary.json",
+      "size": 27655,
+      "sha256": "5a8f7e6569e0a8b52167bae6e8e4ef092cba155ab71dc153ea31b908f1c93c91"
+    },
+    {
+      "path": "output/playwright/old-pr-readback-20261125/summary.md",
+      "size": 6416,
+      "sha256": "ec61849b0486d37cf0ed088d722491477565dad548b0ef70b04ce06df59ccb33"
+    }
+  ]
+}

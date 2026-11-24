@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-24T20:21:04.616475+00:00",
+  "status": "Research archive only: bounded DTO controls feasible; no generic missing-marker proof; passive Blob/data timing signal unknown",
+  "productionSourceChanged": false,
+  "productionFilterImplemented": false,
+  "mainTestsOrGeneratedPackagesChanged": false,
+  "existingArchivesOverwritten": false,
+  "relatedPR": 651,
+  "remoteChecksRevalidated": false,
+  "phoneOrNetworkSettingsUsed": false,
+  "originalIndexAccounting": [
+    {
+      "group": "output/playwright/native-part-context-20261125",
+      "indexedRawMembers": 84,
+      "originalIndexSelfExcluded": 1,
+      "actualArchivedMembers": 85
+    },
+    {
+      "group": "output/playwright/native-part-passive-resources-20261125",
+      "indexedRawMembers": 19,
+      "originalIndexSelfExcluded": 1,
+      "actualArchivedMembers": 20
+    }
+  ],
+  "findings": {
+    "engines": [
+      {
+        "engine": "chromium",
+        "version": "156.0.8078.4"
+      },
+      {
+        "engine": "webkit",
+        "version": "27.2"
+      }
+    ],
+    "contextDTO": {
+      "sourcePairs": 24,
+      "samePartSourceAgreements": 24,
+      "unsupportedUnknown": 32,
+      "primitiveOnlySynchronousSnapshots": 24,
+      "nestedTargetNegativeWithChildPositive": 4,
+      "selectedPartScope": [
+        "::-webkit-scrollbar",
+        "::-webkit-scrollbar-thumb:horizontal",
+        "::-webkit-scrollbar-track:vertical"
+      ],
+      "scope": "Fixed static Document/ShadowRoot controls; exact rule path/prefix/part/suffix and nesting/media/supports/layer envelope retained. Not a generic membership policy."
+    },
+    "lifecycleAndSafety": {
+      "lifecycleCases": 30,
+      "modeCounts": {
+        "preabort": 12,
+        "before-fence": 12,
+        "external-dispose-during-real-wait": 2,
+        "abort-during-pending-frame-load": 2,
+        "dispose-before-run": 2
+      },
+      "identicalCancellationReasons": 26,
+      "realCSPWaitCancellationWithPartPositiveBeforeFence": 12,
+      "inlineAndOnerrorExecutions": 0,
+      "maliciousDTOPreFrameRejections": 2,
+      "allFinalFramesListenersTimersZero": true
+    },
+    "visibility": {
+      "observations": 12,
+      "rootZeroOrHiddenRuleParticipatesWithoutPixelsAndWithPartEvent": 4,
+      "ancestorOpacityZeroNoPixelsButPartEvent": 2,
+      "ancestorDisplayNoneUnknown": 2,
+      "thumbOpacityOrDisplayDeclarationsDidNotHidePartInTestedEngines": 4,
+      "generalAbsentEventInferenceProven": false
+    },
+    "passiveBlobData": {
+      "capabilityControls": 4,
+      "independentTransparentPNGDecodes": 4,
+      "resourceTimingEntries": 0,
+      "observerEntries": 0,
+      "CSPViolations": 0,
+      "result": "unknown; no local-resource timing observation, never infer selector non-membership",
+      "openWriteControls": 4,
+      "openWriteFinalComplete": 4,
+      "openWriteWindowLoadObserved": 0,
+      "consoleBoundary": "Chromium allow-scripts plus same-origin sandbox warnings retained; no CSP console errors in passive controls.",
+      "rootHiddenMultiScrollerAndEnvelopeMatrixExpanded": false
+    },
+    "cleanupScopesVerified": [
+      "output/playwright/native-part-context-20261125/results",
+      "output/playwright/native-part-context-20261125/visibility-results",
+      "output/playwright/native-part-passive-resources-20261125/capability-results",
+      "output/playwright/native-part-passive-resources-20261125/minimal-results"
+    ],
+    "generalProductionFilterImplemented": false,
+    "genericMissingMarkerProof": false
+  },
+  "evidenceBoundary": [
+    "24 fixed static source-target agreements do not establish arbitrary sourceDocument or CSS/part/state fidelity.",
+    "32 unsupported snapshots remain unknown; arbitrary variables/resources/dynamic state/complex structure are not certified.",
+    "Observed CSP marker/fence ordering is not a general absent-event or resource-completion proof.",
+    "The CSP prototype can produce console security messages, so it is not accepted as a production runtime mechanism.",
+    "No Blob/data ResourceTiming observation is never evidence of selector non-membership; a complete positive set is absent.",
+    "readyState complete and diagnostic timeout do not prove Window load covers CSS native-part backgrounds.",
+    "Original probe failures, security negatives, strict-function-variance attempt and cleanup receipts are preserved."
+  ],
+  "publicReview": {
+    "credentialOrSignedURLOrPersonalContactFindings": [],
+    "ordinaryLocalWorktreeStackPathMembersRetained": [
+      "output/playwright/native-part-context-20261125/attempt-guard-body-index-failure.log",
+      "output/playwright/native-part-context-20261125/attempt-late-event-document-view-failure.log"
+    ],
+    "localPathPolicy": "Two original failure stacks retain ordinary checkout paths as provenance; no credentials or personal contact data were found. Raw bytes are unchanged."
+  },
+  "primarySource": {
+    "title": "Resource Timing Editor\u2019s Draft, section 3.2",
+    "url": "https://w3c.github.io/resource-timing/#resources-included-in-the-performanceresourcetiming-interface",
+    "support": "The specified HTTP(S) timing scope is consistent with the tested empty local Blob/data controls; it does not supply a missing selector signal."
+  },
+  "rawEvidence": {
+    "path": "native-part-context-followup-raw.tar.gz",
+    "bytes": 81274,
+    "sha256": "b424c5ae71cfd5e276d39561feb542cf7669aad73524b6f89b5e399e47f7293a",
+    "index": "native-part-context-followup-index.json",
+    "fileCount": 105,
+    "allMemberHashesVerified": true
+  },
+  "verification": {
+    "script": "native-part-context-followup-verify.py",
+    "receipt": "native-part-context-followup-verification.json",
+    "command": "python3 docs/evidence/native-part-context-followup-verify.py --check-originals",
+    "sourceDirectoriesRequiredOnlyForCheckOriginals": true
+  },
+  "replay": "Inspect the archived assessments, frozen standalone helpers/prototypes and receipts first. Archive paths are repository-relative; no extraction or browser execution is needed for verification. Replaying probes requires the recorded Playwright engines and repository dependencies. This archive does not validate the main runtime or current remote head."
+}

@@ -1,0 +1,1336 @@
+{
+  "fileCount": 265,
+  "allArchivedMemberHashesVerified": true,
+  "archive": {
+    "path": "svg-style-environment-cancellation-raw.tar.gz",
+    "bytes": 1573221,
+    "sha256": "e249c7a585188fbfa53bc691db217015aafdd2ad7bebabe99d65595fc4663c16"
+  },
+  "files": [
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/blob-preview-data-url.txt",
+      "bytes": 145759,
+      "sha256": "14374e53d18e6967fbdf3b7a58a72035fa7c125aa5652ea1fd9ca53b4253c281"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/blob-preview-offline.html",
+      "bytes": 109300,
+      "sha256": "4286c4bd234d96ae7358be2f63007ea60aa6def8475a8ef667229bac381ab25f"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/chromium-diagnostic.json",
+      "bytes": 5986,
+      "sha256": "46a1990693e0d831abed9a673b2db4e0c1a662c37969b756b291a72528927768"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/chromium-preview.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/create.mjs",
+      "bytes": 9625,
+      "sha256": "6b2fb0174817aca5e2c907ca769c6dc0b621d0bdefcdf61c2053d52f628771c8"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/desktop-check.mjs",
+      "bytes": 6151,
+      "sha256": "af4525b65ba30c09ec4321469117967c1cac6dbdf8aa4c29589dada58f65c8c7"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/desktop-receipt.json",
+      "bytes": 6603,
+      "sha256": "6cb5d914dd0c9e364affbffc8c19d4e08923c462ec0f9358daa97241427bfc7c"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/desktop-run.log",
+      "bytes": 540,
+      "sha256": "54da1ac9388d3e4010c76b3a3e443a5b573f7a1aff56c6763fa5f1de857bfb02"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/firefox-diagnostic.json",
+      "bytes": 6075,
+      "sha256": "5da67de4575366c2a550f2f47d1348de77216bed5e7dee15af0e36e31049886a"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/firefox-preview.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/manifest.json",
+      "bytes": 4141,
+      "sha256": "98f32fdbd7b0a2596c605b99b9ab94f3c0a35afae42d3ba5430c6773f36494c7"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/webkit-diagnostic.json",
+      "bytes": 5897,
+      "sha256": "b962992e817a6631d68ebc64eb86a780842c84139ec9fd78a5e96e37589e59b8"
+    },
+    {
+      "path": "output/playwright/blob-preview-offline-d250169-20261125/webkit-preview.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/compile-svg-style-cancellation-20261125.py",
+      "bytes": 8838,
+      "sha256": "2ff70f589cf49ca61c0b4ed663263a323eb12f3ab2b9444689c4a432f4f09071"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/run-default-check.py",
+      "bytes": 1729,
+      "sha256": "0aaa2a878f2b18caed0e0d9903a140c3cffe8a4cfdf3f0e961f12270810139cd"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/run-package-check.py",
+      "bytes": 1797,
+      "sha256": "08e86ca9a8ca1d7e814b13af541fb1f7fe61944b2007c63775d946276c5ac12d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/run-source-check.py",
+      "bytes": 1797,
+      "sha256": "baf73f2455fd3d38a81f7750bec44af5c736b155b88b736ba2543eccf1ca8db7"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/run-svg-style-abort-pair.py",
+      "bytes": 1622,
+      "sha256": "fa0461ec6ebe509149e668a8fb4bc523dcbdb96046aaac81184ddc1a2cca5551"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-build.log",
+      "bytes": 1191,
+      "sha256": "78dbdfd0149815439c0fa95f50b5c4dab24377ac2903fde35401d29a854fe7aa"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/inputs-after.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/inputs-before.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/receipt.json",
+      "bytes": 327,
+      "sha256": "464d2a3d2f9e992d34cf533c8c0c514648a58dfc20cbb3740870534c59e1ad1e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/run.log",
+      "bytes": 210,
+      "sha256": "3d10b9a6c7582dc7edd25813dd51f3262ddc790c310cb8415cf4d355dcb76a9d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/svg-style-scope.ts",
+      "bytes": 28168,
+      "sha256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-after/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/inputs-after.json",
+      "bytes": 46498,
+      "sha256": "efca377913ead9b246820755ac47bf3ef2ff94f91f21eb896736312d0f74e2ba"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/inputs-before.json",
+      "bytes": 46498,
+      "sha256": "efca377913ead9b246820755ac47bf3ef2ff94f91f21eb896736312d0f74e2ba"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/receipt.json",
+      "bytes": 328,
+      "sha256": "3593626a7df022300ba2c94af99f75783c1e10da3bec1a9923e8f30b4b0016d9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/run.log",
+      "bytes": 86321,
+      "sha256": "bafe0ee0522dbcb8c02a8ebd8b8fcfa8d51ba10c0505904969cb19a184ebfab3"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/svg-style-scope.ts",
+      "bytes": 27604,
+      "sha256": "bff89181065a7865cf4219bdf5d86807c9e1d95d14147b7bfe8410e8e31f9e8d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-before/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-pair/final-source.ts",
+      "bytes": 28168,
+      "sha256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-checked-pair/receipt.json",
+      "bytes": 431,
+      "sha256": "5cb5f135e4dee995d4b070c3651b2da61518a73e97a7cc65f99e0a66e995fc5f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/inputs-after.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/inputs-before.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/receipt.json",
+      "bytes": 200,
+      "sha256": "fa043b30aff709539f23540504e55e9f30fb4ad7203dcdd55de8f3189a6d6869"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/run.log",
+      "bytes": 2113,
+      "sha256": "3926463e4214e5fbcd426a8529514b503af9d9b2413f689c073fa3b7fb97f77f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/svg-style-scope.ts",
+      "bytes": 28168,
+      "sha256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-default/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/inputs-after.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/inputs-before.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/.last-run.json",
+      "bytes": 145,
+      "sha256": "0d448299c7680e53e03b56f79070950fadea4148c7a7b523e2af14b1409ec935"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/mobile-smoke-reports/224a3aeb-bdeb-464d-a2c4-a6042fcca636.json",
+      "bytes": 2472,
+      "sha256": "12b8f9d915f683f8a96b6df5f47a09491cda52d69eca9b66cba5ac3872a3afb8"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/mobile-smoke-reports/412e5dc9-4b52-4fd7-adcb-920bce5a5328.json",
+      "bytes": 2404,
+      "sha256": "66b1232ef8a7ea7f55f9668c83a54f4b5c0feba493498cc5936c49441d31d118"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/mobile-smoke-reports/ace50ec2-337f-48d4-8f83-2d701d71de3d.json",
+      "bytes": 2478,
+      "sha256": "c6e1aadddc119f8fc99e3f515c85f21224f5e86b0300612459d2b7ca8f069b43"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-webkit/error-context.md",
+      "bytes": 10264,
+      "sha256": "468414752e089af45e2132bd79df26bd95f369f85f6a3cee0461cde6b82d4bd6"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-webkit/trace.zip",
+      "bytes": 68565,
+      "sha256": "76db0a4db540e32c473f19e1a2b088d739b2d8fa6fccf9505bd1f4d4613abc9b"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-webkit/error-context.md",
+      "bytes": 10264,
+      "sha256": "816c2d9f427c52b4620d171d02ba2504d176405726e8d86a35bb29c45d4f8296"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/raw/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-webkit/trace.zip",
+      "bytes": 72857,
+      "sha256": "87320c8e952cf31bedd9d29ef7a63adf5f20103317d9e9edfe1dfb9a5dfdfc3e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/receipt.json",
+      "bytes": 275,
+      "sha256": "b286a242bfa8dc96f3a60c970fb0866ca8a016e30aa618fffdec95141a824cbb"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/run.log",
+      "bytes": 27707,
+      "sha256": "8a9fce63da8b052e8c0e1b374d7bade93a47de6605c719e502cd32a46e34cde8"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/svg-style-scope.ts",
+      "bytes": 28168,
+      "sha256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-packages/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/inputs-after.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/inputs-before.json",
+      "bytes": 46498,
+      "sha256": "7ed8a6b261df1e86aefdc9390fc30f137b6304e17828d0c68c91196af34d3b0d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-padding-shadow-matches-source-pixels.png",
+      "bytes": 8358,
+      "sha256": "04c2952ec4be5dd557a28415c79bd56e1d1b316ed8e6d8367c29d0f894b43ba9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+      "bytes": 8358,
+      "sha256": "04c2952ec4be5dd557a28415c79bd56e1d1b316ed8e6d8367c29d0f894b43ba9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-padding-shadow-authored.png",
+      "bytes": 293,
+      "sha256": "c0217dd8ea643a6ea10b0d2e5941b3cb3bb0e674e67577be0b152ca2eebc4c60"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-padding-shadow-capture.png",
+      "bytes": 293,
+      "sha256": "c0217dd8ea643a6ea10b0d2e5941b3cb3bb0e674e67577be0b152ca2eebc4c60"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-padding-shadow-html.png",
+      "bytes": 300,
+      "sha256": "40ed20e0f6db3fb722d55932f5984175c90a60f80679614abd9593abf5eb1650"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-padding-shadow-inline.png",
+      "bytes": 300,
+      "sha256": "40ed20e0f6db3fb722d55932f5984175c90a60f80679614abd9593abf5eb1650"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-padding-shadow-native.png",
+      "bytes": 300,
+      "sha256": "40ed20e0f6db3fb722d55932f5984175c90a60f80679614abd9593abf5eb1650"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-padding-shadow-replay.png",
+      "bytes": 293,
+      "sha256": "c0217dd8ea643a6ea10b0d2e5941b3cb3bb0e674e67577be0b152ca2eebc4c60"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-padding-shadow.json",
+      "bytes": 62327,
+      "sha256": "8da12ccf95fd70e3121c8731b0ff97ca42fff0a39e0b9ee57afecbb24f1fc252"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-visible-text-authored.png",
+      "bytes": 384,
+      "sha256": "ddf341713d1293dabe7056277e044472b5a31d18d2eb962131c9514a3202b17e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-visible-text-capture.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-visible-text-html.png",
+      "bytes": 384,
+      "sha256": "605eef4ca4598035f2db0c2570bd79aaff21c2e425a0c4686d112017fd9aae87"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-visible-text-inline.png",
+      "bytes": 384,
+      "sha256": "605eef4ca4598035f2db0c2570bd79aaff21c2e425a0c4686d112017fd9aae87"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-visible-text-native.png",
+      "bytes": 384,
+      "sha256": "605eef4ca4598035f2db0c2570bd79aaff21c2e425a0c4686d112017fd9aae87"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-visible-text-replay.png",
+      "bytes": 384,
+      "sha256": "ddf341713d1293dabe7056277e044472b5a31d18d2eb962131c9514a3202b17e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/.vitest/attachments/scrollbar-box/webkit-native-visible-text.json",
+      "bytes": 81217,
+      "sha256": "6c89776b9c0adcb5424ae4bd09350ce9c8d3b3e0982cb7afaabe01c986aff310"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/last-source-attachments/selection.json",
+      "bytes": 1731,
+      "sha256": "adba6b7abd055325c6a21b4030a172ce19127e1f909e26b96822dd13db741386"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/receipt.json",
+      "bytes": 280,
+      "sha256": "82080441410fe342239f1d844a979de847687d96041ae2c3c41b827d64d9192f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/run.log",
+      "bytes": 1611,
+      "sha256": "23d5a00da82640a9fddafed3ca8090ed97935085470515931341d73b8852e5ad"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/svg-style-scope.ts",
+      "bytes": 28168,
+      "sha256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-full-source/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-lint-checked.log",
+      "bytes": 368,
+      "sha256": "ca2ce376ec02c2fb616014827a94d37f3e4e680c2e669d13ec665c5b7d87631e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-package-contract.log",
+      "bytes": 229,
+      "sha256": "c346922a5a38ab96db87eadff4e152a68ba998c102d1547897ea7fac80a81374"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/svg-style-abort-types-checked.log",
+      "bytes": 164,
+      "sha256": "bd4db7a1d5f5d4df7259eeb046cc42e7eae9e0a75dbeeb61fbad8c6c782f237a"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/assessment.json",
+      "bytes": 7215,
+      "sha256": "dd9f1ae39f2fcef059548ee5a8c22676e4aac112a17f6d0023f5bb82155ce3bd"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/automation-process-check.json",
+      "bytes": 7031,
+      "sha256": "f05d474fe6805038222ae1a2cd0559ab789802664f41c4d5dbe7d2cfedc6e542"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/inputs-after.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/inputs-before.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/receipt.json",
+      "bytes": 637,
+      "sha256": "d5b4a7338583e041f4ef612cb2e3507dc12cc9a0eb18cf1b204e2d2e79bacc4f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/run.log",
+      "bytes": 20573,
+      "sha256": "aea399a1225b11cc168a14897503797b4ac5621c4da5a83503ff577fcd6097db"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/test-results/mobile-smoke-reports/55c780ec-0f7b-4895-94dc-83a21a8fe05f.json",
+      "bytes": 2472,
+      "sha256": "67c685cb075c758e73dd9bb485ebb8676ce60e84cc8d7cf05f3a9bdc809e68be"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/test-results/mobile-smoke-reports/ed022c82-1d90-4dfa-a547-593bb5a7e9c4.json",
+      "bytes": 2478,
+      "sha256": "0d5e1c33749c8c939dd1c9235e48a8a7bec910a1ccfbacc8b5853795b8978975"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-package/test-results/mobile-smoke-reports/f0ae84f9-55d0-492b-83bd-be47fbc65b20.json",
+      "bytes": 2404,
+      "sha256": "9d666347dcda7b7254fb3f5a8575100d8ef9ad23e66568fb31c52969af878bf8"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-types/inputs-after.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-types/inputs-before.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-types/receipt.json",
+      "bytes": 672,
+      "sha256": "a6cdf40e0be438792cbd9ca1bd7eead45c9a0add3ea5ca63a846415927815ddb"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/browser-types/run.log",
+      "bytes": 160,
+      "sha256": "bae87d781ecff954d03ac31741e733ce887b4fb29e8a65458035ab0f3285b179"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/build/inputs-after.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/build/inputs-before.json",
+      "bytes": 111680,
+      "sha256": "6e6fd49c04a3bc8b37c92d9767c069b570600a144bb5ef1ca6774018d719b562"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/build/receipt.json",
+      "bytes": 649,
+      "sha256": "a20944448403e8fb04a9c8013ebf35777dd7828b1045d85d1e7b8b62bdee57ad"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/build/run.log",
+      "bytes": 1163,
+      "sha256": "383d1364502d9de57674191be5b670c80f1e86afb974820319502e0919c57ff1"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/cleanup.json",
+      "bytes": 679,
+      "sha256": "147b5d912fb0723f402625de69324ec2bf9fc094997af89af68eddaaa6548c63"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/commit.txt",
+      "bytes": 468,
+      "sha256": "b5c12820d61e48b62dd9095205abb2b226cb80820ca24005d72e68d7d10887d0"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/concurrency-boundary.json",
+      "bytes": 1794,
+      "sha256": "06ead30dcc0d0949bc1bcd84875df162ab42f7cb352dbdc61da1e54d4be6c474"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/continuation-final-receipt.json",
+      "bytes": 3681,
+      "sha256": "3a8de5cfaee88d12cdca547f4725b7a96078ff5cc6a0fffe8452fd128d295c6d"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/continuation-receipts.json",
+      "bytes": 2024,
+      "sha256": "72471bf838d421c08b7bc2a6439b12985c9b68bf6666d5cc9c5b3b5ddccd35bc"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/continue-checks.py",
+      "bytes": 3536,
+      "sha256": "0dce1b9d951d047469463bef16d8a7dbc8e8fd47dcee9157329ca45feb3a1a9c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/controller-boundary.json",
+      "bytes": 630,
+      "sha256": "4b0c0b41eee6395e26f7c9a51fce8adee3464b9c041a47a1cf535800e1b4da30"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-recheck/inputs-after.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-recheck/inputs-before.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-recheck/receipt.json",
+      "bytes": 612,
+      "sha256": "2c7e2bdd5ba89946f031b3b3994f8dfb43f63a110f71cc521fa291fefcad3c74"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-recheck/run.log",
+      "bytes": 1364,
+      "sha256": "1223329a4b287eeb5db2f8e2e558421e51af3a34fb256c689b8ee08988820ea5"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-test/inputs-after.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-test/inputs-before.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-test/receipt.json",
+      "bytes": 639,
+      "sha256": "a19e2f8bb0860ead4d5c056579c65d3e635b5bfe0829f874bf81e2105514d18f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-test/run.log",
+      "bytes": 11392,
+      "sha256": "96182a329be1508c70692436ae1ddbf8e9e53a9a34edf2c69332edec127912fd"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-test/vitest-attachments/failure-screenshots/svg-data-imports.test.ts/external-SVG-data-CSS-import-charset-header-preserves-native-pixels.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/default-test/vitest-attachments/failure-screenshots/svg-fragment-paint.test.ts/pattern-nested-missing-shadow-false-resolved-undefined-preserves-native-fragment-scope.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/final-receipt.json",
+      "bytes": 5028,
+      "sha256": "d6ccdd37fc34aac5580ff09d0f25b52cd1584842c9453163830a1962ca188e34"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/first-failure-artifacts.json",
+      "bytes": 767,
+      "sha256": "78a8a07a7338b4fe3175e0e69d025bce95c64b1333e0edabf40b8927fcf1be4a"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/identity-provenance.json",
+      "bytes": 602,
+      "sha256": "cc20d19c3bb4dcb3908a208024214651b48f1a932b0be460078cc3ccd72adff6"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/identity.json",
+      "bytes": 1184,
+      "sha256": "91d26960fc011ffde20580e3dd5cd12b21abe5ae34a69e32b6cdb722a852c9b8"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/install/inputs-after.json",
+      "bytes": 111680,
+      "sha256": "6e6fd49c04a3bc8b37c92d9767c069b570600a144bb5ef1ca6774018d719b562"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/install/inputs-before.json",
+      "bytes": 111680,
+      "sha256": "6e6fd49c04a3bc8b37c92d9767c069b570600a144bb5ef1ca6774018d719b562"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/install/receipt.json",
+      "bytes": 685,
+      "sha256": "e83679ce2eb4ef87faf72b477cc2c2dfd28999180635b9a8f015220412a0fe5a"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/install/run.log",
+      "bytes": 10029,
+      "sha256": "c5aa7648d6a235f508fbb572775a40686e85343e5834ad1f53143d4f7e1705c7"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/installed-packages.json",
+      "bytes": 7383,
+      "sha256": "06841e49bb0e0af43bab453e241caef9621f84456edd5a5edc8cc7596cd2c18e"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/lint/inputs-after.json",
+      "bytes": 111680,
+      "sha256": "6e6fd49c04a3bc8b37c92d9767c069b570600a144bb5ef1ca6774018d719b562"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/lint/inputs-before.json",
+      "bytes": 111680,
+      "sha256": "6e6fd49c04a3bc8b37c92d9767c069b570600a144bb5ef1ca6774018d719b562"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/lint/receipt.json",
+      "bytes": 652,
+      "sha256": "3f5d71ee69c1a73e39f1bf053dfb015ff7c4d0b6993c901204a9e27e5d3273f0"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/lint/run.log",
+      "bytes": 364,
+      "sha256": "1b109236d1af1b241a94f26cccc08e2ebd88985ef4b98e2fd6237d71d504cea2"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/package-contract/inputs-after.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/package-contract/inputs-before.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/package-contract/receipt.json",
+      "bytes": 668,
+      "sha256": "6d5981b0395041d2cec5d9b9a0fcda127aae83f699bd96f6c6675a93ce8b370d"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/package-contract/run.log",
+      "bytes": 225,
+      "sha256": "e6020ef608d70559ae81d4e1f6eabd1d3bd61a38b1905c42e915b0059014c80f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/package-port-precondition.json",
+      "bytes": 86,
+      "sha256": "3b7fac442f392b08630a963720339fb2e95cb693dd1da8498d4833c9ed05e227"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/portable-privacy-review.json",
+      "bytes": 1258,
+      "sha256": "7b16018fceb8e18ab131a52d826aff46d6f9131318aa7b9e3b546660194390af"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/public-evidence-files.json",
+      "bytes": 24093,
+      "sha256": "7afe896e915a848f916102651856f1ed5d83a1723763dfc1efe57f8155194507"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/replay.md",
+      "bytes": 3919,
+      "sha256": "08db175a57bc6b02967f361bb51df44e126fec32d747ad19dc34b6f96d8fb587"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/review.patch",
+      "bytes": 8769,
+      "sha256": "e33c5ae1630c4c20cdb0f770284f4fbf09c831ec02dc9d9ee2e0e829edc1fcea"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/run-checks.py",
+      "bytes": 5128,
+      "sha256": "2dbde360a9b39fdffa74d6f58eb301733d69f06b39960e3194a3b77cd490e074"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/sha256-index.json",
+      "bytes": 11008,
+      "sha256": "beb2e5b047afd187a60d50fd8344c3814f6597a721b9d230bdaad56702e5d232"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/source-followup/inputs-after.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/source-followup/inputs-before.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/source-followup/receipt.json",
+      "bytes": 633,
+      "sha256": "3ce2ae258724ddf43ea4c67ada125dd13ac8624875c19699b62cd2df97cdb19c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/source-followup/run.log",
+      "bytes": 404,
+      "sha256": "9deb903ce438d23d2bd74e4d54c69af3c6e958478a1670f34049cbba0bc70cb3"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/stage-receipts.json",
+      "bytes": 4274,
+      "sha256": "ba13f5cc5960a7c3243e92a7a42fb3eb2aa26c9c7728c5e6890e5368da90a1a9"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/tracked-final.json",
+      "bytes": 123582,
+      "sha256": "052a386b73a56d725125d9388863542f3bd8f4c48276f7c611a670db62cfe24c"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-isolated-20261125/tracked-initial.json",
+      "bytes": 111680,
+      "sha256": "6e6fd49c04a3bc8b37c92d9767c069b570600a144bb5ef1ca6774018d719b562"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/assessment.json",
+      "bytes": 4804,
+      "sha256": "b1a2fc185ee747f614f742cb64d3ac8f83e32ab5fadc2f3ecb00cd97beaf0b89"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/input/src__dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/input/src__svg-style-scope.ts",
+      "bytes": 28168,
+      "sha256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/input/test__browser-unit__svg-style-environment.test.ts",
+      "bytes": 5035,
+      "sha256": "e1a936433d7f4d80dc85b1b4431b6ea2297fbb782395df574d331c7fadd3a720"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/isolated-source.js",
+      "bytes": 9704,
+      "sha256": "11e1d0bc053d4e6b9497724c177d4c3dad07c265d52d6e0117b78a2d0f0d7c4b"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/probe.mjs",
+      "bytes": 6495,
+      "sha256": "6d1c6009502fcf94e4a519ab4014b3577f7a7973f49a78b41d7ddabc99adc67b"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/receipt.json",
+      "bytes": 1624,
+      "sha256": "1e54ecb1c7e2e12db16ab846b27fe58bda2f49d3687e04a98be967d2724caed8"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/results.json",
+      "bytes": 14483,
+      "sha256": "8d1cf98a01348dad7f3ed35fa7ae78880ac85b2445fad5fd5d83641a33a63a72"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/sha256-index.json",
+      "bytes": 1310,
+      "sha256": "0a594f0fa4997744bd5ea5e5b4b78b18746cf15ab98ff216bb27d90caa86d988"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-review-d2501695-20261125/verdicts.json",
+      "bytes": 7050,
+      "sha256": "d833ed4d2641f65740892620e683256fcfa390d6f596385d5f0cc38a397ef0bd"
+    }
+  ]
+}

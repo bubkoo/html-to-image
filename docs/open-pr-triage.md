@@ -1,5 +1,21 @@
 # 开放 PR 处理台账
 
+## 2026-11-25 独立取消修复与剩余绘制边界
+
+新增[草稿 #652](https://github.com/bubkoo/html-to-image/pull/652)将 SVG 环境取消缺陷独立到 #650 的 `25e8381` 基线，源码 `786603d`，只改一个生产文件和一个测试文件；不包含 #651 原生滚动实现。旧实现丢失 `null` / `false` / `0` / 空字符串 reason，并可能在 raw 文档就绪后向默认消费者返回已释放文档。同一最终测试和配置、只替换该生产文件，由 **60 失败 / 33 通过**变为三引擎 **93 通过**；另有 **51 项**独立原生 iframe 边界控制通过。
+
+独立分支 lint、构建、包消费者/类型通过，最终原样默认检查 **1393 coverage / 1274 source** 通过（各 4 项既有跳过），完整构建包 **162/162**。首轮 coverage 曾有两项 Firefox 原生参考在库导出前准备超时，原始失败保留，后续通过不证明其根因。新准确 head 的远端检查与真机仍分开验收。[固定输入、首轮失败和独立验证证据](evidence/svg-style-environment-cancellation.json)不替代原生滚动门禁。
+
+#651 已推送的 `c621e09` 在[第二次 CI 45465861503](https://github.com/bubkoo/html-to-image/actions/runs/45465861503)仍为 **1462 通过 / 1 Chromium 字形失败 / 45 跳过**；合并测试树与 head 相同，native/capture PNG 与首次远端逐字节一致，source/产物/Codecov未运行。另一个固定 `08d35a1` 的隔离 Linux 补测 source **1343 通过 / 1 失败 / 45 跳过**，产物 **174 通过 / 4 失败 / 2 不支持**；Node26、Rosetta 及现有 Node wrapper 与 GitHub Node24 有实质差异，不能算等价 CI。[147 份明确筛选的原始记录](evidence/native-fidelity-linux-supplement.json)保留这些环境限制、首次 Git 元数据不足的中断和最终清理。
+
+主工作区集成相同取消修复的 `d250169`，coverage **1554 通过 / 2 既有 WebKit 失败 / 45 跳过**，独立 source **1435 通过 / 2 失败 / 45 跳过**，完整产物 **176 通过 / 2 原生滚动组失败 / 2 不支持**，每轮 446 输入不变。默认命令因 coverage 失败未进入 source；包消费者通过。它保持候选状态，不沿用 #652 的全绿。
+
+原生部件 primitive DTO/executor 现有 **24/24** 窄场景真值对照，32 项不支持上下文为 unknown；没有通用缺席证明或生产 filter。Blob/data 图像 decode 阳性而 ResourceTiming/Observer 均不可见，只能 unknown。[105 份原始记录及独立重算](evidence/native-part-context-followup.json)保留安全、取消和失败负控。
+
+离线预览准备还复现根边框原点问题：三引擎 39 个有效源输入中 33 个导出偏移，简单 margin0 仍漏掉 6 个子 margin 折叠场景；独立真实 XML 坐标原型 39/39 相同，但 Blob 导航的 HTTP 隔离和保留 HTMLDocument 的 XML 选择器语义均有反例，尚无安全生产修复。[318 份坐标与安全证据](evidence/root-capture-origin-boundaries.json)不作为已修复结论。
+
+[原 28 项最新只读回读](evidence/old-pr-readback-20261125.json)仍为 **27 open，#398 closed 且未合并**，head/state/title 全部未变；base SHA 只记录各响应当前值。真机最早于 **北京时间 06:02（2026-11-25）**恢复，本轮未使用；新运行时的离线 Blob 页已通过桌面三引擎可信点击、新 PNG 标签和清理对照，手机仍待验。未修改电脑网络配置，未发布 npm、未评论或关闭旧贡献者 PR。
+
 ## 2026-11-25 草稿 #651 与 Linux 字形反例
 
 [草稿 #651](https://github.com/bubkoo/html-to-image/pull/651) 基于 #650 的 `25e8381`，准确 head `08d35a1`；未合入。[CI 45460574610](https://github.com/bubkoo/html-to-image/actions/runs/45460574610) 的测试合并 `a9317f5` 第二父提交就是该 head，二者源码树相同。Linux coverage **1462 通过 / 1 失败 / 45 跳过**，失败为 Chromium 字形；source、产物与 Codecov 未执行。CodeQL 的原有 PR 分支过滤仅为 master，本堆叠草稿没有当前 head 的 CodeQL 结果。父 #650 的绿色继续独立记录。

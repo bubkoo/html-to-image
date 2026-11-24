@@ -28,3 +28,9 @@
 - Validation: bounded signal confirmed; general snapshot/executor/filter unproven
 - Last-Validated: 2026-11-25
 - Evidence: output/playwright/shadow-exact-selectors-20261125/assessment.json
+
+### 2026-11-25 bounded follow-up
+
+同步primitive DTO、源节点移除后的独立executor及多scroller归因已有窄场景24/24实际对应轴band真值；32项不支持上下文仍为unknown。26个实际pending取消值与dispose清理保留原reason，未放宽现有SVG环境。可见性负控证明没有黄色像素也不能等同规则未参与。该进展不再只是接口计划，但依旧没有任意上下文或通用缺席证明，未实现生产filter。
+
+Blob/data阳性图像decode成功而ResourceTiming/Observer/takeRecords全部不可见；不能按资源时序缺席推断选择器结果。105份原始记录及逐成员重算见docs/evidence/native-part-context-followup.json。

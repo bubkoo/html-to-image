@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-11-24T20:20:20.511804+00:00",
+  "status": "Strict native pixel gates remain failed; supplemental container evidence is not GitHub CI equivalence.",
+  "latestRemote": {
+    "pr": 651,
+    "head": "c621e09a2dad905b719522f5ddf12664069caef5",
+    "run": 45465861503,
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45465861503",
+    "testedMerge": "d203876401b66c4d02a2ba550cf9956b4ac13c94",
+    "headAndTestedMergeTreesEqual": true,
+    "coverage": {
+      "passed": 1462,
+      "failed": 1,
+      "skipped": 45
+    },
+    "failure": "Chromium native visible-text; channel37 actual255 expected231",
+    "source": "not run",
+    "browserPackages": "not run",
+    "Codecov": "not run",
+    "CodeQL": "not scheduled; existing PR branch filter targets master",
+    "artifact": {
+      "id": 14955292427,
+      "bytes": 18045,
+      "sha256": "e08d542419d14cf833658416960225ebe14f7f85fbc5ba566d88bc8ecb87fc29",
+      "verifiedMembers": 13
+    },
+    "comparison": "Native and captured PNG bytes identical to prior run45460574610. c621 only added documentation/evidence; no pixel fix."
+  },
+  "container": {
+    "head": "08d35a13aee74a6188b3250585256a222c05717b",
+    "trackedFiles": 936,
+    "inputs": 1083,
+    "inputsUnchanged": true,
+    "source": {
+      "passed": 1343,
+      "failed": 1,
+      "skipped": 45
+    },
+    "browserPackages": {
+      "passed": 174,
+      "failed": 4,
+      "unsupportedGroups": 2
+    },
+    "sourceFailure": "Chromium visible-text214channels/max88 atDPR1",
+    "packageFailures": "Chromium ESM/UMD visible-text; WebKit ESM/UMD visible-text andfractional atDPR2; insetshadow passes Linux",
+    "nativeCases": {
+      "executed": 284,
+      "passed": 278,
+      "failed": 6,
+      "unsupported": 82
+    },
+    "buildAndPackageContract": "passed",
+    "limitations": [
+      "Node26.13.0 differs from CI24",
+      "Actual Node runner/controller/worker/server flags include existing --no-opt -r /proc/.reset; preload hides entries in process.execArgv",
+      "amd64 image/processes run under Rosetta",
+      "Linux WPE WebKit is not macOS Safari or an iPhone",
+      "Original archive-only package attempt exited130 after96pass/3fail/1interrupted/80notrun because fixture needs real Git HEAD; original log retained",
+      "After installing actual fixedcommit/tree/blob/index and legal shallowboundary only in independenttmp, fullpackage completed; build/source not repeated"
+    ],
+    "cleanup": "Owned processes stopped and4197/4198closed; original/work source,caches,Git and Macnetwork unchanged"
+  },
+  "selection": "126 allowlisted Linux members plus original allowlist, and20 current-head remote members. Huge source archive, Gitpack, dependencies, duplicate HTML reports excluded. No original evidence overwritten.",
+  "physicalDevice": "Deferred by user until2026-11-24T22:02:04Z; not used in this evidence.",
+  "oldContributorPRActions": 0,
+  "npmPublished": false,
+  "macNetworkChanged": false,
+  "rawEvidence": {
+    "index": "native-fidelity-linux-supplement-index.json",
+    "archive": {
+      "path": "native-fidelity-linux-supplement-raw.tar.gz",
+      "bytes": 8073005,
+      "sha256": "850cd1f3f8407869863b5da9393a559c83e328e940b18ac7a6f3772e199cf41f"
+    },
+    "fileCount": 147,
+    "uncompressedBytes": 11943589,
+    "allMemberHashesVerified": true
+  }
+}

@@ -1,0 +1,796 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-24T20:23:13.000Z",
+  "readStartedAt": "2026-11-24T20:22:35.618Z",
+  "readFirstCompletedAt": "2026-11-24T20:22:36.672Z",
+  "scope": "The same original 28 PRs; read-only per-PR GitHub connector metadata readback. Not issue acceptance or CI validation.",
+  "repository": "bubkoo/html-to-image",
+  "connectorTool": "mcp__codex_apps__github_get_pr_info",
+  "inputAudit": {
+    "path": "docs/evidence/open-pr-current-audit.json",
+    "sha256": "06b819c9e36496c05f8492d66db146daa0edfe1b6cb64f224a753274b36c57ae",
+    "checkedAt": "2026-11-11T02:07:41.358341+00:00",
+    "lastRemoteRevalidation": {
+      "checkedAt": "2026-11-24T12:39:54.233Z",
+      "scope": "same original 28 PRs; read-only current state/head check",
+      "unchangedHeads": 28,
+      "open": 27,
+      "closedUnmerged": [398],
+      "closureOrCommentActionsThisRound": 0,
+      "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json"
+    },
+    "sameBytesAtSummary": true
+  },
+  "requested": 28,
+  "successful": 28,
+  "unchangedHeads": 28,
+  "unchangedStates": 28,
+  "unchangedTitles": 28,
+  "stateHeadTitleDiffs": [],
+  "open": 27,
+  "closed": 1,
+  "closedUnmerged": [398],
+  "merged": 0,
+  "baseRefs": {
+    "master": 28
+  },
+  "baseSHADistinctCount": 13,
+  "comparisonBoundary": {
+    "comparedFields": [
+      "state vs observedState",
+      "headSHA vs reviewedHead",
+      "title vs title"
+    ],
+    "baselineNotRecordedFor": [
+      "headRef",
+      "baseRef",
+      "baseSHA",
+      "merged",
+      "updatedAt",
+      "closedAt",
+      "mergedAt"
+    ],
+    "currentOnlyFieldsAreNotClaimedUnchanged": true,
+    "baseSHAMeaning": "Each PR metadata response base_sha is retained as returned. All base refs are master; differing base SHAs are not treated as one current master tip or as proof of a base change.",
+    "notCompared": [
+      "PR code diff",
+      "CI checks",
+      "maintainer acceptance",
+      "issue completion"
+    ]
+  },
+  "closureOrCommentActionsThisRound": 0,
+  "closeActions": 0,
+  "reopenActions": 0,
+  "commentActions": 0,
+  "trackerModifiedByThisTask": false,
+  "committedOrPushedByThisTask": false,
+  "redactions": {
+    "scope": "Only credential fields or signed/authenticated URL strings are removed from connector payloads; no values or original URLs retained in this log.",
+    "count": 0,
+    "items": []
+  },
+  "entries": [
+    {
+      "number": 585,
+      "url": "https://github.com/bubkoo/html-to-image/pull/585",
+      "requestedAt": "2026-11-24T20:22:35.618Z",
+      "checkedAt": "2026-11-24T20:22:36.672Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
+        "title": "fix: apply ios workarounds and rendering issues and improve image generation performance"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "pr",
+        "headSHA": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
+        "baseRef": "master",
+        "baseSHA": "ad4ff590fd39d6bc9ef574c45449f38e68e310c4",
+        "merged": false,
+        "updatedAt": "2026-11-05T09:40:13Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: apply ios workarounds and rendering issues and improve image generation performance"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-585.json"
+    },
+    {
+      "number": 581,
+      "url": "https://github.com/bubkoo/html-to-image/pull/581",
+      "requestedAt": "2026-11-24T20:23:05.699Z",
+      "checkedAt": "2026-11-24T20:23:07.725Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "9ee9e0f9dd311e48eabee59f26ac8efffcefb6db",
+        "title": "fix(svg): support font-family attribute on SVG text elements"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "master",
+        "headSHA": "9ee9e0f9dd311e48eabee59f26ac8efffcefb6db",
+        "baseRef": "master",
+        "baseSHA": "2d8d43e6959ff36dcafe29d4ec6c207d6cd1cd55",
+        "merged": false,
+        "updatedAt": "2026-11-03T16:13:09Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix(svg): support font-family attribute on SVG text elements"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-581.json"
+    },
+    {
+      "number": 577,
+      "url": "https://github.com/bubkoo/html-to-image/pull/577",
+      "requestedAt": "2026-11-24T20:23:05.700Z",
+      "checkedAt": "2026-11-24T20:23:06.814Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "35a6953ce31c59b67271babbfaaddc76bbf9013c",
+        "title": "fix: preserve repeating-linear-gradient through cssText round-trip"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/repeating-linear-gradient",
+        "headSHA": "35a6953ce31c59b67271babbfaaddc76bbf9013c",
+        "baseRef": "master",
+        "baseSHA": "116ff7a1d43d93834d5cb6e039d5280b56b74f72",
+        "merged": false,
+        "updatedAt": "2026-11-16T17:34:49Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: preserve repeating-linear-gradient through cssText round-trip"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-577.json"
+    },
+    {
+      "number": 575,
+      "url": "https://github.com/bubkoo/html-to-image/pull/575",
+      "requestedAt": "2026-11-24T20:23:05.700Z",
+      "checkedAt": "2026-11-24T20:23:07.727Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "a8def89611d014a4161823817a8ae86d6aa2c66e",
+        "title": "fix: resolve CSS custom properties (var()) in SVG descendants"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/svg-css-variables-not-resolved",
+        "headSHA": "a8def89611d014a4161823817a8ae86d6aa2c66e",
+        "baseRef": "master",
+        "baseSHA": "116ff7a1d43d93834d5cb6e039d5280b56b74f72",
+        "merged": false,
+        "updatedAt": "2026-11-02T04:03:27Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: resolve CSS custom properties (var()) in SVG descendants"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-575.json"
+    },
+    {
+      "number": 574,
+      "url": "https://github.com/bubkoo/html-to-image/pull/574",
+      "requestedAt": "2026-11-24T20:23:05.700Z",
+      "checkedAt": "2026-11-24T20:23:07.653Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "8edd3595adb1f6df10cff4bce335ef0a3391fd37",
+        "title": "build(deps-dev): bump rollup from 3.12.0 to 3.30.0"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "dependabot/npm_and_yarn/rollup-3.30.0",
+        "headSHA": "8edd3595adb1f6df10cff4bce335ef0a3391fd37",
+        "baseRef": "master",
+        "baseSHA": "073f6618b9ab500b4a243f7e885edc1176c866ba",
+        "merged": false,
+        "updatedAt": "2026-02-26T06:44:41Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "build(deps-dev): bump rollup from 3.12.0 to 3.30.0"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-574.json"
+    },
+    {
+      "number": 568,
+      "url": "https://github.com/bubkoo/html-to-image/pull/568",
+      "requestedAt": "2026-11-24T20:23:06.815Z",
+      "checkedAt": "2026-11-24T20:23:07.734Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "a752f019d2472b52100e1cbe71a469d9526e3607",
+        "title": "fix: child return false in iframe that use srcdoc"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "patch-1",
+        "headSHA": "a752f019d2472b52100e1cbe71a469d9526e3607",
+        "baseRef": "master",
+        "baseSHA": "073f6618b9ab500b4a243f7e885edc1176c866ba",
+        "merged": false,
+        "updatedAt": "2026-06-19T02:59:55Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: child return false in iframe that use srcdoc"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-568.json"
+    },
+    {
+      "number": 560,
+      "url": "https://github.com/bubkoo/html-to-image/pull/560",
+      "requestedAt": "2026-11-24T20:23:07.653Z",
+      "checkedAt": "2026-11-24T20:23:08.475Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "e3f59317b338a2bf8805eb66152c72ea82f6c37f",
+        "title": "perf: allow to clear internal caches"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "perf/clear-caches",
+        "headSHA": "e3f59317b338a2bf8805eb66152c72ea82f6c37f",
+        "baseRef": "master",
+        "baseSHA": "43a2e2763644d4f1d0b4f2554c1527e15687f586",
+        "merged": false,
+        "updatedAt": "2026-06-10T03:07:57Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "perf: allow to clear internal caches"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-560.json"
+    },
+    {
+      "number": 540,
+      "url": "https://github.com/bubkoo/html-to-image/pull/540",
+      "requestedAt": "2026-11-24T20:23:07.725Z",
+      "checkedAt": "2026-11-24T20:23:09.009Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "76805a80a7beddc0cf9d6fda0bd46dde9478c766",
+        "title": "build(deps-dev): bump pbkdf2 from 3.1.2 to 3.1.3"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "dependabot/npm_and_yarn/pbkdf2-3.1.3",
+        "headSHA": "76805a80a7beddc0cf9d6fda0bd46dde9478c766",
+        "baseRef": "master",
+        "baseSHA": "43a2e2763644d4f1d0b4f2554c1527e15687f586",
+        "merged": false,
+        "updatedAt": "2026-06-10T03:16:53Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "build(deps-dev): bump pbkdf2 from 3.1.2 to 3.1.3"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-540.json"
+    },
+    {
+      "number": 533,
+      "url": "https://github.com/bubkoo/html-to-image/pull/533",
+      "requestedAt": "2026-11-24T20:23:07.727Z",
+      "checkedAt": "2026-11-24T20:23:08.485Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "247475cc4c7fb4e96ed8909b116d7d06cbeb9683",
+        "title": "fix(createImage): make waiting on animation frame optional"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/make-waiting-on-frame-as-an-option",
+        "headSHA": "247475cc4c7fb4e96ed8909b116d7d06cbeb9683",
+        "baseRef": "master",
+        "baseSHA": "43a2e2763644d4f1d0b4f2554c1527e15687f586",
+        "merged": false,
+        "updatedAt": "2026-06-04T17:34:16Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix(createImage): make waiting on animation frame optional"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-533.json"
+    },
+    {
+      "number": 511,
+      "url": "https://github.com/bubkoo/html-to-image/pull/511",
+      "requestedAt": "2026-11-24T20:23:07.734Z",
+      "checkedAt": "2026-11-24T20:23:08.606Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "1d59779c522c6e2c78a435919cd290804b40f8b7",
+        "title": "feat(disable-font-size-shrink): add optional flag to disable font size shrinking"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "feature/disable-font-size-shrink",
+        "headSHA": "1d59779c522c6e2c78a435919cd290804b40f8b7",
+        "baseRef": "master",
+        "baseSHA": "995728147e4459a58188af51b5fcc3f8a7010207",
+        "merged": false,
+        "updatedAt": "2026-06-26T15:19:17Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "feat(disable-font-size-shrink): add optional flag to disable font size shrinking"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-511.json"
+    },
+    {
+      "number": 504,
+      "url": "https://github.com/bubkoo/html-to-image/pull/504",
+      "requestedAt": "2026-11-24T20:23:08.475Z",
+      "checkedAt": "2026-11-24T20:23:09.790Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "c9d4b5f192a1ee6868d130697fd268945c165525",
+        "title": "refactor: improve image embedding and async image loading"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/image-decode-issue",
+        "headSHA": "c9d4b5f192a1ee6868d130697fd268945c165525",
+        "baseRef": "master",
+        "baseSHA": "995728147e4459a58188af51b5fcc3f8a7010207",
+        "merged": false,
+        "updatedAt": "2026-11-20T12:07:49Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "refactor: improve image embedding and async image loading"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-504.json"
+    },
+    {
+      "number": 499,
+      "url": "https://github.com/bubkoo/html-to-image/pull/499",
+      "requestedAt": "2026-11-24T20:23:08.485Z",
+      "checkedAt": "2026-11-24T20:23:09.798Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "3caf213e24d96f8e4e576e47352f66b0c53d8b7d",
+        "title": "fix: fix a bug cannot read href attribute in use tags"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/svg_use",
+        "headSHA": "3caf213e24d96f8e4e576e47352f66b0c53d8b7d",
+        "baseRef": "master",
+        "baseSHA": "995728147e4459a58188af51b5fcc3f8a7010207",
+        "merged": false,
+        "updatedAt": "2026-11-02T04:03:21Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: fix a bug cannot read href attribute in use tags"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-499.json"
+    },
+    {
+      "number": 498,
+      "url": "https://github.com/bubkoo/html-to-image/pull/498",
+      "requestedAt": "2026-11-24T20:23:08.607Z",
+      "checkedAt": "2026-11-24T20:23:09.424Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
+        "title": "fix: blank image in safari, algin #461, #478"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/blank-Image-in-safari",
+        "headSHA": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
+        "baseRef": "master",
+        "baseSHA": "43a2e2763644d4f1d0b4f2554c1527e15687f586",
+        "merged": false,
+        "updatedAt": "2026-06-05T18:00:30Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: blank image in safari, algin #461, #478"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-498.json"
+    },
+    {
+      "number": 482,
+      "url": "https://github.com/bubkoo/html-to-image/pull/482",
+      "requestedAt": "2026-11-24T20:23:09.009Z",
+      "checkedAt": "2026-11-24T20:23:09.916Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "712af489c3956765fb38446fe306c855f30217eb",
+        "title": "fix: Adding error handling to embedWebFonts and embedImages"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "patch-1",
+        "headSHA": "712af489c3956765fb38446fe306c855f30217eb",
+        "baseRef": "master",
+        "baseSHA": "128dc3edfde95d6ac636f2756630f5cbd6f7c8df",
+        "merged": false,
+        "updatedAt": "2026-11-03T09:07:13Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: Adding error handling to embedWebFonts and embedImages"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-482.json"
+    },
+    {
+      "number": 473,
+      "url": "https://github.com/bubkoo/html-to-image/pull/473",
+      "requestedAt": "2026-11-24T20:23:09.424Z",
+      "checkedAt": "2026-11-24T20:23:10.427Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "0b677d591b33c4a92d854095e6935bba0db34ce3",
+        "title": "feat: add usePageCss option, add toCanvasList and toImage method for large html"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "master",
+        "headSHA": "0b677d591b33c4a92d854095e6935bba0db34ce3",
+        "baseRef": "master",
+        "baseSHA": "128dc3edfde95d6ac636f2756630f5cbd6f7c8df",
+        "merged": false,
+        "updatedAt": "2026-11-19T00:04:11Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "feat: add usePageCss option, add toCanvasList and toImage method for large html"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-473.json"
+    },
+    {
+      "number": 451,
+      "url": "https://github.com/bubkoo/html-to-image/pull/451",
+      "requestedAt": "2026-11-24T20:23:09.790Z",
+      "checkedAt": "2026-11-24T20:23:10.851Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "ad7092d5e75ac7186f216ad147fbd21e07c4424a",
+        "title": "fix: Abnormal video size"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix-video-size",
+        "headSHA": "ad7092d5e75ac7186f216ad147fbd21e07c4424a",
+        "baseRef": "master",
+        "baseSHA": "0b9da019fffea0c603d5e6bcec3ef6e8b6d056b8",
+        "merged": false,
+        "updatedAt": "2026-08-27T11:46:32Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: Abnormal video size"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-451.json"
+    },
+    {
+      "number": 443,
+      "url": "https://github.com/bubkoo/html-to-image/pull/443",
+      "requestedAt": "2026-11-24T20:23:09.798Z",
+      "checkedAt": "2026-11-24T20:23:10.590Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "7aee57edb9bf026b2060b332929698e260a90841",
+        "title": "feat: Added fetchRequestInitGenerator option"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "feature/request_init_generator",
+        "headSHA": "7aee57edb9bf026b2060b332929698e260a90841",
+        "baseRef": "master",
+        "baseSHA": "ebb91a63aa2b9acae87f8b72d00b895a7f4e71d0",
+        "merged": false,
+        "updatedAt": "2025-11-04T21:17:53Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "feat: Added fetchRequestInitGenerator option"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-443.json"
+    },
+    {
+      "number": 442,
+      "url": "https://github.com/bubkoo/html-to-image/pull/442",
+      "requestedAt": "2026-11-24T20:23:09.916Z",
+      "checkedAt": "2026-11-24T20:23:10.652Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "0fb224261833201c29ddbfcaf05911e2cc341e33",
+        "title": "This pull request is an attempt to resolve the issue of IOS not loading images"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "uramacharles",
+        "headSHA": "0fb224261833201c29ddbfcaf05911e2cc341e33",
+        "baseRef": "master",
+        "baseSHA": "05a2712ca3749140b18b1c550e49681a0c3a6bfb",
+        "merged": false,
+        "updatedAt": "2025-10-17T11:36:39Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "This pull request is an attempt to resolve the issue of IOS not loading images"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-442.json"
+    },
+    {
+      "number": 430,
+      "url": "https://github.com/bubkoo/html-to-image/pull/430",
+      "requestedAt": "2026-11-24T20:23:10.428Z",
+      "checkedAt": "2026-11-24T20:23:11.315Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "b26144609a76c3da452e2dd9846ba0805cc15a5c",
+        "title": "feat: cache request itself"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "pref/cache",
+        "headSHA": "b26144609a76c3da452e2dd9846ba0805cc15a5c",
+        "baseRef": "master",
+        "baseSHA": "d913a2e995a5abb6824eae1cf4d8905f73a092e6",
+        "merged": false,
+        "updatedAt": "2026-11-20T04:26:47Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "feat: cache request itself"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-430.json"
+    },
+    {
+      "number": 427,
+      "url": "https://github.com/bubkoo/html-to-image/pull/427",
+      "requestedAt": "2026-11-24T20:23:10.590Z",
+      "checkedAt": "2026-11-24T20:23:11.315Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "225e357cd971880c36542279960876d30d1651ae",
+        "title": "fix: make external svg files referred to in use tags work"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "feature/svg-use-tags-with-external-files",
+        "headSHA": "225e357cd971880c36542279960876d30d1651ae",
+        "baseRef": "master",
+        "baseSHA": "d913a2e995a5abb6824eae1cf4d8905f73a092e6",
+        "merged": false,
+        "updatedAt": "2026-11-02T04:03:18Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: make external svg files referred to in use tags work"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-427.json"
+    },
+    {
+      "number": 409,
+      "url": "https://github.com/bubkoo/html-to-image/pull/409",
+      "requestedAt": "2026-11-24T20:23:10.652Z",
+      "checkedAt": "2026-11-24T20:23:12.005Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "9673188ab391df9f8a3db207ba855a2fd06a1cbe",
+        "title": "fix: Bug that changes content size when width and height are set to 'style' tag in canvas"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/strached-image",
+        "headSHA": "9673188ab391df9f8a3db207ba855a2fd06a1cbe",
+        "baseRef": "master",
+        "baseSHA": "9083028a222c6ebc0063ca690c7f066984878c38",
+        "merged": false,
+        "updatedAt": "2026-04-01T12:58:06Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: Bug that changes content size when width and height are set to 'style' tag in canvas"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-409.json"
+    },
+    {
+      "number": 408,
+      "url": "https://github.com/bubkoo/html-to-image/pull/408",
+      "requestedAt": "2026-11-24T20:23:10.851Z",
+      "checkedAt": "2026-11-24T20:23:11.803Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
+        "title": "fix: workaround for respecting scrollbar positions"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "scrolling_workaround",
+        "headSHA": "a6e135583d82028a26e717221bf9ccb8888a8f99",
+        "baseRef": "master",
+        "baseSHA": "9083028a222c6ebc0063ca690c7f066984878c38",
+        "merged": false,
+        "updatedAt": "2026-04-03T17:32:50Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: workaround for respecting scrollbar positions"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-408.json"
+    },
+    {
+      "number": 407,
+      "url": "https://github.com/bubkoo/html-to-image/pull/407",
+      "requestedAt": "2026-11-24T20:23:11.315Z",
+      "checkedAt": "2026-11-24T20:23:12.090Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "772ca3228b2d2639d2f9659586a978b15c0f39fd",
+        "title": "feat: support extra content which will be added to style tag from svg"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "support_extra_css",
+        "headSHA": "772ca3228b2d2639d2f9659586a978b15c0f39fd",
+        "baseRef": "master",
+        "baseSHA": "9083028a222c6ebc0063ca690c7f066984878c38",
+        "merged": false,
+        "updatedAt": "2023-06-08T17:26:29Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "feat: support extra content which will be added to style tag from svg"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-407.json"
+    },
+    {
+      "number": 401,
+      "url": "https://github.com/bubkoo/html-to-image/pull/401",
+      "requestedAt": "2026-11-24T20:23:11.316Z",
+      "checkedAt": "2026-11-24T20:23:12.020Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "676b0db994578c6d97a8d3f2f7ac7930a8e55440",
+        "title": "fix: the incorrect usage of `image.decode`"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "fix/image-decode",
+        "headSHA": "676b0db994578c6d97a8d3f2f7ac7930a8e55440",
+        "baseRef": "master",
+        "baseSHA": "b751cbf212ccc7909077bc105b0630f9c845389a",
+        "merged": false,
+        "updatedAt": "2026-09-29T10:13:19Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "fix: the incorrect usage of `image.decode`"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-401.json"
+    },
+    {
+      "number": 400,
+      "url": "https://github.com/bubkoo/html-to-image/pull/400",
+      "requestedAt": "2026-11-24T20:23:11.803Z",
+      "checkedAt": "2026-11-24T20:23:12.738Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "f4a9fdd3a64b977f0d877ac993a120184047b088",
+        "title": "feat: add 'cacheDisable' option to set fetch cache option to 'no-cache'"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "add-no-cache",
+        "headSHA": "f4a9fdd3a64b977f0d877ac993a120184047b088",
+        "baseRef": "master",
+        "baseSHA": "b751cbf212ccc7909077bc105b0630f9c845389a",
+        "merged": false,
+        "updatedAt": "2025-09-17T09:48:41Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "feat: add 'cacheDisable' option to set fetch cache option to 'no-cache'"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-400.json"
+    },
+    {
+      "number": 398,
+      "url": "https://github.com/bubkoo/html-to-image/pull/398",
+      "requestedAt": "2026-11-24T20:23:12.005Z",
+      "checkedAt": "2026-11-24T20:23:12.902Z",
+      "baseline": {
+        "state": "closed",
+        "reviewedHead": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
+        "title": "docs: add open in new tab example for toBlobs"
+      },
+      "current": {
+        "state": "closed",
+        "headRef": "patch-2",
+        "headSHA": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
+        "baseRef": "master",
+        "baseSHA": "b751cbf212ccc7909077bc105b0630f9c845389a",
+        "merged": false,
+        "updatedAt": "2026-11-14T19:38:55Z",
+        "closedAt": "2026-11-14T19:38:55Z",
+        "mergedAt": null,
+        "title": "docs: add open in new tab example for toBlobs"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-398.json"
+    },
+    {
+      "number": 393,
+      "url": "https://github.com/bubkoo/html-to-image/pull/393",
+      "requestedAt": "2026-11-24T20:23:12.020Z",
+      "checkedAt": "2026-11-24T20:23:12.752Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "90389a7df1c90179458043e799d4c87ffd62c9d5",
+        "title": "Handle `href` use attribute"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "bug/392-handle-use-href-attribute",
+        "headSHA": "90389a7df1c90179458043e799d4c87ffd62c9d5",
+        "baseRef": "master",
+        "baseSHA": "b751cbf212ccc7909077bc105b0630f9c845389a",
+        "merged": false,
+        "updatedAt": "2026-11-02T04:03:24Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "Handle `href` use attribute"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-393.json"
+    },
+    {
+      "number": 376,
+      "url": "https://github.com/bubkoo/html-to-image/pull/376",
+      "requestedAt": "2026-11-24T20:23:12.090Z",
+      "checkedAt": "2026-11-24T20:23:13.000Z",
+      "baseline": {
+        "state": "open",
+        "reviewedHead": "f6363fcc11e3c8860ae78b77f3cb57396ede876d",
+        "title": "feat: allow user to provide custom pseudo elements to be captured"
+      },
+      "current": {
+        "state": "open",
+        "headRef": "feature/included-pseudo-elements",
+        "headSHA": "f6363fcc11e3c8860ae78b77f3cb57396ede876d",
+        "baseRef": "master",
+        "baseSHA": "b751cbf212ccc7909077bc105b0630f9c845389a",
+        "merged": false,
+        "updatedAt": "2026-05-09T12:38:56Z",
+        "closedAt": null,
+        "mergedAt": null,
+        "title": "feat: allow user to provide custom pseudo elements to be captured"
+      },
+      "diff": [],
+      "rawResponse": "raw/pr-376.json"
+    }
+  ],
+  "archivedAt": "2026-11-24T20:25:54.947301+00:00",
+  "rawEvidence": {
+    "path": "old-pr-readback-20261125-raw.tar.gz",
+    "bytes": 28034,
+    "sha256": "20d0005b9f491d254bdaabf9fbfe8f288779b5bfa1442c42bbbdbeacbe513746",
+    "index": "old-pr-readback-20261125-index.json",
+    "fileCount": 33,
+    "rawResponseCount": 28,
+    "allMemberHashesVerified": true
+  },
+  "verification": {
+    "gzipCRCAndTarHeadersVerified": true,
+    "all33MembersByteComparedToOriginals": true,
+    "embeddedSourceIndexVerified": true,
+    "summaryFieldsComparedToAll28RawResponses": true,
+    "stateHeadTitleComparedToCapturedAuditEntries": true,
+    "signedURLOrCredentialScanFindings": 0,
+    "redactedSignedURLsOrTokens": 0,
+    "archiveOnlyReadbackNoExtractionOrExecution": true
+  },
+  "notAnAcceptanceAttestation": true
+}

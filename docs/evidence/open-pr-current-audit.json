@@ -148,7 +148,9 @@
       "observedState": "open",
       "requirement": "repeating-linear-gradient 经样式序列化仍重复",
       "disposition": "核心等价",
-      "evidence": ["test/browser-unit/svg-style.test.ts"],
+      "evidence": [
+        "test/browser-unit/svg-style.test.ts"
+      ],
       "remainingBoundary": "当前回归核对多个实际色块；不把原补丁 cssText 字符串断言当全部视觉证明"
     },
     {
@@ -173,7 +175,9 @@
       "observedState": "open",
       "requirement": "更新旧 Rollup 3.x 锁文件依赖",
       "disposition": "已被现行工具链替代，不移植旧锁",
-      "evidence": ["docs/evidence/maintenance-dependency-review.json"],
+      "evidence": [
+        "docs/evidence/maintenance-dependency-review.json"
+      ],
       "remainingBoundary": "只证明该旧 bump 的目的与现行安装树；不代表完整依赖安全审计"
     },
     {
@@ -228,7 +232,9 @@
       "observedState": "open",
       "requirement": "旧锁中的 pbkdf2 3.1.2 升级",
       "disposition": "相关旧依赖已移除，不重新引入旧测试链",
-      "evidence": ["docs/evidence/maintenance-dependency-review.json"],
+      "evidence": [
+        "docs/evidence/maintenance-dependency-review.json"
+      ],
       "remainingBoundary": "不代表无关依赖不存在其他问题"
     },
     {
@@ -239,7 +245,10 @@
       "observedState": "open",
       "requirement": "后台导出不应强制等待 requestAnimationFrame",
       "disposition": "已有路径不等待 RAF，不增加重复等待开关",
-      "evidence": ["test/spec/renderer.test.ts", "src/util.ts"],
+      "evidence": [
+        "test/spec/renderer.test.ts",
+        "src/util.ts"
+      ],
       "remainingBoundary": "只证明库内路径；不保证浏览器或系统不暂停后台页面"
     },
     {
@@ -458,7 +467,10 @@
         "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
       "remainingBoundary": "完整原生滚动条与滑块位置仍待解决；原型两项严格 WebKit 像素失败尚未解决。#81 原 sandbox 不可访问，不以当前部分回归宣称全部修复。",
-      "relatedIssues": [81, 345],
+      "relatedIssues": [
+        81,
+        345
+      ],
       "incremental634": "#634 已合入 f340ddf，占位尺寸根因有桌面三引擎严格对照，iPhone 30/30 及与 #635 组合 31/31；不等于完整原生滚动条外观/滑块解决。",
       "nativeScrollFidelityFollowup": {
         "date": "2026-11-25",
@@ -829,13 +841,42 @@
   ],
   "sourceReviewMethod": "Fresh original PR body/head and available source patches, mapped to current sources/tests; lock-only items reuse the archived review of the same head. No old branch was merged.",
   "lastRemoteRevalidation": {
-    "checkedAt": "2026-11-24T12:39:54.233Z",
-    "scope": "same original 28 PRs; read-only current state/head check",
+    "checkedAt": "2026-11-24T20:23:13.000Z",
     "unchangedHeads": 28,
+    "unchangedStates": 28,
+    "unchangedTitles": 28,
     "open": 27,
-    "closedUnmerged": [398],
+    "closedUnmerged": [
+      398
+    ],
+    "merged": 0,
+    "comparisonBoundary": {
+      "comparedFields": [
+        "state vs observedState",
+        "headSHA vs reviewedHead",
+        "title vs title"
+      ],
+      "baselineNotRecordedFor": [
+        "headRef",
+        "baseRef",
+        "baseSHA",
+        "merged",
+        "updatedAt",
+        "closedAt",
+        "mergedAt"
+      ],
+      "currentOnlyFieldsAreNotClaimedUnchanged": true,
+      "baseSHAMeaning": "Each PR metadata response base_sha is retained as returned. All base refs are master; differing base SHAs are not treated as one current master tip or as proof of a base change.",
+      "notCompared": [
+        "PR code diff",
+        "CI checks",
+        "maintainer acceptance",
+        "issue completion"
+      ]
+    },
     "closureOrCommentActionsThisRound": 0,
-    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json"
+    "scope": "same original28 PRs; read-only current state/head/title; base/merged/timestamps current-only",
+    "evidence": "docs/evidence/old-pr-readback-20261125.json"
   },
   "controlledCredentialEvidence": {
     "fixture": "test/browser/fixtures/resource-policy.mjs#checkResourceCredentials",
@@ -857,13 +898,18 @@
   "remainingAcceptanceGates": [
     {
       "kind": "manual-network-access",
-      "prs": [398],
+      "prs": [
+        398
+      ],
       "condition": "真实iPhone PNG生成通过，但可信点击、新标签和清理尚未在可手动操作的Safari页面验收。旧PR关闭不是验收通过；后续方案仍不得修改Mac网络或安全设置，不用合成点击替代。",
       "sourcePRState": "closed, unmerged since 2026-11-14T19:38:55Z"
     },
     {
       "kind": "external-svg-remaining-boundaries",
-      "prs": [585, 427],
+      "prs": [
+        585,
+        427
+      ],
       "condition": "用户已于2026-11-15明确选择当前浏览器页面保真；不再等待重复选择。限定绘制资源、受限CSP、原生合成器及原完整应用边界仍按各自证据开放。",
       "evidence": [
         "docs/evidence/svg-styles-native-matrix.json",
@@ -875,11 +921,26 @@
     },
     {
       "kind": "native-scrollbar-fidelity",
-      "prs": [376, 407, 408],
-      "relatedIssues": [345, 81],
+      "prs": [
+        376,
+        407,
+        408
+      ],
+      "relatedIssues": [
+        345,
+        81
+      ],
       "condition": "#345 explicitly requires native track/thumb appearance and position; no scope choice is needed. #81 requires child paragraph scrollTop/scrollLeft.",
-      "evidence": ["docs/evidence/scrollbar-extension-probes.json"],
+      "evidence": [
+        "docs/evidence/scrollbar-extension-probes.json"
+      ],
       "notProven": "Style injection/hiding is not full fidelity; original #81 sandbox API HTTP403 and preview HTTP400."
+    },
+    {
+      "kind": "newly-discovered-root-capture-origin",
+      "discoveredDuring": "offline Blob preview preparation",
+      "condition": "Real root margin and first-child collapse shift capture origin;39native controls valid/33exports differ; safe XML coordinate measurement not integrated. Existing same-frame Blob navigation leaks real HTTP in2engines; retainedHTMLDocument changes type-selector semantics.",
+      "evidence": "docs/evidence/root-capture-origin-boundaries.json"
     }
   ],
   "candidateExpansion": {
@@ -887,11 +948,20 @@
     "parentRevision": "f3f997e170fab7a6e7f0148fbd33b6dcd688bb23",
     "scope": "Two-dimensional flex and supported block flow with fixed/absolute and block pseudos; external absolute coordinate origins keep prior fallback",
     "evidence": "docs/evidence/positioned-scroll.json",
-    "originalParentFailedPassed": [141, 24],
-    "previousFlexCandidateFailedPassed": [51, 114],
+    "originalParentFailedPassed": [
+      141,
+      24
+    ],
+    "previousFlexCandidateFailedPassed": [
+      51,
+      114
+    ],
     "currentFullPixelPassed": 165,
     "withExistingFixedAndMixedPassed": 297,
-    "localCoverageSource": [337, 653],
+    "localCoverageSource": [
+      337,
+      653
+    ],
     "remote": "9584645 CI/Codecov passed; rebased master-targeted head requires new CI/CodeQL/Codecov.",
     "nativeIOS": {
       "status": "passed",
@@ -931,7 +1001,10 @@
   },
   "latestIncrementalUpdate": {
     "checkedAt": "2026-11-14T16:12:11.622499+00:00",
-    "mergedPRs": [634, 635],
+    "mergedPRs": [
+      634,
+      635
+    ],
     "runtimeBase": "9d2991f45a62bddcaed392a1ad5a8a48ec77732e",
     "status": "final PR and master CI/CodeQL passed; PR Codecov patch/project passed",
     "evidence": [
@@ -959,7 +1032,11 @@
   "latestScopedEvidence": {
     "source": "f3ab93785ee07ad53f8db9c43e98b28342951861",
     "path": "docs/evidence/svg-fragment-paint.json",
-    "localFull": [1225, 1106, 159],
+    "localFull": [
+      1225,
+      1106,
+      159
+    ],
     "nativeDeviceComparisons": 68,
     "nativeDeviceExact": 60,
     "nativeDeviceGradientBoundaries": 8,
@@ -978,12 +1055,15 @@
     "originalPRStatesNotRefreshed": true
   },
   "previousRemoteRevalidation": {
-    "checkedAt": "2026-11-11T03:07:54.175377+00:00",
-    "oldPRCount": 28,
-    "openCount": 28,
-    "changedHeads": [],
-    "method": "GitHub GraphQL pullRequest(number) state/headRefOid for all indexed old PRs; every current head equals reviewedHead.",
-    "allEvidenceFilesExist": true
+    "checkedAt": "2026-11-24T12:39:54.233Z",
+    "scope": "same original 28 PRs; read-only current state/head check",
+    "unchangedHeads": 28,
+    "open": 27,
+    "closedUnmerged": [
+      398
+    ],
+    "closureOrCommentActionsThisRound": 0,
+    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json"
   },
   "latestDomAccessValidation": {
     "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
@@ -1001,7 +1081,10 @@
     "targetedThreeEnginePassed": 27,
     "localCoveragePassed": 1300,
     "localSourcePassed": 1181,
-    "skipped": [4, 4],
+    "skipped": [
+      4,
+      4
+    ],
     "inputFiles": 416,
     "inputHashesStable": true,
     "previousCodecovPatch": {
@@ -1051,8 +1134,26 @@
     ],
     "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
     "pr": 651,
-    "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
-    "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
+    "remoteHead": "c621e09a2dad905b719522f5ddf12664069caef5",
+    "latestRemoteEvidence": "docs/evidence/native-fidelity-linux-supplement.json",
+    "latestIntegratedRuntime": "d2501695c9aceafd7e301486bb1468631b50a5f4",
+    "latestIntegratedEvidence": "docs/evidence/svg-style-environment-cancellation.json",
+    "integratedCoverage": {
+      "passed": 1554,
+      "failed": 2,
+      "skipped": 45,
+      "sourcePhaseNotRun": true
+    },
+    "integratedSeparateSource": {
+      "passed": 1435,
+      "failed": 2,
+      "skipped": 45
+    },
+    "integratedPackages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    }
   },
   "previousDomAccessValidation": {
     "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
@@ -1107,6 +1208,37 @@
     "pr": 651,
     "url": "https://github.com/bubkoo/html-to-image/pull/651",
     "draft": true,
+    "head": "c621e09a2dad905b719522f5ddf12664069caef5",
+    "basePR": 650,
+    "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "evidence": "docs/evidence/native-fidelity-linux-supplement.json",
+    "CI": {
+      "id": 45465861503,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45465861503",
+      "status": "completed",
+      "conclusion": "failure",
+      "testedMerge": "d203876401b66c4d02a2ba550cf9956b4ac13c94",
+      "sourceTree": "7de1e709176834bffa0407e8cf080570de31118f",
+      "exactHeadInSecondParent": true,
+      "testedMergeAndHeadTreesEqual": true,
+      "coverage": {
+        "passed": 1462,
+        "failed": 1,
+        "skipped": 45
+      },
+      "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+      "sourcePhase": "not run because coverage failed",
+      "builtPackagePhase": "not run",
+      "Codecov": "skipped after failure",
+      "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+    },
+    "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+    "physicalDevice": "deferred, not performed"
+  },
+  "previousNativeFidelityRemote": {
+    "pr": 651,
+    "url": "https://github.com/bubkoo/html-to-image/pull/651",
+    "draft": true,
     "head": "08d35a13aee74a6188b3250585256a222c05717b",
     "basePR": 650,
     "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
@@ -1133,5 +1265,30 @@
     },
     "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
     "physicalDevice": "deferred, not performed"
-  }
+  },
+  "latestSVGStyleCancellation": {
+    "pr": 652,
+    "url": "https://github.com/bubkoo/html-to-image/pull/652",
+    "draft": true,
+    "basePR": 650,
+    "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "source": "786603d733ae273e1c6ad420d3239414d36e8a45",
+    "evidence": "docs/evidence/svg-style-environment-cancellation.json",
+    "fixedPair": {
+      "beforeFailed": 60,
+      "beforePassed": 33,
+      "afterPassed": 93
+    },
+    "independentControlsPassed": 51,
+    "independentDefault": {
+      "coveragePassed": 1393,
+      "sourcePassed": 1274,
+      "existingSkippedEach": 4
+    },
+    "independentPackagesPassed": 162,
+    "firstDefaultFailureRetained": "1391pass/2Firefox native-reference preparation timeouts/4skip; before capture; root cause not established",
+    "remoteStatus": "current-head CI pending; CodeQL not scheduled for stackedbase",
+    "physicalDevice": "deferred; not performed"
+  },
+  "latestNativePartContextEvidence": "docs/evidence/native-part-context-followup.json"
 }
