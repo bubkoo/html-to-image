@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getTask } from './task.js'
 
@@ -53,7 +54,7 @@ export function getStyleProperties(
 }
 
 function px(node: HTMLElement, styleProperty: string) {
-  const win = node.ownerDocument.defaultView || window
+  const win = readDocumentProperty(node.ownerDocument, 'defaultView') || window
   const val = win.getComputedStyle(node).getPropertyValue(styleProperty)
   return val ? parseFloat(val.replace('px', '')) : 0
 }

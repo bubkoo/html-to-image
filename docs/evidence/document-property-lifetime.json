@@ -1,0 +1,144 @@
+{
+  "date": "2026-11-24",
+  "status": "Production candidate extracted; default production-branch CI and successful USB device acceptance remain required",
+  "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+  "sourceMatchesMeasuredCandidate": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
+  "branch": "codex/document-property-lifetime",
+  "productionScope": "10 source files: generic Reflect.get for15 defaultView accesses and private CSP createElement/head; original private-document method receiver, node realm, policy text and order preserved",
+  "unchangedFromBase": [
+    "tests and original collection assertions",
+    "three primary collection requests/deadlines/skips",
+    "default browser/sandbox/JIT configuration",
+    "CI workflows and scripts"
+  ],
+  "before": {
+    "head": "5d22112014c369c872f0c1e0ed4ebaecccb57f64",
+    "sourceEqualsCurrentBase": true,
+    "run": 45342549882,
+    "coverage": {
+      "passed": 1234,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 1111,
+      "failed": 4,
+      "skipped": 4
+    },
+    "failures": [
+      "Firefox removed iframe source",
+      "Firefox private SVG owner probed=false",
+      "Firefox private SVG owner probed=true",
+      "Firefox pending custom font resolver cancellation"
+    ],
+    "browserPackages": "not run",
+    "logAndMetadata": "preserved in raw archive",
+    "uploadedGraphArtifacts": "not downloaded for this baseline; earlier actual graph evidence retained in diagnostic branch"
+  },
+  "measuredCandidateRemote": [
+    {
+      "id": 45346620012,
+      "event": "pull_request",
+      "head": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
+      "testedCheckout": "f8656590890deeaee5541b5bdd5b9d545c1a6e23",
+      "result": "success",
+      "coverage": {
+        "passed": 1234,
+        "skipped": 4
+      },
+      "source": {
+        "passed": 1115,
+        "skipped": 4
+      },
+      "browserPackagesPassed": 162,
+      "sameConfigurationRepeat": "not run; primary passed",
+      "firefoxSourcePrimaries": {
+        "browser-firefox-environment-false.json": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "browser-firefox-environment-true.json": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "browser-firefox-frozen-svg-source.json": {
+          "ownerCollected": true
+        },
+        "browser-firefox-pending-font.json": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        }
+      },
+      "browserRestored": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      }
+    },
+    {
+      "id": 45346613038,
+      "event": "push",
+      "head": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
+      "testedCheckout": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
+      "result": "success",
+      "coverage": {
+        "passed": 1234,
+        "skipped": 4
+      },
+      "source": {
+        "passed": 1115,
+        "skipped": 4
+      },
+      "browserPackagesPassed": 162,
+      "sameConfigurationRepeat": "not run; primary passed",
+      "firefoxSourcePrimaries": {
+        "browser-firefox-environment-false.json": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "browser-firefox-environment-true.json": {
+          "nativeCollected": true,
+          "ownerCollected": true
+        },
+        "browser-firefox-frozen-svg-source.json": {
+          "ownerCollected": true
+        },
+        "browser-firefox-pending-font.json": {
+          "ownerCollected": true,
+          "nativeDiagnosticCollections": 0
+        }
+      },
+      "browserRestored": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      }
+    }
+  ],
+  "codeql": {
+    "run": 45346620038,
+    "head": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
+    "result": "success"
+  },
+  "local": "Measured C passed complete normal Linux1234/1115/162 with original Firefox and diagnostic flags unset;414 source/config/build hashes stable. Independent production-base host lint/build/tarball ESM CJS UMD/TS4.9-current entries/browser types also passed.",
+  "device": {
+    "connection": "Actual iPhone Safari26.6.1 non-simulator session established after unlock",
+    "httpAttempt": "Safari reports network connection lost before any test verdict",
+    "acceptance": "not run; no device GC claim",
+    "inputs": 414,
+    "inputHashesUnchanged": true,
+    "transportPreference": "USB only",
+    "phoneHotspotSetting": "user confirms enabled",
+    "computerNetworkConstraint": "No computer network settings changes; preserve Wi-Fi, proxy, routes and interfaces. Only read-only diagnosis performed.",
+    "listenersAtResume": "none on4444/4373; no test process still running"
+  },
+  "causalLimits": [
+    "Different jobs/order/timing and prior observed same-source passes prevent a deterministic before/after root-cause claim",
+    "A90 remote uses diagnostic Firefox and branch observers; those results do not replace unmodified production-branch CI",
+    "Known wrapper/prototype/cache paths justify isolating these reads; no universal claim that every possible retention path is fixed",
+    "No successful current device test verdict; HTTP-specific and original issue acceptance remain open"
+  ],
+  "diagnosticHistory": "https://github.com/bubkoo/html-to-image/pull/646",
+  "broaderScope": "Old28 PR/Issue dispositions remain in both trackers; #585 current-browser appearance/resource/font/native scope and manual #398 trusted-click acceptance stay open. No npm publication or old contributor PR closure.",
+  "rawFiles": 104,
+  "index": "document-property-lifetime/index.json"
+}
