@@ -1,0 +1,1601 @@
+{
+  "fileCount": 318,
+  "allArchivedMemberHashesVerified": true,
+  "archive": {
+    "path": "root-capture-origin-boundaries-raw.tar.gz",
+    "bytes": 161727,
+    "sha256": "f5c59e17d99800eeb4e219999f1d40485077c59db56bf76e93e76fe433e4de05"
+  },
+  "files": [
+    {
+      "path": "output/playwright/root-margin-native-20261125/assessment.json",
+      "bytes": 11873,
+      "sha256": "eb3cbba9f9bf5e0100f0f1e2f743c9f67ab02c888c3fba1286f6098c265935bc"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapse-through-parent-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapse-through-parent-original.png",
+      "bytes": 640,
+      "sha256": "f668ddfde857fef73c23b022a2be4ee3e00c8f269dd4effbfcbc12290548dbfc"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapse-through-parent-original.svg",
+      "bytes": 21486,
+      "sha256": "5a23b4279f992675e64ca398850e65f50dda5fee917daeab6e3cffc91e993ad2"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapse-through-parent-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapse-through-parent-root-margin-zero.svg",
+      "bytes": 21477,
+      "sha256": "53423bda0956edd7575982fd5fbb3fb8287bebd9fedacca4b801c0cad860416e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapse-through-parent-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapse-through-parent-viewport-origin.svg",
+      "bytes": 21507,
+      "sha256": "48c70c59354ac1b13310776d8118aa9a46aa25f4d3daf6c2aba4b7dde5db8d17"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-root-margin16-native.png",
+      "bytes": 286,
+      "sha256": "70d537f03e3c41fecd72a8caceffa5311adecc9ce530a3554516873dd1a8e193"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-root-margin16-original.png",
+      "bytes": 636,
+      "sha256": "ff1366ed1136e8a62c4d59cbe85a17887e7db615afced5dcc1586e62f0e65bb5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-root-margin16-original.svg",
+      "bytes": 21497,
+      "sha256": "36705269afdd6300568fff5f7cdd9ffc81ca3476cfeed860cd2769c72bb00100"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-root-margin16-root-margin-zero.png",
+      "bytes": 636,
+      "sha256": "ff1366ed1136e8a62c4d59cbe85a17887e7db615afced5dcc1586e62f0e65bb5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-root-margin16-root-margin-zero.svg",
+      "bytes": 21488,
+      "sha256": "69a21606813f71bf2260fbe321073526db33d28371fa8bd4ff150c96c4cd01dd"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-root-margin16-viewport-origin.png",
+      "bytes": 656,
+      "sha256": "7f7483f5f8f1d1a7b94fb32125a9e2f556c7dba7b87b1b0376baf34d194a13d8"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-root-margin16-viewport-origin.svg",
+      "bytes": 21518,
+      "sha256": "a5b790a2b90ed5ad4ffc6f144fa5f0f2f3fb1eadd4680efa25366a460b10193f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-zero-root-margin-native.png",
+      "bytes": 286,
+      "sha256": "70d537f03e3c41fecd72a8caceffa5311adecc9ce530a3554516873dd1a8e193"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-zero-root-margin-original.png",
+      "bytes": 636,
+      "sha256": "ff1366ed1136e8a62c4d59cbe85a17887e7db615afced5dcc1586e62f0e65bb5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-zero-root-margin-original.svg",
+      "bytes": 21483,
+      "sha256": "16024c8d2ff3ec441f03d03281bf4930851cc2e9488830c7f1281dd42c77eb11"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-zero-root-margin-root-margin-zero.png",
+      "bytes": 636,
+      "sha256": "ff1366ed1136e8a62c4d59cbe85a17887e7db615afced5dcc1586e62f0e65bb5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-zero-root-margin-root-margin-zero.svg",
+      "bytes": 21483,
+      "sha256": "aa8ea22d048600d14b46ab8abe109bcebceeac431a54d0c754e4f47b4a93df4d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-zero-root-margin-viewport-origin.png",
+      "bytes": 656,
+      "sha256": "7f7483f5f8f1d1a7b94fb32125a9e2f556c7dba7b87b1b0376baf34d194a13d8"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-collapsed-child-zero-root-margin-viewport-origin.svg",
+      "bytes": 21504,
+      "sha256": "795a22bc179de51fe4cbbc69f1bbb2f7a1f50a9d42f84a3fa1f4b494df0b9b94"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-contained-child-margin-control-native.png",
+      "bytes": 288,
+      "sha256": "f4d3a1d077d7887b0bfd2c0c6b620c71b5db38753d719cc5d12ddbd16d130f0e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-contained-child-margin-control-original.png",
+      "bytes": 653,
+      "sha256": "69e9787883307c767dda7db067b7bd43aec06cf88dd9f2a977147940ac412e63"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-contained-child-margin-control-original.svg",
+      "bytes": 21487,
+      "sha256": "bb796210e162179e9f584ad675ecd124fd4f4392bf309fc2baaf40ce251cbd7e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-contained-child-margin-control-root-margin-zero.png",
+      "bytes": 653,
+      "sha256": "69e9787883307c767dda7db067b7bd43aec06cf88dd9f2a977147940ac412e63"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-contained-child-margin-control-root-margin-zero.svg",
+      "bytes": 21487,
+      "sha256": "1ba8df556a1a9d83dd868d4599963dd684ccc70a82fed073584ab8fc1134c85f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-contained-child-margin-control-viewport-origin.png",
+      "bytes": 653,
+      "sha256": "69e9787883307c767dda7db067b7bd43aec06cf88dd9f2a977147940ac412e63"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-contained-child-margin-control-viewport-origin.svg",
+      "bytes": 21506,
+      "sha256": "ea861d85d3c4fc3cfe66a89aa2af271427edaf4d20c525dc6f3cb5bd493a06c6"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-flex-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-flex-original.png",
+      "bytes": 630,
+      "sha256": "f6618d70e67c5bcba2d928138933805fcb50294ccbe026e4a10bc9704120b7cd"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-flex-original.svg",
+      "bytes": 21479,
+      "sha256": "65078c82b8386536b51f2ea57fa268a7aebd4df2f012fd47b5568a09f1adae40"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-flex-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-flex-root-margin-zero.svg",
+      "bytes": 21478,
+      "sha256": "d2c4bd212c0bc45c29853c59873643349fcbe94c85e1ce53e9e7ca17497e1043"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-flex-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-flex-viewport-origin.svg",
+      "bytes": 21502,
+      "sha256": "939462bf037e751f5f489be7f22b0d78e1aeac998c2915fdb1a5c70e49af0849"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-horizontal-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-horizontal-original.png",
+      "bytes": 646,
+      "sha256": "143469e08b1029806221492c5ccb46a19c2a3f778394c3a2837b67db38816864"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-horizontal-original.svg",
+      "bytes": 21478,
+      "sha256": "acb628b196dfc456c43e9050b3de09846894fe3babf959fca42c6a504ef08895"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-horizontal-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-horizontal-root-margin-zero.svg",
+      "bytes": 21473,
+      "sha256": "eb79efe5aca575fba89c54c777c9863f8ebca7833b49b065ff4789217dfb251c"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-horizontal-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-auto-horizontal-viewport-origin.svg",
+      "bytes": 21499,
+      "sha256": "b0039ec5f53eeb02f3cf5941e4f4c46a29e3fda9f1ab06ce7b128eb84638dc2f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left-percentage-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left-percentage-original.png",
+      "bytes": 636,
+      "sha256": "92585779cb099ad3aef82390f9632fe078b0940dccbb2c62f13aacec06fe825e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left-percentage-original.svg",
+      "bytes": 21490,
+      "sha256": "da5a409f481ac2f2d683ee96288a2b1a8ec07e254879bf7f980ca95120c487d9"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left-percentage-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left-percentage-root-margin-zero.svg",
+      "bytes": 21477,
+      "sha256": "d79a9c528385c7896fc1957e21ebd590023a66e106d7f30c462bddc35e023d24"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left-percentage-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left-percentage-viewport-origin.svg",
+      "bytes": 21511,
+      "sha256": "70b9c5d92407f3f7af6be50b20eaef8a6c0685e6d782e1b448b2cd108cc69094"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left16-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left16-original.png",
+      "bytes": 634,
+      "sha256": "f3d18c3f078171d01a8894a06a36c58f34377bad47926b43dbedd125c99b13f3"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left16-original.svg",
+      "bytes": 21490,
+      "sha256": "8d50d66ce117fbd56bccce95ccda58ca95fb6032859b107c92a9509021872404"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left16-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left16-root-margin-zero.svg",
+      "bytes": 21477,
+      "sha256": "9b1f6d5a0abc2d073829e34dbfe815c302f357b6ddc7ba6e37b835be6d8c81ff"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left16-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-left16-viewport-origin.svg",
+      "bytes": 21511,
+      "sha256": "11bc768dd5057acf5b3ae6fd7950465c7634865de64687394a9edf51b2e4cae7"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-explicit160x80.png",
+      "bytes": 635,
+      "sha256": "5f3b86cb6aa0d7744ea775716e054ce4f03ea5da51e7f821b0c58fece5cfb5c4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-explicit160x80.svg",
+      "bytes": 21496,
+      "sha256": "ffe2e7ed7afe44ccbbc29912dbafd02e7a0f56681c0c74535f125be31b1f80ef"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-original.png",
+      "bytes": 635,
+      "sha256": "5f3b86cb6aa0d7744ea775716e054ce4f03ea5da51e7f821b0c58fece5cfb5c4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-original.svg",
+      "bytes": 21496,
+      "sha256": "aec0457b5d95adf76e4bd4ac84efb86d29a7bafa842b4d975d3d415de58d4bc8"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-root-margin-zero.svg",
+      "bytes": 21482,
+      "sha256": "38e13169f97bfbe5b7ecc2f85c1888512fd3896545eaecec87246c1639aa1eeb"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-left16-viewport-origin.svg",
+      "bytes": 21519,
+      "sha256": "5b659d74e53877f020f40da1cc79c9eabc7b614a7c74a3bf16e867cdd5260b0d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-percentage-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-percentage-original.png",
+      "bytes": 630,
+      "sha256": "6d18789bebbbcd8f075e309eb488289e022b4c338bc45126ea37956981672956"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-percentage-original.svg",
+      "bytes": 21486,
+      "sha256": "235f66a10ade49d9c6fbe8fec9280ef03abe216113cdc888e279225f8f49bd51"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-percentage-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-percentage-root-margin-zero.svg",
+      "bytes": 21477,
+      "sha256": "efa506e6e8d138a22d218726597e16bc7a5467523c9021e36c32fb9b146e3568"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-percentage-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top-percentage-viewport-origin.svg",
+      "bytes": 21507,
+      "sha256": "33e7db1cf29f8ef5f4259bf4cf1ccdba4376d3ff36ce324b11d89a12af6063d8"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top16-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top16-original.png",
+      "bytes": 640,
+      "sha256": "f668ddfde857fef73c23b022a2be4ee3e00c8f269dd4effbfcbc12290548dbfc"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top16-original.svg",
+      "bytes": 21486,
+      "sha256": "5a23b4279f992675e64ca398850e65f50dda5fee917daeab6e3cffc91e993ad2"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top16-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top16-root-margin-zero.svg",
+      "bytes": 21477,
+      "sha256": "53423bda0956edd7575982fd5fbb3fb8287bebd9fedacca4b801c0cad860416e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top16-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-margin-top16-viewport-origin.svg",
+      "bytes": 21507,
+      "sha256": "48c70c59354ac1b13310776d8118aa9a46aa25f4d3daf6c2aba4b7dde5db8d17"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-negative-margin-control-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-negative-margin-control-original.png",
+      "bytes": 664,
+      "sha256": "85c93fb331d9c9f7fa3e470068853200a2238264e31d77b314921dadf39e4cf7"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-negative-margin-control-original.svg",
+      "bytes": 21496,
+      "sha256": "dcd36dca83f119585ca540051dda22a8bc1bd481277b990b100b437d8331fb4a"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-negative-margin-control-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-negative-margin-control-root-margin-zero.svg",
+      "bytes": 21482,
+      "sha256": "910de4ac93ce9f3efd5fafa24355cd62c0b47497272336e79c8e821c03b69d69"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-negative-margin-control-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-negative-margin-control-viewport-origin.svg",
+      "bytes": 21515,
+      "sha256": "0aceff6d6a3083bc9eaea5d0ce799ac705ab588c4cc3b660bd941b9bc21b17be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-zero-margin-native.png",
+      "bytes": 285,
+      "sha256": "a52accf6c3e8d2c5c01ff1069c8f7d141df7eefd58902c5c92de0362178a05a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-zero-margin-original.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-zero-margin-original.svg",
+      "bytes": 21472,
+      "sha256": "300e2a0b94c0c431eb43daf3dbbaa808f07e6b12834c7a35db18eaa232fd9411"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-zero-margin-root-margin-zero.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-zero-margin-root-margin-zero.svg",
+      "bytes": 21472,
+      "sha256": "ef4139e42ef4a8541155b0d2d7af350755c1ba764c28d098683feee341851539"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-zero-margin-viewport-origin.png",
+      "bytes": 640,
+      "sha256": "05368eb9b65c7d97a30bf1fb51a3073227da71818a9322057fff3c76d3f97b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/chromium-zero-margin-viewport-origin.svg",
+      "bytes": 21491,
+      "sha256": "41b7d53bd531412284b5277f302f86d8b107d7d0d8818c7adfbe1af1bdc4831d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapse-through-parent-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapse-through-parent-original.png",
+      "bytes": 407,
+      "sha256": "755f9dcc7c90e0a840726150a6fc7dae2a342916f101d7e8fbe29da239f38aa3"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapse-through-parent-original.svg",
+      "bytes": 18001,
+      "sha256": "05c7e08a96a7994ec39f1da52c09721c21f472e0891121a362de13698e27f2c5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapse-through-parent-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapse-through-parent-root-margin-zero.svg",
+      "bytes": 17939,
+      "sha256": "0876044bd27e10153132ea3926cfcbd2da22fe47a1b1b030b00e71458dbfff82"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapse-through-parent-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapse-through-parent-viewport-origin.svg",
+      "bytes": 18022,
+      "sha256": "511d87c96476f484af28b7a34a82f978bab3f3e00ebbf7382ccde581b13376f2"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-root-margin16-native.png",
+      "bytes": 287,
+      "sha256": "bf36c96baaa57041829c8e6fe2a64539f2d6eed8d7cda382b6169cc1f2be27f4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-root-margin16-original.png",
+      "bytes": 292,
+      "sha256": "41896f22e23a9dc19dcd5879f5ce612f158028ba863a6cdbdd1e5c36dee99d65"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-root-margin16-original.svg",
+      "bytes": 18004,
+      "sha256": "46f41fccbeba05d4419eb0b95d4c1cba0bb9f60fcd8b81ff7cc3b5beae5b79e6"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-root-margin16-root-margin-zero.png",
+      "bytes": 292,
+      "sha256": "41896f22e23a9dc19dcd5879f5ce612f158028ba863a6cdbdd1e5c36dee99d65"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-root-margin16-root-margin-zero.svg",
+      "bytes": 17942,
+      "sha256": "1ae3bfa196ad332187482df65031a1d3464efb5b26a83c213770eb8d17b60817"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-root-margin16-viewport-origin.png",
+      "bytes": 287,
+      "sha256": "bf36c96baaa57041829c8e6fe2a64539f2d6eed8d7cda382b6169cc1f2be27f4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-root-margin16-viewport-origin.svg",
+      "bytes": 18025,
+      "sha256": "aa6065084fd6279c07fd4b85d3375809c46f1e6a02eeff05618d1aa19e18eb93"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-zero-root-margin-native.png",
+      "bytes": 287,
+      "sha256": "bf36c96baaa57041829c8e6fe2a64539f2d6eed8d7cda382b6169cc1f2be27f4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-zero-root-margin-original.png",
+      "bytes": 292,
+      "sha256": "41896f22e23a9dc19dcd5879f5ce612f158028ba863a6cdbdd1e5c36dee99d65"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-zero-root-margin-original.svg",
+      "bytes": 17998,
+      "sha256": "eec7e42e255b26de640155a60a1a111a18064f5c87ecc678b3c0b36b6789cbf5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-zero-root-margin-root-margin-zero.png",
+      "bytes": 292,
+      "sha256": "41896f22e23a9dc19dcd5879f5ce612f158028ba863a6cdbdd1e5c36dee99d65"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-zero-root-margin-root-margin-zero.svg",
+      "bytes": 17937,
+      "sha256": "4f0f77ab1ae5a83ccdcc12f050357600f7695bff0d22b82e9debee11c6c4c74f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-zero-root-margin-viewport-origin.png",
+      "bytes": 287,
+      "sha256": "bf36c96baaa57041829c8e6fe2a64539f2d6eed8d7cda382b6169cc1f2be27f4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-collapsed-child-zero-root-margin-viewport-origin.svg",
+      "bytes": 18019,
+      "sha256": "ddf8b16c44578c24c30d5c9c8570d072a4498760e21ffcde17e7eae103e2e9ae"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-contained-child-margin-control-native.png",
+      "bytes": 289,
+      "sha256": "24222da3a9815fd1f61b494058fc76529ef9efd8bb4e6c5c535314f41a565d11"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-contained-child-margin-control-original.png",
+      "bytes": 289,
+      "sha256": "24222da3a9815fd1f61b494058fc76529ef9efd8bb4e6c5c535314f41a565d11"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-contained-child-margin-control-original.svg",
+      "bytes": 18002,
+      "sha256": "fc984d7cb29908dffbd4f37ee381b319636eea691bbd8d06a11bf08c16efd048"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-contained-child-margin-control-root-margin-zero.png",
+      "bytes": 289,
+      "sha256": "24222da3a9815fd1f61b494058fc76529ef9efd8bb4e6c5c535314f41a565d11"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-contained-child-margin-control-root-margin-zero.svg",
+      "bytes": 17941,
+      "sha256": "5e8bc88c57a832774b81060ff80dc876563d061faac0fdbecbb38a40430b81b8"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-contained-child-margin-control-viewport-origin.png",
+      "bytes": 289,
+      "sha256": "24222da3a9815fd1f61b494058fc76529ef9efd8bb4e6c5c535314f41a565d11"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-contained-child-margin-control-viewport-origin.svg",
+      "bytes": 18021,
+      "sha256": "0c2ab9252eeeb015a529f225608cd1c477adfa948af758d84ba526d6a4a671b3"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-flex-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-flex-original.png",
+      "bytes": 372,
+      "sha256": "eebd55dafd71d168353706309f92c939e04a6fe0e29f9acd71653942b41d2aea"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-flex-original.svg",
+      "bytes": 18005,
+      "sha256": "3579640a91b2325664a147040a711bd79a9032a3e900c321912f57b479b7809d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-flex-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-flex-root-margin-zero.svg",
+      "bytes": 17940,
+      "sha256": "494cbe6279f070327e8373734bdb9cce6f4f456b680eb0d41428fbf6d3f8653f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-flex-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-flex-viewport-origin.svg",
+      "bytes": 18028,
+      "sha256": "6316af5bf8c93614f04ebdd7824fdb8a16976f4c2965d3a16a639a4fd9596420"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-horizontal-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-horizontal-original.png",
+      "bytes": 437,
+      "sha256": "9d3fd4fb0c9bbe389a5f63eb712f0591164a131eb62ec0322c0b36d56ee732a6"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-horizontal-original.svg",
+      "bytes": 17998,
+      "sha256": "d2d74e8927b8ad26974c45b00d2cbda6afcdff1db0ef399a73877955f770977e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-horizontal-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-horizontal-root-margin-zero.svg",
+      "bytes": 17935,
+      "sha256": "0e29fc5cc23eb717d44562f143c97be5cd4787fb5050403a1ee83d48d536321e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-horizontal-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-auto-horizontal-viewport-origin.svg",
+      "bytes": 18019,
+      "sha256": "b5e98ac87316ef1205b8cefcf3649598462c5d44c36fe96c49d5171facc68dd5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left-percentage-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left-percentage-original.png",
+      "bytes": 437,
+      "sha256": "7adf99cab8bcf78efe87f791371b6935b1d3e812fb6da8402a12000da6656463"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left-percentage-original.svg",
+      "bytes": 18001,
+      "sha256": "9922bb5bffc09b708e0bf783bbcf08c6db3435a2c7092f495c7e40d9669782ba"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left-percentage-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left-percentage-root-margin-zero.svg",
+      "bytes": 17939,
+      "sha256": "03d5bdd31de4051d7ed279ce87b2ba943b28a6a2690a2e57ae3267dfbf28394c"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left-percentage-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left-percentage-viewport-origin.svg",
+      "bytes": 18022,
+      "sha256": "e331dd1e3bcb860cc57b5424a5a6c630f30c03a23081da60bc42216851e9bf26"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left16-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left16-original.png",
+      "bytes": 434,
+      "sha256": "cc3fbfabb0473d064602f03a636fe01f88cefadfa1a1ecd9ffdd8b56e57b8390"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left16-original.svg",
+      "bytes": 18001,
+      "sha256": "0f33cc1ad0c1afc8790e37ce1240fcb9d0c717a15054a462e9f14b89f8aa6c04"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left16-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left16-root-margin-zero.svg",
+      "bytes": 17939,
+      "sha256": "fa57cb6873c4baa39911800f7b6e889bac4bac93d6fb955271a82321ca5ee9ff"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left16-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-left16-viewport-origin.svg",
+      "bytes": 18022,
+      "sha256": "eab884a320a38f59eaec3d71c464731406b076170d73708792c0bd36cd45c1bc"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-explicit160x80.png",
+      "bytes": 408,
+      "sha256": "f62bf8bc32f4307495bc1ef96d88a48427cf28ad0d9a257a5dc5c4cf811e8b5e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-explicit160x80.svg",
+      "bytes": 18007,
+      "sha256": "ba9feb90af4cd6be30b46f9582d77ef013c45cf450c613c903f0363639b9a9a7"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-original.png",
+      "bytes": 408,
+      "sha256": "f62bf8bc32f4307495bc1ef96d88a48427cf28ad0d9a257a5dc5c4cf811e8b5e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-original.svg",
+      "bytes": 18007,
+      "sha256": "dd1f90d3f2d939b29d4b7f56b60378f1da5a4d667581d6d43629134be982cfad"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-root-margin-zero.svg",
+      "bytes": 17944,
+      "sha256": "8846c2995b935f7667e8e5bb5e2105c77608f0c15e367443aec748960dff33f9"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-left16-viewport-origin.svg",
+      "bytes": 18030,
+      "sha256": "39c1d89d88670be88dbd1d2da55522a0404e4848b0b22edc5a1b21fd44abf21d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-percentage-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-percentage-original.png",
+      "bytes": 394,
+      "sha256": "512fc0145a0f7fc84fb6cbfdd5f63aff7dc6ddff90497f26dd1044667c0c94a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-percentage-original.svg",
+      "bytes": 18001,
+      "sha256": "d806ca78ffe285ef360a614c515fdab459044524c4fe7ea2383c28d97a2183a9"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-percentage-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-percentage-root-margin-zero.svg",
+      "bytes": 17939,
+      "sha256": "8a89ade703d287e55a39977b1eb714a06ff6740a6ae80d6ee9e968c3de7df2ef"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-percentage-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top-percentage-viewport-origin.svg",
+      "bytes": 18022,
+      "sha256": "596c660aea283ba6a3ed47a6f038c11e0aec1eea5c3920ee8d6430da09a98777"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top16-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top16-original.png",
+      "bytes": 407,
+      "sha256": "755f9dcc7c90e0a840726150a6fc7dae2a342916f101d7e8fbe29da239f38aa3"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top16-original.svg",
+      "bytes": 18001,
+      "sha256": "05c7e08a96a7994ec39f1da52c09721c21f472e0891121a362de13698e27f2c5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top16-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top16-root-margin-zero.svg",
+      "bytes": 17939,
+      "sha256": "0876044bd27e10153132ea3926cfcbd2da22fe47a1b1b030b00e71458dbfff82"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top16-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-margin-top16-viewport-origin.svg",
+      "bytes": 18022,
+      "sha256": "511d87c96476f484af28b7a34a82f978bab3f3e00ebbf7382ccde581b13376f2"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-negative-margin-control-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-negative-margin-control-original.png",
+      "bytes": 426,
+      "sha256": "199d8a8afa3415ba67c1e1c64d5e31a84122bb0f4c5c9437333edbda2c9fb5fb"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-negative-margin-control-original.svg",
+      "bytes": 18007,
+      "sha256": "3f277ea565da34c62bae9d5de0b73b6e72b5efd3348373ee3f3de47e149196a6"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-negative-margin-control-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-negative-margin-control-root-margin-zero.svg",
+      "bytes": 17944,
+      "sha256": "0bdccb7e45d68f7033327f3c57f25275e6fb44861466e288737efa79a68eb675"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-negative-margin-control-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-negative-margin-control-viewport-origin.svg",
+      "bytes": 18026,
+      "sha256": "ab606b30379c5cf31243de3b5a8be4c086f991e485cd2d9212aa18afc1151c24"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-zero-margin-native.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-zero-margin-original.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-zero-margin-original.svg",
+      "bytes": 17995,
+      "sha256": "b51609712de20518c09cd9dd1ff1a11055b5f532643fb3ae9dbb2658ffb85111"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-zero-margin-root-margin-zero.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-zero-margin-root-margin-zero.svg",
+      "bytes": 17934,
+      "sha256": "ebb8705405bb33d404c1f0abf3fed526955acde448e2f9b6cf8710e6bc062eae"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-zero-margin-viewport-origin.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/firefox-zero-margin-viewport-origin.svg",
+      "bytes": 18014,
+      "sha256": "1290be34612cb7cbb3ce617f2501bb36a473cd35d6089e08ee1b7d4e858bbc3a"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/input/html-to-image.js",
+      "bytes": 98736,
+      "sha256": "40b6a68fa1590b7b25be0b5ce0d4236f0ae32f97b611a366ee15a3cfb3af1d15"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/input/src__apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/input/src__capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/input/src__clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/input/src__types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/input/src__util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/native-oracle-verification.json",
+      "bytes": 7262,
+      "sha256": "48ed101e1bb8f2c39c4d3de76cf55926c876befc5a9c9f5977531ab3c45bdfbb"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/probe.mjs",
+      "bytes": 8427,
+      "sha256": "72ca805464857b9b09386e730db5fd3af774efccec32e661c30160a2f8703e7b"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/results.json",
+      "bytes": 88644,
+      "sha256": "2260266b2ab275f1b138ce9576f198c9b2527018264b9b4f660585f347f461d0"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/sha256-index.json",
+      "bytes": 49377,
+      "sha256": "8b0bd2ba370aa5a03ab045e730cabd23fa1c210987c72f69560eb1b519d93db3"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/viewport-origin-prototype.mjs",
+      "bytes": 5164,
+      "sha256": "7168376611d9dea3a7af47ab781de545d96dfdf850bcc254aa326b755f48292c"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/viewport-origin-results.json",
+      "bytes": 46188,
+      "sha256": "2861be70ccb65d4063beb9a03924cf3cb4e5553754fcf732a8ad0e22f4520828"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapse-through-parent-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapse-through-parent-original.png",
+      "bytes": 593,
+      "sha256": "ac453bd22dd3c9de41bbb46511956524131f7fea0647dacd6d95cff0406818fa"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapse-through-parent-original.svg",
+      "bytes": 21624,
+      "sha256": "a27a8e8ffd46178c6f67841bf5551fb9b37879b5c0651726d56722b87d2c48d2"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapse-through-parent-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapse-through-parent-root-margin-zero.svg",
+      "bytes": 21615,
+      "sha256": "b79b99d82a31c549aeecc9e65c08bd75c5549d1da592bdd75d54ab1b52a83bea"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapse-through-parent-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapse-through-parent-viewport-origin.svg",
+      "bytes": 21645,
+      "sha256": "0e5119d5ed1617ba87dcef1aeed814d06318ec82f449c55099f20c2e637a693c"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-root-margin16-native.png",
+      "bytes": 537,
+      "sha256": "c7b4c6f18eef7321999f67ebaacd65fc2b05cd9a81dfc33a68ab07200e00e9b5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-root-margin16-original.png",
+      "bytes": 577,
+      "sha256": "f4dfa0dc637eb83788a5255c3846bce7dc3dec3d1edb3385c84e0fee021cbdf9"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-root-margin16-original.svg",
+      "bytes": 21635,
+      "sha256": "3d872c1cf7274c978012f14dda10ebb7ffeaa3bfba650d006ad7315035e9ae14"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-root-margin16-root-margin-zero.png",
+      "bytes": 577,
+      "sha256": "f4dfa0dc637eb83788a5255c3846bce7dc3dec3d1edb3385c84e0fee021cbdf9"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-root-margin16-root-margin-zero.svg",
+      "bytes": 21626,
+      "sha256": "048ba1e5fcc0e269827d92ffdffbf0c1f3b03f4f824db2f93b3e7ac1432c24a0"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-root-margin16-viewport-origin.png",
+      "bytes": 537,
+      "sha256": "c7b4c6f18eef7321999f67ebaacd65fc2b05cd9a81dfc33a68ab07200e00e9b5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-root-margin16-viewport-origin.svg",
+      "bytes": 21656,
+      "sha256": "a698fc65c339b942f29878a2efcb9ea556f025c3597d4ef97cb3c7ca2cb690f8"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-zero-root-margin-native.png",
+      "bytes": 537,
+      "sha256": "c7b4c6f18eef7321999f67ebaacd65fc2b05cd9a81dfc33a68ab07200e00e9b5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-zero-root-margin-original.png",
+      "bytes": 577,
+      "sha256": "f4dfa0dc637eb83788a5255c3846bce7dc3dec3d1edb3385c84e0fee021cbdf9"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-zero-root-margin-original.svg",
+      "bytes": 21621,
+      "sha256": "717a523007e11dd47672141aca4b5187920da611a1747f72226d4423f8c04af1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-zero-root-margin-root-margin-zero.png",
+      "bytes": 577,
+      "sha256": "f4dfa0dc637eb83788a5255c3846bce7dc3dec3d1edb3385c84e0fee021cbdf9"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-zero-root-margin-root-margin-zero.svg",
+      "bytes": 21621,
+      "sha256": "b76ba27aa0291cee1fcc10d6e92d7829902a9aa926e6e611544b94dcf231466f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-zero-root-margin-viewport-origin.png",
+      "bytes": 537,
+      "sha256": "c7b4c6f18eef7321999f67ebaacd65fc2b05cd9a81dfc33a68ab07200e00e9b5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-collapsed-child-zero-root-margin-viewport-origin.svg",
+      "bytes": 21642,
+      "sha256": "de9e2fb5de04fefff04191d9384d5853339cc205d36ed15a2c6e084c6e609d89"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-contained-child-margin-control-native.png",
+      "bytes": 546,
+      "sha256": "4681f7a436a415ae995e5ea6b2a74b5b8ed45849304b8605fff4ff2c290be7ec"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-contained-child-margin-control-original.png",
+      "bytes": 546,
+      "sha256": "4681f7a436a415ae995e5ea6b2a74b5b8ed45849304b8605fff4ff2c290be7ec"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-contained-child-margin-control-original.svg",
+      "bytes": 21625,
+      "sha256": "5361156fc2663ecc0da48b49e365c6a5babe1df3f8759eae92e1a088a206f4de"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-contained-child-margin-control-root-margin-zero.png",
+      "bytes": 546,
+      "sha256": "4681f7a436a415ae995e5ea6b2a74b5b8ed45849304b8605fff4ff2c290be7ec"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-contained-child-margin-control-root-margin-zero.svg",
+      "bytes": 21625,
+      "sha256": "4012c6995e50163e92bb1d28de5d92060d055bebbbcf7e775c37113188819b8d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-contained-child-margin-control-viewport-origin.png",
+      "bytes": 546,
+      "sha256": "4681f7a436a415ae995e5ea6b2a74b5b8ed45849304b8605fff4ff2c290be7ec"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-contained-child-margin-control-viewport-origin.svg",
+      "bytes": 21644,
+      "sha256": "46bfbe32db677fe2ded7eb25d605dc29762276ed42dded27a31ec01cc304039e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-flex-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-flex-original.png",
+      "bytes": 546,
+      "sha256": "69a9086d7e50c3cebb5c1ca2a9b2d750d04b5ea3e02bbfe51c055855ca94c1a1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-flex-original.svg",
+      "bytes": 21617,
+      "sha256": "d7e3c28ffffacdeab46ab9e50cc3bd0f22f573610a9d353bcf80e951aeb168d0"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-flex-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-flex-root-margin-zero.svg",
+      "bytes": 21616,
+      "sha256": "64c4e6a2666d51eb0df178b907e98b423eb9e807957df6bbf1615254e4517a86"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-flex-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-flex-viewport-origin.svg",
+      "bytes": 21640,
+      "sha256": "bca185f3651f930bdf28913a0027d69f2ace379dd3b4032f5cec65e2852d5457"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-horizontal-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-horizontal-original.png",
+      "bytes": 667,
+      "sha256": "492f278a5b5cd8e46e8f0f87733cc65b7a28a6e35c2d5707f09d1cf412219198"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-horizontal-original.svg",
+      "bytes": 21616,
+      "sha256": "f74dacd6f474d88ab8ad2325c0d7dad3eb51fb132c46f9d1bb6006be12c6047e"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-horizontal-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-horizontal-root-margin-zero.svg",
+      "bytes": 21611,
+      "sha256": "d370242bfcd53cc1524ef3a4c00bcd5df05c9e9ef9937bff582a954c08f2993f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-horizontal-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-auto-horizontal-viewport-origin.svg",
+      "bytes": 21637,
+      "sha256": "97039b2e0dcf86c4e36072340e1ecb5ca087207eef7218b573b55491696fba68"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left-percentage-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left-percentage-original.png",
+      "bytes": 668,
+      "sha256": "df5f0fc3c93d01f828a295f4dd6f13b697b1e045c574010995b1af01bba4a7df"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left-percentage-original.svg",
+      "bytes": 21628,
+      "sha256": "902ecb52564d384150b6c96e7ffe5e121a98bae30679bd3b6c6d85129693f577"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left-percentage-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left-percentage-root-margin-zero.svg",
+      "bytes": 21615,
+      "sha256": "22c0b969c737e748f13e4c516d4ec25c75e7529bf911ccac91914b9b4752abf1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left-percentage-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left-percentage-viewport-origin.svg",
+      "bytes": 21649,
+      "sha256": "144f345015a3f03feca63ed37c8b1c6bbe191c013c8c8f0140d692ffae77f0de"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left16-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left16-original.png",
+      "bytes": 667,
+      "sha256": "4740b998f87a3c918bb4fc7c3a0f4e14c59c323b125cad7ac182ceff67732216"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left16-original.svg",
+      "bytes": 21628,
+      "sha256": "ebb8adfae8c7d2cc3cc5ce3193ff6b12d6f58b778b84bdfb86c0e7e7ce9d99d3"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left16-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left16-root-margin-zero.svg",
+      "bytes": 21615,
+      "sha256": "5d0a4092dc20accd7789bb7ed2a64ce96ec53b9dcd0b0acc6f6daaab2c1a9ae4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left16-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-left16-viewport-origin.svg",
+      "bytes": 21649,
+      "sha256": "e9e04bf3e8092ca631a294689d3d13ae2fa691af267ecf759fcdeb5b1dbd6953"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-explicit160x80.png",
+      "bytes": 619,
+      "sha256": "a6c7f29e3562611cc700f9e101814c65c6e452ac4e354cee2f956f81e69b9dc1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-explicit160x80.svg",
+      "bytes": 21634,
+      "sha256": "e1e9b19cc58412f68ad2d22b9c8cc902bdba6644d88cad29c7fe47611273e7fd"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-original.png",
+      "bytes": 619,
+      "sha256": "a6c7f29e3562611cc700f9e101814c65c6e452ac4e354cee2f956f81e69b9dc1"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-original.svg",
+      "bytes": 21634,
+      "sha256": "9ee9d7af5825b278db262ddeb45cfa3d8790e083d2bc6b95f78b6c075076d688"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-root-margin-zero.svg",
+      "bytes": 21620,
+      "sha256": "ab7642c3b7e1c12dd27f17dc5c0ade5d6fa9775ea7b5985589af87594bd96575"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-left16-viewport-origin.svg",
+      "bytes": 21657,
+      "sha256": "e644716ca9373e456a9fae6143ba2a5a75a87832744d8b38131f369dfbf6df20"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-percentage-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-percentage-original.png",
+      "bytes": 570,
+      "sha256": "019ab34cc2411dc38ff8faac8d0608ea9d8204f86940666fd686ddcdbf65a58d"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-percentage-original.svg",
+      "bytes": 21624,
+      "sha256": "a6b77ed14c1f6cdbd79359ef29c9fa58a6a2550f3e2572a6ed39371ab848f12c"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-percentage-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-percentage-root-margin-zero.svg",
+      "bytes": 21615,
+      "sha256": "6c9e66fb6bee9db0526a64e7a7de51d2fb6ce24beddd34959b64c95fc307eb2b"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-percentage-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top-percentage-viewport-origin.svg",
+      "bytes": 21645,
+      "sha256": "d3cb6e84b4cdcd75ccedb3eba143a6bd9d8a368d0d4536e8d88e30c15315cb4f"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top16-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top16-original.png",
+      "bytes": 593,
+      "sha256": "ac453bd22dd3c9de41bbb46511956524131f7fea0647dacd6d95cff0406818fa"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top16-original.svg",
+      "bytes": 21624,
+      "sha256": "a27a8e8ffd46178c6f67841bf5551fb9b37879b5c0651726d56722b87d2c48d2"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top16-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top16-root-margin-zero.svg",
+      "bytes": 21615,
+      "sha256": "b79b99d82a31c549aeecc9e65c08bd75c5549d1da592bdd75d54ab1b52a83bea"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top16-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-margin-top16-viewport-origin.svg",
+      "bytes": 21645,
+      "sha256": "0e5119d5ed1617ba87dcef1aeed814d06318ec82f449c55099f20c2e637a693c"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-negative-margin-control-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-negative-margin-control-original.png",
+      "bytes": 635,
+      "sha256": "8960de7b7f10129f06446d9d210646c882e245dae54bb40ddb7ee4e344dba891"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-negative-margin-control-original.svg",
+      "bytes": 21634,
+      "sha256": "80d0b52deef7198d6729ff39de67c643c54e97d7bc37034489a2319de2578de5"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-negative-margin-control-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-negative-margin-control-root-margin-zero.svg",
+      "bytes": 21620,
+      "sha256": "81a15690cb427b72745494c9a9ad38cb24c87ca961cf52c001ae68c048e41ef8"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-negative-margin-control-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-negative-margin-control-viewport-origin.svg",
+      "bytes": 21653,
+      "sha256": "31f0bf95e08fbc063668b6fd5a0b8dc7055cc12f54625535b972b46231490c32"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-zero-margin-native.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-zero-margin-original.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-zero-margin-original.svg",
+      "bytes": 21610,
+      "sha256": "d804891717c2b737c1a4662f4effc4ddd634e2428b173569eadcfabe7f5c2a58"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-zero-margin-root-margin-zero.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-zero-margin-root-margin-zero.svg",
+      "bytes": 21610,
+      "sha256": "bd3ebd266f65938239cf72f9ee8c17bad7e08ddfe2d5644b0074532478b42434"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-zero-margin-viewport-origin.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "output/playwright/root-margin-native-20261125/webkit-zero-margin-viewport-origin.svg",
+      "bytes": 21629,
+      "sha256": "c9885a9d8c3095a3a4cee7cb1bc7fd6769d38c8fb58775087cd80a915e5adf75"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/assessment.json",
+      "bytes": 22235,
+      "sha256": "80ce7ff7a536873b94ce43895f5c82969f5333540f0f56d427039341c8d30549"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/csp-probe.mjs",
+      "bytes": 10541,
+      "sha256": "327109de68d28f2d6109ed922ca729bcd3f0eb7cf07936af84beb8c9a0f64180"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/csp-results.json",
+      "bytes": 11719,
+      "sha256": "00b1c88fd8a924308017e4bedce573025e187b4ceacfb5f05289d394d44f57fc"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/http.json",
+      "bytes": 1793,
+      "sha256": "c2b77ea8004e3a63dc88a38d05845e2df9c521ce511fb24bb4c063cb3873d987"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/initial-ready-unchecked/csp-probe.mjs",
+      "bytes": 9597,
+      "sha256": "b8a30aeba2620cfb907823ccfac029865ce2b205256f88b8036506a05c8d0c96"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/initial-ready-unchecked/csp-results.json",
+      "bytes": 14460,
+      "sha256": "a2cda0cbbf2211f4f1954fab439e8565583741de724cf81e1e83c4041d8f3c09"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/initial-ready-unchecked/http.json",
+      "bytes": 2223,
+      "sha256": "7182122bd64799c55ccf29bb4c0af2f18adfe83c6682162d625a4b1a4d8aa07d"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/initial-ready-unchecked/retained-policy-http.json",
+      "bytes": 215,
+      "sha256": "03b3eed2c4d4a92bd2d63c36b38625bc76032fe9e892a97f510e1edb07665674"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/initial-ready-unchecked/retained-policy-probe.mjs",
+      "bytes": 9377,
+      "sha256": "8fa170988bcd4c33762c65ae6517076b1d1d861aa51876ba7c75cfdc4e7b4975"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/initial-ready-unchecked/retained-policy-results.json",
+      "bytes": 13933,
+      "sha256": "3a81eee27bceb72ff80e2640c54537851c634beb5704f9034fe62a6059c3aa63"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/input/font-metrics.ttf",
+      "bytes": 1120,
+      "sha256": "609ed7142290b5032cdd169a0f9f11c61eac8584215b381e4d21089196b7e7fe"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/input/src__dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/input/src__svg-style-scope.ts",
+      "bytes": 27604,
+      "sha256": "bff89181065a7865cf4219bdf5d86807c9e1d95d14147b7bfe8410e8e31f9e8d"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/lifecycle-data-origin-initial/lifecycle-helper.js",
+      "bytes": 4942,
+      "sha256": "a63b02622a3bedb87e724ae00092540239d603b16d3714c5e969fe4fd3edc37b"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/lifecycle-data-origin-initial/lifecycle-probe.mjs",
+      "bytes": 5909,
+      "sha256": "cb150832515257ff4d3610a869bda17177c4ea47954942f948f56b39ef51de83"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/lifecycle-data-origin-initial/lifecycle-results.json",
+      "bytes": 25658,
+      "sha256": "5f6142ecc206d618df71220aaf43b99cd3e37ea160d76006934f69427d0d0ae1"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/lifecycle-helper.js",
+      "bytes": 5118,
+      "sha256": "d5db2208022838f567a900fc91c20b11e888cfca417adcfec0621866df659985"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/lifecycle-probe.mjs",
+      "bytes": 7146,
+      "sha256": "fec7d2de367398b6becd7357da3adc27f3aae642a056f984060bb9eec539e442"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/lifecycle-results.json",
+      "bytes": 46870,
+      "sha256": "8910de8414401237de1d0d44b7b585cb82ef68b15be58d85c59ee207d1b7e92e"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/producer-environment.js",
+      "bytes": 8108,
+      "sha256": "ef1a7df5c1705bfd4e3907631d746570369e7439859056df2ec293663bfa1e84"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/producer-security-probe.mjs",
+      "bytes": 7041,
+      "sha256": "78dbc8bf1504fef65189ccdf97d6a681a55aa570276d7f7961dfe2f740f30636"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/producer-security-results.json",
+      "bytes": 17693,
+      "sha256": "f371f90d9126fcdb91a39d149f4a0654d70b4f5650d3e454ddae0f2d12fc523b"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/retained-policy-http.json",
+      "bytes": 215,
+      "sha256": "03b3eed2c4d4a92bd2d63c36b38625bc76032fe9e892a97f510e1edb07665674"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/retained-policy-probe.mjs",
+      "bytes": 10144,
+      "sha256": "c08f09564fd39a8ae9b64a93392e6121daca36cc8bbf4434c2485bfbcba752a7"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/retained-policy-results.json",
+      "bytes": 13933,
+      "sha256": "3a81eee27bceb72ff80e2640c54537851c634beb5704f9034fe62a6059c3aa63"
+    },
+    {
+      "path": "output/playwright/root-origin-measurement-20261125/sha256-index.json",
+      "bytes": 3886,
+      "sha256": "a28958ed2f2f9fab1deac66984210b0e88fc5198e2d38f6a9ce2be1081fa6c45"
+    }
+  ]
+}

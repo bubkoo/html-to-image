@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-24T22:15:12.134803+00:00",
+  "status": "integration-gates-still-failing",
+  "scope": "Read-only archival of root integrated local checks; frozen 449 complete input bytes plus reconstructable 447 boundary. Independent remote PR checks and phone/private folders are excluded.",
+  "runs": [
+    {
+      "name": "integrated-cancellation-security-default",
+      "receipt": {
+        "command": [
+          "pnpm",
+          "test"
+        ],
+        "exitCode": 1,
+        "inputsUnchanged": true,
+        "inputCount": 447,
+        "durationSeconds": 22.221723042,
+        "head": "7bb46a4b67f355cc5b3d5efacf55bf4356324d57"
+      },
+      "tests": {
+        "passed": 1636,
+        "failed": 4,
+        "skipped": 45
+      },
+      "inputLedgerVerifiedUnchanged": true,
+      "localClockStart": "05:26:08",
+      "log": "runs/integrated-cancellation-security-default/run.log",
+      "receiptPath": "runs/integrated-cancellation-security-default/receipt.json"
+    },
+    {
+      "name": "integrated-gc-runner-default",
+      "receipt": {
+        "command": [
+          "pnpm",
+          "test"
+        ],
+        "exitCode": 1,
+        "inputsUnchanged": true,
+        "inputCount": 449,
+        "durationSeconds": 21.719674125,
+        "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff"
+      },
+      "tests": {
+        "passed": 1638,
+        "failed": 2,
+        "skipped": 45
+      },
+      "inputLedgerVerifiedUnchanged": true,
+      "localClockStart": "05:30:05",
+      "log": "runs/integrated-gc-runner-default/run.log",
+      "receiptPath": "runs/integrated-gc-runner-default/receipt.json"
+    },
+    {
+      "name": "integrated-gc-runner-source",
+      "receipt": {
+        "command": [
+          "pnpm",
+          "exec",
+          "vitest",
+          "run",
+          "--config",
+          "vitest.browser.config.mts"
+        ],
+        "exitCode": 1,
+        "inputsUnchanged": true,
+        "inputCount": 449,
+        "durationSeconds": 16.858506541999997,
+        "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff"
+      },
+      "tests": {
+        "passed": 1519,
+        "failed": 2,
+        "skipped": 45
+      },
+      "inputLedgerVerifiedUnchanged": true,
+      "localClockStart": "05:30:50",
+      "log": "runs/integrated-gc-runner-source/run.log",
+      "receiptPath": "runs/integrated-gc-runner-source/receipt.json"
+    },
+    {
+      "name": "integrated-gc-runner-packages",
+      "receipt": {
+        "command": [
+          "pnpm",
+          "exec",
+          "playwright",
+          "test",
+          "--config",
+          "playwright.config.ts"
+        ],
+        "exitCode": 1,
+        "inputsUnchanged": true,
+        "inputCount": 449,
+        "durationSeconds": 163.388504417,
+        "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff"
+      },
+      "tests": {
+        "passed": 176,
+        "failed": 2,
+        "skipped": 2
+      },
+      "inputLedgerVerifiedUnchanged": true,
+      "localClockStart": null,
+      "log": "runs/integrated-gc-runner-packages/run.log",
+      "receiptPath": "runs/integrated-gc-runner-packages/receipt.json"
+    }
+  ],
+  "boundary": {
+    "before": {
+      "run": "integrated-cancellation-security-default",
+      "count": 447
+    },
+    "after": {
+      "run": "integrated-gc-runner-default",
+      "count": 449
+    },
+    "added": [
+      "test/browser/gc-frame.d.mts",
+      "test/browser/gc-frame.mjs"
+    ],
+    "removed": [],
+    "changed": [
+      "vitest.browser.config.mts"
+    ],
+    "runtimeSourceAndGeneratedOutputHashesUnchanged": true,
+    "oldConfigGitObjectMatchesLedger": true,
+    "strictCausalAttribution": false
+  },
+  "attribution": {
+    "observation": "Initial default 1636 passed/4 failed became later default 1638 passed/2 failed, both with45 skipped. The two Chromium frame-detached failures are absent in the later run.",
+    "strictCausalClaim": false,
+    "reason": "Only the measured input differences are known (two GC helper files plus runner config). These are separate executions without a controlled repeated A/B environmental comparison. Disappearance is not a general GC or source-owner fix proof.",
+    "runtimeSourceAndBuildBytesEqualAcrossBoundary": true
+  },
+  "failures": {
+    "initialDefault": [
+      {
+        "engine": "chromium",
+        "file": "resource-resolver-cancellation.test.ts",
+        "case": "a disposed SVG environment releases its document with probed=false",
+        "location": "104:22",
+        "error": "frame.evaluate: Frame was detached",
+        "stage": "commands.collectGarbage, before WeakRef collection assertions"
+      },
+      {
+        "engine": "chromium",
+        "file": "svg-style-source-lifetime.test.ts",
+        "case": "disposed SVG owner releases source with font=false and opened=false",
+        "location": "77:22",
+        "error": "frame.evaluate: Frame was detached",
+        "stage": "commands.collectGarbage, before native/held collection assertions"
+      },
+      {
+        "engine": "webkit",
+        "file": "native-scroll.test.ts",
+        "cases": [
+          "visible-text preserves native glyph placement",
+          "padding-shadow matches source pixels"
+        ],
+        "errorAsAggregatedByLog": "visible-text: native/capture channel 836: 255, expected 241"
+      }
+    ],
+    "laterDefaultAndSource": {
+      "engine": "webkit",
+      "file": "native-scroll.test.ts",
+      "cases": [
+        "visible-text preserves native glyph placement",
+        "padding-shadow matches source pixels"
+      ],
+      "errorAsAggregatedByLog": "visible-text: native/capture channel 836: 255, expected 241",
+      "note": "The log groups both failing tests with this displayed message. Source-run artifact diagnostics below preserve their distinct pixel differences; do not substitute the grouped message for the padding-shadow report."
+    },
+    "package": [
+      {
+        "format": "ESM",
+        "outerAssertion": "test/browser/package.test.ts:182:29 expects report.failed=[]",
+        "listed": 18,
+        "executed": 18,
+        "passed": 15,
+        "failed": [
+          {
+            "kind": "visible-text",
+            "error": "visible-text: native/capture channel 836: 255, expected 241\ncheckNativeScroll@http://127.0.0.1:4197/test/browser/fixtures/native-scroll.mjs:219:26\n@\n@"
+          },
+          {
+            "kind": "fractional",
+            "error": "fractional: native/capture channel 657: 128, expected 96\ncheckNativeScroll@http://127.0.0.1:4197/test/browser/fixtures/native-scroll.mjs:219:26\n@\n@"
+          },
+          {
+            "kind": "padding-shadow",
+            "error": "padding-shadow: native/capture channel 164: 0, expected 255\ncheckNativeScroll@http://127.0.0.1:4197/test/browser/fixtures/native-scroll.mjs:219:26\n@\n@"
+          }
+        ],
+        "unsupported": [],
+        "source": "package-failures/ESM/native-scroll-report.json"
+      },
+      {
+        "format": "UMD",
+        "outerAssertion": "test/browser/package.test.ts:182:29 expects report.failed=[]",
+        "listed": 18,
+        "executed": 18,
+        "passed": 15,
+        "failed": [
+          {
+            "kind": "visible-text",
+            "error": "visible-text: native/capture channel 836: 255, expected 241\ncheckNativeScroll@http://127.0.0.1:4197/test/browser/fixtures/native-scroll.mjs:219:26\n@\n@"
+          },
+          {
+            "kind": "fractional",
+            "error": "fractional: native/capture channel 657: 128, expected 96\ncheckNativeScroll@http://127.0.0.1:4197/test/browser/fixtures/native-scroll.mjs:219:26\n@\n@"
+          },
+          {
+            "kind": "padding-shadow",
+            "error": "padding-shadow: native/capture channel 164: 0, expected 255\ncheckNativeScroll@http://127.0.0.1:4197/test/browser/fixtures/native-scroll.mjs:219:26\n@\n@"
+          }
+        ],
+        "unsupported": [],
+        "source": "package-failures/UMD/native-scroll-report.json"
+      }
+    ]
+  },
+  "sourceNativeDiagnostics": [
+    {
+      "kind": "visible-text",
+      "initialCaptureNativeDifferentChannels": 264,
+      "authoredNativeDifferentChannels": 21,
+      "replayNativeDifferentChannels": 21,
+      "replayNativeMaxChannelDelta": 1,
+      "htmlNativeDifferentChannels": 0,
+      "inlineSvgNativeDifferentChannels": 0,
+      "pngDifferencesIndependentlyDecoded": true,
+      "scope": "Source run only; neither image timing nor replay is treated as a fix."
+    },
+    {
+      "kind": "padding-shadow",
+      "initialCaptureNativeDifferentChannels": 234,
+      "authoredNativeDifferentChannels": 234,
+      "replayNativeDifferentChannels": 234,
+      "replayNativeMaxChannelDelta": 255,
+      "htmlNativeDifferentChannels": 0,
+      "inlineSvgNativeDifferentChannels": 0,
+      "pngDifferencesIndependentlyDecoded": true,
+      "scope": "Source run only; neither image timing nor replay is treated as a fix."
+    }
+  ],
+  "packageSkips": {
+    "count": 2,
+    "engine": "firefox",
+    "cases": [
+      "built ESM: native style-resources matches actual source pixels",
+      "built UMD: native style-resources matches actual source pixels"
+    ],
+    "meaning": "Skipped coverage, not accepted native fidelity. The two top-level WebKit package failures each contain three failed internal scroll scenarios; do not replace outer counts with inner counts."
+  },
+  "staticChecks": [
+    {
+      "path": "static/integrated-cancellation-security-build.log",
+      "processExitCodeEncodedInLog": null,
+      "scope": "Original standalone log retained; process exit status is not encoded in this file.",
+      "explicitCompletion": "Clean, ESM/CJS compilation and UMD bundling commands recorded; Rollup reports created dist/html-to-image.js."
+    },
+    {
+      "path": "static/integrated-cancellation-security-consumers.log",
+      "processExitCodeEncodedInLog": null,
+      "scope": "Original standalone log retained; process exit status is not encoded in this file.",
+      "explicitCompletion": "Installed tarball ESM/CJS/UMD and TS4.9/current consumer smoke passed."
+    },
+    {
+      "path": "static/integrated-cancellation-security-lint.log",
+      "processExitCodeEncodedInLog": null,
+      "scope": "Original standalone log retained; process exit status is not encoded in this file.",
+      "explicitCompletion": "Invoked lint/type command recorded with no diagnostic text; do not synthesize a process exit code."
+    },
+    {
+      "path": "static/integrated-cancellation-security-types.log",
+      "processExitCodeEncodedInLog": null,
+      "scope": "Original standalone log retained; process exit status is not encoded in this file.",
+      "explicitCompletion": "Invoked lint/type command recorded with no diagnostic text; do not synthesize a process exit code."
+    },
+    {
+      "path": "static/integrated-fixed-lint-install.log",
+      "processExitCodeEncodedInLog": null,
+      "scope": "Original standalone log retained; process exit status is not encoded in this file.",
+      "explicitCompletion": "Frozen lock resolution skipped; ESLint10.15.0/typescript-eslint8.73.0 installed; no lock rewrite inferred."
+    },
+    {
+      "path": "static/integrated-gc-runner-lint.log",
+      "processExitCodeEncodedInLog": null,
+      "scope": "Original standalone log retained; process exit status is not encoded in this file.",
+      "explicitCompletion": "Invoked lint/type command recorded with no diagnostic text; do not synthesize a process exit code."
+    },
+    {
+      "path": "static/integrated-gc-runner-types.log",
+      "processExitCodeEncodedInLog": null,
+      "scope": "Original standalone log retained; process exit status is not encoded in this file.",
+      "explicitCompletion": "Invoked lint/type command recorded with no diagnostic text; do not synthesize a process exit code."
+    }
+  ],
+  "screenshotProvenance": [
+    {
+      "path": "screenshots/integrated-cancellation-security-default/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "run": "integrated-cancellation-security-default",
+      "originMTimeUTC": "2026-11-24T21:26:23.146147+00:00",
+      "provenance": "Log-listed exact path plus preserved local timestamp; no original run-specific image digest was recorded. Native screenshots were last written during source run and are not attributed to either default run."
+    },
+    {
+      "path": "screenshots/integrated-cancellation-security-default/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-false-and-opened-false.png",
+      "run": "integrated-cancellation-security-default",
+      "originMTimeUTC": "2026-11-24T21:26:23.146051+00:00",
+      "provenance": "Log-listed exact path plus preserved local timestamp; no original run-specific image digest was recorded. Native screenshots were last written during source run and are not attributed to either default run."
+    },
+    {
+      "path": "screenshots/integrated-gc-runner-source/native-scroll.test.ts/native-scroll-padding-shadow-matches-source-pixels.png",
+      "run": "integrated-gc-runner-source",
+      "originMTimeUTC": "2026-11-24T21:30:52.964715+00:00",
+      "provenance": "Log-listed exact path plus preserved local timestamp; no original run-specific image digest was recorded. Native screenshots were last written during source run and are not attributed to either default run."
+    },
+    {
+      "path": "screenshots/integrated-gc-runner-source/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+      "run": "integrated-gc-runner-source",
+      "originMTimeUTC": "2026-11-24T21:30:51.863468+00:00",
+      "provenance": "Log-listed exact path plus preserved local timestamp; no original run-specific image digest was recorded. Native screenshots were last written during source run and are not attributed to either default run."
+    }
+  ],
+  "screenshotLimits": "Only four exact filenames selected. Native screenshots and diagnostics are source-run writes; earlier defaults share filenames and their original image bytes were overwritten, so no screenshot is invented for those earlier runs. Local timestamps support association but are not cryptographic per-run provenance. Two trace archives independently identify the corresponding WebKit ESM/UMD package test titles and wall-clock epochs.",
+  "limitations": [
+    "Do not sum default and source totals: they overlap. Do not add package inner scenario counts to top-level test counts.",
+    "45 default/source skips and2 package skips remain uncovered; passing remaining tests is not full native acceptance.",
+    "Archive preserves real failures and local filesystem metadata; metadata timestamps alone are not exact process UTC start/end receipts.",
+    "Static standalone files do not encode process exit status; absence of diagnostics is not a substitute exit receipt.",
+    "No phone, iPhone Mirroring, mobile-private folder, offline-page mutation, browser rerun, source/config change, tracker change, commit or push was performed by this archival task."
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "sourceCommit": "aaf0491959c2be07b7d15ed3b29135930daaf0c7",
+  "fileCount": 140,
+  "allArchivedMemberHashesVerified": true,
+  "archive": {
+    "path": "native-svg-readiness-diagnostics-raw.tar.gz",
+    "bytes": 500756,
+    "sha256": "d26eaf5f0b13d060eaa50beccaeb9a71f2545a54dc18f6688af5ba27be22bdf7"
+  },
+  "files": [
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-checks.json",
+      "bytes": 255,
+      "sha256": "84ffed57992bb06dcbcad3890ec8f097a44c99ab377a3dad2659de8c5f91fb95"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/inputs-after.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/inputs-before.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/receipt.json",
+      "bytes": 200,
+      "sha256": "3ef22f56e11dfbb62d158558ca309867f8d428f216f332dd73702465592ddc9a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/run.log",
+      "bytes": 2113,
+      "sha256": "d950721d20438b2aa3abc81da9a256d7ef7ef98c3641b93f8ec6a0fd3240366d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/svg-style-scope.ts",
+      "bytes": 27604,
+      "sha256": "bff89181065a7865cf4219bdf5d86807c9e1d95d14147b7bfe8410e8e31f9e8d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-default/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/inputs-after.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/inputs-before.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/receipt.json",
+      "bytes": 298,
+      "sha256": "473f64bbf69f254a208934950cbcd320d9b8195871fcf5482a6aa7984731a93e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/run.log",
+      "bytes": 289134,
+      "sha256": "19d65714e5bc631d0cf412e45bb899dbdff5de91a62f017f34037805e903055a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/svg-style-scope.ts",
+      "bytes": 27604,
+      "sha256": "bff89181065a7865cf4219bdf5d86807c9e1d95d14147b7bfe8410e8e31f9e8d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-index.json",
+      "bytes": 1117,
+      "sha256": "1ef75c21c49a01ee96007d9ac9f9b45ff3ec0a2865f15b56cd069fc805b1573e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/.last-run.json",
+      "bytes": 145,
+      "sha256": "0d448299c7680e53e03b56f79070950fadea4148c7a7b523e2af14b1409ec935"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/mobile-smoke-reports/585c5696-2cd2-4a4b-b08a-e0f3b9f08ca9.json",
+      "bytes": 2472,
+      "sha256": "b7688f0a805878a95a567327639603c8b5df4e9ed27a8ed83a95d1e75121ff12"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/mobile-smoke-reports/999fe2e6-512f-4bf1-a972-0b3b23e9cdb8.json",
+      "bytes": 2404,
+      "sha256": "ac63fda09a86317d804c88b0aeccdfd72f6d199411231cfb5881dff0bd6dcd9b"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/mobile-smoke-reports/c9b1dc4b-9588-4dfa-8b7d-5c618dbf7d43.json",
+      "bytes": 2478,
+      "sha256": "e71f1de6c22ef39419e03053e0b1755d2f53d5932e80ae9e317aadb7aa90af5e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/package-built-ESM-native-scroll-matches-actual-source-pixels-webkit/error-context.md",
+      "bytes": 10264,
+      "sha256": "468414752e089af45e2132bd79df26bd95f369f85f6a3cee0461cde6b82d4bd6"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/package-built-ESM-native-scroll-matches-actual-source-pixels-webkit/trace.zip",
+      "bytes": 72597,
+      "sha256": "b9354694d2c4184b968e035bd184cfae9cbcb1107699949af5bbb7b81b6d2623"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/package-built-UMD-native-scroll-matches-actual-source-pixels-webkit/error-context.md",
+      "bytes": 10264,
+      "sha256": "816c2d9f427c52b4620d171d02ba2504d176405726e8d86a35bb29c45d4f8296"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-packages/test-results-snapshot/package-built-UMD-native-scroll-matches-actual-source-pixels-webkit/trace.zip",
+      "bytes": 69076,
+      "sha256": "ae090d9a1240d1a178ed5441f606fc20f320204b3443ef4a63a06dd78d090dc7"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/inputs-after.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/inputs-before.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/receipt.json",
+      "bytes": 274,
+      "sha256": "42462d97ef26c774d0ffd2e4fa91fa28436e903b237013237a6dfac9780ed4dd"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/run.log",
+      "bytes": 1611,
+      "sha256": "10b37625f363981cc173f1178f09aff74d6a11d1b49f8fd234c5779e1652c57b"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/svg-style-scope.ts",
+      "bytes": 27604,
+      "sha256": "bff89181065a7865cf4219bdf5d86807c9e1d95d14147b7bfe8410e8e31f9e8d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-source/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/inputs-after.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/inputs-before.json",
+      "bytes": 46377,
+      "sha256": "ca767300b75f49abd29f02a39192446776525ebcd4519cf2fe2d05e359fc6619"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/receipt.json",
+      "bytes": 501,
+      "sha256": "a580a7fe49ed07e23a4a08de39811f490a18abb257a7955a88328793619dfe9a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/run.log",
+      "bytes": 599,
+      "sha256": "05d5d31af4836fbb9957df7864c56b8f89b89a518cfe852c1e898db76f80abdb"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/clone-pseudos.ts",
+      "bytes": 2473,
+      "sha256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/clone-scroll-native.ts",
+      "bytes": 6559,
+      "sha256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/clone-scroll.ts",
+      "bytes": 14370,
+      "sha256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/clone-scrollbars.ts",
+      "bytes": 27947,
+      "sha256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/css-nesting.ts",
+      "bytes": 1808,
+      "sha256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/document.ts",
+      "bytes": 168,
+      "sha256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/embed-images.ts",
+      "bytes": 7348,
+      "sha256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/embed-resources.ts",
+      "bytes": 2688,
+      "sha256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/embed-webfonts.ts",
+      "bytes": 18565,
+      "sha256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/index.ts",
+      "bytes": 1634,
+      "sha256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/mimes.ts",
+      "bytes": 607,
+      "sha256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/renderer.ts",
+      "bytes": 3101,
+      "sha256": "bc02632db645dfafbddab2b8e70b66869962e56f2722bfb6c6fb18746ab84500"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/resource-loader.ts",
+      "bytes": 6539,
+      "sha256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/svg-references.ts",
+      "bytes": 23018,
+      "sha256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/svg-style-imports.ts",
+      "bytes": 12015,
+      "sha256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/svg-style-scope.ts",
+      "bytes": 27604,
+      "sha256": "bff89181065a7865cf4219bdf5d86807c9e1d95d14147b7bfe8410e8e31f9e8d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/task.ts",
+      "bytes": 8341,
+      "sha256": "a6cc3a8bf5a5daad8fe074253c85c2867c44eee1d91edea126cd23733c7760ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/types.ts",
+      "bytes": 6895,
+      "sha256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/native-svg-readiness-diagnostics-targeted/src/util.ts",
+      "bytes": 10237,
+      "sha256": "f5fa7d70fd493328f213b58730426f5aeb6c290845d9343019e78f185805de2a"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/run-default-check.py",
+      "bytes": 1729,
+      "sha256": "0aaa2a878f2b18caed0e0d9903a140c3cffe8a4cfdf3f0e961f12270810139cd"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/run-package-check.py",
+      "bytes": 1797,
+      "sha256": "08e86ca9a8ca1d7e814b13af541fb1f7fe61944b2007c63775d946276c5ac12d"
+    },
+    {
+      "path": "output/playwright/native-scroll-followup/run-source-check.py",
+      "bytes": 1797,
+      "sha256": "baf73f2455fd3d38a81f7750bec44af5c736b155b88b736ba2543eccf1ca8db7"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/assessment.json",
+      "bytes": 4112,
+      "sha256": "bd0b5143a101a12ba319bb825a8f886c5e68ef825c7324426744da26a663059d"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/http.json",
+      "bytes": 5928,
+      "sha256": "3dfae3cd1499b5d66f89d54e555a0f1b5ac232b2bcaeaa666bb21ebce7c8cbed"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/main-source-identity.json",
+      "bytes": 194,
+      "sha256": "cd427c3ec4136a49b55089d69eb8d6394aa8a32c49ffe5bd75f62dad4dfcb4b7"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/policy-404.json",
+      "bytes": 21434,
+      "sha256": "f55ab5727cc151bbe3164d32bae56f9437154500442da2cebe56e845cd5e0f19"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/policy-ok.json",
+      "bytes": 1669,
+      "sha256": "193d8867f4f815e5f09ab4fab9ded80788f01f00ae5a63e8eb73c47ab3ca7d3c"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/probe.mjs",
+      "bytes": 10014,
+      "sha256": "c1f540f7e4a336e0d6430db3010dbe9356e21431e30343689368d1494e13cb51"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/results.json",
+      "bytes": 47644,
+      "sha256": "88a5a4e8956e0a63286e8d77f42a80485c938136d29b09e9abdeaa706ad49a95"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/sha256-index.json",
+      "bytes": 1816,
+      "sha256": "69f7bd4fe3256c5722741f500e2bc13f7f185c52d1b6ebe5242da13103a81cf9"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/test__browser__fixtures__svg-native-styles.mjs",
+      "bytes": 19123,
+      "sha256": "5ff2aefa214228b5b12623e35f5af91b011e0632f6ff9f8993a51ecce31b47bd"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/test__browser__fixtures__svg-styles__native-policy.svg",
+      "bytes": 491,
+      "sha256": "b3accb067064ef7a85a92d976f611319608b8f131c21203ca1ad374b4a4d2560"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/test__browser__fixtures__svg-styles__other.svg",
+      "bytes": 176,
+      "sha256": "30d15426dfde9b1fed542fe9f612ceaf5b87d74c11308203546520e2a4889d60"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/test__browser__fixtures__svg-styles__whole-style.svg",
+      "bytes": 180,
+      "sha256": "9eed00dbf8310fa22cc6af881c958977a8827caff0ce3562c5fcc367d66a4cf8"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/validation-plan.json",
+      "bytes": 824,
+      "sha256": "50cc71ece44863073e4e5f0882d14fe25f4b2f91e3e83b49615b2dd5a8ba8506"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/whole-style-404.json",
+      "bytes": 15079,
+      "sha256": "3891270dce417d20dae1c6f9b572d4dc950882b752d042de8e5140f8425025cb"
+    },
+    {
+      "path": "output/playwright/native-svg-readiness-diagnostics-20261125/whole-style-ok.json",
+      "bytes": 2314,
+      "sha256": "ba709c85100d35bf0d403500abc7f9d7c94f837a420c74d9842a25f65370db57"
+    }
+  ]
+}

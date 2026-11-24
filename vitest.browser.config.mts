@@ -6,6 +6,7 @@ import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
 import { resourcePolicyServer } from './test/browser/fixtures/resource-policy-server.mjs'
+import { scrollbarStyleResourcesServer } from './test/browser/fixtures/scrollbar-style-resources-server.mjs'
 import { getGCRunnerFrame } from './test/browser/gc-frame.mjs'
 
 const names = ['chromium', 'firefox', 'webkit'] as const
@@ -33,6 +34,7 @@ const fixtureTypes: Record<string, string> = {
 }
 const root = process.cwd()
 const resourcePolicy = resourcePolicyServer(root)
+const scrollbarStyleResources = scrollbarStyleResourcesServer()
 const svgStyleTraces = new Map<string, string[]>()
 const svgStyleBlobStops = new Map<string, () => void>()
 
@@ -42,6 +44,7 @@ export default defineConfig({
     {
       name: 'serve-legacy-fixtures',
       configureServer(server) {
+        scrollbarStyleResources.attach(server)
         // A real second origin avoids relying on localhost/127 dual-stack aliases.
         const cssOrigin = createServer(async (request, response) => {
           const pathname = new URL(request.url || '/', 'http://localhost')
@@ -72,6 +75,7 @@ export default defineConfig({
           if (svgResponseURLServer(request, response)) return
           if (videoReadinessServer(request, response)) return
           if (await resourcePolicy(request, response)) return
+          if (await scrollbarStyleResources.handle(request, response)) return
           const pathname = new URL(request.url || '/', 'http://localhost')
             .pathname
           if (
@@ -168,15 +172,17 @@ export default defineConfig({
             '_',
           )
           await Promise.all(
-            ['native', 'capture', 'authored'].map(async (key) => {
-              if (data[key]) {
-                await writeFile(
-                  resolve(folder, name + '-' + key + '.png'),
-                  Buffer.from(data[key], 'base64'),
-                )
-                delete data[key]
-              }
-            }),
+            ['native', 'capture', 'authored', 'replay', 'html', 'inline'].map(
+              async (key) => {
+                if (data[key]) {
+                  await writeFile(
+                    resolve(folder, name + '-' + key + '.png'),
+                    Buffer.from(data[key], 'base64'),
+                  )
+                  delete data[key]
+                }
+              },
+            ),
           )
           await writeFile(
             resolve(folder, name + '.json'),

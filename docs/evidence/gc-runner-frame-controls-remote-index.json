@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T21:45:00.200344Z",
+  "archive": {
+    "file": "gc-runner-frame-controls-remote-raw.tar.gz",
+    "bytes": 128743,
+    "sha256": "7fa3f61ab9b6ea221cb6e5fdcb28616d82d7ea45de037d9fcc7cef94496f488c",
+    "format": "Deterministic gzip + USTAR; regular files only"
+  },
+  "source": {
+    "sealedDirectory": "gc-runner-frame-controls-remote-20261125",
+    "fileCount": 42,
+    "sourceIndexSHA256": "d0e8b24db6d7d3d41b3f2f4b95229af950b0c0d1c5234bbac18a2519e2d1febb",
+    "selection": "All 41 indexed files plus original index; source bytes unchanged. Stable API responses, exact decoded log, pinned head source, ZIP and all extracted members retained."
+  },
+  "members": [
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact-verification.json",
+      "bytes": 3219,
+      "sha256": "a27ffa1378c5f22497ded44ed361685be185bf69209e98aa4a03995d7b3aa1e6",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/20d01ffc10573d75fd643bcf6d27aef2a3e2f392.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/bc7b56cc94963585e46e9febd2ee9ed06143f132.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/e85427bf1c4992c6b604540e723b057e824dc2f0.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/assessment.json",
+      "bytes": 26930,
+      "sha256": "0cb0f0dd438a918439a86e084e711ee916f77d191c7d878df60c557b12903fef",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-annotations-api.json",
+      "bytes": 401,
+      "sha256": "32f9807a1c18edaabdae37a922a9c94684927f67e0a209d2443f7b2030a895f2",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-annotations-gh-api.json",
+      "bytes": 14836,
+      "sha256": "285441602f2856f0608226716fee8c118a7b4698ed9d20eabff472d64a38fc1d",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-artifacts-api.json",
+      "bytes": 1021,
+      "sha256": "b3f2eef34832c1eb301c045e81cc3b5da6e5344e2313adcc1d3ca37ad293408c",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-job-log-api.json",
+      "bytes": 280057,
+      "sha256": "7b05feef277443095d079c356b3fdd883bde6fb757936859f837eefb809673a1",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-job.log",
+      "bytes": 249402,
+      "sha256": "3e31fef54472bcb12a2f04edab9ec667639d450e914eb8ea96a3f18a6ca0c529",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-jobs-api.json",
+      "bytes": 3937,
+      "sha256": "003ff19d62fef01d1fc917432ee00d40afa9397d3a1f6a597d415728c6390efb",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-jobs-full-api.json",
+      "bytes": 10564,
+      "sha256": "8b213d6a55ead5ac080126863800f0cd3a9f31617ef1d47fd64975a5fee48b82",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/ci-run-api.json",
+      "bytes": 27619,
+      "sha256": "297ef83660f9f763d0da3575a6ec5eafa44c566aa5804cf7c1fa63fc4439b3c3",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/codeql-jobs-api.json",
+      "bytes": 1843,
+      "sha256": "8ce62f05781ccdfa6d38337a476cb934cd79a3c6ceed8c152dbdfb4e174a689c",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/codeql-jobs-full-api.json",
+      "bytes": 5956,
+      "sha256": "65d7294cf24fd0171d6544eae816a4ff2dda7493b1002df9846eb649c0f147c6",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/codeql-run-api.json",
+      "bytes": 27639,
+      "sha256": "c9aa61997a7c846d8c1d3e9fe0586aaa978c7788da518af318237ee5076ea148",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-commit-api.json",
+      "bytes": 3230,
+      "sha256": "6c0a3a668ee79c5a9b97345959972264dc6875157bf96999060e314512a2721d",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source-.github__workflows__ci.yml.json",
+      "bytes": 3269,
+      "sha256": "df3f1cb27aa7aa611426b39c9fb2a5dbb48df97cc3d15da120b6599fff56fc6b",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source-test__browser-unit__resource-resolver-cancellation.test.ts.json",
+      "bytes": 7868,
+      "sha256": "48084f8dc4b2f269e695a417393e504cbae7e3a201f5c2e61afbdc572b5b6a76",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source-test__browser__gc-frame.d.mts.json",
+      "bytes": 525,
+      "sha256": "c013046d9fa4f6b0fb8b0b56a7b1bba8a6165bcad6069a16fef1e6de1875a98c",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source-test__browser__gc-frame.mjs.json",
+      "bytes": 1052,
+      "sha256": "0eb608426da560b0028a1b3a50f1eda6310aff0676c13219e4ebd24afce777ed",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source-verification.json",
+      "bytes": 1255,
+      "sha256": "7416a1e8622bb249956ec64973cedf17aa26f4e8fd8b16f8dee2a84ba012164e",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source-vitest.browser.config.mts.json",
+      "bytes": 8303,
+      "sha256": "840bdfe83dc1fb788d802a0be915c92e2d4b7dae0cb78eda8b60fccc1fe4e727",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source/.github/workflows/ci.yml",
+      "bytes": 2745,
+      "sha256": "e90ceb83e7b7f860a326641467068dca4d8b2f717f2ad58296d8c6463078b31c",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 7166,
+      "sha256": "f1a4416a87f63a8edb4e226341aa75073e12b79fda7ce34723c09ab92694e220",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source/test/browser/gc-frame.d.mts",
+      "bytes": 108,
+      "sha256": "e58825680f5aecbd635d65178dc81935c9a3a6905a300649295295d5881ce6ad",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source/test/browser/gc-frame.mjs",
+      "bytes": 621,
+      "sha256": "ad69c92188d98c93e39872c937fe91406320d90084052b45505995b2c41a0632",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/head-source/vitest.browser.config.mts",
+      "bytes": 7668,
+      "sha256": "0adb3830455c03eb39c9206e37166cdf71d2944f78ef5a5d4caaac33224c9ebe",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/merge-commit-api.json",
+      "bytes": 6258,
+      "sha256": "85e4932febe6d70ab2453d73a770e8d03fead27543b03b32ef5a4d96021dce92",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/pr-api.json",
+      "bytes": 40438,
+      "sha256": "e0d4e9d67ea4066b8594bcd4cb484a87cc291eb9236df73777b1aca3bc8c2738",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/pr-files-api.json",
+      "bytes": 64181,
+      "sha256": "45a5edd79999943ba77e29c149bd8828e84f6020a23b7ec83efdbe35a02bcf20",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/pr655-ci-45491737937.zip",
+      "bytes": 9351,
+      "sha256": "28938e4876c8f80b79a237d8fb4c9eb32c36f874208b67d90eaa771ece164950",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/preserved-old-evidence.json",
+      "bytes": 545,
+      "sha256": "aeef01b7458efe238b140d8a00529b741d43677b32fae2d3a54a3e7f80443c06",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/revision-verification.json",
+      "bytes": 1434,
+      "sha256": "8eed80ca8ca86feec948ba6a8589cc43ef96e329fb0bdf1e152568799621bcfc",
+      "sourceBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-remote-20261125/sha256-index.json",
+      "bytes": 7485,
+      "sha256": "d0e8b24db6d7d3d41b3f2f4b95229af950b0c0d1c5234bbac18a2519e2d1febb",
+      "sourceBytesVerified": true
+    }
+  ],
+  "artifactZIP": {
+    "id": 14966882098,
+    "file": "pr655-ci-45491737937.zip",
+    "bytes": 9351,
+    "sha256": "28938e4876c8f80b79a237d8fb4c9eb32c36f874208b67d90eaa771ece164950",
+    "matchesPublishedAPIDigest": true,
+    "crcVerified": true,
+    "memberCount": 10,
+    "memberIndex": "gc-runner-frame-controls-remote-20261125/artifact-verification.json"
+  },
+  "privacyScan": {
+    "files": 42,
+    "credentialOrSignedURLPatternHits": 0,
+    "temporaryDownloadURLPersisted": false,
+    "notes": "Public GitHub API author/commit metadata, stable URLs, original masked CI logs and fixture diagnostics are retained. No redaction changes source bytes."
+  }
+}

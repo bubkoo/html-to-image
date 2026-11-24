@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T22:17:23.442402Z",
+  "archive": {
+    "file": "document-property-lifetime-877-remote-raw.tar.gz",
+    "bytes": 868048,
+    "sha256": "09077cacaa28c75d567d8b9319d8d91bb835008b2881a845bb27877c0b5dba6b",
+    "format": "Deterministic gzip + USTAR, safe regular files only"
+  },
+  "source": {
+    "sealedDirectory": "document-property-lifetime-877-remote-20261125",
+    "originalIndexSHA256": "e616b28b21468baf6aaad4bc53efa3765b2f64f87575363e3e56a3109d2dc10a",
+    "fileCount": 39,
+    "selection": "Every original indexed file and the original index itself; no rewriting or omission."
+  },
+  "members": [
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact-verification.json",
+      "bytes": 2154,
+      "sha256": "f4b4d0d163e3bee98d3e56165633a6fe27beeba0915a509ec392bc42b89619c9",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/playwright-report/index.html",
+      "bytes": 615516,
+      "sha256": "01048319ac97fe809e6f12ad32f586c1fb8828ec465e1f7365f8611d43f622ba",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/test-results/mobile-smoke-reports/1b441ca3-77a1-43ae-bd35-9c484bed38e0.json",
+      "bytes": 2472,
+      "sha256": "bb031bff1f05b5d47838b957d57d69762db8729b4f4920bc762ef4c5dfada76f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/test-results/mobile-smoke-reports/518d7d61-c169-43df-a687-be3694fb7c05.json",
+      "bytes": 2478,
+      "sha256": "b03512704e8cd338a4abd9c865231009959233c3cf12f871c887370c25a3e96d",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/artifact/test-results/mobile-smoke-reports/92a44065-bedc-4607-a1f5-cfb5da19e81e.json",
+      "bytes": 2404,
+      "sha256": "35a6d36601c30063f2750b96f23152a7d008541465760d0c059b499bc3b7c328",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/assessment.json",
+      "bytes": 15332,
+      "sha256": "294df42b53b324f1578abcd12714f70b718efb22e1538e8848008c540d74a920",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-ci-artifacts-api.json",
+      "bytes": 2284,
+      "sha256": "e2b7dfddaf20f3793a952f7495f3763fa41a8e9b6b5d1fc1da0bc2673d3a1a68",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-ci-jobs-api.json",
+      "bytes": 10568,
+      "sha256": "e29f16051c23ec6565733c87e16293c279558e8145e2a32106cf3f7667c6ee09",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-ci-log-api.json",
+      "bytes": 292925,
+      "sha256": "ea0ce395f661ae0fc9da8e1b94da5346e000e3f9dafbce22528a3f6222f9cede",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-ci-run-api.json",
+      "bytes": 27639,
+      "sha256": "c20bad5c95a74721ba00306b76a16ca49f4ce67c34f984354b609eb4ee05b262",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-ci.log",
+      "bytes": 264003,
+      "sha256": "0553071771b809f6613a6b8bb681720dddbba01b0973b115a4ab1c46c2a9fd72",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-codeql-jobs-api.json",
+      "bytes": 5960,
+      "sha256": "82da8fa4cf0e27859e9f00913621c6922e75fa4c4dbd5f4d71292f5151469d47",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-codeql-log-api.json",
+      "bytes": 369690,
+      "sha256": "908e66401867276b8369fb7d92934f5198ff0dae23c297d1059325339937814f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-codeql-run-api.json",
+      "bytes": 27659,
+      "sha256": "80ecaf507fa44141d8ee13619b69006a1c646055480b34d14d4830298113ffbb",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-codeql.log",
+      "bytes": 366249,
+      "sha256": "74b51038c4a92d058fa673985d47be44939f4748aabf282125629449d5e0af32",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-head-api.json",
+      "bytes": 3794,
+      "sha256": "cf808e37696a5da47784299a40763b8e05d38afc97bbb6c146dc3433317f62ea",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-merge-api.json",
+      "bytes": 6258,
+      "sha256": "2778f69e6de1ac5d8857a9914cef19485dbf4454669ef0ff8a393872cbb13198",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-runs-api.json",
+      "bytes": 979,
+      "sha256": "389216921060f5e23286492f384f42f43233952e1057809cce6d635bf0dc7859",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/current-tree-api.json",
+      "bytes": 14306,
+      "sha256": "c5a391ddc288d3cca6bd00ce6c71602e4074b838167f84bd1f4f6afb8a1456a8",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/embedded-report-verification.json",
+      "bytes": 795,
+      "sha256": "e55ec4a7e60c7e088dc4425229a9757c33b3298e8d43dce452253640f0dd5b27",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-ci-jobs-api.json",
+      "bytes": 10568,
+      "sha256": "30d336687bb69a465cc870dab31358cd2692239ef0c13a00043bd44fe7adc5e6",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-ci-log-api.json",
+      "bytes": 293228,
+      "sha256": "12a70e9a1e9b5be076a044a6f226c39ad20e5533d3b24355b50e93b80ae30b02",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-ci-run-api.json",
+      "bytes": 27629,
+      "sha256": "47c6e8f1b96cc59ccd55d0999ff8dc9c3b567ad5263787a3dc5cf3cd96b46f81",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-ci.log",
+      "bytes": 264553,
+      "sha256": "2d9d65ef9c6f0e198e4f223afd87f0804bb2c7067e2feaa72e493358d17366ce",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-codeql-jobs-api.json",
+      "bytes": 5960,
+      "sha256": "a3a8bb5b93aa64acbca82b742b898a87b796bf1878ae9a301db1cbe3be6dba71",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-codeql-run-api.json",
+      "bytes": 27649,
+      "sha256": "cc36f7534c35dfadfdfccb6fc8a745d5328c0475697d9b3570968d983020bd11",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-head-api.json",
+      "bytes": 3234,
+      "sha256": "8e7baea1f93d8eeb376057a32ae43921eceb47e800da3fa51430f1fc9c1d067e",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-merge-api.json",
+      "bytes": 6258,
+      "sha256": "f7bf1e6f7739a2c90b220a5e42cae0ba3415a1b30170f289589ba73d2a3490df",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-runs-api.json",
+      "bytes": 979,
+      "sha256": "c0b5077ee7cc8d70deb10b090e82e382b102a330cbd92af0482e5896254e5d41",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-to-current-api.json",
+      "bytes": 94670,
+      "sha256": "7b646c89080019c2ff5b1cab6d4eaff1e703045d286faba03345195ef906345c",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/old25e-tree-api.json",
+      "bytes": 14306,
+      "sha256": "54388eac04d880acd22e7a1b5cdabb6e60cd4e3d1bee57a4f4a76a9f56c6433b",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/pr-api.json",
+      "bytes": 46134,
+      "sha256": "a2e7ff1785dd63e91153150ea4337e1fc34ad4ec5d1beaba6c313d87acc64ac4",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/pr650-877-ci-45496161113.zip",
+      "bytes": 277533,
+      "sha256": "65cfdc4393d67dd5053580fa02957083b0a946ce1b51d3cf42580423866eb163",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/sha256-index.json",
+      "bytes": 6471,
+      "sha256": "e616b28b21468baf6aaad4bc53efa3765b2f64f87575363e3e56a3109d2dc10a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-877-remote-20261125/uploaded-smoke-reports-verification.json",
+      "bytes": 1562,
+      "sha256": "78600088ef7769f2e9c4da525b09c150ed59588e823ee4dceaa8e3b696e2359f",
+      "originalBytesVerified": true
+    }
+  ],
+  "privacyScan": {
+    "credentialOrSignedURLPatternHits": 0,
+    "temporaryArtifactURLPersisted": false,
+    "notes": "Synthetic fixtures, public GitHub metadata, masked upstream logs and source paths retained as original evidence."
+  }
+}

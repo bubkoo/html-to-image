@@ -33,9 +33,9 @@ export function createRenderer(defaults: Options = {}): Renderer {
     // Disposal can race with the final microtask of capture creation.
     if (disposed || task.context.signal.aborted) {
       result.dispose()
-      throw (
-        task.context.signal.reason || new Error('Renderer has been disposed')
-      )
+      throw task.context.signal.aborted
+        ? task.context.signal.reason
+        : new Error('Renderer has been disposed')
     }
     captures.set(task, result)
     return result

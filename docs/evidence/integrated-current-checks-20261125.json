@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-24T22:15:45.013748+00:00",
+  "status": "integration-gates-still-failing",
+  "scope": "Read-only archival of root integrated local checks; frozen 449 complete input bytes plus reconstructable 447 boundary. Independent remote PR checks and phone/private folders are excluded.",
+  "rawArchive": {
+    "path": "integrated-current-checks-20261125-raw.tar.gz",
+    "bytes": 2650583,
+    "sha256": "b866187f4b24bc13d1855ad08a0a8467a46a89504cce24cc1d934dfad4701f13",
+    "format": "gzip-compressed USTAR",
+    "memberCount": 601
+  },
+  "memberIndex": "integrated-current-checks-20261125-index.json",
+  "assessment": "integrated-current-checks-20261125-assessment.json",
+  "runs": [
+    {
+      "name": "integrated-cancellation-security-default",
+      "tests": {
+        "passed": 1636,
+        "failed": 4,
+        "skipped": 45
+      },
+      "exitCode": 1,
+      "inputs": 447,
+      "inputsUnchanged": true,
+      "head": "7bb46a4b67f355cc5b3d5efacf55bf4356324d57"
+    },
+    {
+      "name": "integrated-gc-runner-default",
+      "tests": {
+        "passed": 1638,
+        "failed": 2,
+        "skipped": 45
+      },
+      "exitCode": 1,
+      "inputs": 449,
+      "inputsUnchanged": true,
+      "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff"
+    },
+    {
+      "name": "integrated-gc-runner-source",
+      "tests": {
+        "passed": 1519,
+        "failed": 2,
+        "skipped": 45
+      },
+      "exitCode": 1,
+      "inputs": 449,
+      "inputsUnchanged": true,
+      "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff"
+    },
+    {
+      "name": "integrated-gc-runner-packages",
+      "tests": {
+        "passed": 176,
+        "failed": 2,
+        "skipped": 2
+      },
+      "exitCode": 1,
+      "inputs": 449,
+      "inputsUnchanged": true,
+      "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff"
+    }
+  ],
+  "inputBoundary": {
+    "before": {
+      "run": "integrated-cancellation-security-default",
+      "count": 447
+    },
+    "after": {
+      "run": "integrated-gc-runner-default",
+      "count": 449
+    },
+    "added": [
+      "test/browser/gc-frame.d.mts",
+      "test/browser/gc-frame.mjs"
+    ],
+    "removed": [],
+    "changed": [
+      "vitest.browser.config.mts"
+    ],
+    "runtimeSourceAndGeneratedOutputHashesUnchanged": true,
+    "oldConfigGitObjectMatchesLedger": true,
+    "strictCausalAttribution": false
+  },
+  "strictCausalAttribution": false,
+  "staticCheckEvidence": "Seven original logs retained with explicit completion messages where available; standalone logs do not encode process exit status. See assessment.",
+  "phonePrivateEvidenceExcluded": true,
+  "archiveOnlyOperations": {
+    "sourceOrConfigChanges": 0,
+    "browserOrPhoneOperations": 0,
+    "trackerOrOldArchiveChanges": 0,
+    "gitCommitsOrPushes": 0
+  }
+}

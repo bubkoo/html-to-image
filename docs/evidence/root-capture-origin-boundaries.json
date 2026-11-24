@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-11-24T20:20:20.513457+00:00",
+  "status": "Confirmed root-origin defect; safe generic production measurement and fix remain open.",
+  "runtime": {
+    "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+    "pinnedUMD": "40b6a68fa1590b7b25be0b5ce0d4236f0ae32f97b611a366ee15a3cfb3af1d15",
+    "bytes": 98736,
+    "notCurrentCancellationBuild": true
+  },
+  "reproduction": {
+    "engines": ["Chromium156", "Firefox157", "WebKit27.2"],
+    "cases": 39,
+    "nativeOraclesValid": 39,
+    "original": {
+      "failed": 33,
+      "passedControls": 6
+    },
+    "example": "margin-top16px on160x80 red/blue capture root shifts exported content by16px,5120channels differ; source borderbox and all12800opaque source pixels verified. Explicit160x80 output dimensions do not correct it.",
+    "rootMarginZeroOnly": "Repairs27 failures but6 collapsed-child cases remain15360channels different.",
+    "cause": "getImageSize excludes external margins correctly; clone retains resolved rootmargins, then is appended directly at foreignObject origin. Root/firstchild collapsing also moves the serialized border origin.",
+    "coordinatePrototype": "Measuring actual SVG clone border origin then counterplacing foreignObject produced39/39 native equality, retaining subtree HTML/CSS and relative child geometry. This is an independent coordinate proof, not safe integrated production code.",
+    "sourceUnchanged": true
+  },
+  "safetyCounterexamples": {
+    "blobNavigation": "After verified restricted srcdoc readiness, navigating same frame to SVG Blob allowed actual HTTP image/font/frame/import requests in Chromium/Firefox. Even nonce-only trusted producer, script-src none lock and withdrawing allow-scripts failed resource containment. WebKit zero requests is not crossbrowser proof.",
+    "retainedHTMLDocument": "Replacing documentElement with SVG kept HTTP zero but retained HTML contentType; uppercase DIV selector gave marginx43 vs actual XML SVGImagex7 onall3engines. Reject generic equivalence.",
+    "lifecycleOnly": "HTTP-parent primitive lifecycle45/45 across3engines preserves falsy cancellation reasons and clears wait/listeners/frames; separate from product measurement. Original data-origin WebKit hang and interrupted run retained.",
+    "noProductionIntegration": true
+  },
+  "requiredBeforeIntegration": [
+    "Safe owned actual XML layout document with no unexpected network/script execution",
+    "Exact border-origin conversion toforeignObject coordinate units",
+    "Preserve options.style/onClone paint transforms and positioning",
+    "Controlled pre/post proof and full source/package checks"
+  ],
+  "physicalDevice": "Not used; desktop investigation only.",
+  "macNetworkChanged": false,
+  "rawEvidence": {
+    "index": "root-capture-origin-boundaries-index.json",
+    "archive": {
+      "path": "root-capture-origin-boundaries-raw.tar.gz",
+      "bytes": 161727,
+      "sha256": "f5c59e17d99800eeb4e219999f1d40485077c59db56bf76e93e76fe433e4de05"
+    },
+    "fileCount": 318,
+    "uncompressedBytes": 3172435,
+    "allMemberHashesVerified": true
+  }
+}

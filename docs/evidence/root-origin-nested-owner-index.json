@@ -1,0 +1,136 @@
+{
+  "checkedAt": "2026-11-24T20:43:11.388533+00:00",
+  "fileCount": 19,
+  "allArchivedMemberHashesVerified": true,
+  "originalIndexAccounting": {
+    "indexedRawMembers": 18,
+    "originalSelfExcludedIndexFiles": 1,
+    "actualArchivedMembers": 19,
+    "originalIndexSHA256": "5dcf8c0a35848fa33049af243d2e4e7a407ce099974244655078c204dd3534ad"
+  },
+  "archive": {
+    "path": "root-origin-nested-owner-raw.tar.gz",
+    "bytes": 28094,
+    "sha256": "40fc41fe0766421b0ddfa6c76665b3bb3937cfbbea4cd19e1747700c4f5630a5"
+  },
+  "verification": {
+    "originalIndexAll18MembersVerified": true,
+    "archiveAll19MembersByteComparedToOriginals": true,
+    "gzipCRCAndTrailerVerified": true,
+    "tarHeaderChecksumsAndSafeRegularMembersVerified": true,
+    "sourceFilesUnchanged": true,
+    "nativeGzipAndTarChecks": {
+      "gzip -t": {
+        "exitCode": 0
+      },
+      "tar -tzf": {
+        "exitCode": 0,
+        "memberCount": 19
+      }
+    }
+  },
+  "privacy": {
+    "credentialTokenSignedURLPersonalContactFindings": [],
+    "ordinaryLocalStackPathMembers": [],
+    "binaryFontIncludedUnchanged": true,
+    "URLScope": "Only ephemeral loopback/blob/data URLs; UUID case/Blob identifiers are test capabilities, not authentication tokens. No signed service download URLs.",
+    "scope": "All archived text members and both final public JSON files; TTF retained as an unchanged binary fixture."
+  },
+  "files": [
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/assessment.json",
+      "bytes": 9156,
+      "sha256": "6195d4ba97c5a4fe304da8ba6e182c7aed8cbbf7e6ccefa709c32de613d18142"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/chromium-security.json",
+      "bytes": 16495,
+      "sha256": "70f459074e78218c2a7f7376a4c242b766a67c21744ad16eeaea5a366c540fab"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/chromium-semantics.json",
+      "bytes": 3264,
+      "sha256": "16723071fc7f5f6dd003a73fd34da692cc37c5e8d0e2aace9d6d2fe6ce2d7eda"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/firefox-security.json",
+      "bytes": 13281,
+      "sha256": "d3a503b5db104c33f88e8acac17d9f34ed36b2836346937ea393e38d08c25173"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/firefox-semantics.json",
+      "bytes": 3024,
+      "sha256": "e4808d972121cc60f73cfefe1f18bd00c01f2c240257f1a758654821789774c0"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/http.json",
+      "bytes": 1399,
+      "sha256": "6fc3ef18f83041975adebc88b8fa1e9b2077995fac2916ef618de5a89cd083e6"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/initial-harness-cleanup-error/note.json",
+      "bytes": 620,
+      "sha256": "9bd70c2bdfee935a4256d39339d52a15173d0d1f4b51776baa02de24d82719d8"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/initial-harness-cleanup-error/probe.mjs",
+      "bytes": 7257,
+      "sha256": "4186a1aba74d8f61cc74de78c83e7a486080297878fa3cc2436234d2f9453dc7"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/initial-harness-cleanup-error/results.json",
+      "bytes": 1296,
+      "sha256": "be905a65275932637109066b6617c98d5b50c51e588e919a48eb3f3bd07c8d5c"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/initial-harness-cleanup-error/scene.js",
+      "bytes": 11764,
+      "sha256": "bd35fb05257a464993764ba6906ac314238d1e52d58f48a5a360ae0479dc0616"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/input/font-metrics.ttf",
+      "bytes": 1120,
+      "sha256": "609ed7142290b5032cdd169a0f9f11c61eac8584215b381e4d21089196b7e7fe"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/input/src__dom.ts",
+      "bytes": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/probe.mjs",
+      "bytes": 8000,
+      "sha256": "12845eff056ca397f430cccc744d2ed0a83ccc656daf1286d81fb71bb61843aa"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/receipt.json",
+      "bytes": 2924,
+      "sha256": "360556598b1f13d9818efe40d354857ba9ac01dc544b1b4d25bcd4e1f79c1561"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/results.json",
+      "bytes": 52593,
+      "sha256": "da299903818131474b09bcd63cd5acac076f08f078f22db338d56666bfda4671"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/runtime-inputs-derived.json",
+      "bytes": 2243,
+      "sha256": "328bfb6d7bc3715c0c2a92cfca0b044a7d6f3d082a8bc3d30cf0c220ac348a18"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/scene.js",
+      "bytes": 12068,
+      "sha256": "99f901ccee33ae17b5ecdaff26b4a39d67411a865754248566b0abdb219faebe"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/sha256-index.json",
+      "bytes": 2654,
+      "sha256": "5dcf8c0a35848fa33049af243d2e4e7a407ce099974244655078c204dd3534ad"
+    },
+    {
+      "path": "output/playwright/root-origin-nested-owner-20261125/webkit-security.json",
+      "bytes": 8230,
+      "sha256": "cebb0ec151ab3100e41366f8095f0263615a41504bfaba3f8d78b5d5e8716b09"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T22:17:23.442402Z",
+  "archive": {
+    "file": "document-property-lifetime-runner-recheck-raw.tar.gz",
+    "bytes": 115223,
+    "sha256": "f3c445df78a1ff320a3a357b591683aa566aee298d725d6aed19c83b6beb08ac",
+    "format": "Deterministic gzip + USTAR, safe regular files only"
+  },
+  "source": {
+    "sealedDirectory": "document-property-lifetime-runner-recheck-20261125",
+    "originalIndexSHA256": "47633593236a1c5dc92cfe3344858cf1e6c7906cb7ade33b02d29b7ad2fdc6c9",
+    "fileCount": 27,
+    "selection": "Every original indexed file and the original index itself; no rewriting or omission."
+  },
+  "members": [
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/assessment.json",
+      "bytes": 7666,
+      "sha256": "4c0c1d21e45cd8b84fb8b1554ba6087ebfa651874ad4b28671248e0e3c12419d",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/browser-package-receipt.json",
+      "bytes": 356,
+      "sha256": "c419fd0dfe03555eddc00e08095b634dff38fc256ac163b5b5f034de46e0ea18",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/browser-package.log",
+      "bytes": 20573,
+      "sha256": "de45c6fc8f134af0aeee4a6a31cc3e1c846f7536e6b335f4cd2cad6b55f456f8",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/build-receipt.json",
+      "bytes": 283,
+      "sha256": "72483b3f9400f2587b537a119232e9c0be1a315a9271c31f078043628c82ffce",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/build.log",
+      "bytes": 1177,
+      "sha256": "47b31a6c8c7db07ba0b90d111ffadecc0cda36d8411599a596938a31d5cf19fd",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/consumers-receipt.json",
+      "bytes": 294,
+      "sha256": "b2e62b5c5086071393090f336f55cbbb0691df75a6f1fd97067d65080b9382af",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/consumers.log",
+      "bytes": 227,
+      "sha256": "e0ac3fc16885ded5cfc4ad7faac0435f7be8b6c8fa7f102c3d30f9801d0d08f2",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/default-failure/positioned-scroll-local-block-after-diagonal-matches-the-actual-source-pixels.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/default-receipt.json",
+      "bytes": 273,
+      "sha256": "d4725a437160786f6b351de5816fb24d7a548a145dfeb4c91d497e65115bc0b8",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/default.log",
+      "bytes": 6029,
+      "sha256": "f8531b879b3993be904d7b108ee182e149ee9e1d957cbebfd5f0a8b755805841",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/failure-classification.json",
+      "bytes": 1389,
+      "sha256": "4fdd5f7d5b4ffc4d193f1e9d18def6f86b265889b090df5983a1d0e6c3f98a7f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/failure-source/test/browser-unit/positioned-scroll.test.ts",
+      "bytes": 2662,
+      "sha256": "b9be3262a6137b203b2e5e2f0fa7f37c63c1ed0b12cbae04138f8ad73f3a8b27",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/failure-source/test/browser/fixtures/positioned-scroll.mjs",
+      "bytes": 9510,
+      "sha256": "b9faff52a156f74bf325e1314d92b33f2ab34ba39d61c578881756a3ccecad21",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/frozen-inputs.json",
+      "bytes": 49183,
+      "sha256": "7da6ef54f2fdface56e41c693df73aa75ac4de3cb16f83ec9e2232068464d523",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/lint-receipt.json",
+      "bytes": 287,
+      "sha256": "5d3bc6aa22a9716c5cb4fbff4b8f22e3a89c9376689d78d58e58547379468ba8",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/lint.log",
+      "bytes": 366,
+      "sha256": "bed99d7378ea32921098c56c6fee01598dd79a5faa9e8f954daa43fde0ede4fb",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/merge-commit.json",
+      "bytes": 319,
+      "sha256": "60ec8efc2797c6a97a5cbb226952a42ca11602d07195aeb9005cac5f74a525ee",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/merge-scope-verification.json",
+      "bytes": 598,
+      "sha256": "56a65b3e900b1b95513bd5417a9fd55c68038232cfbf9bb82e665f698954997a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/merge.patch",
+      "bytes": 113447,
+      "sha256": "0dfb24e3f554a4217728eaff37eca714ac3d6d729cbc0f600705ca9bf73fa243",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/pre-commit-input-verification.json",
+      "bytes": 26257,
+      "sha256": "21960f8374f1edc3e45242f2f643cc5e103074f4df51ec0f7fbfd3ddd9a04c73",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/pre-merge-runtime.json",
+      "bytes": 4738,
+      "sha256": "9d860e1b4b72b81213015cace9ec6753b1f1b83362772a05d8a25e0212d43b38",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/run-command.mjs",
+      "bytes": 1206,
+      "sha256": "efa28e0735883f60adfa1cad0bdf1e0817d358e1902e12cc1b69edd8042d2d84",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/sha256-index.json",
+      "bytes": 4212,
+      "sha256": "47633593236a1c5dc92cfe3344858cf1e6c7906cb7ade33b02d29b7ad2fdc6c9",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/source-first-execution-receipt.json",
+      "bytes": 314,
+      "sha256": "ca8619fe6cd5b936cd182f4ea3598a9e90e50a11b834624439bcba174c621019",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/source-first-execution.log",
+      "bytes": 408,
+      "sha256": "64d4a503c2f2f281adcbbf81f4eda85c85e730954f1e3fa454bb62127eaa4580",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/types-receipt.json",
+      "bytes": 296,
+      "sha256": "d256a230ee86eb5f24ab36431b128aaf533e0b3dc6e4c23eb6d216f2973e6142",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "document-property-lifetime-runner-recheck-20261125/types.log",
+      "bytes": 162,
+      "sha256": "7a0c91f934c32ebb1e3b92af8a117f1e2dd2a81f22627225907c58ca31d453cc",
+      "originalBytesVerified": true
+    }
+  ],
+  "privacyScan": {
+    "credentialOrSignedURLPatternHits": 0,
+    "temporaryArtifactURLPersisted": false,
+    "notes": "Synthetic fixtures, public GitHub metadata, masked upstream logs and source paths retained as original evidence."
+  }
+}

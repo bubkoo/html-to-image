@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "createdUTC": "2026-11-24T21:14:02.396557+00:00",
+  "purpose": "Master-only cancellation correctness proof, two independent test baselines; no #650/#652 green reused.",
+  "source": {
+    "createdUTC": "2026-11-24T21:14:02.146256+00:00",
+    "masterBase": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "factoryHead": "a42344630f2f1df2948da3decd1dfbe6ff0bb392",
+    "finalPublicHead": "dc4466945ea9c28841a4b55a8c4851f36dce4f5c",
+    "finalTree": "823e65366e77853a7e1c550543fefada2375f4ab",
+    "old652BranchStill": "3c0ec0930cd1d4da97a4cb68e46630f35e7b194f",
+    "finalSourceFiles": {
+      "src/svg-style-scope.ts": {
+        "sha256": "53c4b993f80f2f146bef462e65ce6927f4873516a9d10ffe5255b9df73d2e856",
+        "gitBlob": "0866d1dea7f3ad91b8fc21ed64148c4e9cc5f8d4",
+        "bytes": 22341
+      },
+      "src/task.ts": {
+        "sha256": "fd444e9f59480d20f3caf7c563ccd8632e40f828994c3985bceb72cd4b7dc72d",
+        "gitBlob": "b1796114e4df3b2aaf19902d1047cc9eafd606bf",
+        "bytes": 7682
+      },
+      "src/renderer.ts": {
+        "sha256": "0b7979bcf8feb5e39add09eb535bee81eb903b443ac0c867244a04a659c1121b",
+        "gitBlob": "b1113b06ccd3f328b1c9653f325aae295ac981e5",
+        "bytes": 3128
+      },
+      "src/util.ts": {
+        "sha256": "169e70a6adfe8e4fe79eeed927364de79553b9dc3421a3254fea3136efaa6c31",
+        "gitBlob": "842e777af341d338d9b058bda82dc5cae0f9cdd5",
+        "bytes": 8206
+      },
+      "test/browser-unit/svg-style-environment.test.ts": {
+        "sha256": "e1a936433d7f4d80dc85b1b4431b6ea2297fbb782395df574d331c7fadd3a720",
+        "gitBlob": "08c7a0ae96339be187c66e31c2df8a91f3c7bc3d",
+        "bytes": 5035
+      },
+      "test/browser-unit/cancellation-reasons.test.ts": {
+        "sha256": "9e14bea0b883242d0f623932ff2d31cd4c457e4310e67774935a0fd5ebbcff6a",
+        "gitBlob": "e986b8e4216a31fe2ef71bfc6fbb2ff4507b4211",
+        "bytes": 4932
+      }
+    },
+    "commitVerifiedAgainstPrecommitMeasuredFinalSHA256": true,
+    "docsOnlyArchiveWork": true,
+    "sourceTestsConfigRuntimeInputGuard": {
+      "count": 471,
+      "SHA256": "524658dd12c511dac72d4a9b0facf064cb49284e5fe339204313c7cce31622d2"
+    },
+    "fullCIAtFinalHead": "Not performed by this archive task; root will push and validate remote head."
+  },
+  "independentBeforeAfterPairs": [
+    {
+      "name": "factory93",
+      "productionBaseline": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "candidateHead": "a42344630f2f1df2948da3decd1dfbe6ff0bb392",
+      "testGitBlob": "08c7a0ae96339be187c66e31c2df8a91f3c7bc3d",
+      "testSHA256": "e1a936433d7f4d80dc85b1b4431b6ea2297fbb782395df574d331c7fadd3a720",
+      "before": {
+        "failed": 60,
+        "passed": 33,
+        "exitCode": 1,
+        "raw": "factory93/master-before-93/run.log"
+      },
+      "after": {
+        "passed": 93,
+        "exitCode": 0,
+        "raw": "factory93/master-after-93/run.log"
+      },
+      "onlyChangedProductionDuringPair": "src/svg-style-scope.ts",
+      "otherSourceTestsConfigGeneratedBundlesIdentical": true,
+      "rawTransition": "factory93/single-factory-transition.json",
+      "firstFailureEvidence": {
+        "logicalFailures": 60,
+        "persistedPNGFiles": 20,
+        "crossEngineSameCaseFilenamesMayBeOverwritten": true
+      }
+    },
+    {
+      "name": "public84",
+      "productionBaseline": "a42344630f2f1df2948da3decd1dfbe6ff0bb392",
+      "candidateFinalHead": "dc4466945ea9c28841a4b55a8c4851f36dce4f5c",
+      "testSHA256": "9e14bea0b883242d0f623932ff2d31cd4c457e4310e67774935a0fd5ebbcff6a",
+      "cases": 28,
+      "engines": 3,
+      "before": {
+        "failed": 48,
+        "passed": 36,
+        "exitCode": 1,
+        "raw": "public84/public-before-84/run.log"
+      },
+      "afterPrefmt": {
+        "passed": 84,
+        "exitCode": 0,
+        "raw": "public84/public-after-84/run.log"
+      },
+      "afterPostfmt": {
+        "passed": 84,
+        "exitCode": 0,
+        "raw": "public84/formatted-public-84/run.log"
+      },
+      "productionPathsDuringPair": [
+        "src/task.ts",
+        "src/renderer.ts",
+        "src/util.ts"
+      ],
+      "fourFixedBranches": [
+        "CaptureTask.check",
+        "CaptureTask.run.abort",
+        "renderer final capture delivery",
+        "createImage.abort"
+      ],
+      "originalFactory93BytesUnchanged": true,
+      "rawTransition": "public84/production-transition.json",
+      "firstFailureEvidence": {
+        "logicalFailures": 48,
+        "persistedPNGFiles": 16,
+        "crossEngineSameCaseFilenamesMayBeOverwritten": true
+      }
+    }
+  ],
+  "pairsMustNotBeCombinedIntoOneBeforeAfterCount": true,
+  "factoryOnlyGates": {
+    "frozenInstall": 0,
+    "freshOriginalMasterBuild": 0,
+    "candidateLint": 0,
+    "candidateBuild": 0,
+    "packedESMCJSUMDConsumersAndTypesTS49Current": 0,
+    "browserTypes": 0,
+    "firstCandidateDefault": {
+      "exitCode": 0,
+      "coveragePassed": 1327,
+      "coverageSkipped": 4,
+      "sourcePassed": 1208,
+      "sourceSkipped": 4,
+      "raw": "candidate-default-test/run.log",
+      "blindDefaultRerun": false
+    },
+    "fullBrowserPackage": {
+      "exitCode": 0,
+      "passed": 162,
+      "failed": 0,
+      "raw": "candidate-browser-package/run.log",
+      "startUTC": "2026-11-24T20:56:42.584377+00:00",
+      "endUTC": "2026-11-24T20:58:51.192522+00:00",
+      "port": 4197
+    }
+  },
+  "finalCandidateFullLocalGatesPrefmt": {
+    "lint": 0,
+    "build": 0,
+    "packedESMCJSUMDConsumersAndTS49Current": 0,
+    "types": 0,
+    "defaultExitCode": 0,
+    "coverage": "1411pass/4skip",
+    "source": "1292pass/4skip",
+    "completeBrowserPackage": "162pass",
+    "packageExitCode": 0,
+    "inputs": 996,
+    "allRuntimeMeasurementInputsStableWithinEachPhase": true
+  },
+  "fullLocalPhaseBoundaries": {
+    "default": {
+      "stage": "candidate-default-test",
+      "command": ["pnpm", "test"],
+      "environment": {
+        "CI": null,
+        "TEST_SUITE": null,
+        "TEST_BROWSER": null,
+        "HTML_TO_IMAGE_SMOKE_PORT": null
+      },
+      "startUTC": "2026-11-24T21:06:35.006217+00:00",
+      "endUTC": "2026-11-24T21:07:06.146786+00:00",
+      "durationSeconds": 31.140213999999997,
+      "exitCode": 0,
+      "head": "a42344630f2f1df2948da3decd1dfbe6ff0bb392",
+      "inputCountBefore": 996,
+      "inputCountAfter": 996,
+      "inputsStable": true,
+      "changedPaths": [],
+      "unexpectedChangedPaths": [],
+      "testSHA256": "9e14bea0b883242d0f623932ff2d31cd4c457e4310e67774935a0fd5ebbcff6a",
+      "factorySHA256": "e1a936433d7f4d80dc85b1b4431b6ea2297fbb782395df574d331c7fadd3a720"
+    },
+    "package": {
+      "stage": "candidate-browser-package",
+      "command": ["pnpm", "run", "test:browser:package"],
+      "environment": {
+        "CI": null,
+        "TEST_SUITE": null,
+        "TEST_BROWSER": null,
+        "HTML_TO_IMAGE_SMOKE_PORT": "4197"
+      },
+      "startUTC": "2026-11-24T21:07:06.938094+00:00",
+      "endUTC": "2026-11-24T21:09:16.142376+00:00",
+      "durationSeconds": 129.202752875,
+      "exitCode": 0,
+      "head": "a42344630f2f1df2948da3decd1dfbe6ff0bb392",
+      "inputCountBefore": 996,
+      "inputCountAfter": 996,
+      "inputsStable": true,
+      "changedPaths": [],
+      "unexpectedChangedPaths": [],
+      "testSHA256": "9e14bea0b883242d0f623932ff2d31cd4c457e4310e67774935a0fd5ebbcff6a",
+      "factorySHA256": "e1a936433d7f4d80dc85b1b4431b6ea2297fbb782395df574d331c7fadd3a720"
+    }
+  },
+  "postfmtBoundary": {
+    "onlySourceFormatting": "Removed one redundant ParenthesizedExpression surrounding throw ternary and changed whitespace in src/renderer.ts.",
+    "sourceBeforeSHA256": "a20b6fd2d6fd577cd2857133d1d2ed6db08ad74ba410f0fa8396506b8e167014",
+    "sourceAfterSHA256": "0b7979bcf8feb5e39add09eb535bee81eb903b443ac0c867244a04a659c1121b",
+    "rawASTBytesDiffer": true,
+    "normalizedASTIgnoresOnlyParenthesizedExpressionAndTrivia": true,
+    "sourceNormalizedASTEqual": true,
+    "allRuntimeNormalizedASTEqual": true,
+    "actualRuntimeBytesChanged": ["es/renderer.js", "lib/renderer.js"],
+    "umdRuntimeBytesIdentical": true,
+    "sourcemapBytesChanged": [
+      "dist/html-to-image.js.map",
+      "es/renderer.js.map",
+      "lib/renderer.js.map"
+    ],
+    "freshBuildAndSupplementalGates": {
+      "sourceAST": "Equivalent after removing only one redundant ParenthesizedExpression wrapper/trivia",
+      "runtimeAST": "All es/lib/dist runtime AST fingerprints equal under same normalization",
+      "runtimeBytesChanged": ["es/renderer.js", "lib/renderer.js"],
+      "umdRuntimeBytesIdentical": true,
+      "mapBytesChanged": [
+        "es/renderer.js.map",
+        "lib/renderer.js.map",
+        "dist/html-to-image.js.map"
+      ],
+      "freshBuild": 0,
+      "public84": 0,
+      "existingChromiumRenderer40": 0,
+      "packedConsumers": 0,
+      "lint": 0,
+      "types": 0,
+      "prettier": 0,
+      "fullSuiteNotRepeatedAfterFormat": true,
+      "fullGreenBelongsToPrefmtFingerprints": true
+    },
+    "full1411_1292_162ResultsBelongToPrefmtFingerprints": true,
+    "fullSuiteNotRepeatedPostfmt": true,
+    "raw": [
+      "public84/format-ast-proof.json",
+      "public84/runtime-format-comparison.json",
+      "public84/format-source-transition.json"
+    ]
+  },
+  "policiesAndLimits": {
+    "existingCaptureLifetimeThreeGCHelperUnchanged": true,
+    "threeGCIsNotAClaimThatEveryCancellationTestRunsGC": true,
+    "assertionsTimeoutsFlagsRetriesSkipsUnchanged": true,
+    "localEnvironment": "macOS Node v22.17.0 / pnpm10.34.9, not remote Node24 CI.",
+    "factory93DefaultPossiblePeerOverlap": "concurrency-and-controller-boundary.json records peerpackage20:53:42.905247Z+136.033s envelope overlappingcandidateDefault. No cause attributed. Root explicitlygranted finalpackage window after4197/4198free; one actualduringrunps point recorded10ownedprocesses and0otherautomation. No continuousmonitor claim. Earliercontroller32409exit1 was a portprecondition stop, no package launched then and not productfailure.",
+    "peerOverlapNotRootCauseEvidence": true,
+    "public84Window": "Explicit parent-exclusive browser window; actual point process readout saved, not continuous monitoring.",
+    "old652RedCI": "Preserved and not reclassified or rerun.",
+    "native651Gates": "Glyph/shadow/fractional unresolved boundaries unaffected.",
+    "phone": "Deferred; no phone validation claimed.",
+    "scope": "No #650 native feature or DOM reflection helper imported."
+  },
+  "archive": {
+    "path": "cancellation-reasons-master-raw.tar.gz",
+    "bytes": 2644415,
+    "sha256": "e6dce9cdab084ce0aebac490ad05b21843881b6668674494218342b50c64d775",
+    "format": "gzip tar; regular relative-path files only; deterministic entry metadata"
+  },
+  "index": {
+    "path": "cancellation-reasons-master-index.json",
+    "sha256": "c853f0986da976651f5a0a07eead5fca5925bfa8798e3c3f68ecb47b763ca7ca",
+    "fileCount": 207
+  },
+  "exportSafety": {
+    "allowlistOnly": true,
+    "syntheticPersistedFailureScreenshotsOnly": true,
+    "credentialOrSignedURLPatternMatches": 0,
+    "noDependencyGitObjectsOrFullSourceArchive": true,
+    "originalEvidenceFoldersAndOldArchivesUnmodified": true
+  },
+  "delivery": "Source final dc44669 committed by root; this task adds documentation only, with no commit/push/PR/browser/check rerun."
+}

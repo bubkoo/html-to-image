@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "archive": {
+    "path": "ios-integrated-acceptance-raw.tar.gz",
+    "bytes": 751656,
+    "sha256": "3c1ac853552023d5a4f68684a3a526cbcfaa881815de66ff1eb80109c1bdd62c",
+    "format": "gzip-compressed USTAR",
+    "members": 16
+  },
+  "memberCount": 16,
+  "originalFileCount": 12,
+  "members": [
+    {
+      "path": "bootstrap.txt",
+      "bytes": 248,
+      "sha256": "47832ee1b23fee5545c4b2cbd465f3f6e2a857fef61af28e294227769b8a1043",
+      "kind": "approved original"
+    },
+    {
+      "path": "cleaned.png",
+      "bytes": 269935,
+      "sha256": "25da372989f37f428520863ae8ae4a4b4d283bd0d745aae3ce012dcad910e55d",
+      "kind": "approved original"
+    },
+    {
+      "path": "desktop-receipt.json",
+      "bytes": 27924,
+      "sha256": "8cb57fa8a931950940ba27ca5910383bda72ec061f1b785fe56ad618ca758447",
+      "kind": "approved original"
+    },
+    {
+      "path": "desktop-verification-summary.json",
+      "bytes": 4556,
+      "sha256": "ffab4a5e41430ab82f6fba69fdc779805e0547d51662c8d1c9efb109f39b24cd",
+      "kind": "approved original"
+    },
+    {
+      "path": "device-record.json",
+      "bytes": 21689,
+      "sha256": "eb9c7fd5eba7aca7ea00d65a69e1f6b521618cb48a1cfa0aae8b46546762c9b9",
+      "kind": "approved original"
+    },
+    {
+      "path": "frozen-inputs-449.json",
+      "bytes": 46818,
+      "sha256": "532e7cfce42c309070b6895fafd6174e7ab1058d81cd481c3da245cc57400472",
+      "kind": "approved original"
+    },
+    {
+      "path": "frozen-manifest.json",
+      "bytes": 5944,
+      "sha256": "18394df7e82425ef237e7ba22f8dd0b3f3cc1162bca1a14ecb94b84b35f936fa",
+      "kind": "approved original"
+    },
+    {
+      "path": "frozen-page.html",
+      "bytes": 126151,
+      "sha256": "204f0f433f17b81e0bb0df56f033d7f8a580c114542dcb19fb5d38896d8aff34",
+      "kind": "approved original"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 72245,
+      "sha256": "b1644a54f936391f9ba67e568b3fb3aab0dedfa29e54e8fc98ee9d255b0c356c",
+      "kind": "approved original"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 1196,
+      "sha256": "3a356ab9a4ae87e11eb7bba02493c6bf12b31b1afeba1379e20e1627dff6cbcf",
+      "kind": "independent verification artifact"
+    },
+    {
+      "path": "ready.png",
+      "bytes": 195870,
+      "sha256": "03aec4e10c42708ba5431059540ca89fcc5b672778c31d6f417195f84a63b7fe",
+      "kind": "approved original"
+    },
+    {
+      "path": "returned.png",
+      "bytes": 192157,
+      "sha256": "ab345212841852fab60aec5e6f85b4b60772326e51a012a7bf5fd8de02c9430d",
+      "kind": "approved original"
+    },
+    {
+      "path": "session-receipt.json",
+      "bytes": 2287,
+      "sha256": "a517c3444374cd23f4cdbfdedd5f85456b0a602857e831deb6a78345c07a78c8",
+      "kind": "approved original"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 9410,
+      "sha256": "e6eb2a9a04c9af9bcb1688f26b14c6a296057788c8efee6e5c59a8d7ddb02473",
+      "kind": "independent verification artifact"
+    },
+    {
+      "path": "verifier-notes.json",
+      "bytes": 497,
+      "sha256": "907aaab04e66530a44ba7f20f316d3a50be259903bbfd58b5463525f3b07ae00",
+      "kind": "independent verification artifact"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 12395,
+      "sha256": "714878f4504e8c492abbdaf43253efa5a78351b54304abe43faf2ca50ef47965",
+      "kind": "independent verification artifact"
+    }
+  ],
+  "verificationScript": {
+    "path": "ios-integrated-acceptance-verify.py",
+    "sha256": "714878f4504e8c492abbdaf43253efa5a78351b54304abe43faf2ca50ef47965",
+    "bytes": 12395
+  }
+}

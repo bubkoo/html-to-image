@@ -1,5 +1,95 @@
 # 开放 PR 处理台账
 
+## 2026-11-25 独立修复、当前整合检查与远端结果
+
+取消原因修复已直接基于 master 拆为[草稿 #654](https://github.com/bubkoo/html-to-image/pull/654)，head `b652860`。SVG 环境的同测试固定对照为 **60 失败 / 33 通过 → 93 通过**；公开 API 与图片解码另一个独立基线为 **48 失败 / 36 通过 → 84 通过**，不能合并两组失败数。修复保留 `null`、`false`、`0`、空字符串等取消原因的身份，并覆盖待决操作和晚到解码。完整本地检查在最终纯格式修改之前为 **1411 coverage / 1292 source / 162 包**通过（各 4 项既有跳过）；格式修改后仅复核 AST/产物边界、84 新例及 40 项已有渲染例，不冒称重复完整检查。[207 份固定输入与失败前后证据](evidence/cancellation-reasons-master.json)已独立封存。我们自己的旧堆叠 #652 已于 **2026-11-24 21:32:30 UTC 关闭、未合并**，由 #654 取代；`3c0ec09` 分支及原失败记录仍保留，关闭不代表回收失败已解决。
+
+#654 的[准确 head CI](https://github.com/bubkoo/html-to-image/actions/runs/45489531716)为 **1411 coverage 通过 / source 1291 通过、1 WebKit 失败、4 跳过**；失败是 `svg-fragment-lifetime.test.ts:44` 的源文档 WeakRef 仍存在，图片断言、包测试和 Codecov 未执行。CodeQL 通过。[远端两项独立修复原始回执](evidence/master-independent-fixes-remote.json)保留实际合并测试的父提交和树身份。静态[SVG 所有权复核](evidence/svg-fragment-owner-b652.json)没有找到最终结果显式强持有源文档的路径，但这不证明实际回收，也不把旧[纯 HTML 案例](evidence/html-capture-owner-3c0ec09.json)的早退路径套用于 SVG。
+
+[草稿 #653](https://github.com/bubkoo/html-to-image/pull/653) 的 `5b074c4` 只更新两个开发依赖声明及必要锁图，显式 pnpm 依赖图使用 minimatch 11.0.9；npm 11.21.1 自带的 10.2.5 副本仍在受影响范围，不称整机零漏洞，也不增加强制覆盖。[CI 45488840651](https://github.com/bubkoo/html-to-image/actions/runs/45488840651)为 **1234 coverage 通过 / source 1113 通过、2 Firefox 失败、4 跳过**：`font=false, opened=true` 原生参考先通过、held 失败；`font=true, opened=true` 原生参考先失败，held 未执行。包和 Codecov 未执行，CodeQL 通过；本地通过不能替代这次远端失败。
+
+[草稿 #655](https://github.com/bubkoo/html-to-image/pull/655) 的 `5fcd839` 修正 GC 命令等待目标 iframe 的方式。实际 Vitest provider 的对照证明：缺失命名 runner 时，旧等待可能选中先到的无关 frame；候选明确等待 `data-vitest` runner，并在原单次 GC 前释放 frame handle。没有增加回收次数、重试、超时或跳过，也不据此反推旧失败的唯一原因。[CI 45491737937](https://github.com/bubkoo/html-to-image/actions/runs/45491737937)仍为 **1234 coverage 通过 / source 1112 通过、3 Firefox 回收失败、4 跳过**，包和 Codecov 未执行；CodeQL 通过。[准确 head 远端证据](evidence/gc-runner-frame-controls-remote.json)明确保留 owner/native 负对照差异。
+
+#650 仅整合该 runner 工具后的新 head `877c476`，21 个运行时文件逐字节不变。本地默认流程曾为 **1299 通过 / 1 Firefox 原生截图准备超时 / 4 跳过**，发生在库导出之前；独立 source **1181 通过 / 4 跳过**、包 **162 通过**，[原始本地失败](evidence/document-property-lifetime-runner-recheck.json)保留。[新 head CI 45496161113](https://github.com/bubkoo/html-to-image/actions/runs/45496161113)实际为 **1300 coverage / 1181 source / 162 包通过**（各 4 项既有跳过），CodeQL 通过；[新旧 head 与合并树回执](evidence/document-property-lifetime-877-remote.json)独立核验。旧 `25e8381` 本来也绿，不叙述成旧红到新绿；#650 保持未合并草稿，不宣称普遍稳定或整项完成。
+
+主工作区 `854fa0a` 已整合取消、开发依赖和 runner 工具，仍保留 #651 的严格原生绘制失败。默认 **1638 通过 / 2 WebKit 失败 / 45 跳过**；独立源码 **1519 通过 / 2 失败 / 45 跳过**；构建包 **176 通过 / 2 原生滚动组失败 / 2 不支持**。447→449 输入只增加两份 runner helper、修改其配置，生产与生成文件 hash 不变；此前 **1636/4** 到此次 **1638/2** 是两次运行观察，不作严格因果归因。[601 成员整合证据](evidence/integrated-current-checks-20261125.json)保留四轮失败与准确截图来源。严格字形、内阴影及 DPR2 分数坐标边界没有放宽。
+
+四小时等待后，于 **2026-11-24 22:23:42–22:24:56 UTC** 在锁屏 iPhone 的镜像中完成当前整合 UMD 真机子集：**14/14** 取消原因身份、真实已加载字体/移除源 iframe 后输出、默认 160×80 PNG 的 **6400 红 / 6400 蓝像素**均通过。原生指针点击 `_blank` / `noopener` 链接后新标签页显示红蓝图片；返回原页再点击清理，两次事件均 `isTrusted:true` 且激活有效，activeURL 为空、自有 frame/renderer/snapshot 为零，记录实际撤销同一 Blob URL。没有另做 revoke 后 fetch 探针。[手机原始 JSON、仅自有页面截图及指纹](evidence/ios-integrated-acceptance.json)绑定 HTML `204f0f43…`、UMD `9c090fc2…` 和全部 449 输入。字体控制显式使用 3 次稳定化，不扩大为默认首帧、设备 GC、ESM/完整套件或原生像素保真；也不将混合整合版子集称为独立 #654 分支完整验收。
+
+长地址逐键输入排队后已退出重连，改用[三引擎核验的 247 字入口](evidence/ios-offline-bootstrap.json)加载[冻结页](evidence/ios-offline.html)。手机需要一次公开 GitHub HTTPS 加载，不称全会话零网络；没有完整手机网络跟踪。仅关闭自建验证标签页，选回原用户标签；剪贴板、输入法恢复，私有备份删除，镜像已退出。#398 的可信点击/新页/清理缺口现已补齐，原 PR 仍 closed/unmerged，未执行旧 PR 状态或评论操作。未改电脑网络配置、未发布 npm。
+
+## 2026-11-25 #652 最新 head 的回收失败
+
+#652 首个源码 `786603d` 的 [CI 45480659033](https://github.com/bubkoo/html-to-image/actions/runs/45480659033)完整通过 **1393 coverage / 1274 source / 162 产物**。但只补四份文档/证据、生产与测试字节不变的 `3c0ec09` 在 [CI 45481650657](https://github.com/bubkoo/html-to-image/actions/runs/45481650657)为 coverage **1393 通过 / 4 跳过**、source **1273 通过 / 1 WebKit 回收失败 / 4 跳过**；`capture-lifetime.test.ts:81` 原三次 GC 后源文档 WeakRef 仍存在，后续图片断言及产物没有执行。不能用首轮绿色替代最新失败，也不据同字节判断无关或偶发；保持草稿，先复核实际持有路径，不增加回收、重试或等待。
+
+两轮实际合并测试都已核对准确 head、父提交及相同源码树；上传物各 8/6 成员完整核验。旧源码的 Codecov upload 成功只证明上传，不等于外部 patch/project verdict；最新失败后未执行 Codecov。堆叠 base 的既有 CodeQL 分支过滤仍不调度本 PR。[39 份远端原始记录和哈希](evidence/svg-style-environment-remote.json)同时保留成功与失败。
+
+同一归档还记录 #651 的 `b6bd47b`：[CI 45481800953](https://github.com/bubkoo/html-to-image/actions/runs/45481800953)为 **1555 通过 / 1 Chromium 字形失败 / 45 跳过**，source/产物/Codecov未执行。native/capture 两张原始 PNG 与 `c621e09` 相同；严格原生保真门禁仍未通过。
+
+根原点测量的 nested-owner 后续路线也未集成：Chromium/Firefox 的窄安全/XML 控制通过，但 WebKit 的源 Blob HTML 后代实际向服务器发出 CSS、图片、frame、字体四类 HTTP；随后触发原 5 秒 guard，两个 URL 的 revoke 后 fetch 仍成功，清理不能算通过。未运行的 WebKit 语义与取消控制明确保留，[19 份新增安全负控](evidence/root-origin-nested-owner.json)不覆盖旧归档。手机仍未使用，电脑网络配置未改。
+
+## 2026-11-25 独立取消修复与剩余绘制边界
+
+新增[草稿 #652](https://github.com/bubkoo/html-to-image/pull/652)将 SVG 环境取消缺陷独立到 #650 的 `25e8381` 基线，源码 `786603d`，只改一个生产文件和一个测试文件；不包含 #651 原生滚动实现。旧实现丢失 `null` / `false` / `0` / 空字符串 reason，并可能在 raw 文档就绪后向默认消费者返回已释放文档。同一最终测试和配置、只替换该生产文件，由 **60 失败 / 33 通过**变为三引擎 **93 通过**；另有 **51 项**独立原生 iframe 边界控制通过。
+
+独立分支 lint、构建、包消费者/类型通过，最终原样默认检查 **1393 coverage / 1274 source** 通过（各 4 项既有跳过），完整构建包 **162/162**。首轮 coverage 曾有两项 Firefox 原生参考在库导出前准备超时，原始失败保留，后续通过不证明其根因。新准确 head 的远端检查与真机仍分开验收。[固定输入、首轮失败和独立验证证据](evidence/svg-style-environment-cancellation.json)不替代原生滚动门禁。
+
+#651 已推送的 `c621e09` 在[第二次 CI 45465861503](https://github.com/bubkoo/html-to-image/actions/runs/45465861503)仍为 **1462 通过 / 1 Chromium 字形失败 / 45 跳过**；合并测试树与 head 相同，native/capture PNG 与首次远端逐字节一致，source/产物/Codecov未运行。另一个固定 `08d35a1` 的隔离 Linux 补测 source **1343 通过 / 1 失败 / 45 跳过**，产物 **174 通过 / 4 失败 / 2 不支持**；Node26、Rosetta 及现有 Node wrapper 与 GitHub Node24 有实质差异，不能算等价 CI。[147 份明确筛选的原始记录](evidence/native-fidelity-linux-supplement.json)保留这些环境限制、首次 Git 元数据不足的中断和最终清理。
+
+主工作区集成相同取消修复的 `d250169`，coverage **1554 通过 / 2 既有 WebKit 失败 / 45 跳过**，独立 source **1435 通过 / 2 失败 / 45 跳过**，完整产物 **176 通过 / 2 原生滚动组失败 / 2 不支持**，每轮 446 输入不变。默认命令因 coverage 失败未进入 source；包消费者通过。它保持候选状态，不沿用 #652 的全绿。
+
+原生部件 primitive DTO/executor 现有 **24/24** 窄场景真值对照，32 项不支持上下文为 unknown；没有通用缺席证明或生产 filter。Blob/data 图像 decode 阳性而 ResourceTiming/Observer 均不可见，只能 unknown。[105 份原始记录及独立重算](evidence/native-part-context-followup.json)保留安全、取消和失败负控。
+
+离线预览准备还复现根边框原点问题：三引擎 39 个有效源输入中 33 个导出偏移，简单 margin0 仍漏掉 6 个子 margin 折叠场景；独立真实 XML 坐标原型 39/39 相同，但 Blob 导航的 HTTP 隔离和保留 HTMLDocument 的 XML 选择器语义均有反例，尚无安全生产修复。[318 份坐标与安全证据](evidence/root-capture-origin-boundaries.json)不作为已修复结论。
+
+[原 28 项最新只读回读](evidence/old-pr-readback-20261125.json)仍为 **27 open，#398 closed 且未合并**，head/state/title 全部未变；base SHA 只记录各响应当前值。真机最早于 **北京时间 06:02（2026-11-25）**恢复，本轮未使用；新运行时的离线 Blob 页已通过桌面三引擎可信点击、新 PNG 标签和清理对照，手机仍待验。未修改电脑网络配置，未发布 npm、未评论或关闭旧贡献者 PR。
+
+## 2026-11-25 草稿 #651 与 Linux 字形反例
+
+[草稿 #651](https://github.com/bubkoo/html-to-image/pull/651) 基于 #650 的 `25e8381`，准确 head `08d35a1`；未合入。[CI 45460574610](https://github.com/bubkoo/html-to-image/actions/runs/45460574610) 的测试合并 `a9317f5` 第二父提交就是该 head，二者源码树相同。Linux coverage **1462 通过 / 1 失败 / 45 跳过**，失败为 Chromium 字形；source、产物与 Codecov 未执行。CodeQL 的原有 PR 分支过滤仅为 master，本堆叠草稿没有当前 head 的 CodeQL 结果。父 #650 的绿色继续独立记录。
+
+上传物原始 ZIP 摘要与 13 个成员均核验。CI 源 PNG 与已有隔离容器原夹具的真实截图相同；库输出、手写及重复 SVG 均差 214 通道，不透明画布对该原例零差。但仅给普通白底文字加 `translateZ(0)`，原绘制零差而 opaque 中转新增 **1380 通道 / 最大 91**；输出仍全部不透明，最终 Canvas 也保留 alpha:true。因此否决自动/全局 opaque 方案，没有按一个修复正例更改运行时。
+
+完整原生选择器支线获得 **224/224 对**受控主/私有文档一致信号：56 对为对应 root 轴几何，168 对为对应 part 的真实截图颜色，448 行 fence 到达且零图片 HTTP。普通 light DOM 的 `:is(.absent,.plain) #panel` 同样有条件规则不参与的反例，不能按是否含 host 分类。任意源上下文安全重建、多个 scroller 唯一归因、实际等待取消和通用缺席推断仍未证明，尚无生产过滤。
+
+同一目标 SVG 加不可见文字等 40 个冷首绘控制均未修复 macOS WebKit 字体差异；没有接入额外预绘、计时器、软件画布或变换补丁。[本轮远端原始记录、平台反例和精确选择器证据](evidence/native-fidelity-platform-followup.json)完整保存。原 28 项范围继续开放；真机仍按用户要求延后，电脑网络配置未改。
+
+## 2026-11-25 原生 SVG 准备失败的现场诊断
+
+测试源码 `aaf0491` 仅补充失败记录，运行时代码与 `e014fef` 相同。保留原 60 次 RAF、尺寸读取顺序、成功条件与错误前缀；失败时在清理前保存每次原尺寸、时间、连接状态、SVG/父测试页面位置和可用资源时序，没有新增请求、预热、等待或重试。Firefox 四个真实 HTTP 正常/404 控制验证诊断及清理，未调用生产导出；相关三引擎 coverage **354/354**。
+
+再次完整检查为 coverage **1461 通过 / 2 失败 / 45 跳过**、独立 source **1342 通过 / 2 失败 / 45 跳过**、产物 **176 通过 / 2 失败 / 2 不支持**；严格 WebKit 失败不变，445 输入逐项匹配保存提交及测量生成文件。早先 Firefox 原生准备失败尚未解释；故意 404 是诊断负控，不是历史故障复现，缺少 Timing 也不代表没有请求。
+
+[原始控制、完整日志、当前输入身份与逐成员核验](evidence/native-svg-readiness-diagnostics.json)独立保存，原 28 项处置范围和真机延后不变。
+
+## 2026-11-25 样式资源修复：同输入前后与完整检查
+
+源码 `e014fef` 已保存在 `codex/native-scroll-fidelity`，尚未提交新 PR 或合入。修复将原生滚动条规则接入现有 stylesheet 资源通道，保留 live CSSOM 修改、重定向基址、导入编码、嵌套选择器和尾部声明；取消读取字节时及时释放上层等待，并保持用户回调原始错误。只对副本中实际溢出且有原生占位的 auto 轴固定滚动条存在状态，源页面不变。
+
+最终同一测试与配置、仅替换 4 个生产文件：旧 `f3a00b0` 为 **62 失败 / 2 通过**，修复为 **64 通过**；各另有 **32 项 Firefox legacy 特性不支持**。ESM/UMD 的资源组在 Chromium/WebKit 全部通过，Firefox 两组明确不支持，不能称三引擎滚动条像素验收。完整原生产物用例逐项执行 **284 个输入，278 通过 / 6 失败，另 82 个不支持输入**。
+
+最终完整 coverage **1461 通过 / 2 失败 / 45 跳过**，默认命令因此未进入 source；单独完整 source **1342 通过 / 2 失败 / 45 跳过**。两组均只剩 WebKit 字形与内阴影；完整构建包套件 **176 通过 / 2 失败 / 2 不支持**，失败是 ESM/UMD 的原生滚动组，各含字形、DPR2 分数坐标、内阴影三例。lint、构建、包消费者、TS4.9/当前入口、浏览器类型和静态 DOM 接口审计通过，最终测量的 445 输入在每轮中保持不变，且逐项匹配 `e014fef` 和该轮生成文件。
+
+首次默认测量另有 3 项 Firefox 原生对照失败，首次独立 source 另有一项原生 HTTP SVG 准备失败，均在库导出之前；同输入 117 项复查及最终完整检查未再次出现。原失败仍保留，未认定唯一根因。独立 25 场原样夹具均就绪，同时证明视口外 iframe 可造成约秒级帧降频；它没有复现原失败，不据此增加等待、重试或放宽断言。
+
+本轮仍不解决 thumb 实际 hover、ShadowRoot 条件规则的完整应用、WebKit 严格像素差异及外部 SVG 相对 paint 来源问题。用户延后真机至少四小时；镜像曾连接，随后已退出，没有本候选真机验收，也不借用父版 112/112。新源码远端 CI 尚未运行；#650 的绿色属于父版。旧 PR 无评论或关闭动作，无 npm 发布，电脑网络配置未改。
+
+[本轮结论、1814 份原始记录、哈希索引与重放](evidence/scrollbar-stylesheet-resources.json)独立保存，不覆盖上一阶段归档。
+
+## 2026-11-25 并发推进：原生滚动条状态、资源与绘制边界
+
+未完成候选 `f3a00b0` 保存在 `codex/native-scroll-fidelity`，基于 #650 的 `25e8381`；未提交新的 PR 或合入。它接回原生 snap 滚动原型，并修复方向/轨道条件丢失：同一输入仅替换 `clone-scrollbars.ts`，Chromium/WebKit 从 **12 失败 / 10 通过**变为 **22 通过**；三引擎合计 **24 通过 / 9 项 Firefox legacy 特性不支持**。限定选择器、优先级、important、层叠与资源地址分别保留，源页面未变。
+
+完整默认 `pnpm test` 在 coverage 阶段为 **1397 通过 / 2 失败 / 13 跳过**，因此 source 阶段未执行；不能称完整检查通过。另行滚动源码组为 **430 通过 / 2 失败 / 12 跳过**。两项失败仍是 WebKit 字形和内阴影，严格断言未放宽。12 项滚动组跳过包含 9 项 Firefox legacy 滚动条、2 项原有 Firefox legacy 占位用例及 **1 项原有 Chromium 横向滑块保真边界**；不是全都属于不支持特性。默认组另有一项原有跳过。
+
+新接入 ESM/UMD 的原生源截图回归逐项执行全部支持输入：**12 组中 10 组通过、2 组失败；156 个实际执行输入中 150 通过、6 失败，另 18 个不支持输入明确记录**。Safari 采用原有 DPR2，两个格式各有字形、分数坐标、内阴影三项失败；其余引擎 DPR1。构建、lint、包消费者/类型通过，434 个测量输入稳定且与保存提交及生成文件逐字节匹配；本候选的完整产物套件、远端 CI、真机尚未验收。用户要求手机验证后置，不沿用父版 112/112 为本候选背书。
+
+并发只读审查另取得两个真实缺陷：部分跨源样式不可读时丢掉覆盖规则；原生 thumb 的实际 hover 状态既不在 base computed style，也不在 qualified 查询中。前者正在接入既有 stylesheet 资源通道；独立 HTTP/CORS/resolver 对照已验证导入、层叠及最终响应基址，并发现可读表的 `sheet.href` 也可能仍是重定向前地址。后者仍缺可证明的部件状态来源，未用元素 hover 或基础样式假装解决。
+
+绘制支线将 DPR2 分数差异缩成无库、无滚动、无文字的 40px 色块；WebKit 原生 SVG 图片仍差 60 通道，其他两引擎为零。局部变换与 zoom 的反例保留，未接入运行时。SVG 支线用不同颜色的 query 资源补齐旧盲点：query 身份被保留，问题仍是页面/文件目录基址；`xml:base` 对照否定，修复必须在 import/getComputedStyle 丢失来源之前处理，未按 UA 或旧能力标志猜测。
+
+[归档证据、重放入口及未完成条件](evidence/native-scroll-fidelity-followup.json)包含本轮原始失败、独立对照、输入哈希和逐成员核验索引。[父 PR #650 准确 head 的只读回读](evidence/native-scroll-fidelity-followup-parent-ci.json)确认其 CI 45399037878、CodeQL 45399037913、Codecov 两项与其他已报告检查成功，但 #650 仍为草稿、未合入，且不代表本原生滚动候选通过。旧 28 项仍按各自已证范围处置；不关闭旧贡献者 PR、不发布 npm，电脑网络配置未改。
+
 ## 2026-11-24 新源码远端结果与旧 PR 状态回读
 
 Codecov 缺口后补齐真实 Canvas 的七组尺寸上限/比例/取整控制，以及无原生 `toBlob` 时默认参数和 `quality:0` 的真实 PNG 编码/解码。新增 9 例在三引擎 27/27 通过，完整本地 **1300 coverage / 1181 source** 通过（4/4 既有跳过），416 输入前后相同。生产代码、构建产物与原 415 输入全部未变；沿用同字节的 162 构建包及真机 112 子集结果，不称重复执行。未改覆盖率门槛或忽略规则，新 head 的远端与 Codecov 仍须单独验收。

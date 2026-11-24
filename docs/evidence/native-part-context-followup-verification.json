@@ -1,0 +1,32 @@
+{
+  "status": "verified",
+  "archive": {
+    "path": "native-part-context-followup-raw.tar.gz",
+    "bytes": 81274,
+    "sha256": "b424c5ae71cfd5e276d39561feb542cf7669aad73524b6f89b5e399e47f7293a"
+  },
+  "fileCount": 105,
+  "gzipCRCAndTarHeadersVerified": true,
+  "all105MemberSizeAndSHA256Verified": true,
+  "original103IndexedMemberHashesAndTwoIndexFilesPreserved": true,
+  "summaryRecomputedFromArchivedReceipts": true,
+  "originalDirectoriesByteCompared": true,
+  "credentialAndSignedURLScanFindings": 0,
+  "originalIndexAccounting": [
+    {
+      "group": "output/playwright/native-part-context-20261125",
+      "indexedRawMembers": 84,
+      "originalIndexSelfExcluded": 1,
+      "actualArchivedMembers": 85
+    },
+    {
+      "group": "output/playwright/native-part-passive-resources-20261125",
+      "indexedRawMembers": 19,
+      "originalIndexSelfExcluded": 1,
+      "actualArchivedMembers": 20
+    }
+  ],
+  "summarySHA256": "3669cdfbbd268d7cf10f24f8d0c4c35badbe56ace00b1445d91e4a498fc40904",
+  "indexSHA256": "c78f4c93b92541a9578ddfd60171468d7a67630c0dc1b09dacb70e37ee6adf71",
+  "verifierSHA256": "0ecab3a8480629692d0638bfbb001c40e603fe5c69afc7466f9bd5fe1e86a19e"
+}

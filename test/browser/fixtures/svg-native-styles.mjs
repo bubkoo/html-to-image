@@ -32,6 +32,95 @@ export const svgNativeStyleCases = [
 let sequence = 0
 let referencePolicy
 
+function nativeReadinessDiagnostic(uses, samples) {
+  const read = (operation) => {
+    try {
+      return operation()
+    } catch {
+      return 'unknown'
+    }
+  }
+  const rect = (element) => {
+    const value = element.getBoundingClientRect()
+    return { x: value.x, y: value.y, width: value.width, height: value.height }
+  }
+  return JSON.stringify({
+    samples,
+    diagnosedAt: read(() => performance.now()),
+    timeOrigin: read(() => performance.timeOrigin),
+    visibility: read(() => document.visibilityState),
+    frameElement: read(() => {
+      if (window === window.top) return 'top-level'
+      const frame = window.frameElement
+      if (!frame) return 'unknown'
+      const bounds = rect(frame)
+      const view = frame.ownerDocument.defaultView
+      const style = view.getComputedStyle(frame)
+      return {
+        isConnected: frame.isConnected,
+        rect: bounds,
+        display: style.display,
+        visibility: style.visibility,
+        opacity: style.opacity,
+        rendered:
+          style.display !== 'none' &&
+          !['hidden', 'collapse'].includes(style.visibility) &&
+          bounds.width > 0 &&
+          bounds.height > 0,
+        intersectsParentViewport:
+          bounds.x + bounds.width > 0 &&
+          bounds.y + bounds.height > 0 &&
+          bounds.x < view.innerWidth &&
+          bounds.y < view.innerHeight,
+      }
+    }),
+    uses: uses.map((use) => {
+      const url = read(() => {
+        const value = new URL(use.getAttribute('href'), use.baseURI)
+        value.hash = ''
+        return value.href
+      })
+      return {
+        href: read(() => use.getAttribute('href')),
+        url,
+        isConnected: read(() => use.isConnected),
+        outerSVG: read(() => {
+          const svg = use.ownerSVGElement
+          if (!svg) return 'unknown'
+          const style = getComputedStyle(svg)
+          return {
+            isConnected: svg.isConnected,
+            style: svg.getAttribute('style'),
+            display: style.display,
+            visibility: style.visibility,
+            opacity: style.opacity,
+            rect: rect(svg),
+          }
+        }),
+        resourceTiming: read(() => {
+          if (url === 'unknown') return 'unknown'
+          const entries = performance.getEntriesByName(url, 'resource')
+          if (!entries.length) return 'unknown'
+          return entries.map((entry) => ({
+            name: entry.name,
+            initiatorType: entry.initiatorType,
+            startTime: entry.startTime,
+            duration: entry.duration,
+            fetchStart: entry.fetchStart,
+            requestStart: entry.requestStart,
+            responseStart: entry.responseStart,
+            responseEnd: entry.responseEnd,
+            transferSize: entry.transferSize,
+            encodedBodySize: entry.encodedBodySize,
+            decodedBodySize: entry.decodedBodySize,
+            responseStatus: entry.responseStatus ?? 'unknown',
+          }))
+        }),
+      }
+    }),
+  })
+}
+
 async function nativeFixturePolicy() {
   const style = document.createElement('style')
   style.textContent = '.hti-native-page-hidden{display:none!important}'
@@ -49,16 +138,21 @@ async function nativeFixturePolicy() {
   })
   document.head.append(style)
   document.body.append(svg)
+  const samples = []
   try {
     for (let attempt = 0; attempt < 60; attempt++) {
       const widths = uses.map((use) => use.getBBox().width)
+      samples.push({ attempt, at: performance.now(), widths })
       if (widths.slice(0, 3).every((width) => width > 0)) {
         if (
           widths[2] !== 21 ||
           !widths.slice(0, 3).every((width) => width === 1 || width === 21) ||
           ![0, 21].includes(widths[3])
         )
-          throw new Error('Invalid native policy fixture geometry')
+          throw new Error(
+            'Invalid native policy fixture geometry\nNative readiness: ' +
+              nativeReadinessDiagnostic(uses, samples),
+          )
         return {
           file: widths[0] === 1,
           page: widths[1] === 1,
@@ -68,7 +162,10 @@ async function nativeFixturePolicy() {
       // eslint-disable-next-line no-await-in-loop
       await new Promise((resolve) => requestAnimationFrame(resolve))
     }
-    throw new Error('Native HTTP SVG policy fixture did not load')
+    throw new Error(
+      'Native HTTP SVG policy fixture did not load\nNative readiness: ' +
+        nativeReadinessDiagnostic(uses, samples),
+    )
   } finally {
     svg.remove()
     style.remove()
@@ -362,15 +459,24 @@ export async function checkSVGNativeStyles(api, name, readNative, record) {
   try {
     const uses = Array.from(root.querySelectorAll('use'))
     if (wholeControl) uses[0] = wholeControl.querySelector('use')
+    const samples = wholeControl ? uses.map(() => []) : undefined
     await Promise.all(
-      uses.map(async (use) => {
+      uses.map(async (use, index) => {
         for (let attempt = 0; attempt < 60; attempt++) {
-          if (use.getBBox().width > 0) return
+          const width = use.getBBox().width
+          if (samples)
+            samples[index].push({ attempt, at: performance.now(), width })
+          if (width > 0) return
           // eslint-disable-next-line no-await-in-loop
           await new Promise((resolve) => requestAnimationFrame(resolve))
         }
         throw new Error(
-          'Native external SVG did not load: ' + use.getAttribute('href'),
+          'Native external SVG did not load: ' +
+            use.getAttribute('href') +
+            (samples
+              ? '\nNative readiness: ' +
+                nativeReadinessDiagnostic(uses, samples)
+              : ''),
         )
       }),
     )

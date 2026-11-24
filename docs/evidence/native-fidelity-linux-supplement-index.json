@@ -1,0 +1,746 @@
+{
+  "fileCount": 147,
+  "allArchivedMemberHashesVerified": true,
+  "archive": {
+    "path": "native-fidelity-linux-supplement-raw.tar.gz",
+    "bytes": 8073005,
+    "sha256": "850cd1f3f8407869863b5da9393a559c83e328e940b18ac7a6f3772e199cf41f"
+  },
+  "files": [
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/assessment.json",
+      "bytes": 7251,
+      "sha256": "4ccacb8df45864ef0f7ff4fb169a699d2f6abf57fb63e124efe2f0482678cac5"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/capture-process-arguments.py",
+      "bytes": 1493,
+      "sha256": "aa1d3adedd79bbd3f16fe82dd535aa6d22381efe103bbd46e67c61ba2fee2ae8"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/cleanup.json",
+      "bytes": 272,
+      "sha256": "e18a98d8adb08a85cfbe3f20ba6ab2b3e8f108e57c1f9d16accc12d88d8ab97e"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/container-node-preload-original.txt",
+      "bytes": 58,
+      "sha256": "86c6676bd07477697e8aed12348041dc1ef6bdeee70bdd4d346dd1ce2e27aacd"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/container-platform.json",
+      "bytes": 1963,
+      "sha256": "4fc7213e3b502ca49943303adb3c095ac62363977118b41a6bcf6c34c8068e6d"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/git-after.json",
+      "bytes": 321,
+      "sha256": "b3daaae93b7057649fa1994133cde162de818ecdb7f49667bb563930d4a309ce"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/git-before.json",
+      "bytes": 321,
+      "sha256": "b3daaae93b7057649fa1994133cde162de818ecdb7f49667bb563930d4a309ce"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/inputs-after.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/inputs-before.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/original-work-after.json",
+      "bytes": 116793,
+      "sha256": "ecf00f3778e07b07e508ad5b31393dc46a8ab7bfc8444c8d72b88c3bb8995d89"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/original-work-before.json",
+      "bytes": 116793,
+      "sha256": "ecf00f3778e07b07e508ad5b31393dc46a8ab7bfc8444c8d72b88c3bb8995d89"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/preconditions.json",
+      "bytes": 612,
+      "sha256": "4836a671b20b6fe6385f6238640f73679b6ede73e3833964a1b40f46679a6e79"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/receipt.json",
+      "bytes": 729,
+      "sha256": "94c5e6835a0d038b2c41f847d70c67cefee7678f1da2e5703c7674a740372365"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/run.log",
+      "bytes": 30136,
+      "sha256": "371bc280a13e02bf54b51d031c969a7fae899bf7a2af8e6ae75759d6cd2381dd"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/.last-run.json",
+      "bytes": 243,
+      "sha256": "3eeaa75e5730f692afb9aa804df44688cfd4a7f15470d5f92173500f8a2262f8"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/mobile-smoke-reports/142485b6-1beb-4474-bc5b-0c12de0beddf.json",
+      "bytes": 2472,
+      "sha256": "1792c225cab811d880f248bcdfffb5efea18e7aee2e82a24b221428f265316ca"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/mobile-smoke-reports/43c7ef6d-bc5c-4f8e-9d47-e90829c2957a.json",
+      "bytes": 2478,
+      "sha256": "3d759a9c87538b67ce703af471b997e8468d04eece3a1dab137589e7861beb96"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/mobile-smoke-reports/8eb63274-da12-488c-8b59-b4c9474b1c4b.json",
+      "bytes": 2404,
+      "sha256": "89d65aefca7aa9247b0d36168b0884d20dec63a8921ce7550ecdc0100eee8cf3"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-chromium/error-context.md",
+      "bytes": 9987,
+      "sha256": "ab1aaae82a13ad0267b439c2a709918199c5dea495fdc59435718a4757673b73"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-chromium/trace.zip",
+      "bytes": 249558,
+      "sha256": "91b99b4e905a46c66f021679fb846786e8caa440fa58397ab898b8d29a68ebf1"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-webkit/error-context.md",
+      "bytes": 10035,
+      "sha256": "0f0604a3e8e3b9f6db021b8ad115140f69b3c5e30d69af95185581e06e42181b"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-webkit/trace.zip",
+      "bytes": 62579,
+      "sha256": "3edd1dd75a9111c48befd9a24f182ce2be67e6b92bb3f4eaeef63412d6fbd784"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-chromium/error-context.md",
+      "bytes": 9987,
+      "sha256": "3bc2d9aa37e75c5310135d4b8db11d4dd6f4de47e81836d83bf95b95cbb63b56"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-chromium/trace.zip",
+      "bytes": 259985,
+      "sha256": "c2dd19714ca4232e84ebbb0b9fec597845b4d369a811181d7e7d451c6affbcc9"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-webkit/error-context.md",
+      "bytes": 10035,
+      "sha256": "c065241b193c755e65d684b4d691a370cb2e303f506224a26503c5df77ee8309"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-attempt/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-webkit/trace.zip",
+      "bytes": 60488,
+      "sha256": "ce99ac16d9aab4a48f92cf0a32b0c4103d0cf58861a7a669560cf0b210959a50"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-package-preconditions.json",
+      "bytes": 612,
+      "sha256": "4836a671b20b6fe6385f6238640f73679b6ede73e3833964a1b40f46679a6e79"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-process-arguments-snapshot.json",
+      "bytes": 7621,
+      "sha256": "b718b45caea743cb9b1fe7a0d67b3cb11ccdc5deb0cff752bf43f60af6fe61df"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-process-firefox.json",
+      "bytes": 7292,
+      "sha256": "4c8009c1cb910287b438aa65f5d634fe042421f01e1270f315e63e378a11f4c9"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/corrected-process-webkit.json",
+      "bytes": 3839,
+      "sha256": "275a909ff5f4607505173bebad3e8557c2a1233ac8ed7c634d077ad143947a6a"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/fixed-head-snapshot-pack.json",
+      "bytes": 400,
+      "sha256": "2a0737786de6f7e43fdae193facefd52dcc143571dc846e71f4a024313db07a7"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/git-metadata-receipt.json",
+      "bytes": 476,
+      "sha256": "ecc6423e4b7c4898480ed148b7318e3bbe66b2397532e22843e4a699ca04d1f3"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/git-tracked-inputs.json",
+      "bytes": 306448,
+      "sha256": "f888a72b29c07003c09b37d07d3cb0c784c9259938505789ef9d7209b7185903"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/inputs-after.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/inputs-before.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/receipt.json",
+      "bytes": 473,
+      "sha256": "eb78754031dd9863a147283be097e32adb17e6dc4705d740aa60de9d38c4848a"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/run.log",
+      "bytes": 43692,
+      "sha256": "18a8504dc5e6676cd7a9aa1aee482e1a852fb652a92c8e2a37f3e9316218d9a8"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/.last-run.json",
+      "bytes": 4119,
+      "sha256": "fb875d76de1cebe80ebd15d413f02b8edce106c1b864d00aa71d5979881b365e"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/package-built-ESM-native-s-e95a9-atches-actual-source-pixels-firefox/trace.zip",
+      "bytes": 3749,
+      "sha256": "43f63b9416bb5045c08c395369ff1edbacd944e0a13d06461302c0534087db2d"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-chromium/error-context.md",
+      "bytes": 9987,
+      "sha256": "ab1aaae82a13ad0267b439c2a709918199c5dea495fdc59435718a4757673b73"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/package-built-ESM-native-scroll-matches-actual-source-pixels-chromium/trace.zip",
+      "bytes": 252215,
+      "sha256": "2f7f87ad1fec4eb24483b91621f0c90db1bb89d98a04f06c39b57781f44a9b17"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-chromium/error-context.md",
+      "bytes": 9987,
+      "sha256": "3bc2d9aa37e75c5310135d4b8db11d4dd6f4de47e81836d83bf95b95cbb63b56"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/package-built-UMD-native-scroll-matches-actual-source-pixels-chromium/trace.zip",
+      "bytes": 260692,
+      "sha256": "3192b8716296cf71ef4ad3ad5bbb94ecca18fc0b63e73264f14001eb600d42f7"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/package-the-full-mobile-sm-39b2d-es-without-a-hidden-failure-chromium/error-context.md",
+      "bytes": 34725,
+      "sha256": "f24816274e26c463665cc5fe5d2ee75ba622327dc42e1499da35d1cb684965b1"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/browser-package/test-results/package-the-full-mobile-sm-39b2d-es-without-a-hidden-failure-chromium/trace.zip",
+      "bytes": 7286417,
+      "sha256": "e4b517968e412833d18102f765b4e6f104711bae61ce7e59d29dd85e3314f9a2"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/build/inputs-after.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/build/inputs-before.json",
+      "bytes": 115502,
+      "sha256": "7b08fa5709418943214c8fc28f2eb2704cb963c8dd08c55d65a19a8b63de365f"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/build/receipt.json",
+      "bytes": 405,
+      "sha256": "bb2713e4cfd59c66c0493e8eef94d7513e40bed1f74c4d3f5b94c7e2ebedaa40"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/build/run.log",
+      "bytes": 1044,
+      "sha256": "c128d4deb4512e3a4afbec20157b345d2ed6d6e664c958adaea608b83381b4e8"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/dependency-contract.json",
+      "bytes": 9414,
+      "sha256": "64d8dd45b41eb45fb3687822effe09aa82166f0f6989c93cc2361ba4a1982b71"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/final-receipt.json",
+      "bytes": 2335,
+      "sha256": "553bf2c8b71ccecb526c86f9427e81f2cf20e9eb0350e73d64f23590ff10a9fa"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/original-work-after.json",
+      "bytes": 116793,
+      "sha256": "ecf00f3778e07b07e508ad5b31393dc46a8ab7bfc8444c8d72b88c3bb8995d89"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/original-work-before.json",
+      "bytes": 116793,
+      "sha256": "ecf00f3778e07b07e508ad5b31393dc46a8ab7bfc8444c8d72b88c3bb8995d89"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/package-contract/inputs-after.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/package-contract/inputs-before.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/package-contract/receipt.json",
+      "bytes": 422,
+      "sha256": "ac84d4a1a91ed7c69100aae36ef689ac2b87caba87613791446c1b5fb8962197"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/package-contract/run.log",
+      "bytes": 200,
+      "sha256": "aba9d2ab606f89f8809e04d2e17a3c559a7aaa11327036944c6b164627d5a4b3"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/private-cache-preparation.json",
+      "bytes": 175,
+      "sha256": "c806953eaa184b52fc4f2f7bc34a9249bb227318dba0885fc23847dd3f318090"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/inputs-after.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/inputs-before.json",
+      "bytes": 129165,
+      "sha256": "89db9ede0cb11a680c9590c63381d1bb9b1ed70a9cdfd17e6a1463d0c3712c21"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/raw-svg/chromium-gutter-authoredSvg.svg",
+      "bytes": 733,
+      "sha256": "4e6fc544dab8b3880f022171d17a4ca995c6ed19f29bfbb4c9c5e73678a5d4f0"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/raw-svg/chromium-gutter-frozenSvg.svg",
+      "bytes": 28673,
+      "sha256": "bf4bd4f91f0addb50cbbe4047a32e09421b232f0ed94945bc6c24d301064e840"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/raw-svg/chromium-native-visible-text-authoredSvg.svg",
+      "bytes": 3202,
+      "sha256": "373a67cff5c4236754c792319057969c19ba899520b64ffd5ec48a7522dc7560"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/raw-svg/chromium-native-visible-text-frozenSvg.svg",
+      "bytes": 38650,
+      "sha256": "a9ddf268601b9c214639b7cf3de8aa7a889d0cdbc4cc27435464ce1f2d5de9c6"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/raw-svg/chromium-native-visible-text-replaySvg.svg",
+      "bytes": 38681,
+      "sha256": "008f714566a426b8ae43cc47dc07f7c6450c44bf429bb26b7eaf64c0245d33e5"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/receipt.json",
+      "bytes": 420,
+      "sha256": "bc8823377167a0b3e249dacdc90f43a2f1598333343817ea97ddc85a3a067296"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/run.log",
+      "bytes": 29128,
+      "sha256": "bf40a42c5683ee374c36a80a7dd7c33e3baafb2da8de8cdd1cbcc8e7402c0486"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/1b4958bc07e7fa43ec014b55e2a36702c58b3b65.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30287,
+      "sha256": "fa06938089600c57b299bf7850f729d51397b80bcd4042c31e33c3cc620b17e9"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-native-visible-text-authored.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-native-visible-text-capture.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-native-visible-text-html.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-native-visible-text-inline.png",
+      "bytes": 456,
+      "sha256": "85c879a429a7d5138b7cd65714aff0e6f71431b6f265045a52b45782873d196e"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-native-visible-text-native.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-native-visible-text-replay.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/source/vitest-attachments/scrollbar-box/chromium-native-visible-text.json",
+      "bytes": 82283,
+      "sha256": "90865053415038fc7fbd3cdeb34ca5d53d226eaa50b1aae4b4d1544b6d09ede2"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/stage-receipts.json",
+      "bytes": 1889,
+      "sha256": "4edcba14bc5dadaaae26df016fb1b83a801afbf4fa5a2bf56867d87a8f9552ea"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/tracked-after.json",
+      "bytes": 115502,
+      "sha256": "7b08fa5709418943214c8fc28f2eb2704cb963c8dd08c55d65a19a8b63de365f"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-archive-attempt/tracked-before.json",
+      "bytes": 115502,
+      "sha256": "7b08fa5709418943214c8fc28f2eb2704cb963c8dd08c55d65a19a8b63de365f"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-attempt-cleanup.json",
+      "bytes": 243,
+      "sha256": "5fc07a50677430d157b56c5b2cdc687121c6192c1d044bb96b78e7806ef0cb33"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-package-termination-request.json",
+      "bytes": 497,
+      "sha256": "77a21c81cd076d389077147eb5ea88da3acdc8d960a2992aae1fef149ca65cae"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-preflight/original-work-before.json",
+      "bytes": 116793,
+      "sha256": "ecf00f3778e07b07e508ad5b31393dc46a8ab7bfc8444c8d72b88c3bb8995d89"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-preflight/tracked-before.json",
+      "bytes": 115502,
+      "sha256": "7b08fa5709418943214c8fc28f2eb2704cb963c8dd08c55d65a19a8b63de365f"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-preflight-interruption.json",
+      "bytes": 564,
+      "sha256": "2434a2d18bf6fbf2c24475481d6fe17b781881cafe068d0cf6181781efc82234"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/initial-preflight-runner.mjs",
+      "bytes": 7657,
+      "sha256": "e1e4c18ed5a0445f9f288cbc20f06340a8001980d99aa50b86a96a51fe35f2be"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/install-git-metadata.py",
+      "bytes": 2562,
+      "sha256": "acfdd19095cf1bd712d7f00db31637e1af499cf0f1f0ae06ef09dbb6a41a9457"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/learning-draft.md",
+      "bytes": 2280,
+      "sha256": "bafe3cc47f58e5e1aca3f3a74f7061628373bb06771e1851ad2a846eab47d272"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/local-input-identities.json",
+      "bytes": 661,
+      "sha256": "66511668febb810dcf8f5de49b3172b4345424edb8bf727cd409f67d6cfead75"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/mobile-report-identities.json",
+      "bytes": 681,
+      "sha256": "1ec2d12a5a7a98bf8865a82fb75a4747364540e7d9dcbda23c97d3283690d041"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/native-package-failure-summary.json",
+      "bytes": 2341,
+      "sha256": "0b71fb8731b83c444e6fa6fd9cda2b553f6bb45e0dfcb497f83269ccfe1a68ec"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/native-package-verdicts/package-built-ESM-native-scroll-matches-actual-source-pixels-chromium.json",
+      "bytes": 1337,
+      "sha256": "bb150ced7c125b6d93960d9a301531cf8b5ba4d870cba0233ac0d0527ea9babd"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/native-package-verdicts/package-built-ESM-native-scroll-matches-actual-source-pixels-webkit.json",
+      "bytes": 1360,
+      "sha256": "0fa67b8a24a220e9c9243708c9a8afc7a4dc02079b0aef704a25b4c027e96ead"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/native-package-verdicts/package-built-UMD-native-scroll-matches-actual-source-pixels-chromium.json",
+      "bytes": 1337,
+      "sha256": "ff1f5bdff1025f4e231ce6c325a58e0ce7e85f5600d590c32796f903d1dfbe43"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/native-package-verdicts/package-built-UMD-native-scroll-matches-actual-source-pixels-webkit.json",
+      "bytes": 1360,
+      "sha256": "42a12827c3b5b7f8f815a716120845bb9c0ab659e2215329f15cc7659d10b80b"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/native-package-verdicts/webkit-esm-scroll-first.json",
+      "bytes": 1360,
+      "sha256": "0fa67b8a24a220e9c9243708c9a8afc7a4dc02079b0aef704a25b4c027e96ead"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/chromium-ESM-scroll.json",
+      "bytes": 1337,
+      "sha256": "bb150ced7c125b6d93960d9a301531cf8b5ba4d870cba0233ac0d0527ea9babd"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/chromium-ESM-scrollbars.json",
+      "bytes": 910,
+      "sha256": "961f9f874f1b32f7738a5d44f0498fe07accfbe663bab66b837edebb91feb0b5"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/chromium-ESM-style-resources.json",
+      "bytes": 2071,
+      "sha256": "2a5704890873b958d0ccc2cdbd8a69c76ff59111489b69e77b113fb16153f2b8"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/chromium-UMD-scroll.json",
+      "bytes": 1337,
+      "sha256": "ff1f5bdff1025f4e231ce6c325a58e0ce7e85f5600d590c32796f903d1dfbe43"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/chromium-UMD-scrollbars.json",
+      "bytes": 910,
+      "sha256": "34d4a1e13fd814828d4d0c9fa71126136c6ab9b5eb9f8abae07aeabb5c1021bf"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/chromium-UMD-style-resources.json",
+      "bytes": 2071,
+      "sha256": "25c9a847cbb8197987949321b45f0715dfe6617d1736dd847e5cd72d0e8c1f01"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/firefox-ESM-scroll.json",
+      "bytes": 938,
+      "sha256": "91e05d8b23dce9d464b9784644e6066e8f49294ba4e9bacb2a7812cedf9d6ecb"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/firefox-ESM-scrollbars.json",
+      "bytes": 1456,
+      "sha256": "8dc0e96366a96b3863701803daa3b17475e879b0b604d6d6cfdb2a2e60561df0"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/firefox-ESM-style-resources.json",
+      "bytes": 4151,
+      "sha256": "4c8fbf525364c2dc65309bd5db77bd7957445fc7e547689ac009314f7952215f"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/firefox-UMD-scroll.json",
+      "bytes": 938,
+      "sha256": "2ca9a54204269d7e042be77d2e7971361a0953adf4b0d32316ffcf44e4fbc8d7"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/firefox-UMD-scrollbars.json",
+      "bytes": 1456,
+      "sha256": "3fd733aa2a462584c3dba90f15a10761a33321a002e04fca8a557650fc6a7fb7"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/firefox-UMD-style-resources.json",
+      "bytes": 4151,
+      "sha256": "53d533b75f1941576e569584d57e4d1165b2b51648fccde07211bba5777d15c1"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/webkit-ESM-scroll.json",
+      "bytes": 1360,
+      "sha256": "0fa67b8a24a220e9c9243708c9a8afc7a4dc02079b0aef704a25b4c027e96ead"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/webkit-ESM-scrollbars.json",
+      "bytes": 913,
+      "sha256": "58098f0545798ca284efcd107e8ace0102ee42cb36a3109969b20c609e8fda03"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/webkit-ESM-style-resources.json",
+      "bytes": 2074,
+      "sha256": "936d1f6d3489eeff88f7d3b053aec7dc1181ca03813c9b3e5d6a4afb02f84c6b"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/webkit-UMD-scroll.json",
+      "bytes": 1360,
+      "sha256": "42a12827c3b5b7f8f815a716120845bb9c0ab659e2215329f15cc7659d10b80b"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/webkit-UMD-scrollbars.json",
+      "bytes": 913,
+      "sha256": "8fb27cf28b40309ac368b7ad35f1803091d57632cbc22851f4109aa9115b392d"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts/webkit-UMD-style-resources.json",
+      "bytes": 2074,
+      "sha256": "38213135da6ca79c9a2a484117e3d3ba556a705560683351607435eb43b2cd44"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-native-verdicts.json",
+      "bytes": 8383,
+      "sha256": "8c32d3a67b0d75d8dda59c7dd351b24ffb142d120b97df9492b81d90b91780b2"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/package-test-outcomes.json",
+      "bytes": 29923,
+      "sha256": "f71a9b198b0e155dfb6ac4ed6e549f4201e277c78591896c7c0ac96e8454b7cf"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/prepare-git-snapshot.py",
+      "bytes": 987,
+      "sha256": "9e602185ec5cd07efee3694717c5bb5f5a1cb9748d5bf2d8a19e4f317b1882c9"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/process-arguments-snapshot.json",
+      "bytes": 7456,
+      "sha256": "adfbabba864906e10e6f8eee1c295784db8a0e0d983ebdc6edc60539d460a82a"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/public-evidence-files.json",
+      "bytes": 31558,
+      "sha256": "67427fba0abf08448d38fff81c8757fb34d4b67c51f283cd3f479d0d9d9b9c70"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/replay.md",
+      "bytes": 4692,
+      "sha256": "acd81717ae1a90a6f755e16985e2f674c055e10f9cccecc0dda5cf5f27bc3949"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/run-linux.mjs",
+      "bytes": 7697,
+      "sha256": "065c0443877fa1f16224e1c65353f6c5a67e24f277192a9888005526e54139c5"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/run-package-only.mjs",
+      "bytes": 5340,
+      "sha256": "be00b41a36f00aa41514d2a00cf8f722189724d8c2bb167a53be31da9e5714cc"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/setup-receipt.json",
+      "bytes": 505,
+      "sha256": "2c353a82d4eca1ea76c94cdaf3d0a7cf671686a0b6088dc6464b2275c37de6c3"
+    },
+    {
+      "path": "output/playwright/linux-native-fidelity-20261125/setup.py",
+      "bytes": 2854,
+      "sha256": "7b8993e4d21627819776dc4f2329518ca0be74d89304213471a897eb1989e8ba"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/24320f63beea0972aaa5a8572452c0caed30f7d7.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30446,
+      "sha256": "944112f47ecde7f656fa598e96fabb670aaac4d4cbb9a36afa93c9e3d317c7ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-authored.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-capture.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-html.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-inline.png",
+      "bytes": 456,
+      "sha256": "85c879a429a7d5138b7cd65714aff0e6f71431b6f265045a52b45782873d196e"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-native.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-replay.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text.json",
+      "bytes": 82682,
+      "sha256": "d028873469c248855d29367c83e7a6f5b37eaea66b9e6e17e7f5be277ccea942"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifact-files.json",
+      "bytes": 2553,
+      "sha256": "af019915728b0296ecd3d29f23e3a20be3d9eb800cc7e5b318c3bc62d8386ea4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/artifacts.json",
+      "bytes": 841,
+      "sha256": "f2ea2e2efa7cc64c7196ab143420f40684ac130e5838e7113c9e7b76644c721b"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/ci-45465861503-job.log",
+      "bytes": 197166,
+      "sha256": "504e6898a287322e5fc885ba9623d6f709c5e60e5007c0fd6c7fff59a575b202"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/native-scroll-ci-45465861503.zip",
+      "bytes": 18045,
+      "sha256": "e08d542419d14cf833658416960225ebe14f7f85fbc5ba566d88bc8ecb87fc29"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/source-head.json",
+      "bytes": 1310,
+      "sha256": "9ba491b99a29a6acc92df3f8b1938e66fecbe76438a7272a8752b6b22b7ad2c1"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/source-tree-identity.json",
+      "bytes": 253,
+      "sha256": "b48a6ca390737c002cecfccb4a72ffa1f1edecbcdeac95ebfab0450143e3b1c5"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-c621e09-20261125/tested-merge.json",
+      "bytes": 2810,
+      "sha256": "bf5e72ba1e0ec66e90bd6ccd8f2d3ec1dc3c1c9a851f5a57a33f2fc88123291f"
+    }
+  ]
+}

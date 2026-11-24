@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-11-24T16:46:36.546774+00:00",
+  "status": "incomplete prototype; default workflow and native package strict pixel gates fail; not ready for merge",
+  "sourceCommit": "f3a00b069fadea920606b805221f1996711f09a9",
+  "parent": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+  "branch": "codex/native-scroll-fidelity",
+  "previousPrototype": "439709c04bc7e11941f8a06819591b50b7bd1b8c",
+  "relatedPRs": [376, 407, 408, 585, 427],
+  "relatedIssues": [81, 345],
+  "requirement": "Current browser live-page fidelity, including native scrollbar track/thumb size, color and position. Existing requirements are not a pending scope choice.",
+  "change": {
+    "nativeScroll": "Retain native overflow and encode supported scroll state with a snap target; keep existing external-absolute fallback and gutter-origin correction.",
+    "scrollbarStyles": "Preserve qualified native-part selectors, source prefix specificity through a never-matching :is branch, priorities, layer order, active media/supports and URL provenance.",
+    "lifetime": "Imported DOM/CSS operations use the existing reflective DOM access helpers. Bounded static audit finds zero direct accesses in the audited interface families.",
+    "remainingInThisCandidate": [
+      "partially unreadable stylesheet overrides",
+      "actual native-part hover state",
+      "strict WebKit glyph/shadow/fractional image composition"
+    ],
+    "newPublicAPI": false
+  },
+  "frozenComparison": {
+    "before": {
+      "engines": ["chromium", "webkit"],
+      "failed": 12,
+      "passed": 10
+    },
+    "after": {
+      "engines": ["chromium", "firefox", "webkit"],
+      "passed": 24,
+      "unsupportedLegacyFirefox": 9
+    },
+    "onlyChangedMeasuredInput": "src/clone-scrollbars.ts",
+    "unchangedInputCountPerRun": 422,
+    "evidence": [
+      "output/playwright/native-scroll-followup/qualified-before-frozen/receipt.json",
+      "output/playwright/native-scroll-followup/qualified-after-frozen/receipt.json"
+    ]
+  },
+  "validation": {
+    "sourceScrollFamily": {
+      "passed": 430,
+      "failed": 2,
+      "skipped": 12,
+      "failureCases": ["WebKit visible-text", "WebKit padding-shadow"],
+      "skipBreakdown": {
+        "firefoxLegacyScrollbars": 9,
+        "existingFirefoxLegacyScrollbarBox": 2,
+        "existingChromiumHorizontalThumbBoundary": 1
+      }
+    },
+    "defaultPnpmTest": {
+      "coveragePassed": 1397,
+      "coverageFailed": 2,
+      "coverageSkipped": 13,
+      "sourcePhase": "not run because coverage failed",
+      "packagePhase": "not part of pnpm test; independently checked below",
+      "existingSkips": 4,
+      "newFeatureUnsupportedLegacyFirefoxSkips": 9,
+      "inputCount": 434,
+      "inputsUnchanged": true
+    },
+    "nativeBuiltPackages": {
+      "formats": ["ESM", "UMD"],
+      "groupTestsPassed": 10,
+      "groupTestsFailed": 2,
+      "fixtureListed": 174,
+      "fixtureExecuted": 156,
+      "fixturePassed": 150,
+      "fixtureFailed": 6,
+      "fixtureUnsupported": 18,
+      "failureCasesPerWebKitFormat": [
+        "visible-text",
+        "fractional",
+        "padding-shadow"
+      ],
+      "dpr": {
+        "chromium": 1,
+        "firefox": 1,
+        "webkit": 2
+      },
+      "inputCount": 434,
+      "inputsUnchanged": true,
+      "fullPackageSuite": "not executed for this prototype"
+    },
+    "lint": "passed after correcting package test index loop; initial lint failure preserved",
+    "buildESMCJSUMD": "passed",
+    "packageContractAndConsumers": "passed",
+    "browserTypes": "passed",
+    "staticDOMAuditDirectProperties": 0,
+    "commitInputIdentity": {
+      "all434MeasuredInputsMatchSavedCommitAndGeneratedBytes": true,
+      "receipt": "output/playwright/native-scroll-followup/candidate-input-identity.json"
+    },
+    "remoteCI": "not run for this unsubmitted native prototype; parent PR #650 checks are a different scope",
+    "physicalDevice": "deferred at user request; prior 112/112 UMD result belongs to parent source and does not validate this prototype"
+  },
+  "parallelFindings": {
+    "externalSVG": {
+      "assessment": "output/playwright/svg-followup-20261125/assessment.json",
+      "result": "Relative attribute/inline paint is absolutized during import/getComputedStyle. Native HTTP controls reject xml:base as a repair. Distinct query bytes prove query identity survives while page/file directory selection differs by engine. No runtime repair claimed."
+    },
+    "webKit": {
+      "assessment": "output/playwright/webkit-followup-20261125/assessment.json",
+      "result": "DPR2 fractional mismatch also exists in a no-library/no-scroll 40px box. Same-size device PNG comparison and native SVG-image screenshot retain the failure. Transform and zoom controls introduce counterexamples; no generic fix adopted. Used-font SVG decode separates the font-URL cache dependency from HTML/FontFace preload, without proving a default repair."
+    },
+    "scrollbarReview": {
+      "assessment": "output/playwright/scrollbar-review-20261125/assessment.json",
+      "result": "Missing opaque stylesheet overrides and actual native hover state are separate reproduced failures; base and qualified computed-style reads cannot recover orientation/part hover. Positive Document/ShadowRoot controls retained."
+    },
+    "stylesheetResourceProof": {
+      "evidence": "output/playwright/scrollbar-resource-plan-20261125/http-proof-v2/results.json",
+      "result": "Independent HTTP/CORS/resolver controls preserve imports/layers/priorities and redirected URL bases. Even readable CSSOM retains pre-redirect href. Missing CSS without readable transport remains an explicit failure, not pixel acceptance. Production integration is subsequent unvalidated work."
+    }
+  },
+  "remaining": [
+    "Complete stylesheet resource integration and before/after real HTTP regressions.",
+    "Resolve or precisely delimit native part interaction data and WebKit image compositor boundaries without weakening existing pixel gates.",
+    "Run complete exact-source checks, final-head remote CI, and deferred real-device acceptance before completion.",
+    "Retain original Windows/Edge and unavailable #81 fixture boundaries; do not treat current desktop controls as whole-original-application verification."
+  ],
+  "oldPRCommentOrClosureActions": 0,
+  "npmPublished": false,
+  "macNetworkConfigurationChanged": false,
+  "rawEvidence": {
+    "index": "native-scroll-fidelity-followup-index.json",
+    "archive": "native-scroll-fidelity-followup-raw.tar.gz",
+    "fileCount": 1978,
+    "allArchivedMemberHashesVerified": true
+  },
+  "replay": "Extract archive from repository root. Inspect source-checkpoint and candidate-input-identity first; source measurements used saved dirty bytes from parent HEAD, now identical to f3a00b0. Checkout the recorded source before build/test replay. Independent probes include their original scripts and assertions; earlier missing-browser, lint and failed paths are retained, not acceptance. Do not change the strict WebKit pixel gates or default DPR.",
+  "parentCIRevalidation": "native-scroll-fidelity-followup-parent-ci.json"
+}

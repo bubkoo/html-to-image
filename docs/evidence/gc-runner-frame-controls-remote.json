@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T21:45:00.200344Z",
+  "title": "PR655 exact-head remote CI failure evidence",
+  "pullRequest": {
+    "number": 655,
+    "url": "https://github.com/bubkoo/html-to-image/pull/655",
+    "head": "5fcd839f79cef79d240c748f5ceeac7e21a08d63",
+    "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "draft": true,
+    "scopeFiles": [
+      "docs/evidence/gc-runner-frame-controls-index.json",
+      "docs/evidence/gc-runner-frame-controls-raw.tar.gz",
+      "docs/evidence/gc-runner-frame-controls.json",
+      "docs/evidence/gc-runner-frame-controls.verify.py",
+      "test/browser/gc-frame.d.mts",
+      "test/browser/gc-frame.mjs",
+      "vitest.browser.config.mts"
+    ]
+  },
+  "testedRevision": {
+    "checkout": "75274cb514ffde354f30c5a44b9231024af41fb0",
+    "parents": [
+      "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "5fcd839f79cef79d240c748f5ceeac7e21a08d63"
+    ],
+    "headTree": "11aeb06367b9fc7be97aef4834fd17d5d70fb424",
+    "checkoutTree": "11aeb06367b9fc7be97aef4834fd17d5d70fb424",
+    "sameTree": true,
+    "proof": "Actual job checkout/tested-revision log plus GitHub Git Commit API parent/tree metadata, not inferred from local branch."
+  },
+  "ci": {
+    "run": 45491737937,
+    "job": 138791589763,
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45491737937/job/138791589763",
+    "attempt": 1,
+    "conclusion": "failure",
+    "coverage": {
+      "testFilesPassed": 130,
+      "passed": 1234,
+      "skipped": 4
+    },
+    "source": {
+      "testFilesFailed": 1,
+      "testFilesPassed": 116,
+      "passed": 1112,
+      "failed": 3,
+      "skipped": 4
+    },
+    "failures": [
+      {
+        "title": "[firefox] test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending",
+        "engine": "firefox",
+        "sourcePath": "test/browser-unit/resource-resolver-cancellation.test.ts",
+        "assertionLine": 202,
+        "diagnostic": {
+          "native": {
+            "plain": false,
+            "sharedFonts": false,
+            "nativeProbe": true,
+            "measuredProbe": true,
+            "sharingErrors": ["InvalidModificationError"]
+          },
+          "tree": {
+            "elements": ["html", "head", "meta", "style", "meta", "body"],
+            "shadows": []
+          }
+        },
+        "sourceURL": "https://github.com/bubkoo/html-to-image/blob/5fcd839f79cef79d240c748f5ceeac7e21a08d63/test/browser-unit/resource-resolver-cancellation.test.ts#L202"
+      },
+      {
+        "title": "[firefox] test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true",
+        "engine": "firefox",
+        "sourcePath": "test/browser-unit/resource-resolver-cancellation.test.ts",
+        "assertionLine": 111,
+        "diagnostic": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "sourceURL": "https://github.com/bubkoo/html-to-image/blob/5fcd839f79cef79d240c748f5ceeac7e21a08d63/test/browser-unit/resource-resolver-cancellation.test.ts#L111"
+      },
+      {
+        "title": "[firefox] test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false",
+        "engine": "firefox",
+        "sourcePath": "test/browser-unit/resource-resolver-cancellation.test.ts",
+        "assertionLine": 111,
+        "diagnostic": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "sourceURL": "https://github.com/bubkoo/html-to-image/blob/5fcd839f79cef79d240c748f5ceeac7e21a08d63/test/browser-unit/resource-resolver-cancellation.test.ts#L111"
+      }
+    ],
+    "failedStep": "Test migrated regressions and browser behavior (pnpm test); coverage passed, source failed."
+  },
+  "interpretation": {
+    "probedFalse": "At line111, nativeCollected=true and ownerCollected=false: native removed iframe Document was collected, disposed library environment Document was still observed. This is a differential observation for this run, not a proven retainer/root cause.",
+    "probedTrue": "At line111, nativeCollected=false and ownerCollected=false: both native policy-probed and library environment Documents were still observed. This does not isolate a library-only cause.",
+    "pendingFont": "At line202, collected=false for the private SVG environment observed during capture cancellation while the custom font resolver remains pending. Prior abort-reason, removed-iframe and source-markup assertions had been reached and passed before this failure.",
+    "nativeDiagnosticBooleanMeaning": "nativeRetention plain/sharedFonts/nativeProbe/measuredProbe are !!WeakRef.deref(), so true means RETAINED, unlike nativeCollected/ownerCollected where true means COLLECTED. For the third failure plain=false and sharedFonts=false mean collected; nativeProbe=true and measuredProbe=true mean retained. sharingErrors contains InvalidModificationError.",
+    "noFallbackAttribution": "No FrameDetached error appears in this decoded job log. The exact tested GC helper is present at this head, but per-request actual frame identity was not instrumented in CI. Do not assign these collection assertions to the old unfiltered fallback or claim general GC stability.",
+    "unexecutedWithinFailedTests": "For both disposed-environment cases, line111 fails before the native assertion at112 and disposed-getDocument/postcondition assertions at115–116. In the pending-font test, line202 fails; finally cleanup is in source but no separate cleanup receipt was logged.",
+    "unchangedGC": "The head test retains the original three main-phase GC commands; its existing failure-only nativeRetention diagnostic also has its own three GC commands. No GC counts, assertions, timeouts or retries were changed by this evidence task."
+  },
+  "unexecutedBoundaries": {
+    "passedBeforeFailure": [
+      "Checkout and tested-revision second-parent verification",
+      "Frozen dependency install",
+      "Lint",
+      "Build",
+      "Published-entry consumers",
+      "Browser test types",
+      "Browser engine install",
+      "Coverage phase"
+    ],
+    "notExecuted": [
+      {
+        "step": 13,
+        "name": "Test built package in browsers",
+        "conclusion": "skipped"
+      }
+    ],
+    "otherSkipped": [
+      {
+        "step": 15,
+        "name": "Generate Token"
+      },
+      {
+        "step": 16,
+        "name": "Coveralls"
+      },
+      {
+        "step": 17,
+        "name": "Codecov"
+      }
+    ],
+    "continuedAfterFailure": [
+      {
+        "step": 14,
+        "name": "Upload browser report",
+        "conclusion": "success"
+      }
+    ],
+    "localBoundary": "Earlier local green isolated checks and parent-reported combined integration checks are different observations. They do not replace this exact-head Linux CI failure or supply the skipped remote browser-package result."
+  },
+  "codeql": {
+    "run": 45491737951,
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45491737951",
+    "head": "5fcd839f79cef79d240c748f5ceeac7e21a08d63",
+    "conclusion": "success",
+    "job": {
+      "id": 138791582411,
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5fcd839f79cef79d240c748f5ceeac7e21a08d63",
+      "started_at": "2026-11-24T21:30:16Z",
+      "completed_at": "2026-11-24T21:31:29Z"
+    },
+    "boundary": "CodeQL success does not replace behavioral CI failure."
+  },
+  "artifact": {
+    "id": 14966882098,
+    "bytes": 9351,
+    "sha256": "28938e4876c8f80b79a237d8fb4c9eb32c36f874208b67d90eaa771ece164950",
+    "publishedDigestMatched": true,
+    "crcVerified": true,
+    "memberSHA256Verified": 10,
+    "notes": [
+      "All ten ZIP entries are retained, with per-member CRC/size/SHA. The six failure screenshot copies have the same SHA; screenshots alone do not establish GC target identity or a retainer.",
+      "The included Chromium gutter diagnostic reports libraryAuthoredDifferentChannels=0, nativeDifferentChannels=22 and nativeAuthoredDifferentChannels=22. It is retained as uploaded; it is not one of the three CI assertion failures."
+    ]
+  },
+  "pinnedSourceFiles": [
+    {
+      "path": "test/browser/gc-frame.mjs",
+      "gitBlobSHA": "1a552dec93d222bb9bcf63006567c43443c70f38",
+      "sha256": "ad69c92188d98c93e39872c937fe91406320d90084052b45505995b2c41a0632",
+      "bytes": 621
+    },
+    {
+      "path": "test/browser-unit/resource-resolver-cancellation.test.ts",
+      "gitBlobSHA": "f53aafee409ec0fc681e915184df34e3ef30e567",
+      "sha256": "f1a4416a87f63a8edb4e226341aa75073e12b79fda7ce34723c09ab92694e220",
+      "bytes": 7166
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "gitBlobSHA": "31a83f6c59af5a720ebe0cf3fd06cefff9e11527",
+      "sha256": "e90ceb83e7b7f860a326641467068dca4d8b2f717f2ad58296d8c6463078b31c",
+      "bytes": 2745
+    },
+    {
+      "path": "vitest.browser.config.mts",
+      "gitBlobSHA": "9b4dfacce22d8684d532c3aa1e38081395441d35",
+      "sha256": "0adb3830455c03eb39c9206e37166cdf71d2944f78ef5a5d4caaac33224c9ebe",
+      "bytes": 7668
+    },
+    {
+      "path": "test/browser/gc-frame.d.mts",
+      "gitBlobSHA": "5837fc273c18d9d40f727e6fba9474e5cfd9367a",
+      "sha256": "e58825680f5aecbd635d65178dc81935c9a3a6905a300649295295d5881ce6ad",
+      "bytes": 108
+    }
+  ],
+  "acquisition": {
+    "readOnly": true,
+    "connectorPreferred": true,
+    "annotationFallback": "Connected tool rejected unsupported check-runs annotations endpoint; existing gh api GET retrieved the raw annotations, including exact case titles. The rejected connector result is retained.",
+    "temporaryArtifactURL": "Not persisted; only final ZIP bytes and stable API artifact metadata retained.",
+    "jobLog": "Original connector envelope plus exact decoded UTF8 text including BOM retained; not represented as untouched HTTP transport bytes.",
+    "noWorkflowRerun": true,
+    "noBrowserLaunched": true,
+    "noRemoteStateChanged": true,
+    "noMeasurementInputChanged": true
+  },
+  "preservation": {
+    "rawFileCount": 42,
+    "older43FileArchiveUnchanged": true,
+    "oldEvidenceProof": "gc-runner-frame-controls-remote-20261125/preserved-old-evidence.json",
+    "remoteRedNotReplacedByLocalGreen": true,
+    "originalConnectorAnnotationsEndpointErrorPreserved": true
+  },
+  "artifacts": {
+    "rawArchive": {
+      "file": "gc-runner-frame-controls-remote-raw.tar.gz",
+      "bytes": 128743,
+      "sha256": "7fa3f61ab9b6ea221cb6e5fdcb28616d82d7ea45de037d9fcc7cef94496f488c"
+    },
+    "index": {
+      "file": "gc-runner-frame-controls-remote-index.json",
+      "sha256": "0503e1e31aa02031c88e8cf2d4ed3d1512fe5c4c4174b244bf5a15f5f8c30861"
+    }
+  },
+  "limits": [
+    "This assessment preserves remote failure; it does not fix it, label it flaky, or infer its exact retaining object.",
+    "This assessment does not establish the cause of security20:53 or a stable resolution of issue650.",
+    "CodeQL success is independent of the failing CI behavioral assertions."
+  ]
+}

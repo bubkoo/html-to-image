@@ -1,0 +1,148 @@
+{
+  "checkedAt": "2026-11-24T20:43:11.388533+00:00",
+  "status": "Rejected generic nested-owner root-origin measurement route; no production integration.",
+  "method": "Keep a restricted srcdoc HTML owner, confirm exact CSP meta ready, then create the SVG Blob child iframe in that ownerDocument. The only measurement-specific resource exception is frame-src blob:; owner and child sandbox allow-same-origin without scripts. Existing production policies remain unchanged.",
+  "results": {
+    "executedControls": 5,
+    "chromium": {
+      "security": "narrow pass",
+      "XMLSemantics": "narrow pass",
+      "descendantSourceBlobHTMLActuallyLoaded": true,
+      "actualHTTPRequests": 0
+    },
+    "firefox": {
+      "security": "narrow pass",
+      "XMLSemantics": "narrow pass",
+      "descendantSourceBlobHTMLActuallyLoaded": true,
+      "actualHTTPRequests": 0
+    },
+    "webkit": {
+      "security": "failed",
+      "actualHTTPRequests": 4,
+      "resources": ["CSS import", "image", "child frame", "font"],
+      "HTTPStatuses": [200, 200, 200, 200],
+      "source": "Source-precreated Blob HTML iframe nested inside the measured SVG",
+      "scriptExecutions": 0,
+      "originalProbeWatchdogSeconds": 5,
+      "watchdogTriggered": true,
+      "XMLSemantics": "not executed after safety failure",
+      "cancellationControls": "not executed after safety failure"
+    }
+  },
+  "blockingEvidence": {
+    "nestedNavigationUTC": "2026-11-24T20:32:48.044Z",
+    "actualServerReceiptsUTC": [
+      "2026-11-24T20:32:48.064Z",
+      "2026-11-24T20:32:48.064Z",
+      "2026-11-24T20:32:48.065Z",
+      "2026-11-24T20:32:48.068Z"
+    ],
+    "conclusion": "Actual descendant HTTP was received20–24ms after navigation, before the later5s watchdog. Resource isolation does not transitively hold. Script blocking andC/FF narrow successes do not repair or generalize this result."
+  },
+  "cleanup": {
+    "callerSourceFocusAndConstructorPreserved": true,
+    "allProbeFramesRemoved": true,
+    "allObservedAbortListenerCountsBalanced": true,
+    "browsersAndServerClosed": true,
+    "webkitURLRevokeInvoked": true,
+    "webkitPostRevokeFetchRejected": [false, false],
+    "webkitURLReleaseAccepted": false,
+    "URLReleaseLimitation": "Both WebKit oldURL fetches still succeeded after actual revoke calls. The test does not establish URL registry orGC root cause; do not count cleanup as fully accepted."
+  },
+  "preservedPreparationFailure": {
+    "initialHarnessFailurePreserved": true,
+    "initialRunComplete": false,
+    "cause": "A nativePromise starter was incorrectly treated as a cleanup function; TypeError after settled prevented the in-page5s fallback from resettling. OwnedChromium was terminated; source andfinally record remain.",
+    "correctedHarnessRunExitCode": 0,
+    "correctedHostWatchdogSeconds": 12,
+    "correctedHostWatchdogTriggered": false,
+    "noCSPOrAttackWeakening": true,
+    "completeInitialStderrFileAvailable": false
+  },
+  "dataIdentity": {
+    "inputAndRuntimeSHA256": {
+      "domSHA256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f",
+      "fontSHA256": "609ed7142290b5032cdd169a0f9f11c61eac8584215b381e4d21089196b7e7fe",
+      "sceneSHA256": "99f901ccee33ae17b5ecdaff26b4a39d67411a865754248566b0abdb219faebe"
+    },
+    "runtimeDerivedDTOIsNotOriginalBrowserSnapshot": true,
+    "webkitCompletedXMLPayloadSnapshotAvailable": false,
+    "boundary": "CompletedC/FF case records include observedSVG/sourceBlobHTML. WebKit was rejected before completedload; retain executedscene/font/caseID/ownedURLs/HTTP/console/phase records. runtime-inputs-derived.json is explicitly derived, not an original snapshot."
+  },
+  "browserTimesUTC": [
+    {
+      "engine": "chromium",
+      "mode": "security",
+      "launchRequestedUTC": "2026-11-24T20:32:41.190Z",
+      "launchResolvedUTC": "2026-11-24T20:32:41.393Z",
+      "closeRequestedUTC": "2026-11-24T20:32:41.492Z",
+      "closeResolvedUTC": "2026-11-24T20:32:41.514Z"
+    },
+    {
+      "engine": "chromium",
+      "mode": "semantics",
+      "launchRequestedUTC": "2026-11-24T20:32:41.515Z",
+      "launchResolvedUTC": "2026-11-24T20:32:41.605Z",
+      "closeRequestedUTC": "2026-11-24T20:32:41.678Z",
+      "closeResolvedUTC": "2026-11-24T20:32:41.698Z"
+    },
+    {
+      "engine": "firefox",
+      "mode": "security",
+      "launchRequestedUTC": "2026-11-24T20:32:41.698Z",
+      "launchResolvedUTC": "2026-11-24T20:32:44.576Z",
+      "closeRequestedUTC": "2026-11-24T20:32:45.283Z",
+      "closeResolvedUTC": "2026-11-24T20:32:45.516Z"
+    },
+    {
+      "engine": "firefox",
+      "mode": "semantics",
+      "launchRequestedUTC": "2026-11-24T20:32:45.516Z",
+      "launchResolvedUTC": "2026-11-24T20:32:46.065Z",
+      "closeRequestedUTC": "2026-11-24T20:32:46.801Z",
+      "closeResolvedUTC": "2026-11-24T20:32:47.094Z"
+    },
+    {
+      "engine": "webkit",
+      "mode": "security",
+      "launchRequestedUTC": "2026-11-24T20:32:47.095Z",
+      "launchResolvedUTC": "2026-11-24T20:32:47.412Z",
+      "closeRequestedUTC": "2026-11-24T20:32:53.043Z",
+      "closeResolvedUTC": "2026-11-24T20:32:53.069Z"
+    }
+  ],
+  "scopeLimits": [
+    "C/FF passed only the listed narrow security/XML controls; not a generalCSS equivalence or product acceptance.",
+    "WebKit semantics andthe null/dispose controls were deliberately not executed after actualHTTP safety rejection.",
+    "No coordinate algorithm integration, sanitizer fallback, production source/test/config/build/commit, browserflag orMac network change, orphone operation.",
+    "Earlier same-frame evidence andalloldarchives remain separate andunchanged."
+  ],
+  "rawEvidence": {
+    "index": "root-origin-nested-owner-index.json",
+    "archive": {
+      "path": "root-origin-nested-owner-raw.tar.gz",
+      "bytes": 28094,
+      "sha256": "40fc41fe0766421b0ddfa6c76665b3bb3937cfbbea4cd19e1747700c4f5630a5"
+    },
+    "fileCount": 19,
+    "uncompressedBytes": 160115,
+    "allMemberHashesVerified": true,
+    "indexSHA256": "83856cd76a30627e07e492721d725305f3a1ee80754f5299b2ea3190bc629005"
+  },
+  "verification": {
+    "originalIndexAll18MembersVerified": true,
+    "archiveAll19MembersByteComparedToOriginals": true,
+    "gzipCRCAndTrailerVerified": true,
+    "tarHeaderChecksumsAndSafeRegularMembersVerified": true,
+    "sourceFilesUnchanged": true,
+    "nativeGzipAndTarChecks": {
+      "gzip -t": {
+        "exitCode": 0
+      },
+      "tar -tzf": {
+        "exitCode": 0,
+        "memberCount": 19
+      }
+    }
+  }
+}

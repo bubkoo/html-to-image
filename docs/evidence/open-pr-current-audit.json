@@ -5,7 +5,7 @@
   "all28AccountedFor": true,
   "oldPRClosureActions": 0,
   "oldPRCommentActions": 0,
-  "notACompletionAttestation": "This is an evidence index. Passing counts and remaining product/fixture conditions must be read from each linked source. It is not a claim that all historical PRs or their whole applications are fixed.",
+  "notACompletionAttestation": true,
   "entries": [
     {
       "number": 585,
@@ -24,7 +24,8 @@
         "docs/evidence/svg-data-imports.json",
         "docs/evidence/svg-data-relative-urls.json",
         "docs/evidence/svg-response-bases.json",
-        "docs/evidence/video-empty-frame.json"
+        "docs/evidence/video-empty-frame.json",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
       "remainingBoundary": "Attribute/inline relative bases, query-distinct paint URLs, page/file fragment scope and physical-iPhone unsupported qualified paint differ; broader redirects, compositor, opaque rules, restricted CSP and HTTP styles/fonts remain open.",
       "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
@@ -41,10 +42,95 @@
       "domPropertyLifetimeCandidate": {
         "pr": 650,
         "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-        "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-        "status": "local/current physical UMD subset/default PR CI pass; draft and unmerged",
+        "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "status": "parent CI/CodeQL/Codecov pass; draft and unmerged; not native-child acceptance",
         "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
-        "notFullOriginalIssueAcceptance": true
+        "notFullOriginalIssueAcceptance": true,
+        "priorValidatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+        "latestRemoteEvidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json"
+      },
+      "paintBaseProvenanceFollowup": {
+        "date": "2026-11-25",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "status": "HTTP distinct-query identity verified; import/computed-style provenance loss isolated; xml:base route rejected; no runtime fix"
+      },
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
+      },
+      "currentIntegratedFontAndCancellationDeviceSubset": {
+        "evidence": "docs/evidence/ios-integrated-acceptance.json",
+        "loadedDataTTFFont": true,
+        "cancelReasonIdentityCases": 14,
+        "remainingPaintProvenanceBoundaryUnchanged": true,
+        "notCompleteOriginalScope": true
       }
     },
     {
@@ -133,10 +219,12 @@
       "domPropertyLifetimeCandidate": {
         "pr": 650,
         "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-        "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-        "status": "local/current physical UMD subset/default PR CI pass; draft and unmerged",
+        "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "status": "parent CI/CodeQL/Codecov pass; draft and unmerged; not native-child acceptance",
         "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
-        "notFullOriginalIssueAcceptance": true
+        "notFullOriginalIssueAcceptance": true,
+        "priorValidatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+        "latestRemoteEvidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json"
       }
     },
     {
@@ -328,14 +416,21 @@
         "test/browser-unit/transformed-svg.test.ts",
         "docs/evidence/svg-reference-dependencies.json"
       ],
-      "remainingBoundary": "外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成",
+      "remainingBoundary": "已确定跟随当前浏览器页面外观；外部兄弟CSS/字体、相对attribute/inline paint来源及重定向/片段范围仍有开放边界，不按任意sprite已完成。",
       "domPropertyLifetimeCandidate": {
         "pr": 650,
         "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-        "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-        "status": "local/current physical UMD subset/default PR CI pass; draft and unmerged",
+        "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "status": "parent CI/CodeQL/Codecov pass; draft and unmerged; not native-child acceptance",
         "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
-        "notFullOriginalIssueAcceptance": true
+        "notFullOriginalIssueAcceptance": true,
+        "priorValidatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+        "latestRemoteEvidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json"
+      },
+      "paintBaseProvenanceFollowup": {
+        "date": "2026-11-25",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "status": "HTTP distinct-query identity verified; import/computed-style provenance loss isolated; xml:base route rejected; no runtime fix"
       }
     },
     {
@@ -366,11 +461,102 @@
         "docs/evidence/fixed-scroll.json",
         "test/browser-unit/positioned-scroll.test.ts",
         "docs/evidence/positioned-scroll.json",
-        "docs/evidence/scrollbar-box-dimensions.json"
+        "docs/evidence/scrollbar-box-dimensions.json",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
       "remainingBoundary": "完整原生滚动条与滑块位置仍待解决；原型两项严格 WebKit 像素失败尚未解决。#81 原 sandbox 不可访问，不以当前部分回归宣称全部修复。",
       "relatedIssues": [81, 345],
-      "incremental634": "#634 已合入 f340ddf，占位尺寸根因有桌面三引擎严格对照，iPhone 30/30 及与 #635 组合 31/31；不等于完整原生滚动条外观/滑块解决。"
+      "incremental634": "#634 已合入 f340ddf，占位尺寸根因有桌面三引擎严格对照，iPhone 30/30 及与 #635 组合 31/31；不等于完整原生滚动条外观/滑块解决。",
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
+      },
+      "previousNativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "f3a00b069fadea920606b805221f1996711f09a9",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "defaultCoverage": {
+          "passed": 1397,
+          "failed": 2,
+          "skipped": 13,
+          "sourcePhaseNotRun": true
+        },
+        "remaining": [
+          "opaque stylesheet overrides; resource integration in progress",
+          "actual native-part hover state",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+        ],
+        "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
+      }
     },
     {
       "number": 407,
@@ -382,9 +568,100 @@
       "disposition": "使用 onClone 插入 style 的现有原语，不新增 extraStyleContent",
       "evidence": [
         "docs/evidence/scrollbar-extension-probes.json",
-        "test/browser-unit/pseudo-resources.test.ts"
+        "test/browser-unit/pseudo-resources.test.ts",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
-      "remainingBoundary": "自定义 CSS 注入不等于源原生滚动条外观/位置已保留"
+      "remainingBoundary": "自定义 CSS 注入不等于源原生滚动条外观/位置已保留",
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
+      },
+      "previousNativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "f3a00b069fadea920606b805221f1996711f09a9",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "defaultCoverage": {
+          "passed": 1397,
+          "failed": 2,
+          "skipped": 13,
+          "sourcePhaseNotRun": true
+        },
+        "remaining": [
+          "opaque stylesheet overrides; resource integration in progress",
+          "actual native-part hover state",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+        ],
+        "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
+      }
     },
     {
       "number": 401,
@@ -426,7 +703,8 @@
       "evidence": [
         "docs/evidence/blob-preview-browser-checks.json",
         "README.md",
-        "docs/evidence/blob-preview-device-20261115.json"
+        "docs/evidence/blob-preview-device-20261115.json",
+        "docs/evidence/ios-integrated-acceptance.json"
       ],
       "remainingBoundary": "真实 iPhone PNG MIME/96×60/red-blue 读取通过；W3C element click 与 touch actions 虽返回成功但页面未收到事件、没有新标签，不算可信点击/清理通过。实际 Wi-Fi 地址导航也失败，物理交互仍缺可达页面及真实点击。",
       "checkedAt": "2026-11-14T16:13:24.589942+00:00",
@@ -435,6 +713,12 @@
         "merged": false,
         "readbackAt": "2026-11-24T12:39:54.233Z",
         "actorOrReasonNotInferred": true
+      },
+      "physicalBlobPreviewAcceptance": {
+        "evidence": "docs/evidence/ios-integrated-acceptance.json",
+        "state": "passed exact integrated UMD trusted pointer/new PNG tab/cleanup",
+        "at": "2026-11-24T22:24:56.058Z",
+        "oldPRStateUnchanged": true
       }
     },
     {
@@ -461,20 +745,138 @@
       "disposition": "不把通用伪元素列表等同于滚动条完成；按 #345 明确的外观/位置要求继续验证",
       "evidence": [
         "docs/evidence/scrollbar-extension-probes.json",
-        "docs/evidence/pseudo-style-resources.json"
+        "docs/evidence/pseudo-style-resources.json",
+        "docs/evidence/scrollbar-stylesheet-resources.json"
       ],
-      "remainingBoundary": "原帖已要求源轨道/滑块颜色、尺寸与位置，不是用户待选范围；非标准伪元素和原 Windows/Edge 环境仍待验证"
+      "remainingBoundary": "原帖已要求源轨道/滑块颜色、尺寸与位置，不是用户待选范围；非标准伪元素和原 Windows/Edge 环境仍待验证",
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
+        "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+        "sameFixtureComparison": {
+          "beforeFailed": 62,
+          "beforePassed": 2,
+          "afterPassed": 64,
+          "unsupportedFirefoxLegacy": 32
+        },
+        "defaultCoverage": {
+          "passed": 1461,
+          "failed": 2,
+          "skipped": 45,
+          "sourcePhaseNotRun": true
+        },
+        "separateFullSource": {
+          "passed": 1342,
+          "failed": 2,
+          "skipped": 45
+        },
+        "fullBuiltPackages": {
+          "passed": 176,
+          "failed": 2,
+          "unsupported": 2
+        },
+        "remaining": [
+          "actual native-part hover state and ShadowRoot qualified-selector application",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+          "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+          "first Firefox native preparation failures retained; root cause not proven",
+          "exact-source remote CI and deferred physical-device acceptance"
+        ],
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
+      },
+      "previousNativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "f3a00b069fadea920606b805221f1996711f09a9",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "defaultCoverage": {
+          "passed": 1397,
+          "failed": 2,
+          "skipped": 13,
+          "sourcePhaseNotRun": true
+        },
+        "remaining": [
+          "opaque stylesheet overrides; resource integration in progress",
+          "actual native-part hover state",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+        ],
+        "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
+      }
     }
   ],
   "sourceReviewMethod": "Fresh original PR body/head and available source patches, mapped to current sources/tests; lock-only items reuse the archived review of the same head. No old branch was merged.",
   "lastRemoteRevalidation": {
-    "checkedAt": "2026-11-24T12:39:54.233Z",
-    "scope": "same original 28 PRs; read-only current state/head check",
+    "checkedAt": "2026-11-24T20:23:13.000Z",
     "unchangedHeads": 28,
+    "unchangedStates": 28,
+    "unchangedTitles": 28,
     "open": 27,
     "closedUnmerged": [398],
+    "merged": 0,
+    "comparisonBoundary": {
+      "comparedFields": [
+        "state vs observedState",
+        "headSHA vs reviewedHead",
+        "title vs title"
+      ],
+      "baselineNotRecordedFor": [
+        "headRef",
+        "baseRef",
+        "baseSHA",
+        "merged",
+        "updatedAt",
+        "closedAt",
+        "mergedAt"
+      ],
+      "currentOnlyFieldsAreNotClaimedUnchanged": true,
+      "baseSHAMeaning": "Each PR metadata response base_sha is retained as returned. All base refs are master; differing base SHAs are not treated as one current master tip or as proof of a base change.",
+      "notCompared": [
+        "PR code diff",
+        "CI checks",
+        "maintainer acceptance",
+        "issue completion"
+      ]
+    },
     "closureOrCommentActionsThisRound": 0,
-    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json"
+    "scope": "same original28 PRs; read-only current state/head/title; base/merged/timestamps current-only",
+    "evidence": "docs/evidence/old-pr-readback-20261125.json"
   },
   "controlledCredentialEvidence": {
     "fixture": "test/browser/fixtures/resource-policy.mjs#checkResourceCredentials",
@@ -495,12 +897,6 @@
   },
   "remainingAcceptanceGates": [
     {
-      "kind": "manual-network-access",
-      "prs": [398],
-      "condition": "真实iPhone PNG生成通过，但可信点击、新标签和清理尚未在可手动操作的Safari页面验收。旧PR关闭不是验收通过；后续方案仍不得修改Mac网络或安全设置，不用合成点击替代。",
-      "sourcePRState": "closed, unmerged since 2026-11-14T19:38:55Z"
-    },
-    {
       "kind": "external-svg-remaining-boundaries",
       "prs": [585, 427],
       "condition": "用户已于2026-11-15明确选择当前浏览器页面保真；不再等待重复选择。限定绘制资源、受限CSP、原生合成器及原完整应用边界仍按各自证据开放。",
@@ -519,6 +915,12 @@
       "condition": "#345 explicitly requires native track/thumb appearance and position; no scope choice is needed. #81 requires child paragraph scrollTop/scrollLeft.",
       "evidence": ["docs/evidence/scrollbar-extension-probes.json"],
       "notProven": "Style injection/hiding is not full fidelity; original #81 sandbox API HTTP403 and preview HTTP400."
+    },
+    {
+      "kind": "newly-discovered-root-capture-origin",
+      "discoveredDuring": "offline Blob preview preparation",
+      "condition": "Real root margin and first-child collapse shift capture origin;39native controls valid/33exports differ; safe XML coordinate measurement not integrated. Existing same-frame Blob navigation leaks real HTTP in2engines; retainedHTMLDocument changes type-selector semantics.",
+      "evidence": "docs/evidence/root-capture-origin-boundaries.json"
     }
   ],
   "candidateExpansion": {
@@ -617,14 +1019,102 @@
     "originalPRStatesNotRefreshed": true
   },
   "previousRemoteRevalidation": {
-    "checkedAt": "2026-11-11T03:07:54.175377+00:00",
-    "oldPRCount": 28,
-    "openCount": 28,
-    "changedHeads": [],
-    "method": "GitHub GraphQL pullRequest(number) state/headRefOid for all indexed old PRs; every current head equals reviewedHead.",
-    "allEvidenceFilesExist": true
+    "checkedAt": "2026-11-24T12:39:54.233Z",
+    "scope": "same original 28 PRs; read-only current state/head check",
+    "unchangedHeads": 28,
+    "open": 27,
+    "closedUnmerged": [398],
+    "closureOrCommentActionsThisRound": 0,
+    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json"
   },
   "latestDomAccessValidation": {
+    "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
+    "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "ci": 45399037878,
+    "codeql": 45399037913,
+    "status": "parent #650 CI/CodeQL/Codecov and reported checks pass; still draft and unmerged",
+    "evidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json",
+    "doesNotValidateNativeChild": true
+  },
+  "latestCoverageFollowup": {
+    "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
+    "productionChanged": false,
+    "newCases": 9,
+    "targetedThreeEnginePassed": 27,
+    "localCoveragePassed": 1300,
+    "localSourcePassed": 1181,
+    "skipped": [4, 4],
+    "inputFiles": 416,
+    "inputHashesStable": true,
+    "previousCodecovPatch": {
+      "head": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+      "coverage": 85.53655,
+      "target": 87.12,
+      "conclusion": "failure"
+    },
+    "newPublishedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
+    "exactHeadRemote": "CI/CodeQL/Codecov pass; see latestDomAccessValidation"
+  },
+  "latestNativeScrollFidelityFollowup": {
+    "date": "2026-11-25",
+    "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+    "branch": "codex/native-scroll-fidelity",
+    "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
+    "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
+    "sameFixtureComparison": {
+      "beforeFailed": 62,
+      "beforePassed": 2,
+      "afterPassed": 64,
+      "unsupportedFirefoxLegacy": 32
+    },
+    "defaultCoverage": {
+      "passed": 1461,
+      "failed": 2,
+      "skipped": 45,
+      "sourcePhaseNotRun": true
+    },
+    "separateFullSource": {
+      "passed": 1342,
+      "failed": 2,
+      "skipped": 45
+    },
+    "fullBuiltPackages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    },
+    "remaining": [
+      "actual native-part hover state and ShadowRoot qualified-selector application",
+      "WebKit glyph/inset shadow and DPR2 fractional SVG image composition",
+      "relative external SVG paint provenance and original Windows/Edge/unavailable fixture boundaries",
+      "first Firefox native preparation failures retained; root cause not proven",
+      "exact-source remote CI and deferred physical-device acceptance"
+    ],
+    "physicalDevice": "Current integrated UMD9c090fc2 subset passed; see latestIntegratedCurrentChecks20261125. Earlier e014 runtime not independently retested; no strict native-scroll pixel acceptance.",
+    "pr": 651,
+    "remoteHead": "b6bd47bac5cc9b88150443b876832e60f564f541",
+    "latestRemoteEvidence": "docs/evidence/svg-style-environment-remote.json",
+    "latestIntegratedRuntime": "d2501695c9aceafd7e301486bb1468631b50a5f4",
+    "latestIntegratedEvidence": "docs/evidence/svg-style-environment-cancellation.json",
+    "integratedCoverage": {
+      "passed": 1554,
+      "failed": 2,
+      "skipped": 45,
+      "sourcePhaseNotRun": true
+    },
+    "integratedSeparateSource": {
+      "passed": 1435,
+      "failed": 2,
+      "skipped": 45
+    },
+    "integratedPackages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    }
+  },
+  "previousDomAccessValidation": {
     "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
     "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
     "ci": 45393116026,
@@ -644,23 +1134,309 @@
       }
     }
   },
-  "latestCoverageFollowup": {
-    "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-    "productionChanged": false,
-    "newCases": 9,
-    "targetedThreeEnginePassed": 27,
-    "localCoveragePassed": 1300,
-    "localSourcePassed": 1181,
-    "skipped": [4, 4],
-    "inputFiles": 416,
-    "inputHashesStable": true,
-    "previousCodecovPatch": {
-      "head": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-      "coverage": 85.53655,
-      "target": 87.12,
-      "conclusion": "failure"
+  "previousNativeScrollFidelityFollowup": {
+    "date": "2026-11-25",
+    "source": "f3a00b069fadea920606b805221f1996711f09a9",
+    "branch": "codex/native-scroll-fidelity",
+    "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+    "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+    "defaultCoverage": {
+      "passed": 1397,
+      "failed": 2,
+      "skipped": 13,
+      "sourcePhaseNotRun": true
     },
-    "newPublishedHead": "verify exact current PR checks separately",
-    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json"
-  }
+    "remaining": [
+      "opaque stylesheet overrides; resource integration in progress",
+      "actual native-part hover state",
+      "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+    ],
+    "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+  },
+  "latestNativeSVGReadinessDiagnostics": {
+    "source": "aaf0491959c2be07b7d15ed3b29135930daaf0c7",
+    "runtimeUnchangedFrom": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+    "evidence": "docs/evidence/native-svg-readiness-diagnostics.json",
+    "historicalFailureRootCauseSolved": false,
+    "independentHTTPControlsPassed": 4,
+    "targetedCoveragePassed": 354,
+    "fullGatesStillFail": true,
+    "inputsUnchanged": 445
+  },
+  "latestNativeFidelityRemote": {
+    "pr": 651,
+    "url": "https://github.com/bubkoo/html-to-image/pull/651",
+    "draft": true,
+    "basePR": 650,
+    "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "head": "b6bd47bac5cc9b88150443b876832e60f564f541",
+    "evidence": "docs/evidence/svg-style-environment-remote.json",
+    "CI": {
+      "head": "b6bd47bac5cc9b88150443b876832e60f564f541",
+      "run": 45481800953,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45481800953",
+      "testedMerge": "9718eb347193994a94ca2bec8416ab43fa4ba9a2",
+      "tree": "77ab7f75b685bda2fcb7584d3235b1682fe08f5c",
+      "headInSecondParentAndTreesEqual": true,
+      "coverage": {
+        "passed": 1555,
+        "failed": 1,
+        "skipped": 45
+      },
+      "failure": "Chromium visible-text channel37 actual255 expected231",
+      "sourcePackagesCodecov": "not run",
+      "artifact": {
+        "id": 14963465146,
+        "bytes": 18044,
+        "sha256": "c7877ae19477bdba8309deac4b243e5412a7b3901a2e1b75d7950b9877a0203b",
+        "verifiedMembers": 13
+      },
+      "comparisonToC621": [
+        {
+          "file": "chromium-native-visible-text-native.png",
+          "latestSHA256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed",
+          "previousSHA256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed",
+          "equal": true
+        },
+        {
+          "file": "chromium-native-visible-text-capture.png",
+          "latestSHA256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a",
+          "previousSHA256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a",
+          "equal": true
+        }
+      ]
+    },
+    "status": "nativeglyph gate still failed; no merge",
+    "physicalDevice": "notperformed"
+  },
+  "previousNativeFidelityRemote": {
+    "pr": 651,
+    "url": "https://github.com/bubkoo/html-to-image/pull/651",
+    "draft": true,
+    "head": "c621e09a2dad905b719522f5ddf12664069caef5",
+    "basePR": 650,
+    "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "evidence": "docs/evidence/native-fidelity-linux-supplement.json",
+    "CI": {
+      "id": 45465861503,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45465861503",
+      "status": "completed",
+      "conclusion": "failure",
+      "testedMerge": "d203876401b66c4d02a2ba550cf9956b4ac13c94",
+      "sourceTree": "7de1e709176834bffa0407e8cf080570de31118f",
+      "exactHeadInSecondParent": true,
+      "testedMergeAndHeadTreesEqual": true,
+      "coverage": {
+        "passed": 1462,
+        "failed": 1,
+        "skipped": 45
+      },
+      "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+      "sourcePhase": "not run because coverage failed",
+      "builtPackagePhase": "not run",
+      "Codecov": "skipped after failure",
+      "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+    },
+    "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+    "physicalDevice": "deferred, not performed"
+  },
+  "latestSVGStyleCancellation": {
+    "pr": 652,
+    "url": "https://github.com/bubkoo/html-to-image/pull/652",
+    "draft": true,
+    "basePR": 650,
+    "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "source": "786603d733ae273e1c6ad420d3239414d36e8a45",
+    "evidence": "docs/evidence/svg-style-environment-cancellation.json",
+    "fixedPair": {
+      "beforeFailed": 60,
+      "beforePassed": 33,
+      "afterPassed": 93
+    },
+    "independentControlsPassed": 51,
+    "independentDefault": {
+      "coveragePassed": 1393,
+      "sourcePassed": 1274,
+      "existingSkippedEach": 4
+    },
+    "independentPackagesPassed": 162,
+    "firstDefaultFailureRetained": "1391pass/2Firefox native-reference preparation timeouts/4skip; before capture; root cause not established",
+    "remoteStatus": "latest current head failed WebKit detached-source GC aftercoverage success; no retry replacesfailure",
+    "physicalDevice": "deferred; not performed",
+    "remoteHead": "3c0ec0930cd1d4da97a4cb68e46630f35e7b194f",
+    "remoteEvidence": "docs/evidence/svg-style-environment-remote.json",
+    "sourceCI": {
+      "head": "786603d733ae273e1c6ad420d3239414d36e8a45",
+      "run": 45480659033,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45480659033",
+      "conclusion": "success",
+      "testedMerge": "903427ac43c8ad89b86af0ce53c5929eccf30444",
+      "tree": "6a272cb3b0bb19fa0fc1016ce1d3d58661475863",
+      "headInSecondParentAndTreesEqual": true,
+      "coveragePassed": 1393,
+      "sourcePassed": 1274,
+      "existingSkippedEach": 4,
+      "packagesPassed": 162,
+      "artifact": {
+        "id": 14960739273,
+        "bytes": 254375,
+        "sha256": "8f6327bf4dfdd9970367f663268d9c2a0b9a5d4f7b3bd34068e8a2194c552a63",
+        "verifiedMembers": 8
+      },
+      "Codecov": "upload succeeded; external patch/project verdict not established by collected status/checks; no pass claim"
+    },
+    "latestHeadCI": {
+      "head": "3c0ec0930cd1d4da97a4cb68e46630f35e7b194f",
+      "run": 45481650657,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45481650657",
+      "conclusion": "failure",
+      "testedMerge": "170375aad0ae136531767a098f3d1693e3721397",
+      "tree": "dddfeb09ab98ad84459e9c3d9d667b466db4e7fc",
+      "headInSecondParentAndTreesEqual": true,
+      "coverage": {
+        "passed": 1393,
+        "skipped": 4
+      },
+      "source": {
+        "passed": 1273,
+        "failed": 1,
+        "skipped": 4
+      },
+      "failure": "WebKit capture-lifetime.test.ts:81: a frozen snapshot releases its source document before lazy rendering; WeakRef still present after original3GC commands",
+      "imageAssertions": "not reached",
+      "packages": "not run",
+      "Codecov": "skipped after failure",
+      "artifact": {
+        "id": 14961983101,
+        "bytes": 7697,
+        "sha256": "ec2731e954f280b773f550049e6001c606197db8c9999eef4151288ffc5bc9a3",
+        "verifiedMembers": 6
+      }
+    },
+    "CodeQL": "not scheduled for stackedbase",
+    "Codecov": "latest skipped afterfailure; earlier upload success is not external verdict",
+    "historical": true,
+    "currentState": "closed unmerged; superseded by master-based PR654; original failing evidence and branch preserved"
+  },
+  "latestNativePartContextEvidence": "docs/evidence/native-part-context-followup.json",
+  "latestRootOriginNestedOwnerEvidence": "docs/evidence/root-origin-nested-owner.json",
+  "latestIndependentFixes20261125": {
+    "sourceBase": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "cancellation": {
+      "pr": 654,
+      "head": "b652860210997de165e3790674eb13b06ef029fa",
+      "evidence": "docs/evidence/cancellation-reasons-master.json",
+      "remoteEvidence": "docs/evidence/master-independent-fixes-remote.json",
+      "CI": 45489531716,
+      "CIConclusion": "failure",
+      "CodeQL": "success",
+      "packages": "not run",
+      "physicalDevice": "Current mixed integrated UMD public14 reason cases passed; not isolated PR654 full factory/image/device suite; see ios-integrated-acceptance.json."
+    },
+    "devDependencies": {
+      "pr": 653,
+      "head": "5b074c4168158d5047f5bc65155f534547273635",
+      "CI": 45488840651,
+      "CIConclusion": "failure",
+      "CodeQL": "success",
+      "packages": "not run",
+      "npmBundledAffectedCopyRemains": true
+    },
+    "gcRunner": {
+      "pr": 655,
+      "head": "5fcd839f79cef79d240c748f5ceeac7e21a08d63",
+      "evidence": "docs/evidence/gc-runner-frame-controls-remote.json",
+      "CI": 45491737937,
+      "CIConclusion": "failure",
+      "CodeQL": "success",
+      "packages": "not run"
+    },
+    "supersededOwnPR": {
+      "number": 652,
+      "state": "closed",
+      "merged": false,
+      "closedAt": "2026-11-24T21:32:30Z",
+      "replacement": 654,
+      "branchPreserved": true
+    },
+    "original28ContributorPRActions": 0
+  },
+  "latestIntegratedCurrentChecks20261125": {
+    "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff",
+    "evidence": "docs/evidence/integrated-current-checks-20261125.json",
+    "default": {
+      "passed": 1638,
+      "failed": 2,
+      "skipped": 45,
+      "sourcePhaseNotRun": true
+    },
+    "explicitSource": {
+      "passed": 1519,
+      "failed": 2,
+      "skipped": 45
+    },
+    "packages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    },
+    "inputCount": 449,
+    "strictCausalAttribution": false,
+    "physicalDevice": {
+      "evidence": "docs/evidence/ios-integrated-acceptance.json",
+      "recordSHA256": "eb9c7fd5eba7aca7ea00d65a69e1f6b521618cb48a1cfa0aae8b46546762c9b9",
+      "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+      "sourceFingerprint": "b29cfa7e5bb1e90c87f64a3be3976794acf120a747c580b24466e1dda130f746",
+      "cancelPublicIdentityPassed": 14,
+      "crossRealmLoadedFont": true,
+      "fontStabilizationAttempts": 3,
+      "PNG": {
+        "width": 160,
+        "height": 80,
+        "redPixels": 6400,
+        "bluePixels": 6400
+      },
+      "trustedNewTabAndCleanup": true,
+      "ownedResourceCountsZero": true,
+      "bootstrapRequiresPublicHTTPS": true,
+      "completePhoneNetworkTraceCollected": false,
+      "fullDeviceSuite": false,
+      "GCProof": false,
+      "nativePixelEqualityProof": false,
+      "sessionEnded": true,
+      "clipboardAndInputRestored": true,
+      "MacNetworkChanges": false
+    },
+    "npmPublication": false,
+    "MacNetworkChanges": false
+  },
+  "latestDomAccessRunnerFollowup20261125": {
+    "pr": 650,
+    "head": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "runtime21FilesUnchanged": true,
+    "localEvidence": "docs/evidence/document-property-lifetime-runner-recheck.json",
+    "remoteEvidence": "docs/evidence/document-property-lifetime-877-remote.json",
+    "CI": 45496161113,
+    "coveragePassed": 1300,
+    "sourcePassed": 1181,
+    "packagesPassed": 162,
+    "existingSkipsEach": 4,
+    "CodeQL": "success",
+    "localDefaultFailureRetained": true,
+    "old25eCIAlsoSuccess": true,
+    "merged": false
+  },
+  "resolvedScopedAcceptanceGates": [
+    {
+      "kind": "iphone-blob-preview-native-pointer",
+      "originalPR": 398,
+      "state": "scoped acceptance complete",
+      "sourcePRState": "closed, unmerged since 2026-11-14T19:38:55Z",
+      "deviceClickAt": "2026-11-24T22:24:17.091Z",
+      "deviceCleanupAt": "2026-11-24T22:24:56.058Z",
+      "evidence": "docs/evidence/ios-integrated-acceptance.json",
+      "newSourcePRAction": false,
+      "limits": "Exact integrated UMD and default160x80 PNG only; not old contributor PR merged, full device suite, native pixel fidelity or device GC."
+    }
+  ]
 }

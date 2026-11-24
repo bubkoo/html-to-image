@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-24T22:30:28.072964+00:00",
+  "rawArchive": {
+    "path": "ios-integrated-acceptance-raw.tar.gz",
+    "bytes": 751656,
+    "sha256": "3c1ac853552023d5a4f68684a3a526cbcfaa881815de66ff1eb80109c1bdd62c",
+    "format": "gzip-compressed USTAR",
+    "members": 16
+  },
+  "memberIndex": "ios-integrated-acceptance-index.json",
+  "verificationScript": "ios-integrated-acceptance-verify.py",
+  "acceptance": {
+    "schemaVersion": 1,
+    "status": "scoped-iPhone-acceptance-passed",
+    "environment": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15E148 Safari/604.1",
+      "dpr": 3
+    },
+    "runtimeMeasuredCommit": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff",
+    "publicFixtureHostingCommit": "b921bf7877eca62c46bd06deffdb22cdbf63c314",
+    "frozenPage": {
+      "bytes": 126151,
+      "sha256": "204f0f433f17b81e0bb0df56f033d7f8a580c114542dcb19fb5d38896d8aff34"
+    },
+    "umd": {
+      "path": "dist/html-to-image.js",
+      "bytes": 98997,
+      "sha256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+      "embedding": "Exact raw integrated UMD bytes inside script#embedded-umd; no substitutions."
+    },
+    "font": {
+      "path": "test/browser/fixtures/font-metrics.ttf",
+      "bytes": 1120,
+      "sha256": "609ed7142290b5032cdd169a0f9f11c61eac8584215b381e4d21089196b7e7fe",
+      "embedding": "Original bytes as base64 in a passive script data block; owned source iframe uses CSS @font-face data:font/ttf."
+    },
+    "inputFingerprint": {
+      "ledgerEntries": 449,
+      "ledgerSHA256": "532e7cfce42c309070b6895fafd6174e7ab1058d81cd481c3da245cc57400472",
+      "sourceEntries": 24,
+      "sourceFingerprint": "b29cfa7e5bb1e90c87f64a3be3976794acf120a747c580b24466e1dda130f746",
+      "manifestAndDeviceAndDesktopMatch": true,
+      "scope": "Independently hashes actual copied HTML/embedded UMD/font and the449-entry ledger; checks24 source hash entries against that ledger. Other449 file contents are not present in this12-file selection and were not reread."
+    },
+    "cancellation": {
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "strictOriginalReasonIdentity": true,
+      "pendingTransformSettledBeforeGateRelease": true
+    },
+    "crossRealmFont": {
+      "passed": true,
+      "stabilizationAttempts": 3,
+      "scope": "Font embedding, cross-realm public API and snapshot outputs after removing the source iframe. This is not native DOM pixel equality, GC proof, or a default first-frame fix.",
+      "sourceHasSVGText": true,
+      "sourceIsCrossRealm": true,
+      "loadedFaces": 1,
+      "loadedFaceStatuses": [
+        "loaded"
+      ],
+      "embeddedOriginalFontBytes": true,
+      "sourceDOMUnchanged": true,
+      "sourceFontsUnchanged": true,
+      "callerFontsUnchangedBeforeRemoval": true,
+      "sourceFrameRemoved": true,
+      "canvasOwnerIsCaller": true,
+      "canvasDimensions": [
+        40,
+        20
+      ],
+      "imageDimensions": [
+        40,
+        20
+      ],
+      "canvasGreenGlyphPixels": 256,
+      "imageGreenGlyphPixels": 256,
+      "callerFontsUnchanged": true,
+      "callerBodyStyleUnchanged": true,
+      "callerSourceMarkupUnchanged": true,
+      "callerFramesRestored": true,
+      "cleanup": {
+        "frames": 0,
+        "renderers": 0,
+        "snapshots": 0,
+        "ownedFrameElements": 0
+      }
+    },
+    "png": {
+      "mime": "image/png",
+      "bytes": 634,
+      "signature": [
+        137,
+        80,
+        78,
+        71,
+        13,
+        10,
+        26,
+        10
+      ],
+      "width": 160,
+      "height": 80,
+      "redPixels": 6400,
+      "bluePixels": 6400,
+      "allPixelsVerified": true,
+      "decodedBeforePreview": true
+    },
+    "interaction": {
+      "click": {
+        "name": "preview-click",
+        "at": "2026-11-24T22:24:17.091Z",
+        "performanceTime": 36467,
+        "isTrusted": true,
+        "eventTimeStamp": 36466,
+        "activation": {
+          "isActive": true,
+          "hasBeenActive": true
+        },
+        "href": "blob:null/b53ee590-362d-42da-b637-721b205c7cab",
+        "target": "_blank",
+        "rel": "noopener"
+      },
+      "returnVisibilityEvents": [
+        {
+          "name": "visibility",
+          "at": "2026-11-24T22:24:19.134Z",
+          "performanceTime": 38510,
+          "value": "hidden"
+        },
+        {
+          "name": "visibility",
+          "at": "2026-11-24T22:24:43.344Z",
+          "performanceTime": 62721,
+          "value": "visible"
+        }
+      ],
+      "cleanup": {
+        "name": "preview-cleaned",
+        "at": "2026-11-24T22:24:56.058Z",
+        "performanceTime": 75435,
+        "isTrusted": true,
+        "activation": {
+          "isActive": true,
+          "hasBeenActive": true
+        },
+        "revokedURL": "blob:null/b53ee590-362d-42da-b637-721b205c7cab"
+      },
+      "observedPreview": "Own red/blue PNG visible in preview.png; operator receipt reports actual native target=_blank pointer navigation and Safari Back; returned.png retains preview-clicked state.",
+      "anchorTarget": "_blank",
+      "anchorRel": "noopener",
+      "phoneRuntimeOpenerNullProbeCollected": false
+    },
+    "cleanup": {
+      "state": "cleaned",
+      "activeURL": null,
+      "resources": {
+        "frames": 0,
+        "renderers": 0,
+        "snapshots": 0,
+        "ownedFrameElements": 0
+      },
+      "actualRevokeCallRecorded": true,
+      "independentPostRevokeFetchProbeOnPhone": false
+    },
+    "operatorReceipt": {
+      "path": "session-receipt.json",
+      "classification": "Root operator session receipt; not an exported raw tool transcript",
+      "firstDeviceUseUTC": "2026-11-24T22:02:30Z",
+      "earliestAuthorizedUTC": "2026-11-24T22:02:04Z",
+      "originalToolTranscriptIncluded": false,
+      "restore": {
+        "clipboardOriginalItems": 0,
+        "clipboardRestoredTwice": true,
+        "bothPrivateBackupsDeleted": true,
+        "inputSourceBefore": "com.sogou.inputmethod.sogou.pinyin",
+        "inputSourceAfter": "com.sogou.inputmethod.sogou.pinyin",
+        "onlyCreatedValidationTabClosed": true,
+        "tabCountBeforeClose": 14,
+        "tabCountAfterClose": 13,
+        "originalUserTabSelectedBeforeQuit": true,
+        "mirroringWindowsAfterQuit": 0
+      }
+    },
+    "entry": {
+      "bootstrapURL": "https://raw.githubusercontent.com/bubkoo/html-to-image/b921bf7877eca62c46bd06deffdb22cdbf63c314/docs/evidence/ios-offline.html",
+      "bootstrapCharacters": 247,
+      "bootstrapHTTPSFetchRequired": true,
+      "zeroNetworkSession": false,
+      "phoneNetworkTraceCollected": false,
+      "initialLongDataURLAttempt": "Long168226-character data URL typing queued input without submitting navigation; Mirroring was quit/reconnected to clear it. No initial user-page or favorites screenshots are included. Short READY data-page first confirmed native address input."
+    },
+    "screenshots": [
+      {
+        "path": "ready.png",
+        "bytes": 195870,
+        "sha256": "03aec4e10c42708ba5431059540ca89fcc5b672778c31d6f417195f84a63b7fe",
+        "dimensions": [
+          652,
+          1440
+        ],
+        "containsRedAndBlueFixturePixels": true,
+        "screenshotColorProfile": "ICC-tagged screen capture; dominant-color presence only, not raw PNG equality",
+        "scope": "Phone UI screenshot of own fixture, visually reviewed; not the original160x80 PNG bytes or a general screenshot pixel oracle."
+      },
+      {
+        "path": "preview.png",
+        "bytes": 72245,
+        "sha256": "b1644a54f936391f9ba67e568b3fb3aab0dedfa29e54e8fc98ee9d255b0c356c",
+        "dimensions": [
+          652,
+          1440
+        ],
+        "containsRedAndBlueFixturePixels": true,
+        "screenshotColorProfile": "ICC-tagged screen capture; dominant-color presence only, not raw PNG equality",
+        "scope": "Phone UI screenshot of own fixture, visually reviewed; not the original160x80 PNG bytes or a general screenshot pixel oracle."
+      },
+      {
+        "path": "returned.png",
+        "bytes": 192157,
+        "sha256": "ab345212841852fab60aec5e6f85b4b60772326e51a012a7bf5fd8de02c9430d",
+        "dimensions": [
+          652,
+          1440
+        ],
+        "containsRedAndBlueFixturePixels": true,
+        "screenshotColorProfile": "ICC-tagged screen capture; dominant-color presence only, not raw PNG equality",
+        "scope": "Phone UI screenshot of own fixture, visually reviewed; not the original160x80 PNG bytes or a general screenshot pixel oracle."
+      },
+      {
+        "path": "cleaned.png",
+        "bytes": 269935,
+        "sha256": "25da372989f37f428520863ae8ae4a4b4d283bd0d745aae3ce012dcad910e55d",
+        "dimensions": [
+          652,
+          1440
+        ],
+        "containsRedAndBlueFixturePixels": true,
+        "screenshotColorProfile": "ICC-tagged screen capture; dominant-color presence only, not raw PNG equality",
+        "scope": "Phone UI screenshot of own fixture, visually reviewed; not the original160x80 PNG bytes or a general screenshot pixel oracle."
+      }
+    ],
+    "boundaries": [
+      "Font positive control explicitly uses stabilizationAttempts=3. It proves loaded font bytes/realm API/removed-source output only, not GC, native DOM pixel equality or a default first-frame fix.",
+      "Red/blue PNG keeps original default stabilization. Device record reports12800 checked pixels; selected screenshots independently show the fixture but do not contain the original PNG file.",
+      "Phone cleanup records actual revokeObjectURL invocation and state/resource release. No separate phone post-revoke fetch probe was collected.",
+      "A public HTTPS bootstrap is required; total phone HTTP accounting was not collected. Desktop HTTP0 cannot be transferred to this phone session.",
+      "session-receipt.json is a root operator receipt, not an exported raw tool log. Initial long address input failure remains recorded.",
+      "This is scoped UMD public API/manual Blob-preview acceptance, not the full iOS source suite, ESM package matrix, GC or native-pixel acceptance."
+    ],
+    "archiveOperations": {
+      "approvedOriginalFilesRead": 12,
+      "privatePhoneDirectoriesTraversed": false,
+      "browserOrPhoneOperations": 0,
+      "networkOperations": 0
+    }
+  },
+  "privacy": {
+    "findings": [],
+    "screenshotVisualReview": "Four supplied PNGs show only the owned red/blue fixture, its controls/diagnostic and normal Safari/status chrome. No user page, favorites or all-tabs screenshots.",
+    "scope": "Only the12 explicitly approved originals were read. Text scanned for credential/signed-URL patterns; no claim to detect arbitrary secrets. No private folder traversal.",
+    "screenshotMetadataReview": [
+      {
+        "path": "ready.png",
+        "EXIFGPSAbsent": true,
+        "XMPReviewed": "Resolution/pixel dimensions and generic Screenshot comment only",
+        "ICCProfilePresent": true
+      },
+      {
+        "path": "preview.png",
+        "EXIFGPSAbsent": true,
+        "XMPReviewed": "Resolution/pixel dimensions and generic Screenshot comment only",
+        "ICCProfilePresent": true
+      },
+      {
+        "path": "returned.png",
+        "EXIFGPSAbsent": true,
+        "XMPReviewed": "Resolution/pixel dimensions and generic Screenshot comment only",
+        "ICCProfilePresent": true
+      },
+      {
+        "path": "cleaned.png",
+        "EXIFGPSAbsent": true,
+        "XMPReviewed": "Resolution/pixel dimensions and generic Screenshot comment only",
+        "ICCProfilePresent": true
+      }
+    ]
+  },
+  "sessionReceiptClassification": "Root operator receipt, not an exported raw tool transcript. Original12 files preserved byte-for-byte."
+}

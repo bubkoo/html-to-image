@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "archive": {
+    "path": "ios-offline-bootstrap-raw.tar.gz",
+    "bytes": 74817,
+    "sha256": "bc17b7a3115891f9bfddd12c8957e8a94aacc439ad89ba6c99d90f56a3443508"
+  },
+  "files": [
+    {
+      "path": "assessment.json",
+      "bytes": 7111,
+      "sha256": "37115c69c583cc11c74cd516b5b6ade072bbff5d61e6dc2d06ef056cd257a3e0"
+    },
+    {
+      "path": "bootstrap-immutable-template.txt",
+      "bytes": 218,
+      "sha256": "af02df45b887cc1a08c3a267c04ce3752a2700051842478583e92bfff68fa76d"
+    },
+    {
+      "path": "bootstrap-immutable.txt",
+      "bytes": 248,
+      "sha256": "47832ee1b23fee5545c4b2cbd465f3f6e2a857fef61af28e294227769b8a1043"
+    },
+    {
+      "path": "bootstrap-local.txt",
+      "bytes": 152,
+      "sha256": "50c1236a685ff258d63f0005688d2db6574c8360109e40b7903c888620e02cd5"
+    },
+    {
+      "path": "cleanup.json",
+      "bytes": 835,
+      "sha256": "b0e7b756b8507b26b0f33deb7e67d8460ba2e0f5d5a782ea7e4ebf093c882d3b"
+    },
+    {
+      "path": "desktop-bootstrap-results.json",
+      "bytes": 63330,
+      "sha256": "5feca3b4db7e9f541b5aafe9f07533ab01475cb24c811494184479a9a509402f"
+    },
+    {
+      "path": "desktop-bootstrap.mjs",
+      "bytes": 12380,
+      "sha256": "3a81aff9001885f09748992ae1e750a522c05a00283dc8f0e29a9391f740d088"
+    },
+    {
+      "path": "firefox-bootstrap-preview.png",
+      "bytes": 425,
+      "sha256": "69f558f647bb61c56041511c6b45a0e66b216c4e03d332354af68702599ca7be"
+    },
+    {
+      "path": "firefox-diagnostic.json",
+      "bytes": 21210,
+      "sha256": "7a27b868363c992edb6f40867304b79e63c8de54b21805fb272543423bb7863e"
+    },
+    {
+      "path": "fixture-identity.json",
+      "bytes": 494,
+      "sha256": "7d25f1f59c91767ad9e23f72fe3764637e6d4cf96f78e25ca0418c1ec39268ed"
+    },
+    {
+      "path": "immutable-entry-diagnostic.mjs",
+      "bytes": 5540,
+      "sha256": "36163da4a597ee4b71ef2d6e56713c03d8b5188d22066d893f3aea89bdde834a"
+    },
+    {
+      "path": "immutable-entry-results.json",
+      "bytes": 33344,
+      "sha256": "968b9eb0d36e599a5e23089df9f80806a6e0d489f016d07274cb9ac97e510790"
+    },
+    {
+      "path": "immutable-entry-run.log",
+      "bytes": 1390,
+      "sha256": "e67555a38163727b0b1fb02ed1fdc7c018dd73d858de704d397e13a519d0acba"
+    },
+    {
+      "path": "initial-pending-interruption.json",
+      "bytes": 495,
+      "sha256": "61b510e6f8b1619cd20fbe4c08d1107f6fa508cc3413813e979bc8679ad262e0"
+    },
+    {
+      "path": "initial-run.log",
+      "bytes": 109,
+      "sha256": "49d519672ff250df2f1bba8438fa02d4d6285b71ca20edb219361f10023210f3"
+    },
+    {
+      "path": "initial-terminal-cleanup.json",
+      "bytes": 347,
+      "sha256": "3218075d70bff9c7168b90eb14d80f28017b401adb735235e88fe1f396b3a0ae"
+    },
+    {
+      "path": "initial-unbounded-remote-preflight.mjs",
+      "bytes": 12139,
+      "sha256": "f402c8ec0ece0e0127ec0bde7e9daa83796653e96ae8fd8d6c09dbbbe9f54d7c"
+    },
+    {
+      "path": "inputs-after.json",
+      "bytes": 46817,
+      "sha256": "724feaa5ddef377543e598b2548485935668c8870ca96eab0b071de7925499d3"
+    },
+    {
+      "path": "inputs-before.json",
+      "bytes": 46817,
+      "sha256": "724feaa5ddef377543e598b2548485935668c8870ca96eab0b071de7925499d3"
+    },
+    {
+      "path": "public-evidence-files.json",
+      "bytes": 1011,
+      "sha256": "0ac616d4e1e1e35c940b4cb7c083facd7b6718cbd778e9567e2fe22444efae53"
+    },
+    {
+      "path": "raw-github-header-control.txt",
+      "bytes": 895,
+      "sha256": "551c8602dd4d10dfcf2fd7f229badee1e2bbc1a57b1ae81ff2d1ae8668b7f804"
+    },
+    {
+      "path": "run.log",
+      "bytes": 1248,
+      "sha256": "b4e8b8f77b4292fd80b21e6ef93917b7523540eb60f173f37f684aeb48dd6ba7"
+    },
+    {
+      "path": "sha256-index.json",
+      "bytes": 3849,
+      "sha256": "3fa912f6ed1136d23d69501a5b9999c70b0aca77a58f223bbc4afcc7f870db2f"
+    },
+    {
+      "path": "webkit-bootstrap-preview.png",
+      "bytes": 634,
+      "sha256": "543dc41668c9949351bb05e0c193d79e7e8898ff54ced00eb7cf50fcd1d6dcb4"
+    },
+    {
+      "path": "webkit-diagnostic.json",
+      "bytes": 21153,
+      "sha256": "a19bef05b061c328db5af830294c1b722d84fd4da7fcc55c8a2b87ecdb1240af"
+    }
+  ],
+  "fileCount": 25,
+  "payloadBytes": 282191
+}

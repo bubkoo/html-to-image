@@ -1,0 +1,206 @@
+{
+  "fileCount": 39,
+  "allArchivedMemberHashesVerified": true,
+  "archive": {
+    "path": "svg-style-environment-remote-raw.tar.gz",
+    "bytes": 712501,
+    "sha256": "fca865b1d59075d309ceed5fead3a09108cb2c09ffd0c676ef39fc815fd915b9"
+  },
+  "files": [
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/24320f63beea0972aaa5a8572452c0caed30f7d7.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30446,
+      "sha256": "944112f47ecde7f656fa598e96fabb670aaac4d4cbb9a36afa93c9e3d317c7ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-authored.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-capture.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-html.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-inline.png",
+      "bytes": 456,
+      "sha256": "85c879a429a7d5138b7cd65714aff0e6f71431b6f265045a52b45782873d196e"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-native.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-replay.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text.json",
+      "bytes": 82682,
+      "sha256": "a58ea0025df28399f489c0f13b8a1100399db43f037f545071e4b78d9419e2fe"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact-files.json",
+      "bytes": 2553,
+      "sha256": "b16ee8c4b1bb7e4ebabfea71ff15189854fb5ece0e21b97a3d42b0eecb418af9"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/artifact.zip",
+      "bytes": 18044,
+      "sha256": "c7877ae19477bdba8309deac4b243e5412a7b3901a2e1b75d7950b9877a0203b"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/ci-job.log",
+      "bytes": 195594,
+      "sha256": "15dff9de0b349a379ff03fd93c88cde6c801b8b3f2e47920215c127d1002121d"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-b6bd47b-20261125/metadata.json",
+      "bytes": 2072,
+      "sha256": "e7f58662073663e679afa9c78421a7b67fafe0af79e3dfca09cee8692f3a09bf"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact/.vitest/attachments/d061d9e04c2bf018da1499c45039a697a25c920b.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact/.vitest/attachments/failure-screenshots/capture-lifetime.test.ts/a-frozen-snapshot-releases-its-source-document-before-lazy-rendering.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact-files.json",
+      "bytes": 1189,
+      "sha256": "48ddeed7563310a4a0040492b9ff97f48cd07b52b78f1347fb09daa039709a08"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/artifact.zip",
+      "bytes": 7697,
+      "sha256": "ec2731e954f280b773f550049e6001c606197db8c9999eef4151288ffc5bc9a3"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/ci-job.log",
+      "bytes": 240173,
+      "sha256": "ee0109db10cc8b916ffb2380d4b1e25b0f68674da049cf1f92ecd419e2459cb2"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-3c0ec09-20261125/metadata.json",
+      "bytes": 193525,
+      "sha256": "c64cb28e93e837bdb3ae4c8a91430472f4fdff60dd0008e0c25f002a78286327"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/playwright-report/index.html",
+      "bytes": 584872,
+      "sha256": "22999edafd1c9f1ccb1f44e23aa8634413d2e1b2a6b35c058b332ddd622e24f5"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/test-results/mobile-smoke-reports/3d9afc05-8402-45bb-b098-d05c53c833fc.json",
+      "bytes": 2404,
+      "sha256": "6f7c5ed0f6216cce4169e8363aa28108eb259f70764f9f8754c600c3552b0ed2"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/test-results/mobile-smoke-reports/739e5037-f4f2-4da2-b9a8-d0b981889884.json",
+      "bytes": 2472,
+      "sha256": "71820a664892f0bfea9138953da1aef036b673619569bce3ee481e41ce600c8f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact/test-results/mobile-smoke-reports/cc3f592d-91ab-4a1b-963c-c9364b58a593.json",
+      "bytes": 2478,
+      "sha256": "74a9a42f4174499d3f48efae5f677baa11cbed1a967e7f52023f8ff51a7a1dd4"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact-files.json",
+      "bytes": 1493,
+      "sha256": "897e6e3984c24e82e854ecee05191442128f1c13b13c0d5ea0819f98007bcd7f"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/artifact.zip",
+      "bytes": 254375,
+      "sha256": "8f6327bf4dfdd9970367f663268d9c2a0b9a5d4f7b3bd34068e8a2194c552a63"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/ci-job.log",
+      "bytes": 285375,
+      "sha256": "707013a48eca6d50891a49a6e61b3977d65f09a1bd16a9c1d3b0efb0aeaf1028"
+    },
+    {
+      "path": "output/playwright/svg-style-cancellation-remote-786603d-20261125/metadata.json",
+      "bytes": 43488,
+      "sha256": "be6d26d7a128b02849c84316e6e372b66df4ea51f5d404c7607066a652f15387"
+    }
+  ]
+}

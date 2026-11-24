@@ -166,8 +166,16 @@ export class ResourceLoader {
         finalURL.searchParams.append('_htmlToImage', value),
       )
     }
+    let blob = await response.blob()
+    // Some engines omit charset parameters from Response.blob().type. CSS
+    // decoding still needs the network response's declared encoding.
+    if (kind === 'stylesheet') {
+      const type = firstMediaType(response.headers.get('Content-Type') || '')
+      if (/;\s*charset\s*=/i.test(type) && type !== blob.type)
+        blob = blob.slice(0, blob.size, type)
+    }
     return {
-      blob: await response.blob(),
+      blob,
       // A transport cache-buster is not part of the SVG document identity.
       url: response.url === requestURL.href ? originalURL : finalURL.href,
       custom: false,

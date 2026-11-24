@@ -51,14 +51,23 @@ export class CaptureTask {
 
   private clonedSources = new WeakSet<Element>()
 
-  private clonedStyles: string[] = []
+  private clonedStyles: { rule: string; owner?: string }[] = []
 
-  addClonedStyle(rule: string) {
-    this.clonedStyles.push(rule)
+  addClonedStyle(rule: string, owner?: string) {
+    this.clonedStyles.push({ rule, owner })
   }
 
-  getClonedStyles() {
-    return this.clonedStyles.join('\n')
+  getClonedStyles(root?: Element) {
+    return this.clonedStyles
+      .filter(
+        ({ owner }) =>
+          !owner ||
+          !root ||
+          readDOMMethod(root, 'matches')(owner) ||
+          readDOMMethod(root, 'querySelector')(owner),
+      )
+      .map(({ rule }) => rule)
+      .join('\n')
   }
 
   private excludedSources = new WeakSet<Node>()
@@ -159,10 +168,7 @@ export class CaptureTask {
   check() {
     if (this.disposed) throw new Error('Capture has been disposed')
     if (this.controller.signal.aborted) {
-      throw (
-        this.controller.signal.reason ||
-        new DOMException('Capture aborted', 'AbortError')
-      )
+      throw this.controller.signal.reason
     }
   }
 
@@ -236,7 +242,9 @@ export class CaptureTask {
       const abort = () => {
         clean()
         reject(
-          signal.reason || new DOMException('Capture aborted', 'AbortError'),
+          signal.aborted
+            ? signal.reason
+            : new DOMException('Capture aborted', 'AbortError'),
         )
       }
       signal.addEventListener('abort', abort, { once: true })

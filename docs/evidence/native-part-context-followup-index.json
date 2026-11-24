@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "scope": "Static native-part DTO/context/lifecycle and passive Blob/data resource timing research; all raw failures retained",
+  "fileCount": 105,
+  "originalIndexAccounting": [
+    {
+      "group": "output/playwright/native-part-context-20261125",
+      "indexedRawMembers": 84,
+      "originalIndexSelfExcluded": 1,
+      "actualArchivedMembers": 85
+    },
+    {
+      "group": "output/playwright/native-part-passive-resources-20261125",
+      "indexedRawMembers": 19,
+      "originalIndexSelfExcluded": 1,
+      "actualArchivedMembers": 20
+    }
+  ],
+  "archive": {
+    "path": "native-part-context-followup-raw.tar.gz",
+    "bytes": 81274,
+    "sha256": "b424c5ae71cfd5e276d39561feb542cf7669aad73524b6f89b5e399e47f7293a"
+  },
+  "normalization": "USTAR regular files only; gzip mtime=0 and empty filename; tar uid/gid/mtime=0; file data unchanged",
+  "files": [
+    {
+      "path": "output/playwright/native-part-context-20261125/assessment.json",
+      "size": 1642,
+      "sha256": "f02fa701f555abb52fbf55651cf75366b958b7ab424695559d09b4a66db2743e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/assessment.md",
+      "size": 5784,
+      "sha256": "45d688968a0d0f143164cba03b9f87ffc4a93a69d4b0bbdf0ca6aa4db4643696"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/attempt-guard-body-index-cleanup.json",
+      "size": 184,
+      "sha256": "64fe3440f9dbda062fb827c36f673554229a431898c2e5ce61e60a089c3fb561"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/attempt-guard-body-index-failure.log",
+      "size": 2336,
+      "sha256": "e832eac9e9bcb61fa1ccd69c2c39f6642ebd207166007c8776ae83cccdb099d7"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/attempt-late-event-document-view-cleanup.json",
+      "size": 184,
+      "sha256": "64fe3440f9dbda062fb827c36f673554229a431898c2e5ce61e60a089c3fb561"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/attempt-late-event-document-view-failure.log",
+      "size": 2256,
+      "sha256": "353c8f867b4bf36b71ff24fd2bf75af2c8d950f9c9f8d32d1815ab822d85591e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/compile.cjs",
+      "size": 630,
+      "sha256": "7c123ec5e2edb2335459fbe683ffd8cf48272f0256060475e1e07c755e9bfa0e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/dom.snapshot.js",
+      "size": 1863,
+      "sha256": "ec3a26290287711d3936f4835e8b4985d6d0bf36ca31970a2d3cda0fa598e46c"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/dom.snapshot.ts",
+      "size": 2727,
+      "sha256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/index.json",
+      "size": 15540,
+      "sha256": "ec182b3f5f3a0dab7446d399b5deefc7d8f8be2aafd39a90bb1e318e0c8967b8"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/inputs.json",
+      "size": 945,
+      "sha256": "cec309fd851f23da916837d114ae00069a618bc523d2bf4be8b0e5bc09b9d724"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/probe.log",
+      "size": 3736,
+      "sha256": "41c76ddab52784265a64255725a8f9212ebc88a96d85a1c394920a4c3be4e5e5"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/probe.mjs",
+      "size": 20294,
+      "sha256": "f0b6f462a3dae1bba3ce0958c76cb9c8a65948c18db4e3226c21993211b769cf"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/prototype-before-visibility-gate.js",
+      "size": 23558,
+      "sha256": "0baff08bccbefbb5c8ad607876c28eddfd745750d2407e8edcdad6b1c022ef91"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/prototype-before-visibility-gate.ts",
+      "size": 22606,
+      "sha256": "a07fde336edc6eae49d68f590a4026f021100bb6b2b4bc6c5391305cdec261d6"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/prototype.js",
+      "size": 24656,
+      "sha256": "3990f5921a0968b7c26bdf9f73d4c735fba9861637c464b2e46c3bde0180b136"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/prototype.ts",
+      "size": 23666,
+      "sha256": "3c198d40a020346b2cea6f2a9d7fdf892747eb401bcfd80729774bad76ba944a"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-functional-plain-source-other.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-functional-plain-source-target.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-negative-distractor-source-other.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-negative-distractor-source-target.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-nested-descendant-negative-source-other.png",
+      "size": 364,
+      "sha256": "c428b1d1fb581f50fe18b7123abf889c43cab16be36c7855978f6463d920c2b7"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-nested-descendant-negative-source-target.png",
+      "size": 369,
+      "sha256": "6357590d4692a4d7a428622c522597bc4d9d6f4638f4cb0cda48c3c019e02106"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-nested-envelopes-negative-source-other.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-nested-envelopes-negative-source-target.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-nested-envelopes-positive-source-other.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-nested-envelopes-positive-source-target.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-positive-distractor-source-other.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-positive-distractor-source-target.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-track-vertical-negative-distractor-source-other.png",
+      "size": 338,
+      "sha256": "7877c00e11efac9d636b581790b2302cccaa21351267b4ab45d7930600d73bab"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-document-track-vertical-negative-distractor-source-target.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-host-positive-context-source-other.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-host-positive-context-source-target.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-negative-distractor-source-other.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-negative-distractor-source-target.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-nested-descendant-negative-source-other.png",
+      "size": 364,
+      "sha256": "c428b1d1fb581f50fe18b7123abf889c43cab16be36c7855978f6463d920c2b7"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-nested-descendant-negative-source-target.png",
+      "size": 369,
+      "sha256": "6357590d4692a4d7a428622c522597bc4d9d6f4638f4cb0cda48c3c019e02106"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-nested-envelopes-positive-source-other.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-nested-envelopes-positive-source-target.png",
+      "size": 336,
+      "sha256": "4468266e2160c8e0f852bfa5cb1e4bfa1135351e10b0697764aff007c42bc4ee"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-positive-distractor-source-other.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/chromium-shadow-positive-distractor-source-target.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/cleanup.json",
+      "size": 278,
+      "sha256": "aa988387082078145dbeee6bf060d925d951bc2b00030a041c94a8a548300559"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/receipt.json",
+      "size": 695146,
+      "sha256": "6b9268f659ca3e64cc1ee86c16dbecfb1ab5bba614837cd494b1e81dac3b441b"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-functional-plain-source-other.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-functional-plain-source-target.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-negative-distractor-source-other.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-negative-distractor-source-target.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-nested-descendant-negative-source-other.png",
+      "size": 682,
+      "sha256": "3b5a16cffe50eee250394ba1a222affff5c901971d6e29c3ee6ae16ae07b3b3f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-nested-descendant-negative-source-target.png",
+      "size": 743,
+      "sha256": "b0157bf5159b2e35a975f16a3f19cae5fd6a883fc21fa4589c4a1fb41c6782c8"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-nested-envelopes-negative-source-other.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-nested-envelopes-negative-source-target.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-nested-envelopes-positive-source-other.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-nested-envelopes-positive-source-target.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-positive-distractor-source-other.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-positive-distractor-source-target.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-track-vertical-negative-distractor-source-other.png",
+      "size": 731,
+      "sha256": "79a1651b4648213b7461274bcf2ca7d855b3171416c7248e7b2d000d9d093bb2"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-document-track-vertical-negative-distractor-source-target.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-host-positive-context-source-other.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-host-positive-context-source-target.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-negative-distractor-source-other.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-negative-distractor-source-target.png",
+      "size": 728,
+      "sha256": "c88e9b078644e88691884226b4b1da132be60fd3cfccb2793885f8039902513e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-nested-descendant-negative-source-other.png",
+      "size": 682,
+      "sha256": "3b5a16cffe50eee250394ba1a222affff5c901971d6e29c3ee6ae16ae07b3b3f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-nested-descendant-negative-source-target.png",
+      "size": 743,
+      "sha256": "b0157bf5159b2e35a975f16a3f19cae5fd6a883fc21fa4589c4a1fb41c6782c8"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-nested-envelopes-positive-source-other.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-nested-envelopes-positive-source-target.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-positive-distractor-source-other.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/results/webkit-shadow-positive-distractor-source-target.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/strict-function-variance-attempt.log",
+      "size": 711,
+      "sha256": "6809c4a1139dec3e99004f2e3065e31bab7107f107340e507ac4cdace6ebc6ce"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/typecheck.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-probe.log",
+      "size": 3266,
+      "sha256": "8cd83aa9217b5817c49a03333c445a323e5fa50150799c1801b8bfd6e732ea5e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-probe.mjs",
+      "size": 11941,
+      "sha256": "b53cd0c54f82178ca7b22fcd5d01686773b78a9dcc0020b2eb97e55db3cd977b"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/chromium-ancestor-display-none.png",
+      "size": 1114,
+      "sha256": "75121e4f2cb911c230da7099a7eec4183b068a16207ea36524e4fc6d98aae935"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/chromium-ancestor-opacity-zero.png",
+      "size": 1114,
+      "sha256": "75121e4f2cb911c230da7099a7eec4183b068a16207ea36524e4fc6d98aae935"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/chromium-root-display-none.png",
+      "size": 290,
+      "sha256": "cb121f1f81adc23be74559024e93b8a42a396669824ae77160766e5278eb7e8d"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/chromium-root-zero.png",
+      "size": 290,
+      "sha256": "cb121f1f81adc23be74559024e93b8a42a396669824ae77160766e5278eb7e8d"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/chromium-thumb-display-none.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/chromium-thumb-opacity-zero.png",
+      "size": 338,
+      "sha256": "317cbbab3c1a0f7ac228158b4f15e3249949d76801d19ca334f5fd2d5b394301"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/cleanup.json",
+      "size": 278,
+      "sha256": "aa988387082078145dbeee6bf060d925d951bc2b00030a041c94a8a548300559"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/receipt.json",
+      "size": 268352,
+      "sha256": "60cd5194e22b6010d72c76bf8322a12c7bb38d334f07b096060ede838472d78e"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/webkit-ancestor-display-none.png",
+      "size": 3388,
+      "sha256": "b95e55cfd80afb5edbfbaf64e669aca623b2bb6b26d65155129e0c382d62c732"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/webkit-ancestor-opacity-zero.png",
+      "size": 3388,
+      "sha256": "b95e55cfd80afb5edbfbaf64e669aca623b2bb6b26d65155129e0c382d62c732"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/webkit-root-display-none.png",
+      "size": 514,
+      "sha256": "0985521fd9649f77b0545f42baeea33052873861af122039e37bb5c8962cfcbc"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/webkit-root-zero.png",
+      "size": 514,
+      "sha256": "0985521fd9649f77b0545f42baeea33052873861af122039e37bb5c8962cfcbc"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/webkit-thumb-display-none.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-context-20261125/visibility-results/webkit-thumb-opacity-zero.png",
+      "size": 722,
+      "sha256": "d91dcd200a87807ae7689eabcb3d628e1265b31e9618b4f9c4016b52799e7c2f"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/assessment.json",
+      "size": 595,
+      "sha256": "6fb76b35550436831ea640679e84dc095ff89c14733795d4570824d2cc24d2b1"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/assessment.md",
+      "size": 3557,
+      "sha256": "cbcdb0121eb4a5d5c8dcb607f419cda34c0797a27ac504979b95126e07ea3310"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/capability-probe.log",
+      "size": 564,
+      "sha256": "529b7e77294c922134b6e818296e288cc4d57ee1e4a340d9dfb0d2d89e1c75c3"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/capability-probe.mjs",
+      "size": 7442,
+      "sha256": "ce469483cde5f3be935357b4eac5468d47323d7a165151604d9ac0c8a6ca9b44"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/capability-results/cleanup.json",
+      "size": 278,
+      "sha256": "aa988387082078145dbeee6bf060d925d951bc2b00030a041c94a8a548300559"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/capability-results/receipt.json",
+      "size": 6996,
+      "sha256": "70e5e7e34bf6c54058605ef63951e20b7842d7a8af3c1a13a9f4a85ee9c5588c"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/dom.snapshot.js",
+      "size": 1863,
+      "sha256": "ec3a26290287711d3936f4835e8b4985d6d0bf36ca31970a2d3cda0fa598e46c"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/fixtures.json",
+      "size": 950,
+      "sha256": "fd72c57a51653d1771e7265fa5875931ab0e7ad3673d37ab424ebb1215624edb"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/index.json",
+      "size": 3015,
+      "sha256": "5019350558b6fb4f3d6e417c656f8c5be771745f704035e2f4b2faf8a7c5ad0f"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/initial-open-write-load-timeout.json",
+      "size": 7963,
+      "sha256": "b36840060e6db4edf811bc36587bc9f9e40ae5278198e7f35a87ca37b541c2d7"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/initial-open-write-load-timeout.log",
+      "size": 680,
+      "sha256": "8caf94061aa1d1ecde27fdfa3f7b4ba0371b636bd7f88a3c74b309ef98599dbb"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/minimal-probe.log",
+      "size": 344,
+      "sha256": "42727aaa34a140d4e9aa08b7726aecb008790bdf91ceeb121e586a775cef1936"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/minimal-probe.mjs",
+      "size": 10522,
+      "sha256": "ad84f54b5d62bba358d87f45349afec723f44465d883c334d711f20f89c67111"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/minimal-results/cleanup.json",
+      "size": 278,
+      "sha256": "aa988387082078145dbeee6bf060d925d951bc2b00030a041c94a8a548300559"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/minimal-results/receipt.json",
+      "size": 14296,
+      "sha256": "2fd34fe9ca4e05a396d3408a6698f5d07e16dd385648ef49bb81c664791d6958"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/primary-source.json",
+      "size": 512,
+      "sha256": "1e79012de561497c43b0a64879ef91ff05fb8af14ea346264df4719a060958de"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/transparent-context.png",
+      "size": 94,
+      "sha256": "0b69a916a34dd8cd637d3f9ac2c7a6cbf65c65067c26ede5d38e67235fa89aa6"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/transparent-negative.png",
+      "size": 95,
+      "sha256": "8322e03a4efd984e31e13df483fa08eb9683cd9177c9000092ffbde15667dd67"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/transparent-part.png",
+      "size": 91,
+      "sha256": "3508249b3b10a08c7bdecb0dea9e62acc5f4d332370f7ec294b3eb83b8d57fcb"
+    },
+    {
+      "path": "output/playwright/native-part-passive-resources-20261125/transparent-positive.png",
+      "size": 95,
+      "sha256": "4439922677cc04ff99b916188b4a689736f93b390707f0c17ed8ddf3da9a7c9c"
+    }
+  ]
+}

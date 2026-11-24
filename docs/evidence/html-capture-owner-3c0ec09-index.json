@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "createdUTC": "2026-11-24T22:13:50.313613+00:00",
+  "case": "Minimal plain HTML body",
+  "lockedCommit": "3c0ec0930cd1d4da97a4cb68e46630f35e7b194f",
+  "archive": {
+    "path": "html-capture-owner-3c0ec09-raw.tar.gz",
+    "bytes": 15947,
+    "sha256": "f614862dfca4c3b2cae3e9700a44c5e486085ac8e62a0e17e3c6beeb4fbc55fb"
+  },
+  "fileCount": 8,
+  "originalReviewIndexedFiles": 7,
+  "originalReviewIndexIncluded": true,
+  "files": [
+    {
+      "path": "assessment.json",
+      "bytes": 4659,
+      "sha256": "99ab0edc6be7a5da2b037db2106b0ce0f340135b42626927ed5f1dd08c5d2a9d"
+    },
+    {
+      "path": "call-path-excerpts.txt",
+      "bytes": 22635,
+      "sha256": "6845f4885033fd3cd0108539ba4906e07189827e50cb6ffaf1c2c0f1ecded786"
+    },
+    {
+      "path": "ci-log-excerpts.json",
+      "bytes": 6116,
+      "sha256": "f4b716d0924b95578c8affc942ba5e40b4002fa140a2418f14ad290689342bc1"
+    },
+    {
+      "path": "gc-adapter.json",
+      "bytes": 1115,
+      "sha256": "5c4030b67180790a7795e13f0e74a4454ab7fe497cf146df7bb2efde187f609d"
+    },
+    {
+      "path": "observation-plan.json",
+      "bytes": 3122,
+      "sha256": "ab904f4dff7ccd7ffcdfb361f9e0e9df9bf33d98dcb4c02194cf05601a7ee3d3"
+    },
+    {
+      "path": "owner-edges.json",
+      "bytes": 2904,
+      "sha256": "b9784521ba68ab15baeabb5398a18dc6911c2613f5f8c9558ef3af64e91690f9"
+    },
+    {
+      "path": "sha256-index.json",
+      "bytes": 1109,
+      "sha256": "195109d71ca23c3f73681bda1799502d0dc35ea253bb37b8ba67e55a95ad36ac"
+    },
+    {
+      "path": "source-identity.json",
+      "bytes": 5209,
+      "sha256": "3d3432615635e2d066cc7387e745e57805ef0403493d9af8286cdcdecca1157c"
+    }
+  ],
+  "payloadBytes": 46869,
+  "selection": "Exact existing review index files plus that original index; no directory-wide glob export, dependencies, Git objects, full repository archive, browser report or unrelated files."
+}

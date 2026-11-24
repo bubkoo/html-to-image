@@ -223,3 +223,14 @@ export async function embedImages<T extends HTMLElement>(
 ) {
   await embedNode(clonedNode, options, {})
 }
+
+export async function embedClonedStyles(
+  css: string,
+  document: Document,
+  options: Options,
+) {
+  const style = readDOMMethod(document, 'createElement')('style')
+  writeDOMProperty(style, 'textContent', css)
+  await embedStyleRules(style, options, {})
+  return readDOMProperty(style, 'textContent') || ''
+}

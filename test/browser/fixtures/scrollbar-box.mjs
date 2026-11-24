@@ -12,6 +12,13 @@ export const scrollbarBoxCases = [
   'selected-logical',
   'scrolled',
   'scrolled-gutter',
+  'scrolled-gutter-rtl',
+  'scrolled-gutter-positioned',
+  'scrolled-gutter-positioned-rtl',
+  'scrolled-stable',
+  'scrolled-stable-rtl',
+  'scrolled-stable-positioned',
+  'scrolled-stable-positioned-rtl',
 ]
 
 export async function checkScrollbarBox(api, kind, readNative, record) {
@@ -24,6 +31,8 @@ export async function checkScrollbarBox(api, kind, readNative, record) {
   panel.style.cssText =
     'width:100px;height:100px;overflow:scroll;background:green;scrollbar-color:black red;scrollbar-width:thin'
   panel.style.colorScheme = 'light'
+  if (kind.includes('rtl')) panel.style.direction = 'rtl'
+  if (kind.includes('positioned')) panel.style.position = 'relative'
   if (kind === 'border') panel.style.boxSizing = 'border-box'
   if (kind === 'padding')
     panel.style.cssText += ';padding:3px;border:1px solid blue'
@@ -32,9 +41,10 @@ export async function checkScrollbarBox(api, kind, readNative, record) {
   if (
     kind === 'gutter' ||
     kind === 'legacy-gutter' ||
-    kind === 'scrolled-gutter'
+    kind.startsWith('scrolled-gutter')
   )
     panel.style.scrollbarGutter = 'stable both-edges'
+  if (kind.startsWith('scrolled-stable')) panel.style.scrollbarGutter = 'stable'
   if (kind === 'vertical') panel.style.writingMode = 'vertical-rl'
   panel.innerHTML =
     '<div style="position:relative;width:200px;height:300px;background:green"><div style="position:absolute;left:44px;top:54px;width:4px;height:4px;background:blue"></div></div>'
@@ -59,8 +69,18 @@ export async function checkScrollbarBox(api, kind, readNative, record) {
           : ['inline-size', 'block-size']
         : undefined
   if (kind.startsWith('scrolled')) {
-    panel.scrollLeft = 40
+    panel.scrollLeft = kind.includes('rtl') ? -40 : 40
     panel.scrollTop = 50
+    if (kind.includes('rtl')) {
+      const dot = panel.firstElementChild.firstElementChild
+      dot.style.left =
+        parseFloat(dot.style.left) +
+        bounds.left +
+        panel.clientLeft +
+        4 -
+        dot.getBoundingClientRect().left +
+        'px'
+    }
   }
   const renderer = api.createRenderer(options)
   try {
@@ -75,6 +95,7 @@ export async function checkScrollbarBox(api, kind, readNative, record) {
       outer: [bounds.width, bounds.height],
       offsets,
       clientOrigin: [panel.clientLeft, panel.clientTop],
+      scrollable: [panel.scrollWidth, panel.scrollHeight],
       engine: /Firefox/.test(navigator.userAgent)
         ? 'firefox'
         : /Chrome/.test(navigator.userAgent)
@@ -109,6 +130,8 @@ export async function checkScrollbarBox(api, kind, readNative, record) {
         const rect = copy.getBoundingClientRect()
         metrics.serializedOuter = [rect.width, rect.height]
         metrics.serializedViewport = [copy.clientWidth, copy.clientHeight]
+        metrics.serializedOffsets = [copy.scrollLeft, copy.scrollTop]
+        metrics.serializedScrollable = [copy.scrollWidth, copy.scrollHeight]
         const expected = kind.startsWith('scrolled')
           ? metrics.client
           : metrics.outer

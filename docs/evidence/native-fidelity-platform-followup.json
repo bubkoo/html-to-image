@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-11-24T18:49:32.096957+00:00",
+  "pr": 651,
+  "url": "https://github.com/bubkoo/html-to-image/pull/651",
+  "draft": true,
+  "merged": false,
+  "basePR": 650,
+  "baseBranch": "codex/document-property-lifetime",
+  "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+  "head": "08d35a13aee74a6188b3250585256a222c05717b",
+  "runtimeSource": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+  "diagnosticSource": "aaf0491959c2be07b7d15ed3b29135930daaf0c7",
+  "remoteCI": {
+    "id": 45460574610,
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+    "status": "completed",
+    "conclusion": "failure",
+    "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+    "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+    "exactHeadInSecondParent": true,
+    "testedMergeAndHeadTreesEqual": true,
+    "coverage": {
+      "passed": 1462,
+      "failed": 1,
+      "skipped": 45
+    },
+    "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+    "sourcePhase": "not run because coverage failed",
+    "builtPackagePhase": "not run",
+    "Codecov": "skipped after failure",
+    "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+  },
+  "remoteArtifact": {
+    "id": 14952796974,
+    "bytes": 18043,
+    "digest": "sha256:4736d81e5b687375f769b80f982304479c95fc1f896cdf54106d92b70324cec2",
+    "digestVerified": true,
+    "extractedMembers": 13,
+    "memberHashesRetained": true
+  },
+  "linuxFontInvestigation": {
+    "browser": "Playwright1.64.1 Chromium156, default launch; existing owned Docker container",
+    "originalCIAndFixtureNativePNGsEqual": true,
+    "capturedAuthoredReplaySVGDiffChannels": 214,
+    "opaquePositiveDiffChannels": 0,
+    "notAnAcceptedFix": true,
+    "counterexample": "Only translateZ(0) added to a plain white-backed text div: original transparent Canvas0 diff; opaque intermediate then alpha:true final Canvas1380 diff/max91, despite all output alpha255. Plain sibling control1380 to0.",
+    "executedControls": 11,
+    "remainingPlannedControlsNotExecutedAfterCounterexample": 11,
+    "transparentControls": "candidate equals original RGBA when opacity/radius/mask gate rejects; source native screenshots had explicit body matte and do not prove transparent-source native fidelity",
+    "runtimeChange": false
+  },
+  "shadowExactSelectorSignals": {
+    "comparedNativePairs": 224,
+    "matchedPairs": 224,
+    "nativeGroundTruth": {
+      "sameRootAxisClientGeometryPairs": 56,
+      "samePartSourceScreenshotColorPairs": 168
+    },
+    "rows": 448,
+    "fencesObserved": 448,
+    "imageHTTPRequests": 0,
+    "newCounterexample": "Light DOM :is(.absent,.plain) #panel prefix.matches=true but qualified root/thumb/track rules do not participate; corner without state does. No host heuristic is sufficient.",
+    "currentEnvironmentBoundary": "Existing untrusted private SVG environment suppresses WebKit callbacks, therefore unknown. Separate trusted-only derived probe keeps script-src none; inline/onerror controls did not execute. Existing environment unchanged.",
+    "notProven": [
+      "general absent-event inference or fence order",
+      "safe reconstruction of arbitrary source contexts",
+      "multiple-scroller unique target attribution",
+      "actual pending CSP await cancellation and owner release"
+    ],
+    "productionFilterImplemented": false
+  },
+  "fontSingleTargetDependency": {
+    "freshContexts": 40,
+    "variants": 10,
+    "rounds": 2,
+    "defaultDiffChannels": 264,
+    "softwareDiffChannels": 246,
+    "result": "Invisible SVG text within the same target, order/face placement, visibility:hidden and unused defs did not repair the cold draw. First decode/first draw retained. No runtime change or unique internal mechanism asserted."
+  },
+  "remaining": [
+    "current native part context DTO/executor/safety/lifetime proof",
+    "platform-specific native glyph rendering, Mac WebKit shadow and fractional strict differences",
+    "external SVG paint provenance and original unavailable Windows/Edge/fixture boundaries",
+    "source/package CI gates and current-head CodeQL/Codecov acceptance",
+    "deferred physical-device acceptance"
+  ],
+  "separateContainerFollowup": "Linux full source and built package stages are being checked independently in a new isolated snapshot; no result is claimed in this record. Container Node26 differs from remote Node24.",
+  "physicalDevice": "not used; earliest allowed2026-11-24T22:02:04Z; no Mac network configuration changes",
+  "rawEvidence": {
+    "index": "native-fidelity-platform-followup-index.json",
+    "archive": "native-fidelity-platform-followup-raw.tar.gz",
+    "fileCount": 500,
+    "allMemberHashesVerified": true
+  },
+  "oldContributorPRCommentOrClosureActions": 0,
+  "npmPublished": false,
+  "macNetworkConfigurationChanged": false
+}

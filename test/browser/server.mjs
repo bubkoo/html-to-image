@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { extname, resolve, sep } from 'node:path'
 import { resourcePolicyServer } from './fixtures/resource-policy-server.mjs'
+import { scrollbarStyleResourcesServer } from './fixtures/scrollbar-style-resources-server.mjs'
 
 const root = process.cwd()
 const host = process.env.HTML_TO_IMAGE_SMOKE_HOST || '127.0.0.1'
@@ -24,11 +25,13 @@ const types = {
   '.ttf': 'font/ttf',
 }
 const resourcePolicy = resourcePolicyServer(root)
+const scrollbarStyleResources = scrollbarStyleResourcesServer()
 
 const serve = async (request, response) => {
   if (svgResponseURLServer(request, response)) return
   if (videoReadinessServer(request, response)) return
   if (await resourcePolicy(request, response)) return
+  if (await scrollbarStyleResources.handle(request, response)) return
   const pathname = decodeURIComponent(
     new URL(request.url || '/', 'http://127.0.0.1').pathname,
   )
@@ -138,6 +141,8 @@ const serve = async (request, response) => {
   }
 }
 
-createServer(serve).listen(port, host)
+const mainServer = createServer(serve)
+scrollbarStyleResources.attach({ httpServer: mainServer })
+mainServer.listen(port, host)
 // A distinct origin lets the package suite exercise browser CORS behavior.
 createServer(serve).listen(port + 1, host)

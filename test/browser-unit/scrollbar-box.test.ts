@@ -22,6 +22,13 @@ const cases = [
   'selected-logical',
   'scrolled',
   'scrolled-gutter',
+  'scrolled-gutter-rtl',
+  'scrolled-gutter-positioned',
+  'scrolled-gutter-positioned-rtl',
+  'scrolled-stable',
+  'scrolled-stable-rtl',
+  'scrolled-stable-positioned',
+  'scrolled-stable-positioned-rtl',
 ]
 cases.forEach((kind) => {
   test.skipIf(

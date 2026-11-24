@@ -1,0 +1,149 @@
+{
+  "checkedAt": "2026-11-24T18:15:59.277330+00:00",
+  "sourceCommit": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+  "parentCheckpoint": "5c3b0fe309d0e37832318e54532b21805afc8bf5",
+  "originalNativeSource": "f3a00b069fadea920606b805221f1996711f09a9",
+  "branch": "codex/native-scroll-fidelity",
+  "status": "scoped stylesheet resource repair verified; entire native fidelity candidate remains incomplete and unsubmitted",
+  "relatedPRs": [376, 407, 408, 585, 427],
+  "relatedIssues": [81, 345],
+  "requirement": "Preserve the actual current browser page appearance; no change to the user-selected fidelity requirement.",
+  "changes": [
+    "Snapshot live CSSOM into primitive DTOs before async work; preserve mutations, import ancestry and final-response URL bases.",
+    "Reuse capture ResourceLoader stylesheet policy/resolver/dedup; preserve response charset, parent import encoding, BOM/header/charset precedence.",
+    "Preserve nested selector specificity, CSSNestedDeclarations order and original pseudo-element parent selector; evaluate active source media/supports before relocation.",
+    "Freeze only clone auto axes with source overflow and actual physical scrollbar occupancy, after existing box restoration and before clone hooks.",
+    "Root-counted cache release; abort pending byte decode before source-owning async frames can resume; propagate exact warning-callback errors."
+  ],
+  "publicAPIChanged": false,
+  "sameFinalFixtureComparison": {
+    "onlyReplacedProductionFiles": [
+      "src/clone-node.ts",
+      "src/clone-scrollbars.ts",
+      "src/resource-loader.ts",
+      "src/svg-style-imports.ts"
+    ],
+    "baseline": "f3a00b0",
+    "before": {
+      "passed": 2,
+      "failed": 62,
+      "unsupportedFirefoxLegacy": 32
+    },
+    "after": {
+      "passed": 64,
+      "failed": 0,
+      "unsupportedFirefoxLegacy": 32
+    },
+    "inputsStableWithinEachRun": true,
+    "restoredCurrentFilesExactly": true,
+    "evidence": "output/playwright/native-scroll-followup/resource-formatted-frozen-pair/receipt.json"
+  },
+  "validation": {
+    "defaultPnpmTest": {
+      "coveragePassed": 1461,
+      "coverageFailed": 2,
+      "coverageSkipped": 45,
+      "sourcePhase": "not run because coverage failed",
+      "failures": ["WebKit visible-text", "WebKit padding-shadow"]
+    },
+    "separateFullSource": {
+      "passed": 1342,
+      "failed": 2,
+      "skipped": 45,
+      "failures": ["WebKit visible-text", "WebKit padding-shadow"]
+    },
+    "fullBuiltPackages": {
+      "stats": {
+        "startTime": "2026-11-24T18:11:59.219Z",
+        "duration": 161646.614,
+        "expected": 176,
+        "skipped": 2,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "nativeFixtureCases": {
+        "executed": 284,
+        "passed": 278,
+        "failed": 6,
+        "unsupported": 82
+      },
+      "nativeFailureCasesPerWebKitFormat": [
+        "visible-text",
+        "fractional",
+        "padding-shadow"
+      ],
+      "fullResults": "output/playwright/native-scroll-followup/resource-formatted-full-packages/run.log"
+    },
+    "resourceSubset": {
+      "sourceSupportedEngines": ["chromium", "webkit"],
+      "sourceCasesPassed": 64,
+      "unsupportedFirefoxLegacy": 32,
+      "builtESMAndUMDResourceGroups": "all supported Chromium/WebKit groups passed; Firefox groups explicitly unsupported",
+      "notThreeEngineLegacyPixelAcceptance": true
+    },
+    "hostChecks": {
+      "lint": "passed",
+      "buildESMCJSUMD": "passed",
+      "browserTypes": "passed",
+      "installedTarballConsumersAndTS49Current": "passed",
+      "DOMInterfaceStaticAuditDirectAccesses": 0
+    },
+    "inputIdentity": {
+      "sourceCommit": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+      "measuredHead": "5c3b0fe309d0e37832318e54532b21805afc8bf5",
+      "inputCount": 445,
+      "trackedMatches": true,
+      "generatedMatches": true,
+      "mismatches": []
+    },
+    "remoteCI": "not run for this source; parent #650 green is separate",
+    "physicalDevice": "not performed; user deferred at least four hours from 2026-11-24T18:02:04Z; Mirroring connected then was quit, no product acceptance claimed"
+  },
+  "retainedEarlierFailures": {
+    "initialDefault": {
+      "passed": 1458,
+      "failed": 5,
+      "skipped": 45,
+      "extraFirefoxFailures": [
+        "positioned local-nested native screenshot timeout",
+        "SVG attribute-page native screenshot timeout",
+        "external SVG whole-style native preparation failed"
+      ]
+    },
+    "initialFullSource": {
+      "passed": 1341,
+      "failed": 3,
+      "skipped": 45,
+      "extraFirefoxFailure": "native HTTP SVG policy fixture not ready before source capture"
+    },
+    "sameInputFirefoxThreeFileRecheck": {
+      "passed": 117,
+      "failed": 0,
+      "inputsMatchInitialDefault": true
+    },
+    "rootCause": "not established; later pass does not erase earlier failure. Original native controls, deadlines, retries and assertions retained."
+  },
+  "independentFindings": {
+    "cancelDecode": "same-script bounded Chromium native/source owner control passes after fix; WebKit native control inconclusive and Firefox legacy unsupported; not full capture GC proof",
+    "shadowSelectors": "simple host capability cannot generalize to complex :is/:where branches; per-rule native application remains open",
+    "nativeSVGReadiness": "25 original native-only probes pass; offscreen iframe scheduling delays established, original zero-geometry failure not reproduced",
+    "fontLifecycle": "61 fresh contexts distinguish SVGImage font cache initial-layout order; default Canvas retains 21-channel residual and software-zero result is bounded to one glyph input; no general runtime fix"
+  },
+  "remaining": [
+    "WebKit native glyph, inset shadow and DPR2 fractional SVG-image composition strict differences.",
+    "Actual native scrollbar part hover and ShadowRoot qualified-selector application.",
+    "Relative external SVG paint page/file provenance and original Windows/Edge/absent #81 fixture boundaries.",
+    "Failure-time evidence for intermittent Firefox native SVG preparation/screenshot gates.",
+    "Exact final source remote CI and deferred real-device acceptance."
+  ],
+  "rawEvidence": {
+    "index": "scrollbar-stylesheet-resources-index.json",
+    "archive": "scrollbar-stylesheet-resources-raw.tar.gz",
+    "fileCount": 1814,
+    "allMemberHashesVerified": true
+  },
+  "replay": "Checkout sourceCommit, build, then run recorded commands. Unpack raw archive at repository root for before/after source snapshots, receipts, HTTP probes, logs and failure traces. Each measured run kept 445 inputs unchanged; formatting is separately recorded and only changed 5 generated source maps, not runtime bundles. Never replace strict WebKit assertions or default DPR. Scope must remain explicit.",
+  "oldPRCommentOrClosureActions": 0,
+  "npmPublished": false,
+  "macNetworkConfigurationChanged": false
+}

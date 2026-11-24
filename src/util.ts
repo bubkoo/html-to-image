@@ -229,7 +229,9 @@ export function createImage(
     }
     const abort = () =>
       fail(
-        signal?.reason || new DOMException('Image load aborted', 'AbortError'),
+        signal?.aborted
+          ? signal.reason
+          : new DOMException('Image load aborted', 'AbortError'),
       )
     if (signal?.aborted) {
       abort()

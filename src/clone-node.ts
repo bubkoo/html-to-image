@@ -22,6 +22,11 @@ import { resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
 import { embedSVGReferences, getSVGReference } from './svg-references.js'
 import { cloneScrollState } from './clone-scroll.js'
+import {
+  cloneScrollbarStyles,
+  beginScrollbarStyleScope,
+  freezeScrollbarPresence,
+} from './clone-scrollbars.js'
 
 function createCloneDocument(source: Document) {
   // A detached element in a browsing document can still load resources in
@@ -485,12 +490,12 @@ function cloneClipPathReferences<T extends HTMLElement>(
   }
 }
 
-function decorate<T extends HTMLElement>(
+async function decorate<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
   isRoot?: boolean,
-): T {
+): Promise<T> {
   if (isInstanceOfElement(clonedNode, Element)) {
     const selected = options.stylePropertiesForNode
       ? options.stylePropertiesForNode(nativeNode)
@@ -503,6 +508,7 @@ function decorate<T extends HTMLElement>(
       isRoot,
     )
     clonePseudoElements(nativeNode, clonedNode, selected)
+    await cloneScrollbarStyles(nativeNode, clonedNode, options, selected)
     cloneInputValue(nativeNode, clonedNode)
     cloneOptionSelection(nativeNode, clonedNode)
     cloneClipPathReferences(nativeNode, clonedNode)
@@ -554,6 +560,7 @@ function decorate<T extends HTMLElement>(
     }
     if (sourceStyle)
       restoreScrollbarBox(nativeNode, clonedNode, sourceStyle, selected)
+    freezeScrollbarPresence(nativeNode, clonedNode, sourceStyle)
     options.onCloneNode?.(nativeNode, clonedNode)
   }
 
@@ -609,7 +616,10 @@ export async function cloneNode<T extends HTMLElement>(
   const copyDocument =
     targetDocument ||
     createCloneDocument(readDOMProperty(node, 'ownerDocument'))
-  return Promise.resolve(node)
+  const releaseScrollbarStyles = isRoot
+    ? beginScrollbarStyleScope(options)
+    : undefined
+  const result = Promise.resolve(node)
     .then(
       (clonedNode) =>
         cloneSingleNode(
@@ -637,4 +647,15 @@ export async function cloneNode<T extends HTMLElement>(
         ? ensureSVGSymbols(node, clonedNode, options)
         : clonedNode,
     )
+  if (!releaseScrollbarStyles) return result
+  return result.then(
+    (clone) => {
+      releaseScrollbarStyles()
+      return clone
+    },
+    (error) => {
+      releaseScrollbarStyles()
+      throw error
+    },
+  )
 }

@@ -148,7 +148,11 @@ function ruleHead(text: string) {
   return text
 }
 
-async function decodeCSS(blob: Blob, metadata: string, environment: string) {
+export async function decodeCSS(
+  blob: Blob,
+  metadata: string,
+  environment: string,
+) {
   const bytes = new Uint8Array(await blob.arrayBuffer())
   const decoder = (label: string | undefined) => {
     if (!label) return undefined
