@@ -219,7 +219,7 @@ export async function prepareSVGFileStyle(
     rules: CSSRuleList,
     layers: SVGLayerPolicy,
     base?: string,
-    encoding = document.characterSet,
+    encoding = readDocumentProperty(document, 'characterSet'),
   ): Promise<string> => {
     const result: string[] = []
     for (let index = 0; index < rules.length; index++) {

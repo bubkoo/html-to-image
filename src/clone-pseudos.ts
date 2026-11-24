@@ -1,4 +1,4 @@
-import { readDocumentProperty } from './document.js'
+import { readDocumentMethod, readDocumentProperty } from './document.js'
 import { uuid, getStyleProperties } from './util.js'
 
 type Pseudo = ':before' | ':after'
@@ -34,7 +34,10 @@ function getPseudoElementStyle(
       ? formatCSSText(style)
       : formatCSSProperties(style, selected)
 
-  return document.createTextNode(`${selector}{${cssText}}`)
+  return readDocumentMethod(
+    document,
+    'createTextNode',
+  )(`${selector}{${cssText}}`)
 }
 
 function clonePseudoElement<T extends HTMLElement>(
@@ -58,7 +61,7 @@ function clonePseudoElement<T extends HTMLElement>(
     return
   }
 
-  const styleElement = document.createElement('style')
+  const styleElement = readDocumentMethod(document, 'createElement')('style')
   styleElement.appendChild(
     getPseudoElementStyle(className, pseudo, style, selected),
   )

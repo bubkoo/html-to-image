@@ -1,5 +1,13 @@
 # 开放 PR 处理台账
 
+## 2026-11-24 Document 访问类完整审计候选
+
+四创建入口版本 `79faeec` 的完整本地流程通过 1234 coverage / 1115 source / 162 构建包（4/4 既有跳过），407 个输入未变；其正常远端 CI [45359790863](https://github.com/bubkoo/html-to-image/actions/runs/45359790863) 仍为 source 1112 通过 / 3 失败 / 4 跳过：Firefox 私有环境 probed=true、待字体取消及 WebKit 冻结 SVG 源文档回收。coverage 1234 通过、CodeQL 45359790974 通过，浏览器包未运行，保留全部日志与校验过的 10 份上传物。该版本真机 UMD 离线五 fixture 子集 112/112 通过、410 输入未变；不覆盖 HTTP、外部 SVG/CSP、字体、ESM、源截图或设备 GC，电脑网络配置未改。
+
+类型审计还定位 9 文件 69 处 Document 直接访问（SVG 策略模块占 30 处）。新候选将该类全部转移到通用反射入口；方法先取值、后求值参数，并保留原接收者和重载类型。静态 Document/含 Document 联合类型直接读取归零；不把该审计外推至 Node、any 或动态路径。新增 5 个行为对照在三引擎共 15 项通过，输入前后相同；主机和固定 Linux 的 lint/构建/包入口/TS4.9 与当前类型检查通过。原三次回收、严格断言、期限、跳过、浏览器设置、工作流与脚本均未改。
+
+[上一版完整结果、失败上传物、当前审计与行为对照](evidence/document-property-lifetime/access-preflight.json)已归档并核对成员哈希。新候选准确提交的完整本地/远端和真机仍待验收，#650 保持草稿，不能认定生命周期修复或旧 Issue/PR 完成。
+
 ## 2026-11-24 WebKit 原生复现与四处文档创建入口
 
 独立草稿 [#650](https://github.com/bubkoo/html-to-image/pull/650) 的准确 `7d7ad94` 默认 CI 45351095140（合并测试 `03a96e2`）保留一次 WebKit 冻结 SVG 源文档回收失败：coverage 1234 / 4 跳过；source 1114 / 1 失败 / 4 跳过，浏览器包未运行，该用例的图片断言尚未执行。CodeQL 45351095581 通过，Firefox 原回收检查通过；不以此前诊断版两轮全绿替换此次正常失败。

@@ -1,4 +1,8 @@
-import { readDocumentProperty } from './document.js'
+import {
+  readDocumentMethod,
+  readDocumentProperty,
+  readOptionalDocumentProperty,
+} from './document.js'
 import type { Options } from './types.js'
 import { getResourceLoader } from './dataurl.js'
 import { embedResources } from './embed-resources.js'
@@ -140,7 +144,8 @@ function collectFontScopes(node: Element, source: Element, options: Options) {
     if (isInstanceOfElement(element, HTMLIFrameElement)) {
       let body: HTMLElement | null = null
       try {
-        body = element.contentDocument?.body || null
+        body =
+          readOptionalDocumentProperty(element.contentDocument, 'body') || null
       } catch {
         // An inaccessible frame has no reachable font scope.
       }
@@ -253,9 +258,13 @@ async function collectFontRules(
 
   const sheets = new Map<CSSStyleSheet, string>()
   const addSheet = (sheet: CSSStyleSheet) =>
-    sheets.set(sheet, ownerDocument.baseURI)
-  Array.from(ownerDocument.styleSheets).forEach(addSheet)
-  Array.from(ownerDocument.adoptedStyleSheets || []).forEach(addSheet)
+    sheets.set(sheet, readDocumentProperty(ownerDocument, 'baseURI'))
+  Array.from(readDocumentProperty(ownerDocument, 'styleSheets')).forEach(
+    addSheet,
+  )
+  Array.from(
+    readDocumentProperty(ownerDocument, 'adoptedStyleSheets') || [],
+  ).forEach(addSheet)
   // Shadow roots are flattened by the cloner; their rules belong to this document.
   const collectShadowSheets = (element: Element) => {
     const shadow = element.shadowRoot
@@ -470,7 +479,10 @@ export async function embedWebFonts<T extends HTMLElement>(
   getTask(options)?.check()
   applyFontScopes(scopes)
   if (cssText) {
-    const style = clonedNode.ownerDocument.createElement('style')
+    const style = readDocumentMethod(
+      clonedNode.ownerDocument,
+      'createElement',
+    )('style')
     style.textContent = cssText
     clonedNode.insertBefore(style, clonedNode.firstChild)
   }

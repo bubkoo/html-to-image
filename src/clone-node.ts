@@ -1,4 +1,8 @@
-import { readDocumentProperty } from './document.js'
+import {
+  readDocumentMethod,
+  readDocumentProperty,
+  readOptionalDocumentProperty,
+} from './document.js'
 import type { Options } from './types.js'
 import { clonePseudoElements } from './clone-pseudos.js'
 import {
@@ -41,11 +45,11 @@ async function cloneCanvasElement(canvas: HTMLCanvasElement, options: Options) {
 async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
   if (!video.poster && video.readyState === video.HAVE_NOTHING) {
     // No media image exists yet; preserve the styled, transparent replaced box.
-    const empty = document.createElement('canvas')
+    const empty = readDocumentMethod(document, 'createElement')('canvas')
     return createImage(empty.toDataURL(), options)
   }
   if (video.currentSrc) {
-    const canvas = document.createElement('canvas')
+    const canvas = readDocumentMethod(document, 'createElement')('canvas')
     const ctx = canvas.getContext('2d')
     canvas.width = video.videoWidth
     canvas.height = video.videoHeight
@@ -68,7 +72,8 @@ async function cloneIFrameElement(
 ) {
   let sourceBody: HTMLElement | null = null
   try {
-    sourceBody = iframe.contentDocument?.body || null
+    sourceBody =
+      readOptionalDocumentProperty(iframe.contentDocument, 'body') || null
   } catch {
     // Reading an inaccessible document may fail; user clone failures must not.
   }
@@ -80,12 +85,12 @@ async function cloneIFrameElement(
       resolveSymbols,
       targetDocument,
     )
-    const viewport = targetDocument.createElement('div')
+    const viewport = readDocumentMethod(targetDocument, 'createElement')('div')
     viewport.appendChild(body!)
     return viewport
   }
 
-  return targetDocument.importNode(iframe, false)
+  return readDocumentMethod(targetDocument, 'importNode')(iframe, false)
 }
 
 async function cloneSingleNode<T extends HTMLElement>(
@@ -95,18 +100,24 @@ async function cloneSingleNode<T extends HTMLElement>(
   resolveSymbols: boolean,
 ): Promise<HTMLElement> {
   if (isInstanceOfElement(node, HTMLCanvasElement)) {
-    return targetDocument.adoptNode(await cloneCanvasElement(node, options))
+    return readDocumentMethod(
+      targetDocument,
+      'adoptNode',
+    )(await cloneCanvasElement(node, options))
   }
 
   if (isInstanceOfElement(node, HTMLVideoElement)) {
-    return targetDocument.adoptNode(await cloneVideoElement(node, options))
+    return readDocumentMethod(
+      targetDocument,
+      'adoptNode',
+    )(await cloneVideoElement(node, options))
   }
 
   if (isInstanceOfElement(node, HTMLIFrameElement)) {
     return cloneIFrameElement(node, options, targetDocument, resolveSymbols)
   }
 
-  const copy = targetDocument.importNode(node, false)
+  const copy = readDocumentMethod(targetDocument, 'importNode')(node, false)
   if (isInstanceOfElement(node, HTMLImageElement)) {
     // Keep the source document's URL resolution when importing iframe content.
     ;(copy as unknown as HTMLImageElement).src = node.src
@@ -345,9 +356,12 @@ function normalizeClipPathURLs(
       const reference = quoted ?? bare
       if (!reference || reference.startsWith('#')) return original
       try {
-        const target = new URL(reference, sourceDocument.baseURI)
+        const target = new URL(
+          reference,
+          readDocumentProperty(sourceDocument, 'baseURI'),
+        )
         if (!target.hash) return original
-        const source = new URL(sourceDocument.URL)
+        const source = new URL(readDocumentProperty(sourceDocument, 'URL'))
         source.hash = ''
         const fragment = target.hash
         target.hash = ''

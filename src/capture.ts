@@ -1,3 +1,4 @@
+import { readDocumentMethod } from './document.js'
 import type { Capture, CaptureNode, EncodingOptions, Options } from './types.js'
 import { cloneNode, ensureSVGSymbols } from './clone-node.js'
 import { applyStyle } from './apply-style.js'
@@ -143,7 +144,7 @@ function fromSnapshot(
           task.check()
           // Use the library's document so a snapshot cannot keep a captured
           // iframe and its live source tree alive through this render closure.
-          canvas = document.createElement('canvas')
+          canvas = readDocumentMethod(document, 'createElement')('canvas')
           canvas.width = canvasWidth * pixelRatio
           canvas.height = canvasHeight * pixelRatio
           if (!options.skipAutoScale) checkCanvasDimensions(canvas)
@@ -173,7 +174,10 @@ function fromSnapshot(
       task.run(async () => {
         const source = await render()
         task.check()
-        const canvas = source.ownerDocument.createElement('canvas')
+        const canvas = readDocumentMethod(
+          source.ownerDocument,
+          'createElement',
+        )('canvas')
         canvas.width = source.width
         canvas.height = source.height
         canvas.style.cssText = source.style.cssText

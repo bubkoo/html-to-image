@@ -1,3 +1,4 @@
+import { readDocumentMethod, readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getResourceLoader } from './dataurl.js'
 import { ResourceResolverError } from './resource-loader.js'
@@ -90,7 +91,7 @@ export async function embedSVGReferences(
   const task = getTask(options)
   const loader = getResourceLoader(options)
   const loadedFontFamilies: string[] = []
-  source.ownerDocument.fonts?.forEach((font) => {
+  readDocumentProperty(source.ownerDocument, 'fonts')?.forEach((font) => {
     if (font.status === 'loaded') loadedFontFamilies.push(font.family)
   })
   const targetDocument = root.ownerDocument
@@ -211,7 +212,7 @@ export async function embedSVGReferences(
     if (!scope) {
       scope = {
         root,
-        url: withoutHash(document.URL),
+        url: withoutHash(readDocumentProperty(document, 'URL')),
         external: false,
       }
       scopes.set(root, scope)
@@ -221,8 +222,10 @@ export async function embedSVGReferences(
   const find = (scope: Scope, id: string) => {
     if (!scope.ids) {
       scope.ids = new Map()
-      const nodes = Array.from(scope.root.querySelectorAll('[id]'))
-      if (scope.root.nodeType === Node.ELEMENT_NODE)
+      const nodes = Array.from(
+        readDocumentMethod(scope.root, 'querySelectorAll')('[id]'),
+      )
+      if (readDocumentProperty(scope.root, 'nodeType') === Node.ELEMENT_NODE)
         nodes.unshift(scope.root as Element)
       nodes.forEach((node) => {
         if (node.id && !scope.ids!.has(node.id)) scope.ids!.set(node.id, node)
@@ -243,11 +246,17 @@ export async function embedSVGReferences(
 
   const append = (node: Element) => {
     if (!definitions) {
-      const holder = targetDocument.createElementNS(svgNamespace, 'svg')
+      const holder = readDocumentMethod(targetDocument, 'createElementNS')(
+        svgNamespace,
+        'svg',
+      )
       holder.setAttribute('width', '0')
       holder.setAttribute('height', '0')
       holder.style.cssText = 'position:absolute;overflow:hidden'
-      definitions = targetDocument.createElementNS(svgNamespace, 'defs')
+      definitions = readDocumentMethod(targetDocument, 'createElementNS')(
+        svgNamespace,
+        'defs',
+      )
       holder.append(definitions)
       root.append(holder)
     }
@@ -284,8 +293,9 @@ export async function embedSVGReferences(
           'image/svg+xml',
         )
         if (
-          document.querySelector('parsererror') ||
-          document.documentElement.namespaceURI !== svgNamespace
+          readDocumentMethod(document, 'querySelector')('parsererror') ||
+          readDocumentProperty(document, 'documentElement').namespaceURI !==
+            svgNamespace
         )
           throw new Error(`Invalid SVG resource: ${url}`)
         if (!external.has(finalURL)) external.set(finalURL, pending!)
@@ -332,7 +342,7 @@ export async function embedSVGReferences(
     // Reserve the identity before following edges, so cycles cannot recurse.
     aliases.set(original, id)
     const copy = scope.external
-      ? targetDocument.importNode(original, true)
+      ? readDocumentMethod(targetDocument, 'importNode')(original, true)
       : await cloneLocal(original)
     if (!copy) return undefined
     if (scope.styleHost && scope.stylePolicy) {
@@ -494,7 +504,10 @@ export async function embedSVGReferences(
           if (!styled) {
             styled = {
               ...owner,
-              root: owner.root.cloneNode(true) as Document,
+              root: readDocumentMethod(
+                owner.root,
+                'cloneNode',
+              )(true) as Document,
               ids: undefined,
               styleHost: instance,
               stylePolicy: policy,
@@ -507,9 +520,9 @@ export async function embedSVGReferences(
       }
       definition = id
         ? find(owner, id)
-        : owner.root.nodeType === Node.DOCUMENT_NODE
-          ? (owner.root as Document).documentElement
-          : owner.root.nodeType === Node.ELEMENT_NODE
+        : readDocumentProperty(owner.root, 'nodeType') === Node.DOCUMENT_NODE
+          ? readDocumentProperty(owner.root as Document, 'documentElement')
+          : readDocumentProperty(owner.root, 'nodeType') === Node.ELEMENT_NODE
             ? (owner.root as Element)
             : undefined
       if (definition?.namespaceURI !== svgNamespace) definition = undefined

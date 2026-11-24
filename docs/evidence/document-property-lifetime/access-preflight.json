@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-24",
+  "status": "Audited Document-read extension; full current-head acceptance pending; prior failures remain open",
+  "precedingHead": "79faeece5fc11e8568a2126e296ad4a970a8d56c",
+  "precedingDefaultCI": {
+    "id": 45359790863,
+    "testedMerge": "0d0ebd8e903c2cd7f69e47ff5ca91d4846126f91",
+    "coverage": {
+      "passed": 1234,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 1112,
+      "failed": 3,
+      "skipped": 4
+    },
+    "failures": [
+      "Firefox private SVG probed=true",
+      "Firefox cancellation with pending custom font resolver",
+      "WebKit frozen SVG source before rendering"
+    ],
+    "packages": "not run",
+    "codeql": {
+      "id": 45359790974,
+      "result": "success"
+    },
+    "artifactDigestVerified": true,
+    "artifactFiles": 10
+  },
+  "precedingLocal": {
+    "coveragePassed": 1234,
+    "sourcePassed": 1115,
+    "packagesPassed": 162,
+    "skipped": [4, 4],
+    "inputs": 407,
+    "inputHashesUnchanged": true
+  },
+  "precedingPhysicalUMD": {
+    "passed": 112,
+    "failed": 0,
+    "inputs": 410,
+    "inputHashesUnchanged": true,
+    "umdSHA256": "d07eceec3c768fb7b52673304f450b8507b85298cbe3962edf670ffeb7981c70",
+    "scope": "unaltered UMD injected via existing physical iPhone Safari session, offline five-fixture subset only; no HTTP/external SVG/CSP/fonts/source screenshots/ESM/device GC claim",
+    "computerNetworkSettingsModified": false
+  },
+  "currentExtension": {
+    "rewrittenAccesses": 69,
+    "sourceFiles": 9,
+    "remainingTypedDocumentDirectReads": 0,
+    "auditLimit": "statically Document-typed or Document-containing unions; broader Node/any/unknown types are outside the audit",
+    "methodSemantics": "resolve method before arguments, forward through Reflect.apply with the original receiver and overloaded type; explicit null guard retains query-result narrowing",
+    "newCases": 5,
+    "threeEngineBehaviorPassed": 15,
+    "behaviorInputs": 408,
+    "behaviorHashesUnchanged": true,
+    "hostAndPinnedLinux": "lint/build/tarball entries TS4.9-current/browser types passed",
+    "originalGCRequestsAssertionsDeadlinesSkipsConfiguration": "unchanged",
+    "fullCurrentHeadLocalRemoteDevice": "pending",
+    "sourceHashes": {
+      "candidate/src/capture.ts": "9b36bb5f17f0702e4620225a078fb3e41622b0df8f1e9fd245229758c3b1d7ea",
+      "candidate/src/clone-node.ts": "da6a16702b2198bb6ebdc08352487f20b7f26b70eb8c83d7dbc828b573137167",
+      "candidate/src/clone-pseudos.ts": "62c9369e9bb259b5d4f4384a35844b17fa066486339c098e9bcc729890133d64",
+      "candidate/src/document.ts": "44076caaedd513a81f427a11deca0ba28ef054b955cbc4492943401f0a7bd4f5",
+      "candidate/src/embed-webfonts.ts": "dc2b81161716e3203df9fb1db5ea820d2e8eb8ba3ef0d04326492ab91315fc95",
+      "candidate/src/resource-loader.ts": "963f02e8eefd243331242a4688e521ec6f195c673f2ea3d4f6a59ae1d5ee5069",
+      "candidate/src/svg-references.ts": "69059c7945e0085fac42185a21ebda4ea7d9625c7cecb0264ed172e4db7650da",
+      "candidate/src/svg-style-imports.ts": "b385b964f8cd9c8b72022d4bdfa3c42ba05933ba70c41930a4533c0ef535b439",
+      "candidate/src/svg-style-scope.ts": "151265b1f71865515a7464317aa2343bd31103614b3162fb5d5d9eb64c254335",
+      "candidate/src/util.ts": "f5b227835367a943823b1de611e407fa82424eed6fcd3ce5d14478f08393c297",
+      "candidate/test/browser-unit/document-access.test.ts": "7c248697f588078aa1c94e2668bdae56f33ac4e3ef518ba14df0b6fa56c78e7c",
+      "candidate/source.patch": "9da034baddeec3bfc0b226d2c45c8adb2f51a8cfb6424ba2f366aced8e2df47f"
+    }
+  },
+  "rawArchive": "access-preflight-raw.tar.gz",
+  "rawIndex": "access-preflight-index.json"
+}

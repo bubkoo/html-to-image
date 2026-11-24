@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "status": "Production candidate extracted; default production-branch CI and successful USB device acceptance remain required",
+  "status": "Draft production candidate; unresolved default CI collection failures",
   "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
   "sourceMatchesMeasuredCandidate": "a90cceaf3e714b9e7b4e76b72cebdc4a30146651",
   "branch": "codex/document-property-lifetime",
@@ -142,5 +142,6 @@
   "rawFiles": 104,
   "index": "document-property-lifetime/index.json",
   "latestFactoryPreflight": "document-property-lifetime/factory-preflight.json",
-  "latestStatus": "Default7d production CI fails one WebKit source collection;7d offline iPhone112 subset passes. Native-only direct factory reproduces2/16, reflective16/16 collects. Four-factory extension prepared; full new gates pending."
+  "latestStatus": "79faeec local1234/1115/162 and offline physical112 pass, but default CI45359790863 retains2Firefox+1WebKit failures. Audited extension removes69 typed Document accesses; new behavior15/15, static checks pass; full exact-head gates pending.",
+  "latestAccessPreflight": "document-property-lifetime/access-preflight.json"
 }

@@ -1,10 +1,11 @@
-import { readDocumentProperty } from './document.js'
+import { readDocumentMethod, readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getTask } from './task.js'
 
 export function resolveUrl(url: string, baseUrl: string | null): string {
   try {
-    return new URL(url, baseUrl || document.baseURI).href
+    return new URL(url, baseUrl || readDocumentProperty(document, 'baseURI'))
+      .href
   } catch {
     // Leave malformed references for the resource loader's recovery policy.
     return url
@@ -50,7 +51,12 @@ export function getStyleProperties(
 ): readonly string[] {
   return selected != null
     ? selected
-    : toArray(style || window.getComputedStyle(document.documentElement))
+    : toArray(
+        style ||
+          window.getComputedStyle(
+            readDocumentProperty(document, 'documentElement'),
+          ),
+      )
 }
 
 function px(node: HTMLElement, styleProperty: string) {
@@ -244,8 +250,11 @@ export async function nodeToDataURL(
   clonedStyles = '',
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
-  const svg = ownerDocument.createElementNS(xmlns, 'svg')
-  const foreignObject = ownerDocument.createElementNS(xmlns, 'foreignObject')
+  const svg = readDocumentMethod(ownerDocument, 'createElementNS')(xmlns, 'svg')
+  const foreignObject = readDocumentMethod(ownerDocument, 'createElementNS')(
+    xmlns,
+    'foreignObject',
+  )
 
   svg.setAttribute('width', `${width}`)
   svg.setAttribute('height', `${height}`)
@@ -258,7 +267,10 @@ export async function nodeToDataURL(
   foreignObject.setAttribute('externalResourcesRequired', 'true')
 
   if (clonedStyles) {
-    const style = ownerDocument.createElementNS(xmlns, 'style')
+    const style = readDocumentMethod(ownerDocument, 'createElementNS')(
+      xmlns,
+      'style',
+    )
     // First-layer important declarations protect private layout state from
     // author pseudo rules, without inserting children into the captured tree.
     style.textContent = `@layer ${uuid()} { ${clonedStyles} }`

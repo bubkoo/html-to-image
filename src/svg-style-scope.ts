@@ -1,4 +1,4 @@
-import { readDocumentProperty } from './document.js'
+import { readDocumentMethod, readDocumentProperty } from './document.js'
 import { uuid } from './util.js'
 import {
   rewriteSVGStyleURLs,
@@ -24,7 +24,7 @@ export async function detectSVGFragmentPolicy(
     throw new Error('SVG fragment scope probe needs a larger active viewport')
   const ns = 'http://www.w3.org/2000/svg'
   const id = uuid()
-  const svg = document.createElementNS(ns, 'svg')
+  const svg = readDocumentMethod(document, 'createElementNS')(ns, 'svg')
   svg.setAttribute('width', '20')
   svg.setAttribute('height', '20')
   svg.style.cssText =
@@ -32,27 +32,30 @@ export async function detectSVGFragmentPolicy(
   svg.innerHTML = `<defs><clipPath id="${id}"><rect width="12" height="20"/></clipPath></defs>`
   const xml = `<svg xmlns="${ns}"><defs><clipPath id="${id}"><rect width="6" height="20"/></clipPath></defs><g id="probe"><rect width="20" height="20" fill="green" clip-path="url(#${id})"/></g><g id="flat"><rect width="20" height="20" fill="green"/></g></svg>`
   const url = URL.createObjectURL(new Blob([xml], { type: 'image/svg+xml' }))
-  const use = document.createElementNS(ns, 'use')
+  const use = readDocumentMethod(document, 'createElementNS')(ns, 'use')
   use.setAttribute('href', url + '#probe')
-  const control = document.createElementNS(ns, 'use')
+  const control = readDocumentMethod(document, 'createElementNS')(ns, 'use')
   control.setAttribute('href', url + '#flat')
   svg.append(use, control)
   try {
-    document.documentElement.append(svg)
+    readDocumentProperty(document, 'documentElement').append(svg)
     const deadline = Date.now() + 5000
     while (Date.now() < deadline) {
       check()
       use.style.removeProperty('display')
       control.style.display = 'none'
       const ready = use.getBBox().width === 20
-      const inside = document.elementFromPoint(2, 10) === use
-      const outside = document.elementFromPoint(15, 10) !== use
-      const page = document.elementFromPoint(8, 10) === use
+      const inside =
+        readDocumentMethod(document, 'elementFromPoint')(2, 10) === use
+      const outside =
+        readDocumentMethod(document, 'elementFromPoint')(15, 10) !== use
+      const page =
+        readDocumentMethod(document, 'elementFromPoint')(8, 10) === use
       use.style.display = 'none'
       control.style.removeProperty('display')
       const flat =
         control.getBBox().width === 20 &&
-        document.elementFromPoint(15, 10) === control
+        readDocumentMethod(document, 'elementFromPoint')(15, 10) === control
       if (ready && inside && outside && flat) return page ? 'page' : 'file'
       // Readiness includes applied clipping, not only loaded use geometry.
       // eslint-disable-next-line no-await-in-loop
@@ -84,7 +87,7 @@ function pageStyleText(
   const read = (sheet: CSSStyleSheet): string => {
     if (sheet.disabled) return ''
     if (active.has(sheet)) return ''
-    const base = sheet.href || document.baseURI
+    const base = sheet.href || readDocumentProperty(document, 'baseURI')
     let rules: CSSRuleList
     try {
       rules = sheet.cssRules
@@ -125,8 +128,8 @@ function pageStyleText(
     return media && media !== 'all' ? `@media ${media}{${text}}` : text
   }
   return [
-    ...Array.from(document.styleSheets),
-    ...Array.from(document.adoptedStyleSheets || []),
+    ...Array.from(readDocumentProperty(document, 'styleSheets')),
+    ...Array.from(readDocumentProperty(document, 'adoptedStyleSheets') || []),
   ]
     .map(read)
     .join('\n')
@@ -198,19 +201,25 @@ export async function detectSVGStylePolicy(
     const name = uuid()
     const xml = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="10" viewBox="0 0 21 10"><style>.${name}{display:${index === 0 ? 'none' : 'block'}}</style><g id="probe"><rect class="${name}" width="10" height="10"/><rect x="20" width="1" height="1"/></g></svg>`
     const url = URL.createObjectURL(new Blob([xml], { type: 'image/svg+xml' }))
-    const style = document.createElement('style')
+    const style = readDocumentMethod(document, 'createElement')('style')
     if (index === 1) style.textContent = `.${name}{display:none!important}`
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    const svg = readDocumentMethod(document, 'createElementNS')(
+      'http://www.w3.org/2000/svg',
+      'svg',
+    )
     svg.style.cssText =
       'position:absolute!important;left:-9999px!important;visibility:hidden!important;display:block!important'
-    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+    const use = readDocumentMethod(document, 'createElementNS')(
+      'http://www.w3.org/2000/svg',
+      'use',
+    )
     use.setAttribute('href', index === 3 ? url : url + '#probe')
     svg.append(use)
     const control = use.cloneNode(false) as SVGUseElement
     control.setAttribute('href', url + '#probe')
     if (index === 3) svg.append(control)
     try {
-      document.documentElement.append(style, svg)
+      readDocumentProperty(document, 'documentElement').append(style, svg)
       let width = 0
       for (let attempt = 0; attempt < 32; attempt++) {
         check()
@@ -293,12 +302,18 @@ async function detectSVGImportPolicy(
       { type: 'image/svg+xml' },
     ),
   )
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  const svg = readDocumentMethod(document, 'createElementNS')(
+    'http://www.w3.org/2000/svg',
+    'svg',
+  )
   svg.style.cssText =
     'position:absolute!important;left:-9999px!important;opacity:0!important;display:block!important'
   let loaded = false
   const uses = ids.map((id) => {
-    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+    const use = readDocumentMethod(document, 'createElementNS')(
+      'http://www.w3.org/2000/svg',
+      'use',
+    )
     use.setAttribute('href', url + '#' + id)
     svg.append(use)
     return use
@@ -308,7 +323,7 @@ async function detectSVGImportPolicy(
   }
   uses[0].addEventListener('load', ready)
   try {
-    document.documentElement.append(svg)
+    readDocumentProperty(document, 'documentElement').append(svg)
     const deadline = Date.now() + 5000
     let values: number[] = []
     let measured = false
@@ -358,7 +373,7 @@ export function createSVGStyleEnvironment(
   const width = readDocumentProperty(source, 'defaultView')?.innerWidth || 1024
   const height = readDocumentProperty(source, 'defaultView')?.innerHeight || 768
   const fonts: FontFace[] = []
-  source.fonts?.forEach((font) => {
+  readDocumentProperty(source, 'fonts')?.forEach((font) => {
     if (font.status === 'loaded') fonts.push(font)
   })
   let frame: HTMLIFrameElement | undefined
@@ -416,7 +431,7 @@ export function createSVGStyleEnvironment(
         )
       if (!pending) {
         pending = new Promise<Document>((resolve, reject) => {
-          frame = document.createElement('iframe')
+          frame = readDocumentMethod(document, 'createElement')('iframe')
           const ownFrame = frame
           ownFrame.setAttribute('sandbox', 'allow-same-origin')
           ownFrame.setAttribute('aria-hidden', 'true')
@@ -445,8 +460,18 @@ export function createSVGStyleEnvironment(
           ownFrame.onload = () => {
             try {
               const result = ownFrame.contentDocument
-              if (!result?.querySelector('meta[data-svg-style-policy]')) return
-              const fontSet = result.fonts as FontFaceSet & {
+              if (
+                !result ||
+                !readDocumentMethod(
+                  result,
+                  'querySelector',
+                )('meta[data-svg-style-policy]')
+              )
+                return
+              const fontSet = readDocumentProperty(
+                result,
+                'fonts',
+              ) as FontFaceSet & {
                 add(font: FontFace): FontFaceSet
               }
               fonts.forEach((font) => {
@@ -473,7 +498,7 @@ export function createSVGStyleEnvironment(
             return
           }
           ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline' data:; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
-          document.documentElement.append(ownFrame)
+          readDocumentProperty(document, 'documentElement').append(ownFrame)
         })
       }
       return trustedProbe
@@ -501,7 +526,7 @@ export async function freezeSVGFragmentStyles(
 ) {
   const view = (readDocumentProperty(document, 'defaultView') ||
     window) as Window & typeof globalThis
-  const container = document.createElement('div')
+  const container = readDocumentMethod(document, 'createElement')('div')
   const ownStyle = (host as HTMLElement).style
   Array.from(host.attributes).forEach((attribute) =>
     container.style.setProperty(
@@ -537,7 +562,7 @@ export async function freezeSVGFragmentStyles(
     const sheet = new view.CSSStyleSheet()
     let css = policy.page
       ? pageStyles()
-      : Array.from(styleRoot.querySelectorAll('style'))
+      : Array.from(readDocumentMethod(styleRoot, 'querySelectorAll')('style'))
           .filter(
             (style) =>
               !style.getAttribute('type') ||
@@ -561,7 +586,7 @@ export async function freezeSVGFragmentStyles(
     removeFontFaces(sheet)
     shadow.adoptedStyleSheets = [sheet]
   }
-  let fragment = document.importNode(original, true)
+  let fragment = readDocumentMethod(document, 'importNode')(original, true)
   const neutralizeStyles = (root: Element) =>
     root.querySelectorAll('style').forEach((node) => {
       if (node.textContent)
@@ -569,7 +594,7 @@ export async function freezeSVGFragmentStyles(
     })
   fragment.querySelectorAll('style').forEach((node) => node.remove())
   shadow.append(fragment)
-  document.documentElement.append(container)
+  readDocumentProperty(document, 'documentElement').append(container)
   try {
     let sources = [fragment, ...Array.from(fragment.querySelectorAll('*'))]
     const targets = [copy, ...Array.from(copy.querySelectorAll('*'))].filter(
@@ -585,9 +610,9 @@ export async function freezeSVGFragmentStyles(
         installedFontCSS.set(document, installed)
       }
       if (!installed.has(fontCSS)) {
-        const fonts = document.createElement('style')
+        const fonts = readDocumentMethod(document, 'createElement')('style')
         fonts.textContent = fontCSS
-        document.head.append(fonts)
+        readDocumentProperty(document, 'head').append(fonts)
         installed.add(fontCSS)
       }
       const requested = new Set(
@@ -598,7 +623,9 @@ export async function freezeSVGFragmentStyles(
       )
       await Promise.all(
         Array.from(requested, (font) =>
-          document.fonts.load(font).catch(reportFontError),
+          readDocumentProperty(document, 'fonts')
+            .load(font)
+            .catch(reportFontError),
         ),
       )
       // A non-rendering symbol can retain fallback metrics computed before its
