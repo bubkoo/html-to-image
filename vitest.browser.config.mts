@@ -1,6 +1,6 @@
 import { svgResponseURLServer } from './test/browser/fixtures/svg-response-url-server.mjs'
 import { videoReadinessServer } from './test/browser/fixtures/video-readiness-server.mjs'
-import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
 import { cpus, freemem, totalmem } from 'node:os'
@@ -118,6 +118,63 @@ export default defineConfig({
       headless: true,
       provider: playwright(),
       commands: {
+        async recordReferenceOnlyLifetime({ page, frame }, record: string) {
+          if (process.env.GC_REFERENCE_PROBE !== '1') return
+          const primary = JSON.parse(record)
+          const phase = String(
+            process.env.GC_OBSERVER_PHASE || 'primary',
+          ).replace(/[^a-z0-9-]/gi, '_')
+          const folder = resolve(
+            '.vitest/attachments/gc-reference-probe',
+            phase,
+          )
+          await mkdir(folder, { recursive: true })
+          const engine = page.context().browser()!.browserType().name()
+          const label = String(
+            suite + '-' + engine + '-' + primary.kind,
+          ).replace(/[^a-z0-9-]/gi, '_')
+          const name = resolve(folder, label)
+          // This receipt exists before any heap call, even if inspection fails.
+          await writeFile(
+            name + '.primary.json',
+            JSON.stringify({ ...primary, phase: 'before-inspection' }, null, 2),
+          )
+          try {
+            const target = await frame()
+            const handle = await target.evaluateHandle(() =>
+              Reflect.get(globalThis, '__codex_ref_probe'),
+            )
+            try {
+              const properties = await handle.getProperties()
+              const value = await properties
+                .get('__codex_heap_paths')
+                ?.jsonValue()
+              if (typeof value !== 'string')
+                throw new Error('Reference graph result missing')
+              const graph = JSON.parse(value)
+              await writeFile(
+                name + '.json',
+                JSON.stringify({ ...primary, graph }, null, 2),
+              )
+              if (graph.file) await copyFile(graph.file, name + '.fxsnapshot')
+              if (graph.cc?.file)
+                await copyFile(graph.cc.file, name + '.cc.log')
+              if (graph.cc?.gcFile)
+                await copyFile(graph.cc.gcFile, name + '.gc.log')
+            } finally {
+              await handle.dispose()
+            }
+          } catch (error) {
+            await writeFile(
+              name + '.inspection-error.json',
+              JSON.stringify(
+                { ...primary, inspectionError: String(error) },
+                null,
+                2,
+              ),
+            )
+          }
+        },
         async startSVGStyleResourceTrace(
           { page },
           marker: string,

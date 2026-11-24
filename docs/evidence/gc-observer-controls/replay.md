@@ -366,3 +366,46 @@ on the full diff's20000-line API cap. Its independent repair is the next action.
 
 Firefox and tracked config/fixture/source restored, container idle, all measured
 local processes terminal; no system Safari/phone used. Goal active, no GC fix.
+
+
+## Remote existing-WeakRef probe, 2026-11-24
+
+The investigation branch now carries its reversible Linux/Playwright1.64.1
+installer and known-held/collected-reference controls. Run the installer before
+starting measured browsers, then the controls:
+
+```sh
+python3 scripts/firefox-gc-reference-probe.py install
+node scripts/firefox-gc-reference-controls.cjs
+```
+
+`GC_REFERENCE_PROBE=1` enables the BrowserCommands handler. It persists the
+cached primary receipt first, then inspects only the existing WeakRef and copies
+the raw heap and ordinary GC/CC files. Environment hooks precede the older
+supplemental observer controls; pending-font hooks precede retainedTree and its
+extra diagnostic collections. Removed-iframe capture has the same failure-only
+hook. Primary booleans, assertions, three collection requests, timeouts and skips
+are unchanged. Later supplemental observations can be affected by this extra
+inspection/CC and must not be treated as untouched originals. No production
+runtime change is included. Readable hooks change test byte lengths: this is not
+an identical ordering/process/timing control.
+
+Artifacts use separate coverage/browser, case and primary/repeat names beneath
+`.vitest/attachments/gc-reference-probe/`. Inspection errors are separate files;
+a diagnostic repeat cannot replace the original failed CI step. CI installs the
+probe only on the owned investigation branch, explicitly uploads hidden artifact
+paths and always restores the browser before upload:
+
+```sh
+python3 scripts/firefox-gc-reference-probe.py restore
+```
+
+The installer checks the original browser and all three source-entry hashes,
+preserves archive metadata and verifies every unchanged entry byte. It uses
+Firefox's official balanced parent DevTools registration, not a removed guard.
+Local standalone controls and a test-frame positive integration both pass,
+including copied raw graphs, known owner member and balanced registration. The
+existing two test files pass20/skip1 across three engines; they did not reproduce
+a failure. Full remote CI is still required. See
+[preflight](../gc-reference-remote-preflight.json). The temporary integration test
+was removed, tracked container inputs restored and Firefox restored before stop.

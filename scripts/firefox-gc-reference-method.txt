@@ -1,0 +1,49 @@
+  _codexHeapPaths(root) {
+    dump("codex heap begin\n");
+    const ids = {}, rawHolds = {};
+    for (const key of ['reference']) {
+      const object = root.getOwnPropertyDescriptor(key)?.value;
+      if (object instanceof Debugger.Object)
+        ids[key] = ChromeUtils.getObjectNodeId(rawHolds[key] = object.unsafeDereference());
+    }
+    dump("codex heap ids "+JSON.stringify(ids)+"\n");
+    const opened = Services.cpmm.sendSyncMessage('codex-heap-state', {action:'open'});
+    let file, closed;
+    try { file = ChromeUtils.saveHeapSnapshot({runtime: true}); }
+    finally { closed = Services.cpmm.sendSyncMessage('codex-heap-state', {action:'close'}); }
+    const beforeIDs = {...ids};
+    for (const key of Object.keys(rawHolds)) ids[key] = ChromeUtils.getObjectNodeId(rawHolds[key]);
+    dump("codex heap file "+file+"\n");
+    const snapshot = ChromeUtils.readHeapSnapshot(file);
+    dump("codex heap read\n");
+    const tree = snapshot.computeDominatorTree();
+    dump("codex heap tree\n");
+    const census = snapshot.takeCensus({breakdown:{by:'coarseType',objects:{by:'objectClass',then:{by:'bucket'}},other:{by:'count'},strings:{by:'count'},scripts:{by:'count'},symbols:{by:'count'},bigInts:{by:'count'}}});
+    const documentBuckets = Object.fromEntries(Object.entries(census.objects).filter(([name]) => /Document/.test(name)));
+    const documents = Object.values(documentBuckets).flat();
+    const targetCandidates = [...snapshot.computeShortestPaths(ids.reference, documents, 20)];
+    const direct = targetCandidates.filter(([id, paths]) => paths.some(path => path.length === 2 && path[0].edge === 'proxy target' && path[1].edge === 'WeakRefObject::target'));
+    if (direct.length !== 1) return {version:7,file,ids,opened,closed,errors:[],targetState:'no unique direct WeakRef target in snapshot',observedDirectTargets:direct.length,documentBuckets,targetCandidates,limits:{introducedTargetHold:false,weakTargetMayHaveCollectedAfterPrimary:true}};
+    const referenceWrapperID = ids.reference;
+    ids.target = direct[0][0];
+    const paths = {}, errors = [];
+    for (const [name, start] of Object.entries({...ids, gcRoot: tree.root})) {
+      if (name === 'target' || name === 'reference') continue;
+      try {
+        paths[name] = [...snapshot.computeShortestPaths(start, [ids.target], 20)];
+      } catch (error) { errors.push({name, error: String(error)}); }
+    }
+    let cc;
+    try {
+      const logger = Components.utils.createCCLogger();
+      logger.logSink.filenameIdentifier = 'codex-ordinary-after-primary';
+      Components.utils.forceCC(logger);
+      cc = {file: logger.logSink.ccLog?.path, gcFile: logger.logSink.gcLog?.path,
+        wantAllTraces: logger.wantAllTraces, phase: 'after-primary-and-heap',
+        extraCollectionForDiagnosisOnly: true};
+    } catch (error) { cc = {error: String(error)}; }
+    return {version: 7, cc, file, ids, beforeIDs, referenceWrapperID, documentBuckets, targetCandidates, opened, closed, root: tree.root, paths, errors,
+      limits: {maxPathsPerStart: 20, runtimeSnapshot: true,
+        introducedTargetHold: false, introducedAllRootWrapperHolds: false, introducedWeakRefWrapperHold: true, introducedApplicationObjectHolds: false, snapshotIsAfterPrimaryOnly: true,
+        rootPathsIncludeInspectorReferences: true}};
+  }

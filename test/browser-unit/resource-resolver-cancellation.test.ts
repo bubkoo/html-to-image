@@ -3,6 +3,7 @@
 import { expect, test } from 'vitest'
 import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
+import { recordReferenceFailure } from '../browser/fixtures/reference-lifetime-probe'
 import {
   createSVGStyleEnvironment,
   detectSVGStylePolicy,
@@ -140,6 +141,12 @@ test.each([false, true])(
         nativeCollected: native.reference.deref() === undefined,
         ownerCollected: reference.deref() === undefined,
       }
+      if (!diagnosis.ownerCollected)
+        await recordReferenceFailure(
+          'environment-' + probed,
+          reference,
+          diagnosis,
+        )
       await observerDiagnostics(
         'environment-' + probed,
         probed,
@@ -231,6 +238,8 @@ test('cancellation releases private SVG work while a custom font resolver remain
       await commands.collectGarbage()
       await commands.collectGarbage()
       const collected = reference!.deref() === undefined
+      if (!collected)
+        await recordReferenceFailure('pending-font', reference!, { collected })
       const tree = collected ? undefined : retainedTree(reference!)
       const diagnosis = collected
         ? undefined
