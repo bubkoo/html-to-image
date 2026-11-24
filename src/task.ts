@@ -168,10 +168,7 @@ export class CaptureTask {
   check() {
     if (this.disposed) throw new Error('Capture has been disposed')
     if (this.controller.signal.aborted) {
-      throw (
-        this.controller.signal.reason ||
-        new DOMException('Capture aborted', 'AbortError')
-      )
+      throw this.controller.signal.reason
     }
   }
 
@@ -245,7 +242,9 @@ export class CaptureTask {
       const abort = () => {
         clean()
         reject(
-          signal.reason || new DOMException('Capture aborted', 'AbortError'),
+          signal.aborted
+            ? signal.reason
+            : new DOMException('Capture aborted', 'AbortError'),
         )
       }
       signal.addEventListener('abort', abort, { once: true })
