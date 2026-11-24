@@ -1,5 +1,15 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-24 A-B-A 与另一处真实文档缓存路径
+
+仅替换 lockResources 的 B（`1995c32`）在 PR 与直接 push 的正常 source/独立对照共四轮中，原三项 Firefox 均回收。但完整流水线仍失败：PR 45338308309 为 1114 / 1 项 WebKit 冻结 SVG 源文档失败 / 4 跳过；push 45338301619 为 1113 / Firefox 移除 iframe 与 WebKit 冻结普通源文档两项失败 / 4 跳过。PR 对照 1115 / 4 通过，push 对照仍有 Firefox 移除 iframe 失败（1114 / 1 / 4），均不替换正常失败，浏览器包未运行。
+
+恢复准确原操作的 A（`7e69042`）后，PR 45339609829 的正常 source 与独立对照均恢复原三项 Firefox 失败（1112 / 3 / 4）；coverage 1234 / 4、静态/工具门禁及 CodeQL 45339609828 通过，浏览器包未运行。六份新图目标与完整 GC/快照匹配，采集/原生日志错误为零，文档属性包装/原型的缓存路径恢复。与此同时，同一 A 的 push 45339605085 完整通过 1234 / 1115 / 162（前两阶段各 4 跳过），再次否定确定的“当且仅当”。跨 job 的排序、进程、时间并不相同，不能把一次变化当独立根因证明。
+
+B 的两份实际 Firefox 移除 iframe 图也成功采集，普通 GC 有明确 util.px → GetProp CallNativeGetterResult → 源窗口/文档路径，快照亦对应；此位置含 document.defaultView 读取。这是旧本地关联失败在真实远端的同类引用证据，不能因原三项改善就忽略。WebKit 原始失败和额外诊断/对照之后回收的差异全部保留，不按完整修复或图片检查已执行处理。
+
+[342 份控制、准确 A/B 源码、完整日志/上传物、反向六图及两份 iframe 图](evidence/gc-observer-controls/lock-counterfactual-summary.json)已归档；28 组档案共 3170 原始文件全部可校验。当前运行时代码已恢复 A，与原基线相同；B 可从准确提交恢复。下一步验证保持原 DOM/创建文档语义的反射式属性读取，并覆盖已观察到的 defaultView 访问类；完整源码、构建包、远端、真实设备及旧需求范围仍须验收。目标保持进行中，无可合入修复或 npm 发布。
+
 ## 2026-11-24 对照通过三项 Firefox，但完整 CI 仍失败
 
 准确 `1995c32` 的 [PR CI 45338308309](https://github.com/bubkoo/html-to-image/actions/runs/45338308309) 测试合并提交 `bbe7ad9`：静态/工具检查与 coverage 1234 / 4 跳过通过；原三项 Firefox 环境/待字体回收在正常 source 与独立 source 对照中均通过，两项环境保留 nativeCollected=true / ownerCollected=true，待字体 ownerCollected=true、无额外 native 诊断回收。

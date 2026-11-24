@@ -512,3 +512,33 @@ failure data. Tests/observer/config/three primary requests/deadlines/skips remai
 unchanged. Compare actual Firefox results/cache witnesses before attribution;
 no single passing B, later WebKit collection or passing repeat is a fix claim.
 See [reversal preflight](../gc-lock-operations-reversal-preflight.json).
+
+
+### A-B-A reversal and the remaining public-source access
+
+B1995c32's original three Firefox private-document primaries pass in both PR/push
+normal source and their independent controls. Full PR45338308309 still fails
+WebKit frozen SVG source (1114/one/four); push45338301619 fails Firefox removed
+iframe plus WebKit frozen detached source (1113/two/four). PR control passes1115/
+four; push control still fails removed-iframe Firefox1114/one/four. No package
+acceptance or primary-failure waiver follows.
+
+A7e69042 restores exact1e5117b/4a70ef0 runtime bytes. PR45339609829 and its separate
+source control fail original three cases1112/three/four after1234/four coverage;
+CodeQL45339609828 passes. Six collected targets/GC IDs/snapshots and374 native API
+paths verify with no observation/native log errors. Same A push45339605085 fully
+passes1234/1115/162, four/four skips. Keep the inconsistent baseline: cross-job
+ordering/process/timing is not identical and this is not a deterministic iff.
+
+B's normal/repeat actual removed-iframe graphs both retain the source through
+util.px -> explicit GetProp CallNativeGetterResult/shape -> Window/Document; the
+saved snapshot agrees, excluding only named observer/explicit weak boundaries.
+This accesses Document.defaultView at the site. Do not ignore this separate
+failure or the two different WebKit failures merely because private owners pass.
+
+The [342-file archive](lock-counterfactual-summary.json) preserves exact native
+cold/warm controls, A/B/reversal source, complete selected run logs/uploads and
+all new graphs/analyses.28 archives verify3170 files. A runtime is restored; B
+remains recoverable at1995c32. Next test reflective Document access that preserves
+original property/method/creation semantics and covers observed defaultView
+accesses. Full gates/device/original issue scope still apply; no accepted fix.

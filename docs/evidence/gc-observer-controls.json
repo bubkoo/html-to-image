@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 2828,
+  "totalRawFiles": 3170,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -3427,5 +3427,553 @@
     },
     "rawFiles": 254
   },
-  "remoteReferenceRawFiles": 254
+  "remoteReferenceRawFiles": 254,
+  "lockCounterfactual": {
+    "date": "2026-11-24",
+    "status": "Operation-group A-B-A outcomes and cache witnesses preserved; no accepted fix",
+    "AOriginal": "4a70ef0231c2ab66deeccd3ab39c94fd9a199f07",
+    "ADocumentationHead": "1e5117babe7d114f3465a13208819ed64be88277",
+    "BLockOperations": "1995c32bb5c3dac77d7e6e74d4ec2d70ded69cc1",
+    "ARestored": "7e6904249d135653ace5a1993f2645eb31d4652f",
+    "AOriginalEvidence": "remote-reference indexed archive: original and source repeat both three Firefox private SVG failures; all six raw graphs",
+    "A1ePR": {
+      "run": 45336954990,
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "sourceSkipped": 4,
+      "browserPackages": "not run",
+      "saved": "complete logs/metadata only; no complete uploaded-artifact claim"
+    },
+    "BPR": {
+      "run": 45338308309,
+      "testedMerge": "bbe7ad9dc61752b17f2206040968617868c6871b",
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1114,
+      "sourceFailed": 1,
+      "sourceSkipped": 4,
+      "failures": ["WebKit frozen SVG host-tree document collection"],
+      "originalThreeFirefox": "pass in normal source and separate source control",
+      "sourceControl": "1115pass/four skips; not replacement of primary failure",
+      "browserPackages": "not run",
+      "CodeQL": {
+        "run": 45338308376,
+        "conclusion": "success"
+      }
+    },
+    "BPush": {
+      "run": 45338301619,
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1113,
+      "sourceFailed": 2,
+      "sourceSkipped": 4,
+      "failures": [
+        "Firefox removed iframe document with frozen snapshot",
+        "WebKit detached source document with frozen snapshot"
+      ],
+      "originalThreeFirefox": "pass in normal source and separate source control",
+      "sourceControl": "1114pass/one removed-iframe Firefox failure/four skips",
+      "browserPackages": "not run",
+      "removedIframeGraphs": [
+        {
+          "phase": "primary",
+          "gcNodes": 193530,
+          "unparsedRows": 0,
+          "moduleCandidates": 84,
+          "namedObserverEdgesExcludedModuleCandidates": 76,
+          "selectedModulePath": [
+            {
+              "from": "0x2a34062298f8",
+              "edge": "module bindings environment",
+              "to": "0x226b9941c2f0"
+            },
+            {
+              "from": "0x226b9941c2f0",
+              "edge": "px",
+              "to": "0x10b10efa4c48"
+            },
+            {
+              "from": "0x10b10efa4c48",
+              "edge": "JSFunction script",
+              "to": "0x10b10ef08060"
+            },
+            {
+              "from": "0x10b10ef08060",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+              "to": "0x268c3e6bdd40"
+            },
+            {
+              "from": "0x268c3e6bdd40",
+              "edge": "base",
+              "to": "0x10f82642ad60"
+            },
+            {
+              "from": "0x10f82642ad60",
+              "edge": "baseshape_global",
+              "to": "0x344565c33e48"
+            },
+            {
+              "from": "0x344565c33e48",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x2ff41a6ff548"
+            }
+          ],
+          "snapshotNodes": 185592,
+          "nativePathsVerified": 107
+        },
+        {
+          "phase": "separate repeat",
+          "gcNodes": 193524,
+          "unparsedRows": 0,
+          "moduleCandidates": 84,
+          "namedObserverEdgesExcludedModuleCandidates": 76,
+          "selectedModulePath": [
+            {
+              "from": "0xc3fd3299598",
+              "edge": "module bindings environment",
+              "to": "0x15f1ac79a388"
+            },
+            {
+              "from": "0x15f1ac79a388",
+              "edge": "px",
+              "to": "0x2ed52ea3d270"
+            },
+            {
+              "from": "0x2ed52ea3d270",
+              "edge": "JSFunction script",
+              "to": "0x23511aca3060"
+            },
+            {
+              "from": "0x23511aca3060",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+              "to": "0x25552a271ae0"
+            },
+            {
+              "from": "0x25552a271ae0",
+              "edge": "base",
+              "to": "0xc0d4575cd60"
+            },
+            {
+              "from": "0xc0d4575cd60",
+              "edge": "baseshape_global",
+              "to": "0x283494df3c90"
+            },
+            {
+              "from": "0x283494df3c90",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x3ac9ef318548"
+            }
+          ],
+          "snapshotNodes": 185586,
+          "nativePathsVerified": 107
+        }
+      ]
+    },
+    "ARestoredPR": {
+      "run": 45339609829,
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "sourceSkipped": 4,
+      "failures": [
+        "Firefox environment false",
+        "Firefox environment true",
+        "Firefox pending-font"
+      ],
+      "sourceControl": "same1112/three/four; original failure retained",
+      "browserPackages": "not run",
+      "CodeQL": {
+        "run": 45339609828,
+        "conclusion": "success"
+      },
+      "graphs": [
+        {
+          "phase": "primary",
+          "case": "environment-false",
+          "primary": {
+            "nativeCollected": true,
+            "ownerCollected": false
+          },
+          "target": "0x386316c19c10",
+          "gcNodes": 95441,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 76,
+          "selectedPath": [
+            {
+              "from": "0x1375c5d47c10",
+              "edge": "module bindings environment",
+              "to": "0xfcc2db57388"
+            },
+            {
+              "from": "0xfcc2db57388",
+              "edge": "createSVGStyleEnvironment",
+              "to": "0x3415e510c9a8"
+            },
+            {
+              "from": "0x3415e510c9a8",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbccce0"
+            },
+            {
+              "from": "0xfcc2dbccce0",
+              "edge": "script-gcthing",
+              "to": "0xfcc2dbcae40"
+            },
+            {
+              "from": "0xfcc2dbcae40",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbccd80"
+            },
+            {
+              "from": "0xfcc2dbccd80",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x2ceb60b42ac0"
+            },
+            {
+              "from": "0x2ceb60b42ac0",
+              "edge": "base",
+              "to": "0xfcc2dbc76d0"
+            },
+            {
+              "from": "0xfcc2dbc76d0",
+              "edge": "baseshape_global",
+              "to": "0x16014416a3a0"
+            },
+            {
+              "from": "0x16014416a3a0",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x386316c19c10"
+            }
+          ],
+          "snapshotNodes": 88820,
+          "nativeAPIPathsVerified": 41,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "primary",
+          "case": "environment-true",
+          "primary": {
+            "nativeCollected": false,
+            "ownerCollected": false
+          },
+          "target": "0x3a76ff118430",
+          "gcNodes": 116246,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x1375c5d47c10",
+              "edge": "module bindings environment",
+              "to": "0xfcc2db57388"
+            },
+            {
+              "from": "0xfcc2db57388",
+              "edge": "detectSVGStylePolicy",
+              "to": "0x3415e510c938"
+            },
+            {
+              "from": "0x3415e510c938",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbcc970"
+            },
+            {
+              "from": "0xfcc2dbcc970",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0xe9f393094c0"
+            },
+            {
+              "from": "0xe9f393094c0",
+              "edge": "base",
+              "to": "0xfcc2dbc7778"
+            },
+            {
+              "from": "0xfcc2dbc7778",
+              "edge": "baseshape_global",
+              "to": "0x8d77e5f9ef8"
+            },
+            {
+              "from": "0x8d77e5f9ef8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x3a76ff118430"
+            }
+          ],
+          "snapshotNodes": 108705,
+          "nativeAPIPathsVerified": 70,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "primary",
+          "case": "pending-font",
+          "primary": {
+            "collected": false
+          },
+          "target": "0x3a76ff118200",
+          "gcNodes": 114658,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x1375c5d47c10",
+              "edge": "module bindings environment",
+              "to": "0xfcc2db57388"
+            },
+            {
+              "from": "0xfcc2db57388",
+              "edge": "freezeSVGFragmentStyles",
+              "to": "0x3415e510c9e0"
+            },
+            {
+              "from": "0x3415e510c9e0",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbcf150"
+            },
+            {
+              "from": "0xfcc2dbcf150",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+              "to": "0x1375c5ddc860"
+            },
+            {
+              "from": "0x1375c5ddc860",
+              "edge": "base",
+              "to": "0xfcc2dbc7790"
+            },
+            {
+              "from": "0xfcc2dbc7790",
+              "edge": "baseshape_global",
+              "to": "0x1d6b035c04a8"
+            },
+            {
+              "from": "0x1d6b035c04a8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x3a76ff118200"
+            }
+          ],
+          "snapshotNodes": 107446,
+          "nativeAPIPathsVerified": 76,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "same-configuration-control",
+          "case": "environment-false",
+          "primary": {
+            "nativeCollected": true,
+            "ownerCollected": false
+          },
+          "target": "0x1fc479ea5778",
+          "gcNodes": 95457,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 76,
+          "selectedPath": [
+            {
+              "from": "0x728b3af8238",
+              "edge": "module bindings environment",
+              "to": "0x3a8552c2d8e0"
+            },
+            {
+              "from": "0x3a8552c2d8e0",
+              "edge": "createSVGStyleEnvironment",
+              "to": "0x728d369a430"
+            },
+            {
+              "from": "0x728d369a430",
+              "edge": "JSFunction script",
+              "to": "0x728d361a9c0"
+            },
+            {
+              "from": "0x728d361a9c0",
+              "edge": "script-gcthing",
+              "to": "0x728d361b698"
+            },
+            {
+              "from": "0x728d361b698",
+              "edge": "JSFunction script",
+              "to": "0x728d361aa60"
+            },
+            {
+              "from": "0x728d361aa60",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x92cff2f5180"
+            },
+            {
+              "from": "0x92cff2f5180",
+              "edge": "base",
+              "to": "0x728d360ed30"
+            },
+            {
+              "from": "0x728d360ed30",
+              "edge": "baseshape_global",
+              "to": "0x846d61db6b8"
+            },
+            {
+              "from": "0x846d61db6b8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x1fc479ea5778"
+            }
+          ],
+          "snapshotNodes": 88820,
+          "nativeAPIPathsVerified": 41,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "same-configuration-control",
+          "case": "environment-true",
+          "primary": {
+            "nativeCollected": false,
+            "ownerCollected": false
+          },
+          "target": "0x23f9248183f8",
+          "gcNodes": 116226,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x728b3af8238",
+              "edge": "module bindings environment",
+              "to": "0x3a8552c2d8e0"
+            },
+            {
+              "from": "0x3a8552c2d8e0",
+              "edge": "detectSVGStylePolicy",
+              "to": "0x728d369a3c0"
+            },
+            {
+              "from": "0x728d369a3c0",
+              "edge": "JSFunction script",
+              "to": "0x728d361a650"
+            },
+            {
+              "from": "0x728d361a650",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x2f59ac6f59a0"
+            },
+            {
+              "from": "0x2f59ac6f59a0",
+              "edge": "base",
+              "to": "0x728d360e7f0"
+            },
+            {
+              "from": "0x728d360e7f0",
+              "edge": "baseshape_global",
+              "to": "0x846d61db348"
+            },
+            {
+              "from": "0x846d61db348",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x23f9248183f8"
+            }
+          ],
+          "snapshotNodes": 108893,
+          "nativeAPIPathsVerified": 70,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "same-configuration-control",
+          "case": "pending-font",
+          "primary": {
+            "collected": false
+          },
+          "target": "0x23f924818200",
+          "gcNodes": 114693,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x728b3af8238",
+              "edge": "module bindings environment",
+              "to": "0x3a8552c2d8e0"
+            },
+            {
+              "from": "0x3a8552c2d8e0",
+              "edge": "detectSVGStylePolicy",
+              "to": "0x728d369a3c0"
+            },
+            {
+              "from": "0x728d369a3c0",
+              "edge": "JSFunction script",
+              "to": "0x728d361a650"
+            },
+            {
+              "from": "0x728d361a650",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x23f924822e40"
+            },
+            {
+              "from": "0x23f924822e40",
+              "edge": "base",
+              "to": "0x728d360e898"
+            },
+            {
+              "from": "0x728d360e898",
+              "edge": "baseshape_global",
+              "to": "0x1d6c65535ef8"
+            },
+            {
+              "from": "0x1d6c65535ef8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x23f924818200"
+            }
+          ],
+          "snapshotNodes": 107464,
+          "nativeAPIPathsVerified": 76,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        }
+      ]
+    },
+    "ARestoredPush": {
+      "run": 45339605085,
+      "conclusion": "success",
+      "coveragePassed": 1234,
+      "coverageSkipped": 4,
+      "sourcePassed": 1115,
+      "sourceSkipped": 4,
+      "browserPackagesPassed": 162,
+      "limits": "Same A source can pass; does not resolve inconsistent baseline or establish a fix"
+    },
+    "nativeControls": "Five library-free direct/borrowed cold/warm/replayed variants all collect, including20000 direct calls; weak/strong controls valid; not independent native reproduction or verified JIT tier",
+    "BLocal": "lint/build/ESM-CJS-UMD/tarball/TS4.9-current entries/browser types passed;149focusedpass/one inherited skip across3engines;407input hashes stable",
+    "restorationProof": {
+      "AbytesSHA256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef",
+      "BbytesSHA256": "8bc318b6a266e5415a0f95fbae5ee84d30af9fe2c55c4a05c2b49ddaa9d27683",
+      "AEqualsOriginalRuntime": true,
+      "testScriptConfigurationBytes": "unchanged across A/B/A; source policy operation group only",
+      "limits": "Different CI jobs/process/timing/sort caches are not identical; within each job the existing repeat restores its saved pre-source cache. A-B-A outcomes support a targeted operation-group hypothesis, not deterministic iff or proof of one necessary accessor."
+    },
+    "cacheMechanismEvidence": "Actual GC guard-owner lookup reaches private Document expando shapes with location and DocumentPrototype, through explicit GetProp cacheir-shape/object fields. A private-SVG paths return after restoration. B removed-iframe actual/repeat graphs instead reach via util.px GetProp CallNativeGetterResult -> source Window/Document; px has document.defaultView at that site. Native/context/compiler/cache effects not all ruled out.",
+    "webkitLimits": "Normal B PR and push have different WebKit collection failures; later diagnostic collection or separate repeat can pass. Original failures retained; neither discarded as flakes nor attributed to B without evidence. Failed pre-render image assertions do not imply image acceptance.",
+    "next": "Test semantically equivalent reflective Document property reads, rather than altering created-node realm, and cover the observed defaultView access class across capture paths. Preserve normal full CI/package/output/device gates. No claim B is ready to merge.",
+    "cleanup": {
+      "at": "2026-11-24T06:39:29.661537+00:00",
+      "localContainer": "stopped; tracked source restored",
+      "localBrowserSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "remoteARestoredPR": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      },
+      "remoteBPR": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      },
+      "remoteBPush": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      },
+      "deviceUsed": false,
+      "published": false
+    },
+    "rawFiles": 342
+  },
+  "lockCounterfactualRawFiles": 342
 }
