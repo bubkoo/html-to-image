@@ -1,5 +1,17 @@
 # 开放 PR 处理台账
 
+## 2026-11-24 捕获原测试失败后的元素访问缓存路径
+
+源码 `1e208d4`、补证 head `b0f361f` 的最新默认 CI [45371616776](https://github.com/bubkoo/html-to-image/actions/runs/45371616776) 已通过 1249 coverage / 1130 source / 162 构建包（4/4 既有跳过），合并测试 `8512cf9` 已核对准确 head；CodeQL 45371616813 通过。这些远端通过仍不能替换本地原始失败。
+
+本轮仅在隔离环境增加观察，未改生产字节。先在缓存原判定后采样的版本完整通过 1249/1130，未捕获失败；独立 ESM 场景复用原源文档/字体/环境 helper，64 对文档的 128 个弱引用均回收，也不能替换原完整流程。随后保留所有原测试文件字节，由 WeakRef 包装注册表和测试失败回调采样。两次均在 coverage 复现 Firefox 移除 iframe 快照失败：1248 通过 / 1 失败 / 4 跳过，source 与构建包未运行；原错误保留 nativeCollected=true、capturedCollected=false，原三次请求和断言未变。首轮观察范围未覆盖该文件；扩展到四个已有生命周期文件后取得引用图。
+
+创建栈对应原生 ref0 与 captureFrame 的 ref1：ref0 已无目标，ref1 唯一匹配 HTMLDocument `0x39e243c75388`，堆图和后续原始 GC 日志中身份均存在，工具无错，弱/强对照和已知成员校验通过。排除显式弱边、全部名字带 weak 的缓存边及调试器边界后，仍有 5 文件 14 个脚本中的 49 个属性缓存入口连接该文档（48 个 object、1 个 shape）；包含 ownerDocument、childNodes、style、scrollTop 等 getter 与元素原型。模块根计数为 13，但它们有共享路径，不是 13 个独立根因。相同源码/覆盖率变换重建的 14 个函数起始位置及 SourceMap 原文均匹配。
+
+这些后采样路径支持继续隔离跨窗口 Node/Window 访问，不能证明失败前的唯一原因。注册表改变 WeakRef 构造器身份，测试清理先于采样，两次图采集有先后；过滤后的原生 CC 日志缺失该目标与原生 holder，不能宣称完整原生所有权归因。448 个静态 Node/Window 访问的审计已记录，尚未改写。浏览器、测试、配置和构建共 408 输入已还原；电脑网络设置未改。
+
+[完整原始日志、对照、失败图、排弱敏感性分析、源码映射与访问审计](evidence/document-property-lifetime/source-getter-paths.json)已归档并逐项核对哈希。#650 保持草稿，生命周期、#585 与 #398 等原始边界仍开放；本轮未新增生产修复或发布 npm。
+
 ## 2026-11-24 Document 访问类验收：远端通过，本地回收失败
 
 候选 `1e208d4` 在 [#650](https://github.com/bubkoo/html-to-image/pull/650) 的默认 CI [45369299428](https://github.com/bubkoo/html-to-image/actions/runs/45369299428) 完整通过 1249 coverage / 1130 source / 162 构建包（4/4 既有跳过），实际合并测试 `0924183` 已验证含准确 head；CodeQL 45369299463 通过，8 份上传物已下载并核对摘要。

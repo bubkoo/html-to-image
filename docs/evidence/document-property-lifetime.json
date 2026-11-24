@@ -123,7 +123,7 @@
   "broaderScope": "Old28 PR/Issue dispositions remain in both trackers; #585 current-browser appearance/resource/font/native scope and manual #398 trusted-click acceptance stay open. No npm publication or old contributor PR closure.",
   "index": "document-property-lifetime/index.json",
   "latestFactoryPreflight": "document-property-lifetime/factory-preflight.json",
-  "latestStatus": "1e208d4 default CI1249/1130/162 and CodeQL pass, physical offline112 pass. Local normal source1128/2Firefox failures/4skips includes one native control failure; standalone packages162 pass. Draft only; collect actual failing holder paths before more production changes.",
+  "latestStatus": "Production b0f361f exact-head CI/CodeQL pass; original local failures remain. Original test-file bytes retained in registry observer; coverage1248/1Firefox/4 captures paired native=true/captured=false. Post-failure graph maps14 scripts/49 ordinary property-cache fields after excluding all weak-named edges. Node/Window isolation not implemented; draft only.",
   "latestAccessPreflight": "document-property-lifetime/access-preflight.json",
   "latestAccessValidation": "document-property-lifetime/access-validation.json",
   "currentSourceHead": "1e208d44b94df468ee369605c15df3e22567b9d3",
@@ -151,11 +151,13 @@
     "cases": 5,
     "threeEnginePassed": 15
   },
-  "rawFiles": 303,
+  "rawFiles": 477,
   "indexes": [
     "document-property-lifetime/index.json",
     "document-property-lifetime/followup-index.json",
     "document-property-lifetime/access-preflight-index.json",
-    "document-property-lifetime/access-validation-index.json"
-  ]
+    "document-property-lifetime/access-validation-index.json",
+    "document-property-lifetime/source-getter-index.json"
+  ],
+  "latestSourceGetterPaths": "document-property-lifetime/source-getter-paths.json"
 }
