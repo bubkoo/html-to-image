@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "status": "Current DOM candidate passes local full gates and current physical UMD subset; preserve failures and consult exact published-head PR checks separately; PR remains draft",
+  "status": "Head4d3d2a3 patch failure preserved; production unchanged; native canvas coverage followup passes local1300/1181; newest exact-head checks remain separate",
   "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
   "branch": "codex/document-property-lifetime",
   "productionScope": "15 source files relative to master: reflective Document/Node/Window and CSS/collection/font/media/rect/implementation access boundaries, four erased array/prototype accesses, transparent proxy lookup targets with explicit original receivers, overloaded method forwarding and strict assignment behavior",
@@ -123,7 +123,7 @@
   "broaderScope": "Old28 PR/Issue dispositions remain in both trackers; #585 current-browser appearance/resource/font/native scope and manual #398 trusted-click acceptance stay open. No npm publication or old contributor PR closure.",
   "index": "document-property-lifetime/index.json",
   "latestFactoryPreflight": "document-property-lifetime/factory-preflight.json",
-  "latestStatus": "Current DOM candidate passes local full gates and current physical UMD subset; preserve failures and consult exact published-head PR checks separately; PR remains draft",
+  "latestStatus": "Head4d3d2a3 patch failure preserved; production unchanged; native canvas coverage followup passes local1300/1181; newest exact-head checks remain separate",
   "latestAccessPreflight": "document-property-lifetime/access-preflight.json",
   "latestAccessValidation": "document-property-lifetime/access-validation.json",
   "currentSourceHead": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
@@ -161,15 +161,18 @@
     "reflective DOM writes return the RHS when a native setter normalizes it",
     "reflective presence checks preserve key evaluation order without invoking getters"
   ],
-  "rawFiles": 744,
+  "rawFiles": 772,
   "indexes": [
     "document-property-lifetime/index.json",
     "document-property-lifetime/followup-index.json",
     "document-property-lifetime/access-preflight-index.json",
     "document-property-lifetime/access-validation-index.json",
     "document-property-lifetime/source-getter-index.json",
-    "document-property-lifetime/dom-access-index.json"
+    "document-property-lifetime/dom-access-index.json",
+    "document-property-lifetime/dom-access-remote-index.json"
   ],
   "latestSourceGetterPaths": "document-property-lifetime/source-getter-paths.json",
-  "latestDomAccessValidation": "document-property-lifetime/dom-access.json"
+  "latestDomAccessValidation": "document-property-lifetime/dom-access.json",
+  "latestDomAccessRemoteValidation": "document-property-lifetime/dom-access-remote-validation.json",
+  "latestCanvasCoverageFollowup": "document-property-lifetime/dom-access-remote-validation.json"
 }
