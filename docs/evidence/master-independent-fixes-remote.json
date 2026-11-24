@@ -1,0 +1,873 @@
+{
+  "schemaVersion": 1,
+  "repository": "bubkoo/html-to-image",
+  "scope": "Immutable-head remote CI/CodeQL readback of two independent draft PRs; no manual rerun or browser launch.",
+  "apiReadTimes": {
+    "rawPR653": "2026-11-24T21:31:42.938Z",
+    "rawPR654": "2026-11-24T21:31:42.937Z",
+    "run653": "2026-11-24T21:28:00.419Z",
+    "run654": "2026-11-24T21:27:59.989Z",
+    "rawJobs653": "2026-11-24T21:29:22.285Z",
+    "rawJobs654": "2026-11-24T21:29:22.285Z",
+    "rawArtifacts653": "2026-11-24T21:30:20.354Z",
+    "rawArtifacts654": "2026-11-24T21:30:20.340Z",
+    "codeqlRun653": "2026-11-24T21:28:37.314Z",
+    "codeqlRun654": "2026-11-24T21:28:37.725Z",
+    "rawCodeqlJobs653": "2026-11-24T21:30:20.478Z",
+    "rawCodeqlJobs654": "2026-11-24T21:30:20.623Z",
+    "codeqlArtifacts653": "2026-11-24T21:30:20.352Z",
+    "codeqlArtifacts654": "2026-11-24T21:30:20.469Z",
+    "headCommit653": "2026-11-24T21:31:42.928Z",
+    "headCommit654": "2026-11-24T21:31:42.917Z",
+    "mergeCommit653": "2026-11-24T21:31:42.935Z",
+    "mergeCommit654": "2026-11-24T21:31:42.932Z",
+    "ciLog653": "2026-11-24T21:28:40.556Z",
+    "ciLog654": "2026-11-24T21:28:40.471Z",
+    "codeqlLog653-138781384833": "2026-11-24T21:29:25.598Z",
+    "codeqlLog654-138783797808": "2026-11-24T21:29:25.843Z",
+    "testSource653": "2026-11-24T21:31:43.022Z",
+    "testSource654": "2026-11-24T21:31:42.720Z",
+    "gutterSource653": "2026-11-24T21:33:34.969Z",
+    "gutterSource654": "2026-11-24T21:33:34.957Z"
+  },
+  "additionalFixtureRead": "2026-11-24T21:40:07.253Z",
+  "baseSHAIsSnapshotOnly": true,
+  "pullRequests": [
+    {
+      "pr": 653,
+      "url": "https://github.com/bubkoo/html-to-image/pull/653",
+      "state": "open",
+      "draft": true,
+      "remoteUpdatedAt": "2026-11-24T21:13:29Z",
+      "headSHA": "5b074c4168158d5047f5bc65155f534547273635",
+      "baseSHA": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "testedMerge": {
+        "sha": "5347dd116f8d900a440335586d4f9c5651088040",
+        "parents": [
+          "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+          "5b074c4168158d5047f5bc65155f534547273635"
+        ],
+        "headIsSecondParent": true,
+        "mergeTreeSHA": "b6652ae526cd2703c71bccf46fc3dcab8546d6dc",
+        "headTreeSHA": "b6652ae526cd2703c71bccf46fc3dcab8546d6dc",
+        "mergeTreeEqualsHeadTree": true,
+        "checkoutProvenByBothJobLogs": true
+      },
+      "runs": {
+        "ci": {
+          "id": 45488840651,
+          "html_url": "https://github.com/bubkoo/html-to-image/actions/runs/45488840651",
+          "head_sha": "5b074c4168158d5047f5bc65155f534547273635",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_attempt": 1,
+          "created_at": "2026-11-24T21:13:11Z",
+          "updated_at": "2026-11-24T21:16:44Z",
+          "jobID": 138781385560,
+          "jobURL": "https://github.com/bubkoo/html-to-image/actions/runs/45488840651/job/138781385560",
+          "jobStartedAt": "2026-11-24T21:13:14Z",
+          "jobCompletedAt": "2026-11-24T21:16:44Z",
+          "actualCheckoutSHA": "5347dd116f8d900a440335586d4f9c5651088040",
+          "artifactCount": 1,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-24T21:13:15Z",
+              "completed_at": "2026-11-24T21:13:18Z"
+            },
+            {
+              "name": "⤵️　Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-24T21:13:18Z",
+              "completed_at": "2026-11-24T21:13:21Z"
+            },
+            {
+              "name": "🧾　Verify tested revision",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-24T21:13:21Z",
+              "completed_at": "2026-11-24T21:13:21Z"
+            },
+            {
+              "name": "🎉　Setup pnpm",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-11-24T21:13:21Z",
+              "completed_at": "2026-11-24T21:13:22Z"
+            },
+            {
+              "name": "🎉　Setup nodejs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-11-24T21:13:22Z",
+              "completed_at": "2026-11-24T21:13:23Z"
+            },
+            {
+              "name": "🚧　Install dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-11-24T21:13:23Z",
+              "completed_at": "2026-11-24T21:13:26Z"
+            },
+            {
+              "name": "🧹　Check source and test lint",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-11-24T21:13:26Z",
+              "completed_at": "2026-11-24T21:13:29Z"
+            },
+            {
+              "name": "📦　Build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-11-24T21:13:29Z",
+              "completed_at": "2026-11-24T21:13:38Z"
+            },
+            {
+              "name": "🔎　Check published entries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-11-24T21:13:38Z",
+              "completed_at": "2026-11-24T21:13:42Z"
+            },
+            {
+              "name": "🔎　Check browser test types",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-11-24T21:13:42Z",
+              "completed_at": "2026-11-24T21:13:45Z"
+            },
+            {
+              "name": "🌐　Install browser engines",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-11-24T21:13:45Z",
+              "completed_at": "2026-11-24T21:14:31Z"
+            },
+            {
+              "name": "🧪　Test migrated regressions and browser behavior",
+              "status": "completed",
+              "conclusion": "failure",
+              "number": 12,
+              "started_at": "2026-11-24T21:14:31Z",
+              "completed_at": "2026-11-24T21:16:40Z"
+            },
+            {
+              "name": "📦　Test built package in browsers",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 13,
+              "started_at": "2026-11-24T21:16:40Z",
+              "completed_at": "2026-11-24T21:16:40Z"
+            },
+            {
+              "name": "📋　Upload browser report",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-11-24T21:16:40Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            },
+            {
+              "name": "🔑　Generate Token",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 15,
+              "started_at": "2026-11-24T21:16:42Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            },
+            {
+              "name": "💡　Coveralls",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 16,
+              "started_at": "2026-11-24T21:16:42Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            },
+            {
+              "name": "💡　Codecov",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 17,
+              "started_at": "2026-11-24T21:16:42Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            },
+            {
+              "name": "Post 🎉　Setup nodejs",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 32,
+              "started_at": "2026-11-24T21:16:42Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            },
+            {
+              "name": "Post 🎉　Setup pnpm",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 33,
+              "started_at": "2026-11-24T21:16:42Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            },
+            {
+              "name": "Post ⤵️　Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 34,
+              "started_at": "2026-11-24T21:16:42Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 35,
+              "started_at": "2026-11-24T21:16:42Z",
+              "completed_at": "2026-11-24T21:16:42Z"
+            }
+          ]
+        },
+        "codeql": {
+          "id": 45488840734,
+          "html_url": "https://github.com/bubkoo/html-to-image/actions/runs/45488840734",
+          "head_sha": "5b074c4168158d5047f5bc65155f534547273635",
+          "status": "completed",
+          "conclusion": "success",
+          "run_attempt": 1,
+          "created_at": "2026-11-24T21:13:11Z",
+          "updated_at": "2026-11-24T21:14:29Z",
+          "jobID": 138781384833,
+          "jobURL": "https://github.com/bubkoo/html-to-image/actions/runs/45488840734/job/138781384833",
+          "jobStartedAt": "2026-11-24T21:13:14Z",
+          "jobCompletedAt": "2026-11-24T21:14:28Z",
+          "actualCheckoutSHA": "5347dd116f8d900a440335586d4f9c5651088040",
+          "artifactCount": 0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-24T21:13:14Z",
+              "completed_at": "2026-11-24T21:13:15Z"
+            },
+            {
+              "name": "Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-24T21:13:15Z",
+              "completed_at": "2026-11-24T21:13:17Z"
+            },
+            {
+              "name": "Initialize CodeQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-24T21:13:17Z",
+              "completed_at": "2026-11-24T21:13:32Z"
+            },
+            {
+              "name": "Autobuild",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-11-24T21:13:32Z",
+              "completed_at": "2026-11-24T21:13:35Z"
+            },
+            {
+              "name": "Perform CodeQL Analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-11-24T21:13:35Z",
+              "completed_at": "2026-11-24T21:14:26Z"
+            },
+            {
+              "name": "Post Perform CodeQL Analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-11-24T21:14:26Z",
+              "completed_at": "2026-11-24T21:14:26Z"
+            },
+            {
+              "name": "Post Initialize CodeQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-11-24T21:14:26Z",
+              "completed_at": "2026-11-24T21:14:27Z"
+            },
+            {
+              "name": "Post Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-11-24T21:14:27Z",
+              "completed_at": "2026-11-24T21:14:27Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-11-24T21:14:27Z",
+              "completed_at": "2026-11-24T21:14:27Z"
+            }
+          ]
+        }
+      },
+      "tests": {
+        "coverage": {
+          "passed": 1234,
+          "failed": 0,
+          "skipped": 4
+        },
+        "source": {
+          "passed": 1113,
+          "failed": 2,
+          "skipped": 4
+        },
+        "publishedEntryContract": "passed",
+        "lintBuildAndBrowserTypes": "passed",
+        "builtPackageBrowserTests": "skipped",
+        "coveralls": "skipped",
+        "codecov": "skipped"
+      },
+      "pinnedSource": {
+        "ref": "5b074c4168158d5047f5bc65155f534547273635",
+        "blobSHA": "e4358a6c0ca24889b59a33e3efd9f58a64c06ea4",
+        "sourceURL": "https://github.com/bubkoo/html-to-image/blob/5b074c4168158d5047f5bc65155f534547273635/test/browser-unit/svg-style-source-lifetime.test.ts"
+      },
+      "artifact": {
+        "artifactID": 14964992982,
+        "artifactName": "playwright-report",
+        "GitHubDigest": "sha256:c58bdbee184e892e996aff3aa9894374c450375b1cbcd87c74d21a4cfbb6d656",
+        "actualDigest": "sha256:c58bdbee184e892e996aff3aa9894374c450375b1cbcd87c74d21a4cfbb6d656",
+        "sizeInBytes": 8439,
+        "digestVerified": true,
+        "zipCRCVerified": true,
+        "safePathsRegularFilesOnly": true,
+        "members": [
+          {
+            "path": ".vitest/attachments/55eae901b1ba039f47d3b6257c572c077c274e07.png",
+            "bytes": 3219,
+            "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+          },
+          {
+            "path": ".vitest/attachments/dfd36a8568ecced3cf695ff08ddfd829d31b7ffc.png",
+            "bytes": 3219,
+            "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+          },
+          {
+            "path": ".vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-false-and-opened-true.png",
+            "bytes": 3219,
+            "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+          },
+          {
+            "path": ".vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-true-and-opened-true.png",
+            "bytes": 3219,
+            "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+            "bytes": 946,
+            "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+            "bytes": 943,
+            "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+            "bytes": 946,
+            "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter.json",
+            "bytes": 30313,
+            "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+          }
+        ],
+        "memberCount": 8,
+        "signedDownloadURLRecorded": false
+      },
+      "failures": [
+        {
+          "browser": "firefox",
+          "case": "disposed SVG owner releases source with font=false and opened=true",
+          "assertion": "held.reference.deref() === undefined",
+          "line": 83,
+          "column": 52,
+          "nativeControlAssertion": "passed at line 82",
+          "terminalEnvironmentAssertion": "not reached at line 85",
+          "interpretation": "The held source remained reachable at this check. The native paired source was collected. This does not establish the retention root."
+        },
+        {
+          "browser": "firefox",
+          "case": "disposed SVG owner releases source with font=true and opened=true",
+          "assertion": "native.reference.deref() === undefined",
+          "line": 82,
+          "column": 54,
+          "heldAssertion": "not reached at line 83",
+          "terminalEnvironmentAssertion": "not reached at line 85",
+          "interpretation": "The no-owner native paired source remained reachable. This case does not establish failure of the held-owner collection assertion."
+        }
+      ],
+      "fixtureContext": {
+        "source": "An actual srcdoc iframe is removed in finally; the held case creates, opens and disposes createSVGStyleEnvironment while the paired native case never creates it. Font=true first verifies its loaded face. Source markup/font-state and frame-list checks precede GC. Three GC commands precede the assertions.",
+        "error": "AssertionError: expected false to be true",
+        "notThePriorLocalFrameDetachedFailure": true
+      }
+    },
+    {
+      "pr": 654,
+      "url": "https://github.com/bubkoo/html-to-image/pull/654",
+      "state": "open",
+      "draft": true,
+      "remoteUpdatedAt": "2026-11-24T21:17:29Z",
+      "headSHA": "b652860210997de165e3790674eb13b06ef029fa",
+      "baseSHA": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "testedMerge": {
+        "sha": "f2092e4cf4f089c7dc43a5c491f22e256cf1b19c",
+        "parents": [
+          "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+          "b652860210997de165e3790674eb13b06ef029fa"
+        ],
+        "headIsSecondParent": true,
+        "mergeTreeSHA": "59478e567766e78ec185bfad9f42abcdf878d782",
+        "headTreeSHA": "59478e567766e78ec185bfad9f42abcdf878d782",
+        "mergeTreeEqualsHeadTree": true,
+        "checkoutProvenByBothJobLogs": true
+      },
+      "runs": {
+        "ci": {
+          "id": 45489531716,
+          "html_url": "https://github.com/bubkoo/html-to-image/actions/runs/45489531716",
+          "head_sha": "b652860210997de165e3790674eb13b06ef029fa",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_attempt": 1,
+          "created_at": "2026-11-24T21:17:08Z",
+          "updated_at": "2026-11-24T21:20:46Z",
+          "jobID": 138783793196,
+          "jobURL": "https://github.com/bubkoo/html-to-image/actions/runs/45489531716/job/138783793196",
+          "jobStartedAt": "2026-11-24T21:17:11Z",
+          "jobCompletedAt": "2026-11-24T21:20:45Z",
+          "actualCheckoutSHA": "f2092e4cf4f089c7dc43a5c491f22e256cf1b19c",
+          "artifactCount": 1,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-24T21:17:11Z",
+              "completed_at": "2026-11-24T21:17:14Z"
+            },
+            {
+              "name": "⤵️　Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-24T21:17:14Z",
+              "completed_at": "2026-11-24T21:17:17Z"
+            },
+            {
+              "name": "🧾　Verify tested revision",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-24T21:17:17Z",
+              "completed_at": "2026-11-24T21:17:17Z"
+            },
+            {
+              "name": "🎉　Setup pnpm",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-11-24T21:17:17Z",
+              "completed_at": "2026-11-24T21:17:18Z"
+            },
+            {
+              "name": "🎉　Setup nodejs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-11-24T21:17:18Z",
+              "completed_at": "2026-11-24T21:17:20Z"
+            },
+            {
+              "name": "🚧　Install dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-11-24T21:17:20Z",
+              "completed_at": "2026-11-24T21:17:22Z"
+            },
+            {
+              "name": "🧹　Check source and test lint",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-11-24T21:17:22Z",
+              "completed_at": "2026-11-24T21:17:25Z"
+            },
+            {
+              "name": "📦　Build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-11-24T21:17:25Z",
+              "completed_at": "2026-11-24T21:17:33Z"
+            },
+            {
+              "name": "🔎　Check published entries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-11-24T21:17:33Z",
+              "completed_at": "2026-11-24T21:17:38Z"
+            },
+            {
+              "name": "🔎　Check browser test types",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-11-24T21:17:38Z",
+              "completed_at": "2026-11-24T21:17:41Z"
+            },
+            {
+              "name": "🌐　Install browser engines",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-11-24T21:17:41Z",
+              "completed_at": "2026-11-24T21:18:23Z"
+            },
+            {
+              "name": "🧪　Test migrated regressions and browser behavior",
+              "status": "completed",
+              "conclusion": "failure",
+              "number": 12,
+              "started_at": "2026-11-24T21:18:23Z",
+              "completed_at": "2026-11-24T21:20:42Z"
+            },
+            {
+              "name": "📦　Test built package in browsers",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 13,
+              "started_at": "2026-11-24T21:20:42Z",
+              "completed_at": "2026-11-24T21:20:42Z"
+            },
+            {
+              "name": "📋　Upload browser report",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-11-24T21:20:42Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            },
+            {
+              "name": "🔑　Generate Token",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 15,
+              "started_at": "2026-11-24T21:20:43Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            },
+            {
+              "name": "💡　Coveralls",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 16,
+              "started_at": "2026-11-24T21:20:43Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            },
+            {
+              "name": "💡　Codecov",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 17,
+              "started_at": "2026-11-24T21:20:43Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            },
+            {
+              "name": "Post 🎉　Setup nodejs",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 32,
+              "started_at": "2026-11-24T21:20:43Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            },
+            {
+              "name": "Post 🎉　Setup pnpm",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 33,
+              "started_at": "2026-11-24T21:20:43Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            },
+            {
+              "name": "Post ⤵️　Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 34,
+              "started_at": "2026-11-24T21:20:43Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 35,
+              "started_at": "2026-11-24T21:20:43Z",
+              "completed_at": "2026-11-24T21:20:43Z"
+            }
+          ]
+        },
+        "codeql": {
+          "id": 45489531907,
+          "html_url": "https://github.com/bubkoo/html-to-image/actions/runs/45489531907",
+          "head_sha": "b652860210997de165e3790674eb13b06ef029fa",
+          "status": "completed",
+          "conclusion": "success",
+          "run_attempt": 1,
+          "created_at": "2026-11-24T21:17:08Z",
+          "updated_at": "2026-11-24T21:18:09Z",
+          "jobID": 138783797808,
+          "jobURL": "https://github.com/bubkoo/html-to-image/actions/runs/45489531907/job/138783797808",
+          "jobStartedAt": "2026-11-24T21:17:11Z",
+          "jobCompletedAt": "2026-11-24T21:18:08Z",
+          "actualCheckoutSHA": "f2092e4cf4f089c7dc43a5c491f22e256cf1b19c",
+          "artifactCount": 0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-24T21:17:11Z",
+              "completed_at": "2026-11-24T21:17:12Z"
+            },
+            {
+              "name": "Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-24T21:17:12Z",
+              "completed_at": "2026-11-24T21:17:15Z"
+            },
+            {
+              "name": "Initialize CodeQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-24T21:17:15Z",
+              "completed_at": "2026-11-24T21:17:27Z"
+            },
+            {
+              "name": "Autobuild",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-11-24T21:17:27Z",
+              "completed_at": "2026-11-24T21:17:29Z"
+            },
+            {
+              "name": "Perform CodeQL Analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-11-24T21:17:29Z",
+              "completed_at": "2026-11-24T21:18:05Z"
+            },
+            {
+              "name": "Post Perform CodeQL Analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-11-24T21:18:05Z",
+              "completed_at": "2026-11-24T21:18:05Z"
+            },
+            {
+              "name": "Post Initialize CodeQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-11-24T21:18:05Z",
+              "completed_at": "2026-11-24T21:18:05Z"
+            },
+            {
+              "name": "Post Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-11-24T21:18:05Z",
+              "completed_at": "2026-11-24T21:18:06Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-11-24T21:18:06Z",
+              "completed_at": "2026-11-24T21:18:06Z"
+            }
+          ]
+        }
+      },
+      "tests": {
+        "coverage": {
+          "passed": 1411,
+          "failed": 0,
+          "skipped": 4
+        },
+        "source": {
+          "passed": 1291,
+          "failed": 1,
+          "skipped": 4
+        },
+        "publishedEntryContract": "passed",
+        "lintBuildAndBrowserTypes": "passed",
+        "builtPackageBrowserTests": "skipped",
+        "coveralls": "skipped",
+        "codecov": "skipped"
+      },
+      "pinnedSource": {
+        "ref": "b652860210997de165e3790674eb13b06ef029fa",
+        "blobSHA": "85ccbb2694472619dcc7e0d42f90d46b1a99f4a3",
+        "sourceURL": "https://github.com/bubkoo/html-to-image/blob/b652860210997de165e3790674eb13b06ef029fa/test/browser-unit/svg-fragment-lifetime.test.ts"
+      },
+      "artifact": {
+        "artifactID": 14964709714,
+        "artifactName": "playwright-report",
+        "GitHubDigest": "sha256:c7c7bac6009c9bcde4f00d31a5d522f5a3d13c88d5f82b5d9f3081d80743dabd",
+        "actualDigest": "sha256:c7c7bac6009c9bcde4f00d31a5d522f5a3d13c88d5f82b5d9f3081d80743dabd",
+        "sizeInBytes": 7723,
+        "digestVerified": true,
+        "zipCRCVerified": true,
+        "safePathsRegularFilesOnly": true,
+        "members": [
+          {
+            "path": ".vitest/attachments/61f5a0f5b876211e260230925145a258d27dd064.png",
+            "bytes": 3363,
+            "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+          },
+          {
+            "path": ".vitest/attachments/failure-screenshots/svg-fragment-lifetime.test.ts/a-frozen-SVG-host-tree-capture-releases-its-source-document-before-rendering.png",
+            "bytes": 3363,
+            "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+            "bytes": 946,
+            "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+            "bytes": 946,
+            "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+            "bytes": 943,
+            "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+          },
+          {
+            "path": ".vitest/attachments/scrollbar-box/chromium-gutter.json",
+            "bytes": 30313,
+            "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+          }
+        ],
+        "memberCount": 6,
+        "signedDownloadURLRecorded": false
+      },
+      "failures": [
+        {
+          "browser": "webkit",
+          "case": "a frozen SVG host-tree capture releases its source document before rendering",
+          "assertion": "reference.deref() === undefined",
+          "line": 44,
+          "column": 45,
+          "frameComparison": "not reached at line 45",
+          "toImageDataAndPixelComparison": "not reached at lines 46-49",
+          "interpretation": "The inert createHTMLDocument source remained reachable after capture and three GC commands. No rendering or pixel failure is established."
+        }
+      ],
+      "fixtureContext": {
+        "source": "createHTMLDocument body contains external SVG use, inline pattern definitions and solid color elements; renderer.capture completed with skipFonts=true before the failing GC check. renderer.dispose executes in finally.",
+        "policy": "getSVGFragmentFixturePolicy resolved before capture; its fragmentPage value is not recorded in this job. The pinned fixture uses independently loaded HTTP use geometry and hit-testing controls, not UA selection.",
+        "notReachedExpectedPixel": "[0,0,255,255] when fragmentPage=true; [0,128,0,255] otherwise",
+        "error": "AssertionError: expected false to be true"
+      }
+    }
+  ],
+  "gutterDiagnostics": {
+    "decodedPNGComparisons": [
+      {
+        "pr": 653,
+        "size": [
+          100,
+          100
+        ],
+        "libraryAuthoredDifferentChannels": 0,
+        "nativeDifferentChannels": 22,
+        "nativeAuthoredDifferentChannels": 22
+      },
+      {
+        "pr": 654,
+        "size": [
+          100,
+          100
+        ],
+        "libraryAuthoredDifferentChannels": 0,
+        "nativeDifferentChannels": 22,
+        "nativeAuthoredDifferentChannels": 22
+      }
+    ],
+    "sameGutterSourceBlob": "6a644ffa4020ad3827f45cbf7e1b2de907608f9a",
+    "meaning": "Separate Chromium gutter evidence, unrelated to GC assertion screenshots. Capture equals authored; native differs in 22 RGBA channels. Existing source lines 58-75 explicitly skip the horizontal-only native mismatch after authored equality, so native thumb fidelity remains unverified.",
+    "nativeEqualityAccepted": false
+  },
+  "limitations": [
+    "Snapshot readback does not assert the current default tip stayed unchanged.",
+    "Passing CodeQL is separate from failing browser-source CI; built-package browser tests and coverage uploads did not run.",
+    "Collection assertion failures do not alone diagnose a retention root, browser GC defect or rendering error.",
+    "Failure screenshots are GitHub Actions artifacts, not iPhone verification.",
+    "No integration acceptance or mobile verification is inferred from these independent PR runs."
+  ],
+  "operations": {
+    "githubMutations": 0,
+    "manualReruns": 0,
+    "browserLaunches": 0,
+    "networkSettingsChanges": 0,
+    "sourceOrTestChanges": 0,
+    "signedDownloadURLsSaved": false
+  },
+  "sealedAt": "2026-11-24T21:41:23.163555+00:00",
+  "rawArchive": {
+    "path": "master-independent-fixes-remote-raw.tar.gz",
+    "bytes": 225756,
+    "sha256": "590579b55baedab0c8c4065a84b671ac570396b03b42246b2961dca9e88bbdd9",
+    "format": "gzip-compressed USTAR",
+    "membersContainOnlyRegularFiles": true
+  },
+  "memberIndex": "master-independent-fixes-remote-index.json"
+}

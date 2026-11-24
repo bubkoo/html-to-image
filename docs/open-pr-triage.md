@@ -1,5 +1,21 @@
 # 开放 PR 处理台账
 
+## 2026-11-25 独立修复、当前整合检查与远端结果
+
+取消原因修复已直接基于 master 拆为[草稿 #654](https://github.com/bubkoo/html-to-image/pull/654)，head `b652860`。SVG 环境的同测试固定对照为 **60 失败 / 33 通过 → 93 通过**；公开 API 与图片解码另一个独立基线为 **48 失败 / 36 通过 → 84 通过**，不能合并两组失败数。修复保留 `null`、`false`、`0`、空字符串等取消原因的身份，并覆盖待决操作和晚到解码。完整本地检查在最终纯格式修改之前为 **1411 coverage / 1292 source / 162 包**通过（各 4 项既有跳过）；格式修改后仅复核 AST/产物边界、84 新例及 40 项已有渲染例，不冒称重复完整检查。[207 份固定输入与失败前后证据](evidence/cancellation-reasons-master.json)已独立封存。我们自己的旧堆叠 #652 已于 **2026-11-24 21:32:30 UTC 关闭、未合并**，由 #654 取代；`3c0ec09` 分支及原失败记录仍保留，关闭不代表回收失败已解决。
+
+#654 的[准确 head CI](https://github.com/bubkoo/html-to-image/actions/runs/45489531716)为 **1411 coverage 通过 / source 1291 通过、1 WebKit 失败、4 跳过**；失败是 `svg-fragment-lifetime.test.ts:44` 的源文档 WeakRef 仍存在，图片断言、包测试和 Codecov 未执行。CodeQL 通过。[远端两项独立修复原始回执](evidence/master-independent-fixes-remote.json)保留实际合并测试的父提交和树身份。静态[SVG 所有权复核](evidence/svg-fragment-owner-b652.json)没有找到最终结果显式强持有源文档的路径，但这不证明实际回收，也不把旧[纯 HTML 案例](evidence/html-capture-owner-3c0ec09.json)的早退路径套用于 SVG。
+
+[草稿 #653](https://github.com/bubkoo/html-to-image/pull/653) 的 `5b074c4` 只更新两个开发依赖声明及必要锁图，显式 pnpm 依赖图使用 minimatch 11.0.9；npm 11.21.1 自带的 10.2.5 副本仍在受影响范围，不称整机零漏洞，也不增加强制覆盖。[CI 45488840651](https://github.com/bubkoo/html-to-image/actions/runs/45488840651)为 **1234 coverage 通过 / source 1113 通过、2 Firefox 失败、4 跳过**：`font=false, opened=true` 原生参考先通过、held 失败；`font=true, opened=true` 原生参考先失败，held 未执行。包和 Codecov 未执行，CodeQL 通过；本地通过不能替代这次远端失败。
+
+[草稿 #655](https://github.com/bubkoo/html-to-image/pull/655) 的 `5fcd839` 修正 GC 命令等待目标 iframe 的方式。实际 Vitest provider 的对照证明：缺失命名 runner 时，旧等待可能选中先到的无关 frame；候选明确等待 `data-vitest` runner，并在原单次 GC 前释放 frame handle。没有增加回收次数、重试、超时或跳过，也不据此反推旧失败的唯一原因。[CI 45491737937](https://github.com/bubkoo/html-to-image/actions/runs/45491737937)仍为 **1234 coverage 通过 / source 1112 通过、3 Firefox 回收失败、4 跳过**，包和 Codecov 未执行；CodeQL 通过。[准确 head 远端证据](evidence/gc-runner-frame-controls-remote.json)明确保留 owner/native 负对照差异。
+
+#650 仅整合该 runner 工具后的新 head `877c476`，21 个运行时文件逐字节不变。本地默认流程曾为 **1299 通过 / 1 Firefox 原生截图准备超时 / 4 跳过**，发生在库导出之前；独立 source **1181 通过 / 4 跳过**、包 **162 通过**，[原始本地失败](evidence/document-property-lifetime-runner-recheck.json)保留。[新 head CI 45496161113](https://github.com/bubkoo/html-to-image/actions/runs/45496161113)实际为 **1300 coverage / 1181 source / 162 包通过**（各 4 项既有跳过），CodeQL 通过；[新旧 head 与合并树回执](evidence/document-property-lifetime-877-remote.json)独立核验。旧 `25e8381` 本来也绿，不叙述成旧红到新绿；#650 保持未合并草稿，不宣称普遍稳定或整项完成。
+
+主工作区 `854fa0a` 已整合取消、开发依赖和 runner 工具，仍保留 #651 的严格原生绘制失败。默认 **1638 通过 / 2 WebKit 失败 / 45 跳过**；独立源码 **1519 通过 / 2 失败 / 45 跳过**；构建包 **176 通过 / 2 原生滚动组失败 / 2 不支持**。447→449 输入只增加两份 runner helper、修改其配置，生产与生成文件 hash 不变；此前 **1636/4** 到此次 **1638/2** 是两次运行观察，不作严格因果归因。[601 成员整合证据](evidence/integrated-current-checks-20261125.json)保留四轮失败与准确截图来源。严格字形、内阴影及 DPR2 分数坐标边界没有放宽。
+
+四小时手机等待期已届满；镜像连接成功，但当前整合页尚未完成真实点击、新 PNG 标签页和清理验收，父版 112/112 不代用。冻结[验证页](evidence/ios-offline.html)的 HTML SHA256 为 `204f0f433f17b81e0bb0df56f033d7f8a580c114542dcb19fb5d38896d8aff34`，UMD SHA256 为 `9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a`。桌面每引擎 14 项取消原因、隔离字体加载及默认 PNG 对照已通过；字体控制显式使用 3 次稳定化，不扩大为默认首帧、设备 GC 或原生像素保真。镜像长地址输入受阻，正在验证短加载入口；没有改电脑网络配置。未发布 npm，未评论、关闭或重开原 28 个贡献者 PR。
+
 ## 2026-11-25 #652 最新 head 的回收失败
 
 #652 首个源码 `786603d` 的 [CI 45480659033](https://github.com/bubkoo/html-to-image/actions/runs/45480659033)完整通过 **1393 coverage / 1274 source / 162 产物**。但只补四份文档/证据、生产与测试字节不变的 `3c0ec09` 在 [CI 45481650657](https://github.com/bubkoo/html-to-image/actions/runs/45481650657)为 coverage **1393 通过 / 4 跳过**、source **1273 通过 / 1 WebKit 回收失败 / 4 跳过**；`capture-lifetime.test.ts:81` 原三次 GC 后源文档 WeakRef 仍存在，后续图片断言及产物没有执行。不能用首轮绿色替代最新失败，也不据同字节判断无关或偶发；保持草稿，先复核实际持有路径，不增加回收、重试或等待。

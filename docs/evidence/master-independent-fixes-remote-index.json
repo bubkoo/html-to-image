@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "archive": {
+    "path": "master-independent-fixes-remote-raw.tar.gz",
+    "bytes": 225756,
+    "sha256": "590579b55baedab0c8c4065a84b671ac570396b03b42246b2961dca9e88bbdd9",
+    "format": "gzip-compressed USTAR",
+    "membersContainOnlyRegularFiles": true
+  },
+  "memberCount": 59,
+  "members": [
+    {
+      "path": "analysis.json",
+      "bytes": 33941,
+      "sha256": "7d4086dc715d8f8ce3b09edfe24e921ce492e1d660009b304a19fbb685a0dbf8"
+    },
+    {
+      "path": "api-read-times.json",
+      "bytes": 1233,
+      "sha256": "51cd875106c9ba04c2935f4d9446f6ed8e4aec5abca1c29e895b4d9300cf6cd7"
+    },
+    {
+      "path": "gutter-png-comparison.json",
+      "bytes": 375,
+      "sha256": "19528897dc500a2019059098544362736d300a92e47afc4b8a1785c5ef340b8b"
+    },
+    {
+      "path": "log-transfer.json",
+      "bytes": 989,
+      "sha256": "90db440754d067e5b59fa0145a45db7a1b4dc360081a7cae0f70cc2f6d603034"
+    },
+    {
+      "path": "pr653/artifacts/artifact-verification.json",
+      "bytes": 2176,
+      "sha256": "57a1f4c411a3bf7de11b9fc33503da65c2cf5a706b7fd22cf283010366f7ce7f"
+    },
+    {
+      "path": "pr653/artifacts/download-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/55eae901b1ba039f47d3b6257c572c077c274e07.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/dfd36a8568ecced3cf695ff08ddfd829d31b7ffc.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-false-and-opened-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-true-and-opened-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "pr653/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "pr653/artifacts/report.zip",
+      "bytes": 8439,
+      "sha256": "c58bdbee184e892e996aff3aa9894374c450375b1cbcd87c74d21a4cfbb6d656"
+    },
+    {
+      "path": "pr653/logs/ci-job-138781385560.log",
+      "bytes": 253530,
+      "sha256": "0f1cdeb0e6e137effeb8049991cf061ccdada14d562c7e9b966104de199f81f9"
+    },
+    {
+      "path": "pr653/logs/codeql-job-138781384833.log",
+      "bytes": 364349,
+      "sha256": "109c00f7a91cf330b48fb97933d75ec37bcaaac8b7ccf8cdbb96b1915343c634"
+    },
+    {
+      "path": "pr653/metadata/ci-artifacts.json",
+      "bytes": 738,
+      "sha256": "f922ede51170e653b395be5cd128a7803c91ca546700d7562f66dc3fbefb404b"
+    },
+    {
+      "path": "pr653/metadata/ci-jobs.json",
+      "bytes": 4409,
+      "sha256": "658ae47ae198d780bf037b838ab0d843fd1fa1fc76d0cf6ac63cc354ab13e1fe"
+    },
+    {
+      "path": "pr653/metadata/ci-run.json",
+      "bytes": 12649,
+      "sha256": "ae470996c0813f7f9bd1d0cd19900f96c24c4a903fba8aafbd133a72efbc439c"
+    },
+    {
+      "path": "pr653/metadata/codeql-artifacts.json",
+      "bytes": 33,
+      "sha256": "d3ad979d01443a9d7342e7fbe39064b41ebdb340029293f1b099bcfb6c493c42"
+    },
+    {
+      "path": "pr653/metadata/codeql-jobs.json",
+      "bytes": 2369,
+      "sha256": "34c445848ba9e5837b87a0cc5735e871062de8e313cf3ea92a3a5ee447b3a38f"
+    },
+    {
+      "path": "pr653/metadata/codeql-run.json",
+      "bytes": 12659,
+      "sha256": "8cbdac8a194d31bf6ba0785b23513853393459fee1597f33e13b9d25c231c1d6"
+    },
+    {
+      "path": "pr653/metadata/head-commit.json",
+      "bytes": 1132,
+      "sha256": "3f4561a85224ab1ecc43cd5a66b34312b886284f2893e8303563ebbaf322c5d9"
+    },
+    {
+      "path": "pr653/metadata/pr.json",
+      "bytes": 18834,
+      "sha256": "1c720ed668ccd4ebce175b6dbff17de0e4ac07df1e9dff6977df0bc038557ee0"
+    },
+    {
+      "path": "pr653/metadata/tested-merge-commit.json",
+      "bytes": 2608,
+      "sha256": "ac2c61fbd90216e546e0c3895e4172b6013749c32eb8c9a2eb0602612b5482e8"
+    },
+    {
+      "path": "pr653/source/gutter-source-metadata.json",
+      "bytes": 257,
+      "sha256": "134e6c9fd70025726af0638c9658cac46d698a2c50e4a44f50dfa93cd9971a2a"
+    },
+    {
+      "path": "pr653/source/scrollbar-box.test.ts",
+      "bytes": 2941,
+      "sha256": "84884c97a42635a296f267d2af2845efa9359327379b26fc116e67234768dbcf"
+    },
+    {
+      "path": "pr653/source/source-metadata.json",
+      "bytes": 269,
+      "sha256": "f19dcbe0b3965e3c412fec3a7cc6151fb3e433c767105912cc085f163e6ef35c"
+    },
+    {
+      "path": "pr653/source/svg-style-source-lifetime.test.ts",
+      "bytes": 3318,
+      "sha256": "539630ee366e2e005fc49187a3b2ca894b7b42c5bc3db278371b077d2d33c5c2"
+    },
+    {
+      "path": "pr654/artifacts/artifact-verification.json",
+      "bytes": 1705,
+      "sha256": "e11a82e96359a7c745de9f75336dc71eeab1c151be988afb41a08d5388b62568"
+    },
+    {
+      "path": "pr654/artifacts/download-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pr654/artifacts/extracted/.vitest/attachments/61f5a0f5b876211e260230925145a258d27dd064.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "pr654/artifacts/extracted/.vitest/attachments/failure-screenshots/svg-fragment-lifetime.test.ts/a-frozen-SVG-host-tree-capture-releases-its-source-document-before-rendering.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "pr654/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pr654/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pr654/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "pr654/artifacts/extracted/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "pr654/artifacts/report.zip",
+      "bytes": 7723,
+      "sha256": "c7c7bac6009c9bcde4f00d31a5d522f5a3d13c88d5f82b5d9f3081d80743dabd"
+    },
+    {
+      "path": "pr654/logs/ci-job-138783793196.log",
+      "bytes": 234660,
+      "sha256": "a6ab06d2338ac538adb40c06f9c97391bdbc5cb32280da65be90917f42408ba8"
+    },
+    {
+      "path": "pr654/logs/codeql-job-138783797808.log",
+      "bytes": 365013,
+      "sha256": "b63b50c2b7b1b4c8f931f07e428b36fd1b1eabae603cd1230d71a5da4601b28a"
+    },
+    {
+      "path": "pr654/metadata/ci-artifacts.json",
+      "bytes": 745,
+      "sha256": "bb835870b0f737f09bee111dfdb16221d727e79c764773bc41f302213c5db045"
+    },
+    {
+      "path": "pr654/metadata/ci-jobs.json",
+      "bytes": 4416,
+      "sha256": "6c131d292efca8901005ea11a2fde5145fc935c9ac4855dc72a31ecc7758a1b5"
+    },
+    {
+      "path": "pr654/metadata/ci-run.json",
+      "bytes": 12676,
+      "sha256": "991a1bfefbff0d2ba30d1b5a68df97f8970e08389e20e9dbeb67e77f56c4758f"
+    },
+    {
+      "path": "pr654/metadata/codeql-artifacts.json",
+      "bytes": 33,
+      "sha256": "d3ad979d01443a9d7342e7fbe39064b41ebdb340029293f1b099bcfb6c493c42"
+    },
+    {
+      "path": "pr654/metadata/codeql-jobs.json",
+      "bytes": 2376,
+      "sha256": "994023faf256a17c66c130e4db22fddefad455c6858f733fab9a23b6cfa65e22"
+    },
+    {
+      "path": "pr654/metadata/codeql-run.json",
+      "bytes": 12686,
+      "sha256": "6d935f5995cb56abc23840367ae42275ae52438d91333432e5286403cd9c8b8b"
+    },
+    {
+      "path": "pr654/metadata/head-commit.json",
+      "bytes": 1135,
+      "sha256": "27ffa95a996d68931337567640089604fd250ca03e8493cfdd1b78354b37b532"
+    },
+    {
+      "path": "pr654/metadata/pr.json",
+      "bytes": 19443,
+      "sha256": "3d28f04c7185d3c0c0cf53793deda130df41af1bef116e8a12703c7388e79840"
+    },
+    {
+      "path": "pr654/metadata/tested-merge-commit.json",
+      "bytes": 2608,
+      "sha256": "8e4e24dfffabc4cbf35b3aa55040870b442d96ee78873f4ddfbb4d99131c60a2"
+    },
+    {
+      "path": "pr654/source/fixture-source-metadata.json",
+      "bytes": 305,
+      "sha256": "7452c4d13f0c74f93930cd30d9b635570257085c1e49cd58d18a399557e8c5a5"
+    },
+    {
+      "path": "pr654/source/gutter-source-metadata.json",
+      "bytes": 257,
+      "sha256": "171799ec7f2f1be7d26318b00a7acbdc98da3eac938f2562ddab5e3d83a17cd7"
+    },
+    {
+      "path": "pr654/source/scrollbar-box.test.ts",
+      "bytes": 2941,
+      "sha256": "84884c97a42635a296f267d2af2845efa9359327379b26fc116e67234768dbcf"
+    },
+    {
+      "path": "pr654/source/source-metadata.json",
+      "bytes": 265,
+      "sha256": "10b2181e5b3538272879bd85c39fda2e8674a5fbc86de1c2cf1c7a49842a8dd4"
+    },
+    {
+      "path": "pr654/source/svg-fragment-lifetime.test.ts",
+      "bytes": 2238,
+      "sha256": "7127dc9f7c411e600dae640689880922f10f469f76f74b250114dac06cd4734b"
+    },
+    {
+      "path": "pr654/source/svg-fragment-paint.mjs",
+      "bytes": 16418,
+      "sha256": "8382846aab1c38097f62f424fc7d751d53002117c8dd9a8a2606567bdc9bbfc1"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 2304,
+      "sha256": "9d715f6af86afc1647a87464653c68cc2307faacf2c4013a46aa28dda25abe9f"
+    },
+    {
+      "path": "retrieval.json",
+      "bytes": 2691,
+      "sha256": "d74d5685d94ae70b61587fcff5269fe5698c922c129a94737b8cebee19176fe7"
+    },
+    {
+      "path": "seal-evidence.py",
+      "bytes": 13669,
+      "sha256": "b9a3cc4abf8f2c0de7dbc1717d79ed5cf534b0d4d2a3464ede9590e9aea14e00"
+    }
+  ]
+}

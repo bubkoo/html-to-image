@@ -1,0 +1,395 @@
+{
+  "title": "650 exact877 remote CI and CodeQL readback, separate from old25e",
+  "pullRequest": "https://github.com/bubkoo/html-to-image/pull/650",
+  "current": {
+    "head": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "ci": {
+      "id": 45496161113,
+      "job": 138807109658,
+      "attempt": 1,
+      "conclusion": "success",
+      "started": "2026-11-24T21:57:08Z",
+      "completed": "2026-11-24T22:03:44Z",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45496161113",
+      "testedCheckoutFromLog": "e468b63f12a7e42ad768eb2573a13d4ea43c83d1",
+      "headFromLog": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+      "coverage": { "passed": 1300, "skipped": 4 },
+      "source": { "passed": 1181, "skipped": 4 },
+      "package": { "passed": 162 },
+      "steps": [
+        { "number": 1, "name": "Set up job", "conclusion": "success" },
+        { "number": 2, "name": "⤵️　Checkout", "conclusion": "success" },
+        {
+          "number": 3,
+          "name": "🧾　Verify tested revision",
+          "conclusion": "success"
+        },
+        { "number": 4, "name": "🎉　Setup pnpm", "conclusion": "success" },
+        { "number": 5, "name": "🎉　Setup nodejs", "conclusion": "success" },
+        {
+          "number": 6,
+          "name": "🚧　Install dependencies",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "🧹　Check source and test lint",
+          "conclusion": "success"
+        },
+        { "number": 8, "name": "📦　Build", "conclusion": "success" },
+        {
+          "number": 9,
+          "name": "🔎　Check published entries",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "🔎　Check browser test types",
+          "conclusion": "success"
+        },
+        {
+          "number": 11,
+          "name": "🌐　Install browser engines",
+          "conclusion": "success"
+        },
+        {
+          "number": 12,
+          "name": "🧪　Test migrated regressions and browser behavior",
+          "conclusion": "success"
+        },
+        {
+          "number": 13,
+          "name": "📦　Test built package in browsers",
+          "conclusion": "success"
+        },
+        {
+          "number": 14,
+          "name": "📋　Upload browser report",
+          "conclusion": "success"
+        },
+        { "number": 15, "name": "🔑　Generate Token", "conclusion": "skipped" },
+        { "number": 16, "name": "💡　Coveralls", "conclusion": "skipped" },
+        { "number": 17, "name": "💡　Codecov", "conclusion": "success" },
+        {
+          "number": 32,
+          "name": "Post 🎉　Setup nodejs",
+          "conclusion": "success"
+        },
+        {
+          "number": 33,
+          "name": "Post 🎉　Setup pnpm",
+          "conclusion": "success"
+        },
+        { "number": 34, "name": "Post ⤵️　Checkout", "conclusion": "success" },
+        { "number": 35, "name": "Complete job", "conclusion": "success" }
+      ]
+    },
+    "codeql": {
+      "id": 45496160889,
+      "job": 138807107566,
+      "attempt": 1,
+      "conclusion": "success",
+      "started": "2026-11-24T21:57:08Z",
+      "completed": "2026-11-24T21:58:30Z",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45496160889"
+    }
+  },
+  "old25e": {
+    "head": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "ci": {
+      "id": 45399037878,
+      "job": 138462467460,
+      "attempt": 1,
+      "conclusion": "success",
+      "started": "2026-11-24T13:00:39Z",
+      "completed": "2026-11-24T13:07:26Z",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45399037878",
+      "testedCheckoutFromLog": "a00e98193d3a5d5cfb701b78094f119afb32e628",
+      "headFromLog": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+      "coverage": { "passed": 1300, "skipped": 4 },
+      "source": { "passed": 1181, "skipped": 4 },
+      "package": { "passed": 162 },
+      "steps": [
+        { "number": 1, "name": "Set up job", "conclusion": "success" },
+        { "number": 2, "name": "⤵️　Checkout", "conclusion": "success" },
+        {
+          "number": 3,
+          "name": "🧾　Verify tested revision",
+          "conclusion": "success"
+        },
+        { "number": 4, "name": "🎉　Setup pnpm", "conclusion": "success" },
+        { "number": 5, "name": "🎉　Setup nodejs", "conclusion": "success" },
+        {
+          "number": 6,
+          "name": "🚧　Install dependencies",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "🧹　Check source and test lint",
+          "conclusion": "success"
+        },
+        { "number": 8, "name": "📦　Build", "conclusion": "success" },
+        {
+          "number": 9,
+          "name": "🔎　Check published entries",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "🔎　Check browser test types",
+          "conclusion": "success"
+        },
+        {
+          "number": 11,
+          "name": "🌐　Install browser engines",
+          "conclusion": "success"
+        },
+        {
+          "number": 12,
+          "name": "🧪　Test migrated regressions and browser behavior",
+          "conclusion": "success"
+        },
+        {
+          "number": 13,
+          "name": "📦　Test built package in browsers",
+          "conclusion": "success"
+        },
+        {
+          "number": 14,
+          "name": "📋　Upload browser report",
+          "conclusion": "success"
+        },
+        { "number": 15, "name": "🔑　Generate Token", "conclusion": "skipped" },
+        { "number": 16, "name": "💡　Coveralls", "conclusion": "skipped" },
+        { "number": 17, "name": "💡　Codecov", "conclusion": "success" },
+        {
+          "number": 32,
+          "name": "Post 🎉　Setup nodejs",
+          "conclusion": "success"
+        },
+        {
+          "number": 33,
+          "name": "Post 🎉　Setup pnpm",
+          "conclusion": "success"
+        },
+        { "number": 34, "name": "Post ⤵️　Checkout", "conclusion": "success" },
+        { "number": 35, "name": "Complete job", "conclusion": "success" }
+      ]
+    },
+    "codeql": {
+      "id": 45399037913,
+      "job": 138462467271,
+      "attempt": 1,
+      "conclusion": "success",
+      "started": "2026-11-24T13:00:39Z",
+      "completed": "2026-11-24T13:01:57Z",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45399037913"
+    }
+  },
+  "revision": {
+    "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "currentHead": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "currentHeadParents": [
+      "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+      "5fcd839f79cef79d240c748f5ceeac7e21a08d63"
+    ],
+    "currentTestedMerge": "e468b63f12a7e42ad768eb2573a13d4ea43c83d1",
+    "currentMergeParents": [
+      "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "877c476888bbc2146a15d3c673f7a3385f3b9ddb"
+    ],
+    "currentHeadAndTestedTree": "445808a0c7134431acbb04275138921f1a317c03",
+    "old25eHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "old25eTestedMerge": "a00e98193d3a5d5cfb701b78094f119afb32e628",
+    "old25eMergeParents": [
+      "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "25e83810cb7d1865b6a2108c67f195b6a09a05e3"
+    ],
+    "old25eHeadAndTestedTree": "63f7876816755a7cb689a66b5313c53898eb2ca0",
+    "runtimeSrcTreeBoth": "963f0a731dd4bb82c329a2d7fda5603618d6c4c7",
+    "sourceRuntimeUnchangedViaAPI": true,
+    "old25eToCurrentFiles": [
+      "docs/evidence/gc-runner-frame-controls-index.json",
+      "docs/evidence/gc-runner-frame-controls-raw.tar.gz",
+      "docs/evidence/gc-runner-frame-controls.json",
+      "docs/evidence/gc-runner-frame-controls.verify.py",
+      "test/browser/gc-frame.d.mts",
+      "test/browser/gc-frame.mjs",
+      "vitest.browser.config.mts"
+    ]
+  },
+  "runtimeBoundary": "Old25e and current877 have identical GitHub src subtree963f0a731dd4bb82c329a2d7fda5603618d6c4c7. API compare adds only three GC-helper/types/config files and four historical evidence files. Both commits had independently successful CI; this is not an old-red-to-new-green causal experiment.",
+  "localCompanion": {
+    "file": "document-property-lifetime-runner-recheck.json",
+    "sha256": "caed37b13dd419ba30758b1f99c444905059e49fb98e8865a217f898a3804d7f",
+    "rawFiles": 27,
+    "sameMeasuredTreeAsCurrentCI": true,
+    "localDefaultCoverage": "1299passed/1native-screenshot-timeout/4skipped, preserved red",
+    "firstSource": "1181passed/4skipped",
+    "package": "162passed"
+  },
+  "artifact": {
+    "artifactID": 14968513054,
+    "file": "pr650-877-ci-45496161113.zip",
+    "bytes": 277533,
+    "sha256": "65cfdc4393d67dd5053580fa02957083b0a946ce1b51d3cf42580423866eb163",
+    "matchesPublishedAPIDigest": true,
+    "zipCRCVerified": true,
+    "entries": [
+      {
+        "file": "playwright-report/index.html",
+        "bytes": 615516,
+        "crc32": "49fde1b6",
+        "sha256": "01048319ac97fe809e6f12ad32f586c1fb8828ec465e1f7365f8611d43f622ba"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/92a44065-bedc-4607-a1f5-cfb5da19e81e.json",
+        "bytes": 2404,
+        "crc32": "e5e58a5f",
+        "sha256": "35a6d36601c30063f2750b96f23152a7d008541465760d0c059b499bc3b7c328"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/518d7d61-c169-43df-a687-be3694fb7c05.json",
+        "bytes": 2478,
+        "crc32": "910aad1c",
+        "sha256": "b03512704e8cd338a4abd9c865231009959233c3cf12f871c887370c25a3e96d"
+      },
+      {
+        "file": "test-results/mobile-smoke-reports/1b441ca3-77a1-43ae-bd35-9c484bed38e0.json",
+        "bytes": 2472,
+        "crc32": "27d71a52",
+        "sha256": "bb031bff1f05b5d47838b957d57d69762db8729b4f4920bc762ef4c5dfada76f"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+        "bytes": 943,
+        "crc32": "5e1738bb",
+        "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter.json",
+        "bytes": 30313,
+        "crc32": "b95ebb0c",
+        "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+      }
+    ],
+    "download": "Connected GitHub artifact tool and returned file reference; temporary signed URL not persisted."
+  },
+  "embeddedPlaywrightReport": {
+    "embeddedIn": "artifact/playwright-report/index.html",
+    "sha256": "456aeb14e97db81aa80b36401f22d598f552278e0f955b258557ded4f937b601",
+    "bytes": 74014,
+    "zipCRCVerified": true,
+    "members": [
+      {
+        "file": "4e8ddae762eb9923822f.json",
+        "bytes": 812669,
+        "sha256": "7deb9ebea4ab5c0c3b53ab91234d3d5dd310169de3f1c341187fba05cac03da1"
+      },
+      {
+        "file": "report.json",
+        "bytes": 169633,
+        "sha256": "d85a64fa0140bdd6c4fc22458b2d7fd7c5335cecf292954b0370ec85805a4aed"
+      }
+    ],
+    "reportStats": {
+      "total": 162,
+      "expected": 162,
+      "unexpected": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "ok": true
+    },
+    "note": "Decoded only from the original uploaded HTML; no browser rendering or network.",
+    "credentialOrSignedURLPatternHitsInDecodedMembers": 0
+  },
+  "uploadedSmokeReports": {
+    "reports": [
+      {
+        "file": "artifact/test-results/mobile-smoke-reports/518d7d61-c169-43df-a687-be3694fb7c05.json",
+        "gitHead": "e468b63f12a7e42ad768eb2573a13d4ea43c83d1",
+        "complete": true,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+        "viewport": { "width": 1280, "height": 720 },
+        "remoteAddress": "127.0.0.1"
+      },
+      {
+        "file": "artifact/test-results/mobile-smoke-reports/92a44065-bedc-4607-a1f5-cfb5da19e81e.json",
+        "gitHead": "e468b63f12a7e42ad768eb2573a13d4ea43c83d1",
+        "complete": true,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:157.0) Gecko/20100101 Firefox/157.0",
+        "viewport": { "width": 1280, "height": 720 },
+        "remoteAddress": "127.0.0.1"
+      },
+      {
+        "file": "artifact/test-results/mobile-smoke-reports/1b441ca3-77a1-43ae-bd35-9c484bed38e0.json",
+        "gitHead": "e468b63f12a7e42ad768eb2573a13d4ea43c83d1",
+        "complete": true,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+        "viewport": { "width": 1280, "height": 720 },
+        "remoteAddress": "127.0.0.1"
+      }
+    ],
+    "sameActualTestedMerge": true,
+    "phoneAcceptance": false,
+    "note": "Three uploaded GitHub Actions Playwright desktop-project reports, each1280x720; directory name mobile-smoke-reports does not signify a user-device validation."
+  },
+  "rawEvidenceFiles": 39,
+  "collection": {
+    "connectedGitHubTools": true,
+    "exactDecodedUTF8LogsAndEnvelopesRetained": true,
+    "temporaryArtifactDownloadURLPersisted": false,
+    "artifactAPIAndMemberSHA256Verified": true,
+    "allCallsReadOnly": true,
+    "noBranchChange": true,
+    "noCommitOrPush": true,
+    "noBrowserOrTestRerun": true,
+    "noUserDeviceOperation": true
+  },
+  "interpretation": [
+    "Old25e was already successful in its own CI and CodeQL; new877 success is independently verified, not a red-to-green causal comparison.",
+    "Both heads have identical runtime src subtree; current adds only tested GC helper/types/config and four historical evidence files.",
+    "No GC/held assertion failed in current remote runs, but the logs do not instrument each actual GC target identity or establish universal GC determinism.",
+    "The archived local failure remains a local failure, even though the exact same measured tree passed this remote CI run.",
+    "Uploaded mobile-smoke-reports are1280x720 desktop-project reports in GitHub Actions, not iPhone acceptance."
+  ],
+  "limitations": [
+    "Current remote CI1300coverage+1181source+162package success belongs only to exacthead877c476888bbc2146a15d3c673f7a3385f3b9ddb and its recorded merge e468b63f12a7e42ad768eb2573a13d4ea43c83d1.",
+    "Old25e successful jobs at13:00UTC are retained as a separate baseline observation; they are not substituted for current21:57UTC jobs.",
+    "No workflow was re-run for this collection. All shown attempts are attempt1.",
+    "The logs do not record each actual GC frame identity or prove universal GC stability.",
+    "Directory name mobile-smoke-reports refers to GitHub Actions desktop-project artifacts, not a user phone validation."
+  ],
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T22:17:23.442402Z",
+  "artifacts": {
+    "rawArchive": {
+      "file": "document-property-lifetime-877-remote-raw.tar.gz",
+      "bytes": 868048,
+      "sha256": "09077cacaa28c75d567d8b9319d8d91bb835008b2881a845bb27877c0b5dba6b"
+    },
+    "index": {
+      "file": "document-property-lifetime-877-remote-index.json",
+      "sha256": "3c6c21ecea8752fa85b49ac58d8cdc3b6bcf00714f2a8ecb462f98d64c1339f1"
+    }
+  },
+  "archiveTask": {
+    "noSourceConfigTrackerChanges": true,
+    "noBranchChangeCommitPush": true,
+    "noTestsOrBrowserRun": true,
+    "noPhoneOperation": true
+  }
+}

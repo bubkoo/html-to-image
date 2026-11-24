@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "createdUTC": "2026-11-24T22:13:50.314239+00:00",
+  "purpose": "Independent read-only ownership review archive; not a fix or runtime/heap verification.",
+  "case": "Minimal plain HTML body",
+  "lockedCommit": "3c0ec0930cd1d4da97a4cb68e46630f35e7b194f",
+  "testAssertion": "test/browser-unit/capture-lifetime.test.ts:81",
+  "workflowRun": 45481650657,
+  "workflowJob": 138756086909,
+  "workflowURL": "https://github.com/bubkoo/html-to-image/actions/runs/45481650657/job/138756086909",
+  "reviewSourceFolder": "svg-style-cancellation-owner-review-20261125",
+  "conclusion": "No explicit surviving strong Capture/Task/renderer/resource-cache edge to this fresh source Document/root identified; actual CI failure remains unresolved.",
+  "caseBoundary": "Expected early return before createSVGStyleEnvironment for minimal HTML-only body with no SVG or URL style. This guard value was not recorded in the historical CI; do not generalize to SVG captures.",
+  "cleanupOrder": "Task source maps and inherited-style cache cleared before snapshot; no verified source field found in final string/numeric snapshot. No actual guard/cleanup instrumentation was run.",
+  "rawAssessment": "assessment.json",
+  "rawOwnerEdges": "owner-edges.json",
+  "runtimeVerification": "No browser, tests, build, GC prototype or heap snapshot was run for this review. Original source, assertions, three-GC count, timeouts and flags remain unchanged.",
+  "originalStatusBoundary": "Original report preserves 786 prior-green and3c current-red as separate historical outcomes. Same selected source bytes are identity evidence, not proof of unrelatedness/flakiness.",
+  "checksNotReached": "lazy image/pixel assertions were not reached in failing case.",
+  "notClaims": [
+    "No identified universal JIT/native/cache cause.",
+    "No failure reclassified as flaky, no weakened assertion or extra GC/retry.",
+    "No use of one case to clear the other CI gate.",
+    "No phone operation, Mac network change, source/tracker edit, commit or push."
+  ],
+  "archive": {
+    "path": "html-capture-owner-3c0ec09-raw.tar.gz",
+    "bytes": 15947,
+    "sha256": "f614862dfca4c3b2cae3e9700a44c5e486085ac8e62a0e17e3c6beeb4fbc55fb"
+  },
+  "index": {
+    "path": "html-capture-owner-3c0ec09-index.json",
+    "sha256": "a3c2025ba88ce3ba73d8e21bb5d3e16817c7819c06c8697f0de522c35adfedd2",
+    "fileCount": 8
+  },
+  "retainedBoundary": "Parent supplied InspectorHeapAgent main/trunk reference, not verified against2370; no binarysynchrony or ownership conclusion from it. Snapshotobserver caveats are separate from the original3GC gate."
+}

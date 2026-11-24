@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "createdUTC": "2026-11-24T22:13:50.300526+00:00",
+  "purpose": "Independent read-only ownership review archive; not a fix or runtime/heap verification.",
+  "case": "SVG external-fragment host tree",
+  "lockedCommit": "b652860210997de165e3790674eb13b06ef029fa",
+  "testAssertion": "test/browser-unit/svg-fragment-lifetime.test.ts:44",
+  "workflowRun": 45489531716,
+  "workflowJob": 138783793196,
+  "workflowURL": "https://github.com/bubkoo/html-to-image/actions/runs/45489531716/job/138783793196",
+  "reviewSourceFolder": "svg-fragment-owner-review-b652-20261125",
+  "conclusion": "No explicit surviving strong Capture/Task/renderer/resource-cache edge to this fresh source Document/root identified; actual CI failure remains unresolved.",
+  "caseBoundary": "Real SVG descendant prevents early return, external SVG scope/style environment is traversed; graph locals hold source Document/root while expanding. Do not transfer the plain-HTML early-return analysis.",
+  "cleanupOrder": "svg-references.ts647 finally styleEnvironment.dispose; capture.ts64 replaces inheritedStyles; capture.ts66 replaces cloneSources/clonedSources/excludedSources; only then serialization/fromSnapshot.",
+  "rawAssessment": "assessment.json",
+  "rawOwnerEdges": "owner-edges.json",
+  "runtimeVerification": "No browser, tests, build, GC prototype or heap snapshot was run for this review. Original source, assertions, three-GC count, timeouts and flags remain unchanged.",
+  "originalStatusBoundary": "Original review states CI status was supplied by parent, without independently reading job log at that time. Later read-only PR disclosure audit independently downloaded this same job and confirmed the44 assertion; original record is preserved unchanged.",
+  "checksNotReached": "iframe list comparison45 and image/pixels46+ were not reached in failing case.",
+  "notClaims": [
+    "No identified universal JIT/native/cache cause.",
+    "No failure reclassified as flaky, no weakened assertion or extra GC/retry.",
+    "No use of one case to clear the other CI gate.",
+    "No phone operation, Mac network change, source/tracker edit, commit or push."
+  ],
+  "archive": {
+    "path": "svg-fragment-owner-b652-raw.tar.gz",
+    "bytes": 67955,
+    "sha256": "56c8cd4eb75a3f0ebc47283803ace13dd2402fc8b0e205540aae3345f3a44f2e"
+  },
+  "index": {
+    "path": "svg-fragment-owner-b652-index.json",
+    "sha256": "2e8bf913d9dad7732301fdda56b7ec7fbf2a9a886769f193c63961161db4a382",
+    "fileCount": 24
+  },
+  "retainedBoundary": [
+    "Static read of exact commit only; no failing heap captured and no runtime cleanup counter observed.",
+    "No assertion that function-local maps cannot survive via unobserved native/async ownership; no specific surviving owner was found.",
+    "No extrapolation from old pureHTML3c or local greens.",
+    "No browser/test/build or config/timeout/GC/retry/skip changes.",
+    "Source failure status and exact line were supplied by root; raw CI job log not independently read yet.",
+    "New cancellation falsy branches are guarded by actual abort; this fixture supplies no signal, onClone hook or user resource resolver. Normal SVG environment completion is real, but execution/cause is not established from source diff alone."
+  ]
+}

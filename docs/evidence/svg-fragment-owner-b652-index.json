@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "createdUTC": "2026-11-24T22:13:50.294869+00:00",
+  "case": "SVG external-fragment host tree",
+  "lockedCommit": "b652860210997de165e3790674eb13b06ef029fa",
+  "archive": {
+    "path": "svg-fragment-owner-b652-raw.tar.gz",
+    "bytes": 67955,
+    "sha256": "56c8cd4eb75a3f0ebc47283803ace13dd2402fc8b0e205540aae3345f3a44f2e"
+  },
+  "fileCount": 24,
+  "originalReviewIndexedFiles": 23,
+  "originalReviewIndexIncluded": true,
+  "files": [
+    {
+      "path": "assessment.json",
+      "bytes": 3614,
+      "sha256": "fe22d04afe9b52fe230aa5833770078c295c0354ef3315cf9374a67d9b1f9dca"
+    },
+    {
+      "path": "document-field-references.txt",
+      "bytes": 33060,
+      "sha256": "dfdb50149de2b30c66eb3b4a9d1899381689fde4baf35dfc44218a35f9351924"
+    },
+    {
+      "path": "frozen/src/capture.ts",
+      "bytes": 7132,
+      "sha256": "b91081e4f0acfa75c683feac344122b8bddab466690965b24ca7f30bf719b167"
+    },
+    {
+      "path": "frozen/src/clone-node.ts",
+      "bytes": 15383,
+      "sha256": "308652bf26b5e84c24f18beb53daa82a3dde3a1f592e203391a0869325cc5676"
+    },
+    {
+      "path": "frozen/src/dataurl.ts",
+      "bytes": 1858,
+      "sha256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+    },
+    {
+      "path": "frozen/src/embed-images.ts",
+      "bytes": 5580,
+      "sha256": "3281db7e66dd51fe2421b70838b89fa9559eb9de5b4c2af4314f9d0110d0e9c4"
+    },
+    {
+      "path": "frozen/src/embed-webfonts.ts",
+      "bytes": 15120,
+      "sha256": "b5701ae6e3f21ea6b6e97566e39601fae948b87718f74e922edb8ab4d6368375"
+    },
+    {
+      "path": "frozen/src/renderer.ts",
+      "bytes": 3128,
+      "sha256": "0b7979bcf8feb5e39add09eb535bee81eb903b443ac0c867244a04a659c1121b"
+    },
+    {
+      "path": "frozen/src/resource-loader.ts",
+      "bytes": 6076,
+      "sha256": "cc4fd74fddeabc8b7c1bbbf6fbb909bf12ee172c5098863d722b65835e294be7"
+    },
+    {
+      "path": "frozen/src/svg-references.ts",
+      "bytes": 20365,
+      "sha256": "d7c7b204d537c0fa0122e50e012b510f7d45aae0d61ee7930f5cf58d63c3d57b"
+    },
+    {
+      "path": "frozen/src/svg-style-imports.ts",
+      "bytes": 10702,
+      "sha256": "a32a9344b6f60b7db66a2708cbfb9649ac95b7b4f11af37df5e6db4059270849"
+    },
+    {
+      "path": "frozen/src/svg-style-scope.ts",
+      "bytes": 22341,
+      "sha256": "53c4b993f80f2f146bef462e65ce6927f4873516a9d10ffe5255b9df73d2e856"
+    },
+    {
+      "path": "frozen/src/task.ts",
+      "bytes": 7682,
+      "sha256": "fd444e9f59480d20f3caf7c563ccd8632e40f828994c3985bceb72cd4b7dc72d"
+    },
+    {
+      "path": "frozen/src/util.ts",
+      "bytes": 8206,
+      "sha256": "169e70a6adfe8e4fe79eeed927364de79553b9dc3421a3254fea3136efaa6c31"
+    },
+    {
+      "path": "frozen/test/browser-unit/svg-fragment-lifetime.test.ts",
+      "bytes": 2238,
+      "sha256": "7127dc9f7c411e600dae640689880922f10f469f76f74b250114dac06cd4734b"
+    },
+    {
+      "path": "frozen/test/browser/fixtures/svg-fragment-paint.mjs",
+      "bytes": 16418,
+      "sha256": "8382846aab1c38097f62f424fc7d751d53002117c8dd9a8a2606567bdc9bbfc1"
+    },
+    {
+      "path": "frozen/test/browser/fixtures/svg-fragment-pattern.svg",
+      "bytes": 905,
+      "sha256": "5a38bccda0a8b9abe5a38ce23ccf12bba39644d039c6512f3f6e9adf0f8aa9e6"
+    },
+    {
+      "path": "frozen/test/browser/fixtures/svg-native-styles.mjs",
+      "bytes": 15517,
+      "sha256": "868dd0e38cbaca440829bc054a38f8c3d8c5dfa30912be0a83e19744c45b489f"
+    },
+    {
+      "path": "frozen/vitest.browser.config.mts",
+      "bytes": 7597,
+      "sha256": "f1287f366819557384eae73b3e211b64d9449041e71158f60f0172f430fe9668"
+    },
+    {
+      "path": "next-observation-plan.md",
+      "bytes": 1234,
+      "sha256": "34e1e2d44a6e43c003246a2fdb0d31aa0c33dcc462873f9a90ed2b1fe6d2489d"
+    },
+    {
+      "path": "owner-edges.json",
+      "bytes": 7893,
+      "sha256": "1b0213cedc182050e1dcdfa61b3c296d7d1ea3d3a112c3c5fdfb0df6d722990d"
+    },
+    {
+      "path": "ownership-source-excerpts.md",
+      "bytes": 42733,
+      "sha256": "fd52661d1140a9dd7b44a0eb1a22ff5fd028a8af7436d08be9d9ac42257c3b65"
+    },
+    {
+      "path": "sha256-index.json",
+      "bytes": 3920,
+      "sha256": "8ba6f2909eb7e50cfa087823e27327181f044d433ffc1cb9adce4d3ae8f62aec"
+    },
+    {
+      "path": "source-identity.json",
+      "bytes": 4492,
+      "sha256": "89eddad27d3236c75f453eae3fd5bdeb0b438c582968f9b05792f08018cc4082"
+    }
+  ],
+  "payloadBytes": 263194,
+  "selection": "Exact existing review index files plus that original index; no directory-wide glob export, dependencies, Git objects, full repository archive, browser report or unrelated files."
+}

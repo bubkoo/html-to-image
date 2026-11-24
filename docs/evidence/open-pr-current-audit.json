@@ -1306,8 +1306,91 @@
       }
     },
     "CodeQL": "not scheduled for stackedbase",
-    "Codecov": "latest skipped afterfailure; earlier upload success is not external verdict"
+    "Codecov": "latest skipped afterfailure; earlier upload success is not external verdict",
+    "historical": true,
+    "currentState": "closed unmerged; superseded by master-based PR654; original failing evidence and branch preserved"
   },
   "latestNativePartContextEvidence": "docs/evidence/native-part-context-followup.json",
-  "latestRootOriginNestedOwnerEvidence": "docs/evidence/root-origin-nested-owner.json"
+  "latestRootOriginNestedOwnerEvidence": "docs/evidence/root-origin-nested-owner.json",
+  "latestIndependentFixes20261125": {
+    "sourceBase": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "cancellation": {
+      "pr": 654,
+      "head": "b652860210997de165e3790674eb13b06ef029fa",
+      "evidence": "docs/evidence/cancellation-reasons-master.json",
+      "remoteEvidence": "docs/evidence/master-independent-fixes-remote.json",
+      "CI": 45489531716,
+      "CIConclusion": "failure",
+      "CodeQL": "success",
+      "packages": "not run"
+    },
+    "devDependencies": {
+      "pr": 653,
+      "head": "5b074c4168158d5047f5bc65155f534547273635",
+      "CI": 45488840651,
+      "CIConclusion": "failure",
+      "CodeQL": "success",
+      "packages": "not run",
+      "npmBundledAffectedCopyRemains": true
+    },
+    "gcRunner": {
+      "pr": 655,
+      "head": "5fcd839f79cef79d240c748f5ceeac7e21a08d63",
+      "evidence": "docs/evidence/gc-runner-frame-controls-remote.json",
+      "CI": 45491737937,
+      "CIConclusion": "failure",
+      "CodeQL": "success",
+      "packages": "not run"
+    },
+    "supersededOwnPR": {
+      "number": 652,
+      "state": "closed",
+      "merged": false,
+      "closedAt": "2026-11-24T21:32:30Z",
+      "replacement": 654,
+      "branchPreserved": true
+    },
+    "original28ContributorPRActions": 0
+  },
+  "latestIntegratedCurrentChecks20261125": {
+    "head": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff",
+    "evidence": "docs/evidence/integrated-current-checks-20261125.json",
+    "default": {
+      "passed": 1638,
+      "failed": 2,
+      "skipped": 45,
+      "sourcePhaseNotRun": true
+    },
+    "explicitSource": {
+      "passed": 1519,
+      "failed": 2,
+      "skipped": 45
+    },
+    "packages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    },
+    "inputCount": 449,
+    "strictCausalAttribution": false,
+    "physicalDevice": "waiting period elapsed; Mirroring connected; no current integrated acceptance yet",
+    "npmPublication": false,
+    "MacNetworkChanges": false
+  },
+  "latestDomAccessRunnerFollowup20261125": {
+    "pr": 650,
+    "head": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "runtime21FilesUnchanged": true,
+    "localEvidence": "docs/evidence/document-property-lifetime-runner-recheck.json",
+    "remoteEvidence": "docs/evidence/document-property-lifetime-877-remote.json",
+    "CI": 45496161113,
+    "coveragePassed": 1300,
+    "sourcePassed": 1181,
+    "packagesPassed": 162,
+    "existingSkipsEach": 4,
+    "CodeQL": "success",
+    "localDefaultFailureRetained": true,
+    "old25eCIAlsoSuccess": true,
+    "merged": false
+  }
 }

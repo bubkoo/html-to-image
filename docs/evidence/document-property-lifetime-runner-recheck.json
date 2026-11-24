@@ -1,0 +1,140 @@
+{
+  "title": "650 isolated runtime plus verified GC runner: preserved local validation",
+  "head": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+  "parents": [
+    "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "5fcd839f79cef79d240c748f5ceeac7e21a08d63"
+  ],
+  "tree": "445808a0c7134431acbb04275138921f1a317c03",
+  "testInputManifest": {
+    "files": 288,
+    "allUnchanged": true,
+    "candidateTreeEqualsCommittedTree": true,
+    "runtimeSourceFiles": 21,
+    "runtimeAllBytesEqual25e": true
+  },
+  "scope": {
+    "runtimeFiles": 21,
+    "allRuntimeBytesEqualOriginal650Head": true,
+    "productionDiffFromOriginal650": "",
+    "changesFromOriginal650": [
+      "A\tdocs/evidence/gc-runner-frame-controls-index.json",
+      "A\tdocs/evidence/gc-runner-frame-controls-raw.tar.gz",
+      "A\tdocs/evidence/gc-runner-frame-controls.json",
+      "A\tdocs/evidence/gc-runner-frame-controls.verify.py",
+      "A\ttest/browser/gc-frame.d.mts",
+      "A\ttest/browser/gc-frame.mjs",
+      "M\tvitest.browser.config.mts"
+    ],
+    "nativeScrollNewRuntimeMerged": false,
+    "securityNewRuntimeMerged": false,
+    "publicCancellationNewRuntimeMerged": false
+  },
+  "results": {
+    "lint": "pass",
+    "types": "pass",
+    "build": "pass",
+    "consumers": "installed tarball ESM/CJS/UMD/TS4.9/current pass",
+    "default": {
+      "exit": 1,
+      "coverage": { "passed": 1299, "failed": 1, "skipped": 4 },
+      "sourceOriginallySkippedByAnd": true
+    },
+    "firstSourceExecution": {
+      "exit": 0,
+      "passed": 1181,
+      "skipped": 4,
+      "reason": "Original source component was not executed after coverage failed; this was its first execution, not a coverage rerun."
+    },
+    "browserPackage": { "exit": 0, "passed": 162 },
+    "failure": {
+      "at": "2026-11-24T21:54:17.690Z",
+      "kind": "Coverage failure classification, not a rerun or fix",
+      "failedCase": "firefox positioned scroll local-block-after-diagonal matches the actual source pixels",
+      "failure": "native locator.screenshot waited for element stability and timed out",
+      "nativeScreenshotProduced": false,
+      "productCaptureNotReachedForFailedCase": {
+        "provenance": "Static source execution order: failed readNative awaits before renderer.capture",
+        "nativeReadLine": 239,
+        "productCaptureLine": 241,
+        "sourceLines": [
+          "    const native = readNative ? await readNative(scene.root.id) : undefined",
+          "    if (native) check(native, 'native control')",
+          "    const capture = await renderer.capture(scene.root)",
+          "    const image = await capture.toImageData()",
+          "    check(image, 'capture')"
+        ]
+      },
+      "GCOrHeldAssertionFailure": false,
+      "coverageResult": { "passed": 1299, "failed": 1, "skipped": 4 },
+      "defaultSourceStepInitiallySkippedByAnd": true,
+      "firstSourceExecution": {
+        "passed": 1181,
+        "failed": 0,
+        "skipped": 4,
+        "notARetryOfCoverage": true
+      },
+      "scope": "Neither native screenshot timing nor overall GC determinism is claimed fixed.",
+      "environment": {
+        "node": "v22.17.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "playwright": "1.64.1",
+        "vitest": "5.0.5"
+      }
+    },
+    "GCOrHeldAssertionFailuresObserved": 0
+  },
+  "timing": {
+    "default": {
+      "start": "2026-11-24T21:51:03.126Z",
+      "end": "2026-11-24T21:51:27.145Z"
+    },
+    "source": {
+      "start": "2026-11-24T21:51:59.718Z",
+      "end": "2026-11-24T21:52:14.309Z"
+    },
+    "package": {
+      "start": "2026-11-24T21:52:34.202Z",
+      "end": "2026-11-24T21:54:49.465Z"
+    },
+    "meaning": "Command-process bounds; individual browser API launch/close timestamps were not instrumented.",
+    "owned4213and4214NoListenersCheckedUTC": "2026-11-24T21:55:04Z",
+    "phoneGateUTC": "2026-11-24T22:02:04Z",
+    "allBrowserStagesTerminalBeforePhoneGate": true
+  },
+  "localRawFileCount": 27,
+  "environment": {
+    "node": "v22.17.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "playwright": "1.64.1",
+    "vitest": "5.0.5"
+  },
+  "failureBoundary": "Default remains failed: one Firefox native source screenshot timed out waiting for stability before renderer.capture. The original error, source snapshot and failure PNG remain in this archive. Successful first source and package executions are separate results.",
+  "limits": [
+    "This local archive reports the actual25e+helper candidate and does not borrow green results from another worktree or remote run.",
+    "First separate source execution completes the previously unexecuted component of the default script; it is not a retry of failed coverage.",
+    "No GC/held assertion failed in these runs, but general GC determinism and all-environment stability are not established.",
+    "This archive task preserves the existing27 files without changing them."
+  ],
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T22:17:23.442402Z",
+  "artifacts": {
+    "rawArchive": {
+      "file": "document-property-lifetime-runner-recheck-raw.tar.gz",
+      "bytes": 115223,
+      "sha256": "f3c445df78a1ff320a3a357b591683aa566aee298d725d6aed19c83b6beb08ac"
+    },
+    "index": {
+      "file": "document-property-lifetime-runner-recheck-index.json",
+      "sha256": "23d864192126ca99ffd694c97c42f63fa6164c9aafd60222b54b753da9c73732"
+    }
+  },
+  "archiveTask": {
+    "noSourceConfigTrackerChanges": true,
+    "noBranchChangeCommitPush": true,
+    "noTestsOrBrowserRun": true,
+    "noPhoneOperation": true
+  }
+}
