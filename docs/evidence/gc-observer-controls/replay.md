@@ -475,3 +475,21 @@ complete emitted GC graph remain authoritative. See the indexed
 failed remote tool preflights, controls, raw files, complete logs and cleanup.
 A future counterfactual must change only the observed private-document access
 sites, retain output/primary-lifetime contracts and all full CI/device gates.
+
+
+### LockResources-only operation-group counterfactual
+
+Five library-free native cold/warm/borrowed/replayed-direct controls all collect
+both documents and preserve weak/strong controls, including20000 direct calls.
+This is no independent native reproduction or proof of a required JIT tier.
+The runtime candidate changes only lockResources: caller/module-document detached
+meta creation, module Document head getter and Element append. Policy text/order,
+style detector, ownership fields and original test gates remain unchanged.
+Local full static/build/package/type gates pass; eight existing focused files
+pass149/one inherited skip across three engines with407 measured inputs unchanged
+during the run. This does not reproduce the actual remote failures or establish
+a necessary accessor/fix. See [preflight](../gc-lock-operations-preflight.json).
+Compare normal exact-head remote primary results/paths and keep any repeat
+separate; do not infer causality from a lone passing candidate on unstable
+baselines. Before acceptance, all output/full package/CI/device requirements and
+the broader original issue scope still apply.
