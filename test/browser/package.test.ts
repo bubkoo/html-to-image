@@ -54,6 +54,124 @@ cases.forEach((name) => {
   })
 })
 
+;(['ESM', 'UMD'] as const).forEach((format) => {
+  ;(['scroll', 'scrollbars'] as const).forEach((group) => {
+    test(`built ${format}: native ${group} matches actual source pixels`, async ({
+      page,
+    }, testInfo) => {
+      await page.exposeFunction('__nativeScrollSourcePNG', async (id: string) =>
+        (
+          await page.locator(`[id=${JSON.stringify(id)}]`).screenshot({
+            scale: 'css',
+            timeout: 5000,
+          })
+        ).toString('base64'),
+      )
+      await page.goto('/test/browser/umd.html')
+      if (format === 'UMD')
+        await page.addScriptTag({ url: '/dist/html-to-image.js' })
+      const report = await page.evaluate(
+        async ({ format, group }) => {
+          const scope = window as typeof window & {
+            htmlToImage: typeof import('../../src')
+            __nativeScrollSourcePNG(id: string): Promise<string>
+          }
+          const apiURL = '/es/index.js'
+          const api =
+            format === 'UMD' ? scope.htmlToImage : await import(apiURL)
+          if (!api?.createRenderer)
+            throw new Error(`${format} createRenderer export is missing`)
+          const fixtureURL = `/test/browser/fixtures/native-${group}.mjs`
+          const fixture = await import(fixtureURL)
+          const kinds: string[] =
+            group === 'scroll'
+              ? fixture.nativeScrollCases
+              : fixture.nativeScrollbarCases
+          const check =
+            group === 'scroll'
+              ? fixture.checkNativeScroll
+              : fixture.checkNativeScrollbars
+          const readNative = async (id: string) => {
+            const png = await scope.__nativeScrollSourcePNG(id)
+            const image = new Image()
+            image.src = 'data:image/png;base64,' + png
+            await image.decode()
+            const canvas = document.createElement('canvas')
+            canvas.width = image.naturalWidth
+            canvas.height = image.naturalHeight
+            const context = canvas.getContext('2d')!
+            context.drawImage(image, 0, 0)
+            return context.getImageData(0, 0, canvas.width, canvas.height)
+          }
+          const supportsLegacy = CSS.supports('selector(::-webkit-scrollbar)')
+          const report = {
+            format,
+            group,
+            userAgent: navigator.userAgent,
+            dpr: devicePixelRatio,
+            listed: kinds.length,
+            executed: [] as string[],
+            passed: [] as string[],
+            failed: [] as { kind: string; error: string }[],
+            unsupported: [] as { kind: string; reason: string }[],
+          }
+          for (let index = 0; index < kinds.length; index += 1) {
+            const kind = kinds[index]
+            if (
+              group === 'scrollbars' &&
+              kind.startsWith('legacy') &&
+              !supportsLegacy
+            ) {
+              report.unsupported.push({
+                kind,
+                reason: 'CSS.supports(selector(::-webkit-scrollbar)) is false',
+              })
+              continue
+            }
+            report.executed.push(kind)
+            try {
+              // Run every supported case even if another case fails. A warmed
+              // replay or a successful later case never replaces its verdict.
+              // eslint-disable-next-line no-await-in-loop
+              await check(api, kind, readNative)
+              report.passed.push(kind)
+            } catch (error) {
+              report.failed.push({
+                kind,
+                error:
+                  ((error as Error).message || String(error)) +
+                  '\n' +
+                  ((error as Error).stack || ''),
+              })
+            }
+          }
+          return report
+        },
+        { format, group },
+      )
+      await testInfo.attach('native-source-pixel-verdicts', {
+        body: JSON.stringify(report, null, 2),
+        contentType: 'application/json',
+      })
+      report.unsupported.forEach(({ kind, reason }) => {
+        testInfo.annotations.push({
+          type: 'unsupported fixture',
+          description: `${kind}: ${reason}`,
+        })
+      })
+      expect(report.listed).toBeGreaterThan(0)
+      expect(report.executed.length).toBeGreaterThan(0)
+      expect(report.executed.length + report.unsupported.length).toBe(
+        report.listed,
+      )
+      expect(report.passed.length + report.failed.length).toBe(
+        report.executed.length,
+      )
+      expect(report.failed).toEqual([])
+    })
+  })
+})
+
 test('the full mobile smoke page completes without a hidden failure', async ({
   page,
 }) => {

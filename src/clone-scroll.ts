@@ -8,6 +8,7 @@ import { readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getTask } from './task.js'
 import { uuid } from './util.js'
+import { cloneNativeScroll } from './clone-scroll-native.js'
 
 export function cloneScrollState<T extends HTMLElement>(
   nativeNode: T,
@@ -55,6 +56,25 @@ export function cloneScrollState<T extends HTMLElement>(
         'position',
       ) === 'sticky',
   )
+  const hasExternalAbsolute = positioned.some((element) => {
+    if (
+      readDOMProperty(readDOMProperty(element, 'style'), 'position') !==
+      'absolute'
+    )
+      return false
+    const source = task?.getCloneSource(element) as HTMLElement | undefined
+    const anchor = readOptionalDOMProperty(source, 'offsetParent')
+    // A containing block outside the captured tree has another coordinate
+    // origin. Keep its existing fallback until that origin is reconstructed.
+    return !anchor || !task?.hasClonedSource(anchor)
+  })
+  if (
+    task &&
+    original === nativeNode &&
+    !hasExternalAbsolute &&
+    cloneNativeScroll(nativeNode, clonedNode, task, scrollLeft, scrollTop)
+  )
+    return
   const shiftMargins = (element: HTMLElement, left: number, top: number) => {
     const style = readDOMProperty(element, 'style')
     const margins = [
@@ -164,18 +184,7 @@ export function cloneScrollState<T extends HTMLElement>(
             readDOMProperty(style, 'marginRight') !== 'auto')
         )
       }))
-  const hasExternalAbsolute = positioned.some((element) => {
-    if (
-      readDOMProperty(readDOMProperty(element, 'style'), 'position') !==
-      'absolute'
-    )
-      return false
-    const source = task?.getCloneSource(element) as HTMLElement | undefined
-    const anchor = readOptionalDOMProperty(source, 'offsetParent')
-    // A containing block outside the captured tree has another coordinate
-    // origin. Keep its existing fallback until that origin is reconstructed.
-    return !anchor || !task?.hasClonedSource(anchor)
-  })
+
   if (
     task &&
     (hasDirectText || hasInline || positioned.length) &&

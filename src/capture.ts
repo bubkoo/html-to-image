@@ -4,7 +4,7 @@ import type { Capture, CaptureNode, EncodingOptions, Options } from './types.js'
 import { cloneNode, ensureSVGSymbols } from './clone-node.js'
 import { applyStyle } from './apply-style.js'
 import { embedWebFonts } from './embed-webfonts.js'
-import { embedImages } from './embed-images.js'
+import { embedImages, embedClonedStyles } from './embed-images.js'
 import { CaptureTask } from './task.js'
 import {
   canvasToBlob,
@@ -68,6 +68,11 @@ export async function createCapture(
       task.clearCloneSources()
       task.check()
       await embedImages(root, options)
+      const clonedStyles = await embedClonedStyles(
+        task.getClonedStyles(root),
+        cloneDocument,
+        options,
+      )
       task.stage('serialize')
       return fromSnapshot(
         {
@@ -76,7 +81,7 @@ export async function createCapture(
             width,
             height,
             cloneDocument,
-            task.getClonedStyles(),
+            clonedStyles,
           ),
           width,
           height,

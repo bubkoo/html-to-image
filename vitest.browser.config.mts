@@ -167,15 +167,17 @@ export default defineConfig({
             '_',
           )
           await Promise.all(
-            ['native', 'capture', 'authored'].map(async (key) => {
-              if (data[key]) {
-                await writeFile(
-                  resolve(folder, name + '-' + key + '.png'),
-                  Buffer.from(data[key], 'base64'),
-                )
-                delete data[key]
-              }
-            }),
+            ['native', 'capture', 'authored', 'replay', 'html', 'inline'].map(
+              async (key) => {
+                if (data[key]) {
+                  await writeFile(
+                    resolve(folder, name + '-' + key + '.png'),
+                    Buffer.from(data[key], 'base64'),
+                  )
+                  delete data[key]
+                }
+              },
+            ),
           )
           await writeFile(
             resolve(folder, name + '.json'),
