@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T22:40:45.136129Z",
+  "archive": {
+    "file": "native-scroll-a2-remote-raw.tar.gz",
+    "bytes": 173785,
+    "sha256": "abeba3339e05e0f1a49ebf96beec3cb98ae6150474b04d1ccd1cce0b45e51480",
+    "format": "Deterministic gzip + USTAR, regular files only"
+  },
+  "sourceGroups": [
+    {
+      "archivePrefix": "native-scroll-b921-remote-20261125",
+      "fileCount": 14,
+      "originalSourceIndexSHA256": "1efcb43f9ed0bbedfbc5907774aa2ff450c9c3334bc5395148aed879e8515538",
+      "selection": "All sealed indexed files plus the source index; original bytes unchanged."
+    },
+    {
+      "archivePrefix": "native-scroll-a2caa9-remote-20261125",
+      "fileCount": 43,
+      "originalSourceIndexSHA256": "6f6616be449d3642c357bc25e3ed1a03a9fe4ffed6bd6887c01afe76c00f50a3",
+      "selection": "All sealed indexed files plus the source index; original bytes unchanged."
+    }
+  ],
+  "members": [
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/all-head-runs-api-initial.json",
+      "bytes": 82195,
+      "sha256": "e5374cc0d3ca8412fadc08b79790c0f0b71c1cf660e1b5d360eba794939d9da3",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/all-head-runs-api-terminal.json",
+      "bytes": 109349,
+      "sha256": "67a5b6360647d037d28225842b53d87e6991bbd868d54605d3f348a74a373105",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact-verification.json",
+      "bytes": 3326,
+      "sha256": "c4b34a704bb0036d18380865bad5b804ac99b412bba6ef7e39b1ba180b5aab0c",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/24320f63beea0972aaa5a8572452c0caed30f7d7.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30446,
+      "sha256": "944112f47ecde7f656fa598e96fabb670aaac4d4cbb9a36afa93c9e3d317c7ff",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-authored.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-capture.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-html.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-inline.png",
+      "bytes": 456,
+      "sha256": "85c879a429a7d5138b7cd65714aff0e6f71431b6f265045a52b45782873d196e",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-native.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-replay.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text.json",
+      "bytes": 82682,
+      "sha256": "d4fe26fb97e29bdcd1f6b318a741c6414c89c40cc8941f48767d5c223a37f933",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/assessment.json",
+      "bytes": 13155,
+      "sha256": "a6a01c320468d33ceef05e0ac9bbec59cadb652e018e22ab014ecf50e4f8d3eb",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-artifacts-api.json",
+      "bytes": 2274,
+      "sha256": "a2f00c236413f3c57eb5620ed2903d792c6209e51443405640c10754f0f3b1b7",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-job-log-api.json",
+      "bytes": 231355,
+      "sha256": "668e724c79caad318f349e43028ab8cfc7d70b4a5c74889fcf2669b277e3e949",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-job.log",
+      "bytes": 209505,
+      "sha256": "fb38a5dbac0b0bf9686c635c4a231b54677c6534b6ab7a80e61c0b44ec9e8a06",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-jobs-api-initial.json",
+      "bytes": 9226,
+      "sha256": "3d5178850132a3a9fe1ae9c83c3ece6f8aa5f10427a150bfad2d489d2408b26e",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-jobs-api-poll01.json",
+      "bytes": 9324,
+      "sha256": "816d987d746ab8962c1ebbd3bb3dd10002e30ef2141c14c1dc62463bed11cd02",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-jobs-api-poll02.json",
+      "bytes": 10108,
+      "sha256": "123d5dad3ad8f37dd0a22e2b0a1fa1c96e05d7e9874f6c61c4f4bc68612d7e22",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-jobs-api-terminal.json",
+      "bytes": 10560,
+      "sha256": "1ecd4dd7b6ee081cdc952d8a5dfbe205b79318a7e5a6d1f5a2f168683fb0db25",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-run-api-initial.json",
+      "bytes": 27683,
+      "sha256": "62a4fc5523799fc6b304e2705b058ef907c670121c55d9979220f23463b5e289",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/ci-run-api-terminal.json",
+      "bytes": 27693,
+      "sha256": "339973829018018a19736bba236bba30d0d61638d093cfeb98552174b92b920b",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/first-parent-commit-api.json",
+      "bytes": 3258,
+      "sha256": "83c1df7ec1df54eae1b3ae47afa43a9b77bfd2b875b9d93e2adbdc8b9bed3ef6",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/head-commit-api.json",
+      "bytes": 3792,
+      "sha256": "f2157c4ea4639bb2bda85370d92610acf7d1d8a65eea205b2eac5c40e507cf3a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/head-runs-api-initial.json",
+      "bytes": 568,
+      "sha256": "e67ec4ed1e7ad45b02f9bdf46a1865e964012abd2728a706f445a10b76190ef4",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/head-source-test__browser-unit__native-scroll.test.ts.json",
+      "bytes": 2048,
+      "sha256": "559a512c078176268e97f4235ac4c7973dd26bcdadce0583c67db047345ee06f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/head-source-test__browser__fixtures__native-scroll.mjs.json",
+      "bytes": 18923,
+      "sha256": "682141199a38f72d1ea8f1f09a10f59a076f288e6ac744c04adcf6a3cc816c17",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/head-source-verification.json",
+      "bytes": 551,
+      "sha256": "b39da7d58b713fad020f815463671d5e5d4c4aadbf7d32b9d7785fb942effae1",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/head-source/test/browser-unit/native-scroll.test.ts",
+      "bytes": 1562,
+      "sha256": "e8c2164d562386091148f08c53fa400c071e383cd7f5e6136b51ce81e6784536",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/head-source/test/browser/fixtures/native-scroll.mjs",
+      "bytes": 17977,
+      "sha256": "059b1ca01efb4f04c56f079ee0c48de4a0ff3518c29072d797a58a71e4962c6b",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/history-preservation.json",
+      "bytes": 794,
+      "sha256": "cd4daae1760cac7d38f75d24438e833e0712f4fe6664904ec37cfc57bf35af9c",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/native-diagnostic-summary.json",
+      "bytes": 1026,
+      "sha256": "a6d076ae68a1bacfa4d710e84d409cbb966808f130422d9d4e4250c1833df86a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/owner-receipt-provenance.json",
+      "bytes": 428,
+      "sha256": "ffef87653cb37e72e9ba3cab81b9d85419231dd002901ee6086c7de189ac906e",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/owner-receipts/root-before-merge-receipt.json",
+      "bytes": 572,
+      "sha256": "6b6ca987430255c8075e0f8a5fb32fd8868929078b4b2c2de65e36d87d62056f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/pr-api-initial.json",
+      "bytes": 44770,
+      "sha256": "dbd5e7760614b51adb1a630e8476ca433f6fd31d5eb4b309e84af5b6f857c655",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/pr-api-terminal.json",
+      "bytes": 47206,
+      "sha256": "26f205469e982f6c88845db4c586c81cd296b1df8ac5bf2b3c5ae2a4c2aa8565",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/pr651-a2-ci-45501931582.zip",
+      "bytes": 18043,
+      "sha256": "190c4bb16a7510718388fe5fb0c450f45f5c7f46e81f7279c670dfc3741d598b",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/sha256-index.json",
+      "bytes": 7667,
+      "sha256": "6f6616be449d3642c357bc25e3ed1a03a9fe4ffed6bd6887c01afe76c00f50a3",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-a2caa9-remote-20261125/test-merge-commit-api.json",
+      "bytes": 6258,
+      "sha256": "378a1cec2134aebbf15493ff69553fdbb7542447f11e1a4c48f3fe9e708b3b2a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/all-event-head-runs-api.json",
+      "bytes": 82345,
+      "sha256": "8a7b2ca46a17501e714979ad04c8d2f1354a3ac5b462ef540258a159441f5cb3",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/assessment.json",
+      "bytes": 4359,
+      "sha256": "6cc181a1ef5b3b8ba78ac956fecbbdc807e6cba3ff4c5fec75ec02a0c384786c",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/base-branch-ref-api.json",
+      "bytes": 1660,
+      "sha256": "4f58ee35a4deea1967a5866fcbbcf1c13d4db352542a01b2ebff9dda93cf09ae",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/head-check-runs-api.json",
+      "bytes": 31788,
+      "sha256": "0b9b766aef4f34a5965c7738efccdbf0f6415db607452f34b106fc8cfa00f2c2",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/head-commit-api.json",
+      "bytes": 3266,
+      "sha256": "548a3bf2be7b9d5f40677e52d7961f5b00356db2a343eda48842bee299693f31",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/head-runs-api.json",
+      "bytes": 165,
+      "sha256": "06ef1a0c537be8f0172645a3659c462436c70b425aa2df04ba1be7c2b2201e0a",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/merge-ref-commit-api.json",
+      "bytes": 6258,
+      "sha256": "1e9b83e982482622e683de3ca0c33bffab2c116f7db71df07cc122477c4e02f8",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/patch-size-artifacts-api.json",
+      "bytes": 754,
+      "sha256": "ff5feb2cbb1f6e2ef6e5cb1806b3fc663c218fc437fc40fcca4a4677d703af7e",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/patch-size-jobs-api.json",
+      "bytes": 5748,
+      "sha256": "a793e019e6bf74eb0fbd820118b4bc54fe4f6a0b9be1f94b8f466918df2e96c0",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/patch-size-log-api.json",
+      "bytes": 57228,
+      "sha256": "35e10d5d22d7cfb5fa94d19ccb97bb203f60b46b2d8a38e0cf30fd35370842cb",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/patch-size.log",
+      "bytes": 56144,
+      "sha256": "590cc2a48d9d622b37106d0e46447b708322ca65ae04ee6a07c2f0f84789410f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/pr-api.json",
+      "bytes": 44686,
+      "sha256": "287533e135d3b4c70abb87323c99b86f2fe0de94dfa9899c1f3218d031ef80e6",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/sha256-index.json",
+      "bytes": 2144,
+      "sha256": "1efcb43f9ed0bbedfbc5907774aa2ff450c9c3334bc5395148aed879e8515538",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "native-scroll-b921-remote-20261125/tested-merge-ref-api.json",
+      "bytes": 1365,
+      "sha256": "8d2caf3e67ac8dc12df9d214a9026be4f7c7da9cc45d67c36e1bc9a5dc607057",
+      "originalBytesVerified": true
+    }
+  ],
+  "provenance": {
+    "rawAPI": "GitHub API tool envelopes and decoded job logs are retained as acquired. Decoded logs are not claimed as untouched HTTP transport bytes.",
+    "rootOperationReceipt": {
+      "file": "native-scroll-a2caa9-remote-20261125/owner-receipts/root-before-merge-receipt.json",
+      "kind": "Explicit root operation receipt, not raw GitHub API",
+      "bytes": 572,
+      "sha256": "6b6ca987430255c8075e0f8a5fb32fd8868929078b4b2c2de65e36d87d62056f"
+    },
+    "derivedRecords": "assessment.json, diagnostic summaries, verifications and source indexes are labeled derived metadata."
+  },
+  "privacyScan": {
+    "originalFiles": 57,
+    "credentialOrSignedURLPatternHits": 0,
+    "temporaryArtifactURLPersisted": false
+  }
+}

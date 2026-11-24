@@ -14,9 +14,11 @@
 
 主工作区 `854fa0a` 已整合取消、开发依赖和 runner 工具，仍保留 #651 的严格原生绘制失败。默认 **1638 通过 / 2 WebKit 失败 / 45 跳过**；独立源码 **1519 通过 / 2 失败 / 45 跳过**；构建包 **176 通过 / 2 原生滚动组失败 / 2 不支持**。447→449 输入只增加两份 runner helper、修改其配置，生产与生成文件 hash 不变；此前 **1636/4** 到此次 **1638/2** 是两次运行观察，不作严格因果归因。[601 成员整合证据](evidence/integrated-current-checks-20261125.json)保留四轮失败与准确截图来源。严格字形、内阴影及 DPR2 分数坐标边界没有放宽。
 
+#651 的 `b921bf7` 因父分支更新产生冲突，没有 CI/CodeQL 测试运行；旧合并 ref 属于 `6c130b8`，不能当成本轮。新 `a2caa9d` 普通合入 #650 的 `877c476`，只保留已有两项配置导入，整棵树与第一父 `3c53fba` 相同、449 输入未变，PR 已恢复可合并。[CI 45501931582](https://github.com/bubkoo/html-to-image/actions/runs/45501931582)准确测试合并父 `[877c476,a2caa9d]`，coverage **1639 通过 / 1 Chromium 字形失败 / 45 跳过**；源码后半段、包及 Codecov 未执行，堆叠 base 未调度 CodeQL。这轮不是回收或 FrameDetached 失败。尺寸标签的“diff 超过 20000 行”另列为标签自动化失败，不当成 CI 断言。[本轮冲突与远端原始记录](evidence/native-scroll-a2-remote.json)单独保存，后续运行回执置于证据分支，#651 的已测源码 head 保持 `a2caa9d`。
+
 四小时等待后，于 **2026-11-24 22:23:42–22:24:56 UTC** 在锁屏 iPhone 的镜像中完成当前整合 UMD 真机子集：**14/14** 取消原因身份、真实已加载字体/移除源 iframe 后输出、默认 160×80 PNG 的 **6400 红 / 6400 蓝像素**均通过。原生指针点击 `_blank` / `noopener` 链接后新标签页显示红蓝图片；返回原页再点击清理，两次事件均 `isTrusted:true` 且激活有效，activeURL 为空、自有 frame/renderer/snapshot 为零，记录实际撤销同一 Blob URL。没有另做 revoke 后 fetch 探针。[手机原始 JSON、仅自有页面截图及指纹](evidence/ios-integrated-acceptance.json)绑定 HTML `204f0f43…`、UMD `9c090fc2…` 和全部 449 输入。字体控制显式使用 3 次稳定化，不扩大为默认首帧、设备 GC、ESM/完整套件或原生像素保真；也不将混合整合版子集称为独立 #654 分支完整验收。
 
-长地址逐键输入排队后已退出重连，改用[三引擎核验的 247 字入口](evidence/ios-offline-bootstrap.json)加载[冻结页](evidence/ios-offline.html)。手机需要一次公开 GitHub HTTPS 加载，不称全会话零网络；没有完整手机网络跟踪。仅关闭自建验证标签页，选回原用户标签；剪贴板、输入法恢复，私有备份删除，镜像已退出。#398 的可信点击/新页/清理缺口现已补齐，原 PR 仍 closed/unmerged，未执行旧 PR 状态或评论操作。未改电脑网络配置、未发布 npm。
+长地址逐键输入排队后已退出重连，改用[三引擎核验的 247 字入口](evidence/ios-offline-bootstrap.json)加载[冻结页](evidence/ios-offline.html)。手机需要一次公开 GitHub HTTPS 加载，不称全会话零网络；没有完整手机网络跟踪。仅关闭自建验证标签页，选回原用户标签；Mac 剪贴板、输入法恢复，私有备份删除，镜像已退出。#398 的可信点击/新页/清理缺口现已补齐，原 PR 仍 closed/unmerged，未执行旧 PR 状态或评论操作。未改电脑网络配置、未发布 npm。
 
 ## 2026-11-25 #652 最新 head 的回收失败
 

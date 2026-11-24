@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T22:40:45.136129Z",
+  "title": "651 base-refresh history and exact a2 CI failure",
+  "pullRequest": "https://github.com/bubkoo/html-to-image/pull/651",
+  "before": {
+    "head": "b921bf7877eca62c46bd06deffdb22cdbf63c314",
+    "directory": "native-scroll-b921-remote-20261125",
+    "files": 14,
+    "prMergeable": false,
+    "prMergeableState": "dirty",
+    "prBaseSHASnapshot": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "liveBaseBranchRefSHA": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "CIAndCodeQLRuns": 0,
+    "oldMergeRef": {
+      "sha": "3cb5c5e72d2c5790435090442115eaaa4fc259c1",
+      "parents": [
+        "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "6c130b8d43496cc465ad71d8ee177dd621a5a216"
+      ],
+      "tree": "fc8936daed36f642e39c88707eea6e9299a22bac",
+      "matchesCurrentHead": false,
+      "boundary": "Existing refs/pull/651/merge belongs to old head6c130b8d43496cc465ad71d8ee177dd621a5a216 with base25e. It is not a tested b921 merge or proof about base877. No mergebase is guessed from PR base snapshot."
+    },
+    "labelFailure": {
+      "workflow": 45499796570,
+      "job": 138819740061,
+      "jobConclusion": "failure",
+      "step": 5,
+      "action": "pascalgn/size-label-action@v0.1.1",
+      "logLine": 630,
+      "originalError": "2026-11-24T22:19:31.1271117Z { RequestError [HttpError]: Sorry, the diff exceeded the maximum number of lines (20000): {\"resource\":\"PullRequest\",\"field\":\"diff\",\"code\":\"too_large\"}",
+      "classification": "GitHub PullRequest.diff exceeds20000-line API limit, code too_large. Label-size automation failure; not a source/native-pixel/GC/held assertion.",
+      "artifactCount": 0
+    },
+    "boundary": "Old b921 was untested in its recorded snapshot; old merge3cb belonged to6c130, notb921."
+  },
+  "after": {
+    "head": "a2caa9df24cdfaac5f54ee59ff61696b3de8bdfb",
+    "headParents": [
+      "3c53fbac5e808f0c22b48303d467e776293682a0",
+      "877c476888bbc2146a15d3c673f7a3385f3b9ddb"
+    ],
+    "base": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "prMergeable": true,
+    "prMergeableState": "unstable",
+    "testMerge": "77850fb1aeeab6cf072166c34742674fe0babbb9",
+    "testMergeParents": [
+      "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+      "a2caa9df24cdfaac5f54ee59ff61696b3de8bdfb"
+    ],
+    "headAndFirstParentAndTestMergeTree": "6768dedac8e9b0305b741c6ebf579aea45b9a2a6",
+    "firstParent": "3c53fbac5e808f0c22b48303d467e776293682a0",
+    "entireTrackedTreeUnchangedByRefreshViaGitHubAPI": true
+  },
+  "rootOperationReceipt": {
+    "provenance": {
+      "kind": "Root owner operation receipt, not GitHub API evidence",
+      "source": "/Users/bytedance/.codex/worktrees/gc-native-release-controls/html-to-image/output/playwright/native-scroll-base-sync-20261125/before-merge-receipt.json",
+      "archivedAt": "owner-receipts/root-before-merge-receipt.json",
+      "bytes": 572,
+      "sha256": "6b6ca987430255c8075e0f8a5fb32fd8868929078b4b2c2de65e36d87d62056f",
+      "copiedBytesExactly": true
+    },
+    "kind": "Root operation receipt; NOT raw GitHub API or an independently recomputed449-file manifest",
+    "receipt": {
+      "parentBefore": "3c53fbac5e808f0c22b48303d467e776293682a0",
+      "mergeParent": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+      "singleConflict": "vitest.browser.config.mts",
+      "resolution": "Keep exact already-measured HEAD config, including both scrollbar resources and GC runner imports",
+      "all449InputsIdentical": true,
+      "indexTree": "6768dedac8e9b0305b741c6ebf579aea45b9a2a6",
+      "headTree": "6768dedac8e9b0305b741c6ebf579aea45b9a2a6",
+      "entireTreeIdentical": true,
+      "localRegressionRerun": "none; no file byte changes; fresh exact-head remote CI still required"
+    },
+    "corroboration": "GitHub Git Commit API independently confirms a2/first-parent3c53/test-merge77850 identical whole tracked tree6768. The449 hash statement itself is the root owner receipt."
+  },
+  "ci": {
+    "run": 45501931582,
+    "job": 138827166851,
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45501931582",
+    "jobURL": "https://github.com/bubkoo/html-to-image/actions/runs/45501931582/job/138827166851",
+    "event": "pull_request",
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "failure",
+    "jobStarted": "2026-11-24T22:32:50Z",
+    "jobCompleted": "2026-11-24T22:35:49Z",
+    "coverage": {
+      "passed": 1639,
+      "failed": 1,
+      "skipped": 45,
+      "filesPassed": 149,
+      "filesFailed": 1,
+      "filesSkipped": 1
+    },
+    "failure": {
+      "engine": "chromium",
+      "case": "native scroll visible-text preserves native glyph placement",
+      "unitFile": "test/browser-unit/native-scroll.test.ts",
+      "unitLine": 42,
+      "unitColumn": 20,
+      "fixtureFile": "test/browser/fixtures/native-scroll.mjs",
+      "fixtureLine": 219,
+      "fixtureColumn": 17,
+      "message": "visible-text: native/capture channel37:255, expected231",
+      "originalLogMessage": "visible-text: native/capture channel 37: 255, expected 231",
+      "classification": "Native versus capture pixel equality failure, not native-readiness timeout, GC/held assertion or FrameDetached."
+    },
+    "sourcePhase": "Not executed because original pnpm test coverage && source stopped after coverage failure.",
+    "builtPackagePhase": "Skipped step13 after failed default test step12.",
+    "skippedSteps": [
+      { "number": 13, "name": "📦　Test built package in browsers" },
+      { "number": 15, "name": "🔑　Generate Token" },
+      { "number": 16, "name": "💡　Coveralls" },
+      { "number": 17, "name": "💡　Codecov" },
+      { "number": 32, "name": "Post 🎉　Setup nodejs" }
+    ],
+    "GCOrHeldAssertionFailuresObserved": 0
+  },
+  "nativeDiagnostic": {
+    "kind": "native-visible-text",
+    "engine": "chromium",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+    "offsets": [40, 47],
+    "nativeDifferentChannels": 214,
+    "authoredNativeDifferentChannels": 214,
+    "replayNativeDifferentChannels": 214,
+    "replayAuthoredDifferentChannels": 0,
+    "replayInitialDifferentChannels": 0,
+    "repeatedNativeDifferentChannels": 214,
+    "repeatedInitialDifferentChannels": 0,
+    "commentReplayNativeDifferentChannels": 214,
+    "canvasVariants": [
+      { "name": "read-frequently", "nativeDifferentChannels": 214 },
+      { "name": "opaque-canvas", "nativeDifferentChannels": 0 },
+      { "name": "copy-composite", "nativeDifferentChannels": 214 },
+      { "name": "opaque-read-frequently", "nativeDifferentChannels": 0 }
+    ],
+    "htmlNativeDifferentChannels": 0,
+    "inlineSvgNativeDifferentChannels": 2925,
+    "replayNativeMaxChannelDelta": 88
+  },
+  "artifact": {
+    "artifactID": 14972200490,
+    "file": "pr651-a2-ci-45501931582.zip",
+    "bytes": 18043,
+    "sha256": "190c4bb16a7510718388fe5fb0c450f45f5c7f46e81f7279c670dfc3741d598b",
+    "publishedAPIDigestMatches": true,
+    "zipCRCVerified": true,
+    "members": [
+      {
+        "file": ".vitest/attachments/24320f63beea0972aaa5a8572452c0caed30f7d7.png",
+        "bytes": 2901,
+        "crc32": "e536bc9a",
+        "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+        "bytes": 2901,
+        "crc32": "e536bc9a",
+        "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+        "bytes": 946,
+        "crc32": "998c1c59",
+        "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+        "bytes": 943,
+        "crc32": "5e1738bb",
+        "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-gutter.json",
+        "bytes": 30446,
+        "crc32": "e29ecd54",
+        "sha256": "944112f47ecde7f656fa598e96fabb670aaac4d4cbb9a36afa93c9e3d317c7ff"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-native-visible-text-authored.png",
+        "bytes": 246,
+        "crc32": "b2d86a59",
+        "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-native-visible-text-capture.png",
+        "bytes": 246,
+        "crc32": "b2d86a59",
+        "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-native-visible-text-html.png",
+        "bytes": 304,
+        "crc32": "3d2f74a3",
+        "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-native-visible-text-inline.png",
+        "bytes": 456,
+        "crc32": "514a2350",
+        "sha256": "85c879a429a7d5138b7cd65714aff0e6f71431b6f265045a52b45782873d196e"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-native-visible-text-native.png",
+        "bytes": 304,
+        "crc32": "3d2f74a3",
+        "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-native-visible-text-replay.png",
+        "bytes": 246,
+        "crc32": "b2d86a59",
+        "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+      },
+      {
+        "file": ".vitest/attachments/scrollbar-box/chromium-native-visible-text.json",
+        "bytes": 82682,
+        "crc32": "498b21fe",
+        "sha256": "d4fe26fb97e29bdcd1f6b318a741c6414c89c40cc8941f48767d5c223a37f933"
+      }
+    ],
+    "temporaryDownloadURLPersisted": false
+  },
+  "headSourceFiles": {
+    "head": "a2caa9df24cdfaac5f54ee59ff61696b3de8bdfb",
+    "files": [
+      {
+        "path": "test/browser/fixtures/native-scroll.mjs",
+        "bytes": 17977,
+        "sha256": "059b1ca01efb4f04c56f079ee0c48de4a0ff3518c29072d797a58a71e4962c6b",
+        "gitBlobSHA": "5fb4398c264904009131e9317b1df06df54808a2"
+      },
+      {
+        "path": "test/browser-unit/native-scroll.test.ts",
+        "bytes": 1562,
+        "sha256": "e8c2164d562386091148f08c53fa400c071e383cd7f5e6136b51ce81e6784536",
+        "gitBlobSHA": "89abfed46bb83461dad64685e4ab23a296e2ae28"
+      }
+    ]
+  },
+  "otherWorkflows": [
+    {
+      "id": 45502126350,
+      "name": "🏷️　Label(Status)",
+      "event": "pull_request_target",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45501923192,
+      "name": "🏷️　Label(Patch Size)",
+      "event": "pull_request_target",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 45501923389,
+      "name": "🏷️　Label(Status)",
+      "event": "pull_request_target",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "codeqlRunForThisHead": null,
+  "codeqlBoundary": "No CodeQL workflow appears in the retrieved exact-head all-event run collection; not reported as pass or failure.",
+  "scope": [
+    "Old b921 was dirty and had no CI/CodeQL run in its snapshot; the stale merge-ref contained head6c130, notb921. Label-size API failure was separate.",
+    "New a2 is mergeable with base877 and independently ran pull_request CI45501931582 against actual merge77850. Its tracked tree equals a2 and first-parent3c53:6768dedac8e9b0305b741c6ebf579aea45b9a2a6.",
+    "The root operation receipt reports449 identical inputs and no local regression rerun. Its provenance is distinct from independently verified GitHub parent/tree metadata.",
+    "The only CI failure is Chromium visible-text native/capture pixel equality, not a GC/held assertion. Coverage failed, so source and built-package phases were not executed.",
+    "No test rerun or product change was made by this collection. The failure is not replaced by earlier local or other-head results."
+  ],
+  "collectionOperations": {
+    "readOnlyGitHubCollection": true,
+    "noWorkflowRerun": true,
+    "noBrowserOrTestExecution": true,
+    "noUserPhoneOperation": true,
+    "noSourceOrTrackerOrPRBodyEdit": true,
+    "noCommitPushOrBranchChange": true,
+    "publicEvidenceTarget": "New triplet in this agent worktree only; root will publish on an independent evidence branch, keeping651 source heada2 fixed."
+  },
+  "rawFileCounts": { "oldB921": 14, "newA2": 43, "total": 57 },
+  "artifacts": {
+    "rawArchive": {
+      "file": "native-scroll-a2-remote-raw.tar.gz",
+      "bytes": 173785,
+      "sha256": "abeba3339e05e0f1a49ebf96beec3cb98ae6150474b04d1ccd1cce0b45e51480"
+    },
+    "index": {
+      "file": "native-scroll-a2-remote-index.json",
+      "sha256": "e3a3cb5121284b0118b2fd81b441a6226185d6b93dbbaa708a9daf49fa53bb1a"
+    }
+  },
+  "publicationBoundary": "These new documents are generated only in the evidence agent worktree. Root will publish on an independent receipts branch; source PR651 head stays a2caa9df24cdfaac5f54ee59ff61696b3de8bdfb."
+}

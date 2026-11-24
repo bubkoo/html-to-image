@@ -1404,8 +1404,9 @@
       "GCProof": false,
       "nativePixelEqualityProof": false,
       "sessionEnded": true,
-      "clipboardAndInputRestored": true,
-      "MacNetworkChanges": false
+      "MacNetworkChanges": false,
+      "MacClipboardAndInputRestored": true,
+      "iPhoneOriginalClipboardRestorationNotClaimed": true
     },
     "npmPublication": false,
     "MacNetworkChanges": false
@@ -1438,5 +1439,31 @@
       "newSourcePRAction": false,
       "limits": "Exact integrated UMD and default160x80 PNG only; not old contributor PR merged, full device suite, native pixel fidelity or device GC."
     }
-  ]
+  ],
+  "latestNativeFidelityRemoteA2": {
+    "head": "a2caa9df24cdfaac5f54ee59ff61696b3de8bdfb",
+    "base": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "tree": "6768dedac8e9b0305b741c6ebf579aea45b9a2a6",
+    "firstParentSameTree": true,
+    "inputs449Unchanged": true,
+    "mergeable": true,
+    "run": 45501931582,
+    "job": 138827166851,
+    "conclusion": "failure",
+    "coverage": {
+      "passed": 1639,
+      "failed": 1,
+      "skipped": 45
+    },
+    "failure": "Chromium native-scroll visible-text channel37 actual255 expected231",
+    "explicitSource": "not run",
+    "packages": "not run",
+    "Codecov": "not run",
+    "CodeQL": "not scheduled for stackedbase",
+    "evidence": "docs/evidence/native-scroll-a2-remote.json",
+    "previousB921HadNoCI": true,
+    "previousOldMergeRefNotCurrentHeadTest": true,
+    "patchSizeTooLargeIsSeparateLabelWorkflow": true,
+    "reportBranch": "codex/native-scroll-a2-receipts"
+  }
 }
