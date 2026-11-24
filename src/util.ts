@@ -1,9 +1,12 @@
+import { readDOMMethod, readDOMProperty, writeDOMProperty } from './dom.js'
+import { readDocumentMethod, readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getTask } from './task.js'
 
 export function resolveUrl(url: string, baseUrl: string | null): string {
   try {
-    return new URL(url, baseUrl || document.baseURI).href
+    return new URL(url, baseUrl || readDocumentProperty(document, 'baseURI'))
+      .href
   } catch {
     // Leave malformed references for the resource loader's recovery policy.
     return url
@@ -36,8 +39,9 @@ export function delay<T>(ms: number) {
 export function toArray<T>(arrayLike: any): T[] {
   const arr: T[] = []
 
-  for (let i = 0, l = arrayLike.length; i < l; i++) {
-    arr.push(arrayLike[i])
+  // CSS declarations and DOM collections reach this boundary through `any`.
+  for (let i = 0, l = readDOMProperty(arrayLike, 'length'); i < l; i++) {
+    arr.push(readDOMProperty(arrayLike, i))
   }
 
   return arr
@@ -49,25 +53,38 @@ export function getStyleProperties(
 ): readonly string[] {
   return selected != null
     ? selected
-    : toArray(style || window.getComputedStyle(document.documentElement))
+    : toArray(
+        style ||
+          readDOMMethod(
+            window,
+            'getComputedStyle',
+          )(readDocumentProperty(document, 'documentElement')),
+      )
 }
 
 function px(node: HTMLElement, styleProperty: string) {
-  const win = node.ownerDocument.defaultView || window
-  const val = win.getComputedStyle(node).getPropertyValue(styleProperty)
+  const win =
+    readDocumentProperty(
+      readDOMProperty(node, 'ownerDocument'),
+      'defaultView',
+    ) || window
+  const val = readDOMMethod(
+    readDOMMethod(win, 'getComputedStyle')(node),
+    'getPropertyValue',
+  )(styleProperty)
   return val ? parseFloat(val.replace('px', '')) : 0
 }
 
 function getNodeWidth(node: HTMLElement) {
   const leftBorder = px(node, 'border-left-width')
   const rightBorder = px(node, 'border-right-width')
-  return node.clientWidth + leftBorder + rightBorder
+  return readDOMProperty(node, 'clientWidth') + leftBorder + rightBorder
 }
 
 function getNodeHeight(node: HTMLElement) {
   const topBorder = px(node, 'border-top-width')
   const bottomBorder = px(node, 'border-bottom-width')
-  return node.clientHeight + topBorder + bottomBorder
+  return readDOMProperty(node, 'clientHeight') + topBorder + bottomBorder
 }
 
 export function getImageSize(targetNode: HTMLElement, options: Options = {}) {
@@ -97,7 +114,7 @@ export function getPixelRatio() {
       ratio = 1
     }
   }
-  return ratio || window.devicePixelRatio || 1
+  return ratio || readDOMProperty(window, 'devicePixelRatio') || 1
 }
 
 // @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#maximum_canvas_size
@@ -105,26 +122,48 @@ const canvasDimensionLimit = 16384
 
 export function checkCanvasDimensions(canvas: HTMLCanvasElement) {
   if (
-    canvas.width > canvasDimensionLimit ||
-    canvas.height > canvasDimensionLimit
+    readDOMProperty(canvas, 'width') > canvasDimensionLimit ||
+    readDOMProperty(canvas, 'height') > canvasDimensionLimit
   ) {
     if (
-      canvas.width > canvasDimensionLimit &&
-      canvas.height > canvasDimensionLimit
+      readDOMProperty(canvas, 'width') > canvasDimensionLimit &&
+      readDOMProperty(canvas, 'height') > canvasDimensionLimit
     ) {
-      if (canvas.width > canvas.height) {
-        canvas.height *= canvasDimensionLimit / canvas.width
-        canvas.width = canvasDimensionLimit
+      if (
+        readDOMProperty(canvas, 'width') > readDOMProperty(canvas, 'height')
+      ) {
+        writeDOMProperty(
+          canvas,
+          'height',
+          readDOMProperty(canvas, 'height') *
+            (canvasDimensionLimit / readDOMProperty(canvas, 'width')),
+        )
+        writeDOMProperty(canvas, 'width', canvasDimensionLimit)
       } else {
-        canvas.width *= canvasDimensionLimit / canvas.height
-        canvas.height = canvasDimensionLimit
+        writeDOMProperty(
+          canvas,
+          'width',
+          readDOMProperty(canvas, 'width') *
+            (canvasDimensionLimit / readDOMProperty(canvas, 'height')),
+        )
+        writeDOMProperty(canvas, 'height', canvasDimensionLimit)
       }
-    } else if (canvas.width > canvasDimensionLimit) {
-      canvas.height *= canvasDimensionLimit / canvas.width
-      canvas.width = canvasDimensionLimit
+    } else if (readDOMProperty(canvas, 'width') > canvasDimensionLimit) {
+      writeDOMProperty(
+        canvas,
+        'height',
+        readDOMProperty(canvas, 'height') *
+          (canvasDimensionLimit / readDOMProperty(canvas, 'width')),
+      )
+      writeDOMProperty(canvas, 'width', canvasDimensionLimit)
     } else {
-      canvas.width *= canvasDimensionLimit / canvas.height
-      canvas.height = canvasDimensionLimit
+      writeDOMProperty(
+        canvas,
+        'width',
+        readDOMProperty(canvas, 'width') *
+          (canvasDimensionLimit / readDOMProperty(canvas, 'height')),
+      )
+      writeDOMProperty(canvas, 'height', canvasDimensionLimit)
     }
   }
 }
@@ -133,9 +172,9 @@ export function canvasToBlob(
   canvas: HTMLCanvasElement,
   options: Options = {},
 ): Promise<Blob | null> {
-  if (canvas.toBlob) {
+  if (readDOMProperty(canvas, 'toBlob')) {
     return new Promise((resolve) => {
-      canvas.toBlob(
+      readDOMMethod(canvas, 'toBlob')(
         resolve,
         options.type ? options.type : 'image/png',
         options.quality ?? 1,
@@ -144,13 +183,14 @@ export function canvasToBlob(
   }
 
   return new Promise((resolve) => {
-    const binaryString = window.atob(
-      canvas
-        .toDataURL(
-          options.type ? options.type : undefined,
-          options.quality ?? undefined,
-        )
-        .split(',')[1],
+    const binaryString = readDOMMethod(
+      window,
+      'atob',
+    )(
+      readDOMMethod(canvas, 'toDataURL')(
+        options.type ? options.type : undefined,
+        options.quality ?? undefined,
+      ).split(',')[1],
     )
     const len = binaryString.length
     const binaryArray = new Uint8Array(len)
@@ -178,13 +218,13 @@ export function createImage(
     let timer: ReturnType<typeof setTimeout> | undefined
     const clean = () => {
       if (timer != null) clearTimeout(timer)
-      img.onload = null
-      img.onerror = null
+      writeDOMProperty(img, 'onload', null)
+      writeDOMProperty(img, 'onerror', null)
       signal?.removeEventListener('abort', abort)
     }
     const fail = (error: unknown) => {
       clean()
-      img.src = ''
+      writeDOMProperty(img, 'src', '')
       reject(error)
     }
     const abort = () =>
@@ -202,25 +242,30 @@ export function createImage(
         () => fail(new DOMException('Image load timed out', 'TimeoutError')),
         timeout,
       )
-    img.onload = () => {
+    writeDOMProperty(img, 'onload', () => {
       Promise.resolve()
         .then(() =>
-          typeof img.decode === 'function' ? img.decode() : undefined,
+          typeof readDOMProperty(img, 'decode') === 'function'
+            ? readDOMMethod(img, 'decode')()
+            : undefined,
         )
         .catch(() => {
-          if (!img.naturalWidth) throw new Error('Image could not be decoded')
+          if (!readDOMProperty(img, 'naturalWidth'))
+            throw new Error('Image could not be decoded')
         })
         .then(() => {
           clean()
           resolve(img)
         }, fail)
-    }
-    img.onerror = () => fail(new Error('Image could not be loaded'))
-    img.crossOrigin = 'anonymous'
+    })
+    writeDOMProperty(img, 'onerror', () =>
+      fail(new Error('Image could not be loaded')),
+    )
+    writeDOMProperty(img, 'crossOrigin', 'anonymous')
     // WebKit can paint a nested image inside the exported SVG before an
     // async-decoded data URL is ready, leaving canvas and video pixels blank.
-    img.decoding = 'sync'
-    img.src = url
+    writeDOMProperty(img, 'decoding', 'sync')
+    writeDOMProperty(img, 'src', url)
   })
 }
 
@@ -239,32 +284,45 @@ export async function nodeToDataURL(
   node: HTMLElement,
   width: number,
   height: number,
-  ownerDocument: Document = node.ownerDocument,
+  ownerDocument: Document = readDOMProperty(node, 'ownerDocument'),
   clonedStyles = '',
 ): Promise<string> {
   const xmlns = 'http://www.w3.org/2000/svg'
-  const svg = ownerDocument.createElementNS(xmlns, 'svg')
-  const foreignObject = ownerDocument.createElementNS(xmlns, 'foreignObject')
+  const svg = readDocumentMethod(ownerDocument, 'createElementNS')(xmlns, 'svg')
+  const foreignObject = readDocumentMethod(ownerDocument, 'createElementNS')(
+    xmlns,
+    'foreignObject',
+  )
 
-  svg.setAttribute('width', `${width}`)
-  svg.setAttribute('height', `${height}`)
-  svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
+  readDOMMethod(svg, 'setAttribute')('width', `${width}`)
+  readDOMMethod(svg, 'setAttribute')('height', `${height}`)
+  readDOMMethod(svg, 'setAttribute')('viewBox', `0 0 ${width} ${height}`)
 
-  foreignObject.setAttribute('width', '100%')
-  foreignObject.setAttribute('height', '100%')
-  foreignObject.setAttribute('x', '0')
-  foreignObject.setAttribute('y', '0')
-  foreignObject.setAttribute('externalResourcesRequired', 'true')
+  readDOMMethod(foreignObject, 'setAttribute')('width', '100%')
+  readDOMMethod(foreignObject, 'setAttribute')('height', '100%')
+  readDOMMethod(foreignObject, 'setAttribute')('x', '0')
+  readDOMMethod(foreignObject, 'setAttribute')('y', '0')
+  readDOMMethod(foreignObject, 'setAttribute')(
+    'externalResourcesRequired',
+    'true',
+  )
 
   if (clonedStyles) {
-    const style = ownerDocument.createElementNS(xmlns, 'style')
+    const style = readDocumentMethod(ownerDocument, 'createElementNS')(
+      xmlns,
+      'style',
+    )
     // First-layer important declarations protect private layout state from
     // author pseudo rules, without inserting children into the captured tree.
-    style.textContent = `@layer ${uuid()} { ${clonedStyles} }`
-    svg.append(style)
+    writeDOMProperty(
+      style,
+      'textContent',
+      `@layer ${uuid()} { ${clonedStyles} }`,
+    )
+    readDOMMethod(svg, 'append')(style)
   }
-  svg.appendChild(foreignObject)
-  foreignObject.appendChild(node)
+  readDOMMethod(svg, 'appendChild')(foreignObject)
+  readDOMMethod(foreignObject, 'appendChild')(node)
   return svgToDataURL(svg)
 }
 
@@ -281,7 +339,7 @@ export const isInstanceOfElement = <
   if (nodePrototype === null) return false
 
   return (
-    nodePrototype.constructor.name === instance.name ||
-    isInstanceOfElement(nodePrototype, instance)
+    readDOMProperty(readDOMProperty(nodePrototype, 'constructor'), 'name') ===
+      instance.name || isInstanceOfElement(nodePrototype, instance)
   )
 }

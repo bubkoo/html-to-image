@@ -1,0 +1,487 @@
+{
+  "archive": "followup-raw.tar.gz",
+  "archiveSHA256": "e39762af6e179643e14f07d8d2f602060aabb87f94285d351b3f7c4b0db69194",
+  "prefix": "document-property-lifetime-followup/",
+  "files": [
+    {
+      "path": "candidate/factory-source-hashes.json",
+      "bytes": 1993,
+      "sha256": "ec675cc83b2ace7f493a89370ddd95eea862f1a397f4873a3ae9a45847610b6e"
+    },
+    {
+      "path": "candidate/factory-source.patch",
+      "bytes": 4825,
+      "sha256": "8e3136593f3b8781864e52267b631950bedbf2f5fb3045b4ddf2c024cd17f5a6"
+    },
+    {
+      "path": "factory-static/build.log",
+      "bytes": 1191,
+      "sha256": "a635986626b4720c7409f05b2f60c8ad68dbf91a5c10289ea30b5545cd61d72e"
+    },
+    {
+      "path": "factory-static/entries.log",
+      "bytes": 229,
+      "sha256": "c346922a5a38ab96db87eadff4e152a68ba998c102d1547897ea7fac80a81374"
+    },
+    {
+      "path": "factory-static/lint.log",
+      "bytes": 368,
+      "sha256": "ca2ce376ec02c2fb616014827a94d37f3e4e680c2e669d13ec665c5b7d87631e"
+    },
+    {
+      "path": "factory-static/receipt.json",
+      "bytes": 257,
+      "sha256": "a511f06e1b8b46b46c3ac39c6c14c4ad6f10b435282995770832afb900f4b999"
+    },
+    {
+      "path": "factory-static/types.log",
+      "bytes": 164,
+      "sha256": "bd4db7a1d5f5d4df7259eeb046cc42e7eae9e0a75dbeeb61fbad8c6c782f237a"
+    },
+    {
+      "path": "iphone-offline/capabilities-public.json",
+      "bytes": 161,
+      "sha256": "f35615a7669f3b548e123a5817c2e3d75517467210916005c4bad3f3fe3d6c5a"
+    },
+    {
+      "path": "iphone-offline/cleanup.json",
+      "bytes": 207,
+      "sha256": "aa8046dce7c6cb0de5c4d6ce53200000bd9b1f65a98003e345472a1d8f3f7aec"
+    },
+    {
+      "path": "iphone-offline/entry.mjs",
+      "bytes": 2475,
+      "sha256": "bd73eb5d019ce077537a1b760841089fee4ed6d0f0f24ba6171ae5cf68784536"
+    },
+    {
+      "path": "iphone-offline/harness.js",
+      "bytes": 38789,
+      "sha256": "fcb4d3096582f3f98f99a237d215fe21b517fdb0eee53419b443339a452b1c0f"
+    },
+    {
+      "path": "iphone-offline/inputs-after.json",
+      "bytes": 44095,
+      "sha256": "59713c96717c615cf6b534a5957295ab74e86ce3f2fed4c540678f14baee89cd"
+    },
+    {
+      "path": "iphone-offline/inputs-before.json",
+      "bytes": 44095,
+      "sha256": "59713c96717c615cf6b534a5957295ab74e86ce3f2fed4c540678f14baee89cd"
+    },
+    {
+      "path": "iphone-offline/latest-state.json",
+      "bytes": 10541,
+      "sha256": "5904b908c80b91af9b2a62dc7dbeaa7be5b6f976468e493f0f560b38d566ee4b"
+    },
+    {
+      "path": "iphone-offline/result.json",
+      "bytes": 10822,
+      "sha256": "4c54a512c734f5cbc4ad7e75dfb1ed36b05544f08c32421ee51513bc4790d8a9"
+    },
+    {
+      "path": "iphone-offline/run.log",
+      "bytes": 500,
+      "sha256": "ec2f886806eda8faccc85e57119dc8f1d47c6205fbc620a66e0a89c7dc6bd613"
+    },
+    {
+      "path": "iphone-offline/run.py",
+      "bytes": 5257,
+      "sha256": "c758f69cd10ebaa4a703e4c56adcaf7015fe93f55f3444a22f18ce3f905ea34f"
+    },
+    {
+      "path": "iphone-offline/session-ended.json",
+      "bytes": 31,
+      "sha256": "4388606031e510e019558d697469cd829748ff9b0b6cf3ef019e6c495edf66b1"
+    },
+    {
+      "path": "production/artifact/.vitest/attachments/61f5a0f5b876211e260230925145a258d27dd064.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "production/artifact/.vitest/attachments/failure-screenshots/svg-fragment-lifetime.test.ts/a-frozen-SVG-host-tree-capture-releases-its-source-document-before-rendering.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "production/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "production/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "production/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "production/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "production/production-ci-artifact-metadata.json",
+      "bytes": 792,
+      "sha256": "cf17ea12e332fc977e3c8f5300fec4234820024b3f2ea7d0033b086926488167"
+    },
+    {
+      "path": "production/production-ci-complete.log",
+      "bytes": 328042,
+      "sha256": "2afe155b6597a438b3dde4a82e424c7a2a2a067734a6e3a83f5e0495b235f80b"
+    },
+    {
+      "path": "production/production-ci-metadata.json",
+      "bytes": 3920,
+      "sha256": "891df2efe403cc326961c915ae6e3ed9a26bd9f282f928d98a96c2695fefde2f"
+    },
+    {
+      "path": "webkit-native-control/control.cjs",
+      "bytes": 5410,
+      "sha256": "ade682b092c5ec810549c09a949253501f04f34ecfb08bd4523c780af1dcdf31"
+    },
+    {
+      "path": "webkit-native-control/execution.json",
+      "bytes": 125,
+      "sha256": "f238448b413fbc504caa066f9b57a1d5da152f6b72906c819eced8afdb84e621"
+    },
+    {
+      "path": "webkit-native-control/primaries.json",
+      "bytes": 3769,
+      "sha256": "bd0c1728c2c6ec03b3167fbc27b442ef7881d696e1e37a5279fdc1611fdff96b"
+    },
+    {
+      "path": "webkit-native-control/results.json",
+      "bytes": 4837,
+      "sha256": "c12a95d88185371df9892d3c3be82a3c44aedc0cdc79510159a854c9ae508e66"
+    },
+    {
+      "path": "webkit-native-control/run.log",
+      "bytes": 1684,
+      "sha256": "316ce507ca86a54a7f11028d5ae81b0cfd936b784596311617b57b43c5f8c404"
+    },
+    {
+      "path": "webkit-native-control/server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "webkit-native-control/wk-native-after-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-native-control/wk-native-before-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-native-matrix/control.cjs",
+      "bytes": 7148,
+      "sha256": "8acd38332633c1f2da70295e2520b5775c7406d663891cd8442d2f62477af713"
+    },
+    {
+      "path": "webkit-native-matrix/execution.json",
+      "bytes": 125,
+      "sha256": "71fa501dc54921df3f1b9c9c661334d4de4c5008c3ca592d17d7ac5e61de6894"
+    },
+    {
+      "path": "webkit-native-matrix/primaries.json",
+      "bytes": 7498,
+      "sha256": "c2a94c8e565dc4025180206278e1842de7ba5d45977c771b21623ff5564f05d9"
+    },
+    {
+      "path": "webkit-native-matrix/results.json",
+      "bytes": 8910,
+      "sha256": "b53f830028930abf606e45e8ddbfe694899aa03f65a751be1f699b40b4d72922"
+    },
+    {
+      "path": "webkit-native-matrix/run.log",
+      "bytes": 4686,
+      "sha256": "7ac7cb2e36af0bcfe00c7d7b7e13cbf3e33a2419bf7d2c0620261d5bd30c58f0"
+    },
+    {
+      "path": "webkit-native-matrix/server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "webkit-native-matrix/wk-native-matrix-after-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-native-matrix/wk-native-matrix-before-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-native-only/control.cjs",
+      "bytes": 6974,
+      "sha256": "7ae84e7da513143410e7fbd622b43de4fd752eb33db359b627b95ae4f7c0dbb8"
+    },
+    {
+      "path": "webkit-native-only/execution.json",
+      "bytes": 125,
+      "sha256": "0fa85fcfbfd5dcceb3ec39b38943b84ae9fcde922589e79e1cf2b5c8ad65fba9"
+    },
+    {
+      "path": "webkit-native-only/library-absence-audit.json",
+      "bytes": 379,
+      "sha256": "a44f38c2173ed0457db5da6496da2f538fc542ee22e36cbf44d3aebc3c7f2821"
+    },
+    {
+      "path": "webkit-native-only/primaries.json",
+      "bytes": 12022,
+      "sha256": "3de2689d9b0441caa4b0bb1737fbad94fab3831488557a5454c8f5accd892e41"
+    },
+    {
+      "path": "webkit-native-only/results.json",
+      "bytes": 13531,
+      "sha256": "602db42f37f66960da8662813ae1f2cf0d936492bfbde1eea7b9fac530792cc0"
+    },
+    {
+      "path": "webkit-native-only/run.log",
+      "bytes": 9067,
+      "sha256": "4c65845fbb91371d5ec7ea9f93bda4730c0181f2e58cfcee34df1a1dcd4bb789"
+    },
+    {
+      "path": "webkit-native-only/server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "webkit-native-only/wk-native-only-after-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-native-only/wk-native-only-before-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-retained-snapshot/control.cjs",
+      "bytes": 10273,
+      "sha256": "3f7d8a039b1fedf31c931bf469a6ab5744175ba2b263252eb0382645199929ec"
+    },
+    {
+      "path": "webkit-retained-snapshot/execution.json",
+      "bytes": 16,
+      "sha256": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43"
+    },
+    {
+      "path": "webkit-retained-snapshot/mapping.json",
+      "bytes": 11666,
+      "sha256": "846ef6b021c1f8558121e7d910b0b5639324029009d1f8e10badcba20b802a29"
+    },
+    {
+      "path": "webkit-retained-snapshot/post-snapshot-state.json",
+      "bytes": 122,
+      "sha256": "dc4f1ad82a752799b37aea6d08874844ff3feca820c23b13266b029d19e7c840"
+    },
+    {
+      "path": "webkit-retained-snapshot/primaries.json",
+      "bytes": 3388,
+      "sha256": "1451b88703d75ce1602a8a3cf851df57e657fa4eefd04076ffff7148c702dea0"
+    },
+    {
+      "path": "webkit-retained-snapshot/results.json",
+      "bytes": 3978,
+      "sha256": "ad7500a4db643b6857ad43a9dc0d4e186930bba23e7f6daf22bef0da22d3245e"
+    },
+    {
+      "path": "webkit-retained-snapshot/retained-primary.json",
+      "bytes": 205,
+      "sha256": "cad53ebdeda038d4fe9a52d42c857b00684a108b032f59ab1a034f1f60984b2c"
+    },
+    {
+      "path": "webkit-retained-snapshot/retained-result.json",
+      "bytes": 187,
+      "sha256": "e0b04e213edde61e967074622913846d1fb24ee563407f16cd8b4ca0ab746cdf"
+    },
+    {
+      "path": "webkit-retained-snapshot/run.log",
+      "bytes": 1906,
+      "sha256": "2bbeef10dc77ed65e754c8ed7c1431c5463242cb11e88b597cf974560a0a911d"
+    },
+    {
+      "path": "webkit-retained-snapshot/server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "webkit-retained-snapshot/snapshot-metadata.json",
+      "bytes": 339,
+      "sha256": "e1c1112a279562458d87a65d0bca708732ad5b7e386fee85c7e456553cbcaa8b"
+    },
+    {
+      "path": "webkit-retained-snapshot/snapshot.json",
+      "bytes": 3552464,
+      "sha256": "6d3fd0ab000f9db0df5e68302475d2fcb3e84d548aaa958b349246b915d60764"
+    },
+    {
+      "path": "webkit-retained-snapshot/wk-retained-snapshot-after-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-retained-snapshot/wk-retained-snapshot-before-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/control.cjs",
+      "bytes": 5947,
+      "sha256": "ef72f5d34bfb83c0eb9ad685d51b881e7eabdbcd1df7e1429f3e7c1085707523"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/execution.json",
+      "bytes": 16,
+      "sha256": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/primaries.json",
+      "bytes": 268,
+      "sha256": "defc5f826b8df669da364b276d199dad483860f570448b0635aed6ab9dbcffbe"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/results.json",
+      "bytes": 643,
+      "sha256": "741fb398ac01299554c1c4cd2dfd3890fdbe26c21a30f7ad1acb9ab76ce64f55"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/run.log",
+      "bytes": 321,
+      "sha256": "6891a4fb13b7bcb8af53fc5e1413815a3453ec7cffc5f6f9f23ce3ee25c27ff3"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/snapshot-metadata.json",
+      "bytes": 277,
+      "sha256": "b645e9d6eb82c67fe1a8533b08c79ddcd98c4e3e319231f2fcffbe7b1cd087e8"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/snapshot.json",
+      "bytes": 1010221,
+      "sha256": "b6bfd7cc5418d4f4c659c2ede273b95b3768945ae93f5fe2c1c7ec9c98a5cf64"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/wk-snapshot-tool-v2-after-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-snapshot-tool-v2/wk-snapshot-tool-v2-before-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/control.cjs",
+      "bytes": 8715,
+      "sha256": "1fc06682fe33fea22fa90477a3646d89c7c7d472fdd71943e70f4a4b28087c21"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/execution.json",
+      "bytes": 16,
+      "sha256": "982b9e9bfb10ffe83cad665807abcfd3fa97b37822db5ab7831157a499548a9e"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/mapping.json",
+      "bytes": 3104,
+      "sha256": "05f66632e7596bf6275d4358998aa80b9f52132a6842f00013cde98992b2a424"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/primaries.json",
+      "bytes": 268,
+      "sha256": "defc5f826b8df669da364b276d199dad483860f570448b0635aed6ab9dbcffbe"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/results.json",
+      "bytes": 643,
+      "sha256": "741fb398ac01299554c1c4cd2dfd3890fdbe26c21a30f7ad1acb9ab76ce64f55"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/run.log",
+      "bytes": 470,
+      "sha256": "4df7a4440c86be9db46550f3eefd0992a4ad68ad29201508ade19e72930fdfbc"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/snapshot-metadata.json",
+      "bytes": 277,
+      "sha256": "7555f18fd3ccb47d5a667e6a78abe7b63ab710c4d54798fdbca8fbfa726e9cb6"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/snapshot.json",
+      "bytes": 1020403,
+      "sha256": "2281603269729790f7c6024e27d7237e60b31854d7ec01e858e4fcf01f437a8e"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/wk-snapshot-tool-v3-after-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-snapshot-tool-v3/wk-snapshot-tool-v3-before-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-snapshot-tool/control.cjs",
+      "bytes": 5948,
+      "sha256": "20e425042c1be9aed03ecdc066fbf6b3a8a6a426df0c09b1020f2dda636527e0"
+    },
+    {
+      "path": "webkit-snapshot-tool/error.txt",
+      "bytes": 136,
+      "sha256": "3f2143a2f648950cefd7a061d42266f9814b7098c4019dd4e816261b508f9d38"
+    },
+    {
+      "path": "webkit-snapshot-tool/execution.json",
+      "bytes": 16,
+      "sha256": "e153f5bd2ee7416d77570b30ba1de5bb9196c55f8d145e34df9dab12190ffe43"
+    },
+    {
+      "path": "webkit-snapshot-tool/primaries.json",
+      "bytes": 268,
+      "sha256": "defc5f826b8df669da364b276d199dad483860f570448b0635aed6ab9dbcffbe"
+    },
+    {
+      "path": "webkit-snapshot-tool/results.json",
+      "bytes": 643,
+      "sha256": "741fb398ac01299554c1c4cd2dfd3890fdbe26c21a30f7ad1acb9ab76ce64f55"
+    },
+    {
+      "path": "webkit-snapshot-tool/run.log",
+      "bytes": 330,
+      "sha256": "04990666b95e9353dc088a170a3d1ea1cc79d041ba71136e226f1fe60c876ae0"
+    },
+    {
+      "path": "webkit-snapshot-tool/server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "webkit-snapshot-tool/wk-snapshot-tool-after-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    },
+    {
+      "path": "webkit-snapshot-tool/wk-snapshot-tool-before-inputs.json",
+      "bytes": 43533,
+      "sha256": "05ad0d442c378df3339c8cbf293e73a777b5a7487840e412585f139714f3dac6"
+    }
+  ]
+}

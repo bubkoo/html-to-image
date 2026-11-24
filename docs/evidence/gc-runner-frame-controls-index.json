@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T21:26:00.152633Z",
+  "archive": {
+    "file": "gc-runner-frame-controls-raw.tar.gz",
+    "bytes": 68982,
+    "sha256": "1b6b31c65adc072d54a8343bb96ebdd80c64bbac1f3115cbcac3520371970af6",
+    "format": "gzip-compressed deterministic USTAR; regular files only"
+  },
+  "sourceGroups": [
+    {
+      "archivePrefix": "gc-runner-frame-controls-20261125",
+      "fileCount": 30,
+      "originalIndexSHA256": "8983f30d0a897298c076e86ca3fb84bf554f821950d7f2b59b693fadc7270fcc",
+      "selection": "Every file in the sealed original SHA index plus the index itself; no added run or replacement bytes."
+    },
+    {
+      "archivePrefix": "vitest-provider-frame-fallback-20261125",
+      "fileCount": 13,
+      "originalIndexSHA256": "2dcabe26210139de47fca461137a69a0307e31f1f71704bc88238124414bf0d0",
+      "selection": "Every file in the sealed original SHA index plus the index itself; no added run or replacement bytes."
+    }
+  ],
+  "members": [
+    {
+      "path": "gc-runner-frame-controls-20261125/assessment.json",
+      "bytes": 15754,
+      "sha256": "bc7a35330e77cdccc4f5a89d747b51544d4aa3963485fbcd2f65f7b587bc0005",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/browser-package-candidate-receipt.json",
+      "bytes": 366,
+      "sha256": "a37948ceea1e323cbcb4f0bfc29392079fc92967faa03401be856b49400b8477",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/browser-package-candidate.log",
+      "bytes": 20571,
+      "sha256": "3bddca27d49841dbee64389fed011afc34bfea2cd3a99ba5d16eed434a5824e7",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/build-candidate-receipt.json",
+      "bytes": 293,
+      "sha256": "3e0f00b5c11a04a354bfaa47a46cbd150d8ca100f9e0d91cb6b744a9dafefed4",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/build-candidate.log",
+      "bytes": 1177,
+      "sha256": "47b31a6c8c7db07ba0b90d111ffadecc0cda36d8411599a596938a31d5cf19fd",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/candidate-adapter.js",
+      "bytes": 338,
+      "sha256": "65c66daac909ef8c77cbc24e34a751e6f4bd0ec25ddc58bd25259b3695b5c4e9",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/candidate-inputs/gc-frame.d.mts",
+      "bytes": 108,
+      "sha256": "e58825680f5aecbd635d65178dc81935c9a3a6905a300649295295d5881ce6ad",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/candidate-inputs/gc-frame.mjs",
+      "bytes": 621,
+      "sha256": "ad69c92188d98c93e39872c937fe91406320d90084052b45505995b2c41a0632",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/candidate-inputs/vitest.browser.config.mts",
+      "bytes": 7668,
+      "sha256": "0adb3830455c03eb39c9206e37166cdf71d2944f78ef5a5d4caaac33224c9ebe",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/candidate.patch",
+      "bytes": 2203,
+      "sha256": "4afba8fdd5d597345c71f1970c168dc53144643a90ea8600288d522ce6f79b1b",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/config.diff",
+      "bytes": 1099,
+      "sha256": "ee26f999780bc6a0835ef4194cbad4a0492341bad9a0d6ed8e6c5366a4d0a8db",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/controls-chromium-receipt.json",
+      "bytes": 340,
+      "sha256": "d7a085fa0a9ca7c3661730a5fba4be3fc4d083f21cbc3548cc18b75adf3b8363",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/controls-chromium.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/controls.json",
+      "bytes": 23599,
+      "sha256": "cc34d35c46e75d92090101d27f9b3e3ffde5137b780bb8fe2800d307ab212029",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/default-candidate-receipt.json",
+      "bytes": 283,
+      "sha256": "02746848ea4233f10f6100ecb978987eb3712e219947af5b7863280a63ef9115",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/default-candidate.log",
+      "bytes": 1376,
+      "sha256": "efef134931b7c85343c6e4b468d501a31e8205ae0671166618ae4739da4637f8",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/final-input-verification.json",
+      "bytes": 25808,
+      "sha256": "1caa120ba8220b809738b0007b895a0b5a4838c72468be968afa90a70c8016a6",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/frozen-inputs.json",
+      "bytes": 48449,
+      "sha256": "d8a4213fb223c9b7f58f7869bc7711e89db81636052b0b549c07fa788c69c540",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/installed-provider.js",
+      "bytes": 44671,
+      "sha256": "453d9be30e983f8170293154cb1b1c5aa45a6c8b60145682bbb9e136d8268516",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/lint-candidate-receipt.json",
+      "bytes": 297,
+      "sha256": "74c003be551e335ecc27fe34478356c6a07584728329782f2af6e5b9caf8ecaf",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/lint-candidate.log",
+      "bytes": 366,
+      "sha256": "bed99d7378ea32921098c56c6fee01598dd79a5faa9e8f954daa43fde0ede4fb",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/original-adapter.js",
+      "bytes": 330,
+      "sha256": "4be6e218ad6f7a525fc0e980893b09597965f4991ee8b674819458caf50abbb9",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/package-consumers-candidate-receipt.json",
+      "bytes": 312,
+      "sha256": "0ea1c5a3d1a59453219557e5404df465d75f2e9c43140a44fff8cab4692e5b68",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/package-consumers-candidate.log",
+      "bytes": 227,
+      "sha256": "e0ac3fc16885ded5cfc4ad7faac0435f7be8b6c8fa7f102c3d30f9801d0d08f2",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/preflight-type-diagnostic.json",
+      "bytes": 651,
+      "sha256": "8fd0b41b7879107f74baaaf7d0edfe74a740c95453ffd119c093339faf0c3ab5",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/probe.mjs",
+      "bytes": 9813,
+      "sha256": "7844279c4dfe290930824de9154454a415ce1dec0c885340212f3f19bc73c6a7",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/run-command.mjs",
+      "bytes": 1206,
+      "sha256": "efa28e0735883f60adfa1cad0bdf1e0817d358e1902e12cc1b69edd8042d2d84",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/sha256-index.json",
+      "bytes": 4662,
+      "sha256": "8983f30d0a897298c076e86ca3fb84bf554f821950d7f2b59b693fadc7270fcc",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/types-candidate-receipt.json",
+      "bytes": 306,
+      "sha256": "7661b06062891800a09049a62060c6505d472b3d407804ccd13a81c4d3b955bc",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "gc-runner-frame-controls-20261125/types-candidate.log",
+      "bytes": 162,
+      "sha256": "7a0c91f934c32ebb1e3b92af8a117f1e2dd2a81f22627225907c58ca31d453cc",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/assessment.json",
+      "bytes": 4887,
+      "sha256": "6656344523eac0c89009f951672ab00f75968eab0fc66f45c5fc97c2a640f2ea",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/collectGarbage.original.js",
+      "bytes": 330,
+      "sha256": "4be6e218ad6f7a525fc0e980893b09597965f4991ee8b674819458caf50abbb9",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/getCommandsContext.original.js",
+      "bytes": 696,
+      "sha256": "ddb00906a87b59312941857d688fafccd4347e391b975e3e5d0d3f848b3f839b",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/initial-import-harness-error/probe.mjs",
+      "bytes": 7268,
+      "sha256": "26b28643689ab764762587d75e5d0ecfcac94d483949598d44c1acf1e9920609",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/initial-import-harness-error/results.json",
+      "bytes": 1191,
+      "sha256": "f29e313dad52310836470411b834830b81e69abf6788c1378ab8491558d21756",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/installed-provider.js",
+      "bytes": 44671,
+      "sha256": "453d9be30e983f8170293154cb1b1c5aa45a6c8b60145682bbb9e136d8268516",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/preflight.json",
+      "bytes": 211,
+      "sha256": "c3ec81e4ddbd5079c5df61312416a7548b8ce0c619efd80bafd87191cbc9449f",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/prepared-inputs.json",
+      "bytes": 2373,
+      "sha256": "1bdaef76b28216c979a164126b8f6d85c63597253d2451a7ad668ef92e5def2b",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/prepared-preservation.json",
+      "bytes": 1029,
+      "sha256": "6418b38e5e7433b26e2c97d237175400997c18a374906315fe37ac87342b8fad",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/prepared-sha256-index.json",
+      "bytes": 1030,
+      "sha256": "492cce62ee52be30276d636cd2a36283ea207621490d054d1072a3c304eee6c8",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/probe.mjs",
+      "bytes": 7338,
+      "sha256": "86cd2f54fced7365ae06825470e4564d2d9ee2b20a8fef094f8bfb4146bf69dc",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/results.json",
+      "bytes": 6150,
+      "sha256": "dc8e6eb5c194a2ab5236721ee86507d214c741f10aaa159b5085e32ad8b1745c",
+      "originalBytesVerified": true
+    },
+    {
+      "path": "vitest-provider-frame-fallback-20261125/sha256-index.json",
+      "bytes": 1952,
+      "sha256": "2dcabe26210139de47fca461137a69a0307e31f1f71704bc88238124414bf0d0",
+      "originalBytesVerified": true
+    }
+  ],
+  "privacyScan": {
+    "scope": "All 43 source files, byte scan; no redaction or rewriting",
+    "credentialTokenOrSignedURLPatternHits": 0,
+    "notes": "Loopback URLs, synthetic Blob URLs, source paths, public upstream code and diagnostic identifiers are retained as original evidence."
+  }
+}

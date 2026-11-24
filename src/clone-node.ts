@@ -1,3 +1,14 @@
+import {
+  readDOMMethod,
+  readDOMProperty,
+  readOptionalDOMMethod,
+  writeDOMProperty,
+} from './dom.js'
+import {
+  readDocumentMethod,
+  readDocumentProperty,
+  readOptionalDocumentProperty,
+} from './document.js'
 import type { Options } from './types.js'
 import { clonePseudoElements } from './clone-pseudos.js'
 import {
@@ -15,38 +26,55 @@ import { cloneScrollState } from './clone-scroll.js'
 function createCloneDocument(source: Document) {
   // A detached element in a browsing document can still load resources in
   // WebKit when styles or image loading attributes change.
-  const copy = source.implementation.createHTMLDocument()
-  const base = copy.createElement('base')
-  base.href = source.baseURI
-  copy.head.append(base)
+  const copy = readDOMMethod(
+    readDocumentProperty(source, 'implementation'),
+    'createHTMLDocument',
+  )()
+  const base = Reflect.apply(
+    readDocumentProperty(copy, 'createElement'),
+    copy,
+    ['base'],
+  ) as HTMLBaseElement
+  writeDOMProperty(base, 'href', readDocumentProperty(source, 'baseURI'))
+  readDOMMethod(readDocumentProperty(copy, 'head'), 'append')(base)
   return copy
 }
 
 async function cloneCanvasElement(canvas: HTMLCanvasElement, options: Options) {
-  const dataURL = canvas.toDataURL()
+  const dataURL = readDOMMethod(canvas, 'toDataURL')()
   if (dataURL === 'data:,') {
-    return canvas.cloneNode(false) as HTMLCanvasElement
+    return readDOMMethod(canvas, 'cloneNode')(false) as HTMLCanvasElement
   }
   return createImage(dataURL, options)
 }
 
 async function cloneVideoElement(video: HTMLVideoElement, options: Options) {
-  if (!video.poster && video.readyState === video.HAVE_NOTHING) {
+  if (
+    !readDOMProperty(video, 'poster') &&
+    readDOMProperty(video, 'readyState') ===
+      readDOMProperty(video, 'HAVE_NOTHING')
+  ) {
     // No media image exists yet; preserve the styled, transparent replaced box.
-    const empty = document.createElement('canvas')
-    return createImage(empty.toDataURL(), options)
+    const empty = readDocumentMethod(document, 'createElement')('canvas')
+    return createImage(readDOMMethod(empty, 'toDataURL')(), options)
   }
-  if (video.currentSrc) {
-    const canvas = document.createElement('canvas')
-    const ctx = canvas.getContext('2d')
-    canvas.width = video.videoWidth
-    canvas.height = video.videoHeight
-    ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
-    const dataURL = canvas.toDataURL()
+  if (readDOMProperty(video, 'currentSrc')) {
+    const canvas = readDocumentMethod(document, 'createElement')('canvas')
+    const ctx = readDOMMethod(canvas, 'getContext')('2d')
+    writeDOMProperty(canvas, 'width', readDOMProperty(video, 'videoWidth'))
+    writeDOMProperty(canvas, 'height', readDOMProperty(video, 'videoHeight'))
+    ctx?.drawImage(
+      video,
+      0,
+      0,
+      readDOMProperty(canvas, 'width'),
+      readDOMProperty(canvas, 'height'),
+    )
+    const dataURL = readDOMMethod(canvas, 'toDataURL')()
     return createImage(dataURL, options)
   }
 
-  const poster = video.poster
+  const poster = readDOMProperty(video, 'poster')
   const contentType = getMimeType(poster)
   const dataURL = await resourceToDataURL(poster, contentType, options)
   return createImage(dataURL, options)
@@ -60,7 +88,11 @@ async function cloneIFrameElement(
 ) {
   let sourceBody: HTMLElement | null = null
   try {
-    sourceBody = iframe.contentDocument?.body || null
+    sourceBody =
+      readOptionalDocumentProperty(
+        readDOMProperty(iframe, 'contentDocument'),
+        'body',
+      ) || null
   } catch {
     // Reading an inaccessible document may fail; user clone failures must not.
   }
@@ -72,12 +104,12 @@ async function cloneIFrameElement(
       resolveSymbols,
       targetDocument,
     )
-    const viewport = targetDocument.createElement('div')
-    viewport.appendChild(body!)
+    const viewport = readDocumentMethod(targetDocument, 'createElement')('div')
+    readDOMMethod(viewport, 'appendChild')(body!)
     return viewport
   }
 
-  return targetDocument.importNode(iframe, false)
+  return readDocumentMethod(targetDocument, 'importNode')(iframe, false)
 }
 
 async function cloneSingleNode<T extends HTMLElement>(
@@ -87,27 +119,43 @@ async function cloneSingleNode<T extends HTMLElement>(
   resolveSymbols: boolean,
 ): Promise<HTMLElement> {
   if (isInstanceOfElement(node, HTMLCanvasElement)) {
-    return targetDocument.adoptNode(await cloneCanvasElement(node, options))
+    return readDocumentMethod(
+      targetDocument,
+      'adoptNode',
+    )(await cloneCanvasElement(node, options))
   }
 
   if (isInstanceOfElement(node, HTMLVideoElement)) {
-    return targetDocument.adoptNode(await cloneVideoElement(node, options))
+    return readDocumentMethod(
+      targetDocument,
+      'adoptNode',
+    )(await cloneVideoElement(node, options))
   }
 
   if (isInstanceOfElement(node, HTMLIFrameElement)) {
     return cloneIFrameElement(node, options, targetDocument, resolveSymbols)
   }
 
-  const copy = targetDocument.importNode(node, false)
+  const copy = readDocumentMethod(targetDocument, 'importNode')(node, false)
   if (isInstanceOfElement(node, HTMLImageElement)) {
     // Keep the source document's URL resolution when importing iframe content.
-    ;(copy as unknown as HTMLImageElement).src = node.src
+    writeDOMProperty(
+      copy as unknown as HTMLImageElement,
+      'src',
+      readDOMProperty(node, 'src'),
+    )
   } else if (isInstanceOfElement(node, SVGImageElement)) {
     const href = getSVGReference(node)
     if (href) {
       try {
-        copy.setAttribute('href', new URL(href, node.baseURI).href)
-        copy.removeAttributeNS('http://www.w3.org/1999/xlink', 'href')
+        readDOMMethod(copy, 'setAttribute')(
+          'href',
+          new URL(href, readDOMProperty(node, 'baseURI')).href,
+        )
+        readDOMMethod(copy, 'removeAttributeNS')(
+          'http://www.w3.org/1999/xlink',
+          'href',
+        )
       } catch {
         // Keep malformed references for the normal resource error path.
       }
@@ -117,7 +165,8 @@ async function cloneSingleNode<T extends HTMLElement>(
 }
 
 const isSlotElement = (node: HTMLElement): node is HTMLSlotElement =>
-  node.tagName != null && node.tagName.toUpperCase() === 'SLOT'
+  readDOMProperty(node, 'tagName') != null &&
+  readDOMProperty(node, 'tagName').toUpperCase() === 'SLOT'
 
 async function cloneChildren<T extends HTMLElement>(
   nativeNode: T,
@@ -128,14 +177,24 @@ async function cloneChildren<T extends HTMLElement>(
 ): Promise<T> {
   let children: T[]
 
-  if (isSlotElement(nativeNode) && nativeNode.assignedNodes) {
-    const assigned = nativeNode.assignedNodes()
-    children = toArray<T>(assigned.length ? assigned : nativeNode.childNodes)
+  if (
+    isSlotElement(nativeNode) &&
+    readDOMProperty(nativeNode, 'assignedNodes')
+  ) {
+    const assigned = readDOMMethod(nativeNode, 'assignedNodes')()
+    children = toArray<T>(
+      assigned.length ? assigned : readDOMProperty(nativeNode, 'childNodes'),
+    )
   } else if (isInstanceOfElement(nativeNode, HTMLIFrameElement)) {
     // The iframe adapter has already cloned its body and descendants.
     return clonedNode
   } else {
-    children = toArray<T>((nativeNode.shadowRoot ?? nativeNode).childNodes)
+    children = toArray<T>(
+      readDOMProperty(
+        readDOMProperty(nativeNode, 'shadowRoot') ?? nativeNode,
+        'childNodes',
+      ),
+    )
   }
 
   if (
@@ -153,7 +212,7 @@ async function cloneChildren<T extends HTMLElement>(
         )
         .then((clonedChild: HTMLElement | null) => {
           if (clonedChild) {
-            clonedNode.appendChild(clonedChild)
+            readDOMMethod(clonedNode, 'appendChild')(clonedChild)
           }
         }),
     Promise.resolve(),
@@ -169,35 +228,57 @@ function cloneCSSStyle<T extends HTMLElement>(
   selected?: readonly string[],
   isRoot?: boolean,
 ) {
-  const targetStyle = clonedNode.style
+  const targetStyle = readDOMProperty(clonedNode, 'style')
   if (!targetStyle) {
     return
   }
 
-  const sourceStyle = (
-    nativeNode.ownerDocument.defaultView || window
-  ).getComputedStyle(nativeNode)
-  if (sourceStyle.cssText && selected == null) {
-    targetStyle.cssText = sourceStyle.cssText
-    targetStyle.transformOrigin = sourceStyle.transformOrigin
+  const sourceStyle = readDOMMethod(
+    readDocumentProperty(
+      readDOMProperty(nativeNode, 'ownerDocument'),
+      'defaultView',
+    ) || window,
+    'getComputedStyle',
+  )(nativeNode)
+  if (readDOMProperty(sourceStyle, 'cssText') && selected == null) {
+    writeDOMProperty(
+      targetStyle,
+      'cssText',
+      readDOMProperty(sourceStyle, 'cssText'),
+    )
+    writeDOMProperty(
+      targetStyle,
+      'transformOrigin',
+      readDOMProperty(sourceStyle, 'transformOrigin'),
+    )
   } else {
     let inheritedStyle: CSSStyleDeclaration | undefined
     const task = getTask(options)
-    const shadowHost = (nativeNode.getRootNode() as ShadowRoot).host
+    const shadowHost = readDOMProperty(
+      readDOMMethod(nativeNode, 'getRootNode')() as ShadowRoot,
+      'host',
+    )
     const parent = isRoot
       ? null
-      : nativeNode.assignedSlot || nativeNode.parentElement || shadowHost
+      : readDOMProperty(nativeNode, 'assignedSlot') ||
+        readDOMProperty(nativeNode, 'parentElement') ||
+        shadowHost
     getStyleProperties(sourceStyle, selected).forEach((name) => {
-      let value = sourceStyle.getPropertyValue(name)
+      let value = readDOMMethod(sourceStyle, 'getPropertyValue')(name)
       if (selected == null && parent && name.startsWith('--')) {
         // Equal inherited variables are already available from the copied ancestor.
         if (task) {
           if (value === task.getInheritedStyleValue(parent, name)) return
         } else {
-          inheritedStyle ||= (
-            nativeNode.ownerDocument.defaultView || window
-          ).getComputedStyle(parent)
-          if (value === inheritedStyle.getPropertyValue(name)) return
+          inheritedStyle ||= readDOMMethod(
+            readDocumentProperty(
+              readDOMProperty(nativeNode, 'ownerDocument'),
+              'defaultView',
+            ) || window,
+            'getComputedStyle',
+          )(parent)
+          if (value === readDOMMethod(inheritedStyle, 'getPropertyValue')(name))
+            return
         }
       }
       if (
@@ -208,14 +289,14 @@ function cloneCSSStyle<T extends HTMLElement>(
         value = 'block'
       }
 
-      if (name === 'd' && clonedNode.getAttribute('d')) {
-        value = `path(${clonedNode.getAttribute('d')})`
+      if (name === 'd' && readDOMMethod(clonedNode, 'getAttribute')('d')) {
+        value = `path(${readDOMMethod(clonedNode, 'getAttribute')('d')})`
       }
 
-      targetStyle.setProperty(
+      readDOMMethod(targetStyle, 'setProperty')(
         name,
         value,
-        sourceStyle.getPropertyPriority(name),
+        readDOMMethod(sourceStyle, 'getPropertyPriority')(name),
       )
     })
   }
@@ -228,23 +309,25 @@ function restoreScrollbarBox<T extends HTMLElement>(
   sourceStyle: CSSStyleDeclaration,
   selected?: readonly string[],
 ) {
-  const targetStyle = clonedNode.style
+  const targetStyle = readDOMProperty(clonedNode, 'style')
   if (
-    sourceStyle.boxSizing === 'content-box' &&
+    readDOMProperty(sourceStyle, 'boxSizing') === 'content-box' &&
     ['auto', 'scroll', 'hidden'].some(
       (value) =>
-        sourceStyle.overflowX === value || sourceStyle.overflowY === value,
+        readDOMProperty(sourceStyle, 'overflowX') === value ||
+        readDOMProperty(sourceStyle, 'overflowY') === value,
     )
   ) {
     const px = (name: string) =>
-      parseFloat(sourceStyle.getPropertyValue(name)) || 0
+      parseFloat(readDOMMethod(sourceStyle, 'getPropertyValue')(name)) || 0
     const restore = (
       dimension: 'width' | 'height',
       offset: number,
       start: string,
       end: string,
     ) => {
-      const horizontal = sourceStyle.writingMode === 'horizontal-tb'
+      const horizontal =
+        readDOMProperty(sourceStyle, 'writingMode') === 'horizontal-tb'
       const logical =
         dimension === 'width'
           ? horizontal
@@ -261,22 +344,29 @@ function restoreScrollbarBox<T extends HTMLElement>(
         return
       const axis = dimension === 'width' ? 'overflow-y' : 'overflow-x'
       const targetOverflow =
-        targetStyle.getPropertyValue(axis) ||
-        targetStyle.getPropertyValue(
-          logical === 'inline-size' ? 'overflow-block' : 'overflow-inline',
-        )
+        readDOMMethod(targetStyle, 'getPropertyValue')(axis) ||
+        readDOMMethod(
+          targetStyle,
+          'getPropertyValue',
+        )(logical === 'inline-size' ? 'overflow-block' : 'overflow-inline')
       // Legacy scroll encoding hides the native gutter and uses its content
       // viewport. Restore the outer box only when that gutter is retained.
       const keepsStableGutter =
         targetOverflow === 'hidden' &&
         logical === 'inline-size' &&
-        sourceStyle.getPropertyValue('scrollbar-gutter').includes('stable')
+        readDOMMethod(
+          sourceStyle,
+          'getPropertyValue',
+        )('scrollbar-gutter').includes('stable')
       if (
-        targetOverflow !== sourceStyle.getPropertyValue(axis) &&
+        targetOverflow !==
+          readDOMMethod(sourceStyle, 'getPropertyValue')(axis) &&
         !keepsStableGutter
       )
         return
-      const used = parseFloat(sourceStyle.getPropertyValue(dimension))
+      const used = parseFloat(
+        readDOMMethod(sourceStyle, 'getPropertyValue')(dimension),
+      )
       if (!Number.isFinite(used) || !Number.isFinite(offset)) return
       const edges =
         px(`padding-${start}`) +
@@ -290,21 +380,38 @@ function restoreScrollbarBox<T extends HTMLElement>(
       // otherwise it subtracts the same scrollbar space again.
       const property =
         selected && !selected.includes(dimension) ? logical : dimension
-      targetStyle.removeProperty(property)
-      targetStyle.setProperty(property, `${used + gutter}px`)
+      readDOMMethod(targetStyle, 'removeProperty')(property)
+      readDOMMethod(targetStyle, 'setProperty')(property, `${used + gutter}px`)
     }
-    restore('width', nativeNode.offsetWidth, 'left', 'right')
-    restore('height', nativeNode.offsetHeight, 'top', 'bottom')
+    restore(
+      'width',
+      readDOMProperty(nativeNode, 'offsetWidth'),
+      'left',
+      'right',
+    )
+    restore(
+      'height',
+      readDOMProperty(nativeNode, 'offsetHeight'),
+      'top',
+      'bottom',
+    )
   }
 }
 
 function cloneInputValue<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
   if (isInstanceOfElement(nativeNode, HTMLTextAreaElement)) {
-    clonedNode.textContent = nativeNode.value
+    writeDOMProperty(
+      clonedNode,
+      'textContent',
+      readDOMProperty(nativeNode, 'value'),
+    )
   }
 
   if (isInstanceOfElement(nativeNode, HTMLInputElement)) {
-    clonedNode.setAttribute('value', nativeNode.value)
+    readDOMMethod(clonedNode, 'setAttribute')(
+      'value',
+      readDOMProperty(nativeNode, 'value'),
+    )
   }
 }
 
@@ -313,10 +420,10 @@ function cloneOptionSelection<T extends HTMLElement>(
   clonedNode: T,
 ) {
   if (isInstanceOfElement(nativeNode, HTMLOptionElement)) {
-    if (nativeNode.selected) {
-      clonedNode.setAttribute('selected', '')
+    if (readDOMProperty(nativeNode, 'selected')) {
+      readDOMMethod(clonedNode, 'setAttribute')('selected', '')
     } else {
-      clonedNode.removeAttribute('selected')
+      readDOMMethod(clonedNode, 'removeAttribute')('selected')
     }
   }
 }
@@ -336,9 +443,12 @@ function normalizeClipPathURLs(
       const reference = quoted ?? bare
       if (!reference || reference.startsWith('#')) return original
       try {
-        const target = new URL(reference, sourceDocument.baseURI)
+        const target = new URL(
+          reference,
+          readDocumentProperty(sourceDocument, 'baseURI'),
+        )
         if (!target.hash) return original
-        const source = new URL(sourceDocument.URL)
+        const source = new URL(readDocumentProperty(sourceDocument, 'URL'))
         source.hash = ''
         const fragment = target.hash
         target.hash = ''
@@ -354,22 +464,22 @@ function cloneClipPathReferences<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
 ) {
-  const sourceDocument = nativeNode.ownerDocument
-  const attribute = clonedNode.getAttribute('clip-path')
+  const sourceDocument = readDOMProperty(nativeNode, 'ownerDocument')
+  const attribute = readDOMMethod(clonedNode, 'getAttribute')('clip-path')
   if (attribute && /url\(/i.test(attribute)) {
     const normalized = normalizeClipPathURLs(attribute, sourceDocument)
     if (normalized !== attribute)
-      clonedNode.setAttribute('clip-path', normalized)
+      readDOMMethod(clonedNode, 'setAttribute')('clip-path', normalized)
   }
-  const style = clonedNode.style
-  const value = style?.getPropertyValue('clip-path')
+  const style = readDOMProperty(clonedNode, 'style')
+  const value = readOptionalDOMMethod(style, 'getPropertyValue')?.('clip-path')
   if (value?.includes('url(')) {
     const normalized = normalizeClipPathURLs(value, sourceDocument)
     if (normalized !== value) {
-      style.setProperty(
+      readDOMMethod(style, 'setProperty')(
         'clip-path',
         normalized,
-        style.getPropertyPriority('clip-path'),
+        readDOMMethod(style, 'getPropertyPriority')('clip-path'),
       )
     }
   }
@@ -398,31 +508,46 @@ function decorate<T extends HTMLElement>(
     cloneClipPathReferences(nativeNode, clonedNode)
     if (
       isInstanceOfElement(nativeNode, HTMLIFrameElement) &&
-      clonedNode.tagName === 'DIV'
+      readDOMProperty(clonedNode, 'tagName') === 'DIV'
     ) {
       let scrollLeft = 0
       let scrollTop = 0
       try {
-        scrollLeft = nativeNode.contentWindow!.scrollX
-        scrollTop = nativeNode.contentWindow!.scrollY
+        scrollLeft = readDOMProperty(
+          readDOMProperty(nativeNode, 'contentWindow')!,
+          'scrollX',
+        )
+        scrollTop = readDOMProperty(
+          readDOMProperty(nativeNode, 'contentWindow')!,
+          'scrollY',
+        )
       } catch {
         // The frame may navigate or detach after its body was cloned.
       }
       cloneScrollState(
         nativeNode,
-        clonedNode.firstElementChild as HTMLElement,
+        readDOMProperty(clonedNode, 'firstElementChild') as HTMLElement,
         options,
         scrollLeft,
         scrollTop,
       )
       // The iframe viewport clips its body even when it has not scrolled.
-      clonedNode.style.overflow = 'hidden'
+      writeDOMProperty(
+        readDOMProperty(clonedNode, 'style'),
+        'overflow',
+        'hidden',
+      )
       // A transformed viewport anchors fixed descendants to this iframe.
       if (
-        !clonedNode.style.transform ||
-        clonedNode.style.transform === 'none'
+        !readDOMProperty(readDOMProperty(clonedNode, 'style'), 'transform') ||
+        readDOMProperty(readDOMProperty(clonedNode, 'style'), 'transform') ===
+          'none'
       ) {
-        clonedNode.style.transform = 'translate(0px, 0px)'
+        writeDOMProperty(
+          readDOMProperty(clonedNode, 'style'),
+          'transform',
+          'translate(0px, 0px)',
+        )
       }
     } else {
       cloneScrollState(nativeNode, clonedNode, options)
@@ -446,7 +571,7 @@ export async function ensureSVGSymbols<T extends HTMLElement>(
       options,
       true,
       false,
-      clone.ownerDocument,
+      readDOMProperty(clone, 'ownerDocument'),
     ),
   )
   return clone
@@ -465,11 +590,13 @@ export async function cloneNode<T extends HTMLElement>(
   if (yieldToBrowser) await yieldToBrowser
   task?.check()
   // HTML permits comment contents that XML forbids; comments have no pixels.
-  if (node.nodeType === Node.COMMENT_NODE) return null
+  if (readDOMProperty(node, 'nodeType') === Node.COMMENT_NODE) return null
   if (
     !isRoot &&
-    node.nodeType === 1 &&
-    options.exclude?.some((selector) => node.matches(selector))
+    readDOMProperty(node, 'nodeType') === 1 &&
+    options.exclude?.some((selector) =>
+      readDOMMethod(node, 'matches')(selector),
+    )
   ) {
     task?.excludeSource(node)
     return null
@@ -479,7 +606,9 @@ export async function cloneNode<T extends HTMLElement>(
     return null
   }
 
-  const copyDocument = targetDocument || createCloneDocument(node.ownerDocument)
+  const copyDocument =
+    targetDocument ||
+    createCloneDocument(readDOMProperty(node, 'ownerDocument'))
   return Promise.resolve(node)
     .then(
       (clonedNode) =>

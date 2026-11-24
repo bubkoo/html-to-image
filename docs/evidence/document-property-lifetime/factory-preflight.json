@@ -1,0 +1,189 @@
+{
+  "date": "2026-11-24",
+  "status": "Factory-read candidate preflight; no accepted full lifecycle fix or merge",
+  "precedingProductionCandidate": "7d7ad94f8a8acbc5773d15bd8580b064ee830b35",
+  "productionDefaultCI": {
+    "run": 45351095140,
+    "testedMerge": "03a96e283328eefba0ef7a69cd9db2045cf49802",
+    "result": "failure",
+    "coverage": {
+      "passed": 1234,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 1114,
+      "failed": 1,
+      "skipped": 4
+    },
+    "failure": "WebKit frozen SVG host-tree source document, original three collection requests completed but reference.deref() was not undefined",
+    "imageAssertionForFailingCase": "not executed; failed at collection assertion",
+    "browserPackages": "not run",
+    "codeql": {
+      "run": 45351095581,
+      "result": "success"
+    },
+    "rawArtifactFiles": 6
+  },
+  "physicalOffline": {
+    "head": "7d7ad94f8a8acbc5773d15bd8580b064ee830b35",
+    "device": {
+      "platformName": "iOS",
+      "browserVersion": "26.6.1",
+      "safari:platformVersion": "26.6.1",
+      "safari:deviceType": "iPhone",
+      "safari:useSimulator": false
+    },
+    "format": "unaltered built UMD",
+    "umdSHA256": "464075811c29415ce96f18e4cd7555c75ea9fa1b4176fc63dea302895f29db32",
+    "passed": 112,
+    "failed": 0,
+    "source": "five original fixture modules, assertions unchanged",
+    "inputs": 410,
+    "inputHashesUnchanged": true,
+    "httpResources": [],
+    "scope": [
+      "snapshot document ownership and removed iframe usability",
+      "mixed scroll14",
+      "fixed scroll30",
+      "positioned scroll55",
+      "scrollbar box12"
+    ],
+    "limits": [
+      "UMD-only offline subset",
+      "no full HTTP fixtures",
+      "no private external-SVG/CSP or loaded-font acceptance",
+      "no source screenshots",
+      "no device GC claim"
+    ],
+    "cleanup": "device session and owned driver ended; no HTTP server started; computer network settings unchanged"
+  },
+  "standaloneWithLibraryLoaded": {
+    "cases": 17,
+    "captureSamples": 7,
+    "captureHeldAfterOriginalThreeRequests": 1,
+    "nativeAndCloneCollected": true,
+    "weakStrongControlsValid": true,
+    "laterRenderedOutputs": "all captured outputs match; later rendering/disposal does not replace the cached collection failure",
+    "inputs": 407,
+    "inputHashesUnchanged": true
+  },
+  "nativeMatrix": {
+    "cases": 44,
+    "nativeImportStyleHeld": 1,
+    "nativeImportStyleSamples": 6,
+    "retainedNativeIndex": 6,
+    "firstLibraryCaptureIndex": 8,
+    "libraryModules": "loaded, but no library capture had run before the retained native case",
+    "captureSamples": 6,
+    "captureCollected": 6,
+    "weakStrongControlsValid": true,
+    "inputs": 407,
+    "inputHashesUnchanged": true
+  },
+  "nativeOnly": {
+    "cases": 82,
+    "libraryImportedOrInvoked": false,
+    "moduleGraphAudit": "policy helper imports only native fixture helper; no es/src/dist import or library capture call",
+    "requestFlagLimit": "listener starts after native policy initialization; initial library absence proven by audited module graph/control source, not that flag alone",
+    "groups": {
+      "bare": {
+        "samples": 1,
+        "collected": 1,
+        "held": 0
+      },
+      "held": {
+        "samples": 1,
+        "collected": 0,
+        "held": 1
+      },
+      "native": {
+        "samples": 16,
+        "collected": 16,
+        "held": 0
+      },
+      "native-style": {
+        "samples": 16,
+        "collected": 16,
+        "held": 0
+      },
+      "native-import-style": {
+        "samples": 16,
+        "collected": 16,
+        "held": 0
+      },
+      "source-direct-import-style": {
+        "samples": 16,
+        "collected": 14,
+        "held": 2
+      },
+      "source-reflect-import-style": {
+        "samples": 16,
+        "collected": 16,
+        "held": 0
+      }
+    },
+    "retainedSamples": [
+      {
+        "index": 5,
+        "kind": "source-direct-import-style"
+      },
+      {
+        "index": 15,
+        "kind": "source-direct-import-style"
+      }
+    ],
+    "sourcePreserved": true,
+    "importTargetOwnershipChecked": true,
+    "originalCollectionsPerSample": 3,
+    "weakStrongControlsValid": true,
+    "inputs": 407,
+    "inputHashesUnchanged": true,
+    "limits": "Direct versus reflective factory group covers implementation/baseURI/createElement/head together. Different sites/timing/JIT state prevent a deterministic or one-accessor cause claim."
+  },
+  "snapshotTool": {
+    "browserAndSDK": "unmodified pinned WebKit and Playwright1.64.1",
+    "nativeProtocolAccess": "page._connection.toImpl(page).delegate._session",
+    "versions": {
+      "v1": "weak/strong controls pass; SDK property _delegate missing, tool failure only",
+      "v2": "stock Heap.snapshot succeeds, graph version3 Inspector, four fields per node/edge",
+      "v3": "negative no match; positive matches unique knownOwnedDocument edge. Cross-world native comparisons report12 protocol errors; current collector excludes those worlds explicitly."
+    },
+    "retainedAttempt": {
+      "index": 15,
+      "cachedPrimaryCollected": false,
+      "originalCollections": 3,
+      "afterPrimaryTaskYields": 1,
+      "heapCapturedBeforeNativeIdentityHandles": true,
+      "targetCollectedAfterSnapshot": true,
+      "retainedMatches": [],
+      "positiveMatchesKnownOwner": true,
+      "negativeMatches": [],
+      "unexpectedMappingErrors": [],
+      "excludedDifferentWorldComparisons": 90,
+      "limits": "No retained-target witness obtained. Post-task/heap observation may change reachability. Native getRemoteObject creates strong identity handles only after the immutable raw snapshot; those handles are released. Absence of target/path is not proof of original unreachability or a fixed failure."
+    }
+  },
+  "candidate": {
+    "patch": "candidate/factory-source.patch in indexed archive",
+    "sourceHashes": "candidate/factory-source-hashes.json in indexed archive",
+    "files": [
+      "src/clone-node.ts",
+      "src/embed-images.ts",
+      "src/embed-webfonts.ts",
+      "src/svg-style-imports.ts"
+    ],
+    "scope": "All four Document.implementation-based inert-document factories and their associated createElement/head/baseURI accesses use generic reflective reads. Original source DOMImplementation, method receiver, source realm, parser/CSP behavior and read counts preserved.",
+    "testsConfigsScripts": "unchanged",
+    "hostStatic": "lint/build/tarball ESM CJS UMD/TS4.9-current entries/browser types pass",
+    "remainingGates": "new candidate full local/default remote sequence and current device acceptance still required"
+  },
+  "constraints": {
+    "computerNetworkSettingsModified": false,
+    "userTransport": "USB",
+    "npmPublished": false,
+    "oldContributorPRsCommentedOrClosed": false
+  },
+  "broaderGoal": "28 old PR dispositions and #585 native appearance/resource/font scope stay open; #650 stays draft.",
+  "rawFiles": 96,
+  "index": "followup-index.json"
+}

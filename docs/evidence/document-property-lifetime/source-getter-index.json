@@ -1,0 +1,877 @@
+{
+  "archive": "source-getter-raw.tar.gz",
+  "archiveSHA256": "97589343d66df40bac8ef4e346270ffbf4176c8b4bd87c44d640a911e6f8de64",
+  "prefix": "document-property-lifetime-source-getters/",
+  "files": [
+    {
+      "path": "analysis/analyze-cc.py",
+      "bytes": 4540,
+      "sha256": "788805df3f2eeabc06a985470cd02a7b0c55baaf1bc19fc423ce97468de13534"
+    },
+    {
+      "path": "analysis/analyze-gc-sites.py",
+      "bytes": 5614,
+      "sha256": "2f75fea14333103755b16c74cc514dd3489520de6dca5b22b256484a264cefa8"
+    },
+    {
+      "path": "analysis/analyze-without-all-weak-named-cache.py",
+      "bytes": 5628,
+      "sha256": "b63e41c1b0570f378b0f039d882d09bf17ce04fbb1ecd2b753031ccc61eae66a"
+    },
+    {
+      "path": "analysis/cache-access-paths-mapped.json",
+      "bytes": 53123,
+      "sha256": "93c4a3c99c47f8ceda91ffc19ffa2f710409da1de2907f5b5288d39665d04790"
+    },
+    {
+      "path": "analysis/cache-access-paths.json",
+      "bytes": 47789,
+      "sha256": "60b0315b9c88c1388d42628d706657196232a02e204b3aa98fd141b25459882f"
+    },
+    {
+      "path": "analysis/held-cc-analysis.json",
+      "bytes": 1512,
+      "sha256": "69cee8e108170ec04e0215e5bd1cd51aab710c085d33436351efba6584934cbe"
+    },
+    {
+      "path": "analysis/held-cc-analysis.log",
+      "bytes": 173,
+      "sha256": "b35efa528f23e6b6485e18102ee05139b04e9c0ecb5a73a5076a6ecdfe2902aa"
+    },
+    {
+      "path": "analysis/held-gc-analysis.json",
+      "bytes": 85200,
+      "sha256": "42c71bd7de3efbbf0d0db1d1b41a4436299364fe09dcf7e4ba1b2c041258907e"
+    },
+    {
+      "path": "analysis/held-gc-analysis.log",
+      "bytes": 3475,
+      "sha256": "ee7ea0e7bcb39db09bbd59dfb3de62b9444a0642bb3dfad0dce506790cdefcfd"
+    },
+    {
+      "path": "analysis/held-heap-core.json",
+      "bytes": 181840,
+      "sha256": "692cf05561931eff730db2a3c11030906f9f61c6767e563d45e76bf8d982ef3d"
+    },
+    {
+      "path": "analysis/non-source-cache-paths.json",
+      "bytes": 168,
+      "sha256": "b77953bd153bc114095b4472104b6cb26ed84be19638e7a4f3c98bf671bf3c48"
+    },
+    {
+      "path": "analysis/typed-node-window-audit.json",
+      "bytes": 144661,
+      "sha256": "de9fd2ace618addebe4482714548f3ab1ede75666a7c71bf0554422df68a4333"
+    },
+    {
+      "path": "analysis/without-all-weak-named-cache.json",
+      "bytes": 97588,
+      "sha256": "0f44e806e7329ee4056fe34367098474d1754be3aa52f2a3103bc015dbad60ff"
+    },
+    {
+      "path": "analysis/without-all-weak-named-cache.log",
+      "bytes": 4104,
+      "sha256": "d2f9067eb68d0d64b331f1e419f6a9cf81de8878436eaf41c3cdded1a907c606"
+    },
+    {
+      "path": "code-map/capture-execution.json",
+      "bytes": 154,
+      "sha256": "53aa3a5eaaf7ee158e03b5a573f4f2095c0bd2f4b3e461bda17caead877de6b5"
+    },
+    {
+      "path": "code-map/capture-plugin.mjs",
+      "bytes": 1439,
+      "sha256": "b375980b929d0c5ba85a247d98e9d6e2101c2f289a43a4ce3200a29d8e5468a2"
+    },
+    {
+      "path": "code-map/capture.log",
+      "bytes": 1475,
+      "sha256": "85ffb50971956a483b25439a58a7472dcf7eaed4b31c24b23f0efc44b45627c6"
+    },
+    {
+      "path": "code-map/original-config.mts",
+      "bytes": 7597,
+      "sha256": "f1287f366819557384eae73b3e211b64d9449041e71158f60f0172f430fe9668"
+    },
+    {
+      "path": "code-map/served/clone-node.post.js",
+      "bytes": 13096,
+      "sha256": "6587db49095a7fb24b612fb3f1e203e4f39593a489dd80d2e42a14cf8575514b"
+    },
+    {
+      "path": "code-map/served/clone-node.served.js",
+      "bytes": 157124,
+      "sha256": "6490b12168c9c5d18dfefb6bf27b160fbde520db344616c35258661f370991f4"
+    },
+    {
+      "path": "code-map/served/clone-node.served.map.json",
+      "bytes": 32137,
+      "sha256": "729b9813cf1b77668b3d4188d9bd34f5391f43387268e4395d4e31b2687c9ebb"
+    },
+    {
+      "path": "code-map/served/clone-pseudos.post.js",
+      "bytes": 1732,
+      "sha256": "2aa1441fdfaf249d1853304ac6716bf62d2b9299ae3cbcb8edffb50df58be55f"
+    },
+    {
+      "path": "code-map/served/clone-pseudos.served.js",
+      "bytes": 17234,
+      "sha256": "2078d23a226ea98395bb30babf6d22b84d77145fecd764bc432b3b6da66a6717"
+    },
+    {
+      "path": "code-map/served/clone-pseudos.served.map.json",
+      "bytes": 4202,
+      "sha256": "3fb32bb57d817df9044ccf344ff939af840ad98d3c07bbde1c1a7e84eb6df563"
+    },
+    {
+      "path": "code-map/served/clone-scroll.post.js",
+      "bytes": 9210,
+      "sha256": "72d04e4fdc46fa5d42e8753efa73c1720b67be28dda976004cf9794b4a04b7d6"
+    },
+    {
+      "path": "code-map/served/clone-scroll.served.js",
+      "bytes": 119206,
+      "sha256": "7595be028fa3babb5a92d7bffc77b0eea551ff3a199a4e0d90a80876f9d9c68d"
+    },
+    {
+      "path": "code-map/served/clone-scroll.served.map.json",
+      "bytes": 22113,
+      "sha256": "a268759a6d061aaee65fdd986ed48c19ee164e401124e77d3f038663bf9915f3"
+    },
+    {
+      "path": "code-map/served/document.post.js",
+      "bytes": 686,
+      "sha256": "01955a199c3777922e66541ddb13ad3b3f205c633da1b5919ab53e10e6192946"
+    },
+    {
+      "path": "code-map/served/document.served.js",
+      "bytes": 6580,
+      "sha256": "b6f561ffc0c961a0798f556407e131992b82dae998bab5e9364b5b5dcd0f87da"
+    },
+    {
+      "path": "code-map/served/document.served.map.json",
+      "bytes": 1811,
+      "sha256": "85b2afd47044f1e4f66df0b7d601352fc54333cd51f37ec3200dba32fbf2649e"
+    },
+    {
+      "path": "code-map/served/embed-images.post.js",
+      "bytes": 4844,
+      "sha256": "bbc7034e880c1090df769947e39c1e79459b5531caac1e19546d5b37e25b5a9b"
+    },
+    {
+      "path": "code-map/served/embed-images.served.js",
+      "bytes": 57922,
+      "sha256": "7e332e9966f3affa63b6d7c3ce10bce89fa674786c167756b6e8c1783e382f2e"
+    },
+    {
+      "path": "code-map/served/embed-images.served.map.json",
+      "bytes": 12220,
+      "sha256": "1f0164903a0fd21ab2395642e94155e8756b4bc4825503028b61df4b80b66a43"
+    },
+    {
+      "path": "code-map/served/records.jsonl",
+      "bytes": 3792,
+      "sha256": "52c4b0360878857b19cf123125b1af0a5227b9e844c0df02da945d0973c21e8a"
+    },
+    {
+      "path": "code-map/served/util.post.js",
+      "bytes": 7050,
+      "sha256": "1f990837af379fa5b69ad19c982f84817ee0e04e7923b1c3a02191d7ae9fec12"
+    },
+    {
+      "path": "code-map/served/util.served.js",
+      "bytes": 92424,
+      "sha256": "9a2beb0ae6de762f34fa04a053a32dbae79a6cb35880d3d995218fa5d2b055ec"
+    },
+    {
+      "path": "code-map/served/util.served.map.json",
+      "bytes": 18226,
+      "sha256": "191c25ea728727c9d5b7da8902a20d4fb42982df46476357ba63146cdac94c1f"
+    },
+    {
+      "path": "preceding-production-ci/access-final-ci-complete.log",
+      "bytes": 376743,
+      "sha256": "89be5df6248796ec1568a1a69a1784be9de7de903e3b0b5250082018030efc11"
+    },
+    {
+      "path": "preceding-production-ci/access-final-ci-metadata.json",
+      "bytes": 6128,
+      "sha256": "fe31bce5d3d1ee8df122640c08fd045122bf2ecdc38fafbd7e1ebed14ea11dcc"
+    },
+    {
+      "path": "preceding-production-ci/access-final-codeql-metadata.json",
+      "bytes": 2821,
+      "sha256": "f50fa0e2c6c2182ba80ca1bb2f9fa12fc964fdd03a5242eed81bc02cf781052b"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/archive.zip",
+      "bytes": 279356,
+      "sha256": "e58d938112a59d5b82fe91d72ae9e38337ea0fbd61902684593a8453e240f123"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/playwright-report/index.html",
+      "bytes": 618180,
+      "sha256": "2bcd8bbac79cff0cb98b57d1e227d40beb8db483f6657225b892b8f3065da580"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/test-results/mobile-smoke-reports/1e1ef0b2-be5e-4946-8986-7ab3db362152.json",
+      "bytes": 2472,
+      "sha256": "c43f6ecf02fedf8fb017388dd60d1a263f90aceff4840a03f587d5a628a50e0d"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/test-results/mobile-smoke-reports/a0afec3a-0d64-4e27-8b61-0648b017df29.json",
+      "bytes": 2404,
+      "sha256": "bd0ba2672ea7b3644046f9e5958d2f9ec020c08be99b58700cd17a3985ffbd8b"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/files/test-results/mobile-smoke-reports/c88ad04f-4614-454b-8dab-50a387532c85.json",
+      "bytes": 2478,
+      "sha256": "e6869e725dabb954af96879167e0e8fca9ae12adce28f4381736967e5cbbdd24"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/metadata.json",
+      "bytes": 794,
+      "sha256": "7a6d0df1bb25afdb7223d1814b602666d6ec18a9ad30788988a207e811595f39"
+    },
+    {
+      "path": "preceding-production-ci/artifacts/14908999087/verified.json",
+      "bytes": 663,
+      "sha256": "dc19bfb58554848745cf09275c21683bd08c29763b90de29ae527362cffe89c1"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-after-inputs.json",
+      "bytes": 43650,
+      "sha256": "ef4841977a2893286d2f41db295e8e43b2a29893369cd27a0723eb5048d3539c"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/cache-before/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+      "bytes": 13832,
+      "sha256": "fcc7c3865d83800265beabd2f3deb9739440a353315c672584eab07276646572"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/cache-receipt.json",
+      "bytes": 282,
+      "sha256": "a23e4b0bd63869401d6072240c7d26163a2be61e3803a3838c6566914cd40dc6"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/control-loader-error-execution.json",
+      "bytes": 237,
+      "sha256": "84268662888ecbf2c6ce31a85d8b92d7a16e7ca891b568475eb76bb623477e8f"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/control-loader-error.log",
+      "bytes": 4927,
+      "sha256": "130b1988960d758aba9ad80c0c44cb9601576a1823367a1b7e78ace4d8684b86"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls.cjs",
+      "bytes": 4040,
+      "sha256": "bcd0e73370b9cfc0960fe5821b72d1af4893f5ea6f43080a4c7b747e35a8e4aa"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls.log",
+      "bytes": 6442,
+      "sha256": "ae9b81fd8cf0e399f8ad1f697b78f9ebdcc155fc399c1d4ff0510ba277d0cc6a"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls/negative.fxsnapshot",
+      "bytes": 195116,
+      "sha256": "371c8d063e8f98fcf88f9e213a4c39fa459e551dbe0cc6d811fbd666da48b4f6"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls/negative.json",
+      "bytes": 12001,
+      "sha256": "3019c347a97c95c7d4900cd2946f4631c64b4e57e330178eee6d918a1e1278de"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls/positive.cc.log",
+      "bytes": 110235,
+      "sha256": "03a124d6a9dd27d9102d0a58ed7cbe619f1aee4f472376f65d097ae85632f003"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls/positive.fxsnapshot",
+      "bytes": 191287,
+      "sha256": "4841596234862dbc4bcb34b8b9066efb1dd2fc6ce74d0dc7767c4340268bb1a6"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls/positive.gc.log",
+      "bytes": 2527306,
+      "sha256": "98aa427b592310fdc46840c2a98aeb6faf4e616b92b8d2d7a2246fe4e346907b"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls/positive.json",
+      "bytes": 11556,
+      "sha256": "95c2a4070378c2591f8d1943208960ca523c2bb7f5e9a86aae8ae9b56e08e74c"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/controls/primary.json",
+      "bytes": 55,
+      "sha256": "54d63e34bbb16708e5c9886d24278829bd0f23c5e78ccd8873c6706be3c3a7be"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/diagnostic-only-changes.json",
+      "bytes": 1066,
+      "sha256": "704ced444c8d11b527413284193da113f711b10364a6022312a550776e3a164f"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/execution.json",
+      "bytes": 223,
+      "sha256": "fb36b3ddcb008583111e74f4fd5f12a0faea2954c66fbb0aa8b8ab5c9278d3de"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/format.log",
+      "bytes": 173,
+      "sha256": "409ff45cfc0ea0bb3f8b1a083fe700161b8d854cbd61495429e11ce851d9d477"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/inputs-after.json",
+      "bytes": 43650,
+      "sha256": "7e426fd33ad6ebfaf065958340b5dcb67a21aa1ac9852667ae7a233d93599d08"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/inputs-before.json",
+      "bytes": 43650,
+      "sha256": "7e426fd33ad6ebfaf065958340b5dcb67a21aa1ac9852667ae7a233d93599d08"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/inputs-restored.json",
+      "bytes": 43650,
+      "sha256": "fb2ad969cdb5be46804d5758d25c367f93e47dd16002ad833f1d7f6b9c671ef9"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/installation/install.json",
+      "bytes": 1552,
+      "sha256": "0c6c400028598789c30394576d726a12230254cecd89feee053bfd52d9d0e6ce"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/installation/patched-BrowserHandler.js",
+      "bytes": 13333,
+      "sha256": "0ec7bd36b53d187518838df41e2378d932b8b14b1d9ae3c7ebdb1559972d0a78"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/installation/patched-Juggler.js",
+      "bytes": 10625,
+      "sha256": "e6f7541be321e5d8660f844885402bec1092d714e001c49b97fa78859fedfdf4"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/installation/patched-Runtime.js",
+      "bytes": 26436,
+      "sha256": "75b91e22e45f01094e149c877c7796a0fb308f4f98e16737538484d5cd99664b"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/installation/restore.json",
+      "bytes": 127,
+      "sha256": "7a0805814587d54d25aa1e61be9eb04a0475ec12ac1583810f7ccd210ea6dd94"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/lint.log",
+      "bytes": 299,
+      "sha256": "9a7e95ebb684a53b2c44ec9608b3f1ea063896244c8a0668954d573831afc678"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/normal.log",
+      "bytes": 32741,
+      "sha256": "1e592ea3e7a57671399cb0ed3a7389e71720c866d706c3584dfa3e578429a2c1"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/original-config.mts",
+      "bytes": 7597,
+      "sha256": "f1287f366819557384eae73b3e211b64d9449041e71158f60f0172f430fe9668"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/registry.js",
+      "bytes": 478,
+      "sha256": "335762eb473e5bd63362224ddab4a8b542af36b29941fc4d84fbcc00adb81f37"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/run.py",
+      "bytes": 5945,
+      "sha256": "58e72b164cf44589c6be7f8b004e04f03a680ea39bf1bbffe2933145d168a4d5"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/setup.ts",
+      "bytes": 2211,
+      "sha256": "aa97986e86a70ec75a2e9d0acd41111ba9e0791a22c30296adb4a9cbdf1ec835"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/tooling-inputs.json",
+      "bytes": 429,
+      "sha256": "b01ffb62f241122bcc3af81d1061d5cf68fc50efc7d33699359aefbc6e07cdfe"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-attempt2/types.log",
+      "bytes": 95,
+      "sha256": "5d1b9831e346d7248d9dee46c4fdf26163c534818f178f158c458652c0dfb29a"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-before-inputs.json",
+      "bytes": 43650,
+      "sha256": "ef4841977a2893286d2f41db295e8e43b2a29893369cd27a0723eb5048d3539c"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/cache-before/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+      "bytes": 13902,
+      "sha256": "2bdf8af7188c753239d16cfb29cd7ae62f04f2f14bdb71fc66a021f9fb0f7720"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/cache-receipt.json",
+      "bytes": 282,
+      "sha256": "f8b25240df056c1b5ce277c8825cbdb781af6dad27f460140c483a447de409ca"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/control-loader-error-execution.json",
+      "bytes": 237,
+      "sha256": "84268662888ecbf2c6ce31a85d8b92d7a16e7ca891b568475eb76bb623477e8f"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/control-loader-error.log",
+      "bytes": 4927,
+      "sha256": "130b1988960d758aba9ad80c0c44cb9601576a1823367a1b7e78ace4d8684b86"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls.cjs",
+      "bytes": 4040,
+      "sha256": "bcd0e73370b9cfc0960fe5821b72d1af4893f5ea6f43080a4c7b747e35a8e4aa"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls.log",
+      "bytes": 6442,
+      "sha256": "8d5d7fa6b68c74e74d62150dc777f5d84ebe848a45d94e3e20827bb7c2c4240b"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls/negative.fxsnapshot",
+      "bytes": 193750,
+      "sha256": "0081eed0bda291e256649af4e1774049e7a42578dbdc0545a75dd663527b7fb8"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls/negative.json",
+      "bytes": 9772,
+      "sha256": "39ce334e0a1533e9224a17cf6bb0862e5c42723cc8a62dba9520665fc2798358"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls/positive.cc.log",
+      "bytes": 110469,
+      "sha256": "8130333e85580acde23d13dcfa0c65cd893a0d2e47ea0a6bcee0d125118a79bc"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls/positive.fxsnapshot",
+      "bytes": 191354,
+      "sha256": "e5946169ee9511dbd6fbfd42110b4b7a1cf93abd40cc2d7d117062dddaf37093"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls/positive.gc.log",
+      "bytes": 2504641,
+      "sha256": "cbecc363dbb5ee30f06121bf5a0e505246c14c5b47884d6bbcbb2def4a77d37f"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls/positive.json",
+      "bytes": 11556,
+      "sha256": "fac1cb00379d067ab277cefefc2ab34cf660b191be9ce6d859679ee3581b7775"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/controls/primary.json",
+      "bytes": 55,
+      "sha256": "54d63e34bbb16708e5c9886d24278829bd0f23c5e78ccd8873c6706be3c3a7be"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/diagnostic-only-changes.json",
+      "bytes": 1066,
+      "sha256": "a88abfb4d32ca4786f6721b04ecb96171d932e600410c47b886cbf04839fd37a"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/execution.json",
+      "bytes": 223,
+      "sha256": "fb36b3ddcb008583111e74f4fd5f12a0faea2954c66fbb0aa8b8ab5c9278d3de"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/format.log",
+      "bytes": 173,
+      "sha256": "409ff45cfc0ea0bb3f8b1a083fe700161b8d854cbd61495429e11ce851d9d477"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/installation/install.json",
+      "bytes": 1552,
+      "sha256": "0c6c400028598789c30394576d726a12230254cecd89feee053bfd52d9d0e6ce"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/installation/patched-BrowserHandler.js",
+      "bytes": 13333,
+      "sha256": "0ec7bd36b53d187518838df41e2378d932b8b14b1d9ae3c7ebdb1559972d0a78"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/installation/patched-Juggler.js",
+      "bytes": 10625,
+      "sha256": "e6f7541be321e5d8660f844885402bec1092d714e001c49b97fa78859fedfdf4"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/installation/patched-Runtime.js",
+      "bytes": 26436,
+      "sha256": "75b91e22e45f01094e149c877c7796a0fb308f4f98e16737538484d5cd99664b"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/installation/restore.json",
+      "bytes": 127,
+      "sha256": "7a0805814587d54d25aa1e61be9eb04a0475ec12ac1583810f7ccd210ea6dd94"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/lint.log",
+      "bytes": 299,
+      "sha256": "9a7e95ebb684a53b2c44ec9608b3f1ea063896244c8a0668954d573831afc678"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/normal.log",
+      "bytes": 33059,
+      "sha256": "4f3610574bfb22cd29350034e66136d442657cab022afdd9730699f9bd006d7f"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/original-config.mts",
+      "bytes": 7597,
+      "sha256": "f1287f366819557384eae73b3e211b64d9449041e71158f60f0172f430fe9668"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/registry.js",
+      "bytes": 478,
+      "sha256": "335762eb473e5bd63362224ddab4a8b542af36b29941fc4d84fbcc00adb81f37"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/run.py",
+      "bytes": 6191,
+      "sha256": "d76aac9756e3766ed1160666ae086092ebd4f7f8b5b3f8a21275942167174454"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/setup.ts",
+      "bytes": 2643,
+      "sha256": "8251f4752fdc9dbc3912ebf6055f43052a53589decb78d2f824adc22d6b08715"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/tooling-inputs.json",
+      "bytes": 429,
+      "sha256": "e07699015cf5f40b1ac4effdbff36f85b05f19801c9b1560037354ecc7163a75"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-probe/types.log",
+      "bytes": 95,
+      "sha256": "5d1b9831e346d7248d9dee46c4fdf26163c534818f178f158c458652c0dfb29a"
+    },
+    {
+      "path": "registry/.codex-linux-control/source-registry-restored-inputs.json",
+      "bytes": 43650,
+      "sha256": "fb2ad969cdb5be46804d5758d25c367f93e47dd16002ad833f1d7f6b9c671ef9"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-failure.primary.json",
+      "bytes": 6160,
+      "sha256": "6fab27dc0aee886bb00054608e2827e2d3072d9be47e74f6aa8924ab8b806d0d"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-0.fxsnapshot",
+      "bytes": 2378941,
+      "sha256": "9a4b9b6e1e9d83833a3a62a931099cf2020fa3eac1a7f877a2785ec90e9778e5"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-0.json",
+      "bytes": 211676,
+      "sha256": "76bd8ec12b7b9d4cfb4d7e8e7f37f0294113965dfbdbee8751e2dd3e0abe8434"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-0.primary.json",
+      "bytes": 12148,
+      "sha256": "c64a19ac8bf1c3793f6009f80342536214be87a48ef4104a0fa02e9a20e08654"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-1.cc.log",
+      "bytes": 394266,
+      "sha256": "adafe1f5d6d9981f1f87e066441392ca19ea5f0affbf33340750c8e87a7f5f35"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-1.fxsnapshot",
+      "bytes": 2379032,
+      "sha256": "0ff85ef05ba58ac5e77213378d50c0392793f1f27788a82f3ae144135a86afa6"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-1.gc.log",
+      "bytes": 36319785,
+      "sha256": "0a41fe56eba88f5f7788e83171640718a0c00591e120282b9fd4a92388462cc7"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-1.json",
+      "bytes": 207967,
+      "sha256": "4f947158004060c6706435c520249b8f4ede180b9f125b27b0152933e65fc69f"
+    },
+    {
+      "path": "registry/.vitest/attachments/gc-reference-probe/source-registry/coverage-firefox-registry-a_removed_iframe_document_is_collectible_while_its_snapshot_remains_usable-ref-1.primary.json",
+      "bytes": 12147,
+      "sha256": "982f00535dbde70871d18e3657204c9dedabc41a0f17eafdb15444fb73480fc2"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e-after-inputs.json",
+      "bytes": 43650,
+      "sha256": "5fabb90825ad7e09fa9f23406c0f17dcc4ea60e7d36161fea4412e84855aead0"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e-before-inputs.json",
+      "bytes": 43650,
+      "sha256": "5fabb90825ad7e09fa9f23406c0f17dcc4ea60e7d36161fea4412e84855aead0"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e-restored-inputs.json",
+      "bytes": 43650,
+      "sha256": "fb2ad969cdb5be46804d5758d25c367f93e47dd16002ad833f1d7f6b9c671ef9"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/cache-before/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+      "bytes": 13890,
+      "sha256": "253fd7760a1d36745d5e5045cf5ae95a42488df54ae0fc6dd099ce2c0d8a5671"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/cache-receipt.json",
+      "bytes": 286,
+      "sha256": "5244f4c627850790dc9193142dd8b69d2d1891789eac312a77a84d16e7fe3fe1"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/controls.log",
+      "bytes": 283,
+      "sha256": "961e4dfeacff7c77dbb8131d9bd8d1b87784c119e33330f1021ebb32fd3f3da4"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/diagnostic-only-changes.json",
+      "bytes": 228,
+      "sha256": "1539fbf06b608c801bbd68718f88833e4fabf30d2873cb3c48a6f748433abbd8"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/execution.json",
+      "bytes": 305,
+      "sha256": "c1576fd4739b1c54483d67962c7c5ec22dc7a32400e4001a7ba0c7abd92b3875"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/format.log",
+      "bytes": 101,
+      "sha256": "f4fe5c89f3f7ee62cc341934ed4f091285a54a7708e48b683ea9219c13df6fc4"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/installation/install.json",
+      "bytes": 1552,
+      "sha256": "0c6c400028598789c30394576d726a12230254cecd89feee053bfd52d9d0e6ce"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/installation/patched-BrowserHandler.js",
+      "bytes": 13333,
+      "sha256": "0ec7bd36b53d187518838df41e2378d932b8b14b1d9ae3c7ebdb1559972d0a78"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/installation/patched-Juggler.js",
+      "bytes": 10625,
+      "sha256": "e6f7541be321e5d8660f844885402bec1092d714e001c49b97fa78859fedfdf4"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/installation/patched-Runtime.js",
+      "bytes": 26436,
+      "sha256": "75b91e22e45f01094e149c877c7796a0fb308f4f98e16737538484d5cd99664b"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/installation/restore.json",
+      "bytes": 127,
+      "sha256": "7a0805814587d54d25aa1e61be9eb04a0475ec12ac1583810f7ccd210ea6dd94"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/lint.log",
+      "bytes": 299,
+      "sha256": "9a7e95ebb684a53b2c44ec9608b3f1ea063896244c8a0668954d573831afc678"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/normal.log",
+      "bytes": 188135,
+      "sha256": "6e160c92e45e2f049b2fc69371f3e66db438c4c6c0a52a25b4c390246c34fbfb"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/original/test/browser-unit/svg-style-source-lifetime.test.ts",
+      "bytes": 3318,
+      "sha256": "539630ee366e2e005fc49187a3b2ca894b7b42c5bc3db278371b077d2d33c5c2"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/original/vitest.browser.config.mts",
+      "bytes": 7597,
+      "sha256": "f1287f366819557384eae73b3e211b64d9449041e71158f60f0172f430fe9668"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/preflight.json",
+      "bytes": 1178,
+      "sha256": "d569f3ab5bd3a4b1686759291a08c98bc822705b1a12898ae8fe3ca0758ad929"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/tooling/firefox-gc-reference-controls.cjs",
+      "bytes": 3804,
+      "sha256": "8531164bcad28eaabef25771e5bbb82cceeec966104621e4293941677bf1c7c3"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/tooling/firefox-gc-reference-method.txt",
+      "bytes": 3111,
+      "sha256": "349b6d83cb332e7f4551b84f0a1ef43792355e19ba0aeeaf5e0d15bfa8d9e230"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/tooling/firefox-gc-reference-parent.txt",
+      "bytes": 3243,
+      "sha256": "09822e64784966122833a63037986f9470222643d8b1f19bd67cdfcbf07c4677"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/tooling/firefox-gc-reference-probe.py",
+      "bytes": 7399,
+      "sha256": "e624edfdd10bb3447e823447460cd9ed5676d867f625187cfc2b689bca9775d6"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/tooling/reference-command.txt",
+      "bytes": 2302,
+      "sha256": "88b1b00d8add294e1ddd772993e6a7ae213a339c88766948b83e2d43063cd883"
+    },
+    {
+      "path": "source-hook/.codex-linux-control/source-holder-e/types.log",
+      "bytes": 95,
+      "sha256": "5d1b9831e346d7248d9dee46c4fdf26163c534818f178f158c458652c0dfb29a"
+    },
+    {
+      "path": "source-hook/.vitest/attachments/gc-reference-probe/controls/negative.fxsnapshot",
+      "bytes": 194100,
+      "sha256": "63eee77ae5a25fce34af1e75d0ba60d66bd04a17cad025814e2c9d3e0f65e259"
+    },
+    {
+      "path": "source-hook/.vitest/attachments/gc-reference-probe/controls/negative.json",
+      "bytes": 12001,
+      "sha256": "c09d79b671de8c26a289bfab007a14798a3c3fd52ff084564ec7057cb5326f9c"
+    },
+    {
+      "path": "source-hook/.vitest/attachments/gc-reference-probe/controls/positive.cc.log",
+      "bytes": 109754,
+      "sha256": "c281d120eb6eb1356fa981b66bd7ce4de9c034bc67f535794a05f0cfdd16b03b"
+    },
+    {
+      "path": "source-hook/.vitest/attachments/gc-reference-probe/controls/positive.fxsnapshot",
+      "bytes": 189298,
+      "sha256": "fe8a00330f5f6b0a6675580326ec6184af6993e1755f6e230c349a448bd95dac"
+    },
+    {
+      "path": "source-hook/.vitest/attachments/gc-reference-probe/controls/positive.gc.log",
+      "bytes": 2564080,
+      "sha256": "a63b50a940cf1444d9c19570fab0f600bf4471b741bc5e10f3da5c63a9c12a3d"
+    },
+    {
+      "path": "source-hook/.vitest/attachments/gc-reference-probe/controls/positive.json",
+      "bytes": 11556,
+      "sha256": "adb57fbdc7c890afe36e48c95ca48a3fbbafd10e51602121e6cc00c08e21915e"
+    },
+    {
+      "path": "source-hook/.vitest/attachments/gc-reference-probe/controls/primary.json",
+      "bytes": 55,
+      "sha256": "54d63e34bbb16708e5c9886d24278829bd0f23c5e78ccd8873c6706be3c3a7be"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/holder-code-map-plugin-after-inputs.json",
+      "bytes": 43650,
+      "sha256": "f73af61b53f7cc6d22524248cb50305214b4e26b9eaab7b9d9e658951c284ab0"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/holder-code-map-plugin-before-inputs.json",
+      "bytes": 43650,
+      "sha256": "f73af61b53f7cc6d22524248cb50305214b4e26b9eaab7b9d9e658951c284ab0"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/holder-code-map-plugin-restored-inputs.json",
+      "bytes": 43650,
+      "sha256": "fb2ad969cdb5be46804d5758d25c367f93e47dd16002ad833f1d7f6b9c671ef9"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro-after-inputs.json",
+      "bytes": 43650,
+      "sha256": "fb2ad969cdb5be46804d5758d25c367f93e47dd16002ad833f1d7f6b9c671ef9"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro-before-inputs.json",
+      "bytes": 43650,
+      "sha256": "fb2ad969cdb5be46804d5758d25c367f93e47dd16002ad833f1d7f6b9c671ef9"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/execution.json",
+      "bytes": 291,
+      "sha256": "d5c00d2d09d43fe14a4e7d13f37f98ea8d5521a6a0fac97a19807ca115b84c3e"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/fixture-origin.json",
+      "bytes": 585,
+      "sha256": "ff1212758aff25a976037600aabfa393f1184f033022c8e75a3dc6dfb6d8517f"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/fixture.mjs",
+      "bytes": 2688,
+      "sha256": "e651393016fb871761632b03bd80c558e45f7deb9782dc015fd593d92c80f61d"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/installation/install.json",
+      "bytes": 1552,
+      "sha256": "0c6c400028598789c30394576d726a12230254cecd89feee053bfd52d9d0e6ce"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/installation/patched-BrowserHandler.js",
+      "bytes": 13333,
+      "sha256": "0ec7bd36b53d187518838df41e2378d932b8b14b1d9ae3c7ebdb1559972d0a78"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/installation/patched-Juggler.js",
+      "bytes": 10625,
+      "sha256": "e6f7541be321e5d8660f844885402bec1092d714e001c49b97fa78859fedfdf4"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/installation/patched-Runtime.js",
+      "bytes": 26436,
+      "sha256": "75b91e22e45f01094e149c877c7796a0fb308f4f98e16737538484d5cd99664b"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/installation/restore.json",
+      "bytes": 127,
+      "sha256": "7a0805814587d54d25aa1e61be9eb04a0475ec12ac1583810f7ccd210ea6dd94"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/primaries.json",
+      "bytes": 23864,
+      "sha256": "8ad841d5ddb285c4d919dbda31a07aadef1fadf86bb3e781a00775b832e2dffd"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/result.json",
+      "bytes": 885,
+      "sha256": "e929f6deeeb12c49d9b5f6de87340c2b8e370daaea766761e1e546d832103747"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/run.cjs",
+      "bytes": 5666,
+      "sha256": "818586887d008d18a6cb2b31941033f18d1cec1e7b7fe30cea511ef5f34cc1a7"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/run.log",
+      "bytes": 23991,
+      "sha256": "0fd0b03da5a2b91fd2a9d34fba6e20deabc501e9779cf554313503595e42e71a"
+    },
+    {
+      "path": "standalone-pairs/.codex-linux-control/source-pair-repro/tooling-inputs.json",
+      "bytes": 262,
+      "sha256": "56656d840d27e8dc23ff3b8e7b6f5981997d2a21d4040d5b0f5e98bf1a3d7f88"
+    }
+  ]
+}

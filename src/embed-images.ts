@@ -1,3 +1,10 @@
+import {
+  hasDOMProperty,
+  readDOMMethod,
+  readDOMProperty,
+  writeDOMProperty,
+} from './dom.js'
+import { readDocumentProperty } from './document.js'
 import { Options } from './types.js'
 import { embedResources } from './embed-resources.js'
 import { toArray, isInstanceOfElement, createImage } from './util.js'
@@ -12,10 +19,14 @@ async function embedProp(
   baseURI: string,
   options: Options,
 ) {
-  const propValue = style.getPropertyValue(propName)
+  const propValue = readDOMMethod(style, 'getPropertyValue')(propName)
   if (propValue) {
     const cssString = await embedResources(propValue, baseURI, options)
-    style.setProperty(propName, cssString, style.getPropertyPriority(propName))
+    readDOMMethod(style, 'setProperty')(
+      propName,
+      cssString,
+      readDOMMethod(style, 'getPropertyPriority')(propName),
+    )
     return true
   }
   return false
@@ -44,46 +55,66 @@ async function embedStyleRules(
   options: Options,
   context: EmbedContext,
 ) {
-  if (node.localName !== 'style' || !node.textContent) return
+  if (
+    readDOMProperty(node, 'localName') !== 'style' ||
+    !readDOMProperty(node, 'textContent')
+  )
+    return
   // An inert stylesheet preserves @import rules without loading them. A
   // constructed CSSStyleSheet.replaceSync would silently remove those rules.
-  const parserDocument = (context.parserDocument ||=
-    node.ownerDocument.implementation.createHTMLDocument())
-  const parser = parserDocument.createElement('style')
-  const type = node.getAttribute('type')
-  if (type) parser.setAttribute('type', type)
-  parser.textContent = node.textContent
-  parserDocument.head.append(parser)
+  const parserDocument = (context.parserDocument ||= readDOMMethod(
+    readDocumentProperty(
+      readDOMProperty(node, 'ownerDocument'),
+      'implementation',
+    ),
+    'createHTMLDocument',
+  )())
+  const parser = Reflect.apply(
+    readDocumentProperty(parserDocument, 'createElement'),
+    parserDocument,
+    ['style'],
+  ) as HTMLStyleElement
+  const type = readDOMMethod(node, 'getAttribute')('type')
+  if (type) readDOMMethod(parser, 'setAttribute')('type', type)
+  writeDOMProperty(parser, 'textContent', readDOMProperty(node, 'textContent'))
+  readDOMMethod(readDocumentProperty(parserDocument, 'head'), 'append')(parser)
   try {
-    const sheet = parser.sheet
+    const sheet = readDOMProperty(parser, 'sheet')
     if (!sheet) return
-    const baseURI = node.baseURI
+    const baseURI = readDOMProperty(node, 'baseURI')
     let changed = false
     const visit = async (rules: CSSRuleList): Promise<void> => {
       await Promise.all(
         Array.from(rules).map(async (rule) => {
-          if (rule.type === CSSRule.STYLE_RULE) {
-            const { style } = rule as CSSStyleRule
-            const before = style.cssText
+          if (readDOMProperty(rule, 'type') === CSSRule.STYLE_RULE) {
+            const style = readDOMProperty(rule as CSSStyleRule, 'style')
+            const before = readDOMProperty(style, 'cssText')
             await embedBackground(style, baseURI, options)
-            changed = changed || before !== style.cssText
+            changed = changed || before !== readDOMProperty(style, 'cssText')
           }
-          if ('cssRules' in rule) {
-            await visit((rule as CSSGroupingRule).cssRules)
+          if (hasDOMProperty('cssRules', rule)) {
+            await visit(readDOMProperty(rule as CSSGroupingRule, 'cssRules'))
           }
         }),
       )
     }
-    await visit(sheet.cssRules)
+    await visit(readDOMProperty(sheet, 'cssRules'))
     if (changed) {
-      node.textContent = Array.from(sheet.cssRules)
-        .map((rule) => rule.cssText)
-        .join('\n')
+      writeDOMProperty(
+        node,
+        'textContent',
+        Array.from(readDOMProperty(sheet, 'cssRules'))
+          .map((rule) => readDOMProperty(rule, 'cssText'))
+          .join('\n'),
+      )
     }
   } finally {
     // Retain the parser document across asynchronous embedding, as with the
     // clone document; its nodes alone are insufficient ownership in WebKit.
-    parserDocument.head.removeChild(parser)
+    readDOMMethod(
+      readDocumentProperty(parserDocument, 'head'),
+      'removeChild',
+    )(parser)
   }
 }
 
@@ -94,14 +125,16 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
   const isImageElement = isInstanceOfElement(clonedNode, HTMLImageElement)
   const isSVGImage =
     isInstanceOfElement(clonedNode, SVGImageElement) ||
-    (clonedNode.namespaceURI === svgNamespace &&
-      clonedNode.localName === 'feImage')
+    (readDOMProperty(clonedNode, 'namespaceURI') === svgNamespace &&
+      readDOMProperty(clonedNode, 'localName') === 'feImage')
   if (!isImageElement && !isSVGImage) return
-  let url = isImageElement ? clonedNode.src : getSVGReference(clonedNode) || ''
+  let url = isImageElement
+    ? readDOMProperty(clonedNode, 'src')
+    : getSVGReference(clonedNode) || ''
   if (isSVGImage && !url) return
   if (!isDataUrl(url)) {
     try {
-      url = new URL(url, clonedNode.baseURI).href
+      url = new URL(url, readDOMProperty(clonedNode, 'baseURI')).href
     } catch {
       // Let the resource loader and image error handler recover invalid URLs.
     }
@@ -111,25 +144,35 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
     : await resourceToDataURL(url, getMimeType(url), options)
   if (isImageElement) {
     const image = clonedNode as HTMLImageElement
-    image.loading = 'eager'
-    image.srcset = ''
-    if (!image.ownerDocument.defaultView) {
-      image.decoding = 'sync'
-      image.crossOrigin = 'anonymous'
-      image.src = dataURL
+    writeDOMProperty(image, 'loading', 'eager')
+    writeDOMProperty(image, 'srcset', '')
+    if (
+      !readDocumentProperty(
+        readDOMProperty(image, 'ownerDocument'),
+        'defaultView',
+      )
+    ) {
+      writeDOMProperty(image, 'decoding', 'sync')
+      writeDOMProperty(image, 'crossOrigin', 'anonymous')
+      writeDOMProperty(image, 'src', dataURL)
     }
   }
   try {
     await createImage(
       dataURL,
       options,
-      isImageElement && clonedNode.ownerDocument.defaultView
+      isImageElement &&
+        readDocumentProperty(
+          readDOMProperty(clonedNode, 'ownerDocument'),
+          'defaultView',
+        )
         ? (clonedNode as HTMLImageElement)
         : undefined,
     )
   } catch (error) {
     getTask(options)?.check()
-    if (isImageElement) (clonedNode as HTMLImageElement).src = ''
+    if (isImageElement)
+      writeDOMProperty(clonedNode as HTMLImageElement, 'src', '')
     if (options.onImageErrorHandler) {
       await options.onImageErrorHandler.call(clonedNode, new Event('error'))
       return
@@ -137,8 +180,11 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
     throw error
   }
   if (!isImageElement) {
-    clonedNode.setAttribute('href', dataURL)
-    clonedNode.removeAttributeNS('http://www.w3.org/1999/xlink', 'href')
+    readDOMMethod(clonedNode, 'setAttribute')('href', dataURL)
+    readDOMMethod(clonedNode, 'removeAttributeNS')(
+      'http://www.w3.org/1999/xlink',
+      'href',
+    )
   }
 }
 
@@ -147,7 +193,9 @@ async function embedChildren<T extends HTMLElement>(
   options: Options,
   context: EmbedContext,
 ) {
-  const children = toArray<HTMLElement>(clonedNode.childNodes)
+  const children = toArray<HTMLElement>(
+    readDOMProperty(clonedNode, 'childNodes'),
+  )
   const deferreds = children.map((child) => embedNode(child, options, context))
   await Promise.all(deferreds).then(() => clonedNode)
 }
@@ -158,7 +206,11 @@ async function embedNode<T extends HTMLElement>(
   context: EmbedContext,
 ) {
   if (isInstanceOfElement(clonedNode, Element)) {
-    await embedBackground(clonedNode.style, clonedNode.baseURI, options)
+    await embedBackground(
+      readDOMProperty(clonedNode, 'style'),
+      readDOMProperty(clonedNode, 'baseURI'),
+      options,
+    )
     await embedImageNode(clonedNode, options)
     await embedStyleRules(clonedNode, options, context)
     await embedChildren(clonedNode, options, context)
