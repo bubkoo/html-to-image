@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-24T21:02:13.195517+00:00",
+  "status": "Scoped alert192 explicit pnpm/ESLint dependency graph repaired; reviewable two-file candidate; latest full default gate failed and requires separate diagnosis/accurate-head CI.",
+  "branch": "codex/minimatch-dev-security",
+  "baseSource": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+  "currentHEADIsUnchangedBase": true,
+  "candidateIsUncommitted": true,
+  "alert": {
+    "number": 192,
+    "URL": "https://github.com/bubkoo/html-to-image/security/dependabot/192",
+    "observedState": "open",
+    "severity": "medium/moderate",
+    "package": "minimatch",
+    "advisory": "GHSA-g3hv-75wg-m249",
+    "CVE": "CVE-2026-118764",
+    "affectedRange": ">=7.0.0 <11.0.1",
+    "firstPatched": "11.0.1",
+    "manifest": "pnpm-lock.yaml",
+    "scope": "transitive development"
+  },
+  "candidateFiles": [
+    {
+      "path": "package.json",
+      "sha256": "c34fdd629f4da9a738bd957db20946913204fb6f8444122376260c1eea9b6b01"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "a2a2cf47aa6c2e7c8a0c7ebca24bd4c87b24fb1c0ede4bc960b0ffcd9d6ea242"
+    }
+  ],
+  "manifestAllowlist": {
+    "changes": [
+      {
+        "path": "devDependencies.eslint",
+        "before": "^10.14.0",
+        "after": "^10.15.0"
+      },
+      {
+        "path": "devDependencies.typescript-eslint",
+        "before": "^8.72.1",
+        "after": "^8.73.0"
+      }
+    ],
+    "onlyTwoManifestFieldsChanged": true,
+    "noOverride": true,
+    "runtimeExportsScriptsAndFilesUnchanged": true,
+    "runtimeSourceModified": false
+  },
+  "explicitPnpmGraph": {
+    "before": [
+      "10.2.6"
+    ],
+    "after": [
+      "11.0.9"
+    ],
+    "affectedAfter": [],
+    "installedRegularDependencyRangeAssertions": 77,
+    "overrides": null,
+    "unrelatedPackageVersionFamiliesUnchanged": true,
+    "changedVersionFamilies": 15
+  },
+  "npmBundledBoundary": {
+    "activeReleaseChain": [
+      [
+        "html-to-image@1.11.13",
+        "@bubkoo/semantic-release-config@1.6.1",
+        "semantic-release@25.0.9",
+        "@semantic-release/npm@13.2.0",
+        "npm@11.21.1"
+      ]
+    ],
+    "installedNpm": "11.21.1",
+    "bundledMinimatch": "10.2.5",
+    "withinAdvisoryRange": true,
+    "unresolved": true,
+    "compatibleNpm11_21_3AndLatest12_2_3StillDeclareMinimatch": "^10.2.5",
+    "missingCondition": "An official npm release within the existing release-tool constraints that carries fixed minimatch, or a corresponding upstream repair. No compatible fixed bundled release was established here.",
+    "notCountedAsRepairedByThisCandidate": true
+  },
+  "runtimeBoundary": "No runtime source, library exports, package scripts or production dependency declarations changed. A development dependency version hit is not a demonstrated browser runtime exploit.",
+  "triggerBoundary": "Advisory requires attacker-controlled glob pattern amplification at optimizationLevel>=2, e.g. repeated **/../a/b portions. Installed baseline default is1; the three reviewed direct parents did not explicitly set optimizationLevel. This is not whole-program reachability proof; no malicious long-running pattern was executed.",
+  "upstreamFixEvidence": "official-advisory-fix.json records commit77a0f5c bounds and the installed11.0.9 further preprocessing/work bounds, package engines and public API compatibility changes.",
+  "oldPRBoundary": "#574 Rollup3 bump is superseded by Rollup4.67.4; #540 pbkdf2 lock bump is superseded by removal from the explicit lock tree. These are scoped historical dispositions, not an assertion that all present dependencies are free of vulnerabilities.",
+  "environment": {
+    "platform": "Darwin",
+    "Node": "v22.17.0",
+    "pnpm": "10.34.9",
+    "CIEnvironmentVariable": "1, local execution; not GitHub Actions",
+    "packagePort": 4197,
+    "default4173Touched": false
+  },
+  "checks": {
+    "counts": {
+      "firstInstall": {
+        "coverage": {
+          "passed": 1234,
+          "failed": 0,
+          "skipped": 4
+        },
+        "source": {
+          "passed": 1115,
+          "failed": 0,
+          "skipped": 4
+        },
+        "package": {
+          "passed": 162,
+          "failed": 0
+        }
+      },
+      "cleanFrozenFinalLock": {
+        "coverage": {
+          "passed": 1233,
+          "failed": 1,
+          "skipped": 4
+        },
+        "defaultSourcePhase": "not executed after coverage failure",
+        "independentSource": {
+          "passed": 1115,
+          "failed": 0,
+          "skipped": 4
+        },
+        "package": {
+          "passed": 162,
+          "failed": 0
+        }
+      }
+    },
+    "latestStages": [
+      {
+        "name": "lint-check",
+        "command": [
+          "pnpm",
+          "run",
+          "lint:check"
+        ],
+        "startedAt": "2026-11-24T20:52:55.393985+00:00",
+        "finishedAt": "2026-11-24T20:52:57.985022+00:00",
+        "durationSeconds": 2.591,
+        "exitCode": 0,
+        "testSummaries": [],
+        "environmentOverrides": {}
+      },
+      {
+        "name": "build",
+        "command": [
+          "pnpm",
+          "run",
+          "build"
+        ],
+        "startedAt": "2026-11-24T20:52:57.985619+00:00",
+        "finishedAt": "2026-11-24T20:53:02.987578+00:00",
+        "durationSeconds": 5.002,
+        "exitCode": 0,
+        "testSummaries": [],
+        "environmentOverrides": {}
+      },
+      {
+        "name": "package-contract",
+        "command": [
+          "pnpm",
+          "run",
+          "test:package"
+        ],
+        "startedAt": "2026-11-24T20:53:02.988356+00:00",
+        "finishedAt": "2026-11-24T20:53:05.762499+00:00",
+        "durationSeconds": 2.774,
+        "exitCode": 0,
+        "testSummaries": [],
+        "environmentOverrides": {}
+      },
+      {
+        "name": "browser-types",
+        "command": [
+          "pnpm",
+          "run",
+          "test:browser:types"
+        ],
+        "startedAt": "2026-11-24T20:53:05.764538+00:00",
+        "finishedAt": "2026-11-24T20:53:07.354354+00:00",
+        "durationSeconds": 1.59,
+        "exitCode": 0,
+        "testSummaries": [],
+        "environmentOverrides": {}
+      },
+      {
+        "name": "default-full",
+        "command": [
+          "pnpm",
+          "test"
+        ],
+        "startedAt": "2026-11-24T20:53:07.355108+00:00",
+        "finishedAt": "2026-11-24T20:53:28.465112+00:00",
+        "durationSeconds": 21.11,
+        "exitCode": 1,
+        "testSummaries": [
+          "\n\n Test Files  1 failed | 129 passed (130)",
+          "      Tests  1 failed | 1233 passed | 4 skipped (1238)",
+          "   Duration  17.74s (worker 84%, tests 15%, import 1%)"
+        ],
+        "environmentOverrides": {}
+      },
+      {
+        "name": "source-full-after-coverage-failure",
+        "command": [
+          "pnpm",
+          "run",
+          "test:browser:source"
+        ],
+        "startedAt": "2026-11-24T20:53:28.466276+00:00",
+        "finishedAt": "2026-11-24T20:53:42.904483+00:00",
+        "durationSeconds": 14.438,
+        "exitCode": 0,
+        "testSummaries": [
+          "\n\n Test Files  117 passed (117)",
+          "      Tests  1115 passed | 4 skipped (1119)",
+          "   Duration  12.76s (worker 84%, tests 15%, import 1%)"
+        ],
+        "environmentOverrides": {}
+      },
+      {
+        "name": "package-browser-full",
+        "command": [
+          "pnpm",
+          "run",
+          "test:browser:package"
+        ],
+        "startedAt": "2026-11-24T20:53:42.905247+00:00",
+        "finishedAt": "2026-11-24T20:55:58.940064+00:00",
+        "durationSeconds": 136.033,
+        "exitCode": 0,
+        "testSummaries": [],
+        "environmentOverrides": {
+          "HTML_TO_IMAGE_SMOKE_PORT": "4197"
+        }
+      }
+    ],
+    "inputCount": 283,
+    "inputsUnchanged": true,
+    "lintBuildPackageContractAndBrowserTypesPassed": true,
+    "latestDefaultFullPassed": false,
+    "firstFullGreenRetainedButNotUsedToReplaceLatestFailure": true
+  },
+  "latestFailure": {
+    "browser": "chromium",
+    "file": "test/browser-unit/resource-resolver-cancellation.test.ts",
+    "test": "a disposed SVG environment releases its document with probed=false",
+    "error": "frame.evaluate: Frame was detached",
+    "call": "commands.collectGarbage() at line104",
+    "ownerCollectedAssertionReached": false,
+    "actualSelectedFrameIdentity": "unknown; original log did not record it",
+    "causalAttribution": "unknown; neither concurrency nor dependencies are established causes",
+    "staticReview": "frame-detached-static-review.json",
+    "originalScreenshotIndex": "original-failure-artifact-index.json",
+    "oldLockBaselineControlStarted": false
+  },
+  "browserConcurrency": {
+    "exclusiveRunClaim": false,
+    "overlapReportedByRoot": true,
+    "exactOtherRunIntervalsKnown": false,
+    "windowsAndCleanup": "browser-window-and-cleanup.json",
+    "allOwnedCommandsExited": true,
+    "agentConfirmed4197FreeAt": "2026-11-24T20:56:30.304852+00:00",
+    "rootConfirmed4197And4198ClosedAt": "2026-11-24T20:56:27Z",
+    "furtherBrowserRunsStoppedPendingSpecificRootAuthorization": true
+  },
+  "remoteCI": "not run for this uncommitted candidate; no650/652 result borrowed",
+  "physicalDevice": "not used; no earlier device acceptance borrowed",
+  "actions": {
+    "commit": false,
+    "push": false,
+    "PRCreation": false,
+    "alertStateChange": false,
+    "PRComment": false,
+    "npmPublish": false,
+    "networkSettingChange": false,
+    "originalWorktreeModificationByThisDependencyTask": false
+  },
+  "remaining": [
+    "Accurate new-head remote checks and separate controlled diagnosis of the latest local default Frame-detached failure.",
+    "Upstream-compatible npm bundled minimatch repair is outside alert192 explicit lock-graph scope and remains unresolved."
+  ],
+  "archivedAt": "2026-11-24T21:07:50.020121+00:00",
+  "rawEvidence": {
+    "path": "minimatch-dev-security-20261125-raw.tar.gz",
+    "bytes": 443664,
+    "sha256": "8be37d6dc49684dbff0e0b5921ad9a1e844881f806917f367e40920fa0b506b7",
+    "index": "minimatch-dev-security-20261125-index.json",
+    "fileCount": 72,
+    "allMemberHashesVerified": true
+  },
+  "verification": {
+    "script": "minimatch-dev-security-20261125-verify.py",
+    "receipt": "minimatch-dev-security-20261125-verification.json",
+    "integrityVerificationIsNotTestGateAcceptance": true
+  },
+  "publicReview": {
+    "credentialOrSignedDownloadURLFindings": [],
+    "privateServiceAddressesIncluded": false,
+    "ordinaryLocalWorktreePathsRetained": 22,
+    "publicPackageAuthorMetadataRetained": true,
+    "rawFailureBytesNotRedacted": true
+  }
+}
