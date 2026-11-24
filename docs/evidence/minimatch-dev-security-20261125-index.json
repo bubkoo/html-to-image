@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "scope": "Alert192 explicit pnpm/lint graph repair; latest default failure, overlap and bundled npm boundary retained",
+  "fileCount": 72,
+  "sourceIndexPayloadCount": 71,
+  "sourceIndexSelfExcluded": 1,
+  "archive": {
+    "path": "minimatch-dev-security-20261125-raw.tar.gz",
+    "bytes": 443664,
+    "sha256": "8be37d6dc49684dbff0e0b5921ad9a1e844881f806917f367e40920fa0b506b7"
+  },
+  "files": [
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/assessment.json",
+      "size": 9782,
+      "sha256": "fac1d466dc6fead48ecc3eb5eb87eb4928b7e5d3584a956c92ab9e09fc3ea697"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/assessment.md",
+      "size": 5769,
+      "sha256": "2d66e5de91b490eb04fe10c9552ef28ae3ce7cb15d275e1bbb065fe702d2eaaa"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/baseline-alert.json",
+      "size": 3328,
+      "sha256": "598c66e6c2116555479813379e319d4a5b11ce95c7d09b14947c047a421f1764"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/baseline-install.log",
+      "size": 1149,
+      "sha256": "74379f3b564b7193eabf877c21cf028d4b994b54dd3dfb985263c61ded26811f"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/baseline-installed.json",
+      "size": 468,
+      "sha256": "972249e639f090ef9eb7ada456a5d6ae2d138565015cc9d4b268778f9b7726ce"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/baseline-list-minimatch.json",
+      "size": 13869,
+      "sha256": "7901c32134c261798550e42760ab175ac85251ed99b27fc4d367a910692a3d73"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/baseline-package.json",
+      "size": 3998,
+      "sha256": "3e760a8757dc678b95b6f09ae5e0c6b8eb3961364427811d2078681c38f4b419"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/baseline-pnpm-lock.yaml",
+      "size": 187755,
+      "sha256": "9a95661390a587e399f3472d848ebd092f9722927d8da3ca8c870b9095ef6026"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/baseline-why-minimatch.json",
+      "size": 6737,
+      "sha256": "556ea4a32acf82b4a3965df2ace1b0f08ee05333785293c61538fdc3a9d2c801"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/browser-types.log",
+      "size": 160,
+      "sha256": "475caa7fbe89e2da6477a4f3d75d4bd3202cf479628bc97d86747c6fac2a2c1e"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/browser-window-and-cleanup.json",
+      "size": 1925,
+      "sha256": "5b2a653a54985dba38e92b2a61d66ea604bc87eb1783a60e337795b2c39fd4b0"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/build.log",
+      "size": 1163,
+      "sha256": "236052236560abb8aa94c4fe1f2ae0c18e2adf087fac04c2a9402ba443a5fc8b"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/call-site-review.json",
+      "size": 2398,
+      "sha256": "22ad1e63c829114e9e8fe4ed409cb5a0bb8f4b63ca44572a97ffb9e424b74464"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-dependency-graph.json",
+      "size": 14024,
+      "sha256": "59280afe173d888d61a72aef719473996f605cb3403b2910f065f57b5d519b15"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-dependency-graph.log",
+      "size": 430,
+      "sha256": "28042f8122b51553c27d42dccaa8c7a3c51826c3f338ec1c32ba7b1fd9dc2914"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-frozen-install-initial-failure.log",
+      "size": 311,
+      "sha256": "bcaf3cd662b4f975cf87fd6bcdda7931a0c39a2504fea33fb5baef2fb3186352"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-frozen-install.log",
+      "size": 608,
+      "sha256": "1f4f9e28668750297c67a4a7d0732a02dd0d7e04f457f6d7937b882ab14c339a"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-inputs-after.json",
+      "size": 41900,
+      "sha256": "eca73f2f0c4b91cc7d54cf6ddeae913757f3c7d171d213e835535126acfe9b0e"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-inputs-before.json",
+      "size": 41900,
+      "sha256": "eca73f2f0c4b91cc7d54cf6ddeae913757f3c7d171d213e835535126acfe9b0e"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-list-minimatch.json",
+      "size": 13869,
+      "sha256": "7c59eafd4741dcc9e5a7283b9b99d44f4fa71421f128da74fe3c865a294fd404"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-package.json",
+      "size": 3998,
+      "sha256": "c34fdd629f4da9a738bd957db20946913204fb6f8444122376260c1eea9b6b01"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-pnpm-lock.yaml",
+      "size": 188327,
+      "sha256": "a2a2cf47aa6c2e7c8a0c7ebca24bd4c87b24fb1c0ede4bc960b0ffcd9d6ea242"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-two-file.patch",
+      "size": 20842,
+      "sha256": "69fa444d880a9475bbaf73066ba74deb326ecf6d844813a8962463a1af66e358"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-why-minimatch.json",
+      "size": 6737,
+      "sha256": "434b7d8c25ada50ff95b71df59c5402c2127187fa28d2a1ed4a6ea6656792292"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/candidate-why-npm.json",
+      "size": 3150,
+      "sha256": "a99205b62b203d79771f06fc2c53c5f9fdb461b0611d35a5790f19184664d384"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/check-dependency-graph.cjs",
+      "size": 4165,
+      "sha256": "3446b14e8ab550cdeb5ccb986f8d524ce686e919befe0b2169620dfab336e051"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/clean-frozen-install.log",
+      "size": 1408,
+      "sha256": "f4b7a20eef8997395682c3cf0db6917c507c9d30a51190c9cbb3affc03d09cf7"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/default-full.log",
+      "size": 1938,
+      "sha256": "cb2a76a136c0a13b18980f85f31314b178cfe0aba41085923d8bc73a8764a5e5"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/dependency-graph-verifier-initial-failure.json",
+      "size": 505,
+      "sha256": "0204af67606f2144aa0c4f2fdc4743234ecd9347f1eb7fbe817a523b78e60718"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/final-diff-check.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/frame-detached-static-review.json",
+      "size": 1772,
+      "sha256": "86203ebd06959bf753e6e2c91b43fc8d5236d2388603b9cd1d56e8b9448f6045"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/index.json",
+      "size": 11940,
+      "sha256": "7c0b0600a5277b2a1006b0686c03ae506f484933af5f6b68877cf6c41b47bee7"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/install-policy-and-attempts.json",
+      "size": 1325,
+      "sha256": "5df99b4bb4cec574a27531ca87e09255a68722004944e9f92f31fbf3f99672cc"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/lint-check.log",
+      "size": 364,
+      "sha256": "316980f7a7564a25764b19b5410b5f998dcce5f8dd31fe4ca248cd6398bb4e2b"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/lock-eof-normalization.json",
+      "size": 426,
+      "sha256": "011ea11174e533c50cbea74ae830034e1cfad4db7d88c027864a7e136ca1a3f0"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/manifest-allowlist.json",
+      "size": 391,
+      "sha256": "e993c8022f42aaf7e5af180cb4958307b6a0f2619d63d635d1ef146c9dca0510"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/minimal-lock-reduction.json",
+      "size": 2653,
+      "sha256": "a50bbf6ab115e7bdbe5423a8efc8d8858ffa2296acfee71f4eb685da9cb05852"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/minimize-lock.cjs",
+      "size": 5546,
+      "sha256": "ac457d20645a7355f7c96a13bb4503fab6f700501f387ac089768149116b8d4a"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/npm-bundle-boundary.json",
+      "size": 1204,
+      "sha256": "181a4a14be42f963da1169fb9ed940a8bc125d4e606182af4ec7a03d313bbfc8"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/official-advisory-fix.json",
+      "size": 3071,
+      "sha256": "5a46e410a8937a281bbb69f489369bf56b820e6262fcb7ef22517cbdced80c3f"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/official-manifests.json",
+      "size": 8293,
+      "sha256": "2eb4d3b34ed78ae585e405f7fb43e14273152c0f737cd4daca81ec38faade6c8"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/official-npm-bundle-metadata.json",
+      "size": 7937,
+      "sha256": "91006e87fbd9d4ad40a503ea44e650b19c88a88a4413cd698e2f2d94a44131f9"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/original-failure-artifact-index.json",
+      "size": 443,
+      "sha256": "7d0592c4f6bf061dba16c1fea8ad24f6ec7d48a32fe46cf452ddf43af6116641"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/original-failure-artifacts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "size": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/package-browser-full.log",
+      "size": 20578,
+      "sha256": "20eccd5a5962e5462d53c59ef0741ae5925ba936b66f1abf5e35494e6681376f"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/package-contract.log",
+      "size": 225,
+      "sha256": "d957dce4fc397f84abb0de981bd4043487a232157f7e7511dec4c2e40812c7c2"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/physical-minimatch-after-clean.json",
+      "size": 651,
+      "sha256": "129384dabf88804a95cf5db36e466e3486271b537e1bf46a4ef1230663334988"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/physical-minimatch-before-clean.json",
+      "size": 464,
+      "sha256": "ecd7d84efa2cef575503e252a933b701697cf128f3c0ceebc30351f06a03c538"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/reduced-lock-empty-snapshot-failure.yaml",
+      "size": 188281,
+      "sha256": "27fca3f5f9c8df0c260a389e94fd8f1770a1cc8dcad549475b32e817bce74677"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/source-full-after-coverage-failure.log",
+      "size": 404,
+      "sha256": "8f74bf5d123d0257fd0a49f10ca736d457a92d70f33eba457cda81d1dfc780e1"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/static-final-checks.json",
+      "size": 336,
+      "sha256": "9bf60887ca727e4f942617cd63fc979df7d8a6a789226af49af7089138c59280"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/unminimized-pnpm-lock.yaml",
+      "size": 189089,
+      "sha256": "47efad6ea520a45f7ac4bcd3773c9a3e3c65037e8b89abf2d4a0b298f762757c"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/update-lock.log",
+      "size": 1917,
+      "sha256": "231bd6f301dac8fc99f903508a88d4da213fe50a179304785e953dc25cf135c6"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validate.py",
+      "size": 3872,
+      "sha256": "f5c09276ce898047114dedadd95588db9f619b142d46c6d2696c7bd76c9ce8d2"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/browser-types.log",
+      "size": 160,
+      "sha256": "475caa7fbe89e2da6477a4f3d75d4bd3202cf479628bc97d86747c6fac2a2c1e"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/build.log",
+      "size": 1161,
+      "sha256": "78b05418416411aaaf454b91ddfa4f67285e2473eca560434896f9e17e6b89c1"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/candidate-dependency-graph.json",
+      "size": 13923,
+      "sha256": "7bc03130326ac731f4c7439cbff54abaab224dcb3a58f9509c1d192b532f4477"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/candidate-dependency-graph.log",
+      "size": 329,
+      "sha256": "27bccd3d5e2d11cb56a9566ac38be49d4492bce95d2066d281eb6804329518d0"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/candidate-inputs-after.json",
+      "size": 41900,
+      "sha256": "5cf35fe59fe6cfa7a0646fc8d86da3a4555afb3890b6980b3103263e14da309d"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/candidate-inputs-before.json",
+      "size": 41900,
+      "sha256": "5cf35fe59fe6cfa7a0646fc8d86da3a4555afb3890b6980b3103263e14da309d"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/candidate-list-minimatch.json",
+      "size": 13869,
+      "sha256": "7c59eafd4741dcc9e5a7283b9b99d44f4fa71421f128da74fe3c865a294fd404"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/candidate-why-minimatch.json",
+      "size": 6737,
+      "sha256": "434b7d8c25ada50ff95b71df59c5402c2127187fa28d2a1ed4a6ea6656792292"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/default-full.log",
+      "size": 1366,
+      "sha256": "4eb053334190b27c05ef8cd8f99f37705135ac91fa320ee527be2c4f3cc395cd"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/lint-check.log",
+      "size": 364,
+      "sha256": "316980f7a7564a25764b19b5410b5f998dcce5f8dd31fe4ca248cd6398bb4e2b"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/package-browser-full.log",
+      "size": 20574,
+      "sha256": "dd3c3daf447214c04a7c62aaa380ad3b1e1bcb20094a7251d53d5e6eae38c830"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/package-contract.log",
+      "size": 225,
+      "sha256": "d957dce4fc397f84abb0de981bd4043487a232157f7e7511dec4c2e40812c7c2"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/tested-package.json",
+      "size": 3998,
+      "sha256": "c34fdd629f4da9a738bd957db20946913204fb6f8444122376260c1eea9b6b01"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/tested-pnpm-lock.yaml",
+      "size": 188328,
+      "sha256": "35451a647a29433283590b457aee236f4c9cfa9be20a388a496970410d510888"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/validation-progress.log",
+      "size": 1408,
+      "sha256": "50df39f33fad1097942c08c55c85fc3df05334f2cddef1c79653539343e34be7"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-first-install/validation.json",
+      "size": 2904,
+      "sha256": "4b4192f42d783cfcb9e72aed21fee25fe057d15a6942b08fc5bbcdfdd461df42"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation-progress.log",
+      "size": 1766,
+      "sha256": "91fc7b36e0add4ad9f10e7faa4d5e8fe6ed97336b4f4edf27cb541b44a17e4eb"
+    },
+    {
+      "path": "output/playwright/minimatch-dev-security-20261125/validation.json",
+      "size": 3312,
+      "sha256": "0cc433e8920bd1b4d3c04389c7ec95537f2ac351b185ce7e93a6389ae8357787"
+    }
+  ]
+}
