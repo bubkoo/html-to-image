@@ -58,7 +58,7 @@
         "date": "2026-11-25",
         "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
         "branch": "codex/native-scroll-fidelity",
-        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
         "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
         "sameFixtureComparison": {
           "beforeFailed": 62,
@@ -89,7 +89,41 @@
           "first Firefox native preparation failures retained; root cause not proven",
           "exact-source remote CI and deferred physical-device acceptance"
         ],
-        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
       }
     },
     {
@@ -430,7 +464,7 @@
         "date": "2026-11-25",
         "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
         "branch": "codex/native-scroll-fidelity",
-        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
         "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
         "sameFixtureComparison": {
           "beforeFailed": 62,
@@ -461,7 +495,10 @@
           "first Firefox native preparation failures retained; root cause not proven",
           "exact-source remote CI and deferred physical-device acceptance"
         ],
-        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
       },
       "previousNativeScrollFidelityFollowup": {
         "date": "2026-11-25",
@@ -481,6 +518,37 @@
           "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
         ],
         "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
       }
     },
     {
@@ -501,7 +569,7 @@
         "date": "2026-11-25",
         "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
         "branch": "codex/native-scroll-fidelity",
-        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
         "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
         "sameFixtureComparison": {
           "beforeFailed": 62,
@@ -532,7 +600,10 @@
           "first Firefox native preparation failures retained; root cause not proven",
           "exact-source remote CI and deferred physical-device acceptance"
         ],
-        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
       },
       "previousNativeScrollFidelityFollowup": {
         "date": "2026-11-25",
@@ -552,6 +623,37 @@
           "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
         ],
         "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
       }
     },
     {
@@ -637,7 +739,7 @@
         "date": "2026-11-25",
         "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
         "branch": "codex/native-scroll-fidelity",
-        "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+        "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
         "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
         "sameFixtureComparison": {
           "beforeFailed": 62,
@@ -668,7 +770,10 @@
           "first Firefox native preparation failures retained; root cause not proven",
           "exact-source remote CI and deferred physical-device acceptance"
         ],
-        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+        "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+        "pr": 651,
+        "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+        "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
       },
       "previousNativeScrollFidelityFollowup": {
         "date": "2026-11-25",
@@ -688,6 +793,37 @@
           "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
         ],
         "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      },
+      "nativeFidelityDraft": {
+        "pr": 651,
+        "url": "https://github.com/bubkoo/html-to-image/pull/651",
+        "draft": true,
+        "head": "08d35a13aee74a6188b3250585256a222c05717b",
+        "basePR": 650,
+        "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+        "CI": {
+          "id": 45460574610,
+          "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+          "status": "completed",
+          "conclusion": "failure",
+          "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+          "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+          "exactHeadInSecondParent": true,
+          "testedMergeAndHeadTreesEqual": true,
+          "coverage": {
+            "passed": 1462,
+            "failed": 1,
+            "skipped": 45
+          },
+          "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+          "sourcePhase": "not run because coverage failed",
+          "builtPackagePhase": "not run",
+          "Codecov": "skipped after failure",
+          "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+        },
+        "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+        "physicalDevice": "deferred, not performed"
       }
     }
   ],
@@ -882,7 +1018,7 @@
     "date": "2026-11-25",
     "source": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
     "branch": "codex/native-scroll-fidelity",
-    "status": "stylesheet resource subset verified; entire native fidelity candidate incomplete, strict default/package gates fail; no new PR or merge",
+    "status": "scoped resource repair verified; draft PR651 open; Mac WebKit and Linux Chromium native pixel gates fail; no merge",
     "evidence": "docs/evidence/scrollbar-stylesheet-resources.json",
     "sameFixtureComparison": {
       "beforeFailed": 62,
@@ -913,7 +1049,10 @@
       "first Firefox native preparation failures retained; root cause not proven",
       "exact-source remote CI and deferred physical-device acceptance"
     ],
-    "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused"
+    "physicalDevice": "not performed; user defers at least four hours from 2026-11-24T18:02:04Z; Mirroring quit; parent result is not reused",
+    "pr": 651,
+    "remoteHead": "08d35a13aee74a6188b3250585256a222c05717b",
+    "latestRemoteEvidence": "docs/evidence/native-fidelity-platform-followup.json"
   },
   "previousDomAccessValidation": {
     "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
@@ -963,5 +1102,36 @@
     "targetedCoveragePassed": 354,
     "fullGatesStillFail": true,
     "inputsUnchanged": 445
+  },
+  "latestNativeFidelityRemote": {
+    "pr": 651,
+    "url": "https://github.com/bubkoo/html-to-image/pull/651",
+    "draft": true,
+    "head": "08d35a13aee74a6188b3250585256a222c05717b",
+    "basePR": 650,
+    "baseSHA": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "evidence": "docs/evidence/native-fidelity-platform-followup.json",
+    "CI": {
+      "id": 45460574610,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45460574610",
+      "status": "completed",
+      "conclusion": "failure",
+      "testedMerge": "a9317f58a7af72729808a3f9585abc34b86ed7d0",
+      "sourceTree": "f1ecc768d52179e71e12566d42b439a135daf3b8",
+      "exactHeadInSecondParent": true,
+      "testedMergeAndHeadTreesEqual": true,
+      "coverage": {
+        "passed": 1462,
+        "failed": 1,
+        "skipped": 45
+      },
+      "failure": "Linux Chromium native scroll visible-text;214 differing RGBA channels",
+      "sourcePhase": "not run because coverage failed",
+      "builtPackagePhase": "not run",
+      "Codecov": "skipped after failure",
+      "CodeQL": "not scheduled for stacked base; existing pull_request filter is master; no current-head CodeQL claim"
+    },
+    "status": "incomplete; Linux Chromium glyph and Mac WebKit pixel gates remain; no merge",
+    "physicalDevice": "deferred, not performed"
   }
 }

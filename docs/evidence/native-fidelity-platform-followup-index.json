@@ -1,0 +1,2511 @@
+{
+  "fileCount": 500,
+  "allArchivedMemberHashesVerified": true,
+  "archive": {
+    "path": "native-fidelity-platform-followup-raw.tar.gz",
+    "bytes": 350926,
+    "sha256": "76a4a4920fb8f704f99b5b2833453b2483568c053f4f9a5dd2c089c586c45aa8"
+  },
+  "files": [
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/assessment.json",
+      "bytes": 9388,
+      "sha256": "f2c578524087ccb8a170599ea9f528e8f49d52eee0f1b6c7036c85872acc4f3e"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/input/chromium-native-visible-text-native.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/input/chromium-native-visible-text.json",
+      "bytes": 82682,
+      "sha256": "ffd9b95f154f16b17a26f76da2755f831deb7ac26acdfbf3973f92bdf13e70df"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/input/font-metrics.ttf",
+      "bytes": 1120,
+      "sha256": "609ed7142290b5032cdd169a0f9f11c61eac8584215b381e4d21089196b7e7fe"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/input/native-scroll.mjs",
+      "bytes": 17977,
+      "sha256": "059b1ca01efb4f04c56f079ee0c48de4a0ff3518c29072d797a58a71e4962c6b"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/probe.mjs",
+      "bytes": 11314,
+      "sha256": "70920b2b7f0dc2a72a0f3310cea33d4151ea837ad7c72159e7f372daac12c90a"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/ci-frozen-baseline-candidate.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/ci-frozen-baseline-copied.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/ci-frozen-baseline-direct.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/ci-frozen-baseline-native.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/ci-frozen-baseline-opaque.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/ci-frozen-baseline.svg",
+      "bytes": 38850,
+      "sha256": "f7ca9b431917c530d3fb19868b56352182c1d745fcaf8c1e4e89cd01a3940802"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/ci-frozen.svg",
+      "bytes": 38850,
+      "sha256": "f7ca9b431917c530d3fb19868b56352182c1d745fcaf8c1e4e89cd01a3940802"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/fractional-transform-candidate.png",
+      "bytes": 787,
+      "sha256": "d1060aa10c42753ca8cdb3bd99b65a5ee5af2029f7278bd4cf919dc262ab7ef1"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/fractional-transform-copied.png",
+      "bytes": 787,
+      "sha256": "d1060aa10c42753ca8cdb3bd99b65a5ee5af2029f7278bd4cf919dc262ab7ef1"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/fractional-transform-direct.png",
+      "bytes": 757,
+      "sha256": "ea352723cb8d6519bc6c36fc43816ef151f244f8563f25841cdd09e103440a9f"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/fractional-transform-native.png",
+      "bytes": 359,
+      "sha256": "efc5623f35c176c92d0b1c6419167a6d413d385be3d3b4c92dfa00cc7438c61f"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/fractional-transform-opaque.png",
+      "bytes": 787,
+      "sha256": "d1060aa10c42753ca8cdb3bd99b65a5ee5af2029f7278bd4cf919dc262ab7ef1"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/fractional-transform.svg",
+      "bytes": 2452,
+      "sha256": "76608cf104dfcaa5b269f91f91d1d4cff8e0e75140c153f1c91b53ed4121b1d5"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-mask-candidate.png",
+      "bytes": 1458,
+      "sha256": "e3059a0d2b3cbad243adc845d0719959f690dfd7382e2f1ea668d6d2dd94ada5"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-mask-copied.png",
+      "bytes": 1458,
+      "sha256": "e3059a0d2b3cbad243adc845d0719959f690dfd7382e2f1ea668d6d2dd94ada5"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-mask-direct.png",
+      "bytes": 1458,
+      "sha256": "e3059a0d2b3cbad243adc845d0719959f690dfd7382e2f1ea668d6d2dd94ada5"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-mask-native.png",
+      "bytes": 475,
+      "sha256": "ab30ab813e5e49648dbd64a1415628f5f0bf5408c993cc295fba3a91e624306c"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-mask-opaque.png",
+      "bytes": 1458,
+      "sha256": "e3059a0d2b3cbad243adc845d0719959f690dfd7382e2f1ea668d6d2dd94ada5"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-mask.svg",
+      "bytes": 2471,
+      "sha256": "289333c31d972a2afe035aab41c9580ad719d7e530d9a205d6906a82dfd00617"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-rounded-candidate.png",
+      "bytes": 918,
+      "sha256": "6f8fbc5769cc6981e260addff04ed41aedf8a7664027606aad3f1a50718e1f48"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-rounded-copied.png",
+      "bytes": 918,
+      "sha256": "6f8fbc5769cc6981e260addff04ed41aedf8a7664027606aad3f1a50718e1f48"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-rounded-direct.png",
+      "bytes": 920,
+      "sha256": "30849b3276a4889d5adbbf7c317a5a9187a573e61fd81abfd675750feb724f2e"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-rounded-native.png",
+      "bytes": 465,
+      "sha256": "b15a24d1c0d0debb0fbb55b8d674ee799fc82d0bd160e89266b5399a000de94c"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-rounded-opaque.png",
+      "bytes": 918,
+      "sha256": "6f8fbc5769cc6981e260addff04ed41aedf8a7664027606aad3f1a50718e1f48"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/inner-rounded.svg",
+      "bytes": 2473,
+      "sha256": "d9a432874782b52bddd8ba1003243725b60a88d71f46c8872d20ff427f442a9f"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/original-fixture-native-candidate.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/original-fixture-native-copied.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/original-fixture-native-direct.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/original-fixture-native-native.png",
+      "bytes": 194,
+      "sha256": "8fcbaa47c88a0cd46eabfbc0421ddd512306faeec09549909ca072735064e927"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/original-fixture-native-opaque.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/original-fixture-native.svg",
+      "bytes": 38850,
+      "sha256": "f7ca9b431917c530d3fb19868b56352182c1d745fcaf8c1e4e89cd01a3940802"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/pixel-observations.json",
+      "bytes": 15542,
+      "sha256": "6d9277ff28f549b7fd1790e43509015f926addb1f9a9d19ef9f10142b1646954"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/plain-text-candidate.png",
+      "bytes": 779,
+      "sha256": "5f33944a6bf70b53adc413d4e3ba352c851c3913bd22cef25e8b6e806fbaccfb"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/plain-text-copied.png",
+      "bytes": 779,
+      "sha256": "5f33944a6bf70b53adc413d4e3ba352c851c3913bd22cef25e8b6e806fbaccfb"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/plain-text-direct.png",
+      "bytes": 770,
+      "sha256": "1509f47f44f61b3ad433b6f2c03da14ea3bc739701ca38a2444d26442873fe02"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/plain-text-native.png",
+      "bytes": 359,
+      "sha256": "15ba659e9302b17ab48a14bf879bc57a6387389dcae8e7142533a95340fa3075"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/plain-text-opaque.png",
+      "bytes": 779,
+      "sha256": "5f33944a6bf70b53adc413d4e3ba352c851c3913bd22cef25e8b6e806fbaccfb"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/plain-text.svg",
+      "bytes": 2415,
+      "sha256": "9b547d625f9a335627923a1a280fcc52c6c7c54e119024776f06b64404f3fd0b"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/results.json",
+      "bytes": 22757,
+      "sha256": "84122b7e41c4b2ee69f89bb6b5def6ee064c13e21a726fb533bc21d028ab1a4d"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-mask-candidate.png",
+      "bytes": 1335,
+      "sha256": "0b0e2f0f22aef286ae609f797be9c3cc16fc68d1e60e556c8d75ebdbf01f6416"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-mask-copied.png",
+      "bytes": 2110,
+      "sha256": "edd8a890478160cc648c6cd4e0c3819a8470b17270117cc21c5d9555460bdf99"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-mask-direct.png",
+      "bytes": 1335,
+      "sha256": "0b0e2f0f22aef286ae609f797be9c3cc16fc68d1e60e556c8d75ebdbf01f6416"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-mask-native.png",
+      "bytes": 483,
+      "sha256": "4bf0f3f197407241e864fb916fd80d973a8220deb5c559a29b70525dad0b7805"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-mask-opaque.png",
+      "bytes": 2110,
+      "sha256": "edd8a890478160cc648c6cd4e0c3819a8470b17270117cc21c5d9555460bdf99"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-mask.svg",
+      "bytes": 2471,
+      "sha256": "a7a7dbcd3f40e2d93311cfd5734350ffeb4ce07a8ba44d741a0e3b1976b30090"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-opacity-09-candidate.png",
+      "bytes": 775,
+      "sha256": "53fabb5ef3a639d12854c86657bf998f18998cbe44a38317ef42330703fe774c"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-opacity-09-copied.png",
+      "bytes": 763,
+      "sha256": "2854df8101feffee73a2d8d2a3929283262adffb3eae0d7ebc731ecbca9c19c4"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-opacity-09-direct.png",
+      "bytes": 775,
+      "sha256": "53fabb5ef3a639d12854c86657bf998f18998cbe44a38317ef42330703fe774c"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-opacity-09-native.png",
+      "bytes": 360,
+      "sha256": "1e3aa5a47cc89204b7c5dddd17459de7dfa81398d21ae4c73eb806df6c5be854"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-opacity-09-opaque.png",
+      "bytes": 763,
+      "sha256": "2854df8101feffee73a2d8d2a3929283262adffb3eae0d7ebc731ecbca9c19c4"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-opacity-09.svg",
+      "bytes": 2429,
+      "sha256": "11fec574b8026034d107a06a3a677fd0cc60a62b51b9c12934e0cac6120ed600"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-rounded-candidate.png",
+      "bytes": 1309,
+      "sha256": "1f99ad45fd99c125daeb8d9655c3047f96012fef1254920b9029b3b7e8d46686"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-rounded-copied.png",
+      "bytes": 1486,
+      "sha256": "f3325dda7b2ce5a37bfbacb8296c058cd3a0b2f434da8edc7ff58e96e2b6e76f"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-rounded-direct.png",
+      "bytes": 1309,
+      "sha256": "1f99ad45fd99c125daeb8d9655c3047f96012fef1254920b9029b3b7e8d46686"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-rounded-native.png",
+      "bytes": 359,
+      "sha256": "15ba659e9302b17ab48a14bf879bc57a6387389dcae8e7142533a95340fa3075"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-rounded-opaque.png",
+      "bytes": 1486,
+      "sha256": "f3325dda7b2ce5a37bfbacb8296c058cd3a0b2f434da8edc7ff58e96e2b6e76f"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/root-rounded.svg",
+      "bytes": 2436,
+      "sha256": "fec19f5b20adac4f225b20768e43352aa57dabb58d5abe935acbe24c6f3ba8a6"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/text-opacity-09-candidate.png",
+      "bytes": 766,
+      "sha256": "dc9660c78a5fbf20cb990043f58814de633326ad1a7c3d6f3f4e90eb36842512"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/text-opacity-09-copied.png",
+      "bytes": 766,
+      "sha256": "dc9660c78a5fbf20cb990043f58814de633326ad1a7c3d6f3f4e90eb36842512"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/text-opacity-09-direct.png",
+      "bytes": 774,
+      "sha256": "e5f74b1aedf0d64de540d22ece01b738e2cda96192de2ef0c5fc0c4245ba1d75"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/text-opacity-09-native.png",
+      "bytes": 368,
+      "sha256": "ddb6e4e1327db7173f22046263592247feff5d3a556809e7fba3aec193c8018e"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/text-opacity-09-opaque.png",
+      "bytes": 766,
+      "sha256": "dc9660c78a5fbf20cb990043f58814de633326ad1a7c3d6f3f4e90eb36842512"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/text-opacity-09.svg",
+      "bytes": 2429,
+      "sha256": "aa20dad8d5846d85bd709e2b1e23e0529d76fbfee0ecfaf63b5e00cf099bbaeb"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/translate-z-candidate.png",
+      "bytes": 779,
+      "sha256": "5f33944a6bf70b53adc413d4e3ba352c851c3913bd22cef25e8b6e806fbaccfb"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/translate-z-copied.png",
+      "bytes": 779,
+      "sha256": "5f33944a6bf70b53adc413d4e3ba352c851c3913bd22cef25e8b6e806fbaccfb"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/translate-z-direct.png",
+      "bytes": 770,
+      "sha256": "1509f47f44f61b3ad433b6f2c03da14ea3bc739701ca38a2444d26442873fe02"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/translate-z-native.png",
+      "bytes": 336,
+      "sha256": "069698ac006fd1a2d55c21e4eb64dfa32716220849d430abf48da14f00c4477f"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/translate-z-opaque.png",
+      "bytes": 779,
+      "sha256": "5f33944a6bf70b53adc413d4e3ba352c851c3913bd22cef25e8b6e806fbaccfb"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/result/translate-z.svg",
+      "bytes": 2443,
+      "sha256": "f731d45ead9a136fc8466fb1429349ee19e3e331d00f1cf956f9cee5c5125834"
+    },
+    {
+      "path": "output/playwright/linux-font-alpha-20261125/sha256-index.json",
+      "bytes": 11644,
+      "sha256": "0079620f0b7a494f322b2216e2593e46e34e1d14a3fd7bff11456973949e4019"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/24320f63beea0972aaa5a8572452c0caed30f7d7.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/failure-screenshots/native-scroll.test.ts/native-scroll-visible-text-preserves-native-glyph-placement.png",
+      "bytes": 2901,
+      "sha256": "ddfce9fff04de132c18f68b1e685f94e9d62d9ca3fbb42165fd6bd4942d80e0f"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30446,
+      "sha256": "944112f47ecde7f656fa598e96fabb670aaac4d4cbb9a36afa93c9e3d317c7ff"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-authored.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-capture.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-html.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-inline.png",
+      "bytes": 456,
+      "sha256": "85c879a429a7d5138b7cd65714aff0e6f71431b6f265045a52b45782873d196e"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-native.png",
+      "bytes": 304,
+      "sha256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text-replay.png",
+      "bytes": 246,
+      "sha256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact/.vitest/attachments/scrollbar-box/chromium-native-visible-text.json",
+      "bytes": 82682,
+      "sha256": "ffd9b95f154f16b17a26f76da2755f831deb7ac26acdfbf3973f92bdf13e70df"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifact-files.json",
+      "bytes": 2553,
+      "sha256": "942a3b020693d7692d52bb8f2d7214496041498f763e20b3f062fb21fa599195"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/artifacts.json",
+      "bytes": 841,
+      "sha256": "bf9bcfcccc4baf61779c8e49e30ee4964c85ce857c08031a4f2ddc60b5504297"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/checks-08d35a1.json",
+      "bytes": 50503,
+      "sha256": "efa0dac261812f05b3f83b4acc167a63efd786d560f9e1fbdbcbfd488b4437b4"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/ci-45460574610-job.log",
+      "bytes": 199712,
+      "sha256": "676e5450c842dfbea64e6ee9de4f03b37960987c50c599f2200a13051f2e6cbb"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/ci-45460574610-run.json",
+      "bytes": 14228,
+      "sha256": "9016f1fef8ce4e4969b0fae09794a762964267cd76e301616624d9e64efa4b2d"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/ci-jobs-terminal.json",
+      "bytes": 3524,
+      "sha256": "875f67ebc4d5fc4ec77640429fe0729345845848b5cd45279edc753d3e55b35e"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/native-scroll-ci-45460574610.zip",
+      "bytes": 18043,
+      "sha256": "4736d81e5b687375f769b80f982304479c95fc1f896cdf54106d92b70324cec2"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/pr-651-observed.json",
+      "bytes": 22290,
+      "sha256": "8d3efeb06c069a27d3bb869f3218589a9dd7ed13f27c230425df95c4ddc05ea3"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/source-head-commit.json",
+      "bytes": 1296,
+      "sha256": "207df6fa27fa720604669cee3769e6b65b9fc432c01466440b9ee041b89d688b"
+    },
+    {
+      "path": "output/playwright/native-scroll-remote-20261125/tested-merge-commit.json",
+      "bytes": 2810,
+      "sha256": "2fc055520520daef1a089554a800d609886d520f920b4fb893e1bff8517b8084"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/assessment.json",
+      "bytes": 2289,
+      "sha256": "e901fe13dce95076ec2ac66e9ed9fe292bc386a856d1d8da8bed5fedf382658e"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/assessment.md",
+      "bytes": 4326,
+      "sha256": "e080776694901aa34b67a269885e0cb361d60da59464e66084c409f5f60105f4"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/context-dto-plan.ts",
+      "bytes": 4742,
+      "sha256": "404662ec3ee89407b58f5cf7bec9ffb3053c7303becb35a5635ca9d39f601bd4"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-is-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-is-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-is-plain-only-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-is-plain-only-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-missing-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-missing-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-plain-ancestor-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-plain-ancestor-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-plain-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-plain-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-where-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/chromium-main-where-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/cleanup.json",
+      "bytes": 361,
+      "sha256": "2edb68c932618ed19e20a69607a5f32ef21f69e612a904070713927142fdc3f2"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/fixed-environment-helper.js",
+      "bytes": 8569,
+      "sha256": "75a015756b593c049b902a206162afd19574156039ceeaf24b11d60881354e66"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/receipt.json",
+      "bytes": 219115,
+      "sha256": "f59e35c1d15fe46811d58dece51b89001010d2e48f41baca01ac6cac50d09a04"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-is-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-is-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-is-plain-only-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-is-plain-only-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-missing-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-missing-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-plain-ancestor-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-plain-ancestor-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-plain-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-plain-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-where-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal/webkit-main-where-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-is-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-is-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-is-plain-only-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-is-plain-only-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-missing-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-missing-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-plain-ancestor-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-plain-ancestor-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-plain-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-plain-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-where-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/chromium-main-where-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/cleanup.json",
+      "bytes": 361,
+      "sha256": "2edb68c932618ed19e20a69607a5f32ef21f69e612a904070713927142fdc3f2"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/fixed-environment-helper.js",
+      "bytes": 8569,
+      "sha256": "75a015756b593c049b902a206162afd19574156039ceeaf24b11d60881354e66"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/receipt.json",
+      "bytes": 255449,
+      "sha256": "9300f5dab1c498840fcef665e63fd94ce5d21b7b0094a3a435bfb21ed7f985c2"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-is-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-is-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-is-plain-only-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-is-plain-only-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-missing-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-missing-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-plain-ancestor-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-plain-ancestor-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-plain-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-plain-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-where-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-no-animation/webkit-main-where-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-probe-no-animation.log",
+      "bytes": 6542,
+      "sha256": "c468c9f3d9272fc0eef06603980178c235c70e28d7ca8d8828f4cd4462ef085a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-probe-no-animation.mjs",
+      "bytes": 9166,
+      "sha256": "5085b86e36bb7ce2290a0c3eb8c394a2d6a1891fa81815727e1a63d5d35493fe"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-probe-trusted.log",
+      "bytes": 6542,
+      "sha256": "3d9a93410b64033aefd346d71b108b9c0e2652544400903aa92e8bde3ab55fc8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-probe-trusted.mjs",
+      "bytes": 10553,
+      "sha256": "1f4a507545116e020c53a77aee6e82a183503931b311b57237234d4450f53d5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-probe.log",
+      "bytes": 6542,
+      "sha256": "c468c9f3d9272fc0eef06603980178c235c70e28d7ca8d8828f4cd4462ef085a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-probe.mjs",
+      "bytes": 8559,
+      "sha256": "9621985da417f34ef7f4551c3e28239585edf1f3aa0885b7dbd220b11837ac4c"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-is-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-is-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-is-plain-only-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-is-plain-only-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-missing-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-missing-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-plain-ancestor-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-plain-ancestor-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-plain-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-plain-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-where-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/chromium-main-where-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/cleanup.json",
+      "bytes": 361,
+      "sha256": "2edb68c932618ed19e20a69607a5f32ef21f69e612a904070713927142fdc3f2"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/fixed-environment-helper.js",
+      "bytes": 8583,
+      "sha256": "a258af8d70ea090722d2d88350dfb759f4c235210e1a5a0684450b587482c3ad"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/receipt.json",
+      "bytes": 304049,
+      "sha256": "612058e02e0f623686ffaf0ee00c0627eb9406a8ebe49a4881aa2bce54ff17ea"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-is-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-is-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-is-plain-only-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-is-plain-only-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-missing-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-missing-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-plain-ancestor-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-plain-ancestor-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-plain-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-plain-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-where-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/csp-signal-trusted-probe/webkit-main-where-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/fence-ordering.json",
+      "bytes": 89903,
+      "sha256": "a5d3dd83fef43614b2343c8b4059068585b403e5b2fd58901b6b8b80aa302710"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-root-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-thumb-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-track-end.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-track-start.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-is-plain-only-track-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-ancestor-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-root-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-thumb-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-track-end.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-track-start.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-is-track-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-light-plain-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-host-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-host-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-root-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-thumb-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-track-end.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-track-start.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-is-plain-only-track-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-corner.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-root-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-thumb-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-track-end.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-track-start.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-missing-track-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-ancestor-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-root-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-thumb-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-track-end.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-track-start.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-is-track-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-plain-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-corner.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-root-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-root-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-thumb-h.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-thumb-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-track-end.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-track-start.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-negative-track-v.png",
+      "bytes": 352,
+      "sha256": "7e98f7f1d68f0dc168c41b8b7e8707d28dc9f6acd35148d3b21ca25541e59128"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-structural-positive-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-corner.png",
+      "bytes": 351,
+      "sha256": "deb3f60a820f924f91843ccfd3b1c5c753d4cc78b30ef54c8632c639d8f1e14b"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-root-h.png",
+      "bytes": 351,
+      "sha256": "1fd7af8647f5f4e6c80d18a51ee58cc1b8088548bc3eb19f0fbc0762f2f9c7df"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-root-v.png",
+      "bytes": 352,
+      "sha256": "df8de26bb4ea4dc076006cba4e2eb6e69b9537e89db8a95bebd9fc4a8c8d1132"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-thumb-h.png",
+      "bytes": 353,
+      "sha256": "09f78322143f03cda2bb96f5dc7d9878d934fc5716abe6e4cf2aecab3f4acce7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-thumb-v.png",
+      "bytes": 352,
+      "sha256": "55a7eceb509aab8aa002e632f5841361dbdb336695a93d59c6c2a9d15beabc5a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-track-end.png",
+      "bytes": 353,
+      "sha256": "ee163d86787d5da50c369d448588d76cbb365e4fc1b8466c7c6ce3b956a44b7a"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-track-start.png",
+      "bytes": 357,
+      "sha256": "0fa9425e45c8d0e4be53d04c23236315e70a50a667ff725a4efa1bc06b2d2152"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/chromium-main-shadow-where-host-track-v.png",
+      "bytes": 355,
+      "sha256": "21e08a0ba9d258da655411f69401930dbdfa23b0dee0a9bac014cd3c704f0f86"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/cleanup.json",
+      "bytes": 361,
+      "sha256": "2edb68c932618ed19e20a69607a5f32ef21f69e612a904070713927142fdc3f2"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/fixed-environment-helper.js",
+      "bytes": 8583,
+      "sha256": "a258af8d70ea090722d2d88350dfb759f4c235210e1a5a0684450b587482c3ad"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/receipt.json",
+      "bytes": 2461217,
+      "sha256": "ce978ab595fe1cdcc62a1fd8aef062c73a195aee316eb94c03d0ff26aa26e7b5"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-is-plain-only-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-root-v.png",
+      "bytes": 716,
+      "sha256": "920f842e7b33d221e7034b3508500574915c135125074e6e36501e133b338793"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-thumb-v.png",
+      "bytes": 757,
+      "sha256": "c7bf0f5b962fd9a1210842331670dd234e581c0335ce271d3e7da30af357d4f6"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-track-end.png",
+      "bytes": 723,
+      "sha256": "dbd07627992a44f19f710155a311d14f2ef0cd6caefcb0b0ca2d80b28fa80dde"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-track-start.png",
+      "bytes": 714,
+      "sha256": "60442bd0353ccb6d6cbad719004afc4bf6cc7b1e1f04eaca3e0e8d5c45fdf761"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-ancestor-track-v.png",
+      "bytes": 722,
+      "sha256": "d909f0aa70dbe928052be3bfd22827cf878ac347cd55a84e688865a9a4581f4e"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-is-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-root-v.png",
+      "bytes": 716,
+      "sha256": "920f842e7b33d221e7034b3508500574915c135125074e6e36501e133b338793"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-thumb-v.png",
+      "bytes": 757,
+      "sha256": "c7bf0f5b962fd9a1210842331670dd234e581c0335ce271d3e7da30af357d4f6"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-track-end.png",
+      "bytes": 723,
+      "sha256": "dbd07627992a44f19f710155a311d14f2ef0cd6caefcb0b0ca2d80b28fa80dde"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-track-start.png",
+      "bytes": 714,
+      "sha256": "60442bd0353ccb6d6cbad719004afc4bf6cc7b1e1f04eaca3e0e8d5c45fdf761"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-light-plain-track-v.png",
+      "bytes": 722,
+      "sha256": "d909f0aa70dbe928052be3bfd22827cf878ac347cd55a84e688865a9a4581f4e"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-host-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-host-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-is-plain-only-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-corner.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-missing-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-root-v.png",
+      "bytes": 716,
+      "sha256": "920f842e7b33d221e7034b3508500574915c135125074e6e36501e133b338793"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-thumb-v.png",
+      "bytes": 757,
+      "sha256": "c7bf0f5b962fd9a1210842331670dd234e581c0335ce271d3e7da30af357d4f6"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-track-end.png",
+      "bytes": 723,
+      "sha256": "dbd07627992a44f19f710155a311d14f2ef0cd6caefcb0b0ca2d80b28fa80dde"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-track-start.png",
+      "bytes": 714,
+      "sha256": "60442bd0353ccb6d6cbad719004afc4bf6cc7b1e1f04eaca3e0e8d5c45fdf761"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-ancestor-track-v.png",
+      "bytes": 722,
+      "sha256": "d909f0aa70dbe928052be3bfd22827cf878ac347cd55a84e688865a9a4581f4e"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-is-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-root-v.png",
+      "bytes": 716,
+      "sha256": "920f842e7b33d221e7034b3508500574915c135125074e6e36501e133b338793"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-thumb-v.png",
+      "bytes": 757,
+      "sha256": "c7bf0f5b962fd9a1210842331670dd234e581c0335ce271d3e7da30af357d4f6"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-track-end.png",
+      "bytes": 723,
+      "sha256": "dbd07627992a44f19f710155a311d14f2ef0cd6caefcb0b0ca2d80b28fa80dde"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-track-start.png",
+      "bytes": 714,
+      "sha256": "60442bd0353ccb6d6cbad719004afc4bf6cc7b1e1f04eaca3e0e8d5c45fdf761"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-plain-track-v.png",
+      "bytes": 722,
+      "sha256": "d909f0aa70dbe928052be3bfd22827cf878ac347cd55a84e688865a9a4581f4e"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-corner.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-negative-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-root-h.png",
+      "bytes": 722,
+      "sha256": "41aae1680ca538a213f8d5d7f00bc4e5aacd2f2ce4c4eca05c30bed737416ddc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-root-v.png",
+      "bytes": 716,
+      "sha256": "920f842e7b33d221e7034b3508500574915c135125074e6e36501e133b338793"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-thumb-h.png",
+      "bytes": 717,
+      "sha256": "a15a094bd788b6f09b241810dc50b4a894ee9a1623e357d718a1a4622cd66b94"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-thumb-v.png",
+      "bytes": 757,
+      "sha256": "c7bf0f5b962fd9a1210842331670dd234e581c0335ce271d3e7da30af357d4f6"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-track-end.png",
+      "bytes": 723,
+      "sha256": "dbd07627992a44f19f710155a311d14f2ef0cd6caefcb0b0ca2d80b28fa80dde"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-track-start.png",
+      "bytes": 714,
+      "sha256": "60442bd0353ccb6d6cbad719004afc4bf6cc7b1e1f04eaca3e0e8d5c45fdf761"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-structural-positive-track-v.png",
+      "bytes": 722,
+      "sha256": "d909f0aa70dbe928052be3bfd22827cf878ac347cd55a84e688865a9a4581f4e"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-corner.png",
+      "bytes": 713,
+      "sha256": "e7d59fb3b65d704bcdf8db92dde837ad9d4ae5bada050562bd1f148dd585d1e8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-root-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-root-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-thumb-h.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-thumb-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-track-end.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-track-start.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal/webkit-main-shadow-where-host-track-v.png",
+      "bytes": 714,
+      "sha256": "918129058910fdb9ffd58b6908e9708a658483b892b892b1c48b619c678206fc"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal-probe.log",
+      "bytes": 56610,
+      "sha256": "c8d43ec4ab0bd3134e9ae2110deb993cb1e3e276190595ce4d2552aacafc7084"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/full-part-signal-probe.mjs",
+      "bytes": 11273,
+      "sha256": "02e1c245b3e621725d753b18cba5836ac6fd2ac05e0e39cf3ad29b4dd97731e7"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/index.json",
+      "bytes": 64025,
+      "sha256": "c6cfe4b2ce75027b5782ecc97976f1b239c057c50b5bbbae729ba60cc0bffacd"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/inputs.json",
+      "bytes": 947,
+      "sha256": "c248608b73dbf0c0876e684da03cfbae498f3b97df0910e425f4ae95026029da"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/native-part-comparison.json",
+      "bytes": 134876,
+      "sha256": "97e4e1774d6725c52450ef79f612f46e8ba56a9113a51593c549e66c011482f8"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/upstream/RenderScrollbar.cpp",
+      "bytes": 14501,
+      "sha256": "5560ece0c9619c8555b144de3d4c600aa6e251f37b136ac08262baea5ad95d52"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/upstream/RenderScrollbarPart.cpp",
+      "bytes": 8747,
+      "sha256": "da2c9d585ee9620e87a6fef41802619d292f4dd0cf707341794690c583bd07e0"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/upstream/RenderScrollbarTheme.cpp",
+      "bytes": 6324,
+      "sha256": "e54fa3541b97a46084b6d69ea475fe4e78c883e5f32954b3378f60ee3c188add"
+    },
+    {
+      "path": "output/playwright/shadow-exact-selectors-20261125/upstream/sources.json",
+      "bytes": 790,
+      "sha256": "b1e1f3ce495980f84d64101f4037c2f55b5da53d93b03c56730b0b1acc3e5326"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-baseline.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-defs-unused-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-empty-text-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-no-font-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-opacity-zero-after-face-first.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-opacity-zero-after.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-opacity-zero-before-face-first.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-opacity-zero-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-visibility-hidden-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-default-wrong-family-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-baseline.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-defs-unused-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-empty-text-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-no-font-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-opacity-zero-after-face-first.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-opacity-zero-after.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-opacity-zero-before-face-first.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-opacity-zero-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-visibility-hidden-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/0-software-wrong-family-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-baseline.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-defs-unused-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-empty-text-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-no-font-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-opacity-zero-after-face-first.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-opacity-zero-after.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-opacity-zero-before-face-first.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-opacity-zero-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-visibility-hidden-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-default-wrong-family-before.png",
+      "bytes": 386,
+      "sha256": "aa4f15fe52dc6fbadda5470dfe05e1b92b36bb20d2c151142c761f406c72cb32"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-baseline.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-defs-unused-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-empty-text-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-no-font-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-opacity-zero-after-face-first.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-opacity-zero-after.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-opacity-zero-before-face-first.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-opacity-zero-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-visibility-hidden-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/1-software-wrong-family-before.png",
+      "bytes": 386,
+      "sha256": "8521ca4fedda968556da704ec448c70a9997dbc5aad9f643990cb42e50391fa4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/assessment.json",
+      "bytes": 3500,
+      "sha256": "abc450021d0585b5f89cc6a0df07bbbcd785af1e6c7b1df864398bea670315f3"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/baseline.svg",
+      "bytes": 38017,
+      "sha256": "419986c79ddee3a4c8a47f437fbf25622f6fe8ee3627df2aa51ed23c791d055c"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/defs-unused-before.svg",
+      "bytes": 38209,
+      "sha256": "497ac62dd2c6a6015c5c6204edab791df1e82010cacdebf484219c7efea55321"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/empty-text-before.svg",
+      "bytes": 38190,
+      "sha256": "32102eb52dd5d97d5e5ec149cfd334e2486502b4a58d3886299b643a82f3f40a"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/learning-draft.md",
+      "bytes": 1495,
+      "sha256": "bb7a2190e1ddfb013e18d20909add6c7fbe44809b240b64f9d989af4620b39c0"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/native.png",
+      "bytes": 384,
+      "sha256": "605eef4ca4598035f2db0c2570bd79aaff21c2e425a0c4686d112017fd9aae87"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/no-font-before.svg",
+      "bytes": 38062,
+      "sha256": "83fa68587139c0dd0a63c4b890c496d508068cc5f797a6b92824d930eb66d9ef"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/opacity-zero-after-face-first.svg",
+      "bytes": 38196,
+      "sha256": "37022749f791044880e04a1a6ae5669ff8ce244a1dd5bb221d1653d215907607"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/opacity-zero-after.svg",
+      "bytes": 38196,
+      "sha256": "253c516dcf70ac5c561adcdd130935b415d233e5d2cc1285fb9057922d6ca605"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/opacity-zero-before-face-first.svg",
+      "bytes": 38196,
+      "sha256": "22beb9e7344dacc8ecff326390345e6a4513a453ec58b31e8119b8418030737b"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/opacity-zero-before.svg",
+      "bytes": 38196,
+      "sha256": "fda66da0328b57fc5ead28adf3fc95c4f182df2d4fdb952f5af1a4aa092d115e"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/original.svg",
+      "bytes": 38017,
+      "sha256": "419986c79ddee3a4c8a47f437fbf25622f6fe8ee3627df2aa51ed23c791d055c"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/preflight.json",
+      "bytes": 2762,
+      "sha256": "64154b3f6df961f39d063f1786a88415454c02b90c1c727815a7d522d599de98"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/prepared-inputs.json",
+      "bytes": 2573,
+      "sha256": "3605b8689d4f7ef7a6eef159901e02e2d17e862bdab8e236a6582cec3e12a7e4"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/probe.mjs",
+      "bytes": 5962,
+      "sha256": "b638975ab49c1a4768a308d9c1fe8cbeb1c178303c345859ec707384822a70f7"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/receipt.json",
+      "bytes": 554,
+      "sha256": "3c21ffc051577e7b91015fb439b85463b2938244839e0086f26ccfe524f94158"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/replay.md",
+      "bytes": 2136,
+      "sha256": "c08bb2d90eec24229285ae9aedd9ea00583e5eaa751c6285fa2973b3d6daeca5"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/results.json",
+      "bytes": 25239,
+      "sha256": "6ee0eb47797a6aa39624dead9d107dc0ff6e13eb2b20ce7a2dbb21a20f5bd859"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/run.log",
+      "bytes": 1444,
+      "sha256": "4549ef9e80b368715e9c8396faee0a1f4cd948bc58f08f89488d28b8428c58a1"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/sha256-index.json",
+      "bytes": 9977,
+      "sha256": "9cfaed6fb82144071ca240a44d9429473bd55790e124a82901379c1cc02a5cd0"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/visibility-hidden-before.svg",
+      "bytes": 38204,
+      "sha256": "15ac5d9242d84b0addece02cb2ca7f8df70e3e21ce4b0004c531d200102f77ac"
+    },
+    {
+      "path": "output/playwright/webkit-followup-20261125/font-single-target-dependency/wrong-family-before.svg",
+      "bytes": 38180,
+      "sha256": "a335228e6e6c015af9d8c34898cc0a62f77a5d8da93eac3fad2a9fcaaa52fbca"
+    }
+  ]
+}
