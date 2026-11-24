@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-24T22:44:37.351973+00:00",
+  "status": "local-workflow-fix-validated-no-remote-write",
+  "rawArchive": {
+    "path": "pr-size-pagination-raw.tar.gz",
+    "bytes": 263230,
+    "sha256": "fe0c0c904feff092be0bb03c386b70164e67fc03a8983d57823a822b6ed038e1",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberIndex": "pr-size-pagination-index.json",
+  "verificationScript": "pr-size-pagination-verify.mjs",
+  "patch": {
+    "path": ".github/workflows/pr-label-patch-size.yml",
+    "workflowSHA256": "7ed88029c04bf41c342fa55ce8b42dab2fdef3c2a98f1eafaa5418b967f59cb5",
+    "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "branch": "codex/pr-size-pagination",
+    "applicationRuntimeOrDependencyChanges": 0
+  },
+  "validation": {
+    "casesPassed": 47,
+    "YAMLParsed": true,
+    "PrettierCheck": "passed",
+    "gitDiffCheck": "passed",
+    "actualLabelsWritten": 0
+  },
+  "deployedToMaster": false,
+  "newRemoteWorkflowExecuted": false,
+  "assessment": {
+    "checkedAt": "2026-11-24T22:43:10.661267+00:00",
+    "status": "implemented-locally-and-dry-run-verified-not-committed",
+    "branch": "codex/pr-size-pagination",
+    "baseCommit": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "trackedChanges": [
+      ".github/workflows/pr-label-patch-size.yml"
+    ],
+    "originalFailure": {
+      "head": "b921bf7877eca62c46bd06deffdb22cdbf63c314",
+      "workflow": "Label(Patch Size), not behavioral CI",
+      "runURL": "https://github.com/bubkoo/html-to-image/actions/runs/45499796570",
+      "job": 138819740061,
+      "error": "PullRequest.diff exceeded maximum20000 lines; HTTP406/too_large",
+      "oldAction": "pascalgn/size-label-action@v0.1.1",
+      "oldActionCommit": "28e56f8921268407ec75e933affbcd456d92b45d",
+      "reason": "Full diff requested before ignore filtering, so ignored lockfiles still consume the diff transfer limit."
+    },
+    "originalSemantics": {
+      "measure": "Non-ignored file hunk added+deleted lines; API file changes equals additions+deletions and is checked.",
+      "ignored": "Only root pnpm-lock.yaml; .gitignore force included; nested lock and lock suffix paths included. Rename counts if either old or new path is not ignored.",
+      "thresholds": {
+        "0": "XS",
+        "10": "S",
+        "30": "M",
+        "100": "L",
+        "500": "XL",
+        "1000": "XXL"
+      },
+      "actions": [
+        "opened",
+        "synchronize"
+      ],
+      "labels": "Keep unrelated labels; add missing desired size label before removing stale size/*; do not rewrite already-correct label or create/update label color.",
+      "existingSizeColorSnapshot": "ededed"
+    },
+    "fix": {
+      "action": "actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 (v9.0.0)",
+      "runtime": "Official action uses node24; no application dependency/package/lock change.",
+      "appTokenStepUnchanged": true,
+      "checkoutRemoved": true,
+      "PRSourceCheckedOutOrExecuted": false,
+      "readProtocol": "GET metadata; reject stale event/head or>3000 files; fixed100-item pages with expected-length, unique-name and numeric validation; require empty terminal page and aggregate totals; GET metadata again and compare head/base/count/totals before any label write.",
+      "failuresBeforeWrites": "Incomplete/duplicate/extra pages,>3000, metadata mismatch, head/base change, malformed labels or any read API error throw before label mutations.",
+      "notAtomic": "Label mutations retain original add-then-remove order. They are not a transaction; later write API failures cannot undo an already completed mutation. The final revision fence precedes the write phase and is not an atomic GitHub compare-and-swap."
+    },
+    "realReadOnlyAPI": {
+      "readBeforeUTC": "2026-11-24T22:36:06.587Z",
+      "readAfterUTC": "2026-11-24T22:36:40.504Z",
+      "head": "a2caa9df24cdfaac5f54ee59ff61696b3de8bdfb",
+      "base": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+      "files": 128,
+      "pageCounts": [
+        100,
+        28,
+        0
+      ],
+      "additions": 44344,
+      "deletions": 216,
+      "excludedFiles": [
+        {
+          "filename": "pnpm-lock.yaml",
+          "changes": 213
+        }
+      ],
+      "countedChangedLines": 44347,
+      "label": "size/XXL",
+      "plannedWrites": [],
+      "snapshotOnly": true
+    },
+    "historical127": {
+      "source": "Original stored b921 PR API metadata plus immutable Git objects; not a historical files API response.",
+      "head": "b921bf7877eca62c46bd06deffdb22cdbf63c314",
+      "baseSnapshot": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+      "files": 127,
+      "additions": 43966,
+      "deletions": 210,
+      "localGitNumstatMatchesAPI127AndTotals": true,
+      "nonIgnoredChangedLines": 43963,
+      "label": "size/XXL"
+    },
+    "upstreamShortcutRejected": {
+      "latestRelease": "v0.5.7",
+      "commit": "56b489b027932ec0cf60438a1a5f1a19c8fc71ff",
+      "reason": "Uses one listFiles call without per_page or pagination; default30 could omit files127/128. Direct PR additions+deletions also loses current ignored-lock semantics."
+    },
+    "validation": {
+      "cases": 47,
+      "allPassed": true,
+      "installedWorkflowSHA256": "7ed88029c04bf41c342fa55ce8b42dab2fdef3c2a98f1eafaa5418b967f59cb5",
+      "realLabelsWritten": 0,
+      "yamlParsed": true,
+      "diffCheckPassed": true,
+      "firstSetupFailure": "Python PyYAML unavailable; retained setup-failure.json and corrected using already installed yaml2.9.1. No dependency installed.",
+      "scope": "Exact workflow inline body executed with intercepted API and label methods; real API pages replayed with pre/post metadata. Not a remote execution of the new workflow."
+    },
+    "officialSources": [
+      "https://github.com/pascalgn/size-label-action/blob/28e56f8921268407ec75e933affbcd456d92b45d/index.js",
+      "https://github.com/pascalgn/size-label-action/blob/56b489b027932ec0cf60438a1a5f1a19c8fc71ff/index.js",
+      "https://docs.github.com/en/rest/pulls/pulls#list-pull-requests-files",
+      "https://github.com/actions/github-script/blob/3a2844b7e9c422d3c10d287c895573f7108da1b3/action.yml"
+    ],
+    "operations": {
+      "githubMutations": 0,
+      "workflowReruns": 0,
+      "browserOrPhoneOperations": 0,
+      "applicationDependencyChanges": 0,
+      "commitsOrPushes": 0
+    },
+    "deployedToMaster": false,
+    "newRemoteWorkflowExecuted": false,
+    "thirdPartyDistribution": "Full third-party source/README files are excluded; only official URLs, immutable commits/blob SHAs, release/tag metadata and our own validation/API records are distributed."
+  },
+  "privacy": {
+    "selectedFiles": 26,
+    "credentialOrSignedURLFindings": [],
+    "fullThirdPartySourceOrReadmeIncluded": false,
+    "phonePrivateFoldersTraversedOrIncluded": false,
+    "scope": "Explicit file allowlist; secret/URL pattern scan, not a guarantee to detect arbitrary secrets."
+  }
+}

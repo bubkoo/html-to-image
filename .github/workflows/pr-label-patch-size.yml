@@ -4,13 +4,83 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: bubkoo/use-app-token@v1
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
           variable_name: bot_token
-      - uses: pascalgn/size-label-action@v0.1.1
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          GITHUB_TOKEN: "${{ env.bot_token }}"
           IGNORED: "!.gitignore\npnpm-lock.yaml"
+        with:
+          github-token: "${{ env.bot_token }}"
+          script: |
+            if (!['opened', 'synchronize'].includes(context.payload.action)) return
+            if (process.env.IGNORED !== '!.gitignore\npnpm-lock.yaml') {
+              throw new Error('Unsupported patch-size ignore configuration')
+            }
+            const request = { ...context.repo, pull_number: context.payload.pull_request.number }
+            const { data: before } = await github.rest.pulls.get(request)
+            const expected = before.changed_files
+            if (before.head.sha !== context.payload.pull_request.head.sha) {
+              throw new Error('PR head changed before patch-size calculation')
+            }
+            if (![before.additions, before.deletions].every(value => Number.isSafeInteger(value) && value >= 0)) {
+              throw new Error('Invalid PR change totals')
+            }
+            if (!Number.isSafeInteger(expected) || expected < 0 || expected > 3000) {
+              throw new Error('PR file count exceeds the supported complete API range')
+            }
+            const files = []
+            const names = new Set()
+            const pages = Math.max(1, Math.ceil(expected / 100))
+            for (let page = 1; page <= pages; page += 1) {
+              const { data } = await github.rest.pulls.listFiles({ ...request, per_page: 100, page })
+              if (!Array.isArray(data) || data.length !== Math.min(100, expected - files.length)) {
+                throw new Error('Incomplete PR file page')
+              }
+              for (const file of data) {
+                if (typeof file.filename !== 'string' || !file.filename || names.has(file.filename)) {
+                  throw new Error('Invalid or repeated PR filename')
+                }
+                if ((file.previous_filename != null && (typeof file.previous_filename !== 'string' || !file.previous_filename)) || (file.status === 'renamed' && !file.previous_filename)) {
+                  throw new Error('Renamed PR file is missing its previous filename')
+                }
+                if (![file.additions, file.deletions, file.changes].every(value => Number.isSafeInteger(value) && value >= 0) || file.changes !== file.additions + file.deletions) {
+                  throw new Error('Invalid PR file change counts')
+                }
+                names.add(file.filename)
+                files.push(file)
+              }
+            }
+            const { data: tail } = await github.rest.pulls.listFiles({ ...request, per_page: 100, page: pages + 1 })
+            if (!Array.isArray(tail) || tail.length !== 0 || files.length !== expected) {
+              throw new Error('PR file pagination was incomplete')
+            }
+            const additions = files.reduce((total, file) => total + file.additions, 0)
+            const deletions = files.reduce((total, file) => total + file.deletions, 0)
+            if (additions !== before.additions || deletions !== before.deletions) {
+              throw new Error('PR file totals do not match the complete PR metadata')
+            }
+            // Preserve the two existing patterns and the old/new rename inclusion rule.
+            const ignored = path => path == null || path === '/dev/null' || path === 'pnpm-lock.yaml'
+            const changed = files.reduce((total, file) => ignored(file.previous_filename) && ignored(file.filename) ? total : total + file.changes, 0)
+            const sizes = [[0, 'XS'], [10, 'S'], [30, 'M'], [100, 'L'], [500, 'XL'], [1000, 'XXL']]
+            const label = 'size/' + sizes.filter(([minimum]) => changed >= minimum).at(-1)[1]
+            const { data: after } = await github.rest.pulls.get(request)
+            if (after.head.sha !== before.head.sha || after.base.sha !== before.base.sha || after.changed_files !== expected || after.additions !== additions || after.deletions !== deletions) {
+              throw new Error('PR head, base or diff changed during patch-size calculation')
+            }
+            if (!Array.isArray(after.labels) || after.labels.some(item => typeof item?.name !== 'string')) {
+              throw new Error('Invalid PR label metadata')
+            }
+            core.info(`Counted ${files.length} files and ${changed} non-ignored changed lines: ${label}`)
+            const existing = after.labels.map(item => item.name)
+            if (!existing.includes(label)) {
+              await github.rest.issues.addLabels({ ...context.repo, issue_number: request.pull_number, labels: [label] })
+            }
+            for (const name of existing) {
+              if (name.startsWith('size/') && name !== label) {
+                await github.rest.issues.removeLabel({ ...context.repo, issue_number: request.pull_number, name })
+              }
+            }
