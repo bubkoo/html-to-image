@@ -169,3 +169,50 @@ The heap-resume archive contains complete d75d622 PR/push failure logs/metadata/
 The former Docker container/images are absent in the resumed engine. The original pinned amd64 image pull is still live; the archived image-pull log is only a partial checkpoint. Do not treat old environment outcomes as a rebuilt baseline.
 The hook generator reads exact 9a391dc original source/config, keeps its original assertions/three requests and 4520-byte test size, and invokes the heap tool only after capturedCollected=false is cached. The Node command writes a before-heap receipt containing those booleans before inspector work; tool errors must be recorded separately. Probe/target references are introduced after the primary and remain explicit limitations.
 Only esbuild syntax parsing has passed. The hook is not runtime/type validated and has not captured an actual failure. Finish the pinned image pull, install the previously recorded Node24.22.2/pnpm10.34.9/frozen dependencies, verify browser/pristine hashes and a patched/no-hook baseline before trying the hook. Keep new cold-environment results separate from historical runs.
+
+
+## Actual failed-suite capture, then pause
+
+See [heap-actual-summary.json](heap-actual-summary.json), its index and raw archive. This is a historical source checkpoint 9a391dc5639ab80085d73e411ffea5738279d201,
+not current master acceptance. The original library, built outputs, primary
+assertions, three collection requests, timeout and inherited skips are unchanged.
+U1 is patched-browser/no-hook; V1 adds inspection only after the primary diagnosis
+is cached. Both complete coverage executions fail the same removed-iframe case:
+1224 pass / one failure / four inherited skips. The Node before-heap receipt is
+preserved. The initial type-stripping generator failed types before testing;
+the corrected generator preserves declarations, and types pass before V1 runs.
+
+To reconstruct in a separate owned environment, fetch the pinned source into
+source-seed.git with a shallow exact checkout, then use rebuild.sh as the recorded
+bootstrap recipe. That script expects its original output/playwright path; adapt
+paths to your extraction location. The 54MB Git seed is intentionally excluded.
+Pull the exact amd64 manifest recorded in rebuilt-provenance.json. Install frozen
+dependencies with ignored scripts and the recorded Node/pnpm. Verify pristine
+Firefox omni.ja hash before using tool/build.py; copy it alongside the archived
+original Runtime/Juggler sources, rebuild, and verify patched-manifest.json.
+No 44MB original/patched omni binaries are included; they are recoverable from
+the pinned image and deterministic ZIP replacement recipe.
+
+Runtime and controls are runtime.cjs and tool/positive.cjs. U1 uses pristine source
+fixture/config with only the passive browser patch. V1 copies the final typed
+capture-lifetime-hook.test.ts and vitest-heap-hook.config.mts. Run types before
+coverage, clear only previous sort-result bytes using reset-container-sort.mjs,
+and retain its cache/input receipt. Do not run builds or edits during a measured
+suite. Full source and browser-package suites were not run after coverage failed;
+rebuilt-entries.log is package entry/consumer validation, not browser packages.
+
+The snapshots are rebuilt-positive.fxsnapshot and
+v1-artifacts/heap-path/coverage-firefox.fxsnapshot. JSON contains raw shortest
+paths (max 20 per start), including weak and inspector edges. The separate
+classification preserves every returned path. WeakRefObject::target is weak even
+without a literal [weak] prefix, per the pinned upstream source. The global
+__codex_heap_probe and explicit raw-wrapper holds are introduced after the primary
+failure. A native preserved-wrapper root remains unresolved and requires a
+native CC graph; it is not evidence of a unique library holding root.
+
+v1-logs was copied before the final input rehash: its inherited final-input file
+is the U1 baseline. Use v1-inputs-sha256.json and u1-v1-input-comparison.json for
+the actual V1 hashes. Across 103 measured inputs only fixture and config differ.
+No new remote CI or physical-device result is credited to these local runs.
+pause-cleanup.json confirms tracked source/config/fixture and original Firefox
+bytes restored, owned container stopped, and no system Safari/device operation.

@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 1795,
+  "totalRawFiles": 1903,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -871,10 +871,7 @@
       "coverage": 1234,
       "source": 1115,
       "packages": 162,
-      "inheritedSkips": [
-        4,
-        4
-      ],
+      "inheritedSkips": [4, 4],
       "note": "One independent remote pass, not a lifecycle fix or acceptance for a later head"
     },
     "next": "Reduce source.implementation property access versus createHTMLDocument invocation, then inspect the actual retained native relationship. No production change.",
@@ -887,10 +884,7 @@
       "coverage": 1234,
       "sourcePassed": 1112,
       "sourceFailed": 3,
-      "skips": [
-        4,
-        4
-      ],
+      "skips": [4, 4],
       "packages": "not run",
       "scope": "three Firefox environment/cancellation checks; not the local iframe control; root not established"
     },
@@ -998,7 +992,7 @@
         "url": "https://github.com/bubkoo/html-to-image/actions/runs/44369692907",
         "testSummary": [
           "ci\tUNKNOWN STEP\t2026-11-18T18:54:10.3107420Z       Tests  1234 passed | 4 skipped (1238)",
-          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7168463Z \u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 5 \u23af\u23af\u23af\u23af\u23af\u23af\u23af",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7168463Z ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯",
           "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7268969Z       Tests  5 failed | 1110 passed | 4 skipped (1119)"
         ],
         "failures": [
@@ -1017,7 +1011,7 @@
         "url": "https://github.com/bubkoo/html-to-image/actions/runs/44369678841",
         "testSummary": [
           "ci\tUNKNOWN STEP\t2026-11-18T18:52:42.4129156Z       Tests  1234 passed | 4 skipped (1238)",
-          "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8913247Z \u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 3 \u23af\u23af\u23af\u23af\u23af\u23af\u23af",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8913247Z ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯",
           "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.9048183Z       Tests  3 failed | 1112 passed | 4 skipped (1119)"
         ],
         "failures": [
@@ -1040,5 +1034,137 @@
     },
     "next": "Finish current image pull; verify runtime and pristine hash; rebuild dependencies frozen; patched no-hook baseline; only then run prepared hook. New environment results must remain distinct from older runs."
   },
-  "heapResumeRawFiles": 104
+  "heapResumeRawFiles": 104,
+  "heapActual": {
+    "status": "Actual failing-suite heap captured; investigation only; paused after evidence milestone",
+    "date": "2026-11-24",
+    "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "environment": {
+      "containerId": "ce39419ebbdd0c13a83361c5f16bed5ce9adaa83ebb85ab79714cc408d1b0266",
+      "imageId": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+      "configDigest": "sha256:a0d7b2b49ffa0e99787a00b7ec2af46eca58020082713f002ca9f0f1cfd1a017",
+      "rootfsDiffIdsMatch": true,
+      "manifestDigest": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+      "head": "9a391dc5639ab80085d73e411ffea5738279d201",
+      "pristineOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "limits": {
+        "NanoCpus": 4000000000,
+        "Memory": 6442450944,
+        "ShmSize": 1073741824
+      },
+      "mounts": [],
+      "state": "running",
+      "sourceSeed": "local shallow Git checkout preserving exact commit"
+    },
+    "runtime": {
+      "node": "v24.22.2",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpus": 14,
+      "parallelism": 4,
+      "memory": 8216498176,
+      "cpuMax": "400000 100000",
+      "sdk": "1.64.1",
+      "browsers": {
+        "chromium": {
+          "version": "156.0.8078.80",
+          "executable": "/ms-playwright/chromium-1248/chrome-linux64/chrome"
+        },
+        "firefox": {
+          "version": "157.0",
+          "executable": "/ms-playwright/firefox-1555/firefox/firefox"
+        },
+        "webkit": {
+          "version": "27.2",
+          "executable": "/ms-playwright/webkit-2370/pw_run.sh"
+        }
+      }
+    },
+    "runs": {
+      "U1 patched browser, no hook": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "failure": "Firefox removed-iframe snapshot lifetime",
+        "sourceSuite": "not run",
+        "browserPackages": "not run"
+      },
+      "V1 after cached primary hook": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "failure": "Firefox removed-iframe snapshot lifetime",
+        "sourceSuite": "not run",
+        "browserPackages": "not run"
+      }
+    },
+    "staticGates": {
+      "lint": "passed on baseline",
+      "build": "passed",
+      "packageEntries": "passed, not browser package suite",
+      "baselineBrowserTypes": "passed",
+      "initialHookTypes": "failed before runtime; stripped declaration augmentation",
+      "correctedHookTypes": "passed before V1"
+    },
+    "inputComparison": {
+      "count": 103,
+      "changedOnly": [
+        "test/browser-unit/capture-lifetime.test.ts",
+        "vitest.browser.config.mts"
+      ],
+      "productionAndBuiltInputsUnchanged": true,
+      "hookBytes": 4520,
+      "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201"
+    },
+    "primary": {
+      "nativeCollected": true,
+      "capturedCollected": false
+    },
+    "snapshotErrors": [],
+    "registration": {
+      "opened": [
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "closed": [
+        {
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "paths": {
+      "capture": 4,
+      "negative": 4,
+      "gcRoot": 6,
+      "captureAndNegative": "each: two introduced global probe paths, one explicit weak/conditional debugger path, one WeakRefObject::target path",
+      "gcRootDetails": "native preserved wrapper unresolved; debugger; introduced wrapper stack; two conditional WeakMap/debugger; WeakRef target"
+    },
+    "limits": {
+      "maxPathsPerStart": 20,
+      "runtimeSnapshot": true,
+      "introducedTargetHold": true,
+      "introducedAllRootWrapperHolds": true,
+      "snapshotIsAfterPrimaryOnly": true,
+      "rootPathsIncludeInspectorReferences": true
+    },
+    "conclusion": "No unique application holding root established. Preserved-wrapper holder needs native CC investigation; bounded raw JS graph includes weak and introduced roots.",
+    "weakRefSource": "https://github.com/mozilla-firefox/firefox/blob/fdd757a2e09c9471cddf383e64e631e4ce178499/js/src/builtin/WeakRefObject.cpp#L93",
+    "cleanup": {
+      "at": "2026-11-24T02:44:09.582125+00:00",
+      "container": "html-to-image-gc-linux-9a391dc",
+      "trackedSourceConfigAndFixtureRestored": true,
+      "firefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "ownedContainerRunning": false,
+      "deviceOrSystemSafariTouched": false
+    },
+    "nextAfterResume": "Reduce introduced probe roots with validated controls and inspect native preserved-wrapper holder after caching the original primary failure. Do not relax GC assertions or add collections as a fix.",
+    "productionChange": false,
+    "physicalDeviceValidation": "not repeated",
+    "remoteCI": "no acceptance claimed for this local historical checkpoint",
+    "rawFiles": 108
+  },
+  "heapActualRawFiles": 108
 }

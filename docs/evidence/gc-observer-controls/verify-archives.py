@@ -1,11 +1,11 @@
-"""Read-only verification of the measured SVG evidence archives."""
+"""Read-only verification of the measured GC evidence archives."""
 from pathlib import Path
 import hashlib
 import json
 import tarfile
 
 root = Path(__file__).parent
-for name in ['master-failure', 'local', 'first-pair', 'expanded-local', 'expanded-pair', 'root-trace-pair-selected', 'no-collection-local', 'checkpoint-runs', 'cc-only-local-selected', 'cc-configuration-pair', 'order-cache-local', 'frozen-order-pair', 'native-controls-local', 'native-controls-linux', 'local-linux-controls', 'recovered-postfailure', 'matched-clone', 'native-operations', 'native-baseline', 'heap-tool-controls', 'heap-resume']:
+for name in ['master-failure', 'local', 'first-pair', 'expanded-local', 'expanded-pair', 'root-trace-pair-selected', 'no-collection-local', 'checkpoint-runs', 'cc-only-local-selected', 'cc-configuration-pair', 'order-cache-local', 'frozen-order-pair', 'native-controls-local', 'native-controls-linux', 'local-linux-controls', 'recovered-postfailure', 'matched-clone', 'native-operations', 'native-baseline', 'heap-tool-controls', 'heap-resume', 'heap-actual']:
     index = json.loads((root / (name + "-index.json")).read_text())
     archive = root / index["archive"]
     assert hashlib.sha256(archive.read_bytes()).hexdigest() == index["archiveSHA256"]

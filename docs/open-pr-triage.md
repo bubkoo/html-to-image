@@ -1,5 +1,15 @@
 # 开放 PR 处理台账
 
+## 2026-11-24 实际失败现场堆采集完成，按要求暂停
+
+准确历史源码 `9a391dc` 的隔离 Linux 环境已按固定镜像摘要重建。被动工具/no-hook 基线 U1 与失败后采集 V1 均完整运行 coverage：1224 通过、同一项 Firefox removed-iframe 回收失败、4 项既有跳过。V1 在原始布尔值固定后才采集，保留 `nativeCollected=true / capturedCollected=false`；没有增加回收次数、放宽断言或更改生产源码。
+
+真实堆快照已保存，DevTools 登记为 false→true→false，采集无错误。capture/negative 各返回 4 条路径，经过采集器引入的全局目标、检查器或弱边；GC root 返回 6 条，其中一个原生 preserved-wrapper holder 尚未解释。`WeakRefObject::target` 不能因名称不带 `[weak]` 就判为强边。尚未确认唯一库持有根，也不以有限路径搜索证明完全不可达。
+
+类型检查先发现压缩器剥离声明的问题；修正后保留模块增补与类型，类型通过才运行 V1。基线 lint/构建/包入口检查通过；coverage 失败后没有运行完整 source 或浏览器构建包套件。103 个输入仅配置/钩子 fixture 不同，生产和构建字节一致；本次不作为最新 master、远端 CI 或真机验收。
+
+[108 份输入、日志、原始快照、路径分类及清理回执](evidence/gc-observer-controls/heap-actual-summary.json)已归档并校验。源码/配置/fixture 和 Firefox 原文件已恢复，自有容器已停止，系统 Safari/手机未操作。恢复后再核对原生循环回收图与该 holder；本小目标完成，整体目标暂停，GC 修复仍未完成。
+
 ## 2026-11-24 外部 SVG 资源时序的只读观测
 
 干净页面在加载 SVG 前启用资源时序观察和独立 fetch 正向控制，三组浏览器均能记录部分嵌套绘制 URL；6 张源前后截图逐通道相同（每组 17600 RGBA 通道），共 33 列原生场景。
