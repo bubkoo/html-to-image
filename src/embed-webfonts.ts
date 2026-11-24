@@ -1,4 +1,11 @@
 import {
+  hasDOMProperty,
+  readDOMMethod,
+  readDOMProperty,
+  readOptionalDOMMethod,
+  writeDOMProperty,
+} from './dom.js'
+import {
   readDocumentMethod,
   readDocumentProperty,
   readOptionalDocumentProperty,
@@ -91,23 +98,32 @@ function collectFontScopes(node: Element, source: Element, options: Options) {
   }
   const visitStyleRules = (scope: FontScope, rules: CSSRuleList) => {
     Array.from(rules).forEach((rule) => {
-      if (rule.type === CSSRule.STYLE_RULE) {
+      if (readDOMProperty(rule, 'type') === CSSRule.STYLE_RULE) {
         addUsed(
           scope,
-          (rule as CSSStyleRule).style.getPropertyValue('font-family'),
+          readDOMMethod(
+            readDOMProperty(rule as CSSStyleRule, 'style'),
+            'getPropertyValue',
+          )('font-family'),
         )
-      } else if ('cssRules' in rule) {
-        visitStyleRules(scope, (rule as CSSGroupingRule).cssRules)
+      } else if (hasDOMProperty('cssRules', rule)) {
+        visitStyleRules(
+          scope,
+          readDOMProperty(rule as CSSGroupingRule, 'cssRules'),
+        )
       }
     })
   }
   const visit = (element: Element, inherited: Element) => {
     const original =
       task?.getCloneSource(element) ||
-      (readDocumentProperty(element.ownerDocument, 'defaultView')
+      (readDocumentProperty(
+        readDOMProperty(element, 'ownerDocument'),
+        'defaultView',
+      )
         ? element
         : inherited)
-    const document = original.ownerDocument
+    const document = readDOMProperty(original, 'ownerDocument')
     let scope = scopes.get(document)
     if (!scope) {
       scope = {
@@ -120,32 +136,52 @@ function collectFontScopes(node: Element, source: Element, options: Options) {
       scopes.set(document, scope)
     }
     scope.nodes.push(element)
-    const inline = (element as HTMLElement).style?.getPropertyValue(
-      'font-family',
-    )
+    const inline = readOptionalDOMMethod(
+      readDOMProperty(element as HTMLElement, 'style'),
+      'getPropertyValue',
+    )?.('font-family')
     const family =
       inline ||
-      (readDocumentProperty(element.ownerDocument, 'defaultView') || window)
-        .getComputedStyle(element)
-        .getPropertyValue('font-family')
+      readDOMMethod(
+        readDOMMethod(
+          readDocumentProperty(
+            readDOMProperty(element, 'ownerDocument'),
+            'defaultView',
+          ) || window,
+          'getComputedStyle',
+        )(element),
+        'getPropertyValue',
+      )('font-family')
     addUsed(scope, family)
-    if (element.tagName.toLowerCase() === 'style') {
+    if (readDOMProperty(element, 'tagName').toLowerCase() === 'style') {
       const sheet = new CSSStyleSheet()
-      sheet.replaceSync(element.textContent || '')
-      scope.styles.push({ node: element, sheet, baseURL: original.baseURI })
-      visitStyleRules(scope, sheet.cssRules)
+      readDOMMethod(
+        sheet,
+        'replaceSync',
+      )(readDOMProperty(element, 'textContent') || '')
+      scope.styles.push({
+        node: element,
+        sheet,
+        baseURL: readDOMProperty(original, 'baseURI'),
+      })
+      visitStyleRules(scope, readDOMProperty(sheet, 'cssRules'))
     }
-    Array.from(element.children).forEach((child) => visit(child, original))
-    if (element.shadowRoot) {
-      Array.from(element.shadowRoot.children).forEach((child) =>
-        visit(child, original),
-      )
+    Array.from(readDOMProperty(element, 'children')).forEach((child) =>
+      visit(child, original),
+    )
+    if (readDOMProperty(element, 'shadowRoot')) {
+      Array.from(
+        readDOMProperty(readDOMProperty(element, 'shadowRoot')!, 'children'),
+      ).forEach((child) => visit(child, original))
     }
     if (isInstanceOfElement(element, HTMLIFrameElement)) {
       let body: HTMLElement | null = null
       try {
         body =
-          readOptionalDocumentProperty(element.contentDocument, 'body') || null
+          readOptionalDocumentProperty(
+            readDOMProperty(element, 'contentDocument'),
+            'body',
+          ) || null
       } catch {
         // An inaccessible frame has no reachable font scope.
       }
@@ -161,7 +197,7 @@ async function collectFontRules(
   options: Options,
   extra: FontStyle[],
 ) {
-  const ownerDocument = node.ownerDocument
+  const ownerDocument = readDOMProperty(node, 'ownerDocument')
   const loader = getResourceLoader(options)
   const rules: FontRule[] = []
   const visited = new Set<CSSStyleSheet>()
@@ -185,28 +221,38 @@ async function collectFontRules(
     items: CSSRuleList,
     baseURL: string,
   ): Promise<void> => {
-    for (let i = 0; i < items.length; i += 1) {
+    for (let i = 0; i < readDOMProperty(items, 'length'); i += 1) {
       getTask(options)?.check()
-      const rule = items[i]
-      if (rule.type === CSSRule.FONT_FACE_RULE) {
-        const style = (rule as CSSFontFaceRule).style
-        if (style.getPropertyValue('src')) {
+      const rule = readDOMProperty(items, i)
+      if (readDOMProperty(rule, 'type') === CSSRule.FONT_FACE_RULE) {
+        const style = readDOMProperty(rule as CSSFontFaceRule, 'style')
+        if (readDOMMethod(style, 'getPropertyValue')('src')) {
           rules.push({
-            cssText: rule.cssText,
-            family: normalizeFontFamily(style.getPropertyValue('font-family')),
+            cssText: readDOMProperty(rule, 'cssText'),
+            family: normalizeFontFamily(
+              readDOMMethod(style, 'getPropertyValue')('font-family'),
+            ),
             baseURL,
           })
         }
-      } else if (rule.type === CSSRule.IMPORT_RULE) {
+      } else if (readDOMProperty(rule, 'type') === CSSRule.IMPORT_RULE) {
         const imported = rule as CSSImportRule
-        // eslint-disable-next-line no-await-in-loop
-        if (imported.styleSheet) await visitSheet(imported.styleSheet, baseURL)
-        // eslint-disable-next-line no-await-in-loop
-        else await visitRemote(new URL(imported.href, baseURL).href)
-      } else if ('cssRules' in rule) {
+        if (readDOMProperty(imported, 'styleSheet')) {
+          // eslint-disable-next-line no-await-in-loop
+          await visitSheet(readDOMProperty(imported, 'styleSheet')!, baseURL)
+        } else {
+          // eslint-disable-next-line no-await-in-loop
+          await visitRemote(
+            new URL(readDOMProperty(imported, 'href'), baseURL).href,
+          )
+        }
+      } else if (hasDOMProperty('cssRules', rule)) {
         // Grouping rules include @media, @supports and @layer.
         // eslint-disable-next-line no-await-in-loop
-        await visitRules((rule as CSSGroupingRule).cssRules, baseURL)
+        await visitRules(
+          readDOMProperty(rule as CSSGroupingRule, 'cssRules'),
+          baseURL,
+        )
       }
     }
   }
@@ -227,8 +273,8 @@ async function collectFontRules(
           return ''
         },
       )
-      sheet.replaceSync(text)
-      await visitRules(sheet.cssRules, url)
+      readDOMMethod(sheet, 'replaceSync')(text)
+      await visitRules(readDOMProperty(sheet, 'cssRules'), url)
       for (let i = 0; i < imports.length; i += 1) {
         // eslint-disable-next-line no-await-in-loop
         await visitRemote(imports[i])
@@ -244,12 +290,13 @@ async function collectFontRules(
   ): Promise<void> => {
     if (visited.has(sheet)) return
     visited.add(sheet)
-    const base = sheet.href || baseURL
+    const base = readDOMProperty(sheet, 'href') || baseURL
     let items: CSSRuleList
     try {
-      items = sheet.cssRules
+      items = readDOMProperty(sheet, 'cssRules')
     } catch (error) {
-      if (sheet.href) await visitRemote(sheet.href)
+      if (readDOMProperty(sheet, 'href'))
+        await visitRemote(readDOMProperty(sheet, 'href')!)
       else report(base, error)
       return
     }
@@ -267,16 +314,25 @@ async function collectFontRules(
   ).forEach(addSheet)
   // Shadow roots are flattened by the cloner; their rules belong to this document.
   const collectShadowSheets = (element: Element) => {
-    const shadow = element.shadowRoot
+    const shadow = readDOMProperty(element, 'shadowRoot')
     if (shadow) {
-      Array.from(shadow.adoptedStyleSheets || []).forEach(addSheet)
-      shadow.querySelectorAll('style,link').forEach((element) => {
-        const sheet = (element as HTMLStyleElement).sheet
+      Array.from(readDOMProperty(shadow, 'adoptedStyleSheets') || []).forEach(
+        addSheet,
+      )
+      readDOMMethod(
+        readDOMMethod(shadow, 'querySelectorAll')('style,link'),
+        'forEach',
+      )((element) => {
+        const sheet = readDOMProperty(element as HTMLStyleElement, 'sheet')
         if (sheet) addSheet(sheet)
       })
-      Array.from(shadow.children).forEach(collectShadowSheets)
+      Array.from(readDOMProperty(shadow, 'children')).forEach(
+        collectShadowSheets,
+      )
     }
-    Array.from(element.children).forEach(collectShadowSheets)
+    Array.from(readDOMProperty(element, 'children')).forEach(
+      collectShadowSheets,
+    )
   }
   collectShadowSheets(node)
   extra.forEach(({ sheet, baseURL }) => sheets.set(sheet, baseURL))
@@ -308,18 +364,30 @@ async function prepareFontCSS(
       return Promise.all(
         used.map((rule) => {
           let { cssText } = rule
-          if (scope.source.ownerDocument !== source.ownerDocument) {
-            const name = scopedFontName(scope.source.ownerDocument, rule.family)
+          if (
+            readDOMProperty(scope.source, 'ownerDocument') !==
+            readDOMProperty(source, 'ownerDocument')
+          ) {
+            const name = scopedFontName(
+              readDOMProperty(scope.source, 'ownerDocument'),
+              rule.family,
+            )
             scope.names.set(rule.family, name)
             const copy = new CSSStyleSheet()
-            copy.replaceSync(cssText)
-            const descriptors = (copy.cssRules[0] as CSSFontFaceRule).style
+            readDOMMethod(copy, 'replaceSync')(cssText)
+            const descriptors = readDOMProperty(
+              readDOMProperty(
+                readDOMProperty(copy, 'cssRules'),
+                0,
+              ) as CSSFontFaceRule,
+              'style',
+            )
             // Firefox exposes read-only face descriptors; construct a new rule.
             const rest = Array.from(descriptors)
               .filter((property) => property !== 'font-family')
               .map(
                 (property) =>
-                  `${property}: ${descriptors.getPropertyValue(property)};`,
+                  `${property}: ${readDOMMethod(descriptors, 'getPropertyValue')(property)};`,
               )
               .join(' ')
             cssText = `@font-face { font-family: ${name}; ${rest} }`
@@ -335,7 +403,7 @@ async function prepareFontCSS(
 function applyFontScopes(scopes: FontScope[]) {
   scopes.forEach((scope) => {
     const rename = (style: CSSStyleDeclaration) => {
-      const value = style.getPropertyValue('font-family')
+      const value = readDOMMethod(style, 'getPropertyValue')('font-family')
       if (!value) return false
       let changed = false
       const names = fontFamilies(value).map((family) => {
@@ -345,60 +413,73 @@ function applyFontScopes(scopes: FontScope[]) {
         return name
       })
       if (changed)
-        style.setProperty(
+        readDOMMethod(style, 'setProperty')(
           'font-family',
           names.join(', '),
-          style.getPropertyPriority('font-family'),
+          readDOMMethod(style, 'getPropertyPriority')('font-family'),
         )
       return changed
     }
     scope.nodes.forEach((node) => {
-      const style = (node as HTMLElement).style
+      const style = readDOMProperty(node as HTMLElement, 'style')
       if (style) rename(style)
     })
     scope.styles.forEach(({ node, sheet }) => {
       const visit = (parent: CSSStyleSheet | CSSGroupingRule): boolean => {
         let changed = false
-        for (let i = parent.cssRules.length - 1; i >= 0; i -= 1) {
-          const rule = parent.cssRules[i]
-          if (rule.type === CSSRule.FONT_FACE_RULE) {
+        for (
+          let i =
+            readDOMProperty(readDOMProperty(parent, 'cssRules'), 'length') - 1;
+          i >= 0;
+          i -= 1
+        ) {
+          const rule = readDOMProperty(readDOMProperty(parent, 'cssRules'), i)
+          if (readDOMProperty(rule, 'type') === CSSRule.FONT_FACE_RULE) {
             // Only the embedded/explicit font CSS may supply faces in the copy.
-            parent.deleteRule(i)
+            readDOMMethod(parent, 'deleteRule')(i)
             changed = true
-          } else if (rule.type === CSSRule.STYLE_RULE) {
-            changed = rename((rule as CSSStyleRule).style) || changed
-          } else if ('cssRules' in rule) {
+          } else if (readDOMProperty(rule, 'type') === CSSRule.STYLE_RULE) {
+            changed =
+              rename(readDOMProperty(rule as CSSStyleRule, 'style')) || changed
+          } else if (hasDOMProperty('cssRules', rule)) {
             changed = visit(rule as CSSGroupingRule) || changed
           }
         }
         return changed
       }
       if (visit(sheet))
-        node.textContent = Array.from(sheet.cssRules)
-          .map((rule) => rule.cssText)
-          .join('\n')
+        writeDOMProperty(
+          node,
+          'textContent',
+          Array.from(readDOMProperty(sheet, 'cssRules'))
+            .map((rule) => readDOMProperty(rule, 'cssText'))
+            .join('\n'),
+        )
     })
   })
 }
 
 function declaredFontFamilies(cssText: string) {
   const sheet = new CSSStyleSheet()
-  sheet.replaceSync(cssText)
+  readDOMMethod(sheet, 'replaceSync')(cssText)
   const names = new Set<string>()
   const visit = (rules: CSSRuleList) => {
     Array.from(rules).forEach((rule) => {
-      if (rule.type === CSSRule.FONT_FACE_RULE) {
+      if (readDOMProperty(rule, 'type') === CSSRule.FONT_FACE_RULE) {
         names.add(
           normalizeFontFamily(
-            (rule as CSSFontFaceRule).style.getPropertyValue('font-family'),
+            readDOMMethod(
+              readDOMProperty(rule as CSSFontFaceRule, 'style'),
+              'getPropertyValue',
+            )('font-family'),
           ),
         )
-      } else if ('cssRules' in rule) {
-        visit((rule as CSSGroupingRule).cssRules)
+      } else if (hasDOMProperty('cssRules', rule)) {
+        visit(readDOMProperty(rule as CSSGroupingRule, 'cssRules'))
       }
     })
   }
-  visit(sheet.cssRules)
+  visit(readDOMProperty(sheet, 'cssRules'))
   return names
 }
 
@@ -407,7 +488,7 @@ export async function getWebFontCSS<T extends HTMLElement>(
   options: Options,
   styleSource: Element = node,
 ): Promise<string> {
-  if (!node.ownerDocument)
+  if (!readDOMProperty(node, 'ownerDocument'))
     throw new Error('Provided element is not within a Document')
   return (await prepareFontCSS(node, options, styleSource)).cssText
 }
@@ -421,10 +502,13 @@ export function getSVGStyleFontCSS(
   // Only source-page families that were already loaded may affect measurement.
   // Do not activate @font-face declarations supplied by fetched SVG content.
   const loaded = new Set(loadedFamilies.map(normalizeFontFamily))
-  const document = readDocumentProperty(
-    source.ownerDocument,
-    'implementation',
-  ).createHTMLDocument()
+  const document = readDOMMethod(
+    readDocumentProperty(
+      readDOMProperty(source, 'ownerDocument'),
+      'implementation',
+    ),
+    'createHTMLDocument',
+  )()
   const node = Reflect.apply(
     readDocumentProperty(document, 'createElement'),
     document,
@@ -440,11 +524,15 @@ export function getSVGStyleFontCSS(
         document,
         ['span'],
       ) as HTMLSpanElement
-      span.style.fontFamily = used.join(', ')
-      node.append(span)
+      writeDOMProperty(
+        readDOMProperty(span, 'style'),
+        'fontFamily',
+        used.join(', '),
+      )
+      readDOMMethod(node, 'append')(span)
     }
   })
-  return node.childElementCount
+  return readDOMProperty(node, 'childElementCount')
     ? getWebFontCSS(node, options, source)
     : Promise.resolve('')
 }
@@ -462,9 +550,16 @@ export async function embedWebFonts<T extends HTMLElement>(
     const declared = declaredFontFamilies(cssText)
     scopes = collectFontScopes(clonedNode, styleSource, options)
     scopes.forEach((scope) => {
-      if (scope.source.ownerDocument === styleSource.ownerDocument) return
+      if (
+        readDOMProperty(scope.source, 'ownerDocument') ===
+        readDOMProperty(styleSource, 'ownerDocument')
+      )
+        return
       scope.used.forEach((family) => {
-        const name = scopedFontName(scope.source.ownerDocument, family)
+        const name = scopedFontName(
+          readDOMProperty(scope.source, 'ownerDocument'),
+          family,
+        )
         if (declared.has(normalizeFontFamily(name)))
           scope.names.set(family, name)
       })
@@ -480,10 +575,13 @@ export async function embedWebFonts<T extends HTMLElement>(
   applyFontScopes(scopes)
   if (cssText) {
     const style = readDocumentMethod(
-      clonedNode.ownerDocument,
+      readDOMProperty(clonedNode, 'ownerDocument'),
       'createElement',
     )('style')
-    style.textContent = cssText
-    clonedNode.insertBefore(style, clonedNode.firstChild)
+    writeDOMProperty(style, 'textContent', cssText)
+    readDOMMethod(clonedNode, 'insertBefore')(
+      style,
+      readDOMProperty(clonedNode, 'firstChild'),
+    )
   }
 }

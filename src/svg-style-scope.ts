@@ -1,3 +1,11 @@
+import {
+  hasDOMProperty,
+  readDOMMethod,
+  readDOMProperty,
+  readOptionalDOMMethod,
+  readOptionalDOMProperty,
+  writeDOMProperty,
+} from './dom.js'
 import { readDocumentMethod, readDocumentProperty } from './document.js'
 import { uuid } from './util.js'
 import {
@@ -20,41 +28,59 @@ export async function detectSVGFragmentPolicy(
   check: () => void,
 ): Promise<'file' | 'page'> {
   const view = readDocumentProperty(document, 'defaultView')
-  if (!view || view.innerWidth < 16 || view.innerHeight < 11)
+  if (
+    !view ||
+    readDOMProperty(view, 'innerWidth') < 16 ||
+    readDOMProperty(view, 'innerHeight') < 11
+  )
     throw new Error('SVG fragment scope probe needs a larger active viewport')
   const ns = 'http://www.w3.org/2000/svg'
   const id = uuid()
   const svg = readDocumentMethod(document, 'createElementNS')(ns, 'svg')
-  svg.setAttribute('width', '20')
-  svg.setAttribute('height', '20')
-  svg.style.cssText =
-    'position:absolute!important;left:0!important;top:0!important;width:20px!important;height:20px!important'
-  svg.innerHTML = `<defs><clipPath id="${id}"><rect width="12" height="20"/></clipPath></defs>`
+  readDOMMethod(svg, 'setAttribute')('width', '20')
+  readDOMMethod(svg, 'setAttribute')('height', '20')
+  writeDOMProperty(
+    readDOMProperty(svg, 'style'),
+    'cssText',
+    'position:absolute!important;left:0!important;top:0!important;width:20px!important;height:20px!important',
+  )
+  writeDOMProperty(
+    svg,
+    'innerHTML',
+    `<defs><clipPath id="${id}"><rect width="12" height="20"/></clipPath></defs>`,
+  )
   const xml = `<svg xmlns="${ns}"><defs><clipPath id="${id}"><rect width="6" height="20"/></clipPath></defs><g id="probe"><rect width="20" height="20" fill="green" clip-path="url(#${id})"/></g><g id="flat"><rect width="20" height="20" fill="green"/></g></svg>`
   const url = URL.createObjectURL(new Blob([xml], { type: 'image/svg+xml' }))
   const use = readDocumentMethod(document, 'createElementNS')(ns, 'use')
-  use.setAttribute('href', url + '#probe')
+  readDOMMethod(use, 'setAttribute')('href', url + '#probe')
   const control = readDocumentMethod(document, 'createElementNS')(ns, 'use')
-  control.setAttribute('href', url + '#flat')
-  svg.append(use, control)
+  readDOMMethod(control, 'setAttribute')('href', url + '#flat')
+  readDOMMethod(svg, 'append')(use, control)
   try {
-    readDocumentProperty(document, 'documentElement').append(svg)
+    readDOMMethod(
+      readDocumentProperty(document, 'documentElement'),
+      'append',
+    )(svg)
     const deadline = Date.now() + 5000
     while (Date.now() < deadline) {
       check()
-      use.style.removeProperty('display')
-      control.style.display = 'none'
-      const ready = use.getBBox().width === 20
+      readDOMMethod(readDOMProperty(use, 'style'), 'removeProperty')('display')
+      writeDOMProperty(readDOMProperty(control, 'style'), 'display', 'none')
+      const ready =
+        readDOMProperty(readDOMMethod(use, 'getBBox')(), 'width') === 20
       const inside =
         readDocumentMethod(document, 'elementFromPoint')(2, 10) === use
       const outside =
         readDocumentMethod(document, 'elementFromPoint')(15, 10) !== use
       const page =
         readDocumentMethod(document, 'elementFromPoint')(8, 10) === use
-      use.style.display = 'none'
-      control.style.removeProperty('display')
+      writeDOMProperty(readDOMProperty(use, 'style'), 'display', 'none')
+      readDOMMethod(
+        readDOMProperty(control, 'style'),
+        'removeProperty',
+      )('display')
       const flat =
-        control.getBBox().width === 20 &&
+        readDOMProperty(readDOMMethod(control, 'getBBox')(), 'width') === 20 &&
         readDocumentMethod(document, 'elementFromPoint')(15, 10) === control
       if (ready && inside && outside && flat) return page ? 'page' : 'file'
       // Readiness includes applied clipping, not only loaded use geometry.
@@ -64,9 +90,9 @@ export async function detectSVGFragmentPolicy(
     check()
     throw new Error('SVG fragment scope clipping controls did not become ready')
   } finally {
-    use.removeAttribute('href')
-    control.removeAttribute('href')
-    svg.remove()
+    readDOMMethod(use, 'removeAttribute')('href')
+    readDOMMethod(control, 'removeAttribute')('href')
+    readDOMMethod(svg, 'remove')()
     URL.revokeObjectURL(url)
   }
 }
@@ -85,12 +111,14 @@ function pageStyleText(
     })
   const active = new Set<CSSStyleSheet>()
   const read = (sheet: CSSStyleSheet): string => {
-    if (sheet.disabled) return ''
+    if (readDOMProperty(sheet, 'disabled')) return ''
     if (active.has(sheet)) return ''
-    const base = sheet.href || readDocumentProperty(document, 'baseURI')
+    const base =
+      readDOMProperty(sheet, 'href') ||
+      readDocumentProperty(document, 'baseURI')
     let rules: CSSRuleList
     try {
-      rules = sheet.cssRules
+      rules = readDOMProperty(sheet, 'cssRules')
     } catch (error) {
       unavailable(base, error)
       return ''
@@ -99,32 +127,35 @@ function pageStyleText(
     let text: string
     try {
       text = Array.from(rules, (rule) => {
-        if (rule.type === CSSRule.IMPORT_RULE) {
+        if (readDOMProperty(rule, 'type') === CSSRule.IMPORT_RULE) {
           const imported = rule as CSSImportRule & {
             layerName?: string | null
             supportsText?: string | null
           }
-          if (!imported.styleSheet) {
+          if (!readDOMProperty(imported, 'styleSheet')) {
             unavailable(
-              imported.href,
+              readDOMProperty(imported, 'href'),
               new Error('Native page stylesheet import is not readable'),
             )
             return ''
           }
-          let value = read(imported.styleSheet)
-          if (imported.layerName != null)
-            value = `@layer ${imported.layerName}{${value}}`
-          if (imported.supportsText)
-            value = `@supports (${imported.supportsText}){${value}}`
-          const media = imported.media.mediaText
+          let value = read(readDOMProperty(imported, 'styleSheet')!)
+          if (readDOMProperty(imported, 'layerName') != null)
+            value = `@layer ${readDOMProperty(imported, 'layerName')}{${value}}`
+          if (readDOMProperty(imported, 'supportsText'))
+            value = `@supports (${readDOMProperty(imported, 'supportsText')}){${value}}`
+          const media = readDOMProperty(
+            readDOMProperty(imported, 'media'),
+            'mediaText',
+          )
           return media && media !== 'all' ? `@media ${media}{${value}}` : value
         }
-        return resolve(rule.cssText, base)
+        return resolve(readDOMProperty(rule, 'cssText'), base)
       }).join('\n')
     } finally {
       active.delete(sheet)
     }
-    const media = sheet.media.mediaText
+    const media = readDOMProperty(readDOMProperty(sheet, 'media'), 'mediaText')
     return media && media !== 'all' ? `@media ${media}{${text}}` : text
   }
   return [
@@ -164,26 +195,28 @@ export function svgStyleContextKey(host: Element) {
   for (
     let parent: Element | null = host;
     parent;
-    parent = parent.parentElement
+    parent = readDOMProperty(parent, 'parentElement')
   ) {
-    const style = (parent as HTMLElement).style
+    const style = readDOMProperty(parent as HTMLElement, 'style')
     if (!style) continue
     Array.from(style).forEach((name) => {
       if (name.startsWith('--') && !properties.has(name))
-        properties.set(name, style.getPropertyValue(name))
+        properties.set(name, readDOMMethod(style, 'getPropertyValue')(name))
     })
   }
   return JSON.stringify([
-    (host as HTMLElement).style.cssText,
-    Array.from(host.attributes)
+    readDOMProperty(readDOMProperty(host as HTMLElement, 'style'), 'cssText'),
+    Array.from(readDOMProperty(host, 'attributes'))
       .filter(
         (attribute) =>
-          !['id', 'class', 'href', 'style'].includes(attribute.localName),
+          !['id', 'class', 'href', 'style'].includes(
+            readDOMProperty(attribute, 'localName'),
+          ),
       )
       .map((attribute) => [
-        attribute.namespaceURI,
-        attribute.name,
-        attribute.value,
+        readDOMProperty(attribute, 'namespaceURI'),
+        readDOMProperty(attribute, 'name'),
+        readDOMProperty(attribute, 'value'),
       ]),
     Array.from(properties).sort(([a], [b]) => a.localeCompare(b)),
   ])
@@ -202,29 +235,45 @@ export async function detectSVGStylePolicy(
     const xml = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="10" viewBox="0 0 21 10"><style>.${name}{display:${index === 0 ? 'none' : 'block'}}</style><g id="probe"><rect class="${name}" width="10" height="10"/><rect x="20" width="1" height="1"/></g></svg>`
     const url = URL.createObjectURL(new Blob([xml], { type: 'image/svg+xml' }))
     const style = readDocumentMethod(document, 'createElement')('style')
-    if (index === 1) style.textContent = `.${name}{display:none!important}`
+    if (index === 1)
+      writeDOMProperty(style, 'textContent', `.${name}{display:none!important}`)
     const svg = readDocumentMethod(document, 'createElementNS')(
       'http://www.w3.org/2000/svg',
       'svg',
     )
-    svg.style.cssText =
-      'position:absolute!important;left:-9999px!important;visibility:hidden!important;display:block!important'
+    writeDOMProperty(
+      readDOMProperty(svg, 'style'),
+      'cssText',
+      'position:absolute!important;left:-9999px!important;visibility:hidden!important;display:block!important',
+    )
     const use = readDocumentMethod(document, 'createElementNS')(
       'http://www.w3.org/2000/svg',
       'use',
     )
-    use.setAttribute('href', index === 3 ? url : url + '#probe')
-    svg.append(use)
-    const control = use.cloneNode(false) as SVGUseElement
-    control.setAttribute('href', url + '#probe')
-    if (index === 3) svg.append(control)
+    readDOMMethod(use, 'setAttribute')(
+      'href',
+      index === 3 ? url : url + '#probe',
+    )
+    readDOMMethod(svg, 'append')(use)
+    const control = readDOMMethod(use, 'cloneNode')(false) as SVGUseElement
+    readDOMMethod(control, 'setAttribute')('href', url + '#probe')
+    if (index === 3) readDOMMethod(svg, 'append')(control)
     try {
-      readDocumentProperty(document, 'documentElement').append(style, svg)
+      readDOMMethod(
+        readDocumentProperty(document, 'documentElement'),
+        'append',
+      )(style, svg)
       let width = 0
       for (let attempt = 0; attempt < 32; attempt++) {
         check()
-        width = use.getBBox().width
-        if (index === 3 ? control.getBBox().width === 21 : width > 0) break
+        width = readDOMProperty(readDOMMethod(use, 'getBBox')(), 'width')
+        if (
+          index === 3
+            ? readDOMProperty(readDOMMethod(control, 'getBBox')(), 'width') ===
+              21
+            : width > 0
+        )
+          break
         // Resource readiness, not an animation-frame or fixed paint delay.
         // eslint-disable-next-line no-await-in-loop
         await new Promise<void>((resolve) => setTimeout(resolve, 0))
@@ -232,13 +281,17 @@ export async function detectSVGStylePolicy(
       if (
         width !== 1 &&
         width !== 21 &&
-        !(index === 3 && width === 0 && control.getBBox().width === 21)
+        !(
+          index === 3 &&
+          width === 0 &&
+          readDOMProperty(readDOMMethod(control, 'getBBox')(), 'width') === 21
+        )
       )
         throw new Error('External SVG style probe did not become ready')
       widths.push(width)
     } finally {
-      style.remove()
-      svg.remove()
+      readDOMMethod(style, 'remove')()
+      readDOMMethod(svg, 'remove')()
       URL.revokeObjectURL(url)
     }
   }
@@ -306,30 +359,38 @@ async function detectSVGImportPolicy(
     'http://www.w3.org/2000/svg',
     'svg',
   )
-  svg.style.cssText =
-    'position:absolute!important;left:-9999px!important;opacity:0!important;display:block!important'
+  writeDOMProperty(
+    readDOMProperty(svg, 'style'),
+    'cssText',
+    'position:absolute!important;left:-9999px!important;opacity:0!important;display:block!important',
+  )
   let loaded = false
   const uses = ids.map((id) => {
     const use = readDocumentMethod(document, 'createElementNS')(
       'http://www.w3.org/2000/svg',
       'use',
     )
-    use.setAttribute('href', url + '#' + id)
-    svg.append(use)
+    readDOMMethod(use, 'setAttribute')('href', url + '#' + id)
+    readDOMMethod(svg, 'append')(use)
     return use
   })
   const ready = () => {
     loaded = true
   }
-  uses[0].addEventListener('load', ready)
+  readDOMMethod(uses[0], 'addEventListener')('load', ready)
   try {
-    readDocumentProperty(document, 'documentElement').append(svg)
+    readDOMMethod(
+      readDocumentProperty(document, 'documentElement'),
+      'append',
+    )(svg)
     const deadline = Date.now() + 5000
     let values: number[] = []
     let measured = false
     while (Date.now() < deadline) {
       check()
-      values = uses.map((use) => use.getBBox().width)
+      values = uses.map((use) =>
+        readDOMProperty(readDOMMethod(use, 'getBBox')(), 'width'),
+      )
       const valid =
         values[5] === 21 && values.every((value) => value === 1 || value === 21)
       // Positive effects prove that both imports are ready even if a use load
@@ -358,8 +419,8 @@ async function detectSVGImportPolicy(
       importLayers: mode(values[3], values[4]),
     }
   } finally {
-    uses[0].removeEventListener('load', ready)
-    svg.remove()
+    readDOMMethod(uses[0], 'removeEventListener')('load', ready)
+    readDOMMethod(svg, 'remove')()
     URL.revokeObjectURL(url)
   }
 }
@@ -370,11 +431,22 @@ export function createSVGStyleEnvironment(
   source: Document,
   signal?: AbortSignal,
 ) {
-  const width = readDocumentProperty(source, 'defaultView')?.innerWidth || 1024
-  const height = readDocumentProperty(source, 'defaultView')?.innerHeight || 768
+  const width =
+    readOptionalDOMProperty(
+      readDocumentProperty(source, 'defaultView'),
+      'innerWidth',
+    ) || 1024
+  const height =
+    readOptionalDOMProperty(
+      readDocumentProperty(source, 'defaultView'),
+      'innerHeight',
+    ) || 768
   const fonts: FontFace[] = []
-  readDocumentProperty(source, 'fonts')?.forEach((font) => {
-    if (font.status === 'loaded') fonts.push(font)
+  readOptionalDOMMethod(
+    readDocumentProperty(source, 'fonts'),
+    'forEach',
+  )?.((font) => {
+    if (readDOMProperty(font, 'status') === 'loaded') fonts.push(font)
   })
   let frame: HTMLIFrameElement | undefined
   let pending: Promise<Document> | undefined
@@ -388,16 +460,20 @@ export function createSVGStyleEnvironment(
       document,
       ['meta'],
     ) as HTMLMetaElement
-    policy.httpEquiv = 'Content-Security-Policy'
-    policy.content = "img-src 'none'; style-src 'unsafe-inline'"
-    readDocumentProperty(document, 'head').append(policy)
+    writeDOMProperty(policy, 'httpEquiv', 'Content-Security-Policy')
+    writeDOMProperty(
+      policy,
+      'content',
+      "img-src 'none'; style-src 'unsafe-inline'",
+    )
+    readDOMMethod(readDocumentProperty(document, 'head'), 'append')(policy)
     resourcesLocked = true
   }
   const dispose = () => {
     disposed = true
     signal?.removeEventListener('abort', dispose)
     cancel?.()
-    frame?.remove()
+    if (frame) readDOMMethod(frame, 'remove')()
     frame = undefined
     pending = undefined
     // Loaded FontFace wrappers can retain their source document after disposal.
@@ -433,16 +509,23 @@ export function createSVGStyleEnvironment(
         pending = new Promise<Document>((resolve, reject) => {
           frame = readDocumentMethod(document, 'createElement')('iframe')
           const ownFrame = frame
-          ownFrame.setAttribute('sandbox', 'allow-same-origin')
-          ownFrame.setAttribute('aria-hidden', 'true')
-          ownFrame.style.cssText = `position:fixed!important;left:-99999px!important;top:0!important;width:${width}px!important;height:${height}px!important;opacity:0!important;border:0!important;pointer-events:none!important`
+          readDOMMethod(ownFrame, 'setAttribute')(
+            'sandbox',
+            'allow-same-origin',
+          )
+          readDOMMethod(ownFrame, 'setAttribute')('aria-hidden', 'true')
+          writeDOMProperty(
+            readDOMProperty(ownFrame, 'style'),
+            'cssText',
+            `position:fixed!important;left:-99999px!important;top:0!important;width:${width}px!important;height:${height}px!important;opacity:0!important;border:0!important;pointer-events:none!important`,
+          )
           const finish = (error?: unknown, result?: Document) => {
             clearTimeout(timer)
             signal?.removeEventListener('abort', abort)
-            ownFrame.onload = null
+            writeDOMProperty(ownFrame, 'onload', null)
             cancel = undefined
             if (error) {
-              ownFrame.remove()
+              readDOMMethod(ownFrame, 'remove')()
               reject(error)
             } else resolve(result!)
           }
@@ -457,9 +540,9 @@ export function createSVGStyleEnvironment(
             5000,
           )
           cancel = abort
-          ownFrame.onload = () => {
+          writeDOMProperty(ownFrame, 'onload', () => {
             try {
-              const result = ownFrame.contentDocument
+              const result = readDOMProperty(ownFrame, 'contentDocument')
               if (
                 !result ||
                 !readDocumentMethod(
@@ -476,7 +559,7 @@ export function createSVGStyleEnvironment(
               }
               fonts.forEach((font) => {
                 try {
-                  fontSet.add(font)
+                  readDOMMethod(fontSet, 'add')(font)
                 } catch (error) {
                   // Some engines keep CSS-connected faces in their owner document.
                   // Their resource embedding remains with the existing font pipeline.
@@ -491,14 +574,21 @@ export function createSVGStyleEnvironment(
             } catch (error) {
               finish(error)
             }
-          }
+          })
           signal?.addEventListener('abort', abort, { once: true })
           if (signal?.aborted) {
             abort()
             return
           }
-          ownFrame.srcdoc = `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline' data:; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`
-          readDocumentProperty(document, 'documentElement').append(ownFrame)
+          writeDOMProperty(
+            ownFrame,
+            'srcdoc',
+            `<!doctype html><meta data-svg-style-policy http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline' data:; img-src blob:; font-src data:; base-uri 'none'; form-action 'none'"><style>html,body{margin:0;overflow:hidden}</style><body></body>`,
+          )
+          readDOMMethod(
+            readDocumentProperty(document, 'documentElement'),
+            'append',
+          )(ownFrame)
         })
       }
       return trustedProbe
@@ -527,81 +617,140 @@ export async function freezeSVGFragmentStyles(
   const view = (readDocumentProperty(document, 'defaultView') ||
     window) as Window & typeof globalThis
   const container = readDocumentMethod(document, 'createElement')('div')
-  const ownStyle = (host as HTMLElement).style
-  Array.from(host.attributes).forEach((attribute) =>
-    container.style.setProperty(
-      attribute.localName,
-      attribute.value,
+  const ownStyle = readDOMProperty(host as HTMLElement, 'style')
+  Array.from(readDOMProperty(host, 'attributes')).forEach((attribute) =>
+    readDOMMethod(readDOMProperty(container, 'style'), 'setProperty')(
+      readDOMProperty(attribute, 'localName'),
+      readDOMProperty(attribute, 'value'),
       'important',
     ),
   )
   Array.from(ownStyle).forEach((name) =>
-    container.style.setProperty(
+    readDOMMethod(readDOMProperty(container, 'style'), 'setProperty')(
       name,
-      ownStyle.getPropertyValue(name),
+      readDOMMethod(ownStyle, 'getPropertyValue')(name),
       'important',
     ),
   )
-  for (let parent = host.parentElement; parent; parent = parent.parentElement) {
-    const style = (parent as HTMLElement).style
+  for (
+    let parent = readDOMProperty(host, 'parentElement');
+    parent;
+    parent = readDOMProperty(parent, 'parentElement')
+  ) {
+    const style = readDOMProperty(parent as HTMLElement, 'style')
     if (!style) continue
     Array.from(style).forEach((name) => {
-      if (name.startsWith('--') && !container.style.getPropertyValue(name))
-        container.style.setProperty(
+      if (
+        name.startsWith('--') &&
+        !readDOMMethod(
+          readDOMProperty(container, 'style'),
+          'getPropertyValue',
+        )(name)
+      )
+        readDOMMethod(readDOMProperty(container, 'style'), 'setProperty')(
           name,
-          style.getPropertyValue(name),
+          readDOMMethod(style, 'getPropertyValue')(name),
           'important',
         )
     })
   }
-  container.style.setProperty('position', 'absolute', 'important')
-  container.style.setProperty('left', '-9999px', 'important')
-  container.style.setProperty('opacity', '0', 'important')
-  const shadow = container.attachShadow({ mode: 'open' })
+  readDOMMethod(readDOMProperty(container, 'style'), 'setProperty')(
+    'position',
+    'absolute',
+    'important',
+  )
+  readDOMMethod(readDOMProperty(container, 'style'), 'setProperty')(
+    'left',
+    '-9999px',
+    'important',
+  )
+  readDOMMethod(readDOMProperty(container, 'style'), 'setProperty')(
+    'opacity',
+    '0',
+    'important',
+  )
+  const shadow = readDOMMethod(container, 'attachShadow')({ mode: 'open' })
   if (policy.file || policy.page) {
-    const sheet = new view.CSSStyleSheet()
+    const sheet = new (readDOMProperty(view, 'CSSStyleSheet'))()
     let css = policy.page
       ? pageStyles()
       : Array.from(readDocumentMethod(styleRoot, 'querySelectorAll')('style'))
           .filter(
             (style) =>
-              !style.getAttribute('type') ||
-              style.getAttribute('type')!.trim().toLowerCase() === 'text/css',
+              !readDOMMethod(style, 'getAttribute')('type') ||
+              readDOMMethod(
+                style,
+                'getAttribute',
+              )('type')!
+                .trim()
+                .toLowerCase() === 'text/css',
           )
           .map((style) => {
-            const text = resolveURLs(style.textContent || '', style)
-            const media = style.getAttribute('media')
+            const text = resolveURLs(
+              readDOMProperty(style, 'textContent') || '',
+              style,
+            )
+            const media = readDOMMethod(style, 'getAttribute')('media')
             return media && media !== 'all' ? `@media ${media}{${text}}` : text
           })
           .join('\n')
     if (!policy.page) css = await prepareFileStyle(css)
-    sheet.replaceSync(css)
+    readDOMMethod(sheet, 'replaceSync')(css)
     const removeFontFaces = (parent: CSSStyleSheet | CSSGroupingRule) => {
-      for (let index = parent.cssRules.length - 1; index >= 0; index--) {
-        const rule = parent.cssRules[index]
-        if (rule.type === CSSRule.FONT_FACE_RULE) parent.deleteRule(index)
-        else if ('cssRules' in rule) removeFontFaces(rule as CSSGroupingRule)
+      for (
+        let index =
+          readDOMProperty(readDOMProperty(parent, 'cssRules'), 'length') - 1;
+        index >= 0;
+        index--
+      ) {
+        const rule = readDOMProperty(readDOMProperty(parent, 'cssRules'), index)
+        if (readDOMProperty(rule, 'type') === CSSRule.FONT_FACE_RULE)
+          readDOMMethod(parent, 'deleteRule')(index)
+        else if (hasDOMProperty('cssRules', rule))
+          removeFontFaces(rule as CSSGroupingRule)
       }
     }
     removeFontFaces(sheet)
-    shadow.adoptedStyleSheets = [sheet]
+    writeDOMProperty(shadow, 'adoptedStyleSheets', [sheet])
   }
   let fragment = readDocumentMethod(document, 'importNode')(original, true)
   const neutralizeStyles = (root: Element) =>
-    root.querySelectorAll('style').forEach((node) => {
-      if (node.textContent)
-        node.textContent = '/* stylesheet evaluated in the native scope */'
+    readDOMMethod(
+      readDOMMethod(root, 'querySelectorAll')('style'),
+      'forEach',
+    )((node) => {
+      if (readDOMProperty(node, 'textContent'))
+        writeDOMProperty(
+          node,
+          'textContent',
+          '/* stylesheet evaluated in the native scope */',
+        )
     })
-  fragment.querySelectorAll('style').forEach((node) => node.remove())
-  shadow.append(fragment)
-  readDocumentProperty(document, 'documentElement').append(container)
+  readDOMMethod(
+    readDOMMethod(fragment, 'querySelectorAll')('style'),
+    'forEach',
+  )((node) => readDOMMethod(node, 'remove')())
+  readDOMMethod(shadow, 'append')(fragment)
+  readDOMMethod(
+    readDocumentProperty(document, 'documentElement'),
+    'append',
+  )(container)
   try {
-    let sources = [fragment, ...Array.from(fragment.querySelectorAll('*'))]
-    const targets = [copy, ...Array.from(copy.querySelectorAll('*'))].filter(
-      (node) => node.localName !== 'style',
-    )
+    let sources = [
+      fragment,
+      ...Array.from(readDOMMethod(fragment, 'querySelectorAll')('*')),
+    ]
+    const targets = [
+      copy,
+      ...Array.from(readDOMMethod(copy, 'querySelectorAll')('*')),
+    ].filter((node) => readDOMProperty(node, 'localName') !== 'style')
     const fontCSS = await prepareFonts(
-      sources.map((source) => view.getComputedStyle(source).fontFamily),
+      sources.map((source) =>
+        readDOMProperty(
+          readDOMMethod(view, 'getComputedStyle')(source),
+          'fontFamily',
+        ),
+      ),
     )
     if (fontCSS) {
       let installed = installedFontCSS.get(document)
@@ -611,43 +760,50 @@ export async function freezeSVGFragmentStyles(
       }
       if (!installed.has(fontCSS)) {
         const fonts = readDocumentMethod(document, 'createElement')('style')
-        fonts.textContent = fontCSS
-        readDocumentProperty(document, 'head').append(fonts)
+        writeDOMProperty(fonts, 'textContent', fontCSS)
+        readDOMMethod(readDocumentProperty(document, 'head'), 'append')(fonts)
         installed.add(fontCSS)
       }
       const requested = new Set(
         sources.map((source) => {
-          const style = view.getComputedStyle(source)
-          return style.font || `${style.fontSize} ${style.fontFamily}`
+          const style = readDOMMethod(view, 'getComputedStyle')(source)
+          return (
+            readDOMProperty(style, 'font') ||
+            `${readDOMProperty(style, 'fontSize')} ${readDOMProperty(style, 'fontFamily')}`
+          )
         }),
       )
       await Promise.all(
         Array.from(requested, (font) =>
-          readDocumentProperty(document, 'fonts')
-            .load(font)
-            .catch(reportFontError),
+          readDOMMethod(
+            readDocumentProperty(document, 'fonts'),
+            'load',
+          )(font).catch(reportFontError),
         ),
       )
       // A non-rendering symbol can retain fallback metrics computed before its
       // face loaded. Evaluate a fresh tree only after those faces are ready.
-      const ready = fragment.cloneNode(true) as Element
-      fragment.replaceWith(ready)
+      const ready = readDOMMethod(fragment, 'cloneNode')(true) as Element
+      readDOMMethod(fragment, 'replaceWith')(ready)
       fragment = ready
-      sources = [fragment, ...Array.from(fragment.querySelectorAll('*'))]
+      sources = [
+        fragment,
+        ...Array.from(readDOMMethod(fragment, 'querySelectorAll')('*')),
+      ]
     }
     sources.forEach((source, index) => {
-      const style = view.getComputedStyle(source)
+      const style = readDOMMethod(view, 'getComputedStyle')(source)
       const target = targets[index] as HTMLElement
       Array.from(style).forEach((name) =>
-        target.style.setProperty(
+        readDOMMethod(readDOMProperty(target, 'style'), 'setProperty')(
           name,
-          style.getPropertyValue(name),
+          readDOMMethod(style, 'getPropertyValue')(name),
           'important',
         ),
       )
     })
     neutralizeStyles(copy)
   } finally {
-    container.remove()
+    readDOMMethod(container, 'remove')()
   }
 }

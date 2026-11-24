@@ -1,3 +1,9 @@
+import {
+  hasDOMProperty,
+  readDOMMethod,
+  readDOMProperty,
+  writeDOMProperty,
+} from './dom.js'
 import { readDocumentProperty } from './document.js'
 export type SVGLayerPolicy = 'none' | 'flat' | 'ordered'
 
@@ -188,10 +194,10 @@ export async function prepareSVGFileStyle(
 ) {
   // An inert parser retains imports without activating their resources. A
   // constructed sheet would remove @import before it could be inspected.
-  const parserDocument = readDocumentProperty(
-    document,
-    'implementation',
-  ).createHTMLDocument()
+  const parserDocument = readDOMMethod(
+    readDocumentProperty(document, 'implementation'),
+    'createHTMLDocument',
+  )()
   const view = readDocumentProperty(document, 'defaultView') || window
   const active = new Set<string>()
   const parse = (css: string) => {
@@ -200,8 +206,8 @@ export async function prepareSVGFileStyle(
       parserDocument,
       ['style'],
     ) as HTMLStyleElement
-    style.textContent = css
-    readDocumentProperty(parserDocument, 'head').append(style)
+    writeDOMProperty(style, 'textContent', css)
+    readDOMMethod(readDocumentProperty(parserDocument, 'head'), 'append')(style)
     return style
   }
   const resolveURLs = (css: string, base: string) =>
@@ -222,23 +228,35 @@ export async function prepareSVGFileStyle(
     encoding = readDocumentProperty(document, 'characterSet'),
   ): Promise<string> => {
     const result: string[] = []
-    for (let index = 0; index < rules.length; index++) {
+    for (let index = 0; index < readDOMProperty(rules, 'length'); index++) {
       // eslint-disable-next-line no-await-in-loop
       await check()
-      const rule = rules[index]
-      if (rule.type === CSSRule.IMPORT_RULE) {
+      const rule = readDOMProperty(rules, index)
+      if (readDOMProperty(rule, 'type') === CSSRule.IMPORT_RULE) {
         const imported = rule as CSSImportRule & {
           layerName?: string | null
           supportsText?: string | null
         }
-        if (!policy.dataImports || !/^data:/i.test(imported.href)) continue
-        const media = imported.media.mediaText
-        if (media && !view.matchMedia(media).matches) continue
-        const supports = imported.supportsText
-        if (supports && !view.CSS.supports(`(${supports})`)) continue
-        const layer = imported.layerName
+        if (
+          !policy.dataImports ||
+          !/^data:/i.test(readDOMProperty(imported, 'href'))
+        )
+          continue
+        const media = readDOMProperty(
+          readDOMProperty(imported, 'media'),
+          'mediaText',
+        )
+        if (
+          media &&
+          !readDOMProperty(readDOMMethod(view, 'matchMedia')(media), 'matches')
+        )
+          continue
+        const supports = readDOMProperty(imported, 'supportsText')
+        if (supports && !readDOMProperty(view, 'CSS').supports(`(${supports})`))
+          continue
+        const layer = readDOMProperty(imported, 'layerName')
         if (layer != null && policy.importLayers === 'none') continue
-        const url = new URL(imported.href)
+        const url = new URL(readDOMProperty(imported, 'href'))
         url.hash = ''
         if (active.has(url.href)) continue
         active.add(url.href)
@@ -254,7 +272,7 @@ export async function prepareSVGFileStyle(
           try {
             // eslint-disable-next-line no-await-in-loop
             let css = await visit(
-              parser.sheet!.cssRules,
+              readDOMProperty(readDOMProperty(parser, 'sheet')!, 'cssRules'),
               policy.fileLayers,
               url.href,
               decoded.encoding,
@@ -265,48 +283,63 @@ export async function prepareSVGFileStyle(
             if (media && media !== 'all') css = `@media ${media}{${css}}`
             result.push(css)
           } finally {
-            parser.remove()
+            readDOMMethod(parser, 'remove')()
           }
         } catch (error) {
           report(url.href, error)
         } finally {
           active.delete(url.href)
         }
-      } else if (rule.type === CSSRule.STYLE_RULE) {
+      } else if (readDOMProperty(rule, 'type') === CSSRule.STYLE_RULE) {
         // Modern style rules also expose cssRules for CSS nesting; their own
         // declarations must not be mistaken for an empty grouping rule.
-        result.push(base ? resolveURLs(rule.cssText, base) : rule.cssText)
-      } else if (/^@layer\b/i.test(rule.cssText)) {
+        result.push(
+          base
+            ? resolveURLs(readDOMProperty(rule, 'cssText'), base)
+            : readDOMProperty(rule, 'cssText'),
+        )
+      } else if (/^@layer\b/i.test(readDOMProperty(rule, 'cssText'))) {
         if (layers === 'none') continue
-        if ('cssRules' in rule) {
+        if (hasDOMProperty('cssRules', rule)) {
           // eslint-disable-next-line no-await-in-loop
           const css = await visit(
-            (rule as CSSGroupingRule).cssRules,
+            readDOMProperty(rule as CSSGroupingRule, 'cssRules'),
             layers,
             base,
             encoding,
           )
           result.push(
-            layers === 'flat' ? css : `${ruleHead(rule.cssText)}{${css}}`,
+            layers === 'flat'
+              ? css
+              : `${ruleHead(readDOMProperty(rule, 'cssText'))}{${css}}`,
           )
-        } else if (layers === 'ordered') result.push(rule.cssText)
-      } else if ('cssRules' in rule) {
+        } else if (layers === 'ordered')
+          result.push(readDOMProperty(rule, 'cssText'))
+      } else if (hasDOMProperty('cssRules', rule)) {
         // eslint-disable-next-line no-await-in-loop
         const css = await visit(
-          (rule as CSSGroupingRule).cssRules,
+          readDOMProperty(rule as CSSGroupingRule, 'cssRules'),
           layers,
           base,
           encoding,
         )
-        result.push(`${ruleHead(rule.cssText)}{${css}}`)
-      } else result.push(base ? resolveURLs(rule.cssText, base) : rule.cssText)
+        result.push(`${ruleHead(readDOMProperty(rule, 'cssText'))}{${css}}`)
+      } else
+        result.push(
+          base
+            ? resolveURLs(readDOMProperty(rule, 'cssText'), base)
+            : readDOMProperty(rule, 'cssText'),
+        )
     }
     return result.join('\n')
   }
   const parser = parse(text)
   try {
-    return await visit(parser.sheet!.cssRules, policy.fileLayers)
+    return await visit(
+      readDOMProperty(readDOMProperty(parser, 'sheet')!, 'cssRules'),
+      policy.fileLayers,
+    )
   } finally {
-    parser.remove()
+    readDOMMethod(parser, 'remove')()
   }
 }

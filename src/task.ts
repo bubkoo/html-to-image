@@ -1,3 +1,4 @@
+import { readDOMMethod, readDOMProperty } from './dom.js'
 import { readDocumentProperty } from './document.js'
 import type {
   CaptureDiagnostic,
@@ -70,7 +71,10 @@ export class CaptureTask {
     let current: Node | null = node
     while (current) {
       if (this.excludedSources.has(current)) return true
-      current = current.parentNode || (current as ShadowRoot).host || null
+      current =
+        readDOMProperty(current, 'parentNode') ||
+        readDOMProperty(current as ShadowRoot, 'host') ||
+        null
     }
     return false
   }
@@ -166,15 +170,22 @@ export class CaptureTask {
     let cached = this.inheritedStyles.get(node)
     if (!cached) {
       cached = {
-        style: (
-          readDocumentProperty(node.ownerDocument, 'defaultView') || window
-        ).getComputedStyle(node),
+        style: readDOMMethod(
+          readDocumentProperty(
+            readDOMProperty(node, 'ownerDocument'),
+            'defaultView',
+          ) || window,
+          'getComputedStyle',
+        )(node),
         values: new Map(),
       }
       this.inheritedStyles.set(node, cached)
     }
     if (!cached.values.has(name)) {
-      cached.values.set(name, cached.style.getPropertyValue(name))
+      cached.values.set(
+        name,
+        readDOMMethod(cached.style, 'getPropertyValue')(name),
+      )
     }
     return cached.values.get(name)!
   }
