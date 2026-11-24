@@ -1,0 +1,32 @@
+{
+  "integrityStatus": "verified",
+  "testGateStatus": "latest local default failed; not replaced by first green run",
+  "fileCount": 72,
+  "archive": {
+    "path": "minimatch-dev-security-20261125-raw.tar.gz",
+    "bytes": 443664,
+    "sha256": "8be37d6dc49684dbff0e0b5921ad9a1e844881f806917f367e40920fa0b506b7"
+  },
+  "gzipCRCAndTarHeadersVerified": true,
+  "allMemberSizesAndHashesVerified": true,
+  "originalFilesByteCompared": true,
+  "workingCandidateHashesCompared": true,
+  "summaryRecomputedFromArchivedReceipts": true,
+  "explicitGraphVersions": [
+    "11.0.9"
+  ],
+  "npmBundledResidual": "10.2.5",
+  "latestCoverage": {
+    "passed": 1233,
+    "failed": 1,
+    "skipped": 4
+  },
+  "independentSource": {
+    "passed": 1115,
+    "skipped": 4
+  },
+  "packagePassed": 162,
+  "summarySHA256": "57c39eda2d1c0440c833b527fc3fc1260852e2c7dfaa03adb475a00d7a7b9743",
+  "indexSHA256": "c0c8a3e7f8a83f6e43e5f7cecab24eefb66ac1e97cade88da4726ca45fae6fbf",
+  "verifierSHA256": "faa0e00d860a99e847f4cd314a754f8c8c2b463d60743023279b64f8520c13ca"
+}
