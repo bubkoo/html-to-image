@@ -1,0 +1,153 @@
+{
+  "checkedAt": "2026-11-24T20:29:49.153172+00:00",
+  "status": "Scoped SVG environment cancellation repair locally verified and submitted as draftPR652; remote CI and actual device are separate gates.",
+  "pr": 652,
+  "url": "https://github.com/bubkoo/html-to-image/pull/652",
+  "draft": true,
+  "merged": false,
+  "identity": {
+    "basePR": 650,
+    "base": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "isolatedSource": "786603d733ae273e1c6ad420d3239414d36e8a45",
+    "integratedSource": "d2501695c9aceafd7e301486bb1468631b50a5f4",
+    "productionSHA256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba",
+    "parentOriginalSHA256": "bff89181065a7865cf4219bdf5d86807c9e1d95d14147b7bfe8410e8e31f9e8d",
+    "baseAndSiblingBaselineProductionFileEqual": true,
+    "sourceAndIsolatedProductionAndTestBlobsEqual": true,
+    "productionFiles": ["src/svg-style-scope.ts"],
+    "testFiles": ["test/browser-unit/svg-style-environment.test.ts"],
+    "nativeFeatureInIsolatedProductionBranch": false
+  },
+  "bugs": [
+    "Falsy reason values replaced by fallback errors; truthiness conflates error outcomes",
+    "Disposed/aborted owner can deliver raw resolved document through later default resource-lock continuation"
+  ],
+  "fix": "Explicit outcome discriminant, exact reason selected by signal.aborted, pre-aborted disposal, single-winner settlement and lifecycle check at resource-lock delivery. CSP/sandbox/viewport/readiness deadline unchanged.",
+  "fixedFinalPair": {
+    "performedOnSiblingCandidate": "c621e09a2dad905b719522f5ddf12664069caef5 baseline; shared factory bytes equal parent25e",
+    "engines": 3,
+    "before": {
+      "failed": 60,
+      "passed": 33
+    },
+    "after": {
+      "passed": 93
+    },
+    "casesPerEngine": 31,
+    "measuredInputsEach": 446,
+    "onlyChangedMeasuredInput": "src/svg-style-scope.ts",
+    "allOtherInputsEqual": true,
+    "withinEachRunInputsUnchanged": true,
+    "tests": "7reasons x4phases plus pending-dispose, dispose-before-lock and actual5000ms timeout/late-load cleanup",
+    "raw": "output/playwright/native-scroll-followup/svg-style-abort-checked-*"
+  },
+  "independentLocalValidation": {
+    "source": "786603d733ae273e1c6ad420d3239414d36e8a45",
+    "node": "v22.17.0",
+    "pnpm": "10.34.9",
+    "measuredInputs": 1033,
+    "inputsUnchanged": true,
+    "lintBuildPackageConsumersAndTypes": "passed",
+    "firstDefault": {
+      "coveragePassed": 1391,
+      "coverageFailed": 2,
+      "coverageSkipped": 4,
+      "source": "not run after failed coverage"
+    },
+    "firstFailures": "Firefox charset-header dataCSS import and pattern nested-missing reference screenshots timeout before library capture; fonts loaded,waitingstable; blank postcleanup failure screenshots are not proof source wasblank",
+    "separateFullSource": {
+      "passed": 1274,
+      "skipped": 4
+    },
+    "builtPackages": {
+      "passed": 162
+    },
+    "oneUnchangedFinalDefaultRecheck": {
+      "coveragePassed": 1393,
+      "sourcePassed": 1274,
+      "existingSkippedEach": 4
+    },
+    "rootCauseOfFirstFailures": "not established; later success is not causal proof",
+    "concurrency": "51experimental browser cases only bounded20:20:10.991Z–20:20:28.305Z; mayoverlap earlierpackage. Finaldefault starts20:22 after that interval. Processsample aftercompletion proves only noownedautomation then, not continuous exclusive monitoring."
+  },
+  "independentReview": {
+    "passed": 51,
+    "perEngine": 17,
+    "extraReasons": [
+      "NaN",
+      "-0",
+      "Symbol",
+      "BigInt",
+      "throwing then getter",
+      "revoked Proxy",
+      "native reason after abort(undefined)"
+    ],
+    "boundaries": [
+      "raw fulfilled promise cannot be retroactively rejected",
+      "completed resource-lock result remains winner; subsequent access rejects",
+      "same pending raw/locked consumers reject exactSymbol",
+      "timeout remains original winner; laterabort(false) affects lateraccess only"
+    ],
+    "notAFullCaptureOrPackageSuite": true
+  },
+  "integratedCandidate": {
+    "source": "d2501695c9aceafd7e301486bb1468631b50a5f4",
+    "measuredInputs": 446,
+    "inputsUnchanged": true,
+    "coverage": {
+      "passed": 1554,
+      "failed": 2,
+      "skipped": 45
+    },
+    "defaultSourcePhase": "not run after coveragefailure",
+    "separateSource": {
+      "passed": 1435,
+      "failed": 2,
+      "skipped": 45
+    },
+    "packages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    },
+    "knownFailures": "macOSWebKit native-scroll visible-text/insetshadow atDPR1; ESM/UMD native-scroll groups alsoDPR2fractional. Strict native gates unchanged.",
+    "packageContract": "passed",
+    "artifactBoundary": "Only16 current source failure artifacts plus selectionreceipt copied; older shared artifacts excluded. No separately saved firstdefault screenshot claim. Exact finalpackage traces/context/reports retained."
+  },
+  "offlineBlobPreview": {
+    "source": "d2501695c9aceafd7e301486bb1468631b50a5f4",
+    "umdSHA256": "a9bc5674d4fa79ba4304ab24178dd7c18aa7bec4f851058e053486db8fdcfde8",
+    "umdBytes": 99005,
+    "pageSHA256": "4286c4bd234d96ae7358be2f63007ea60aa6def8475a8ef667229bac381ab25f",
+    "desktopEnginesPassed": 3,
+    "trustedPointerClick": true,
+    "png": [160, 80],
+    "all12800PixelsVerified": true,
+    "popupNoopenerAndPNGContentType": true,
+    "cleanupAndRevokeVerified": true,
+    "HTTPRequests": 0,
+    "physicalDeviceUsed": false,
+    "notSupersedingInitialOfflineFailures": "Earlier e014 offline page initialmargin and WebKitdimension failures stay ignoredlocal pinned evidence; newerpage does not establish their fullcause/fix."
+  },
+  "remoteCI": {
+    "run": 45480659033,
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45480659033",
+    "head": "786603d733ae273e1c6ad420d3239414d36e8a45",
+    "status": "in_progress at collection; no pass claim",
+    "CodeQL": "not scheduled for stackedbase; existingPR filter targets master"
+  },
+  "physicalDevice": "Not used; user defers until2026-11-24T22:02:04Z. Mirroring remains closed.",
+  "oldContributorPRActions": 0,
+  "npmPublished": false,
+  "macNetworkChanged": false,
+  "rawEvidence": {
+    "index": "svg-style-environment-cancellation-index.json",
+    "archive": {
+      "path": "svg-style-environment-cancellation-raw.tar.gz",
+      "bytes": 1573221,
+      "sha256": "e249c7a585188fbfa53bc691db217015aafdd2ad7bebabe99d65595fc4663c16"
+    },
+    "fileCount": 265,
+    "allMemberHashesVerified": true
+  }
+}
