@@ -1,5 +1,15 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-24 反射式文档读取本地验收并暂停
+
+候选 C 把已观察到的 Document 属性读取移到内部 Reflect.get 入口：覆盖 15 处 defaultView，以及 lockResources 的 createElement/head；meta 仍由原私有文档创建，方法接收者、CSP 内容和应用顺序保留。共修改 9 个既有源码文件并新增内部 document.ts；测试、断言、三次回收请求、期限、跳过及配置未改。这是待验收候选，尚未确认根因或完整修复。
+
+主机与固定 Linux 环境的 lint、构建、tarball ESM/CJS/UMD、TS4.9/当前版本入口和浏览器类型全部通过。Linux 使用未修改 Firefox、未启用诊断环境变量，按正常顺序完成 coverage 1234 / source 1115 / 浏览器构建包 162 项通过，前两阶段各 4 既有跳过。含新增 helper 和全部构建产物的 414 个受测输入前后哈希一致，主机源码/测试/脚本/配置也与受测输入一致；排序缓存仅预先保存并移除 results.json，优化 bundle 保留。
+
+原基线 `5d22112` 的 PR CI 45342549882 已结束失败：coverage 1234 / 4 跳过，source 1111 / 4 项 Firefox 回收失败 / 4 跳过（原三项加移除 iframe），浏览器包未运行，独立 source 对照也失败。完整日志和元数据保留；本阶段未下载其上传原图。远端与本地环境、观察器配置不同，不能把这与 C 的本地通过视为受控因果证明。
+
+[本轮源码补丁、完整日志、输入哈希及清理回执](evidence/gc-observer-controls/reflective-document-summary.json)已归档。容器跟踪源码已恢复、Firefox 原文件已核对、自有容器停止；忽略的构建产物仍为 C，未声称恢复。候选与台账仅保存为本地检查点，不推送、不启动新远端任务。按用户要求在本小目标后暂停；恢复后先做候选准确提交的正常远端门禁，再评估生产改动及真机验收。#646 仍为诊断草稿，旧 Issue/PR 未按完整解决处理，无 npm 发布。
+
 ## 2026-11-24 A-B-A 与另一处真实文档缓存路径
 
 仅替换 lockResources 的 B（`1995c32`）在 PR 与直接 push 的正常 source/独立对照共四轮中，原三项 Firefox 均回收。但完整流水线仍失败：PR 45338308309 为 1114 / 1 项 WebKit 冻结 SVG 源文档失败 / 4 跳过；push 45338301619 为 1113 / Firefox 移除 iframe 与 WebKit 冻结普通源文档两项失败 / 4 跳过。PR 对照 1115 / 4 通过，push 对照仍有 Firefox 移除 iframe 失败（1114 / 1 / 4），均不替换正常失败，浏览器包未运行。

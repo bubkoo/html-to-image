@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { clonePseudoElements } from './clone-pseudos.js'
 import {
@@ -175,7 +176,7 @@ function cloneCSSStyle<T extends HTMLElement>(
   }
 
   const sourceStyle = (
-    nativeNode.ownerDocument.defaultView || window
+    readDocumentProperty(nativeNode.ownerDocument, 'defaultView') || window
   ).getComputedStyle(nativeNode)
   if (sourceStyle.cssText && selected == null) {
     targetStyle.cssText = sourceStyle.cssText
@@ -195,7 +196,8 @@ function cloneCSSStyle<T extends HTMLElement>(
           if (value === task.getInheritedStyleValue(parent, name)) return
         } else {
           inheritedStyle ||= (
-            nativeNode.ownerDocument.defaultView || window
+            readDocumentProperty(nativeNode.ownerDocument, 'defaultView') ||
+            window
           ).getComputedStyle(parent)
           if (value === inheritedStyle.getPropertyValue(name)) return
         }

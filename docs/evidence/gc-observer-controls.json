@@ -59,7 +59,7 @@
   ],
   "gates": "original sampled booleans still asserted; later collections never replace primary failure",
   "localRawFiles": 12,
-  "totalRawFiles": 3170,
+  "totalRawFiles": 3192,
   "firstPair": {
     "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
     "pushRun": 43667097221,
@@ -3975,5 +3975,17 @@
     },
     "rawFiles": 342
   },
-  "lockCounterfactualRawFiles": 342
+  "lockCounterfactualRawFiles": 342,
+  "reflectiveDocument": {
+    "summary": "gc-observer-controls/reflective-document-summary.json",
+    "localCoveragePassed": 1234,
+    "localSourcePassed": 1115,
+    "localBrowserPackagesPassed": 162,
+    "measuredInputsUnchanged": 414,
+    "candidateRemote": "not run",
+    "candidateDevice": "not run",
+    "userRequestedPause": true,
+    "acceptedFix": false
+  },
+  "reflectiveDocumentRawFiles": 22
 }

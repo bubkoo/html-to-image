@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import { uuid } from './util.js'
 import {
   rewriteSVGStyleURLs,
@@ -18,7 +19,7 @@ export async function detectSVGFragmentPolicy(
   document: Document,
   check: () => void,
 ): Promise<'file' | 'page'> {
-  const view = document.defaultView
+  const view = readDocumentProperty(document, 'defaultView')
   if (!view || view.innerWidth < 16 || view.innerHeight < 11)
     throw new Error('SVG fragment scope probe needs a larger active viewport')
   const ns = 'http://www.w3.org/2000/svg'
@@ -354,8 +355,8 @@ export function createSVGStyleEnvironment(
   source: Document,
   signal?: AbortSignal,
 ) {
-  const width = source.defaultView?.innerWidth || 1024
-  const height = source.defaultView?.innerHeight || 768
+  const width = readDocumentProperty(source, 'defaultView')?.innerWidth || 1024
+  const height = readDocumentProperty(source, 'defaultView')?.innerHeight || 768
   const fonts: FontFace[] = []
   source.fonts?.forEach((font) => {
     if (font.status === 'loaded') fonts.push(font)
@@ -367,10 +368,14 @@ export function createSVGStyleEnvironment(
   let disposed = false
   const lockResources = (document: Document) => {
     if (resourcesLocked) return
-    const policy = document.createElement('meta')
+    const policy = Reflect.apply(
+      readDocumentProperty(document, 'createElement'),
+      document,
+      ['meta'],
+    ) as HTMLMetaElement
     policy.httpEquiv = 'Content-Security-Policy'
     policy.content = "img-src 'none'; style-src 'unsafe-inline'"
-    document.head.append(policy)
+    readDocumentProperty(document, 'head').append(policy)
     resourcesLocked = true
   }
   const dispose = () => {
@@ -494,7 +499,8 @@ export async function freezeSVGFragmentStyles(
   reportFontError: (error: unknown) => void,
   prepareFileStyle: (text: string) => Promise<string>,
 ) {
-  const view = (document.defaultView || window) as Window & typeof globalThis
+  const view = (readDocumentProperty(document, 'defaultView') ||
+    window) as Window & typeof globalThis
   const container = document.createElement('div')
   const ownStyle = (host as HTMLElement).style
   Array.from(host.attributes).forEach((attribute) =>
