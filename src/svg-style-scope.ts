@@ -406,9 +406,14 @@ export function createSVGStyleEnvironment(
     getDocument(trustedProbe = false): Promise<Document> {
       if (disposed)
         return Promise.reject(
-          signal?.reason ||
-            new Error('SVG style environment has been disposed'),
+          signal?.aborted
+            ? signal.reason
+            : new Error('SVG style environment has been disposed'),
         )
+      if (signal?.aborted) {
+        dispose()
+        return Promise.reject(signal.reason)
+      }
       if (!pending) {
         pending = new Promise<Document>((resolve, reject) => {
           frame = document.createElement('iframe')
@@ -416,24 +421,32 @@ export function createSVGStyleEnvironment(
           ownFrame.setAttribute('sandbox', 'allow-same-origin')
           ownFrame.setAttribute('aria-hidden', 'true')
           ownFrame.style.cssText = `position:fixed!important;left:-99999px!important;top:0!important;width:${width}px!important;height:${height}px!important;opacity:0!important;border:0!important;pointer-events:none!important`
-          const finish = (error?: unknown, result?: Document) => {
+          let settled = false
+          const finish = (
+            outcome: { error: unknown } | { document: Document },
+          ) => {
+            if (settled) return
+            settled = true
             clearTimeout(timer)
             signal?.removeEventListener('abort', abort)
             ownFrame.onload = null
             cancel = undefined
-            if (error) {
+            if ('error' in outcome) {
               ownFrame.remove()
-              reject(error)
-            } else resolve(result!)
+              reject(outcome.error)
+            } else resolve(outcome.document)
           }
           const abort = () =>
-            finish(
-              signal?.reason ||
-                new DOMException('Capture aborted', 'AbortError'),
-            )
+            finish({
+              error: signal?.aborted
+                ? signal.reason
+                : new DOMException('Capture aborted', 'AbortError'),
+            })
           const timer = setTimeout(
             () =>
-              finish(new Error('SVG style environment did not become ready')),
+              finish({
+                error: new Error('SVG style environment did not become ready'),
+              }),
             5000,
           )
           cancel = abort
@@ -457,9 +470,9 @@ export function createSVGStyleEnvironment(
                     throw error
                 }
               })
-              finish(undefined, result)
+              finish({ document: result })
             } catch (error) {
-              finish(error)
+              finish({ error })
             }
           }
           signal?.addEventListener('abort', abort, { once: true })
@@ -474,6 +487,10 @@ export function createSVGStyleEnvironment(
       return trustedProbe
         ? pending
         : pending.then((document) => {
+            if (disposed || signal?.aborted)
+              throw signal?.aborted
+                ? signal.reason
+                : new Error('SVG style environment has been disposed')
             lockResources(document)
             return document
           })
