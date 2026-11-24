@@ -96,3 +96,24 @@ Remove application-object exposure from the next probe, use only the existing We
 - Source: ordinary CC and effective-JIT controls
 - Related Files: docs/evidence/gc-observer-controls/ordinary-cc-summary.json
 - Tags: playwright, firefox, preferences, jit, cacheir, observer-effect
+
+## [LRN-20261124-004] knowledge
+
+**Logged**: 2026-11-24
+**Priority**: high
+**Status**: resolved
+**Area**: testing
+
+### Summary
+The compiled px/source-document witness persists when the probe carries only the existing WeakRef.
+
+### Details
+Reference-only tool controls identify an explicitly held member and reject a separately sampled collected reference, without unwrapping capture/negative/source objects. F1 passes 1225/four skips, while G1 preserves the original Firefox failure at 1224/one/four. Its complete GC graph still has a black HTMLDocument and module -> px -> explicit CacheIR shape -> source Window -> Document witnesses. Direct capture-object unwrapping is therefore not necessary for this observed path; other debugger/WeakRef/snapshot/ordinary-CC effects remain possible.
+
+### Suggested Action
+Retain the post-verdict limitation and original gates. Use actual realm/accessor paths to guide further reduction, rather than equating any one witness with the complete cause or rewriting getters to pass.
+
+### Metadata
+- Source: existing-WeakRef-only failure capture
+- Related Files: docs/evidence/gc-observer-controls/reference-only-summary.json
+- Tags: weakref, cacheir, module, observer-effect

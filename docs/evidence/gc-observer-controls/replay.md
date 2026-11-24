@@ -326,3 +326,43 @@ and push both fail three Firefox source checks (1234 coverage /1112 source,
 four/four skips, packages not run); complete logs/artifacts/check readback saved.
 No npm or old contributor PR mutation. Original Firefox and tracked source/test/
 config restored; owned container idle, all measured processes terminal; goal active.
+
+
+## Existing-WeakRef-only capture
+
+Historical exact9a source, not current master acceptance. F1 passive/no-hook passes
+1225/four inherited skips; G1 fails the original Firefox removed-iframe primary,
+1224/one/four. Types pass before G1. All production/built inputs are unchanged,
+fixture remains4520bytes; original three requests/assertions/timeouts/skips remain.
+Full source and browser-package suites were not run.
+
+The hook exposes only {__codexHeap:true,reference}. The browser patch unwraps only
+that existing WeakRef, not capture/renderer/negative/source. Target identity uses
+the recorded two-edge wrapper/WeakRef path. Primary failure is cached before
+inspection; extra ordinary CC is diagnostic only. Positive known member ownership
+and a separately collected WeakRef validate identity; the latter has zero direct
+document target candidates. Raw graphs and prior sampled booleans are retained.
+
+Full ordinary-edge GC search parses all rows/IDs and retains undecorated CacheIR
+fields conservatively. G1 has a black source HTMLDocument and86 module-root
+witnesses, including px -> explicit property CacheIR shape -> source Window ->
+Document. It persists without capture-object unwrapping. This is not a unique
+pre-verdict cause or a proof every observer effect is absent. Parsers preserve
+conditional WeakMap records separately and raw roots without asserting runtime
+unreachability. Application object starts are intentionally not inspected.
+
+Rebuild from pinned original Firefox omni.ja with build.py and preserved original
+Runtime/Juggler/BrowserHandler entries; no44MB ZIP binaries are included. Version7
+uses ordinary CC and current pref/engine metadata as in ordinary-cc. Generate the
+typed hook with build-hook.mjs; use the checked-in archive's final config, which
+copies primary/heap/GC/CC artifacts. Environment/hash/reset helpers are preserved.
+Do not build/edit during a measured suite. Helper controls run before baseline.
+
+Exact896416a PR CI fails three Firefox source cases after1234 coverage passes
+(1112source/four-four skips/packages not run), complete artifacts saved. Push is
+still downloading browser engines at its recorded readback: no terminal result
+or complete push log is claimed. The separate size-label action fails with HTTP406
+on the full diff's20000-line API cap. Its independent repair is the next action.
+
+Firefox and tracked config/fixture/source restored, container idle, all measured
+local processes terminal; no system Safari/phone used. Goal active, no GC fix.
