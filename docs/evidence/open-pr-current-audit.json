@@ -41,10 +41,17 @@
       "domPropertyLifetimeCandidate": {
         "pr": 650,
         "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-        "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-        "status": "local/current physical UMD subset/default PR CI pass; draft and unmerged",
+        "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "status": "parent CI/CodeQL/Codecov pass; draft and unmerged; not native-child acceptance",
         "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
-        "notFullOriginalIssueAcceptance": true
+        "notFullOriginalIssueAcceptance": true,
+        "priorValidatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+        "latestRemoteEvidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json"
+      },
+      "paintBaseProvenanceFollowup": {
+        "date": "2026-11-25",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "status": "HTTP distinct-query identity verified; import/computed-style provenance loss isolated; xml:base route rejected; no runtime fix"
       }
     },
     {
@@ -133,10 +140,12 @@
       "domPropertyLifetimeCandidate": {
         "pr": 650,
         "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-        "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-        "status": "local/current physical UMD subset/default PR CI pass; draft and unmerged",
+        "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "status": "parent CI/CodeQL/Codecov pass; draft and unmerged; not native-child acceptance",
         "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
-        "notFullOriginalIssueAcceptance": true
+        "notFullOriginalIssueAcceptance": true,
+        "priorValidatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+        "latestRemoteEvidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json"
       }
     },
     {
@@ -332,10 +341,17 @@
       "domPropertyLifetimeCandidate": {
         "pr": 650,
         "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-        "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-        "status": "local/current physical UMD subset/default PR CI pass; draft and unmerged",
+        "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+        "status": "parent CI/CodeQL/Codecov pass; draft and unmerged; not native-child acceptance",
         "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
-        "notFullOriginalIssueAcceptance": true
+        "notFullOriginalIssueAcceptance": true,
+        "priorValidatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+        "latestRemoteEvidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json"
+      },
+      "paintBaseProvenanceFollowup": {
+        "date": "2026-11-25",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "status": "HTTP distinct-query identity verified; import/computed-style provenance loss isolated; xml:base route rejected; no runtime fix"
       }
     },
     {
@@ -370,7 +386,26 @@
       ],
       "remainingBoundary": "完整原生滚动条与滑块位置仍待解决；原型两项严格 WebKit 像素失败尚未解决。#81 原 sandbox 不可访问，不以当前部分回归宣称全部修复。",
       "relatedIssues": [81, 345],
-      "incremental634": "#634 已合入 f340ddf，占位尺寸根因有桌面三引擎严格对照，iPhone 30/30 及与 #635 组合 31/31；不等于完整原生滚动条外观/滑块解决。"
+      "incremental634": "#634 已合入 f340ddf，占位尺寸根因有桌面三引擎严格对照，iPhone 30/30 及与 #635 组合 31/31；不等于完整原生滚动条外观/滑块解决。",
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "f3a00b069fadea920606b805221f1996711f09a9",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "defaultCoverage": {
+          "passed": 1397,
+          "failed": 2,
+          "skipped": 13,
+          "sourcePhaseNotRun": true
+        },
+        "remaining": [
+          "opaque stylesheet overrides; resource integration in progress",
+          "actual native-part hover state",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+        ],
+        "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      }
     },
     {
       "number": 407,
@@ -384,7 +419,26 @@
         "docs/evidence/scrollbar-extension-probes.json",
         "test/browser-unit/pseudo-resources.test.ts"
       ],
-      "remainingBoundary": "自定义 CSS 注入不等于源原生滚动条外观/位置已保留"
+      "remainingBoundary": "自定义 CSS 注入不等于源原生滚动条外观/位置已保留",
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "f3a00b069fadea920606b805221f1996711f09a9",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "defaultCoverage": {
+          "passed": 1397,
+          "failed": 2,
+          "skipped": 13,
+          "sourcePhaseNotRun": true
+        },
+        "remaining": [
+          "opaque stylesheet overrides; resource integration in progress",
+          "actual native-part hover state",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+        ],
+        "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      }
     },
     {
       "number": 401,
@@ -463,7 +517,26 @@
         "docs/evidence/scrollbar-extension-probes.json",
         "docs/evidence/pseudo-style-resources.json"
       ],
-      "remainingBoundary": "原帖已要求源轨道/滑块颜色、尺寸与位置，不是用户待选范围；非标准伪元素和原 Windows/Edge 环境仍待验证"
+      "remainingBoundary": "原帖已要求源轨道/滑块颜色、尺寸与位置，不是用户待选范围；非标准伪元素和原 Windows/Edge 环境仍待验证",
+      "nativeScrollFidelityFollowup": {
+        "date": "2026-11-25",
+        "source": "f3a00b069fadea920606b805221f1996711f09a9",
+        "branch": "codex/native-scroll-fidelity",
+        "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+        "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+        "defaultCoverage": {
+          "passed": 1397,
+          "failed": 2,
+          "skipped": 13,
+          "sourcePhaseNotRun": true
+        },
+        "remaining": [
+          "opaque stylesheet overrides; resource integration in progress",
+          "actual native-part hover state",
+          "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+        ],
+        "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+      }
     }
   ],
   "sourceReviewMethod": "Fresh original PR body/head and available source patches, mapped to current sources/tests; lock-only items reuse the archived review of the same head. No old branch was merged.",
@@ -626,23 +699,12 @@
   },
   "latestDomAccessValidation": {
     "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
-    "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
-    "ci": 45393116026,
-    "codeql": 45393116014,
-    "status": "local/current physical UMD subset/CI/CodeQL pass; Codecov patch fails; draft and unmerged",
-    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
-    "codecov": {
-      "patch": {
-        "conclusion": "failure",
-        "coverage": 85.53655,
-        "target": 87.12,
-        "missingOrPartialLines": 93
-      },
-      "project": {
-        "conclusion": "success",
-        "coverage": 87.48
-      }
-    }
+    "validatedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "ci": 45399037878,
+    "codeql": 45399037913,
+    "status": "parent #650 CI/CodeQL/Codecov and reported checks pass; still draft and unmerged",
+    "evidence": "docs/evidence/native-scroll-fidelity-followup-parent-ci.json",
+    "doesNotValidateNativeChild": true
   },
   "latestCoverageFollowup": {
     "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
@@ -660,7 +722,47 @@
       "target": 87.12,
       "conclusion": "failure"
     },
-    "newPublishedHead": "verify exact current PR checks separately",
-    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json"
+    "newPublishedHead": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
+    "exactHeadRemote": "CI/CodeQL/Codecov pass; see latestDomAccessValidation"
+  },
+  "latestNativeScrollFidelityFollowup": {
+    "date": "2026-11-25",
+    "source": "f3a00b069fadea920606b805221f1996711f09a9",
+    "branch": "codex/native-scroll-fidelity",
+    "status": "incomplete, local default and native package pixel gates fail; no new PR or merge",
+    "evidence": "docs/evidence/native-scroll-fidelity-followup.json",
+    "defaultCoverage": {
+      "passed": 1397,
+      "failed": 2,
+      "skipped": 13,
+      "sourcePhaseNotRun": true
+    },
+    "remaining": [
+      "opaque stylesheet overrides; resource integration in progress",
+      "actual native-part hover state",
+      "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
+    ],
+    "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+  },
+  "previousDomAccessValidation": {
+    "source": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
+    "validatedHead": "4d3d2a312f0628909cfe219d4a373b5ee75c094c",
+    "ci": 45393116026,
+    "codeql": 45393116014,
+    "status": "local/current physical UMD subset/CI/CodeQL pass; Codecov patch fails; draft and unmerged",
+    "evidence": "docs/evidence/document-property-lifetime/dom-access-remote-validation.json",
+    "codecov": {
+      "patch": {
+        "conclusion": "failure",
+        "coverage": 85.53655,
+        "target": 87.12,
+        "missingOrPartialLines": 93
+      },
+      "project": {
+        "conclusion": "success",
+        "coverage": 87.48
+      }
+    }
   }
 }

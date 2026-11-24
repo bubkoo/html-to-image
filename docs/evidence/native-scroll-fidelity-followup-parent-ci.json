@@ -1,0 +1,93 @@
+{
+  "checkedAt": "2026-11-24T16:47:47.379Z",
+  "scope": "Parent PR #650 only; does not validate native-scroll child f3a00b0",
+  "head": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+  "ci": {
+    "id": 45399037878,
+    "status": "completed",
+    "conclusion": "success",
+    "head": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45399037878"
+  },
+  "codeql": {
+    "id": 45399037913,
+    "status": "completed",
+    "conclusion": "success",
+    "head": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45399037913"
+  },
+  "checks": [
+    {
+      "id": 138470552468,
+      "name": "triage",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/html-to-image/actions/runs/45401371997/job/138470552468"
+    },
+    {
+      "id": 138467011198,
+      "name": "codecov/patch",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://app.codecov.io/gh/bubkoo/html-to-image/pull/650"
+    },
+    {
+      "id": 138466970548,
+      "name": "codecov/project",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://app.codecov.io/gh/bubkoo/html-to-image/pull/650"
+    },
+    {
+      "id": 138463961035,
+      "name": "triage",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/html-to-image/actions/runs/45399472085/job/138463961035"
+    },
+    {
+      "id": 138463154142,
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/html-to-image/runs/138463154142"
+    },
+    {
+      "id": 138462467460,
+      "name": "ci",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/html-to-image/actions/runs/45399037878/job/138462467460"
+    },
+    {
+      "id": 138462467271,
+      "name": "Analyze (javascript)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/html-to-image/actions/runs/45399037913/job/138462467271"
+    },
+    {
+      "id": 138462458568,
+      "name": "run",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/html-to-image/actions/runs/45399030040/job/138462458568"
+    },
+    {
+      "id": 138462454347,
+      "name": "triage",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/html-to-image/actions/runs/45399029807/job/138462454347"
+    },
+    {
+      "id": 138462437091,
+      "name": "WIP",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/bubkoo/bot"
+    }
+  ],
+  "combinedStatus": "success",
+  "mergeOrReadyAction": false
+}
