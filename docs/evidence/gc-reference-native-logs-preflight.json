@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-24",
+  "scope": "Observer v9 native parent-opened GC/CC file descriptors; no production fix",
+  "remoteConfirmed": {
+    "head": "571a9ba0a53912118198efb9824f2b1021c97a57",
+    "push": 45334546135,
+    "parentSnapshotAnalysis": "success, target/known-owned-member path found",
+    "childRead": {
+      "name": "NS_ERROR_FILE_ACCESS_DENIED",
+      "result": 2152857621
+    },
+    "childCC": "forceCC returned without GC/CC file paths; tool member assertion failed",
+    "actualSuites": "not run",
+    "PR45334553916": "still installing browser engines at last readback; not terminal claim"
+  },
+  "change": "Use native nsIMemoryInfoDumper.dumpGCAndCCLogsToFile(identifier,false,true,callback) in parent; select target content PID logs; native IPC provides opened descriptors to child; preserve original sandbox/JIT and ordinary CC semantics",
+  "observerLimits": "After cached primary/heap only; extra diagnostic CC can perturb later state and other content processes. Existing WeakRef wrapper held, not target. Raw snapshot precedes CC and IDs must be verified against emitted GC graph before joining.",
+  "localValidation": {
+    "heldAndCollectedControls": "pass; balanced registration; raw known-member GC edge found",
+    "testFrameIntegration": "one pass; full native GC graph parse has no unknown rows and target ID/member verified",
+    "cleanup": "original browser restored; tracked container inputs restored; generated tool test removed; container stopped"
+  },
+  "sources": [
+    "https://raw.githubusercontent.com/mozilla-firefox/firefox/main/xpcom/base/nsMemoryInfoDumper.cpp",
+    "https://firefox-source-docs.mozilla.org/performance/memory/gc_and_cc_logs.html"
+  ],
+  "files": {
+    "scripts/firefox-gc-reference-controls.cjs": "8531164bcad28eaabef25771e5bbb82cceeec966104621e4293941677bf1c7c3",
+    "scripts/firefox-gc-reference-method.txt": "349b6d83cb332e7f4551b84f0a1ef43792355e19ba0aeeaf5e0d15bfa8d9e230",
+    "scripts/firefox-gc-reference-parent.txt": "09822e64784966122833a63037986f9470222643d8b1f19bd67cdfcbf07c4677",
+    "scripts/firefox-gc-reference-probe.py": "e624edfdd10bb3447e823447460cd9ed5676d867f625187cfc2b689bca9775d6"
+  },
+  "remoteAcceptance": "requires new exact-head CI; prior failed preflights retained separately"
+}

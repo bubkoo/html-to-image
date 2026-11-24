@@ -81,11 +81,14 @@ with ZipFile(backup) as original:
     if (obj instanceof Debugger.Object) {
       let marked = false;
       try { marked = obj.getOwnPropertyDescriptor('__codexHeap')?.value === true; } catch (_) {}
-      if (marked) return [{name:'__codex_heap_paths',value:{value:JSON.stringify(this._codexHeapPaths(obj))}}];
+      if (marked) return this._codexHeapPaths(obj).then(graph => [{name:'__codex_heap_paths',value:{value:JSON.stringify(graph)}}]);
     }
     for (const propertyName"""
     assert runtime.count(needle) == 1
     runtime = runtime.replace(needle, replacement)
+    needle = "return {properties: executionContext.getObjectProperties(objectId)};"
+    assert runtime.count(needle) == 1
+    runtime = runtime.replace(needle, "return {properties: await executionContext.getObjectProperties(objectId)};")
     runtime += """
 try {
   if (!Services.cpmm.__codexJitOptionsRecorded) {

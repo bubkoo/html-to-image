@@ -425,3 +425,22 @@ avoiding the unrelated absent-cache error after a failed tool preflight. Local
 positive/negative and test-frame integration pass, including known member/raw
 files, but remote acceptance remains required. Parent analysis does not establish
 the application failure's cause. See [preflight](../gc-reference-parent-preflight.json).
+
+
+### Native parent-opened child log sinks
+
+The571a9ba push45334546135 confirms parent snapshot analysis succeeds and preserves
+the known owner edge; the child read check reports NS_ERROR_FILE_ACCESS_DENIED
+(2152857621). Direct child forceCC yields no file paths, so the strict tool member
+check fails before project suites. PR45334553916 is not called terminal while
+browser installation is still live. Version9 uses the native parent
+nsIMemoryInfoDumper.dumpGCAndCCLogsToFile(identifier,false,true,callback), selecting
+the actual content PID's log pair. Its native IPC sends parent-opened descriptors
+to the child without changing sandbox/JIT policy. The normal non-all-traces
+collection remains after primary and snapshot; it may affect later state and
+other content processes. Original primary assertions/three requests stay fixed.
+Local held/collected controls, test-frame integration and complete raw GC parsing
+pass; target identity and explicit member join are verified. Snapshot IDs must be
+verified in each later GC graph before joining across the extra collection.
+See [preflight](../gc-reference-native-logs-preflight.json) and the referenced
+[Firefox implementation](https://raw.githubusercontent.com/mozilla-firefox/firefox/main/xpcom/base/nsMemoryInfoDumper.cpp).

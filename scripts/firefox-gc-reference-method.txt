@@ -1,4 +1,4 @@
-  _codexHeapPaths(root) {
+  async _codexHeapPaths(root) {
     dump("codex heap begin\n");
     const ids = {}, rawHolds = {};
     for (const key of ['reference']) {
@@ -25,16 +25,24 @@
     const graph = results[0] || {ids,errors:[{phase:'parent-analysis',message:'No parent response'}]};
     if (!graph.ids.target) return {...graph,beforeIDs,opened,closed,contentRead,
       limits:{introducedTargetHold:false,introducedWeakRefWrapperHold:true,weakTargetMayHaveCollectedAfterPrimary:true}};
-    let cc;
-    try {
-      const logger = Components.utils.createCCLogger();
-      logger.logSink.filenameIdentifier = 'codex-ordinary-after-primary';
-      Components.utils.forceCC(logger);
-      cc = {file: logger.logSink.ccLog?.path, gcFile: logger.logSink.gcLog?.path,
-        wantAllTraces: logger.wantAllTraces, phase: 'after-primary-and-heap',
-        extraCollectionForDiagnosisOnly: true};
-    } catch (error) { cc = {error: String(error)}; }
-    return {...graph,version:8,cc,file,ids:graph.ids,beforeIDs,opened,closed,contentRead,
+    const request = Services.appinfo.processID+'-'+Date.now()+'-'+ids.reference;
+    const cc = await new Promise(resolve => {
+      const {setTimeout,clearTimeout} = ChromeUtils.importESModule('resource://gre/modules/Timer.sys.mjs');
+      const timer = setTimeout(() => {
+        Services.cpmm.removeMessageListener('codex-gc-done', listener);
+        resolve({error:'Parent GC/CC log request timed out',request});
+      },10000);
+      const listener = ({data}) => {
+        if (data.request !== request) return;
+        clearTimeout(timer);
+        Services.cpmm.removeMessageListener('codex-gc-done', listener);
+        resolve({...data,wantAllTraces:false,phase:'after-primary-and-heap',extraCollectionForDiagnosisOnly:true,
+          method:'parent nsIMemoryInfoDumper with native child file-descriptor sink'});
+      };
+      Services.cpmm.addMessageListener('codex-gc-done', listener);
+      Services.cpmm.sendAsyncMessage('codex-gc-start', {request,pid:Services.appinfo.processID});
+    });
+    return {...graph,version:9,cc,file,ids:graph.ids,beforeIDs,opened,closed,contentRead,
       limits:{maxPathsPerStart:20,runtimeSnapshot:true,introducedTargetHold:false,
         introducedAllRootWrapperHolds:false,introducedWeakRefWrapperHold:true,introducedApplicationObjectHolds:false,
         snapshotIsAfterPrimaryOnly:true,rootPathsIncludeInspectorReferences:true,analysisProcess:'parent'}};

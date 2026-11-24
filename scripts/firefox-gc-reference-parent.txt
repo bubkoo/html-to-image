@@ -9,7 +9,7 @@ function codexAnalyzeReferenceHeap(file, ids) {
     const documents = Object.values(documentBuckets).flat();
     const targetCandidates = [...snapshot.computeShortestPaths(ids.reference, documents, 20)];
     const direct = targetCandidates.filter(([id, paths]) => paths.some(path => path.length === 2 && path[0].edge === 'proxy target' && path[1].edge === 'WeakRefObject::target'));
-    if (direct.length !== 1) return {version:8,file,ids,errors:[],targetState:'no unique direct WeakRef target in snapshot',observedDirectTargets:direct.length,documentBuckets,targetCandidates,limits:{introducedTargetHold:false,weakTargetMayHaveCollectedAfterPrimary:true}};
+    if (direct.length !== 1) return {version:9,file,ids,errors:[],targetState:'no unique direct WeakRef target in snapshot',observedDirectTargets:direct.length,documentBuckets,targetCandidates,limits:{introducedTargetHold:false,weakTargetMayHaveCollectedAfterPrimary:true}};
     const referenceWrapperID = ids.reference;
     ids.target = direct[0][0];
     const paths = {}, errors = [];
@@ -19,9 +19,36 @@ function codexAnalyzeReferenceHeap(file, ids) {
         paths[name] = [...snapshot.computeShortestPaths(start, [ids.target], 20)];
       } catch (error) { errors.push({name, error: String(error)}); }
     }
-    return {version:8,file,ids,referenceWrapperID,documentBuckets,targetCandidates,root:tree.root,paths,errors};
+    return {version:9,file,ids,referenceWrapperID,documentBuckets,targetCandidates,root:tree.root,paths,errors};
   } catch (error) {
-    return {version:8,file,ids,errors:[{phase:'parent-analysis',name:error.name,message:error.message,result:error.result,stack:error.stack}]};
+    return {version:9,file,ids,errors:[{phase:'parent-analysis',name:error.name,message:error.message,result:error.result,stack:error.stack}]};
   }
 }
 Services.ppmm.addMessageListener('codex-heap-analyze', ({data}) => codexAnalyzeReferenceHeap(data.file, data.ids));
+
+// Use Firefox's native parent-opened file-descriptor sinks for child logs.
+// Content sandbox policy is unchanged; direct child file access is unnecessary.
+Services.ppmm.addMessageListener('codex-gc-start', message => {
+  const {request,pid} = message.data;
+  const logs = [], errors = [];
+  const reply = () => {
+    const selected = logs.filter(log => !log.isParent && log.gcFile?.split('/').pop().startsWith('gc-edges.'+pid+'.'));
+    message.target.sendAsyncMessage('codex-gc-done', {request,pid,logs,errors,
+      ...(selected.length===1 ? selected[0] : {error:'No unique native child log pair',matches:selected.length})});
+  };
+  const callback = {
+    QueryInterface: ChromeUtils.generateQI(['nsIDumpGCAndCCLogsCallback']),
+    onDump(gcLog,ccLog,isParent) {
+      try { logs.push({gcFile:gcLog?.path,file:ccLog?.path,isParent}); }
+      catch (error) { errors.push({name:error.name,message:error.message,result:error.result}); }
+    },
+    onFinish() { reply(); },
+  };
+  try {
+    Components.classes['@mozilla.org/memory-info-dumper;1'].getService(Components.interfaces.nsIMemoryInfoDumper)
+      .dumpGCAndCCLogsToFile('codex-after-primary-'+request,false,true,callback);
+  } catch (error) {
+    errors.push({name:error.name,message:error.message,result:error.result});
+    reply();
+  }
+});
