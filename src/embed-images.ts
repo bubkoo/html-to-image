@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import { Options } from './types.js'
 import { embedResources } from './embed-resources.js'
 import { toArray, isInstanceOfElement, createImage } from './util.js'
@@ -113,7 +114,7 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
     const image = clonedNode as HTMLImageElement
     image.loading = 'eager'
     image.srcset = ''
-    if (!image.ownerDocument.defaultView) {
+    if (!readDocumentProperty(image.ownerDocument, 'defaultView')) {
       image.decoding = 'sync'
       image.crossOrigin = 'anonymous'
       image.src = dataURL
@@ -123,7 +124,8 @@ async function embedImageNode<T extends HTMLElement | SVGImageElement>(
     await createImage(
       dataURL,
       options,
-      isImageElement && clonedNode.ownerDocument.defaultView
+      isImageElement &&
+        readDocumentProperty(clonedNode.ownerDocument, 'defaultView')
         ? (clonedNode as HTMLImageElement)
         : undefined,
     )

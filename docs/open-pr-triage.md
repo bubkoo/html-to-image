@@ -1,5 +1,181 @@
 # 开放 PR 处理台账
 
+## 2026-11-24 反射式文档读取本地验收并暂停
+
+候选 C 把已观察到的 Document 属性读取移到内部 Reflect.get 入口：覆盖 15 处 defaultView，以及 lockResources 的 createElement/head；meta 仍由原私有文档创建，方法接收者、CSP 内容和应用顺序保留。共修改 9 个既有源码文件并新增内部 document.ts；测试、断言、三次回收请求、期限、跳过及配置未改。这是待验收候选，尚未确认根因或完整修复。
+
+主机与固定 Linux 环境的 lint、构建、tarball ESM/CJS/UMD、TS4.9/当前版本入口和浏览器类型全部通过。Linux 使用未修改 Firefox、未启用诊断环境变量，按正常顺序完成 coverage 1234 / source 1115 / 浏览器构建包 162 项通过，前两阶段各 4 既有跳过。含新增 helper 和全部构建产物的 414 个受测输入前后哈希一致，主机源码/测试/脚本/配置也与受测输入一致；排序缓存仅预先保存并移除 results.json，优化 bundle 保留。
+
+原基线 `5d22112` 的 PR CI 45342549882 已结束失败：coverage 1234 / 4 跳过，source 1111 / 4 项 Firefox 回收失败 / 4 跳过（原三项加移除 iframe），浏览器包未运行，独立 source 对照也失败。完整日志和元数据保留；本阶段未下载其上传原图。远端与本地环境、观察器配置不同，不能把这与 C 的本地通过视为受控因果证明。
+
+[本轮源码补丁、完整日志、输入哈希及清理回执](evidence/gc-observer-controls/reflective-document-summary.json)已归档。容器跟踪源码已恢复、Firefox 原文件已核对、自有容器停止；忽略的构建产物仍为 C，未声称恢复。候选与台账仅保存为本地检查点，不推送、不启动新远端任务。按用户要求在本小目标后暂停；恢复后先做候选准确提交的正常远端门禁，再评估生产改动及真机验收。#646 仍为诊断草稿，旧 Issue/PR 未按完整解决处理，无 npm 发布。
+
+## 2026-11-24 A-B-A 与另一处真实文档缓存路径
+
+仅替换 lockResources 的 B（`1995c32`）在 PR 与直接 push 的正常 source/独立对照共四轮中，原三项 Firefox 均回收。但完整流水线仍失败：PR 45338308309 为 1114 / 1 项 WebKit 冻结 SVG 源文档失败 / 4 跳过；push 45338301619 为 1113 / Firefox 移除 iframe 与 WebKit 冻结普通源文档两项失败 / 4 跳过。PR 对照 1115 / 4 通过，push 对照仍有 Firefox 移除 iframe 失败（1114 / 1 / 4），均不替换正常失败，浏览器包未运行。
+
+恢复准确原操作的 A（`7e69042`）后，PR 45339609829 的正常 source 与独立对照均恢复原三项 Firefox 失败（1112 / 3 / 4）；coverage 1234 / 4、静态/工具门禁及 CodeQL 45339609828 通过，浏览器包未运行。六份新图目标与完整 GC/快照匹配，采集/原生日志错误为零，文档属性包装/原型的缓存路径恢复。与此同时，同一 A 的 push 45339605085 完整通过 1234 / 1115 / 162（前两阶段各 4 跳过），再次否定确定的“当且仅当”。跨 job 的排序、进程、时间并不相同，不能把一次变化当独立根因证明。
+
+B 的两份实际 Firefox 移除 iframe 图也成功采集，普通 GC 有明确 util.px → GetProp CallNativeGetterResult → 源窗口/文档路径，快照亦对应；此位置含 document.defaultView 读取。这是旧本地关联失败在真实远端的同类引用证据，不能因原三项改善就忽略。WebKit 原始失败和额外诊断/对照之后回收的差异全部保留，不按完整修复或图片检查已执行处理。
+
+[342 份控制、准确 A/B 源码、完整日志/上传物、反向六图及两份 iframe 图](evidence/gc-observer-controls/lock-counterfactual-summary.json)已归档；28 组档案共 3170 原始文件全部可校验。当前运行时代码已恢复 A，与原基线相同；B 可从准确提交恢复。下一步验证保持原 DOM/创建文档语义的反射式属性读取，并覆盖已观察到的 defaultView 访问类；完整源码、构建包、远端、真实设备及旧需求范围仍须验收。目标保持进行中，无可合入修复或 npm 发布。
+
+## 2026-11-24 对照通过三项 Firefox，但完整 CI 仍失败
+
+准确 `1995c32` 的 [PR CI 45338308309](https://github.com/bubkoo/html-to-image/actions/runs/45338308309) 测试合并提交 `bbe7ad9`：静态/工具检查与 coverage 1234 / 4 跳过通过；原三项 Firefox 环境/待字体回收在正常 source 与独立 source 对照中均通过，两项环境保留 nativeCollected=true / ownerCollected=true，待字体 ownerCollected=true、无额外 native 诊断回收。
+
+正常 source 仍为 1114 通过 / 1 项 WebKit 冻结 SVG 源文档回收失败 / 4 跳过，浏览器包未运行；CodeQL 45338308376 通过。WebKit 原始 ownerCollected=false，额外诊断后才回收；独立 source 对照 1115 / 4 跳过通过，不能替换正常失败，也不能认定此次改动引入该失败或修复了整个生命周期。
+
+由于历史同基线已有波动，当前只把 lockResources 恢复为 `1e5117b`/`4a70ef0` 的准确原字节，保留 B 代码与全部结果，准备 A-B-A 反向对照；测试、采集器与默认配置不改。[本次结果和反向对照预检](evidence/gc-lock-operations-reversal-preflight.json)明确保留原始失败。下一步观察三项 Firefox 和其 Document 属性包装/原型缓存是否恢复；未宣称根因或可合入修复。
+
+## 2026-11-24 仅 lockResources 操作入口的因果对照
+
+未加载库的原生最小页完成五项冷/预热/借用入口/恢复直接入口控制：直接入口含 20,000 次预热及同代码重放，全部文档回收、弱/强控制有效，未形成独立原生复现；不能认定某个 DOM 方法本身为根因。
+
+在实际库内仅改变 lockResources：用模块文档创建未连接的 meta，以模块 Document 的 head getter 和 Element.append 操作私有文档，保留策略文本与应用顺序。其他样式探测、生命周期、测试、三次请求/断言/期限/跳过及默认 sandbox/JIT 不变。这是操作组的对照，尚非单一访问器因果证明或可合入修复。
+
+[预检](evidence/gc-lock-operations-preflight.json)通过完整 lint、构建、ESM/CJS/UMD tarball 与 TS4.9/当前版本入口、浏览器类型；涉及 CSP/资源隔离、原生 SVG 样式、加载字体、源文档及取消的八个旧测试文件，三引擎 149 通过 / 1 既有跳过。407 个受测输入前后哈希一致，本地未复现实际三项失败。容器原始浏览器和跟踪源码已恢复并停止；远端完整正常流程、原始失败与持有路径仍须准确提交验收，暂无新增真机或修复结论。
+
+## 2026-11-24 已采集实际远端三项失败
+
+准确 `4a70ef0` 的 [PR CI 45335352750](https://github.com/bubkoo/html-to-image/actions/runs/45335352750) 在合并测试提交 `f8028b2` 上通过探针正反控制、lint、构建、入口/类型和 coverage 1234 / 4 跳过；source 1112 通过 / 3 项 Firefox 回收失败 / 4 跳过，浏览器包未运行。独立同配置 source 对照同为 1112 / 3 / 4，不替换原始失败；CodeQL 45335352731 通过。push 45335344685 与旧版 PR 45334553916 在保存回读时仍安装浏览器，未声称最终结果。
+
+原始/对照六份图均成功识别目标，采集/原生跨进程日志错误为零，完整 GC 行解析无未知行，目标 ID 与快照对应。未探测环境的路径经 createSVGStyleEnvironment 的嵌套脚本及 lockResources；已探测/待字体两项经 detectSVGStylePolicy 的 DOM 访问缓存到私有窗口和文档。六份普通 GC 原图均保留明确 GetProp cacheir-shape 路径；排除两类具名观察器边后仍有 76/77 个模块候选。快照里含 weak 的缓存字段仅保守保留，不据名称认定强弱；这些是失败之后的图，尚不是唯一原始根因或已验收修复。
+
+离线解析器直接读取 gzip/protobuf 快照，按上游顺序还原两种字符串表，核对完整消息、引用、文档 census 与 Firefox 自带的每条给定路径（实际六图共 374 条路径）。原始布尔值在堆/额外 CC 前已落盘：未探测项 nativeCollected=true / ownerCollected=false，后续已探测项 nativeCollected=false / ownerCollected=false，待字体 collected=false；后续观测可能被先前诊断影响，不能概括为仅库对象保留。主三次请求/断言/期限/跳过和默认 sandbox/JIT 未改；没有解包 capture/environment/source。
+
+[254 份原始输入、三版工具、失败预检、六图、完整日志及分析](evidence/gc-observer-controls/remote-reference-summary.json)已归档。远端 PR 和本地 Firefox 均恢复原字节，本地受测输入恢复，自有容器停止；无生产改动、新增真机结论或 npm 发布。下一步仅针对实际路径所指的私有文档 DOM 读取做因果对照，再按完整输出与生命周期门禁评估修复，目标继续进行。
+
+## 2026-11-24 已确认远端采集权限差异
+
+准确 `571a9ba` 的 push CI 45334546135 证明父进程快照分析成功，并找到工具已知成员路径；子进程读同一文件明确返回 NS_ERROR_FILE_ACCESS_DENIED（2152857621）。子进程直接 forceCC 未生成 GC/CC 文件，工具自检因此失败，正常测试尚未运行。其 PR CI 45334553916 在已保存回读时仍安装浏览器，不推断最终结果。
+
+改用 Firefox 原生跨进程日志接口，由父进程打开文件并通过原生写入句柄交给子进程，按实际内容进程 PID 选择结果。保持 sandbox/JIT、普通 CC 模式与主断言；日志仍在缓存原始失败和堆快照之后采集，可能影响后续状态，不能作原始通过依据。[原生日志版预检](evidence/gc-reference-native-logs-preflight.json)的本地正反控制、测试页完整通路与完整图解析通过，原图已知成员和目标 ID 有效；浏览器/容器输入已恢复，容器停止。远端真实回收失败图仍待采集，无生产修复。
+
+## 2026-11-24 探针远端预检失败与父进程分析
+
+准确 `8d398dc` 的 PR CI 45333796763 与 push CI 45333790744 均在工具正向控制的子进程 readHeapSnapshot 处失败。安装后的浏览器哈希与本地相同，持有/回收的原始控制布尔值有效；正常 coverage/source/浏览器包尚未运行，不能记作生命周期复现。两轮均恢复了原始 Firefox，完整日志和上传物保留。旧重复步骤误在预检失败后读取不存在的排序缓存，已限制为正常 source 实际开始且失败后才能执行。
+
+下一版把保存的内容进程堆快照交给父进程读取/分析，只通过文件名与数值 ID 通信，不发送应用对象，不调整 sandbox/JIT。仅工具控制另外记录子进程读取的详细错误，用于验证原因；真实失败探针仍只携带已有 WeakRef。[父进程版本本地预检](evidence/gc-reference-parent-preflight.json)的正反控制与测试页完整通路通过，原始图中找到已知成员，浏览器与受测输入已恢复，自有容器停止。实际远端失败图仍待采集，生产代码与主断言未改。
+
+## 2026-11-24 恢复：远端失败后的 WeakRef 采集
+
+已接入仅诊断分支启用的探针：原始失败值先落盘，再只从已有 WeakRef 识别目标，保存原始堆及普通 GC/CC 图；环境、待字体和移除 iframe 三处均在旧额外观察之前采集。主断言、三次请求、超时和跳过未改，重复控制与原始 CI 结论分开。新增可逆安装器核对固定 Firefox 和源码哈希，CI 始终恢复浏览器，隐藏目录明确上传。
+
+[本地预检](evidence/gc-reference-remote-preflight.json)：持有/回收正反控制通过，测试页至原始图文件的完整正向通路通过；相关旧用例三引擎 20 通过 / 1 既有跳过，未复现失败。脚本和类型检查通过；读取可读钩子后文件大小改变，不声称排序/进程/时序相同。自有容器源码与浏览器已恢复并停止。下一步在 #646 的准确提交上等待正常远端流程，采集失败自身的图；尚无生命周期修复或新增真机结论。
+
+## 2026-11-24 阶段归档并暂停
+
+尺寸标签独立修复已提交草稿 [#649](https://github.com/bubkoo/html-to-image/pull/649)，准确 `94ae2db`。同一 #646 输入中旧完整 diff 请求 HTTP406，新脚本完整读取 106 文件 / 25,590 行，得出 XXL，无标签写入；分页、重命名和不完整列表等检查通过。其 CI 45325019386 的自身检查、lint、构建、入口与类型通过，coverage 1234 / 4 跳过；source 1112 通过 / 3 项 Firefox 回收失败 / 4 跳过，浏览器包未运行，CodeQL 通过。草稿未合入，新标签流程尚未生效。
+
+最新 #646 准确 `f267e03` 的 PR CI 45324323268 在合并测试提交 `dc35672` 完整通过：coverage 1234 / source 1115 / 浏览器包 162，各前两阶段 4 跳过，CodeQL 45324323422 通过。这一次通过不能解释先前失败或当作回收修复，#646 仍是诊断草稿。
+
+本地改用当前主分支 `f8d1c4b`，静态检查通过；正常流程先在 Firefox 移除 iframe 回收处失败，coverage 1233 / 1 失败 / 4 跳过，保留 nativeCollected=true / capturedCollected=false，未进入 source 和浏览器包，不能算复现远端三项失败。400 项受测输入前后相同；另四项未加载库的原生惰性文档控制均回收，尚无独立原生复现。新的 WeakRef 钩子仅生成，未安装或执行。
+
+[本阶段输入、完整日志、上传物及清理回执](evidence/gc-observer-controls/current-master-summary.json)已归档。Firefox 原文件已恢复，自有容器已停止，真机未操作。按用户要求在本小目标后暂停；恢复后再采集实际远端回收失败的持有图，保留原断言和失败结果，不以重跑通过代替根因。
+
+## 2026-11-24 仅已有 WeakRef 的失败采集
+
+新探针只携带已有 WeakRef，不再解包 capture、renderer、negative 或源文档。准确历史源码 `9a391dc` 的无采集基线 F1 为 1225 通过 / 4 跳过；G1 仍复现原始 iframe 回收失败，1224 通过 / 1 失败 / 4 跳过，保留 nativeCollected=true / capturedCollected=false。类型通过，103 个受测输入仅 fixture/config 改变，生产和构建字节未动；原三次请求、断言、超时和跳过均保留，完整 source/浏览器包未运行。
+
+已知成员持有与已回收 WeakRef 的工具控制均通过。完整 GC 普通边图无未解析行，仍有 86 个模块根见证，经 `px` 的明确属性缓存到源窗口和文档。这排除了直接解包库对象作为该路径的必要条件；其余检查器、WeakRef、堆或额外普通 CC 的影响并未全部排除，仍不是唯一原始根因。[111 份控制、原图、输入、远端记录及清理回执](evidence/gc-observer-controls/reference-only-summary.json)已归档。
+
+准确 `896416a` 的 PR CI 45322884941 为 coverage 1234 / source 1112 通过、3 项 Firefox 失败，各 4 跳过，浏览器包未运行；push 45322879306 在已保存回读时仍安装浏览器，尚无最终结果。尺寸标签检查另外因旧动作下载完整 diff 触及 GitHub 20,000 行限制而 HTTP406；下一步独立修复该分页/元数据问题，再继续实际生命周期缩减。Firefox 和配置/fixture 已恢复，真机未操作，目标保持进行中。
+
+## 2026-11-24 普通 CC 与跨文档访问缓存路径
+
+准确历史源码 `9a391dc` 新增八轮完整 coverage：A1/B1/C1/E2 均为同一 iframe 回收失败，1224 通过 / 1 失败 / 4 跳过；D1/D2/D3/E1 为 1225 通过 / 4 跳过。生产/构建输入未改，原始断言、三次请求、超时和跳过保留，类型通过；完整 source/浏览器包未运行。
+
+普通 CC 不遍历本次目标包装器和原生文档，也没有垃圾判定；已知强持有正向样本同样缺席，不能把日志缺席当作回收通过。完整 JS GC 图则保存了模块函数到源窗口/文档的访问缓存路径：B1 经 `px` 的明确 `cacheir-shape`，显式宽高 C1 仍失败，经 `cloneCSSStyle` 的未确定强度缓存，E2 经 `cloneSingleNode` 的明确属性缓存。绕过尺寸读取不足以解决；这些仍是失败之后的图，采集器对 capture/negative 的解包可能影响灰色状态，尚不能称为唯一原始根因。
+
+JIT 对照修正了测量时点：Playwright 在启动后通过 Browser.enable 设置选项，启动时默认值不代表选项被忽略。D3 已核对内容引擎三个 enable 值全为 0 并通过；恢复默认的 E1/E2 均核对为 1，E1 通过而相同输入 E2 失败。D1/D2 不当作同等引擎状态验收，不能从这些对照断言确定的“当且仅当”。
+
+未加载库的直接执行与 HTTP 模块两种简化页，各四种冷/热/默认/关闭 JIT 场景均回收了文档，普通对象及强持有控制有效。这是否定单一 getter 原因的反证，不是浏览器缺陷的独立复现。下一步采集时不再解包 capture/negative，仅从已有 WeakRef 识别目标，再核对模块、惰性文档与覆盖率上下文。
+
+准确 `53de33f` 的 PR CI 45318408024 与 push CI 45318400315 均为 coverage 1234 通过 / 4 跳过，source 1112 通过 / 3 项 Firefox 失败 / 4 跳过，浏览器包未运行，CodeQL 通过。[280 份原图、路径、正反控制、完整远端日志/上传物、源码及清理记录](evidence/gc-observer-controls/ordinary-cc-summary.json)已归档。Firefox 和配置/fixture 已恢复，容器空闲；无生产修复或新增真机结论，目标继续推进。
+
+## 2026-11-24 恢复推进：原生持有图与只读 WeakRef 采集
+
+准确历史源码 `9a391dc` 新增六轮完整 coverage：W1/X1/Y1/Z1 为 1225 通过 / 4 跳过；相同 103 个受测输入的 X2/Z2 均为同一 Firefox iframe 回收失败，1224 通过 / 1 失败 / 4 跳过。两种钩子的类型检查均通过；这些输入哈希不代表整个进程、缓存和时序相同。没有修改生产源码、断言、三次原始回收、超时或跳过项，完整 source/浏览器包未运行。
+
+Z2 只传递已有 WeakRef，不重新取出或强持有目标；失败布尔值固定后，沿堆图弱边识别实际文档，保存完整 JS GC 与 all-traces 原生 CC 图。原生 holder 定位为被测 Document（RC=6），周围窗口/字体集/DOMImplementation 等形成内部引用。普通边图的保守搜索未找到 capture 到目标的路径，剩余五个灰色原生包装器入口；条件 WeakMap、原生回收语义及采集影响仍未解释，不能据此证明不可达或宣布库修复。
+
+解析器正向控制能找到明确成员持有；独立负向样本的原始图含 realm-debugger/检查器路径，已保留并单独标记，不声称原始负向不可达。`cacheir-weak-*` 在 IonIC 中可能按强边追踪，未按名称一律排除；全追踪 CC 本身也记录弱边与黑色 JS 节点。下一步用普通 CC 核对，避免把全追踪图直接当作原始强持有根。
+
+准确证据提交 `913014e` 的远端 PR CI 为 coverage 1234 / source 1112 通过、3 项 Firefox 失败；push CI 为 coverage 1234 / source 1110 通过、5 项失败（含 iframe 与 WebKit SVG 源文档回收）；两轮 coverage/source 各 4 跳过，浏览器包均未运行，CodeQL 通过。
+
+[218 份源码、控制、完整日志/上传物、GC/CC 原图及输入记录](evidence/gc-observer-controls/native-holder-summary.json)已归档。Firefox 原文件、配置和 fixture 已恢复，自有容器仅空闲，真机未操作；目标继续推进，本次仍无生产 GC 修复。
+
+## 2026-11-24 实际失败现场堆采集完成，按要求暂停
+
+准确历史源码 `9a391dc` 的隔离 Linux 环境已按固定镜像摘要重建。被动工具/no-hook 基线 U1 与失败后采集 V1 均完整运行 coverage：1224 通过、同一项 Firefox removed-iframe 回收失败、4 项既有跳过。V1 在原始布尔值固定后才采集，保留 `nativeCollected=true / capturedCollected=false`；没有增加回收次数、放宽断言或更改生产源码。
+
+真实堆快照已保存，DevTools 登记为 false→true→false，采集无错误。capture/negative 各返回 4 条路径，经过采集器引入的全局目标、检查器或弱边；GC root 返回 6 条，其中一个原生 preserved-wrapper holder 尚未解释。`WeakRefObject::target` 不能因名称不带 `[weak]` 就判为强边。尚未确认唯一库持有根，也不以有限路径搜索证明完全不可达。
+
+类型检查先发现压缩器剥离声明的问题；修正后保留模块增补与类型，类型通过才运行 V1。基线 lint/构建/包入口检查通过；coverage 失败后没有运行完整 source 或浏览器构建包套件。103 个输入仅配置/钩子 fixture 不同，生产和构建字节一致；本次不作为最新 master、远端 CI 或真机验收。
+
+[108 份输入、日志、原始快照、路径分类及清理回执](evidence/gc-observer-controls/heap-actual-summary.json)已归档并校验。源码/配置/fixture 和 Firefox 原文件已恢复，自有容器已停止，系统 Safari/手机未操作。恢复后再核对原生循环回收图与该 holder；本小目标完成，整体目标暂停，GC 修复仍未完成。
+
+## 2026-11-24 外部 SVG 资源时序的只读观测
+
+干净页面在加载 SVG 前启用资源时序观察和独立 fetch 正向控制，三组浏览器均能记录部分嵌套绘制 URL；6 张源前后截图逐通道相同（每组 17600 RGBA 通道），共 33 列原生场景。
+同页多个 use 引用会留下页面目录与文件目录等多条资源记录，单凭这组全页记录不能唯一归属到每个元素，也不能推广到任意缓存历史或 CSP。未据此加入运行时分支。
+
+[14 份控制器、请求/时序记录、源图片及重放](evidence/svg-resource-timing.json)保存实际版本：Chromium 156.0.8078.4、Firefox 159.0、WebKit 27.2。预期 Firefox 1555 不在本机，已明确使用本机 1578/Firefox159；不计为 Firefox157、构建包三引擎或真实 iPhone 复验。
+没有调用库导出或更改生产源码，查询资源字节仍故意相同，不声称查询身份已解决。下一步若采用新鲜上下文 HTTP 探测，还须证明缓存、CSP 和资源策略边界可靠；#585 整体保持开放。
+
+原始 28 个 PR 的当前状态与 head 已重新读取，仍为 27 开放、#398 关闭，head 未变。GC 固定镜像下载进程仍在运行，重建脚本仅在该进程结束且准确镜像存在后执行；尚无新环境基线或真实堆采集结果。
+
+## 2026-11-24 恢复推进：重建隔离环境，准备失败后采集
+
+当前 Docker 的容器与镜像清单为空，旧诊断现场不再存在；正在拉取已归档的准确 amd64 镜像摘要，尚未完成新环境基线或实际堆采集。
+采集钩子已生成并通过语法解析，测试文件仍为 4520 字节，原始断言与三次回收保留。它只在失败布尔值固定后运行，并先把原始诊断写入 Node 侧回执，再请求快照；语法通过不是类型、运行时或真实失败采集验收。
+
+准确 d75d622 的 PR CI 44369692907：coverage 1234 通过 / 4 跳过，source 1110 通过 / 5 项 Firefox 回收失败 / 4 跳过；直接推送 CI 44369678841：coverage 1234 通过 / 4 跳过，source 1112 通过 / 3 项 Firefox 回收失败 / 4 跳过。
+两轮构建包未运行。[104 份完整远端日志/产物及采集准备输入](evidence/gc-observer-controls/heap-resume-summary.json)已归档。主分支/旧 head 的绿色不能代替这些失败；PR 仍为独立诊断草稿，没有生产修复或新增真机结论。
+
+## 2026-11-19 堆快照工具小目标完成，按用户要求暂停
+
+独立 Firefox 157.0 的已知强持有路径正向控制通过；负向样本返回的 3 条路径均包含弱引用/条件 WeakMap/检查器边，没有未经标记的持有路径。每起点最多 20 条路径，不能据此证明完全不可达。
+工具尚未用于真实失败现场，不新增库根因、修复或整套测试通过结论。[30 份源码、控制日志、原始快照和清理回执](evidence/gc-observer-controls/heap-tool-controls-summary.json)已归档。
+
+早期失败也保留：未登记 DevTools 时堆文件 IPC 拒绝并终止内容进程；快照前节点地址移动及跨隔间代理身份造成错误匹配。最终方案只在采集期间调用官方登记/撤销接口，保留原始路径并分类，不删除浏览器检查。
+设备/系统浏览器未操作；自有容器 Firefox 原文件哈希已恢复，源码/配置/测试无差异，容器已停止。下一步（恢复后）先核对带被动诊断工具但不采集的基线，再于原始失败结果固定后采集实际路径，明确标记检查器引入的根。
+
+## 2026-11-19 原生基线复验失败，撤回唯一触发条件推断
+
+Q1 在原生复制路径只增加一次未使用的 source.implementation 读取，完整覆盖率为 1224 通过 / 1 项 Firefox iframe 回收失败 / 4 跳过。
+随后 S1 恢复与此前通过的 I3 逐字节一致的原生基线，也出现同项失败（原生移除控制已回收、目标未回收）。因此之前创建者/导入/属性读取的单轮差异，不能当作稳定的唯一因果隔离。
+
+[68 份完整输入、日志/产物与版本固定的上游源码](evidence/gc-observer-controls/native-baseline-summary.json)已归档。
+源码显示 Document 与 DOMImplementation 存在原生持有环且均参与循环回收；这不是泄漏或真实持有根的证明。
+下一步转向失败布尔值固定后的实际持有链，覆盖原生复制、测试与 Promise 调用上下文，并分开记录检查器引入的引用。原断言、三次回收、超时和跳过未放宽，无生产修复或新增真机结论。
+
+## 2026-11-19 原生文档创建上下文的单轮对照（基线复验见上）
+
+准确 9a391dc 的本地三引擎覆盖率：M1 由源 implementation 创建文档并 importNode，P1 由源 implementation 创建文档但用自带空 body，两者均为 1224 通过 / 1 项 Firefox 文档回收失败 / 4 跳过。
+O1 只改为当前页面 implementation 创建目标并保留 importNode，1225 通过 / 4 跳过。失败两组都是原生移除控制已回收、目标未回收；这个子集不需要库克隆、捕获或 importNode，但尚未查明持有根。
+
+完整库 E1 改创建者仍失败的反例继续保留，不能把原生子集差异当作完整修复。原断言、三次回收、超时、跳过和 4520 字节排序条件不变；M1/P1 失败后的输出断言未运行。
+下一步区分 source.implementation 属性读取与创建调用。[167 份输入和完整日志/产物](evidence/gc-observer-controls/native-operations-summary.json)已归档；无生产修改或新增真机结论。
+
+准确 a94c02d 的 PR CI 44364243412 通过 1234 / 1115 / 162（4/4 跳过）；随后准确 93d83ee 的 PR CI 44365244006 失败：coverage 1234，source 1112 通过 / 3 项 Firefox 环境与取消回收失败 / 4 跳过，构建包未运行。
+两轮完整日志及上传产物均已保留，不用较早绿色替代新 head 的结果。
+
+## 2026-11-19 克隆路径的进一步缩小
+
+准确 `9a391dc` 的同一 Linux 现场中，原生样式复制 I3 完整通过 1225 / 4 跳过；只切换到库捕获的 J1 为 1224 通过 / 1 项 Firefox iframe 文档回收失败 / 4 跳过。去掉渲染器捕获/任务/快照持有、只调用库 cloneNode 后序列化的 K1 同样失败；两轮诊断均为原生文档已回收、目标文档未回收。这说明本地反例不需要渲染器持有快照，尚未证明根因。
+
+原生复制增加伪元素样式读取的 L1 完整通过 1225 / 4 跳过，不能将这些读取单独认定为根因。各阶段测试文件均 4520 字节，排序缓存仅清除 results.json，原断言、三次回收、超时、跳过未变；K1 的回收断言失败后未执行其图像检查，不声称其输出已验收。[95 份原始记录与配对说明](evidence/gc-observer-controls/matched-clone-summary.json)已归档；下一步隔离原生 importNode/创建文档等操作。
+
+原始 28 个 PR 已重新读取：27 开放、#398 已关闭，各 head 与台账一致。关闭不当作真机交互验收。没有生产修改或新增真机结论。
+
+## 2026-11-19 视频增量已合入，回收诊断恢复
+
+[#647](https://github.com/bubkoo/html-to-image/pull/647) 最终 head `9a2e38f` 的独立 CI 43682587522（受测合并 `4e3dfe3`）通过 1234 coverage / 1115 source / 162 构建包，4/4 既有跳过；CodeQL 43682587514、Codecov 两项及其他检查全过，无待解决审阅。已合入 `f8d1c4b`；主分支 CI 44363483198 已失败：coverage 1234 / 4 跳过，source 1112 通过 / 3 项 Firefox 回收失败 / 4 跳过，构建包未运行；全日志和上传产物已归档。真实 iPhone 六组对照及范围见下文，不把本次增量当成 #451/#585 整体完成。
+
+#646 现场恢复：失败后读取的有限引用图为 54 节点 / 195 边、未找到目标、无读取错误；WeakMap 和取消监听器有正负控制，仍有优化掉的绑定和浏览器内部引用未覆盖，不能证明没有泄漏。原生样式复制/序列化对照完整通过 1225 / 4 跳过；此前暂停中断的 I2 没有完整结果，保留为中断。下一步在同一现场恢复库捕获做配对确认，尚无生产回收修复。[93 份恢复记录](evidence/gc-observer-controls/recovered-summary.json)明确说明主机临时诊断补丁未恢复，不能声称该部分实验已完整可重放。
+
 ## 2026-11-15 无帧视频真实 iPhone 验收完成
 
 [#647](https://github.com/bubkoo/html-to-image/pull/647) 的源码 `ea97a25` 在文档 head `783e9c4` 完成真实 iPhone Safari/iOS 26.6.1 验收（非模拟器）：ESM/UMD × 3 模式共 6 对照、12 张源前后照片，每项 11264 RGBA 通道完全相同；完整冒烟 38 PASS / 2 INFO / 0 FAIL，另 4 项取消/清理控制通过。104 份运行输入哈希未变，设备会话和自建测试服务已释放；不声称设备 GC 通过。[203 份原始记录与重放](evidence/video-empty-frame.json)保留前两轮远端失败。
@@ -23,6 +199,90 @@
 额外对照发现 WebKit 初始海报与 pending play/pause 后可以有相同的已记录公开状态、却显示不同画面；不能机械按 readyState 回退海报。该历史状态边界、其他媒体状态与原提案的更广范围继续开放。后续真实 iPhone 已通过（见本页最新验收记录），最终证据 head 远端门禁待验；不按整体视频或 #585 完成。通用 Linux GC 仍由 [#646](https://github.com/bubkoo/html-to-image/pull/646) 独立排查，未发布 npm、未操作旧 PR。
 
 首轮准确 head `a388d1a` 的 CI 43675541223：coverage 1234 通过 / 4 既有跳过；source 1111 通过 / 4 项 GC 失败 / 4 既有跳过，构建包未运行。两套的三引擎视频用例各 12 项全部通过，CodeQL 43675541268 通过。三项 Firefox 环境/取消和一项 WebKit 源文档失败完整保留，不据同名失败判断根因。此为保留的首轮失败；后续真机和远端结果见本页最新验收记录。
+
+## 2026-11-15 本机 Linux 的独立、稳定失败现场
+
+在独立 Docker Linux/amd64 仿真环境，以准确 `9a391dc` 和远端相同的 Node 24.22.2 / pnpm 10.34.9 / Playwright 1.64.1，完整覆盖率连续 7 轮为 1224 通过 / 1 项 Firefox 失败 / 4 既有跳过：移除 iframe 后，原生文档已回收，持有快照的文档仍存活。这是曾出现过的相近生命周期失败，不宣称已在本地复现远端原三项。首轮在 coverage 停止，source/构建包浏览器步骤未运行；单独定向 11 通过 / 1 跳过、随后诊断 source 1106 通过 / 4 跳过不能替代首轮失败。
+
+排序缓存为空的对照中，提前浏览器往返、明确的 MessageChannel 任务边界、仅关闭 captureFrame 超时、仅改变副本文档创建者，都未消除失败。原断言与三次回收保留，未以加回收/延时/放宽像素改成通过；实验源码、配置和测试均已恢复。下一步检查实际持有链。[本机 321 份输入与记录](evidence/gc-observer-controls/local-linux-summary.json)含各阶段完整日志和独立产物；GC 档案共 1238 份文件，明确记录 x86_64 仿真、CPU/内存差异，不能作为 GitHub CI 或真机通过。
+
+
+## 2026-11-15 HTTP 文件样式与文件字体的原生对照
+
+按 #585 已确定的当前页面规则，基础/嵌套 HTTP CSS 导入在三引擎的外部 use 中均未应用，现有导出与实际源的全 6400 通道相同；同一个 SVG 作为独立文档打开则两项均生效，证明资源和规则有效。Firefox 请求了样式文件也不代表规则用于外部 use。[34 份控制器、照片、请求与源码](evidence/svg-http-import-native.json)保留最初观测与独立文件正向复验；这个限定子集等价，不强行导入以改变原生显示。
+
+文件内 HTTP @font-face 的受控场景也匹配独立回退字体几何；独立文档会加载真实字体，AA 的 advance 变为 40px，不能拿独立文件当外部 use 的标准。Chromium/Firefox 源与导出逐通道相同；WebKit 差 55 通道、各差 1，独立手写回退 SVG 图像有完全相同的差异并与库输出相同，不计为严格原生像素通过。[43 份原始文件](evidence/svg-file-font-native.json)同时保留字形悬出导致 bbox 就绪条件错误的首轮超时。仅验证 ESM，没有生产改动、新增 UMD 或真机结论；其他字体状态、CSP 和限定 paint 仍开放。
+
+
+## 2026-11-15 未运行 SVG 探针的回收失败：补配对原生控制
+
+#646 的 `6b6150a` 普通 PR/推送仍失败（source 1103/1102 通过，3/4 失败）；逐一核验两次执行的排序快照与恢复哈希后，同配置重跑、仅开放图写入配置仍各有 3 项 Firefox 失败，CC 日志运行却全过。因此不把日志版的绿色或暂时存活对象归为生产根因。完整 PR 图已核验为 150 份 / 458889508 字节，本仓保留清单与两份选中图；推送完整图未下载。1006 次文档观测不是独立泄漏数，日志运行的原主检查全部回收，不能将其中临时 SVG/ImageData 根归给普通失败。
+
+由于未运行 SVG 探针的主检查也失败，新增六种原生环境配对，比较 sandbox、资源策略文档（含基础样式）、Promise reaction 和加载后策略；只在已缓存主结果后的补充观测创建。Mac 定向 12 项和完整 1225 coverage / 1106 source / 159 构建包通过，4/4 既有跳过不变；18 份记录的 306 个补充对象全回收，没有复现 Linux 故障。生产源、原主检查与三次回收命令未改；新控制的 Linux 结论待验。
+
+[824 份原始记录与重放](evidence/gc-observer-controls.json)已保存。下一轮移除已证明会改变观测结果的自动 sandbox/CC 图步骤，保留普通三引擎运行与相同排序输入的重跑；#646 仍为排查草稿，不声称回收问题已修复。
+
+最新 `9a391dc` 的 PR CI 43677392127 / 推送 CI 43677387222 均为 coverage 1225 通过、source 1103 通过 / 3 项 Firefox 失败，构建包未运行，4/4 既有跳过不变。逐项核验相同排序恢复后，PR 重跑仍失败三项，推送重跑 1106 全过；216 次新增原生观测全部回收、没有错误。这些设置差异单独不足以复现原对象留存，不能给单一机制修复信用。[证据](evidence/gc-observer-controls.json)现含 917 份原始文件；新 93 份已下载并核验，随本次证据提交归档。
+
+## 2026-11-15 对照通过受排序缓存影响，固定输入后继续定位
+
+#646 head `20b841a` 普通 PR CI 43671204701 三项 Firefox 失败（source 1103 通过），push CI 43671201382 五项失败（1101 通过）；coverage 均 1225 通过 / 4 既有跳过，构建包未运行。随后三引擎、无日志的写图配置对照均 1106 通过 / 4 既有跳过，CC 写图步骤因此跳过，并未取得远端引用图。
+
+实际安装的 Vitest 5.0.5 会按缓存把上次失败文件提前；日志中 Firefox 的资源取消文件完成顺序从第五位移到第一位。完成顺序不等于精确开跑顺序，但足以揭示排序输入未控制，不能把后续通过归因于运行配置或日志。[92 份准确远端记录及排序器证据](evidence/gc-observer-controls/cc-configuration-pair-summary.json)已保存。
+
+下一轮在 coverage 与 source 之间保存排序结果缓存，后续每轮恢复并核对 SHA256；先同配置重跑，仍失败才切换写图配置，再失败才采集 CC。原回收命令、主测试、三次回收和断言不变，不把对照通过替换正常失败。本地 lint/类型、12 原测试和缓存往返校验通过，23 份本地输入/记录另存；11 组归档共 644 份文件校验通过，生产/构建包未改，草稿继续。
+
+## 2026-11-15 原始 28 项状态重新核对
+
+[本次只读查询](evidence/open-pr-live-refs-20261115.json)确认 28 项提交 head 均未变化，目前 27 项开放；#398 于北京时间 2026-11-15 03:38 由 bubkoo 关闭且未合并。关闭不等于真实点击验收，手机可信点击/新标签页的缺口继续保留。本次未评论或关闭任何旧 PR。
+
+当前主分支为 `901c4bc`。索引已补齐 #632/#633 合入与真机状态，以及 #643/#644 已验收的 SVG 子项；移除仍写“待合入/待远端”的过期描述，同时保留 #644 主分支 GC 失败与草稿 #646 的未解决边界。原始 28 项继续作为完整清单，不因 #398 已关闭而减少目标范围。
+
+## 2026-11-15 一次任务边界不足以解释失败，改用同并发的循环引用日志
+
+#646 head `31e2952` 两轮失败的三个 Firefox 文档，在入口、微任务后、一次任务后均保留（零显式 GC）；普通对象未回收，强对象控制有效。因此不支持靠增加一次任务延时解决。PR CI 43670467884 为 source 1103 通过 / 3 失败；push CI 43670464573 为 1100 通过 / 6 失败，另有两个 Firefox opened-source 和一个 WebKit 冻结源失败。两轮 coverage 1225 通过 / 4 既有跳过，构建包未运行。
+
+前一 head `1e4c799` 的 push CI 43670168332 全部通过（1225 / 1106 / 159），PR CI 43670171072 则有三项 Firefox 失败。四轮全部产物及准确输入另存 134 份原始文件。[逐项结果](evidence/gc-observer-controls/checkpoint-runs-summary.json)不覆盖任何旧失败。
+
+下一轮先仅控制写图所需的运行配置；若仍失败，再在同样三引擎并发下只采集循环引用图，去掉全堆图与逐次回收的文件读写。实际本机 Firefox 已验证关闭全堆图开关；lint/类型和原 12 测试通过。18 份本地输入/记录/日志/图清单独立保存，九组共 529 份原始文件校验通过。Linux 仍待验，原 GC 命令、主断言、回收次数、生产代码及构建包未改，草稿暂不合入。
+
+## 2026-11-15 增加零回收请求的时序对照
+
+#646 下一轮在构造额外环境之前，对原弱引用依次记录入口、微任务后和一次零延时任务后状态；此阶段不调用 GC。原三次回收及已缓存的主断言完全不变，后续结果不能让失败变通过。它用来检查延迟清理/采样问题；自然 GC 未禁用，不能单凭后续回收断定具体浏览器根因。
+
+Mac lint、类型及 12 项既有测试通过，9 个原始文档在三个采样点均已回收；微任务一致性与强对象控制有效，新 canary 未回收。17 份本地准确输入/记录/日志已独立归档，七组共 377 份校验通过。Linux 结果待验，生产代码和构建包未改，草稿暂不合入。
+
+## 2026-11-15 引用日志未复现失败，保留普通门禁结论
+
+草稿 #646 head `1e9da66` 的正常 PR CI 43669494382 为 source 1100 通过 / 6 项 Firefox 失败，push CI 43669490573 为 1101 通过 / 5 项 Firefox 失败；两次 coverage 均 1225 通过、4 既有跳过，构建包未运行。除原三个环境/取消失败，还出现 opened SVG 源文档（有/无字体），PR 另有已移除 iframe 的 capture 生命周期失败，不将范围仍写成三项。
+
+两次独立 Firefox 日志版均 368 通过 / 2 既有跳过，四个原始采样及辅助观察均回收，因此未抓到失败引用链。日志开销、只运行 Firefox、独立进程和执行顺序同时变化，不能宣称根因或修复。[178 份选取记录、索引及准确输入](evidence/gc-observer-controls/root-trace-pair-summary.json)已归档，六组共 360 份文件校验通过。仅传输约 377 KB 提取 ZIP 中全部非引用图条目，未下载约 463/535 MB 的完整图产物，不宣称完整图归档。
+
+已移除高开销日志步骤及逐次图采集，相关两文件准确回到 `b746718`；轻量配对观察仍留在草稿。生产代码/构建包未改，普通失败未解决，长期目标继续，#585 限定 paint 地址等独立缺陷仍开放。
+
+## 2026-11-15 SVG 清理假设未成立，转向引用关系日志
+
+草稿 #646 head `b746718` 的 PR CI 43668914513 为 source 1103 通过 / 3 项 Firefox 失败；push CI 43668909662 为 1102 通过 / 4 失败，另有 WebKit 冻结源文档失败。两轮 coverage 均 1225 通过、4 既有跳过，构建包未运行；PR CodeQL 43668914467 通过。两轮镜像均为 20261111.196.1，失败并非仅发生于 PR 事件。
+
+配对 SVG 移除控制与清除 href 的分支各三种观察形式仍全部保留，虽实际清除 8 个引用，也未足以消除现象；不能据此提交生产清理补丁。较早构造的普通库环境后来回收，部分原始文档也仅在失败采样后回收。辅助 Firefox capture 的无超时/清空源变量控制回收，而原形式保留，但主 Firefox capture 通过，不能直接推为生产根因。[完整 67 份本轮原始证据](evidence/gc-observer-controls/expanded-pair-summary.json)与前轮分开保存；五组归档共 182 份校验通过。
+
+下一步仅在正常门禁失败后追加 Firefox 引用关系日志，日志版结果独立保存且不能替换正常失败。Mac 日志管线、lint/类型及 4 项既有 Firefox 测试通过；尚无 Linux 引用链结论。生产代码、主断言、三次主回收及超时不变，草稿暂不合入。
+
+## 2026-11-15 Linux 配对结果：观察形式不足以解释保留
+
+草稿 [#646](https://github.com/bubkoo/html-to-image/pull/646) head `2a0cc805` 的直接推送 CI 43667097221 全过（1225 / 1106 / 159）；PR CI 43667274475 则 coverage 通过、source 三项 Firefox 失败（1103 通过 / 4 既有跳过），构建包未运行，CodeQL 43667274484 通过。镜像和 CPU 同时不同，不能归因于推送或 PR 事件。
+
+失败 PR 的 source 记录中，已测量环境在三种观察函数下均保留，原生补充控制均回收，普通对象 canary 均回收；该环境源字体为空。未测量环境则在额外诊断后回收。原始 native 控制并非逐项都回收，不能从合并错误文本作统一判断。[63 份远端原始文件及逐套件摘要](evidence/gc-observer-controls/first-pair-summary.json)明确区分 coverage 与 source，不覆盖既有失败。
+
+下一轮只追加配对控制：计时器是否捕获 iframe、双方同样包装的 SVG 移除（只一方清除自有 href），以及辅助 capture 禁用超时。记录顺序及采样年龄，避免把包装/时间变化误算为清理效果。Mac 原 12 测试、9 原始采样和 117 辅助观察通过，尚无 Linux 根因或修复结论。主断言、三次主回收和超时不变，生产代码/构建包未改，草稿暂不合入。四组归档共 115 份原始文件校验通过。
+
+## 2026-11-15 合入后仍有生命周期失败，追加观察者配对控制
+
+[#645](https://github.com/bubkoo/html-to-image/pull/645) 准确 head `88e970f` 的 CI 43664124670 / CodeQL 43664124833、Codecov（patch 不受影响、project 87.42%）全过，已合入 `901c4bc`。但新主分支 CI 43664877371 仍失败：coverage 1225 通过 / 4 既有跳过；source 1102 通过 / 4 失败 / 4 既有跳过，构建包未运行。除原三项 Firefox 文档回收，还出现 WebKit 冻结 SVG 源文档回收失败；主分支 CodeQL 43664877309 通过。PR 受测合并与主分支文件树完全相同，Ubuntu 镜像版本也相同，不把同步缺口修正称为全部生命周期问题已解决。
+
+[24 份准确失败数据与配对控制](evidence/gc-observer-controls.json)保留全部 12 份上传产物。下一步在原三次回收后先固定原始布尔结果，再记录原生/库 owner、有无就绪计时器、三种弱引用观察函数及清空源局部变量的对照；额外三次诊断回收不能改变原始通过条件。主断言、超时和既有跳过不变。仅输出纯值及白名单执行信息，临时比较直接推送与 PR 合并两种运行，生产代码未改；草稿不得作为修复合入。
+
+Mac lint/类型与 12 项既有测试通过，9 个原始采样及 60 条辅助观察均回收、无辅助错误；这不是 Linux 复现，也不计为 60 个新增测试。排查继续，相对 SVG paint 等独立缺陷保留；未发布 npm、未评论或关闭旧 PR。
 
 ## 2026-11-15 回收检查与内容进程同步
 
@@ -170,13 +430,13 @@ CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真�
 
 | PR | 原需求 / 当前处置 | 主要证据 | 未覆盖或待定条件 |
 | --- | --- | --- | --- |
-| [#585](https://github.com/bubkoo/html-to-image/pull/585) | 克隆、资源、iOS、SVG、缓存、尺寸和性能整体提案，按独立缺陷处理。#637 的样式子集已过源码与真机门禁。 | [样式证据](evidence/svg-native-style-scope.json)、[变换资源](evidence/transformed-svg-resources.json) | 用户已选当前浏览器页面保真；受限 CSP、不可读规则、文件 CSS/字体、重定向与更广嵌套仍开放，不整体移植原提案。 |
+| [#585](https://github.com/bubkoo/html-to-image/pull/585) | 整体提案按独立根因处理；样式、导入、重定向最终地址与所在树片段作用域已有修复，至 #644 已合入并有准确源码的真机证据。 | [样式证据](evidence/svg-native-style-scope.json)、[片段绘制](evidence/svg-fragment-paint.json)、[重定向地址](evidence/svg-response-bases.json) | 按用户选定的当前浏览器显示；限定 paint、CSP、不可读规则、HTTP 文件 CSS/字体、广泛性能及一般 GC 仍开放，不整体移植原提案。 |
 | [#581](https://github.com/bubkoo/html-to-image/pull/581) | SVG text 的 font-family 属性应选择并嵌入真实网络字体。核心等价，补齐真实字形验证。 | [svg-font-glyphs.test.ts](../test/browser-unit/svg-font-glyphs.test.ts) | 含直接 SVG 根入口；原中文字库字节、完整原应用及旧平台未整体复测；不移植附带工具链/参考图改动 |
 | [#577](https://github.com/bubkoo/html-to-image/pull/577) | repeating-linear-gradient 经样式序列化仍重复。核心等价。 | [svg-style.test.ts](../test/browser-unit/svg-style.test.ts) | 当前回归核对多个实际色块；不把原补丁 cssText 字符串断言当全部视觉证明 |
 | [#575](https://github.com/bubkoo/html-to-image/pull/575) | SVG 后代应获得计算后的 CSS 变量值。核心等价。 | [svg-style.test.ts](../test/browser-unit/svg-style.test.ts) | 原 Recharts/MUI sandbox 未整体验收；本次网页工具未能访问该链接，若需同项目验收需可导出源码/样式 |
 | [#574](https://github.com/bubkoo/html-to-image/pull/574) | 更新旧 Rollup 3.x 锁文件依赖。已被现行工具链替代，不移植旧锁。 | [maintenance-dependency-review.json](evidence/maintenance-dependency-review.json) | 只证明该旧 bump 的目的与现行安装树；不代表完整依赖安全审计 |
 | [#568](https://github.com/bubkoo/html-to-image/pull/568) | srcdoc iframe 中的跨 realm 子元素不能被 instanceof 丢弃。核心等价；相关文档字体缺陷已由 #623 修复。 | [iframe-fonts.test.ts](../test/browser-unit/iframe-fonts.test.ts) | 不可读跨源 iframe、纯 JS FontFace 字节不在范围 |
-| [#560](https://github.com/bubkoo/html-to-image/pull/560) | SPA 不应被模块全局缓存无限持有图片/字体。使用 capture/renderer 生命周期替代全局 clearCache；#625 修复文档持有。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 不宣称浏览器 HTTP 缓存被清空、强制 GC 或原 20 MB SPA 内存压力已复现 |
+| [#560](https://github.com/bubkoo/html-to-image/pull/560) | SPA 缓存使用 capture/renderer 生命周期；#625 与 #642 分别修复已证实的文档/借用字体引用根因。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts)、[字体生命周期](evidence/svg-source-font-lifetime.json)、[后续 GC 排查](evidence/gc-observer-controls.json) | 后续严格 Linux GC 检查仍有失败，不能概括为一般释放已解决；不宣称清空浏览器缓存或复现原 20 MB SPA。 |
 | [#540](https://github.com/bubkoo/html-to-image/pull/540) | 旧锁中的 pbkdf2 3.1.2 升级。相关旧依赖已移除，不重新引入旧测试链。 | [maintenance-dependency-review.json](evidence/maintenance-dependency-review.json) | 不代表无关依赖不存在其他问题 |
 | [#533](https://github.com/bubkoo/html-to-image/pull/533) | 后台导出不应强制等待 requestAnimationFrame。已有路径不等待 RAF，不增加重复等待开关。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 只证明库内路径；不保证浏览器或系统不暂停后台页面 |
 | [#511](https://github.com/bubkoo/html-to-image/pull/511) | 禁用字体字号缩小以保留字形和换行。#621 已移除全局取整/缩小，不新增 opt-out 开关。 | [font-metrics.test.ts](../test/browser-unit/font-metrics.test.ts) | 不外推全部原段落、字体、旧浏览器组合 |
@@ -189,13 +449,13 @@ CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真�
 | [#443](https://github.com/bubkoo/html-to-image/pull/443) | 不同 URL 需要不同 RequestInit。以 resources.resolve 替代第二套生成器 API。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 受控私有 Cookie 图片与公开图/字体双源已验证；原业务 URL/登录及完整 fixture 未取得，resolver 自行管理请求选项和 signal |
 | [#442](https://github.com/bubkoo/html-to-image/pull/442) | 图片与公开字体的凭据配置不同，并报告 iOS 空白。URL/kind resolver 覆盖混合凭据核心需求；原 iOS 故障保留条件。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 原私有资源 URL、CORS 响应、凭据和完整故障 fixture 未验；include 不是所有 iOS 请求的统一要求 |
 | [#430](https://github.com/bubkoo/html-to-image/pull/430) | 缓存进行中的请求避免短时间重复加载。核心等价；#622 另消除 WebKit 副本的额外原生请求。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 缓存限单次捕获，不承诺跨捕获响应永不变化 |
-| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts) | 外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成 |
+| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的依赖、变换后引用、样式子集、重定向最终地址与所在树片段作用域已有分批修复，至 #644 已合入。 | [svg-fragment-paint.json](evidence/svg-fragment-paint.json)、[svg-response-bases.json](evidence/svg-response-bases.json) | 限定/相对 paint、文件 CSS/字体、CSP 等仍开放；输出按用户选定的当前浏览器显示，不宣称任意 sprite 完成。 |
 | [#409](https://github.com/bubkoo/html-to-image/pull/409) | CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致。#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁。 | [dimensions.test.ts](../test/browser-unit/dimensions.test.ts) | 原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证 |
-| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631 已合入；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入的三引擎全像素和构建包通过，待真机。 | [positioned-scroll.json](evidence/positioned-scroll.json) | 捕获树外 absolute 坐标、水平文本/inline/contents/float/sticky、auto 边距/部分伪元素、竖排及原生滚动条仍保留边界；#633 尚未合并 |
+| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631/#633 及占位尺寸 #634 已合入，受测源码有真实 iPhone 对照。 | [positioned-scroll.json](evidence/positioned-scroll.json)、[scrollbar-box-dimensions.json](evidence/scrollbar-box-dimensions.json) | 原生滚动条外观/滑块与原型两个严格 WebKit 像素失败仍开放；其他布局和原应用条件不外推。 |
 | [#407](https://github.com/bubkoo/html-to-image/pull/407) | 把额外 CSS 放进输出副本。使用 onClone 插入 style 的现有原语，不新增 extraStyleContent。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 自定义 CSS 注入不等于源原生滚动条外观/位置已保留 |
 | [#401](https://github.com/bubkoo/html-to-image/pull/401) | 应调用并等待 decode，而不是覆盖方法。核心等价；保留可用图片 decode 拒绝不悬挂的边界。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 图片可解码不等于所有 WebKit foreignObject 首绘问题已解决 |
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
-| [#398](https://github.com/bubkoo/html-to-image/pull/398) | Blob PNG 在新标签页预览。README helper 与三引擎交互已验；保留单数 toBlob API。 | [blob-preview-browser-checks.json](evidence/blob-preview-browser-checks.json) | 真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击 |
+| [#398](https://github.com/bubkoo/html-to-image/pull/398) | 原 PR 已于 2026-11-15（北京时间）被 bubkoo 关闭且未合并；内容 head 未变。Blob PNG 在新标签页预览。README helper 与三引擎交互已验；保留单数 toBlob API。 | [blob-preview-browser-checks.json](evidence/blob-preview-browser-checks.json) | 真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击 |
 | [#393](https://github.com/bubkoo/html-to-image/pull/393) | 支持 SVG use href 属性。核心等价，现代/旧命名空间及优先级有回归。 | [svg-use.test.ts](../test/browser-unit/svg-use.test.ts) | 同 #499 的属性级结论，不扩大为全部外部 SVG 样式兼容 |
 | [#376](https://github.com/bubkoo/html-to-image/pull/376) | 允许额外伪元素，尤其非标准滚动条。不把通用伪元素列表等同于滚动条完成；继续原生外观验证。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 按 #345 保留源轨道/滑块外观和位置的明确要求验证；非标准伪元素有引擎差异 |
 
@@ -326,7 +586,7 @@ V2 的 Element 遍历及 #616 已解决直接捕获外部 realm 节点时跳过�
 
 | PR | 处理 |
 | --- | --- |
-| [#427](https://github.com/bubkoo/html-to-image/pull/427), [#499](https://github.com/bubkoo/html-to-image/pull/499), [#393](https://github.com/bubkoo/html-to-image/pull/393) | V2 原来只读取 `xlink:href` 并把整个引用当 CSS 选择器，无法处理现代 `href`、特殊字符 ID 和外部 SVG。`codex/open-pr-triage` 现从原文档复制本地符号，外部符号经统一资源加载器导入，再将**副本**引用改为本地 ID；加入源码和构建 ESM 的像素回归。外部符号依赖外部样式、字体或其他定义的复杂 sprite 尚未验证。 |
+| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的依赖、变换后引用、样式子集、重定向最终地址与所在树片段作用域已有分批修复，至 #644 已合入。 | [svg-fragment-paint.json](evidence/svg-fragment-paint.json)、[svg-response-bases.json](evidence/svg-response-bases.json) | 限定/相对 paint、文件 CSS/字体、CSP 等仍开放；输出按用户选定的当前浏览器显示，不宣称任意 sprite 完成。 |
 | [#575](https://github.com/bubkoo/html-to-image/pull/575), [#577](https://github.com/bubkoo/html-to-image/pull/577), [#581](https://github.com/bubkoo/html-to-image/pull/581) | V2 当前实现已通过新增 Chromium、Firefox、WebKit 回归：SVG 后代的 CSS 变量、重复渐变的多个周期、SVG `font-family` 属性选中的字体文件。无需移植旧补丁；原 PR 的完整 fixture 尚未运行。 |
 
 ## 部分覆盖：保留讨论，不按完整修复关闭

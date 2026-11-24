@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import { uuid, getStyleProperties } from './util.js'
 
 type Pseudo = ':before' | ':after'
@@ -43,7 +44,7 @@ function clonePseudoElement<T extends HTMLElement>(
   selected?: readonly string[],
 ) {
   const style = (
-    nativeNode.ownerDocument.defaultView || window
+    readDocumentProperty(nativeNode.ownerDocument, 'defaultView') || window
   ).getComputedStyle(nativeNode, pseudo)
   const content = style.getPropertyValue('content')
   if (content === '' || content === 'none') {

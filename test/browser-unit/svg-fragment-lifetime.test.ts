@@ -1,6 +1,6 @@
 /// <reference lib="es2021.weakref" />
 import { expect, test } from 'vitest'
-import { commands } from 'vitest/browser'
+import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
 const fixtureURL = '/test/browser/fixtures/svg-fragment-paint.mjs'
 async function captureDocument() {
@@ -41,7 +41,25 @@ test('a frozen SVG host-tree capture releases its source document before renderi
     await commands.collectGarbage()
     await commands.collectGarbage()
     await commands.collectGarbage()
-    expect(reference.deref() === undefined).toBe(true)
+    const collected = reference.deref() === undefined
+    if (!collected || (await commands.gcObserverDiagnosticsEnabled())) {
+      const url = '/test/browser/fixtures/gc-observer-controls.mjs'
+      const controls = await import(/* @vite-ignore */ url)
+      const observers = await controls.sampleCaptureObservers(
+        createRenderer,
+        () => commands.collectGarbage(),
+        reference,
+      )
+      await commands.recordGCObserverEvidence(
+        JSON.stringify({
+          engine: server.browser,
+          kind: 'frozen-svg-source',
+          primary: { ownerCollected: collected },
+          observers,
+        }),
+      )
+    }
+    expect(collected).toBe(true)
     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(frames)
     const image = await capture.toImageData(),
       offset = 4 * (10 * image.width + 10)

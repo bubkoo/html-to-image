@@ -1,0 +1,676 @@
+{
+  "archive": "checkpoint-runs-raw.tar.gz",
+  "archiveSHA256": "47cad99cd3223922354e30c0a2ebd5a8dc2b0ac7b30167c0bf7026232bb4bc4c",
+  "files": [
+    {
+      "path": "1e4c799/inputs/.github/workflows/ci.yml",
+      "bytes": 3128,
+      "sha256": "157d601d1bf85497b8f57dfa0fc7a8408006113d4508a3eb6ed60a886a183043"
+    },
+    {
+      "path": "1e4c799/inputs/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 8371,
+      "sha256": "660b31d222bcbb7d87807d03f3387320db8c2f58e6bac1910e91b1b952033c54"
+    },
+    {
+      "path": "1e4c799/inputs/test/browser-unit/svg-fragment-lifetime.test.ts",
+      "bytes": 2874,
+      "sha256": "c7a041193dfd91ffca61168207a8841170d1711e7b1adb2b2d7e1ab97493abf6"
+    },
+    {
+      "path": "1e4c799/inputs/test/browser/fixtures/gc-observer-controls.mjs",
+      "bytes": 9928,
+      "sha256": "f4b6de13d24fac9a7bb807d5eb147221cf7674d6d4ccd36847d9592ff0622b4e"
+    },
+    {
+      "path": "1e4c799/inputs/vitest.browser.config.mts",
+      "bytes": 8610,
+      "sha256": "78cf34fd9c0351897e5a3ba3adacaf64a57ee2c4500ef0db592580dfebc0667f"
+    },
+    {
+      "path": "31e2952/inputs/.github/workflows/ci.yml",
+      "bytes": 3128,
+      "sha256": "157d601d1bf85497b8f57dfa0fc7a8408006113d4508a3eb6ed60a886a183043"
+    },
+    {
+      "path": "31e2952/inputs/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 8371,
+      "sha256": "660b31d222bcbb7d87807d03f3387320db8c2f58e6bac1910e91b1b952033c54"
+    },
+    {
+      "path": "31e2952/inputs/test/browser-unit/svg-fragment-lifetime.test.ts",
+      "bytes": 2874,
+      "sha256": "c7a041193dfd91ffca61168207a8841170d1711e7b1adb2b2d7e1ab97493abf6"
+    },
+    {
+      "path": "31e2952/inputs/test/browser/fixtures/gc-observer-controls.mjs",
+      "bytes": 10905,
+      "sha256": "f9b215fc06dfdd4c1298a510f28cf81056af04feb3ca2a87e108933f2c61f7b3"
+    },
+    {
+      "path": "31e2952/inputs/vitest.browser.config.mts",
+      "bytes": 8610,
+      "sha256": "78cf34fd9c0351897e5a3ba3adacaf64a57ee2c4500ef0db592580dfebc0667f"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/20d01ffc10573d75fd643bcf6d27aef2a3e2f392.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/bc7b56cc94963585e46e9febd2ee9ed06143f132.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/e85427bf1c4992c6b604540e723b057e824dc2f0.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-false.json",
+      "bytes": 5884,
+      "sha256": "3a4a1398459650251875e990665585d2c4ed68b49297c761c0982d15d66fff55"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-true.json",
+      "bytes": 5899,
+      "sha256": "1852e9418bf29870e812f02a3ca2223e5a8b6f239d0410ff69de7026b1e88ce2"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-frozen-svg-source.json",
+      "bytes": 1425,
+      "sha256": "195befa813e27e6b25c5058865a55aba4f5f1c15c6ff9aa746f1df916790a76f"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-pending-font.json",
+      "bytes": 5988,
+      "sha256": "0f1900386410e70c48186e3fbcbd510e0a0a9237ca056e213f92025cb82c389a"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-false.json",
+      "bytes": 5659,
+      "sha256": "babb0abd7d9ca063f60b9616e4c5f78a29177c8d1644987bfb352cf1f5b90bb3"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-true.json",
+      "bytes": 5671,
+      "sha256": "fac21e58c409e4b865358136ea6d08d6ebfd1e9e0ae9e6a95252a3db3025415c"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-frozen-svg-source.json",
+      "bytes": 1361,
+      "sha256": "80d66771644d27ff35c3145a675a73453c6c0c17e95d55cc52030c5992a971ec"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-pending-font.json",
+      "bytes": 6603,
+      "sha256": "880dbb2ec29c2931d40502314243de19d48629be5fbfa0cc03b1b1883ff7a966"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-webkit-frozen-svg-source.json",
+      "bytes": 1360,
+      "sha256": "0fafb596327f6b22177b2e30e5d4925dc8f4fcca8beefccc8b3e8209f8230ae7"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-false.json",
+      "bytes": 5894,
+      "sha256": "1d8d7d48ef176441e2bc56b02c0f11f63da0638aa742cfc54da40850f6d9a499"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-true.json",
+      "bytes": 5873,
+      "sha256": "74be162574024c83716a40570d563ee41868bfddca55279a97aee673c261e606"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-frozen-svg-source.json",
+      "bytes": 1407,
+      "sha256": "0e039e1bec81bf531685077903905fc7763b9a64afcaafbac4c1039ded8e75b2"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-pending-font.json",
+      "bytes": 5972,
+      "sha256": "7f2413e937db68fb655124524faa585eb1eed32100de3d5528e77798bacb6e0d"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-false.json",
+      "bytes": 5655,
+      "sha256": "43989b632be0a072f058e010d4dfd1fb88ac6af31d7c2e71b74586e2f8bc27f2"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-true.json",
+      "bytes": 5660,
+      "sha256": "c8606b3fc56bbcaaa5795589011924db65e8182d0ebfbfe5c45176f5c56917e3"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-frozen-svg-source.json",
+      "bytes": 1361,
+      "sha256": "1f354617b3cbf223f486e6331a4d0edfca798dcd8df596d02f06aa8adcb09dd4"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-pending-font.json",
+      "bytes": 6169,
+      "sha256": "6d9f46611fa27b743be54f5831ee261b21169fa691cace27635a725c5ddf3377"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-webkit-frozen-svg-source.json",
+      "bytes": 1360,
+      "sha256": "8ed46821af598f5a38198c5024d758011f9f0c4dca97e5d8a77bd9193f3206d2"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "no-collection-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "no-collection-pr/ci.log",
+      "bytes": 335667,
+      "sha256": "6f5ddb85f78f1a1bd1f417f926c30cb47fe9dc20bf84e729d7eca60dedf05c65"
+    },
+    {
+      "path": "no-collection-pr/run.json",
+      "bytes": 3895,
+      "sha256": "0972c0816e7a88f638dcc2ac1fd585023bc91d92b5b2032487a4f9637ef45e9d"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/20d01ffc10573d75fd643bcf6d27aef2a3e2f392.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/55eae901b1ba039f47d3b6257c572c077c274e07.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/61f5a0f5b876211e260230925145a258d27dd064.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/bc7b56cc94963585e46e9febd2ee9ed06143f132.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/dfd36a8568ecced3cf695ff08ddfd829d31b7ffc.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/e85427bf1c4992c6b604540e723b057e824dc2f0.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/failure-screenshots/svg-fragment-lifetime.test.ts/a-frozen-SVG-host-tree-capture-releases-its-source-document-before-rendering.png",
+      "bytes": 3363,
+      "sha256": "01491f2bbf2133c3b353f5e49e6d492ba35cff8c6bee94670335ba66909e8b19"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-false-and-opened-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/failure-screenshots/svg-style-source-lifetime.test.ts/disposed-SVG-owner-releases-source-with-font-true-and-opened-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-false.json",
+      "bytes": 5860,
+      "sha256": "4da702a38b85e6e927de2900356ce323e7343ff036092c8f322f6e41c16b1d74"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-true.json",
+      "bytes": 5873,
+      "sha256": "4ead1d7deb8159c95aa7cb35412d10a2e42eef5596c35e22e2e7f75b786d6a2e"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-frozen-svg-source.json",
+      "bytes": 1416,
+      "sha256": "6ec7e1672ab472428db3af5e37f69fa7a77d03ee738608fa295ec9adc3a479ab"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-pending-font.json",
+      "bytes": 5985,
+      "sha256": "705832b30cf2be93318f30d9b26850fc5caa368937f3ea969ab4410bf7cbac1e"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-false.json",
+      "bytes": 5651,
+      "sha256": "034142f1aa8f44ba3c36b6c09825092418ca5d12ffa4cacbdc00945519049a6b"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-true.json",
+      "bytes": 5663,
+      "sha256": "9f35c37d903266b8d5f119b8f2ed5db35b62f76d927cb72bf87aa3129359949c"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-frozen-svg-source.json",
+      "bytes": 1354,
+      "sha256": "07c5237a4c21fb3b9da6aef5a69feb6929fcbf90909b118bd66e3cb2538c0e83"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-pending-font.json",
+      "bytes": 6594,
+      "sha256": "a13c62d400ce886b4248e6b763ef8d26899deae420bbb7c05c75002a7af7cf79"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-webkit-frozen-svg-source.json",
+      "bytes": 1356,
+      "sha256": "c949e022fc8d1e26ff6358fadf1ee02906dd3669d78b7643832b8db32af6955d"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-false.json",
+      "bytes": 5874,
+      "sha256": "e2ba2a1d6c2cb4c728e43af782797e8f9bb01b8127b3e76145a7490b54c69011"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-true.json",
+      "bytes": 5862,
+      "sha256": "5ac76fdc437a0fc2b74bba4c0e96a924d1ad5f1ec126b9f0fc97c9ba19794f10"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-frozen-svg-source.json",
+      "bytes": 1416,
+      "sha256": "2fca7e8f2cf0f87698f365e8a7787aad556446cbeb07112bec45157545b5604f"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-pending-font.json",
+      "bytes": 5964,
+      "sha256": "511362e403b2e51d02b79fc26765b78f8abccd73ff2f52a0f2ba4e14362677f8"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-false.json",
+      "bytes": 5647,
+      "sha256": "e471487978777e1534af2d8f253904264d9a9c561da5bb35d1fbc154e431af94"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-true.json",
+      "bytes": 5652,
+      "sha256": "ec8fca9b4a4727b4c5e53ebec383e4606cc604f14cf19111540afc968d73e684"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-frozen-svg-source.json",
+      "bytes": 1353,
+      "sha256": "79335efc29a33a35dbfa8dd87161ac0f24e3acabf395280acbe8da4ef14918c1"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-pending-font.json",
+      "bytes": 6161,
+      "sha256": "8b325c9116c4e12432ade41741829bd5d5fd7f75a9e97cb37aabedb32183c4f9"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-webkit-frozen-svg-source.json",
+      "bytes": 1352,
+      "sha256": "3bec0b23f62a06d8d7b65252ff6fb7452561687bbfffe7f444953143e1d02cb7"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "no-collection-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "no-collection-push/ci.log",
+      "bytes": 395695,
+      "sha256": "7fad9607c5251d1996ab5a56a0ce658927b0c10b2d3b6136b95173cf2ad058a1"
+    },
+    {
+      "path": "no-collection-push/run.json",
+      "bytes": 3887,
+      "sha256": "cf2b19cfa827b0038430bbb778be6dff98ccb75f5cb1a934296c48b79b92f221"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/20d01ffc10573d75fd643bcf6d27aef2a3e2f392.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/bc7b56cc94963585e46e9febd2ee9ed06143f132.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/e85427bf1c4992c6b604540e723b057e824dc2f0.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-false.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/a-disposed-SVG-environment-releases-its-document-with-probed-true.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/failure-screenshots/resource-resolver-cancellation.test.ts/cancellation-releases-private-SVG-work-while-a-custom-font-resolver-remains-pending.png",
+      "bytes": 3219,
+      "sha256": "99a021f65820861ea7929b52cc75a46cdc57aa55e4639acdb46f4af73959fe4a"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-false.json",
+      "bytes": 5668,
+      "sha256": "dc77d7a703c52df1e562d28959d1fddca07fe2b2b185a0f596fdd353a85dfd53"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-true.json",
+      "bytes": 5642,
+      "sha256": "8f054704425767bdc1d2fd9123aae5e4ffa05e1ae67678ab2da736fd2923c28b"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-frozen-svg-source.json",
+      "bytes": 1151,
+      "sha256": "2ea4bc4924807f4282dc0ab414e609c6ae4673bdd6dcead7085f376f3400281b"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-pending-font.json",
+      "bytes": 5761,
+      "sha256": "1c264ec46f2295482bc48cc54783e213cb4b0859a5f831c555b21a9cc5ff328e"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-false.json",
+      "bytes": 5416,
+      "sha256": "be673df0aa7af34ed3092e0ff25c029dc442d5f3eebaf412aa6923123a0746b6"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-true.json",
+      "bytes": 5428,
+      "sha256": "ebd588aa8785e0cae2536262612b1b908c8abe96c6d23790187ceb463d01acdb"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-frozen-svg-source.json",
+      "bytes": 1121,
+      "sha256": "cd13a2eac06c04d20741e4e98b50abfba621f92b0ad1b823fd068f4f753ded1e"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-pending-font.json",
+      "bytes": 6360,
+      "sha256": "fd8a6d3bcc075bdaa20633ac53324cc3901dea7293269f4dc84ef2985419e49b"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-webkit-frozen-svg-source.json",
+      "bytes": 1120,
+      "sha256": "b4e4cf5d4fe35a2cf887a3e96b1e6529c1be22a9435c374e6761f51bedbc81c9"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-false.json",
+      "bytes": 5655,
+      "sha256": "470913edb70f871fa70b68dadce30c7bc0e835bf0ba47c179f2ea10ad9a715ba"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-true.json",
+      "bytes": 5635,
+      "sha256": "81ead6c15e502a76d00e25e9abc3118d5523df8c4520d756006cf38aad9986f9"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-frozen-svg-source.json",
+      "bytes": 1166,
+      "sha256": "cff3cd039762393d20edd5599220bc6a106806b05da463a451e708f0d90dda77"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-pending-font.json",
+      "bytes": 5721,
+      "sha256": "926037e6249a1cfa730da729ba56869caf14cfa513c2d612495556bab4d385fd"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-false.json",
+      "bytes": 5415,
+      "sha256": "c3f4b3fb6af019e35715014fcff76ff826901bd537caea16e6b0241bb8f69f67"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-true.json",
+      "bytes": 5420,
+      "sha256": "bd54794b46b50d45fb94e5d801c388bb0eee94df5d5767ad4edeaf751bf8edda"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-frozen-svg-source.json",
+      "bytes": 1121,
+      "sha256": "8d69e59e0c09fa9aa8e88aeb80f6521c18ae9d9cc5c33c8750e677a967015173"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-pending-font.json",
+      "bytes": 5929,
+      "sha256": "cef7c5b44e3ca7cb8f3e5229aa0db10b1e9198b78e1230d041379cacb950e539"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-webkit-frozen-svg-source.json",
+      "bytes": 1120,
+      "sha256": "d075c025fb5fddc53627e22260120089d2caf40b841d69b27b447c849d8be72d"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "pre-checkpoint-pr/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "pre-checkpoint-pr/ci.log",
+      "bytes": 336730,
+      "sha256": "5f4e3fb5da894dbac38aced2508c5adc13471789fcf751401dd29370adf66e57"
+    },
+    {
+      "path": "pre-checkpoint-pr/run.json",
+      "bytes": 3895,
+      "sha256": "3a52f017dfc107595d49e41b01922f8febff5fe68c6c6231f940fa008d9aa3f8"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-false.json",
+      "bytes": 5642,
+      "sha256": "9c1332297b07609a9589c8afd81201db988870b468634e0f4a692813a8ad43a7"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-environment-true.json",
+      "bytes": 5594,
+      "sha256": "e51638cacce04238fb4d750c8a8cb3263189eb2bb4d61f646464dc8bd5afe3bf"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-frozen-svg-source.json",
+      "bytes": 1145,
+      "sha256": "e745daae06182b41def32165e134613c42283c1ae375d981c9eef24bb17839ce"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-chromium-pending-font.json",
+      "bytes": 5727,
+      "sha256": "c2a58f0dfaca5f44e3a82a0a231d376ecfb0b5de7fe418d81003619d116b3bcd"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-false.json",
+      "bytes": 5407,
+      "sha256": "316a62f7e2841673b42d5754c18a0aea41d93725fbfe909e2cb9f961e4353fac"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-environment-true.json",
+      "bytes": 5412,
+      "sha256": "1e81083b1ae2aee3e8e17c627f84053aead223bcf475293b1bb69f33ec4c2fa2"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-frozen-svg-source.json",
+      "bytes": 1113,
+      "sha256": "ccfe4743bdf8d542913f58d9ecea4cc40cd1fbdc7a7142e0b977ae241a39b3a1"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-firefox-pending-font.json",
+      "bytes": 5921,
+      "sha256": "2d7b553a9fcd3ba06064b4d74cfad28afead1f94c7fad7395bc95d52add2de36"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/browser-webkit-frozen-svg-source.json",
+      "bytes": 1112,
+      "sha256": "b3034830b8c6d013cb96bf7fd51671969b97772088b9f53063f14e5147a8668b"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-false.json",
+      "bytes": 5615,
+      "sha256": "902c676cfc420fd2590668980c400308616be2dcb38beac45ca225da6c3e1a2e"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-environment-true.json",
+      "bytes": 5613,
+      "sha256": "5310023c85943c97b9ab3b972579b08448f3b33a7b0f5a2717ffee24d2a6ce7b"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-frozen-svg-source.json",
+      "bytes": 1157,
+      "sha256": "e7beb6b559f5f7059f595fc3460ade5a6158ce9982ab4c8ac082333857223925"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-chromium-pending-font.json",
+      "bytes": 5702,
+      "sha256": "0128702daaccef76899f74fdbb0b2cdb33c05f67f1ae940cf032698103f8cc33"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-false.json",
+      "bytes": 5407,
+      "sha256": "fb3b0ee8d4969f6b42ec61cefcdaa7affc140d6d3e703e02c5f7323712752c6f"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-environment-true.json",
+      "bytes": 5412,
+      "sha256": "a9103fea03c3da9a700ebd28c7a7e19698d692b5315d47e2364309a0ca36f4d7"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-frozen-svg-source.json",
+      "bytes": 1113,
+      "sha256": "b89cce6f4e247be7752666f509c7835e0ec0becca2784f1f22872ed8dcb66394"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-firefox-pending-font.json",
+      "bytes": 5921,
+      "sha256": "efa56de8939e6490e1f8090efe5a3853cd8ec07da91c52723ecc4632cdb5912a"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/gc-observers/coverage-webkit-frozen-svg-source.json",
+      "bytes": 1112,
+      "sha256": "b2573de5890fd53ec868086707aea571a2c49cb3ab6b30c99d48f5845d7e6dc5"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-authored.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-capture.png",
+      "bytes": 946,
+      "sha256": "065ffd8cfa0d5fff99e6415ee0a9897684f5bdd75a472dfaa1b89a765b17ecd4"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter-native.png",
+      "bytes": 943,
+      "sha256": "d5eef07f8c8a60c3e3e82139759513bbd780b95c874f1e8df4f70eb486a86735"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/.vitest/attachments/scrollbar-box/chromium-gutter.json",
+      "bytes": 30313,
+      "sha256": "cb4e5570d0659bfcb3ca394717ef215b33d0d39f97aaf8145f4f26ebb22c434f"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/playwright-report/index.html",
+      "bytes": 579928,
+      "sha256": "4761859db806a94c95c8821f777d33d38c015c087b1da6121a835264de965e62"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/test-results/mobile-smoke-reports/51c63981-445f-4678-a0f4-4abb89c9c63b.json",
+      "bytes": 2416,
+      "sha256": "bd9457cde2972f57f7f5ccb9d4fd9da42c70e2a2a27cea70b24a60611979377d"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/test-results/mobile-smoke-reports/a533edf8-01ab-433c-8cdf-fbd34a848eba.json",
+      "bytes": 2422,
+      "sha256": "298ad2c4ab77c423a325d568fe48f83780c8eccba24f1498263d4e641d0c30d6"
+    },
+    {
+      "path": "pre-checkpoint-push/artifacts/playwright-report/test-results/mobile-smoke-reports/c6cb320e-726e-4908-b3b8-6d001d8bfa0c.json",
+      "bytes": 2348,
+      "sha256": "5f4dafe12cd933d8d81be3af4feeff91596d2868c55ec442d32a586ef48a91c0"
+    },
+    {
+      "path": "pre-checkpoint-push/ci.log",
+      "bytes": 360927,
+      "sha256": "c7d5ee7e5df48ad3a1fb65b2de626624a0a31b903cf08e505620e142f29fcc02"
+    },
+    {
+      "path": "pre-checkpoint-push/run.json",
+      "bytes": 4053,
+      "sha256": "aeb97ab969cd3aaabd1e6dee482b59604e8e49121a2435a198313705cd5e2309"
+    }
+  ]
+}

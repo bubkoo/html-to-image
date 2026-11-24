@@ -1,7 +1,7 @@
 {
   "checkedAt": "2026-11-11T02:07:41.358341+00:00",
   "runtimeBase": "132c38d186ac4debd9da164363a8bb8234f3c396",
-  "scope": "The 28 original open PRs; #632/#633 merged with exact-source iPhone acceptance and remote/main checks passed. New scrollbar box dimension candidate has local regression evidence; remote/native pending. Not whole-issue completion.",
+  "scope": "Original 28 PRs remain tracked: 27 currently open, #398 closed unmerged by bubkoo; every reviewed head unchanged. #632/#633 and bounded SVG fixes through #644 are merged; generic lifecycle failures remain under draft #646. Closed state is not physical-click or whole-issue acceptance.",
   "all28AccountedFor": true,
   "oldPRClosureActions": 0,
   "oldPRCommentActions": 0,
@@ -14,7 +14,7 @@
       "reviewedHead": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
       "observedState": "open",
       "requirement": "\u514b\u9686\u3001\u8d44\u6e90\u3001iOS\u3001SVG\u3001\u7f13\u5b58\u3001\u5c3a\u5bf8\u548c\u6027\u80fd\u7684\u6574\u4f53\u66ff\u4ee3\u65b9\u6848",
-      "disposition": "Final-response SVG file-CSS bases fixed in scoped bafedeb follow-up: same final six native controls 2 fail/4 pass before and six pass after; local full 1108/989/156 and real iPhone inactive-file-CSS controls pass. Exact-head remote gates required. Qualified/query-distinct/fragment paint and relative attribute/inline bases remain open. First PR 643 CI 43653658279 passed coverage but failed three Firefox source-GC controls (986 pass/3 fail/4 skips), no remote package run; CodeQL passed. Runtime-unchanged diagnostic follow-up 4aa8640 adds paired native and boolean/tree reports; local 1108/989 passes, exact new head remote gates pending; GC cause not established.",
+      "disposition": "Scoped transform, native-style, final-response URL and containing-tree fragment fixes are merged through #644 (8d4991e); exact PR gates and bounded iPhone controls passed. #644/#645 master runs still fail lifecycle checks, now draft #646; no whole-issue completion.",
       "evidence": [
         "docs/evidence/transformed-svg-resources.json",
         "docs/evidence/svg-redirect-native-matrix.json",
@@ -24,19 +24,42 @@
         "docs/evidence/svg-data-imports.json",
         "docs/evidence/svg-data-relative-urls.json",
         "docs/evidence/svg-response-bases.json",
+        "docs/evidence/svg-fragment-paint.json",
+        "docs/evidence/gc-observer-controls.json",
+        "docs/evidence/svg-http-import-native.json",
+        "docs/evidence/svg-file-font-native.json",
         "docs/evidence/video-empty-frame.json"
       ],
-      "remainingBoundary": "Attribute/inline relative bases, query-distinct paint URLs, page/file fragment scope and physical-iPhone unsupported qualified paint differ; broader redirects, compositor, opaque rules, restricted CSP and HTTP styles/fonts remain open.",
+      "remainingBoundary": "Qualified attribute/inline relative and absolute paint URLs, different-query paint, physical iPhone qualified-paint fallback, restricted CSP/opaque rules, other HTTP style/font states beyond the bounded native-use controls, broad SPA/performance and generic WebKit/device GC remain open. Output follows the current browser live page, as selected by the user.",
       "fontUnitSource": "7a436c2d5736da563e318d7ed8d27962fc47c3f9",
       "dataImportSource": "7206ada2cea83f9c6fcf3141bab608dfeec0d08c",
       "responseURLSource": "bafedeb9720a89b3c6fad0c98f70b51e2f7bdab1",
+      "fragmentPaintSource": "f3ab93785ee07ad53f8db9c43e98b28342951861",
+      "httpNativeSubset": {
+        "sourceBase": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+        "imports": "Same-origin basic/nested HTTP imports match live external-use output in all three desktop engines; standalone file positive controls apply them. No production change.",
+        "font": "Controlled file-local HTTP face is not the live external-use font; independent fallback geometry matches. Chromium/Firefox pixels exact; WebKit 55 channels by 1 match independent authored SVG-image boundary, not an exact native pass.",
+        "formats": "ESM only; no new UMD or physical iPhone acceptance",
+        "evidence": [
+          "docs/evidence/svg-http-import-native.json",
+          "docs/evidence/svg-file-font-native.json"
+        ]
+      },
       "emptyVideoIncrement": {
         "source": "ea97a25a45cb9db202d30d0f8dd704d57d7de3af",
         "scope": "HAVE_NOTHING without poster; transparent styled media box",
         "evidence": "docs/evidence/video-empty-frame.json",
         "local": "before 9 fail/3 pass, after 12 pass; full 1234/1115/162, inherited skips 4/4; 18 desktop native pairs exact",
-        "remaining": "fresh final-head remote gates pending; poster-history and broader media states not resolved; no device GC claim",
+        "remaining": "PR #647 merged f8d1c4b after final-head checks passed; master CI 44363483198 failed three Firefox lifecycle checks (1234 coverage, 1112 source, packages not run). Poster history/broader media states and device GC remain unclaimed.",
         "device": "physical iPhone Safari/iOS 26.6.1: 6 exact native pairs, 12 source photos, 38 PASS / 2 INFO smoke and 4 cancellation controls; 104 inputs unchanged; session/server released"
+      },
+      "nativeResourceTiming": {
+        "evidence": "docs/evidence/svg-resource-timing.json",
+        "scope": "read-only fresh-page HTTP observations, no export/runtime fix",
+        "nativeBeforeAfterExact": 3,
+        "columns": 33,
+        "firefox": "explicit installed159, not historical157 or package acceptance",
+        "remaining": "per-element provenance, cache/CSP/resource-policy controls; no automatic resolution branch"
       }
     },
     {
@@ -61,7 +84,9 @@
       "observedState": "open",
       "requirement": "repeating-linear-gradient \u7ecf\u6837\u5f0f\u5e8f\u5217\u5316\u4ecd\u91cd\u590d",
       "disposition": "\u6838\u5fc3\u7b49\u4ef7",
-      "evidence": ["test/browser-unit/svg-style.test.ts"],
+      "evidence": [
+        "test/browser-unit/svg-style.test.ts"
+      ],
       "remainingBoundary": "\u5f53\u524d\u56de\u5f52\u6838\u5bf9\u591a\u4e2a\u5b9e\u9645\u8272\u5757\uff1b\u4e0d\u628a\u539f\u8865\u4e01 cssText \u5b57\u7b26\u4e32\u65ad\u8a00\u5f53\u5168\u90e8\u89c6\u89c9\u8bc1\u660e"
     },
     {
@@ -86,7 +111,9 @@
       "observedState": "open",
       "requirement": "\u66f4\u65b0\u65e7 Rollup 3.x \u9501\u6587\u4ef6\u4f9d\u8d56",
       "disposition": "\u5df2\u88ab\u73b0\u884c\u5de5\u5177\u94fe\u66ff\u4ee3\uff0c\u4e0d\u79fb\u690d\u65e7\u9501",
-      "evidence": ["docs/evidence/maintenance-dependency-review.json"],
+      "evidence": [
+        "docs/evidence/maintenance-dependency-review.json"
+      ],
       "remainingBoundary": "\u53ea\u8bc1\u660e\u8be5\u65e7 bump \u7684\u76ee\u7684\u4e0e\u73b0\u884c\u5b89\u88c5\u6811\uff1b\u4e0d\u4ee3\u8868\u5b8c\u6574\u4f9d\u8d56\u5b89\u5168\u5ba1\u8ba1"
     },
     {
@@ -117,11 +144,13 @@
         "docs/evidence/capture-source-lifetime.json",
         "docs/evidence/svg-data-imports.json",
         "test/browser-unit/svg-style-source-lifetime.test.ts",
-        "docs/evidence/svg-source-font-lifetime.json"
+        "docs/evidence/svg-source-font-lifetime.json",
+        "docs/evidence/gc-observer-controls.json"
       ],
       "remainingBoundary": "No browser HTTP cache clearing, WebKit/device iframe GC claim, or original 20 MB SPA pressure reproduction.",
       "pendingResolverCancellation": "Pending foreign resolver is no longer awaited after cancellation; disposal clears the document Promise and prevents reopening. Explicit retained-owner and pending-callback GC controls in Chromium/Firefox; WebKit/iPhone DOM/reason/source only.",
-      "borrowedFontSource": "404798ddc679d70735011840b0c57e6cd8c4e657"
+      "borrowedFontSource": "404798ddc679d70735011840b0c57e6cd8c4e657",
+      "currentLifecycleBoundary": "Borrowed-font root remains the bounded #642 fix; later strict Linux source GC checks still fail, including unprobed/no-font controls. Draft #646 isolates observers, tasks and native collection tooling; no general lifecycle/SPA completion."
     },
     {
       "number": 540,
@@ -131,7 +160,9 @@
       "observedState": "open",
       "requirement": "\u65e7\u9501\u4e2d\u7684 pbkdf2 3.1.2 \u5347\u7ea7",
       "disposition": "\u76f8\u5173\u65e7\u4f9d\u8d56\u5df2\u79fb\u9664\uff0c\u4e0d\u91cd\u65b0\u5f15\u5165\u65e7\u6d4b\u8bd5\u94fe",
-      "evidence": ["docs/evidence/maintenance-dependency-review.json"],
+      "evidence": [
+        "docs/evidence/maintenance-dependency-review.json"
+      ],
       "remainingBoundary": "\u4e0d\u4ee3\u8868\u65e0\u5173\u4f9d\u8d56\u4e0d\u5b58\u5728\u5176\u4ed6\u95ee\u9898"
     },
     {
@@ -142,7 +173,10 @@
       "observedState": "open",
       "requirement": "\u540e\u53f0\u5bfc\u51fa\u4e0d\u5e94\u5f3a\u5236\u7b49\u5f85 requestAnimationFrame",
       "disposition": "\u5df2\u6709\u8def\u5f84\u4e0d\u7b49\u5f85 RAF\uff0c\u4e0d\u589e\u52a0\u91cd\u590d\u7b49\u5f85\u5f00\u5173",
-      "evidence": ["test/spec/renderer.test.ts", "src/util.ts"],
+      "evidence": [
+        "test/spec/renderer.test.ts",
+        "src/util.ts"
+      ],
       "remainingBoundary": "\u53ea\u8bc1\u660e\u5e93\u5185\u8def\u5f84\uff1b\u4e0d\u4fdd\u8bc1\u6d4f\u89c8\u5668\u6216\u7cfb\u7edf\u4e0d\u6682\u505c\u540e\u53f0\u9875\u9762"
     },
     {
@@ -251,7 +285,7 @@
         "scope": "HAVE_NOTHING without poster; transparent styled media box",
         "evidence": "docs/evidence/video-empty-frame.json",
         "local": "before 9 fail/3 pass, after 12 pass; full 1234/1115/162, inherited skips 4/4; 18 desktop native pairs exact",
-        "remaining": "fresh final-head remote gates pending; poster-history and broader media states not resolved; no device GC claim",
+        "remaining": "PR #647 merged f8d1c4b after final-head checks passed; master CI 44363483198 failed three Firefox lifecycle checks (1234 coverage, 1112 source, packages not run). Poster history/broader media states and device GC remain unclaimed.",
         "device": "physical iPhone Safari/iOS 26.6.1: 6 exact native pairs, 12 source photos, 38 PASS / 2 INFO smoke and 4 cancellation controls; 104 inputs unchanged; session/server released"
       }
     },
@@ -306,13 +340,17 @@
       "reviewedHead": "225e357cd971880c36542279960876d30d1651ae",
       "observedState": "open",
       "requirement": "\u5916\u90e8 SVG use \u7684\u5f15\u7528\u53ef\u4ee5\u5bfc\u51fa",
-      "disposition": "\u57fa\u7840\u4e0e\u4f20\u9012\u5c5e\u6027\u4f9d\u8d56\u5df2\u7531 #627 \u8986\u76d6\uff1b\u672c\u5019\u9009\u8865\u9f50\u53d8\u6362\u9636\u6bb5",
+      "disposition": "Scoped transform, native-style, final-response URL and containing-tree fragment fixes are merged through #644 (8d4991e); exact PR gates and bounded iPhone controls passed. #644/#645 master runs still fail lifecycle checks, now draft #646; no whole-issue completion.",
       "evidence": [
         "test/browser-unit/svg-dependencies.test.ts",
         "test/browser-unit/transformed-svg.test.ts",
-        "docs/evidence/svg-reference-dependencies.json"
+        "docs/evidence/svg-reference-dependencies.json",
+        "docs/evidence/svg-response-bases.json",
+        "docs/evidence/svg-fragment-paint.json",
+        "docs/evidence/gc-observer-controls.json"
       ],
-      "remainingBoundary": "\u5916\u90e8\u5144\u5f1f CSS/\u5b57\u4f53\u53ca\u76f8\u5bf9 paint \u91cd\u5b9a\u5411\u7684\u8f93\u51fa\u8bed\u4e49\u5f85\u5b9a\uff0c\u4e0d\u6309\u4efb\u610f sprite \u5df2\u5b8c\u6210"
+      "remainingBoundary": "Qualified attribute/inline relative and absolute paint URLs, different-query paint, physical iPhone qualified-paint fallback, restricted CSP/opaque rules, HTTP styles/fonts, broad SPA/performance and generic WebKit/device GC remain open. Output follows the current browser live page, as selected by the user.",
+      "fragmentPaintSource": "f3ab93785ee07ad53f8db9c43e98b28342951861"
     },
     {
       "number": 409,
@@ -335,7 +373,7 @@
       "reviewedHead": "a6e135583d82028a26e717221bf9ccb8888a8f99",
       "observedState": "open",
       "requirement": "\u539f\u5173\u8054 #81 \u8981\u6c42\u540c\u65f6\u4fdd\u7559 scrollTop/scrollLeft \u7684\u5185\u5bb9\uff1b#345 \u8981\u6c42\u6eda\u52a8\u6761\u5c3a\u5bf8\u3001\u989c\u8272\u3001\u8f68\u9053/\u6ed1\u5757\u5916\u89c2\u548c\u4f4d\u7f6e\u3002#81 \u88ab stale \u673a\u5668\u4eba\u5173\u95ed\u4e0d\u7b49\u4e8e\u4fee\u590d\u3002",
-      "disposition": "\u90e8\u5206\u5e03\u5c40\u5df2\u968f #630/#633 \u5408\u5165\uff1b\u53e6\u6709\u6eda\u52a8\u6761\u5360\u4f4d\u88ab\u91cd\u590d\u6263\u9664\u7684\u72ec\u7acb\u5c3a\u5bf8\u5019\u9009\uff0c\u672c\u5730\u5b8c\u6574\u68c0\u67e5\u901a\u8fc7\uff0c\u8fdc\u7aef/\u771f\u673a\u5f85\u9a8c\u3002",
+      "disposition": "Bounded scrolling fixes #630/#631/#633 and scrollbar gutter #634 are merged with exact-source physical-iPhone evidence; complete native scrollbar appearance and the two strict WebKit prototype failures remain open.",
       "evidence": [
         "test/browser-unit/mixed-scroll.test.ts",
         "test/browser-unit/fixed-scroll.test.ts",
@@ -345,7 +383,10 @@
         "docs/evidence/scrollbar-box-dimensions.json"
       ],
       "remainingBoundary": "\u5b8c\u6574\u539f\u751f\u6eda\u52a8\u6761\u4e0e\u6ed1\u5757\u4f4d\u7f6e\u4ecd\u5f85\u89e3\u51b3\uff1b\u539f\u578b\u4e24\u9879\u4e25\u683c WebKit \u50cf\u7d20\u5931\u8d25\u5c1a\u672a\u89e3\u51b3\u3002#81 \u539f sandbox \u4e0d\u53ef\u8bbf\u95ee\uff0c\u4e0d\u4ee5\u5f53\u524d\u90e8\u5206\u56de\u5f52\u5ba3\u79f0\u5168\u90e8\u4fee\u590d\u3002",
-      "relatedIssues": [81, 345],
+      "relatedIssues": [
+        81,
+        345
+      ],
       "incremental634": "#634 \u5df2\u5408\u5165 f340ddf\uff0c\u5360\u4f4d\u5c3a\u5bf8\u6839\u56e0\u6709\u684c\u9762\u4e09\u5f15\u64ce\u4e25\u683c\u5bf9\u7167\uff0ciPhone 30/30 \u53ca\u4e0e #635 \u7ec4\u5408 31/31\uff1b\u4e0d\u7b49\u4e8e\u5b8c\u6574\u539f\u751f\u6eda\u52a8\u6761\u5916\u89c2/\u6ed1\u5757\u89e3\u51b3\u3002"
     },
     {
@@ -396,7 +437,7 @@
       "url": "https://github.com/bubkoo/html-to-image/pull/398",
       "title": "docs: add open in new tab example for toBlobs",
       "reviewedHead": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
-      "observedState": "open",
+      "observedState": "closed",
       "requirement": "Blob PNG \u5728\u65b0\u6807\u7b7e\u9875\u9884\u89c8",
       "disposition": "README helper \u4e0e\u4e09\u5f15\u64ce\u4ea4\u4e92\u5df2\u9a8c\uff1b\u4fdd\u7559\u5355\u6570 toBlob API",
       "evidence": [
@@ -405,7 +446,11 @@
         "docs/evidence/blob-preview-device-20261115.json"
       ],
       "remainingBoundary": "\u771f\u5b9e iPhone PNG MIME/96\u00d760/red-blue \u8bfb\u53d6\u901a\u8fc7\uff1bW3C element click \u4e0e touch actions \u867d\u8fd4\u56de\u6210\u529f\u4f46\u9875\u9762\u672a\u6536\u5230\u4e8b\u4ef6\u3001\u6ca1\u6709\u65b0\u6807\u7b7e\uff0c\u4e0d\u7b97\u53ef\u4fe1\u70b9\u51fb/\u6e05\u7406\u901a\u8fc7\u3002\u5b9e\u9645 Wi-Fi \u5730\u5740\u5bfc\u822a\u4e5f\u5931\u8d25\uff0c\u7269\u7406\u4ea4\u4e92\u4ecd\u7f3a\u53ef\u8fbe\u9875\u9762\u53ca\u771f\u5b9e\u70b9\u51fb\u3002",
-      "checkedAt": "2026-11-14T16:13:24.589942+00:00"
+      "checkedAt": "2026-11-14T16:13:24.589942+00:00",
+      "previousObservedState": "open",
+      "closedAt": "2026-11-14T19:38:55Z",
+      "closureActor": "bubkoo",
+      "closureIsNotAcceptance": true
     },
     {
       "number": 393,
@@ -465,12 +510,17 @@
   "remainingAcceptanceGates": [
     {
       "kind": "manual-network-access",
-      "prs": [398],
+      "prs": [
+        398
+      ],
       "condition": "USB automated validation passed. Manual Safari cannot reach the Mac service through USB or same Wi-Fi; trusted click/new tab/cleanup remain unverified. No synthetic click substitutes for physical acceptance."
     },
     {
       "kind": "output-contract",
-      "prs": [585, 427],
+      "prs": [
+        585,
+        427
+      ],
       "condition": "Choose current-browser page fidelity or uniform external-file definitions for SVG CSS/relative paint where the two produce different pixels.",
       "evidence": [
         "docs/evidence/svg-styles-native-matrix.json",
@@ -480,10 +530,19 @@
     },
     {
       "kind": "native-scrollbar-fidelity",
-      "prs": [376, 407, 408],
-      "relatedIssues": [345, 81],
+      "prs": [
+        376,
+        407,
+        408
+      ],
+      "relatedIssues": [
+        345,
+        81
+      ],
       "condition": "#345 explicitly requires native track/thumb appearance and position; no scope choice is needed. #81 requires child paragraph scrollTop/scrollLeft.",
-      "evidence": ["docs/evidence/scrollbar-extension-probes.json"],
+      "evidence": [
+        "docs/evidence/scrollbar-extension-probes.json"
+      ],
       "notProven": "Style injection/hiding is not full fidelity; original #81 sandbox API HTTP403 and preview HTTP400."
     }
   ],
@@ -492,11 +551,20 @@
     "parentRevision": "f3f997e170fab7a6e7f0148fbd33b6dcd688bb23",
     "scope": "Two-dimensional flex and supported block flow with fixed/absolute and block pseudos; external absolute coordinate origins keep prior fallback",
     "evidence": "docs/evidence/positioned-scroll.json",
-    "originalParentFailedPassed": [141, 24],
-    "previousFlexCandidateFailedPassed": [51, 114],
+    "originalParentFailedPassed": [
+      141,
+      24
+    ],
+    "previousFlexCandidateFailedPassed": [
+      51,
+      114
+    ],
     "currentFullPixelPassed": 165,
     "withExistingFixedAndMixedPassed": 297,
-    "localCoverageSource": [337, 653],
+    "localCoverageSource": [
+      337,
+      653
+    ],
     "remote": "9584645 CI/Codecov passed; rebased master-targeted head requires new CI/CodeQL/Codecov.",
     "nativeIOS": {
       "status": "passed",
@@ -536,7 +604,10 @@
   },
   "latestIncrementalUpdate": {
     "checkedAt": "2026-11-14T16:12:11.622499+00:00",
-    "mergedPRs": [634, 635],
+    "mergedPRs": [
+      634,
+      635
+    ],
     "runtimeBase": "9d2991f45a62bddcaed392a1ad5a8a48ec77732e",
     "status": "final PR and master CI/CodeQL passed; PR Codecov patch/project passed",
     "evidence": [
@@ -564,7 +635,11 @@
   "latestScopedEvidence": {
     "source": "f3ab93785ee07ad53f8db9c43e98b28342951861",
     "path": "docs/evidence/svg-fragment-paint.json",
-    "localFull": [1225, 1106, 159],
+    "localFull": [
+      1225,
+      1106,
+      159
+    ],
     "nativeDeviceComparisons": 68,
     "nativeDeviceExact": 60,
     "nativeDeviceGradientBoundaries": 8,
@@ -581,5 +656,168 @@
     "parentMasterCIFailed": 43661748647,
     "newRemoteGates": "pending",
     "originalPRStatesNotRefreshed": true
+  },
+  "latestLifecycleInvestigation": {
+    "path": "docs/evidence/gc-observer-controls.json",
+    "base": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+    "masterCIFailed": 43664877371,
+    "masterCodeQLPassed": 43664877309,
+    "sameTreeAsAcceptedPR": true,
+    "productionChange": false,
+    "fixClaim": false,
+    "originalPRStatesNotRefreshed": true
+  },
+  "currentRefsCheckedAt": "2026-11-15T03:16:12.671352+00:00",
+  "currentRefsEvidence": "docs/evidence/open-pr-live-refs-20261115.json",
+  "runtimeBaseScope": "Original baseline for the 28-PR review; not the current production revision",
+  "currentMasterAtRefresh": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "latestStateReadback": {
+    "date": "2026-11-24 Asia/Shanghai",
+    "scope": "original 28",
+    "open": 27,
+    "closed": 1,
+    "headsUnchanged": true,
+    "states": [
+      {
+        "number": 585,
+        "state": "OPEN",
+        "headRefOid": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb"
+      },
+      {
+        "number": 581,
+        "state": "OPEN",
+        "headRefOid": "9ee9e0f9dd311e48eabee59f26ac8efffcefb6db"
+      },
+      {
+        "number": 577,
+        "state": "OPEN",
+        "headRefOid": "35a6953ce31c59b67271babbfaaddc76bbf9013c"
+      },
+      {
+        "number": 575,
+        "state": "OPEN",
+        "headRefOid": "a8def89611d014a4161823817a8ae86d6aa2c66e"
+      },
+      {
+        "number": 574,
+        "state": "OPEN",
+        "headRefOid": "8edd3595adb1f6df10cff4bce335ef0a3391fd37"
+      },
+      {
+        "number": 568,
+        "state": "OPEN",
+        "headRefOid": "a752f019d2472b52100e1cbe71a469d9526e3607"
+      },
+      {
+        "number": 560,
+        "state": "OPEN",
+        "headRefOid": "e3f59317b338a2bf8805eb66152c72ea82f6c37f"
+      },
+      {
+        "number": 540,
+        "state": "OPEN",
+        "headRefOid": "76805a80a7beddc0cf9d6fda0bd46dde9478c766"
+      },
+      {
+        "number": 533,
+        "state": "OPEN",
+        "headRefOid": "247475cc4c7fb4e96ed8909b116d7d06cbeb9683"
+      },
+      {
+        "number": 511,
+        "state": "OPEN",
+        "headRefOid": "1d59779c522c6e2c78a435919cd290804b40f8b7"
+      },
+      {
+        "number": 504,
+        "state": "OPEN",
+        "headRefOid": "c9d4b5f192a1ee6868d130697fd268945c165525"
+      },
+      {
+        "number": 499,
+        "state": "OPEN",
+        "headRefOid": "3caf213e24d96f8e4e576e47352f66b0c53d8b7d"
+      },
+      {
+        "number": 498,
+        "state": "OPEN",
+        "headRefOid": "91bec76c178a970acace1d117ffaa0f3adc4acc8"
+      },
+      {
+        "number": 482,
+        "state": "OPEN",
+        "headRefOid": "712af489c3956765fb38446fe306c855f30217eb"
+      },
+      {
+        "number": 473,
+        "state": "OPEN",
+        "headRefOid": "0b677d591b33c4a92d854095e6935bba0db34ce3"
+      },
+      {
+        "number": 451,
+        "state": "OPEN",
+        "headRefOid": "ad7092d5e75ac7186f216ad147fbd21e07c4424a"
+      },
+      {
+        "number": 443,
+        "state": "OPEN",
+        "headRefOid": "7aee57edb9bf026b2060b332929698e260a90841"
+      },
+      {
+        "number": 442,
+        "state": "OPEN",
+        "headRefOid": "0fb224261833201c29ddbfcaf05911e2cc341e33"
+      },
+      {
+        "number": 430,
+        "state": "OPEN",
+        "headRefOid": "b26144609a76c3da452e2dd9846ba0805cc15a5c"
+      },
+      {
+        "number": 427,
+        "state": "OPEN",
+        "headRefOid": "225e357cd971880c36542279960876d30d1651ae"
+      },
+      {
+        "number": 409,
+        "state": "OPEN",
+        "headRefOid": "9673188ab391df9f8a3db207ba855a2fd06a1cbe"
+      },
+      {
+        "number": 408,
+        "state": "OPEN",
+        "headRefOid": "a6e135583d82028a26e717221bf9ccb8888a8f99"
+      },
+      {
+        "number": 407,
+        "state": "OPEN",
+        "headRefOid": "772ca3228b2d2639d2f9659586a978b15c0f39fd"
+      },
+      {
+        "number": 401,
+        "state": "OPEN",
+        "headRefOid": "676b0db994578c6d97a8d3f2f7ac7930a8e55440"
+      },
+      {
+        "number": 400,
+        "state": "OPEN",
+        "headRefOid": "f4a9fdd3a64b977f0d877ac993a120184047b088"
+      },
+      {
+        "number": 398,
+        "state": "CLOSED",
+        "headRefOid": "b5bfeb33785dc58cb928865735a2e81d505ba4b7"
+      },
+      {
+        "number": 393,
+        "state": "OPEN",
+        "headRefOid": "90389a7df1c90179458043e799d4c87ffd62c9d5"
+      },
+      {
+        "number": 376,
+        "state": "OPEN",
+        "headRefOid": "f6363fcc11e3c8860ae78b77f3cb57396ede876d"
+      }
+    ]
   }
 }

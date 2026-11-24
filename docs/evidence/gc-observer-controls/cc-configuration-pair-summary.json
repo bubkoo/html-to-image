@@ -1,0 +1,36 @@
+{
+  "push": {
+    "run": 43671201382,
+    "head": "20b841a75719d30f868e21a8efdd424a923cb72a",
+    "coveragePassed": 1225,
+    "sourcePassed": 1101,
+    "sourceFailed": 5,
+    "inheritedSkips": [4, 4],
+    "packages": "not run",
+    "configurationControl": {
+      "sourcePassed": 1106,
+      "skipped": 4,
+      "logging": false,
+      "allThreeEngines": true
+    },
+    "ccOnlyTrace": "skipped because configuration control passed",
+    "orderConfound": "result cache prioritizes failed files; observed completion sequence differs; not exact start sequence"
+  },
+  "pr": {
+    "run": 43671204701,
+    "head": "20b841a75719d30f868e21a8efdd424a923cb72a",
+    "coveragePassed": 1225,
+    "sourcePassed": 1103,
+    "sourceFailed": 3,
+    "inheritedSkips": [4, 4],
+    "packages": "not run",
+    "configurationControl": {
+      "sourcePassed": 1106,
+      "skipped": 4,
+      "logging": false,
+      "allThreeEngines": true
+    },
+    "ccOnlyTrace": "skipped because configuration control passed",
+    "orderConfound": "result cache prioritizes failed files; observed completion sequence differs; not exact start sequence"
+  }
+}

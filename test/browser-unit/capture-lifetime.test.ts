@@ -3,6 +3,7 @@
 import { expect, test } from 'vitest'
 import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
+import { recordReferenceFailure } from '../browser/fixtures/reference-lifetime-probe'
 
 declare module 'vitest/browser' {
   interface BrowserCommands {
@@ -131,6 +132,8 @@ test.runIf(server.browser !== 'webkit')(
         nativeCollected: native.deref() === undefined,
         capturedCollected: reference.deref() === undefined,
       }
+      if (!diagnosis.capturedCollected)
+        await recordReferenceFailure('removed-iframe', reference, diagnosis)
       expect(diagnosis.capturedCollected, JSON.stringify(diagnosis)).toBe(true)
       expect(diagnosis.nativeCollected).toBe(true)
       const image = await capture.toImageData()

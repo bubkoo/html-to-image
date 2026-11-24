@@ -3,10 +3,18 @@
 import { expect, test } from 'vitest'
 import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
+import { recordReferenceFailure } from '../browser/fixtures/reference-lifetime-probe'
 import {
   createSVGStyleEnvironment,
   detectSVGStylePolicy,
 } from '../../src/svg-style-scope'
+
+declare module 'vitest/browser' {
+  interface BrowserCommands {
+    gcObserverDiagnosticsEnabled(): Promise<boolean>
+    recordGCObserverEvidence(record: string): Promise<void>
+  }
+}
 
 async function nativeFrame(fonts: FontFace[], probed = false) {
   const frame = document.createElement('iframe')
@@ -91,6 +99,31 @@ async function disposedEnvironment(probed: boolean) {
   }
 }
 
+async function observerDiagnostics(
+  kind: string,
+  probed: boolean,
+  reference: WeakRef<Document>,
+  primary: { ownerCollected: boolean; [key: string]: unknown },
+) {
+  if (
+    primary.ownerCollected &&
+    !(await commands.gcObserverDiagnosticsEnabled())
+  )
+    return
+  const url = '/test/browser/fixtures/gc-observer-controls.mjs'
+  const fixture = await import(/* @vite-ignore */ url)
+  const observers = await fixture.sampleEnvironmentObservers(
+    createSVGStyleEnvironment,
+    detectSVGStylePolicy,
+    probed,
+    () => commands.collectGarbage(),
+    reference,
+  )
+  await commands.recordGCObserverEvidence(
+    JSON.stringify({ engine: server.browser, kind, primary, observers }),
+  )
+}
+
 test.each([false, true])(
   'a disposed SVG environment releases its document with probed=%s',
   async (probed) => {
@@ -108,6 +141,18 @@ test.each([false, true])(
         nativeCollected: native.reference.deref() === undefined,
         ownerCollected: reference.deref() === undefined,
       }
+      if (!diagnosis.ownerCollected)
+        await recordReferenceFailure(
+          'environment-' + probed,
+          reference,
+          diagnosis,
+        )
+      await observerDiagnostics(
+        'environment-' + probed,
+        probed,
+        reference,
+        diagnosis,
+      )
       expect(diagnosis.ownerCollected, JSON.stringify(diagnosis)).toBe(true)
       expect(diagnosis.nativeCollected).toBe(true)
     }
@@ -193,10 +238,17 @@ test('cancellation releases private SVG work while a custom font resolver remain
       await commands.collectGarbage()
       await commands.collectGarbage()
       const collected = reference!.deref() === undefined
+      if (!collected)
+        await recordReferenceFailure('pending-font', reference!, { collected })
       const tree = collected ? undefined : retainedTree(reference!)
       const diagnosis = collected
         ? undefined
         : { native: await nativeRetention(), tree }
+      await observerDiagnostics('pending-font', true, reference!, {
+        ownerCollected: collected,
+        nativeDiagnosticCollections: diagnosis ? 3 : 0,
+        diagnosis,
+      })
       // Report primitive observations rather than rooting the failed document
       // in the test reporter and contaminating later collection controls.
       expect(collected, JSON.stringify(diagnosis)).toBe(true)

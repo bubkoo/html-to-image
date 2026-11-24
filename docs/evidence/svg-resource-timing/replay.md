@@ -1,0 +1,9 @@
+# Native resource timing observation
+
+Run `python3 docs/evidence/svg-resource-timing/verify-archive.py` to verify fourteen files. Extract raw.tar.gz under an ignored directory and run its native-performance.mjs from the repository root with the recorded Playwright dependency. The controller owns port4496 and closes its server/browsers in finally. It creates fresh pages, installs a buffered resource observer before SVG load and raises the resource buffer to1000. An independent owned fetch must appear in the timing records.
+
+Six screenshots preserve native source before/after exactly; the thirty-three colored columns are the prior HTTP qualified-paint fixture. No library capture is invoked and no exported image is compared. Resource entries and the owned server trace expose nested URLs in these scenes. A whole page contains multiple references and both page/file resources, so these observations alone do not provide reliable per-element provenance or arbitrary-page history. A runtime approach needs fresh-context, cache, CSP and resource-policy controls before using any inferred address.
+
+Recorded local versions: Chromium156.0.8078.4, installed Firefox159.0 and WebKit27.2 with SDK1.64.1/Node22.21.1 on Darwin. SDK's expected Firefox1555 was absent; the controller explicitly uses installed1578 and records its path/version. Adjust that path only to a deliberately selected browser and preserve its actual version. This is not a Firefox157 retest, a standard three-engine package gate, UMD, Linux or iPhone acceptance. Query fixture bodies are deliberately equal and do not establish general query-distinct identity.
+
+The initial missing pngjs import and expected Firefox executable failures remain as setup logs. The final controller compares PNG bytes directly; Python/Pillow independently verified all17600 RGBA channels per before/after scene and recorded center colors in observation.json. No dependency or production source was changed.

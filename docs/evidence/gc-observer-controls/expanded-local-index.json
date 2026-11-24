@@ -1,0 +1,86 @@
+{
+  "archive": "expanded-local-raw.tar.gz",
+  "archiveSHA256": "bf87a32601e06965835dc01490a6c84eff218d376fe806358eaa95519c53663f",
+  "files": [
+    {
+      "path": "inputs/.github/workflows/ci.yml",
+      "bytes": 3128,
+      "sha256": "157d601d1bf85497b8f57dfa0fc7a8408006113d4508a3eb6ed60a886a183043"
+    },
+    {
+      "path": "inputs/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 8371,
+      "sha256": "660b31d222bcbb7d87807d03f3387320db8c2f58e6bac1910e91b1b952033c54"
+    },
+    {
+      "path": "inputs/test/browser-unit/svg-fragment-lifetime.test.ts",
+      "bytes": 2874,
+      "sha256": "c7a041193dfd91ffca61168207a8841170d1711e7b1adb2b2d7e1ab97493abf6"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/gc-observer-controls.mjs",
+      "bytes": 9928,
+      "sha256": "f4b6de13d24fac9a7bb807d5eb147221cf7674d6d4ccd36847d9592ff0622b4e"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 8610,
+      "sha256": "78cf34fd9c0351897e5a3ba3adacaf64a57ee2c4500ef0db592580dfebc0667f"
+    },
+    {
+      "path": "logs/observer-probe-controls-focused.log",
+      "bytes": 195,
+      "sha256": "db8911f49a94f21296c699bc8abf85ddab1565dae2566057ea7b2918f6486bc4"
+    },
+    {
+      "path": "logs/observer-probe-controls-lint.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "observations/browser-chromium-environment-false.json",
+      "bytes": 5449,
+      "sha256": "52f2671eefe3f4d21eecab046d33f1d5128608fbe64242fd76c3fb369837766c"
+    },
+    {
+      "path": "observations/browser-chromium-environment-true.json",
+      "bytes": 5464,
+      "sha256": "287f1bf2fa0ef2390d9e83e7844a187056fbc2e974701be92416485ff6d76927"
+    },
+    {
+      "path": "observations/browser-chromium-frozen-svg-source.json",
+      "bytes": 978,
+      "sha256": "45e66e91041f22ba2c36dc268402816b06c1421bfb08ed98e5fda9318427aff1"
+    },
+    {
+      "path": "observations/browser-chromium-pending-font.json",
+      "bytes": 5591,
+      "sha256": "7bfc2cc22f86c7e73784cb1d3ebbd297369cab57d224c7b2ee947e3815aec107"
+    },
+    {
+      "path": "observations/browser-firefox-environment-false.json",
+      "bytes": 5248,
+      "sha256": "1773e7218a8e82275e605eb66108348af73e844e469cc6496e0f493719dbabc3"
+    },
+    {
+      "path": "observations/browser-firefox-environment-true.json",
+      "bytes": 5257,
+      "sha256": "afaa5d67562edf01af8b4d42423c456ba2f8d1b8ee465f3f1cee6d9fa5db7a43"
+    },
+    {
+      "path": "observations/browser-firefox-frozen-svg-source.json",
+      "bytes": 960,
+      "sha256": "b6267277256a15075422e8351026fa9ff4d3faf157d18f0b0927c4e3625494b4"
+    },
+    {
+      "path": "observations/browser-firefox-pending-font.json",
+      "bytes": 5766,
+      "sha256": "4042844033bbce76d98587529acefa6678b48ae488dc7d9a9e59f7a72d3b0d07"
+    },
+    {
+      "path": "observations/browser-webkit-frozen-svg-source.json",
+      "bytes": 958,
+      "sha256": "6c58da4fef45341174ca6d381c5d606af3aebb0417853c495c12981eac4be8d6"
+    }
+  ]
+}

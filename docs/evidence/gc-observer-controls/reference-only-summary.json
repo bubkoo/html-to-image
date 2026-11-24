@@ -1,0 +1,164 @@
+{
+  "status": "Reference-only failure capture retains compiled-module path; direct capture-object unwrapping not required; no unique cause/fix claimed",
+  "date": "2026-11-24",
+  "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+  "runs": {
+    "F1 passive/no hook": {
+      "coveragePassed": 1225,
+      "coverageFailed": 0,
+      "coverageSkipped": 4
+    },
+    "G1 existing WeakRef only": {
+      "coveragePassed": 1224,
+      "coverageFailed": 1,
+      "coverageSkipped": 4,
+      "primary": {
+        "nativeCollected": true,
+        "capturedCollected": false
+      }
+    }
+  },
+  "originalGates": "Original three requests/assertions/timeouts/skips retained; no production change. Extra heap/ordinary CC only after cached failure. Full source/browser packages not run.",
+  "inputComparison": {
+    "count": 103,
+    "changedOnly": [
+      "test/browser-unit/capture-lifetime.test.ts",
+      "vitest.browser.config.mts"
+    ],
+    "productionAndBuiltInputsUnchanged": true,
+    "fixtureBytes": 4520,
+    "limits": "Not whole cache/process/timing identity."
+  },
+  "browserTypes": "G1 passed before measured coverage",
+  "probe": {
+    "keys": ["__codexHeap", "reference"],
+    "unwrappedObjects": ["existing WeakRef only"],
+    "applicationObjectsInspected": false,
+    "targetDereferencedAgain": false,
+    "targetIdentity": "wrapper proxy target -> WeakRefObject::target",
+    "ordinaryCC": {
+      "file": "/tmp/cc-edges.13384.codex-ordinary-after-primary.log",
+      "gcFile": "/tmp/gc-edges.13384.codex-ordinary-after-primary.log",
+      "wantAllTraces": false,
+      "phase": "after-primary-and-heap",
+      "extraCollectionForDiagnosisOnly": true
+    },
+    "registration": {
+      "opened": [
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "closed": [
+        {
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "limits": {
+      "maxPathsPerStart": 20,
+      "runtimeSnapshot": true,
+      "introducedTargetHold": false,
+      "introducedAllRootWrapperHolds": false,
+      "introducedWeakRefWrapperHold": true,
+      "introducedApplicationObjectHolds": false,
+      "snapshotIsAfterPrimaryOnly": true,
+      "rootPathsIncludeInspectorReferences": true
+    }
+  },
+  "toolControls": {
+    "explicitHeldMemberFound": true,
+    "collectedWeakRefHasNoDirectTarget": true,
+    "positiveAndNegativePrimary": {
+      "positiveHeld": true,
+      "negativeCollected": true
+    },
+    "limits": "Control absence is specific to the independently sampled collected WeakRef, not whole-runtime unreachability."
+  },
+  "fullGC": {
+    "nodes": 182766,
+    "rootAddresses": 3189,
+    "reachingRoots": 408,
+    "moduleRootWitnesses": 86,
+    "unparsedOrdinaryRows": 0,
+    "witness": [
+      {
+        "from": "0xec3809b8f28",
+        "edge": "module bindings environment",
+        "to": "0x8a8905ca2f0"
+      },
+      {
+        "from": "0x8a8905ca2f0",
+        "edge": "px",
+        "to": "0x3bf11ee53e40"
+      },
+      {
+        "from": "0x3bf11ee53e40",
+        "edge": "JSFunction script",
+        "to": "0x8a8905d4d80"
+      },
+      {
+        "from": "0x8a8905d4d80",
+        "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+        "to": "0x3269e1c2f700"
+      },
+      {
+        "from": "0x3269e1c2f700",
+        "edge": "base",
+        "to": "0x168dc7204e38"
+      },
+      {
+        "from": "0x168dc7204e38",
+        "edge": "baseshape_global",
+        "to": "0x8a8905c4138"
+      },
+      {
+        "from": "0x8a8905c4138",
+        "edge": "CLASS_OBJECT(BoundFunction)",
+        "to": "0x22c53be53388"
+      }
+    ]
+  },
+  "interpretation": "The px/compiled property-cache/source-window/document witness remains when capture/negative object exposure is removed. This rejects that direct unwrapping as a necessary explanation for this observed path; it does not eliminate every debugger/WeakRef/heap/ordinary-CC observer effect or establish a unique pre-verdict cause.",
+  "remote896416a": {
+    "PR": {
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45322884941",
+      "headSha": "896416ac98e71905b303fadc085a353bf017d461",
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "skipped": "four/four",
+      "browserPackages": "not run"
+    },
+    "push": {
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45322879306",
+      "headSha": "896416ac98e71905b303fadc085a353bf017d461",
+      "status": "in_progress at recorded readback",
+      "conclusion": "not yet available",
+      "activeStep": "Install browser engines",
+      "limits": "No push logs or terminal result claimed."
+    }
+  },
+  "sizeLabelFailure": {
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45322882060",
+    "headSha": "896416ac98e71905b303fadc085a353bf017d461",
+    "cause": "Old action requests full PR diff; GitHub HTTP406 because diff exceeds 20000 lines",
+    "next": "Repair independently with paginated file metadata; latest upstream action still omits pagination, so a one-line upgrade is insufficient for large file counts."
+  },
+  "productionChange": false,
+  "newDeviceValidation": false,
+  "cleanup": {
+    "at": "2026-11-24T04:05:57.172625+00:00",
+    "trackedSourceConfigFixtureRestored": true,
+    "toolSHA256": "62939741a7a3affdc286cf8e3fd1f8b964cb6ec73a7285a3cdf24031c986f451",
+    "restoredSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+    "ownedContainerRunning": true,
+    "allMeasuredSuites": "terminal",
+    "systemSafariOrDeviceTouched": false
+  },
+  "next": "Fix independently reproduced PR-size workflow API limit, then continue actual lifecycle reduction using the observed realm/accessor paths. Preserve source and test output contracts; do not add collection retries or change runtime getters simply to get a pass.",
+  "rawFiles": 111
+}

@@ -1,0 +1,3991 @@
+{
+  "status": "investigation only, no fix claimed",
+  "master": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+  "masterCI": 43664877371,
+  "masterCodeQL": 43664877309,
+  "masterResult": {
+    "coveragePassed": 1225,
+    "coverageSkipped": 4,
+    "sourcePassed": 1102,
+    "sourceFailed": 4,
+    "sourceSkipped": 4,
+    "package": "not run",
+    "CodeQL": "success"
+  },
+  "failures": [
+    "Firefox disposed environment, probed=false",
+    "Firefox disposed environment, probed=true",
+    "Firefox pending-font cancellation",
+    "WebKit frozen SVG source document"
+  ],
+  "sameTreeAsAcceptedPRMerge": {
+    "09e905520ecf6cbf8f64e1a7e58ff03d404f92fc": "db3c38deb9d40948966cd268d321c228fce3a55f",
+    "901c4bc0c71087ae41de95458b9e04bce5eb5ff3": "db3c38deb9d40948966cd268d321c228fce3a55f"
+  },
+  "uploadedArtifactFilesPreserved": 12,
+  "masterRawFiles": 24,
+  "primaryHelperBodiesByteIdentical": true,
+  "primaryConditionsUnchanged": true,
+  "primaryCollections": 3,
+  "diagnosticCollectionsAfterPrimarySnapshot": 3,
+  "pendingFontExistingNativeDiagnosticCollections": 3,
+  "local": {
+    "existingTestsPassed": 12,
+    "recordedPrimarySamples": 9,
+    "supplementalObservations": 60,
+    "observerErrors": 0,
+    "reproducedFailure": false,
+    "allSupplementalDocumentsCollected": true,
+    "allCanariesCollected": true,
+    "productionChange": false
+  },
+  "matrix": [
+    "native owner with timeout",
+    "native owner without timeout",
+    "library owner",
+    "await Document then create WeakRef",
+    "Promise maps Document to WeakRef",
+    "explicitly clear temporary Document",
+    "original capture helper",
+    "clear source local after capture",
+    "native timer callback captures iframe",
+    "paired instrumented SVG removal: unchanged href versus cleared href",
+    "supplementary capture with timeout=0",
+    "observation order and age at sample"
+  ],
+  "temporaryWorkflowChanges": [
+    "branch-only direct push plus PR comparison",
+    "branch-only always-record observer flag; remove before merge"
+  ],
+  "gates": "original sampled booleans still asserted; later collections never replace primary failure",
+  "localRawFiles": 12,
+  "totalRawFiles": 3192,
+  "firstPair": {
+    "head": "2a0cc805f55770e747f2863afc00c9637a468d44",
+    "pushRun": 43667097221,
+    "push": "success",
+    "prRun": 43667274475,
+    "pr": "failure: three Firefox source cases; coverage passed; package not run",
+    "suiteLabelsPreserved": true,
+    "eventImageAndCPUConfounded": true,
+    "summary": "gc-observer-controls/first-pair-summary.json"
+  },
+  "firstPairRawFiles": 63,
+  "expandedLocal": {
+    "existingTestsPassed": 12,
+    "recordedPrimarySamples": 9,
+    "supplementalObservations": 117,
+    "allSupplementalDocumentsCollected": true,
+    "allCanariesCollected": true,
+    "observerErrors": 0,
+    "productionChange": false
+  },
+  "expandedLocalRawFiles": 16,
+  "expandedPair": {
+    "head": "b74671890ca7d6c14578ba2bfd3fe62d64c2e10d",
+    "pushRun": 43668909662,
+    "push": "failure: four source cases, including WebKit frozen SVG source",
+    "prRun": 43668914513,
+    "pr": "failure: three Firefox source cases",
+    "coverage": "1225 pass and four inherited skips in both",
+    "source": "push 1102 pass / 4 fail / 4 skip; PR 1103 pass / 3 fail / 4 skip",
+    "packages": "not run in either",
+    "hrefClearingNotSufficient": true,
+    "sourceCaptureTimerObservation": "Firefox supplemental original capture retained, timeout=0 and cleared-source collect in both; primary Firefox capture passes",
+    "summary": "gc-observer-controls/expanded-pair-summary.json"
+  },
+  "expandedPairRawFiles": 67,
+  "rootTrace": {
+    "scope": "separate Firefox source run only after normal failure; temporary branch-only step",
+    "ordinaryFailurePreserved": true,
+    "observerRecordNamespace": "root-trace",
+    "graphFileSequencePerCollection": true,
+    "local": {
+      "existingFirefoxTestsPassed": 4,
+      "collectionCommands": 24,
+      "gcFiles": 75,
+      "ccFiles": 75,
+      "incompleteFilesAtEnd": 0,
+      "graphs": "local investigation output only, not committed as full raw archive",
+      "lint": "passed",
+      "types": "passed"
+    },
+    "LinuxRootCause": "pending; logging perturbs timing",
+    "LinuxResult": "normal source push 1101 pass / 5 fail / 4 skip; PR 1100 pass / 6 fail / 4 skip; both coverage 1225 pass / 4 skip; packages not run; both Firefox trace 368 pass / 2 inherited skips; root cause unresolved",
+    "confounds": [
+      "logging and file-system timing",
+      "Firefox-only trace versus three-engine normal suite",
+      "separate browser process and execution"
+    ],
+    "fullRemoteGraphArchivesDownloaded": false,
+    "selectedRawFiles": 178,
+    "summary": "gc-observer-controls/root-trace-pair-summary.json",
+    "temporaryTraceRemovedAfterNegativeReproduction": true
+  },
+  "noCollectionCheckpoint": {
+    "scope": "supplementary, before constructing new observers; primary result already cached",
+    "explicitCollections": 0,
+    "samples": [
+      "entry",
+      "after Promise.resolve microtask",
+      "after setTimeout(resolve, 0) task boundary"
+    ],
+    "notAFixOrPrimaryRetry": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "primaryRecords": 9,
+      "supplementalObservations": 117,
+      "sourceAlreadyCollectedAtAllThreeSamples": true,
+      "microtaskIdentityControl": true,
+      "strongControlPreserved": true,
+      "canariesRemainWithoutRequestedCollection": true,
+      "lint": "passed",
+      "types": "passed"
+    },
+    "rawFiles": 17,
+    "LinuxResult": "three failed Firefox documents remain at entry, after microtask and after one timer task in both jobs; no explicit GC, no canary collected, held control survives",
+    "runs": {
+      "push": 43670464573,
+      "pr": 43670467884
+    },
+    "normalGate": {
+      "push": "coverage 1225 pass / 4 skip; source 1100 pass / 6 fail / 4 skip; packages not run",
+      "pr": "coverage 1225 pass / 4 skip; source 1103 pass / 3 fail / 4 skip; packages not run"
+    }
+  },
+  "checkpointRunRawFiles": 134,
+  "ccOnlyTrace": {
+    "scope": "separate source runs after normal failure, all three engines; no TEST_BROWSER selection",
+    "firstControl": "same graph-writing configuration, no logging",
+    "traceCondition": "only if configuration control still fails",
+    "runtimeValidatedFlag": "MOZ_CC_DISABLE_GC_LOG=1",
+    "noPerCollectionFileIO": true,
+    "primaryHelpersAndGCCommandUnchanged": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "lint": "passed",
+      "types": "passed",
+      "ccFiles": 75,
+      "gcFiles": 0,
+      "incompleteFiles": 0,
+      "graphBytes": 99898550,
+      "fullLocalGraphArchiveCommitted": false
+    },
+    "selectedRawFiles": 18,
+    "LinuxResult": "Both normal gates fail, but all-three-engine no-log graph-writing configuration control passes 1106 / 4 inherited skips in both jobs; CC-only trace skipped. Test ordering cache changes on failure, so configuration is not isolated."
+  },
+  "ccConfigurationPairRawFiles": 92,
+  "orderCacheControl": {
+    "why": "installed Vitest BaseSequencer prioritizes last failed files, then cached duration; ordinary resource file completes fifth, retry completes first in both runs",
+    "orderObservationScope": "completion sequence, not exact start sequence",
+    "method": "save only results.json after coverage and before source; restore and SHA256 verify before each subsequent source control; leave optimized bundles alone",
+    "sameConfigurationControlFirst": true,
+    "samePnPMScriptInEverySourcePhase": true,
+    "primaryGCCommandAndHelpersUnchanged": true,
+    "local": {
+      "existingTestsPassed": 12,
+      "lint": "passed",
+      "types": "passed",
+      "snapshotRestoreSHA256Verified": true,
+      "restoredAfterRealTestMutation": true,
+      "realRestoreReceipt": "gc-observer-controls/order-cache-real-restore.json"
+    },
+    "localRawFiles": 23,
+    "remoteResult": "pending"
+  },
+  "frozenOrderPair": {
+    "pr": {
+      "run": 43672198368,
+      "sortInputsRestoredAndVerified": true,
+      "sortInputSHA256": [
+        "05f8e72066ae7fef4ef55f39ec4a31bd280ea3485ef98275bb6f3aaacad3bdf4"
+      ],
+      "phases": {
+        "normal": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)",
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "same-configuration-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "sandbox-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "cc-only-trace": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ]
+      },
+      "records": {
+        "same-configuration-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "sandbox-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "cc-only-trace": {
+          "records": 9,
+          "primaryRetained": []
+        }
+      }
+    },
+    "push": {
+      "run": 43672195617,
+      "sortInputsRestoredAndVerified": true,
+      "sortInputSHA256": [
+        "96e663a0da065c83e98434f041d369373a8a13ce42320406c2593dea3f5bdf95"
+      ],
+      "phases": {
+        "normal": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)",
+          "Test Files  2 failed | 115 passed (117)",
+          "Tests  4 failed | 1102 passed | 4 skipped (1110)"
+        ],
+        "same-configuration-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "sandbox-control": [
+          "Test Files  1 failed | 116 passed (117)",
+          "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+        ],
+        "cc-only-trace": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ]
+      },
+      "records": {
+        "same-configuration-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "sandbox-control": {
+          "records": 9,
+          "primaryRetained": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ]
+        },
+        "cc-only-trace": {
+          "records": 9,
+          "primaryRetained": []
+        }
+      }
+    },
+    "head": "6b6150aa46a5388151c73824c98bb2c81f172c4e",
+    "conclusion": "Both ordinary, exact-sort same-configuration and sandbox-only controls fail; CC-only logged phases pass. No production fix or failed-primary retaining root is established.",
+    "graphs": {
+      "prFullInnerArchiveDownloadedAndValidated": true,
+      "prGraphs": 150,
+      "prUncompressedBytes": 458889508,
+      "pushFullGraphsDownloaded": false,
+      "committedGraphs": 2,
+      "privateDocumentObservations": 1006,
+      "notMarkedGarbageObservations": 34,
+      "retainedSrcdocObservations": 12,
+      "retainedSrcdocGraphs": 2,
+      "allTraces": false,
+      "parserLimitation": "Unsupported WeakMapEntry value=(nil) lines; CC garbage result membership is available, complete weak-map root reconstruction is not claimed."
+    },
+    "rootBoundaries": [
+      "Graph 15: orphan SVG use with one unknown refcount edge reaches srcdoc via NodeInfo manager.",
+      "Graph 58: ImageData with one unknown refcount edge reaches scrollbar fixture module/global and a srcdoc document.",
+      "These are transient roots in passing logged execution; no identity ties them to any ordinary failed primary. The unprobed ordinary case also fails, so an SVG-only hypothesis is insufficient."
+    ]
+  },
+  "frozenOrderPairRawFiles": 149,
+  "nativeControlsLocal": {
+    "focusedTestsPassed": 12,
+    "full": {
+      "coveragePassed": 1225,
+      "sourcePassed": 1106,
+      "packagePassed": 159,
+      "coverageSkipped": 4,
+      "sourceSkipped": 4,
+      "lintBuildTypesPackedConsumers": "pass"
+    },
+    "records": 18,
+    "supplementalObservations": 306,
+    "newNativeObservationsPerSuite": 36,
+    "errors": 0,
+    "allObservedSupplementalDocumentsAndCanariesCollected": true,
+    "productionSourceMatchesMaster": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
+    "primaryTestFilesAndGCCommandUnchangedFrom": "6b6150aa46a5388151c73824c98bb2c81f172c4e",
+    "LinuxReproduced": false,
+    "deviceOrProductionFixClaim": false,
+    "inputHashes": 96,
+    "configurationScope": "New six native owners only in unprobed diagnostic samples; primary booleans cached before any supplementary owner is created; no WebKit GC acceptance expansion."
+  },
+  "nativeControlsLocalRawFiles": 31,
+  "nextDiagnostic": "Native unprobed iframe controls isolate sandbox, CSP, fulfilled-Promise reaction and post-load policy. Retain ordinary and exact-sort same-configuration source runs, remove the known-perturbing sandbox/CC-only automatic steps.",
+  "nativeControlsLinux": {
+    "pr": {
+      "run": 43677392127,
+      "ordinary": [
+        "Test Files  130 passed (130)",
+        "Tests  1225 passed | 4 skipped (1229)",
+        "Test Files  1 failed | 116 passed (117)",
+        "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+      ],
+      "repeat": [
+        "Test Files  1 failed | 116 passed (117)",
+        "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+      ],
+      "sortingRestorationVerified": true,
+      "phases": {
+        "normal": {
+          "records": 18,
+          "retainedPrimary": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ],
+          "newNativeRows": 72,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "frozen-svg-source",
+              "owner": null,
+              "helper": "await-capture"
+            }
+          ],
+          "noCollectionCheckpoints": {
+            "firefox-pending-font": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-true": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 1,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-false": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 1,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            }
+          }
+        },
+        "same-configuration-control": {
+          "records": 9,
+          "retainedPrimary": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ],
+          "newNativeRows": 36,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "cleared-local"
+            }
+          ],
+          "noCollectionCheckpoints": {
+            "firefox-pending-font": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-true": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-false": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            }
+          }
+        }
+      }
+    },
+    "push": {
+      "run": 43677387222,
+      "ordinary": [
+        "Test Files  130 passed (130)",
+        "Tests  1225 passed | 4 skipped (1229)",
+        "Test Files  1 failed | 116 passed (117)",
+        "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+      ],
+      "repeat": [
+        "Test Files  117 passed (117)",
+        "Tests  1106 passed | 4 skipped (1110)"
+      ],
+      "sortingRestorationVerified": true,
+      "phases": {
+        "normal": {
+          "records": 18,
+          "retainedPrimary": [
+            "firefox-pending-font",
+            "firefox-environment-true",
+            "firefox-environment-false"
+          ],
+          "newNativeRows": 72,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-removal-control",
+              "helper": "cleared-local"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "await-document"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "weak-promise"
+            },
+            {
+              "engine": "firefox",
+              "kind": "environment-true",
+              "owner": "library-cleared-references",
+              "helper": "cleared-local"
+            }
+          ],
+          "noCollectionCheckpoints": {
+            "firefox-pending-font": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-true": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            },
+            "firefox-environment-false": {
+              "explicitCollections": 0,
+              "atEntry": false,
+              "afterMicrotask": false,
+              "afterTask": false,
+              "elapsedMs": 0,
+              "canaryCollected": false,
+              "strongControlPreserved": true
+            }
+          }
+        },
+        "same-configuration-control": {
+          "records": 9,
+          "retainedPrimary": [],
+          "newNativeRows": 36,
+          "newNativeRetained": 0,
+          "newNativeErrors": 0,
+          "retainedSupplemental": [],
+          "noCollectionCheckpoints": {}
+        }
+      }
+    },
+    "head": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "conclusion": "All new native sandbox/policy-document/reaction/lock rows collect without errors. Those differences alone do not reproduce the retained original. Ordinary source still fails in both events; the identical-sort repeat fails in PR and passes in push. No production fix or unique cause established."
+  },
+  "nativeControlsLinuxRawFiles": 93,
+  "localLinuxControl": {
+    "status": "Local Linux control, stable related failure; no root/fix established",
+    "sourceHead": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "hostDocumentationHead": "805c695c9a345c6452b95ce3d27206014809b9fe",
+    "officialImageIndexDigest": "sha256:2f05f8a734509a7b3f26a912639488ee08f58a7b292d14d62271bcff9038768f",
+    "amd64ManifestDigest": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+    "runtime": {
+      "node": "v24.22.2",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpus": 14,
+      "availableParallelism": 4,
+      "memory": 8216498176,
+      "browsers": {
+        "chromium": "156.0.8078.80",
+        "firefox": "157.0",
+        "webkit": "27.2"
+      }
+    },
+    "container": {
+      "id": "f0aa2ceefdbe5e8f18cc05fd36698f790f916226fddbd2f7d2a222c93f3878fa",
+      "platform": "linux",
+      "image": "mcr.microsoft.com/playwright:v1.64.1-noble",
+      "imageId": "sha256:2f05f8a734509a7b3f26a912639488ee08f58a7b292d14d62271bcff9038768f",
+      "limits": {
+        "nanoCpus": 4000000000,
+        "memory": 6442450944,
+        "shm": 1073741824
+      },
+      "labels": {
+        "codex.purpose": "gc-native-controls",
+        "codex.thread": "01a1c6f5-024e-7a03-b9ba-4aba9ec736ea",
+        "org.opencontainers.image.version": "24.04"
+      }
+    },
+    "host": "Apple Silicon Docker Desktop Linux VM, linux/amd64 emulation; not a GitHub Actions runner",
+    "stages": {
+      "coverage": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "second-coverage": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "focused-capture-lifetime": {
+        "summary": [
+          "Test Files  3 passed (3)",
+          "Tests  11 passed | 1 skipped (12)"
+        ],
+        "failures": []
+      },
+      "full-source-after-failed-coverage": {
+        "summary": [
+          "Test Files  117 passed (117)",
+          "Tests  1106 passed | 4 skipped (1110)"
+        ],
+        "failures": []
+      },
+      "boundary-a1-none": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "boundary-b1-round-trip": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "boundary-c1-message-task": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "timer-d1-timeout-zero": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      },
+      "owner-e1-library-document": {
+        "summary": [
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "failures": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable"
+        ]
+      }
+    },
+    "assertion": "nativeCollected=true, capturedCollected=false after three original requests",
+    "negativeControls": [
+      "additional pre-GC Frame round trip: same failure",
+      "pre-GC MessageChannel task: same failure",
+      "only failed helper timeout:0: same failure; file byte length preserved to avoid size-sort change",
+      "only clone document creator changed from source.implementation to library document.implementation: same failure; source restored afterwards"
+    ],
+    "gates": "First baseline stops at coverage: lint/build/package-entry/types passed; source and browser-package steps not run. Later focused/source runs are separate diagnostics, not a replacement baseline pass.",
+    "sourceCacheScope": "The diagnostic full source restores the snapshot written after failed coverage; this differs from CI after passing coverage. Subsequent coverage controls deliberately remove only results.json and retain optimized bundles.",
+    "sourceRestored": true,
+    "nextAction": "Inspect actual retaining paths after cached failure without enabling pre-collection heap logging; no source fix, extra GC requests, timeout extension or assertion relaxation claimed",
+    "apiContract": {
+      "url": "https://playwright.dev/docs/api/class-page#page-request-gc",
+      "localPackage": "playwright-core@1.64.1/types/types.d.ts:4401",
+      "note": "Collection is best-effort and does not guarantee collecting every unreachable object. This alone neither proves nor excludes a library retaining root."
+    }
+  },
+  "localLinuxControlRawFiles": 321,
+  "recoveredPostFailure": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "Separate emulated Linux diagnostic, not current merged runtime acceptance",
+    "postFailureGraph": {
+      "nodes": 54,
+      "edges": 195,
+      "matches": [],
+      "errors": [],
+      "limitations": {
+        "maxNodes": 1800,
+        "maxDepth": 16,
+        "maxProperties": 90,
+        "firstTwoLexicalScopesAllBindings": true,
+        "otherScopesSelectedBindings": true,
+        "weakEdgesAreNotStrongOwnership": true,
+        "abortSignalListenersIncluded": true,
+        "otherNativeInternalsExcluded": true
+      },
+      "targetHold": "introduced only after original boolean cached; excluded from roots"
+    },
+    "nativeStyleControl": {
+      "summary": [
+        "Test Files  130 passed (130)",
+        "Tests  1225 passed | 4 skipped (1229)"
+      ],
+      "meaning": "Native style-copy/serialization control passes the original assertion and output checks in this run; it does not invoke renderer.capture for this case. Empty renderer remains retained. Earlier pristine library baseline failed, but a same-session restored-library pair is still required before attributing the difference. No full-library ownership cause established.",
+      "testBytes": 4520,
+      "interruptedI2": "No terminal result; preserved as partial only",
+      "I3": "fresh run after explicit pause/restart; results.json already absent; optimized bundles retained"
+    },
+    "recovery": "Tracked branch restored from Git; container logs, graph, positive-control scripts, native fixture and raw artifacts recovered. Host-only patched Firefox source/ZIP and scripts were unavailable; do not claim full reproduction of those past graph experiments from this archive.",
+    "next": "Split native computed-style reads from style copying and serialization; retain original GC assertions/counts. Native internals and optimized-out bindings still limit graph conclusions."
+  },
+  "recoveredPostFailureRawFiles": 93,
+  "matchedClone": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "hostBranch": "a94c02d; merged current master is not the container test runtime",
+    "environment": "Same isolated Linux/amd64 emulation documented in local-linux-summary.json; Node24.22.2/pnpm10.34.9; three engines, coverage suite only",
+    "sorting": "Before each stage remove only results.json; preserve optimized bundles. Preserve input/previous-result receipts. Test file always 4520 bytes.",
+    "stages": {
+      "j1-library": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "k1-clone": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "l1-native-pseudo": {
+        "summary": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": false
+      }
+    },
+    "nativePrior": "I3 native computed-style copy/XML serialization passes 1225/four skips; raw input/log in recovered-postfailure archive",
+    "meaning": "Matched library path and direct clone-only path both retain the source after the original three requests. Renderer capture/task/snapshot ownership is not necessary to reproduce this local case. Clone-only output check is not reached after its GC assertion fails.",
+    "limits": "No root or production fix established; not the three remote source failures; no extra GC, skip, timeout or assertion changes. Native-pseudo variant also omits redundant xmlns assignment; do not infer a unique cause from a green result.",
+    "next": "Reduce the native operations of clone-only; keep public export semantics and all original gates."
+  },
+  "matchedCloneRawFiles": 95,
+  "nativeOperations": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "Same isolated emulated Linux native-operation controls; not current source/remote/iPhone acceptance",
+    "stages": {
+      "m1-import": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      },
+      "o1-global-import": {
+        "summary": [
+          "Test Files  130 passed (130)",
+          "Tests  1225 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": false
+      },
+      "p1-source-body": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "retentionFailure": true
+      }
+    },
+    "changes": {
+      "m1-import": "Native I3 result builder, but source.implementation creates the target document and importNode(node,false) supplies its body. No renderer.capture or library clone call in this scene; empty renderer retained.",
+      "o1-global-import": "Only replace source.implementation with main document.implementation plus inert padding; retain importNode.",
+      "p1-source-body": "Native I3 result builder, but source.implementation creates target document; use its empty body, no importNode."
+    },
+    "sorting": "Every fixture 4520 bytes; remove/save only results.json; keep optimized bundles. Original assertions, three requests, timeouts/skips unchanged.",
+    "meaning": "The local primary can fail with source-created empty body, without importNode or library clone/capture. Main-created body (I3) and main-created import (O1) pass. No claim about every native Document/importNode or a universal native leak.",
+    "negativePrior": "E1 changed the creator in the full library clone path and still failed, preserved in local-linux-controls. These native subsets do not overturn that counterexample or establish a full-library fix.",
+    "remoteObserved": {
+      "head": "a94c02daa5a5e084b1b164bd1d0c6a8f7ce075da",
+      "testedMerge": "70826ffa88df132bd473bfc9fd70a625b36eccac",
+      "ci": 44364243412,
+      "conclusion": "success",
+      "coverage": 1234,
+      "source": 1115,
+      "packages": 162,
+      "inheritedSkips": [4, 4],
+      "note": "One independent remote pass, not a lifecycle fix or acceptance for a later head"
+    },
+    "next": "Reduce source.implementation property access versus createHTMLDocument invocation, then inspect the actual retained native relationship. No production change.",
+    "latestObservedFailure": {
+      "conclusion": "failure",
+      "event": "pull_request",
+      "headSha": "93d83eee0a30f4ea22a676e733e39033dc65aa03",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/44365244006",
+      "run": 44365244006,
+      "coverage": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "skips": [4, 4],
+      "packages": "not run",
+      "scope": "three Firefox environment/cancellation checks; not the local iframe control; root not established"
+    },
+    "causalityUpdate": "Subsequent byte-identical I3 native baseline S1 also fails; earlier contrasts are individual outcomes, not unique causal isolation. See native-baseline-summary.json."
+  },
+  "nativeOperationsRawFiles": 167,
+  "nativeBaseline": {
+    "source": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "scope": "same isolated emulated Linux coverage diagnostic, not current branch/remote/device acceptance",
+    "stages": {
+      "q1-read": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "nativeCollected": true,
+        "capturedCollected": false
+      },
+      "s1-baseline": {
+        "summary": [
+          "FAIL   firefox  test/browser-unit/capture-lifetime.test.ts > a removed iframe document is collectible while its snapshot remains usable",
+          "Test Files  1 failed | 129 passed (130)",
+          "Tests  1 failed | 1224 passed | 4 skipped (1229)"
+        ],
+        "nativeCollected": true,
+        "capturedCollected": false
+      }
+    },
+    "comparison": "S1 fixture is byte-identical to previously passing I3; Q1 adds only an unused source-document implementation read and adjusts inert padding. Both now fail the original primary, native bare-removal control passes.",
+    "conclusion": "The native baseline is not stable across these runs. Source implementation access/creation cannot be treated as necessary or a uniquely isolated cause from earlier contrasts. No library root or fix established. Inspect native-copy and test execution contexts.",
+    "sourceReview": {
+      "upstreamRevision": "fdd757a2e09c9471cddf383e64e631e4ce178499",
+      "selection": "Playwright v1.64.1 browser_patches/firefox/UPSTREAM_CONFIG.sh",
+      "facts": "Document caches DOMImplementation; implementation strongly owns its document; both edges participate in cycle-collection traversal/unlink. Native cycle alone does not prove a leak or retaining root.",
+      "limits": "Pinned upstream source, not proof of the patched browser binary root"
+    },
+    "assertions": "Original primary conditions, three requests, timeouts and inherited skips unchanged. Q1/S1 fail before output assertion. Full coverage 1224/1/4 each; no source/package gate claimed.",
+    "next": "Inspect actual retaining paths after cached primary failure; include native-copy and test/Promise contexts, separate introduced inspector roots."
+  },
+  "nativeBaselineRawFiles": 68,
+  "heapToolControls": {
+    "scope": "Standalone positive/negative tool controls only; actual failing suite not instrumented or sampled",
+    "browser": "isolated-container Firefox 157.0, Playwright1.64.1",
+    "source": "source checkpoint9a391dc; host evidence branch e7705bf",
+    "positive": "unqualified capture -> proxy target -> knownOwnedDocument path found",
+    "negative": {
+      "weakOrInspectorLabels": [
+        "[weak]",
+        "WeakMap entry",
+        "Debugger.Object referent"
+      ],
+      "negativeRawPaths": 3,
+      "negativeUnqualifiedPaths": 0,
+      "limits": "Only returned paths (cap20); absence of an unqualified path is not complete unreachability proof"
+    },
+    "registration": {
+      "opened": [
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "closed": [
+        {
+          "before": true,
+          "after": false
+        }
+      ],
+      "passiveParentListener": "uses official notifyDevToolsOpened/Closed, only at explicit capture, no guard removal"
+    },
+    "snapshot": {
+      "file": "positive-qualified.fxsnapshot",
+      "bytes": 185095,
+      "sha256": "b2251085e2c2212da4e4fdcd65a85705ced4225dd65e1c09d81d9a67580af4c2",
+      "rootPathCount": 5,
+      "rawGraph": "positive-qualified.json",
+      "introducedRoots": "probe, comparison target and raw wrapper holds; root paths include inspector artifacts"
+    },
+    "negativeToolResults": [
+      "before registration, parent heap-file IPC guard kills child; cgroup OOM counters all zero",
+      "IDs calculated before snapshot can move; before/after IDs preserved",
+      "privileged cross-compartment wrapper ID differs from underlying HTMLDocument; census/direct proxy edge resolves target",
+      "raw shortest paths include weak and inspector paths; cap20 can miss other strong paths, no complete absence proof"
+    ],
+    "replayLimits": "Final builder/scripts and controls are replayable from the original official image/omni hash. Earlier failed variant logs retained; not all intermediate binary ZIPs retained. Full browser ZIPs excluded; patched runtime/parent source and per-file hashes included.",
+    "cleanup": {
+      "pristineFirefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "expectedSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "sourceConfigAndTestDiffEmpty": true,
+      "ownedContainerStopped": true,
+      "ownedBrowsersClosed": true,
+      "systemSafariDriverUntouched": true
+    },
+    "next": "When resumed, add after-cached-failure hook, first check patched-browser/no-hook baseline, then inspect actual paths and label introduced/conditional edges. Production root remains unknown."
+  },
+  "heapToolControlsRawFiles": 30,
+  "heapResume": {
+    "status": "Resumed; cold environment rebuild and after-verdict hook prepared, not executed",
+    "remote": {
+      "pr": {
+        "conclusion": "failure",
+        "event": "pull_request",
+        "headSha": "d75d622987f7c03173c51aca6d2a11137f2ac86c",
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/44369692907",
+        "testSummary": [
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:10.3107420Z       Tests  1234 passed | 4 skipped (1238)",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7168463Z \u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 5 \u23af\u23af\u23af\u23af\u23af\u23af\u23af",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7268969Z       Tests  5 failed | 1110 passed | 4 skipped (1119)"
+        ],
+        "failures": [
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7170331Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7172239Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7294196Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7624412Z  FAIL   firefox  test/browser-unit/svg-style-source-lifetime.test.ts > disposed SVG owner releases source with font=false and opened=true",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7696628Z  FAIL   firefox  test/browser-unit/svg-style-source-lifetime.test.ts > disposed SVG owner releases source with font=true and opened=true"
+        ],
+        "packages": "not run"
+      },
+      "push": {
+        "conclusion": "failure",
+        "event": "push",
+        "headSha": "d75d622987f7c03173c51aca6d2a11137f2ac86c",
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/44369678841",
+        "testSummary": [
+          "ci\tUNKNOWN STEP\t2026-11-18T18:52:42.4129156Z       Tests  1234 passed | 4 skipped (1238)",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8913247Z \u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 3 \u23af\u23af\u23af\u23af\u23af\u23af\u23af",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.9048183Z       Tests  3 failed | 1112 passed | 4 skipped (1119)"
+        ],
+        "failures": [
+          "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8916266Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8917688Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true",
+          "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.9005327Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending"
+        ],
+        "packages": "not run"
+      }
+    },
+    "environment": "Docker engine inventory empty after startup on 2026-11-24; prior stopped container and images are absent. Pulling original pinned amd64 digest, live exec handle20780. No container/baseline/heap result claimed.",
+    "imageDigest": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+    "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "hook": {
+      "bytes": 4520,
+      "primary": "original diagnosis booleans cached first; original assertions/three requests retained",
+      "inspection": "only after capturedCollected=false; target/probe introduce post-verdict roots; before-heap Node receipt preserves verdict even if capture crashes",
+      "validation": "esbuild syntax only; no type/runtime/no-hook acceptance",
+      "negative": "no actual failing suite has yet been sampled by the heap tool"
+    },
+    "next": "Finish current image pull; verify runtime and pristine hash; rebuild dependencies frozen; patched no-hook baseline; only then run prepared hook. New environment results must remain distinct from older runs."
+  },
+  "heapResumeRawFiles": 104,
+  "heapActual": {
+    "status": "Actual failing-suite heap captured; investigation only; paused after evidence milestone",
+    "date": "2026-11-24",
+    "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "environment": {
+      "containerId": "ce39419ebbdd0c13a83361c5f16bed5ce9adaa83ebb85ab79714cc408d1b0266",
+      "imageId": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+      "configDigest": "sha256:a0d7b2b49ffa0e99787a00b7ec2af46eca58020082713f002ca9f0f1cfd1a017",
+      "rootfsDiffIdsMatch": true,
+      "manifestDigest": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+      "head": "9a391dc5639ab80085d73e411ffea5738279d201",
+      "pristineOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "limits": {
+        "NanoCpus": 4000000000,
+        "Memory": 6442450944,
+        "ShmSize": 1073741824
+      },
+      "mounts": [],
+      "state": "running",
+      "sourceSeed": "local shallow Git checkout preserving exact commit"
+    },
+    "runtime": {
+      "node": "v24.22.2",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpus": 14,
+      "parallelism": 4,
+      "memory": 8216498176,
+      "cpuMax": "400000 100000",
+      "sdk": "1.64.1",
+      "browsers": {
+        "chromium": {
+          "version": "156.0.8078.80",
+          "executable": "/ms-playwright/chromium-1248/chrome-linux64/chrome"
+        },
+        "firefox": {
+          "version": "157.0",
+          "executable": "/ms-playwright/firefox-1555/firefox/firefox"
+        },
+        "webkit": {
+          "version": "27.2",
+          "executable": "/ms-playwright/webkit-2370/pw_run.sh"
+        }
+      }
+    },
+    "runs": {
+      "U1 patched browser, no hook": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "failure": "Firefox removed-iframe snapshot lifetime",
+        "sourceSuite": "not run",
+        "browserPackages": "not run"
+      },
+      "V1 after cached primary hook": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "failure": "Firefox removed-iframe snapshot lifetime",
+        "sourceSuite": "not run",
+        "browserPackages": "not run"
+      }
+    },
+    "staticGates": {
+      "lint": "passed on baseline",
+      "build": "passed",
+      "packageEntries": "passed, not browser package suite",
+      "baselineBrowserTypes": "passed",
+      "initialHookTypes": "failed before runtime; stripped declaration augmentation",
+      "correctedHookTypes": "passed before V1"
+    },
+    "inputComparison": {
+      "count": 103,
+      "changedOnly": [
+        "test/browser-unit/capture-lifetime.test.ts",
+        "vitest.browser.config.mts"
+      ],
+      "productionAndBuiltInputsUnchanged": true,
+      "hookBytes": 4520,
+      "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201"
+    },
+    "primary": {
+      "nativeCollected": true,
+      "capturedCollected": false
+    },
+    "snapshotErrors": [],
+    "registration": {
+      "opened": [
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "closed": [
+        {
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "paths": {
+      "capture": 4,
+      "negative": 4,
+      "gcRoot": 6,
+      "captureAndNegative": "each: two introduced global probe paths, one explicit weak/conditional debugger path, one WeakRefObject::target path",
+      "gcRootDetails": "native preserved wrapper unresolved; debugger; introduced wrapper stack; two conditional WeakMap/debugger; WeakRef target"
+    },
+    "limits": {
+      "maxPathsPerStart": 20,
+      "runtimeSnapshot": true,
+      "introducedTargetHold": true,
+      "introducedAllRootWrapperHolds": true,
+      "snapshotIsAfterPrimaryOnly": true,
+      "rootPathsIncludeInspectorReferences": true
+    },
+    "conclusion": "No unique application holding root established. Preserved-wrapper holder needs native CC investigation; bounded raw JS graph includes weak and introduced roots.",
+    "weakRefSource": "https://github.com/mozilla-firefox/firefox/blob/fdd757a2e09c9471cddf383e64e631e4ce178499/js/src/builtin/WeakRefObject.cpp#L93",
+    "cleanup": {
+      "at": "2026-11-24T02:44:09.582125+00:00",
+      "container": "html-to-image-gc-linux-9a391dc",
+      "trackedSourceConfigAndFixtureRestored": true,
+      "firefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "ownedContainerRunning": false,
+      "deviceOrSystemSafariTouched": false
+    },
+    "nextAfterResume": "Reduce introduced probe roots with validated controls and inspect native preserved-wrapper holder after caching the original primary failure. Do not relax GC assertions or add collections as a fix.",
+    "productionChange": false,
+    "physicalDeviceValidation": "not repeated",
+    "remoteCI": "no acceptance claimed for this local historical checkpoint",
+    "rawFiles": 108
+  },
+  "heapActualRawFiles": 108,
+  "nativeHolderRawFiles": 218,
+  "nativeHolder": {
+    "status": "Actual native and JS graphs captured with no added target dereference; investigation active, no production fix",
+    "date": "2026-11-24",
+    "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "provenance": "Same owned pinned container/runtime as heap-actual; source/config/fixture restored afterward. Exact manifest and runtime receipt included.",
+    "remote913014e": {
+      "pr": {
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45314820687",
+        "headSha": "913014e26d156b2bea921302ec17930d786d63ae",
+        "conclusion": "failure",
+        "coveragePassed": 1234,
+        "coverageSkipped": 4,
+        "sourcePassed": 1112,
+        "sourceFailed": 3,
+        "sourceSkipped": 4,
+        "browserPackages": "not run"
+      },
+      "push": {
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45314812053",
+        "headSha": "913014e26d156b2bea921302ec17930d786d63ae",
+        "conclusion": "failure",
+        "coveragePassed": 1234,
+        "coverageSkipped": 4,
+        "sourcePassed": 1110,
+        "sourceFailed": 5,
+        "sourceSkipped": 4,
+        "browserPackages": "not run"
+      }
+    },
+    "localRuns": {
+      "W1 v4 no hook": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "fullSource": "not run",
+        "browserPackages": "not run"
+      },
+      "X1 v4 after-primary": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "fullSource": "not run",
+        "browserPackages": "not run"
+      },
+      "X2 v4 identical-input repeat": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "fullSource": "not run",
+        "browserPackages": "not run"
+      },
+      "Y1 v5 no hook": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "fullSource": "not run",
+        "browserPackages": "not run"
+      },
+      "Z1 v5 WeakRef-only": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "fullSource": "not run",
+        "browserPackages": "not run"
+      },
+      "Z2 v5 identical-input repeat": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "fullSource": "not run",
+        "browserPackages": "not run"
+      }
+    },
+    "inputComparison": {
+      "inputCount": 103,
+      "w1EqualsY1": true,
+      "x1EqualsX2": true,
+      "z1EqualsZ2": true,
+      "baselineVsHookChangedOnly": [
+        "vitest.browser.config.mts",
+        "test/browser-unit/capture-lifetime.test.ts"
+      ],
+      "productionAndBuiltInputsUnchanged": true,
+      "limits": "These 103 source/built/config inputs do not establish entire process/cache/timing identity."
+    },
+    "types": "X1 and Z1 browser types passed before execution; no build/package/runtime acceptance expansion",
+    "originalGates": "Original helper/three collection requests/assertions/deadlines/inherited skips retained; extra native CC only after cached failure and JS heap; no replacement of primary verdict",
+    "v4": "Probe target edge removed, but explicit raw target hold/debugger references remain; X2 captured real failure and native document holder.",
+    "v5": {
+      "fixtureBytes": 4520,
+      "rawTargetDereferenceAdded": false,
+      "explicitTargetHold": false,
+      "targetIdentification": "privileged wrapper -> WeakRef -> WeakRefObject::target, no target dereference",
+      "primary": {
+        "nativeCollected": true,
+        "capturedCollected": false
+      },
+      "registration": {
+        "opened": [
+          {
+            "before": false,
+            "after": true
+          }
+        ],
+        "closed": [
+          {
+            "before": true,
+            "after": false
+          }
+        ]
+      },
+      "errors": [],
+      "fullGCGraph": {
+        "nodes": 181166,
+        "rootAddresses": 2795,
+        "unparsedRows": 0,
+        "conditionalWeakMapRecords": 71,
+        "capturePath": null,
+        "negativePath": null,
+        "remainingRoots": "Five gray native preserved-wrapper roots under the explicit weak-edge policy; not a complete runtime unreachability proof"
+      },
+      "nativeCCGraph": {
+        "nodes": 144291,
+        "edges": 496208,
+        "weakMapRecords": 76,
+        "holder": {
+          "address": "0x7fffd6d13200",
+          "description": "[rc=6] Document normal (xhtml) about:srcdoc",
+          "result": null,
+          "incoming": [
+            {
+              "from": "0x7fffd6f3e480",
+              "edge": "mImpl->GetDocument()"
+            },
+            {
+              "from": "0x7fffe1d38780",
+              "edge": "mDocument"
+            },
+            {
+              "from": "0x7fffd9eb4340",
+              "edge": "mOwner"
+            },
+            {
+              "from": "0x2d511a262388",
+              "edge": "UnwrapDOMObject(obj)"
+            },
+            {
+              "from": "0x7fffd9bbc400",
+              "edge": "mDoc"
+            },
+            {
+              "from": "0x7fffd6699e80",
+              "edge": "mDocument"
+            }
+          ]
+        },
+        "conditionalBoundaryRoots": 0,
+        "limits": "No ordinary black/RC-root path under parser exclusions; conditional WeakMap semantics and full-trace observer effects remain. Do not infer native unreachability or a unique root."
+      }
+    },
+    "parserControls": {
+      "knownOwnedMember": "found direct content edge",
+      "rawIndependentNegative": "raw graph reaches held positive through realm debugger, privileged global and remote-object probe; explicitly retained as observer path",
+      "qualifiedIndependentNegative": "no path after separately excluding realm debugger and Debugger.Object referent",
+      "cacheIR": "Do not exclude undecorated cacheir-weak-* by name. ShouldTraceWeakEdgeInStub traces IonIC fields strongly; they remain in the conservative graph.",
+      "earlyControlFailure": "Unqualified negative-none assertion failed; raw observer path retained. Refined graph views label observer boundaries rather than deleting raw evidence."
+    },
+    "sourceLimits": {
+      "allTraces": "TraversalTracer explicitly traces weak edges, and WantAllTraces visits black JS nodes. Full-trace CC logs cannot alone establish original strong ownership. No claim this caused the original failure.",
+      "requests": "Pinned ContentChild receives GC/CC synchronously at receiver; this source does not itself establish completion ordering versus the parent protocol acknowledgment."
+    },
+    "productionChange": false,
+    "newPhoneValidation": false,
+    "cleanup": {
+      "at": "2026-11-24T03:09:07.631064+00:00",
+      "sourceConfigFixtureRestored": true,
+      "firefoxOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "ownedContainerRunning": true,
+      "ownedMeasuredSuites": "all terminal",
+      "productionChange": false,
+      "systemSafariOrDeviceTouched": false
+    },
+    "next": "Collect ordinary CC after cached failure without target dereference, preserving GC logs and original primary verdict; distinguish original retention from full-trace instrumentation and conditional/observer roots. No assertion relaxation or production patch without cause.",
+    "rawFiles": 218
+  },
+  "ordinaryCC": {
+    "status": "Concrete post-verdict compiled-accessor paths observed; no unique/pre-inspection root or production fix; goal active",
+    "date": "2026-11-24",
+    "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "localCoverage": {
+      "a1": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "b1": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "c1": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "d1": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "d2": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "d3": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "e1": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      },
+      "e2": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "source": "not run",
+        "browserPackages": "not run"
+      }
+    },
+    "originalGates": "Original three collection requests, assertions, deadlines and inherited skips retained. Extra heap/CC only after cached failure; these diagnostic collections never replace primary result.",
+    "sourceAndBuiltInputs": {
+      "count": 103,
+      "changedFromA1": {
+        "a1": [],
+        "b1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "c1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "d1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "d2": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "d3": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "e1": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ],
+        "e2": [
+          "test/browser-unit/capture-lifetime.test.ts",
+          "vitest.browser.config.mts"
+        ]
+      },
+      "b1EqualsE1EqualsE2": true,
+      "d1EqualsD2EqualsD3": true,
+      "c1VersusB1": "only fixture, explicit width/height",
+      "d3VersusE2": "only config, Firefox JIT preferences",
+      "productionAndBuiltInputsUnchanged": true,
+      "limits": "Source/built/config hashes only, not entire process/cache/timing or all browser-tool variants."
+    },
+    "browserTypes": "B1/C1/D1 typed variants pass before execution; later equivalent configs/fixtures reuse those checks",
+    "ordinaryCC": {
+      "wantAllTraces": false,
+      "nodes": 3486,
+      "edges": 6448,
+      "targetWrapperVisited": false,
+      "nativeHolderVisited": false,
+      "targetGarbageVerdict": "absent, not a passed collection",
+      "positiveControl": "ordinary CC also omits the known-held target; log absence is not collection proof"
+    },
+    "rootWitnesses": {
+      "b1": {
+        "target": "0x10a0e1359388",
+        "targetRows": [
+          "0x10a0e1359388 B Preserved wrapper, holder 0x7fffe1cc3600",
+          "0x10a0e1359388 B HTMLDocument <unknown object>"
+        ],
+        "functionNodes": [
+          "0x175b8874fd98 B Function px",
+          "0x23a3133a1420 B ModuleEnvironmentObject",
+          "0x23a3133d6c90 B script http://localhost:63315/src/util.ts:3797"
+        ],
+        "path": [
+          {
+            "from": "0x35053003ef88",
+            "edge": "toSvg",
+            "to": "0x3519e82790b0"
+          },
+          {
+            "from": "0x3519e82790b0",
+            "edge": "**UNKNOWN SLOT 1**",
+            "to": "0x175b887c05e8"
+          },
+          {
+            "from": "0x175b887c05e8",
+            "edge": "enclosing_environment",
+            "to": "0x3519e8205fb8"
+          },
+          {
+            "from": "0x3519e8205fb8",
+            "edge": "enclosing_environment",
+            "to": "0x3505300b7790"
+          },
+          {
+            "from": "0x3505300b7790",
+            "edge": "**UNKNOWN SLOT 2**",
+            "to": "0x3505300b6af0"
+          },
+          {
+            "from": "0x3505300b6af0",
+            "edge": "module bindings environment",
+            "to": "0x23a3133a1420"
+          },
+          {
+            "from": "0x23a3133a1420",
+            "edge": "px",
+            "to": "0x175b8874fd98"
+          },
+          {
+            "from": "0x175b8874fd98",
+            "edge": "JSFunction script",
+            "to": "0x23a3133d6c90"
+          },
+          {
+            "from": "0x23a3133d6c90",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+            "to": "0x113a93f29900"
+          },
+          {
+            "from": "0x113a93f29900",
+            "edge": "base",
+            "to": "0x2f9695804e38"
+          },
+          {
+            "from": "0x2f9695804e38",
+            "edge": "baseshape_global",
+            "to": "0x23a3133c7088"
+          },
+          {
+            "from": "0x23a3133c7088",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x10a0e1359388"
+          }
+        ],
+        "strength": "explicit cacheir-shape guarded property path, no debugger/weak edge in this witness",
+        "limit": "Post-cached-verdict and heap inspection; path observed, not proven unique/pre-inspection cause. Capture wrappers were inspected and may affect coloring."
+      },
+      "c1": {
+        "target": "0x308eb0758388",
+        "targetRows": [
+          "0x308eb0758388 B Preserved wrapper, holder 0x7fffd9edfc00",
+          "0x308eb0758388 B HTMLDocument <unknown object>"
+        ],
+        "functionNodes": [
+          "0x2a61b9634d28 B Function cloneCSSStyle",
+          "0xa47e9e58550 B ModuleEnvironmentObject",
+          "0xa47e9ed1240 B script http://localhost:63315/src/clone-node.ts:6164"
+        ],
+        "path": [
+          {
+            "from": "0xd3db178e088",
+            "edge": "toSvg",
+            "to": "0xd3db178f2e0"
+          },
+          {
+            "from": "0xd3db178f2e0",
+            "edge": "**UNKNOWN SLOT 1**",
+            "to": "0xd3db179d090"
+          },
+          {
+            "from": "0xd3db179d090",
+            "edge": "enclosing_environment",
+            "to": "0xd3db1792670"
+          },
+          {
+            "from": "0xd3db1792670",
+            "edge": "enclosing_environment",
+            "to": "0x2938ec4116a0"
+          },
+          {
+            "from": "0x2938ec4116a0",
+            "edge": "**UNKNOWN SLOT 2**",
+            "to": "0xa47e9e43430"
+          },
+          {
+            "from": "0xa47e9e43430",
+            "edge": "module bindings environment",
+            "to": "0xa47e9e58550"
+          },
+          {
+            "from": "0xa47e9e58550",
+            "edge": "cloneCSSStyle",
+            "to": "0x2a61b9634d28"
+          },
+          {
+            "from": "0x2a61b9634d28",
+            "edge": "JSFunction script",
+            "to": "0xa47e9ed1240"
+          },
+          {
+            "from": "0xa47e9ed1240",
+            "edge": "cacheir-weak-shape",
+            "to": "0x2dc71ad1d8a0"
+          },
+          {
+            "from": "0x2dc71ad1d8a0",
+            "edge": "base",
+            "to": "0x214bccde0118"
+          },
+          {
+            "from": "0x214bccde0118",
+            "edge": "baseshape_global",
+            "to": "0xa47e9ee2ef8"
+          },
+          {
+            "from": "0xa47e9ee2ef8",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x308eb0758388"
+          }
+        ],
+        "strength": "unprefixed cacheir-weak-shape ambiguous",
+        "limit": "Post-cached-verdict and heap inspection; path observed, not proven unique/pre-inspection cause. Capture wrappers were inspected and may affect coloring."
+      },
+      "e2": {
+        "target": "0x3a69b1f53388",
+        "targetRows": [
+          "0x3a69b1f53388 B Preserved wrapper, holder 0x7fffd6d21200",
+          "0x3a69b1f53388 B HTMLDocument <unknown object>"
+        ],
+        "functionNodes": [
+          "0x3ec80b415b8 B Function cloneSingleNode",
+          "0x1749e20cd128 B ModuleEnvironmentObject",
+          "0x1749e20ce150 B script http://localhost:63315/src/clone-node.ts:6044"
+        ],
+        "path": [
+          {
+            "from": "0x249122683088",
+            "edge": "toSvg",
+            "to": "0x249122686350"
+          },
+          {
+            "from": "0x249122686350",
+            "edge": "**UNKNOWN SLOT 1**",
+            "to": "0x249122693090"
+          },
+          {
+            "from": "0x249122693090",
+            "edge": "enclosing_environment",
+            "to": "0x249122688790"
+          },
+          {
+            "from": "0x249122688790",
+            "edge": "enclosing_environment",
+            "to": "0x2c43fbc84f88"
+          },
+          {
+            "from": "0x2c43fbc84f88",
+            "edge": "**UNKNOWN SLOT 2**",
+            "to": "0x2c43fbcb1af0"
+          },
+          {
+            "from": "0x2c43fbcb1af0",
+            "edge": "module bindings environment",
+            "to": "0x1749e20cd128"
+          },
+          {
+            "from": "0x1749e20cd128",
+            "edge": "cloneSingleNode",
+            "to": "0x3ec80b415b8"
+          },
+          {
+            "from": "0x3ec80b415b8",
+            "edge": "JSFunction script",
+            "to": "0x1749e20ce150"
+          },
+          {
+            "from": "0x1749e20ce150",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x2d41b9927800"
+          },
+          {
+            "from": "0x2d41b9927800",
+            "edge": "base",
+            "to": "0x2782f5504e38"
+          },
+          {
+            "from": "0x2782f5504e38",
+            "edge": "baseshape_global",
+            "to": "0x2d41b994fea0"
+          },
+          {
+            "from": "0x2d41b994fea0",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x3a69b1f53388"
+          }
+        ],
+        "strength": "explicit cacheir-shape guarded property path, no debugger/weak edge in this witness",
+        "limit": "Post-cached-verdict and heap inspection; path observed, not proven unique/pre-inspection cause. Capture wrappers were inspected and may affect coloring."
+      }
+    },
+    "interpretation": "B1 and E2 preserve explicit cacheir-shape property-cache paths from retained module functions to source Window/Document. C1 bypasses dimension reads but still fails through cloneCSSStyle with ambiguous undecorated cacheir-weak-shape. One getter is insufficient as a unique cause. Normal CC omits the black/known-live target; source skip paths are consistent with that, not uniquely proven by native instrumentation.",
+    "JITControls": {
+      "verifiedRuntime": {
+        "d3": {
+          "readbacks": 2,
+          "engineFlags": {
+            "ion.enable": 0,
+            "baseline.enable": 0,
+            "blinterp.enable": 0
+          },
+          "postEnablePrefs": [
+            {
+              "javascript.options.blinterp": false,
+              "javascript.options.baselinejit": false,
+              "javascript.options.ion": false
+            }
+          ]
+        },
+        "e1": {
+          "readbacks": 2,
+          "engineFlags": {
+            "ion.enable": 1,
+            "baseline.enable": 1,
+            "blinterp.enable": 1
+          },
+          "postEnablePrefs": [
+            {
+              "javascript.options.blinterp": true,
+              "javascript.options.baselinejit": true,
+              "javascript.options.ion": true
+            }
+          ]
+        },
+        "e2": {
+          "readbacks": 2,
+          "engineFlags": {
+            "ion.enable": 1,
+            "baseline.enable": 1,
+            "blinterp.enable": 1
+          },
+          "postEnablePrefs": [
+            {
+              "javascript.options.blinterp": true,
+              "javascript.options.baselinejit": true,
+              "javascript.options.ion": true
+            }
+          ]
+        }
+      },
+      "d1": "configured off, no direct engine readback",
+      "d2": "configured off; startup-only true readback precedes Browser.enable preference application, so it is not an effective-state reading",
+      "correctedReadPoint": "BrowserHandler after applying userPrefs plus content-process getJitCompilerOptions",
+      "conclusion": "Verified disabled D3 passes, verified default E1 passes and same-input E2 fails. No deterministic iff or production workaround established."
+    },
+    "nativeSimplifications": {
+      "native-reader-eval-results": {
+        "cases": 4,
+        "allNativeAndReadDocumentsCollected": true,
+        "simpleCanaryAndStrongControlValid": true,
+        "libraryLoaded": false,
+        "conclusion": "Does not reproduce full-suite retention; not proof of a universal browser cause."
+      },
+      "native-reader-module-results": {
+        "cases": 4,
+        "allNativeAndReadDocumentsCollected": true,
+        "simpleCanaryAndStrongControlValid": true,
+        "libraryLoaded": false,
+        "conclusion": "Does not reproduce full-suite retention; not proof of a universal browser cause."
+      }
+    },
+    "nativeFixtureLimits": "Eval version resolves load Event; HTTP module version uses original void onload shape. Both collect in cold/warm/default/disabled cases. Neither reproduces the full-suite module/inert-document context.",
+    "observerLimits": "The probe still unwraps capture and negative objects. Transitive ungraying or inspector effect remains possible. These are post-verdict witnesses, not proof the same path caused the original primary failure.",
+    "toolVariants": "Base ordinary-CC tool for A1/B1/C1/D1; startup-pref logging for D2; post-enable and content-engine logging for D3/E1/E2. Final variant sources/hash retained. D2 intermediate installed-binary hash was not separately recorded; it is not runtime-verified acceptance.",
+    "remote53de33f": {
+      "pr": {
+        "headSha": "53de33f801bd87e003bd2da15b4743cd65e54f52",
+        "event": "pull_request",
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45318408024",
+        "conclusion": "failure",
+        "coveragePassed": 1234,
+        "coverageSkipped": 4,
+        "sourcePassed": 1112,
+        "sourceFailed": 3,
+        "sourceSkipped": 4,
+        "browserPackages": "not run"
+      },
+      "push": {
+        "headSha": "53de33f801bd87e003bd2da15b4743cd65e54f52",
+        "event": "push",
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45318400315",
+        "conclusion": "failure",
+        "coveragePassed": 1234,
+        "coverageSkipped": 4,
+        "sourcePassed": 1112,
+        "sourceFailed": 3,
+        "sourceSkipped": 4,
+        "browserPackages": "not run"
+      }
+    },
+    "CodeQL53de33f": "success, exact PR check readback retained",
+    "productionChange": false,
+    "newDeviceValidation": false,
+    "cleanup": {
+      "at": "2026-11-24T03:51:34.535393+00:00",
+      "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+      "trackedSourceConfigAndFixtureRestored": true,
+      "finalToolOmniSHA256": "74fbe4158f672b635e07d69ce3e4b3ff1ae10a94929172c93c6b307e6cc3d7cb",
+      "restoredOmniSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "ownedContainerRunning": true,
+      "measuredSuites": "all terminal",
+      "nativeReaderServer": "closed by finally after all four contexts",
+      "productionChange": false,
+      "systemSafariOrPhoneTouched": false
+    },
+    "next": "Remove capture/negative object inspection and locate target only through the existing WeakRef; inspect ordinary GC roots without exposing library objects. Then minimize actual module/inert-document/coverage context as needed. Do not filter ambiguous CacheIR edges or patch runtime/getters merely to pass.",
+    "rawFiles": 280
+  },
+  "ordinaryCCRawFiles": 280,
+  "referenceOnly": {
+    "status": "Reference-only failure capture retains compiled-module path; direct capture-object unwrapping not required; no unique cause/fix claimed",
+    "date": "2026-11-24",
+    "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+    "runs": {
+      "F1 passive/no hook": {
+        "coveragePassed": 1225,
+        "coverageFailed": 0,
+        "coverageSkipped": 4
+      },
+      "G1 existing WeakRef only": {
+        "coveragePassed": 1224,
+        "coverageFailed": 1,
+        "coverageSkipped": 4,
+        "primary": {
+          "nativeCollected": true,
+          "capturedCollected": false
+        }
+      }
+    },
+    "originalGates": "Original three requests/assertions/timeouts/skips retained; no production change. Extra heap/ordinary CC only after cached failure. Full source/browser packages not run.",
+    "inputComparison": {
+      "count": 103,
+      "changedOnly": [
+        "test/browser-unit/capture-lifetime.test.ts",
+        "vitest.browser.config.mts"
+      ],
+      "productionAndBuiltInputsUnchanged": true,
+      "fixtureBytes": 4520,
+      "limits": "Not whole cache/process/timing identity."
+    },
+    "browserTypes": "G1 passed before measured coverage",
+    "probe": {
+      "keys": ["__codexHeap", "reference"],
+      "unwrappedObjects": ["existing WeakRef only"],
+      "applicationObjectsInspected": false,
+      "targetDereferencedAgain": false,
+      "targetIdentity": "wrapper proxy target -> WeakRefObject::target",
+      "ordinaryCC": {
+        "file": "/tmp/cc-edges.13384.codex-ordinary-after-primary.log",
+        "gcFile": "/tmp/gc-edges.13384.codex-ordinary-after-primary.log",
+        "wantAllTraces": false,
+        "phase": "after-primary-and-heap",
+        "extraCollectionForDiagnosisOnly": true
+      },
+      "registration": {
+        "opened": [
+          {
+            "before": false,
+            "after": true
+          }
+        ],
+        "closed": [
+          {
+            "before": true,
+            "after": false
+          }
+        ]
+      },
+      "limits": {
+        "maxPathsPerStart": 20,
+        "runtimeSnapshot": true,
+        "introducedTargetHold": false,
+        "introducedAllRootWrapperHolds": false,
+        "introducedWeakRefWrapperHold": true,
+        "introducedApplicationObjectHolds": false,
+        "snapshotIsAfterPrimaryOnly": true,
+        "rootPathsIncludeInspectorReferences": true
+      }
+    },
+    "toolControls": {
+      "explicitHeldMemberFound": true,
+      "collectedWeakRefHasNoDirectTarget": true,
+      "positiveAndNegativePrimary": {
+        "positiveHeld": true,
+        "negativeCollected": true
+      },
+      "limits": "Control absence is specific to the independently sampled collected WeakRef, not whole-runtime unreachability."
+    },
+    "fullGC": {
+      "nodes": 182766,
+      "rootAddresses": 3189,
+      "reachingRoots": 408,
+      "moduleRootWitnesses": 86,
+      "unparsedOrdinaryRows": 0,
+      "witness": [
+        {
+          "from": "0xec3809b8f28",
+          "edge": "module bindings environment",
+          "to": "0x8a8905ca2f0"
+        },
+        {
+          "from": "0x8a8905ca2f0",
+          "edge": "px",
+          "to": "0x3bf11ee53e40"
+        },
+        {
+          "from": "0x3bf11ee53e40",
+          "edge": "JSFunction script",
+          "to": "0x8a8905d4d80"
+        },
+        {
+          "from": "0x8a8905d4d80",
+          "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+          "to": "0x3269e1c2f700"
+        },
+        {
+          "from": "0x3269e1c2f700",
+          "edge": "base",
+          "to": "0x168dc7204e38"
+        },
+        {
+          "from": "0x168dc7204e38",
+          "edge": "baseshape_global",
+          "to": "0x8a8905c4138"
+        },
+        {
+          "from": "0x8a8905c4138",
+          "edge": "CLASS_OBJECT(BoundFunction)",
+          "to": "0x22c53be53388"
+        }
+      ]
+    },
+    "interpretation": "The px/compiled property-cache/source-window/document witness remains when capture/negative object exposure is removed. This rejects that direct unwrapping as a necessary explanation for this observed path; it does not eliminate every debugger/WeakRef/heap/ordinary-CC observer effect or establish a unique pre-verdict cause.",
+    "remote896416a": {
+      "PR": {
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45322884941",
+        "headSha": "896416ac98e71905b303fadc085a353bf017d461",
+        "conclusion": "failure",
+        "coveragePassed": 1234,
+        "sourcePassed": 1112,
+        "sourceFailed": 3,
+        "skipped": "four/four",
+        "browserPackages": "not run"
+      },
+      "push": {
+        "url": "https://github.com/bubkoo/html-to-image/actions/runs/45322879306",
+        "headSha": "896416ac98e71905b303fadc085a353bf017d461",
+        "status": "in_progress at recorded readback",
+        "conclusion": "not yet available",
+        "activeStep": "Install browser engines",
+        "limits": "No push logs or terminal result claimed."
+      }
+    },
+    "sizeLabelFailure": {
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45322882060",
+      "headSha": "896416ac98e71905b303fadc085a353bf017d461",
+      "cause": "Old action requests full PR diff; GitHub HTTP406 because diff exceeds 20000 lines",
+      "next": "Repair independently with paginated file metadata; latest upstream action still omits pagination, so a one-line upgrade is insufficient for large file counts."
+    },
+    "productionChange": false,
+    "newDeviceValidation": false,
+    "cleanup": {
+      "at": "2026-11-24T04:05:57.172625+00:00",
+      "trackedSourceConfigFixtureRestored": true,
+      "toolSHA256": "62939741a7a3affdc286cf8e3fd1f8b964cb6ec73a7285a3cdf24031c986f451",
+      "restoredSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "ownedContainerRunning": true,
+      "allMeasuredSuites": "terminal",
+      "systemSafariOrDeviceTouched": false
+    },
+    "next": "Fix independently reproduced PR-size workflow API limit, then continue actual lifecycle reduction using the observed realm/accessor paths. Preserve source and test output contracts; do not add collection retries or change runtime getters simply to get a pass.",
+    "rawFiles": 111
+  },
+  "referenceOnlyRawFiles": 111,
+  "currentMasterCheckpoint": {
+    "date": "2026-11-24",
+    "status": "Pause checkpoint only; no lifecycle fix claimed",
+    "remote646": {
+      "head": "f267e03739f11c5651700d6c4dd53ca9ccb9a091",
+      "testedMerge": "dc35672e52358409d5a4e4b66c45c81d9af48d9a",
+      "CI": "https://github.com/bubkoo/html-to-image/actions/runs/45324323268",
+      "conclusion": "success",
+      "coveragePassed": 1234,
+      "sourcePassed": 1115,
+      "skipped": "four/four",
+      "browserPackagesPassed": 162,
+      "CodeQL": "https://github.com/bubkoo/html-to-image/actions/runs/45324323422",
+      "CodeQLConclusion": "success",
+      "limits": "One passing run does not establish a fix; earlier failures remain evidence; draft unmerged"
+    },
+    "remote649": {
+      "head": "94ae2db7411e5575c79ebf6a73da430964bc5d18",
+      "CI": "https://github.com/bubkoo/html-to-image/actions/runs/45325019386",
+      "conclusion": "failure",
+      "sizeScriptLintBuildEntriesTypes": "passed",
+      "coveragePassed": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "failures": [
+        "Firefox disposed environment probed=false",
+        "Firefox disposed environment probed=true",
+        "Firefox pending-font cancellation"
+      ],
+      "skipped": "four/four",
+      "browserPackages": "not run",
+      "CodeQL": "success",
+      "state": "draft unmerged",
+      "activation": "Not active until merged base workflow and subsequent pull_request_target event; no rerun waiver"
+    },
+    "sizeRepair": {
+      "cause": "Full diff download exceeds GitHub 20000-line limit (HTTP406)",
+      "change": "Paginated file metadata, fresh labels and complete changed_files count verification",
+      "liveReadOnly": {
+        "head": "f267e03",
+        "files": 106,
+        "lines": 25590,
+        "size": "XXL",
+        "mutations": false
+      },
+      "limits": "Exact script passes, complete required CI and real workflow activation remain open"
+    },
+    "localCurrentMaster": {
+      "head": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "staticGates": "frozen install, lint, build, published entries and browser types passed",
+      "normalPipeline": "pnpm test",
+      "coveragePassed": 1233,
+      "coverageFailed": 1,
+      "coverageSkipped": 4,
+      "failedCase": "Firefox removed iframe document collectible while snapshot usable",
+      "primary": {
+        "nativeCollected": true,
+        "capturedCollected": false
+      },
+      "source": "not run",
+      "browserPackages": "not run",
+      "measuredInputsUnchanged": 400,
+      "probe": "Reference-only v7 passive patched Firefox; no hook/heap collection in suite; inherited tool inputs in reference-only archive",
+      "limits": "Not the three remote resource-resolver failures; local amd64 emulation has different CPU, memory and timing; not CI or device acceptance"
+    },
+    "nativeInertDocumentControl": {
+      "cases": 4,
+      "primary": "all native/read/canary documents collected; strong controls alive",
+      "libraryLoaded": false,
+      "interpretation": "No independent native defect reproduced; no unique getter diagnosis"
+    },
+    "preparedHook": {
+      "state": "generated only, not installed or executed",
+      "limits": "Printer/normalization check is not browser type or runtime acceptance"
+    },
+    "preflight": "Legacy hash helper rejected absent branch-only fixture before any measured test; replaced with actual-version tracked+built input scope",
+    "cleanup": {
+      "at": "2026-11-24T04:35:32.552410+00:00",
+      "container": "/html-to-image-gc-linux-9a391dc",
+      "running": false,
+      "source": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "trackedDiff": "empty after run",
+      "measuredInputsUnchanged": 400,
+      "firefoxRestoredSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "deviceTouched": false,
+      "measuredSuites": "terminal",
+      "hostProductionEdits": false
+    },
+    "rawFiles": 62,
+    "nextWhenResumed": "On existing diagnostic branch, preserve original primary failures and inspect existing WeakRef only to capture actual remote resource-resolver owner paths. Do not relax assertions, add retries, disable JIT or merge the size repair before required full CI is understood.",
+    "pause": "User requested pause after next small milestone; this checkpoint closes evidence collection only; no next experiment started."
+  },
+  "currentMasterRawFiles": 62,
+  "remoteReference": {
+    "date": "2026-11-24",
+    "status": "Actual three remote Firefox failures and separate repeat captured; no lifecycle fix yet",
+    "sourceHead": "4a70ef0231c2ab66deeccd3ab39c94fd9a199f07",
+    "testedMerge": "f8028b28e3346a44e3fcbcc5ee4cf2f369e601bf",
+    "PR": {
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45335352750",
+      "conclusion": "failure",
+      "toolControl": "passed",
+      "coveragePassed": 1234,
+      "coverageSkipped": 4,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "sourceSkipped": 4,
+      "browserPackages": "not run",
+      "repeat": "1112pass/three same Firefox failures/four skips; diagnostic only; original failure retained",
+      "CodeQL": "https://github.com/bubkoo/html-to-image/actions/runs/45335352731",
+      "CodeQLConclusion": "success"
+    },
+    "liveAtReadback": {
+      "push45335344685": {
+        "recordedAt": "2026-11-24T05:53:41.252Z",
+        "jobs": [
+          {
+            "id": 138245997881,
+            "name": "ci",
+            "status": "in_progress",
+            "conclusion": null,
+            "run_id": 45335344685,
+            "logs_url": null,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1
+              },
+              {
+                "name": "\u2935\ufe0f\u3000Checkout",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2
+              },
+              {
+                "name": "\ud83e\uddfe\u3000Verify tested revision",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3
+              },
+              {
+                "name": "\ud83c\udf89\u3000Setup pnpm",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4
+              },
+              {
+                "name": "\ud83c\udf89\u3000Setup nodejs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5
+              },
+              {
+                "name": "\ud83d\udea7\u3000Install dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6
+              },
+              {
+                "name": "\ud83e\uddf9\u3000Check source and test lint",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7
+              },
+              {
+                "name": "\ud83d\udce6\u3000Build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8
+              },
+              {
+                "name": "\ud83d\udd0e\u3000Check published entries",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9
+              },
+              {
+                "name": "\ud83d\udd0e\u3000Check browser test types",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10
+              },
+              {
+                "name": "\ud83c\udf10\u3000Install browser engines",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 11
+              },
+              {
+                "name": "\ud83d\udd2c\u3000Install and validate reference-only Firefox probe",
+                "status": "pending",
+                "conclusion": null,
+                "number": 12
+              },
+              {
+                "name": "\ud83e\uddea\u3000Test migrated regressions and browser behavior",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13
+              },
+              {
+                "name": "\ud83d\udce6\u3000Test built package in browsers",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14
+              },
+              {
+                "name": "\ud83d\udd2c\u3000Repeat source with the same configuration and sort cache",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15
+              },
+              {
+                "name": "\ud83e\uddf9\u3000Restore original Firefox",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16
+              },
+              {
+                "name": "\ud83d\udccb\u3000Upload browser report",
+                "status": "pending",
+                "conclusion": null,
+                "number": 17
+              },
+              {
+                "name": "\ud83d\udd11\u3000Generate Token",
+                "status": "pending",
+                "conclusion": null,
+                "number": 18
+              },
+              {
+                "name": "\ud83d\udca1\u3000Coveralls",
+                "status": "pending",
+                "conclusion": null,
+                "number": 19
+              },
+              {
+                "name": "\ud83d\udca1\u3000Codecov",
+                "status": "pending",
+                "conclusion": null,
+                "number": 20
+              },
+              {
+                "name": "Post \ud83c\udf89\u3000Setup nodejs",
+                "status": "pending",
+                "conclusion": null,
+                "number": 38
+              },
+              {
+                "name": "Post \ud83c\udf89\u3000Setup pnpm",
+                "status": "pending",
+                "conclusion": null,
+                "number": 39
+              },
+              {
+                "name": "Post \u2935\ufe0f\u3000Checkout",
+                "status": "pending",
+                "conclusion": null,
+                "number": 40
+              }
+            ]
+          }
+        ]
+      },
+      "olderPR45334553916": {
+        "recordedAt": "2026-11-24T05:53:41.270Z",
+        "jobs": [
+          {
+            "id": 138243444305,
+            "name": "ci",
+            "status": "in_progress",
+            "conclusion": null,
+            "run_id": 45334553916,
+            "logs_url": null,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1
+              },
+              {
+                "name": "\u2935\ufe0f\u3000Checkout",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2
+              },
+              {
+                "name": "\ud83e\uddfe\u3000Verify tested revision",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3
+              },
+              {
+                "name": "\ud83c\udf89\u3000Setup pnpm",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4
+              },
+              {
+                "name": "\ud83c\udf89\u3000Setup nodejs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5
+              },
+              {
+                "name": "\ud83d\udea7\u3000Install dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6
+              },
+              {
+                "name": "\ud83e\uddf9\u3000Check source and test lint",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7
+              },
+              {
+                "name": "\ud83d\udce6\u3000Build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8
+              },
+              {
+                "name": "\ud83d\udd0e\u3000Check published entries",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9
+              },
+              {
+                "name": "\ud83d\udd0e\u3000Check browser test types",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10
+              },
+              {
+                "name": "\ud83c\udf10\u3000Install browser engines",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 11
+              },
+              {
+                "name": "\ud83d\udd2c\u3000Install and validate reference-only Firefox probe",
+                "status": "pending",
+                "conclusion": null,
+                "number": 12
+              },
+              {
+                "name": "\ud83e\uddea\u3000Test migrated regressions and browser behavior",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13
+              },
+              {
+                "name": "\ud83d\udce6\u3000Test built package in browsers",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14
+              },
+              {
+                "name": "\ud83d\udd2c\u3000Repeat source with the same configuration and sort cache",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15
+              },
+              {
+                "name": "\ud83e\uddf9\u3000Restore original Firefox",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16
+              },
+              {
+                "name": "\ud83d\udccb\u3000Upload browser report",
+                "status": "pending",
+                "conclusion": null,
+                "number": 17
+              },
+              {
+                "name": "\ud83d\udd11\u3000Generate Token",
+                "status": "pending",
+                "conclusion": null,
+                "number": 18
+              },
+              {
+                "name": "\ud83d\udca1\u3000Coveralls",
+                "status": "pending",
+                "conclusion": null,
+                "number": 19
+              },
+              {
+                "name": "\ud83d\udca1\u3000Codecov",
+                "status": "pending",
+                "conclusion": null,
+                "number": 20
+              },
+              {
+                "name": "Post \ud83c\udf89\u3000Setup nodejs",
+                "status": "pending",
+                "conclusion": null,
+                "number": 38
+              },
+              {
+                "name": "Post \ud83c\udf89\u3000Setup pnpm",
+                "status": "pending",
+                "conclusion": null,
+                "number": 39
+              },
+              {
+                "name": "Post \u2935\ufe0f\u3000Checkout",
+                "status": "pending",
+                "conclusion": null,
+                "number": 40
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "priorToolFailures": {
+      "8d398dc": "PR45333796763 and push45333790744 failed child readHeapSnapshot; actual suites not run; browser restored",
+      "571a9ba": "push45334546135 parent snapshot read succeeds; child NS_ERROR_FILE_ACCESS_DENIED2152857621 and absent direct-child CC files; actual suites not run; browser restored"
+    },
+    "tool": "v9 parent snapshot analysis and native parent-opened GC/CC file-descriptor sinks, original sandbox/JIT unchanged, balanced official registration, existing WeakRef only; test-frame/held/collected controls valid",
+    "primaryContract": "Original three requests, assertions, deadlines/skips unchanged. Cached primary persisted before heap. Extra diagnostic CC can affect subsequent observations/other content processes; env-true nativeCollected=false is retained, not treated as library-only proof. Test byte lengths changed; no original sort/process identity claim.",
+    "actualCaptures": [
+      {
+        "phase": "primary",
+        "case": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "target": "0x1b52e5718f58",
+        "gcNodes": 95425,
+        "gcUnparsedRows": 0,
+        "gcModuleWitnesses": 84,
+        "gcModuleWitnessesExcludingNamedObserverEdges": 76,
+        "explicitCacheIRPath": [
+          {
+            "from": "0xd3916df1280",
+            "edge": "module bindings environment",
+            "to": "0x36062c6c5da0"
+          },
+          {
+            "from": "0x36062c6c5da0",
+            "edge": "createSVGStyleEnvironment",
+            "to": "0xa63c274b778"
+          },
+          {
+            "from": "0xa63c274b778",
+            "edge": "JSFunction script",
+            "to": "0xa63c270b8d0"
+          },
+          {
+            "from": "0xa63c270b8d0",
+            "edge": "script-gcthing",
+            "to": "0xa63c2706ba0"
+          },
+          {
+            "from": "0xa63c2706ba0",
+            "edge": "JSFunction script",
+            "to": "0xa63c270b970"
+          },
+          {
+            "from": "0xa63c270b970",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x39a3481c5da0"
+          },
+          {
+            "from": "0x39a3481c5da0",
+            "edge": "base",
+            "to": "0x233af86f7da8"
+          },
+          {
+            "from": "0x233af86f7da8",
+            "edge": "baseshape_global",
+            "to": "0x3ea07d8a15b0"
+          },
+          {
+            "from": "0x3ea07d8a15b0",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x1b52e5718f58"
+          }
+        ],
+        "snapshotNodes": 88821,
+        "snapshotEdges": 299704,
+        "nativeAPIPathsVerified": 41,
+        "snapshotModuleCandidates": 76,
+        "shortestSnapshotModulePath": [
+          {
+            "from": 140729843214552,
+            "edge": "mModuleRecord, holder 0x7ae7fca14b40",
+            "to": 14538848014976
+          },
+          {
+            "from": 14538848014976,
+            "edge": "module bindings environment",
+            "to": 59400143003040
+          },
+          {
+            "from": 59400143003040,
+            "edge": "createSVGStyleEnvironment",
+            "to": 11423580469112
+          },
+          {
+            "from": 11423580469112,
+            "edge": "JSFunction script",
+            "to": 11423580207312
+          },
+          {
+            "from": 11423580207312,
+            "edge": "script-gcthing",
+            "to": 11423580187552
+          },
+          {
+            "from": 11423580187552,
+            "edge": "JSFunction script",
+            "to": 11423580207472
+          },
+          {
+            "from": 11423580207472,
+            "edge": "cacheir-weak-shape",
+            "to": 63373452271072
+          },
+          {
+            "from": 63373452271072,
+            "edge": "base",
+            "to": 38736183131992
+          },
+          {
+            "from": 38736183131992,
+            "edge": "baseshape_global",
+            "to": 68859021890992
+          },
+          {
+            "from": 68859021890992,
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": 30042850692952
+          }
+        ],
+        "shortestSnapshotModulePathNodes": [
+          {
+            "id": 14538848014976,
+            "type": "JSObject",
+            "class": "Module",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 59400143003040,
+            "type": "JSObject",
+            "class": "ModuleEnvironmentObject",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 11423580469112,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 11423580207312,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 11423580187552,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 11423580207472,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 63373452271072,
+            "type": "js::Shape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 38736183131992,
+            "type": "js::BaseShape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 68859021890992,
+            "type": "JSObject",
+            "class": "Window",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 30042850692952,
+            "type": "JSObject",
+            "class": "HTMLDocument",
+            "script": null,
+            "description": null
+          }
+        ],
+        "inspectionErrors": [],
+        "ccErrors": []
+      },
+      {
+        "phase": "primary",
+        "case": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "target": "0x1b52e57183f8",
+        "gcNodes": 116132,
+        "gcUnparsedRows": 0,
+        "gcModuleWitnesses": 85,
+        "gcModuleWitnessesExcludingNamedObserverEdges": 77,
+        "explicitCacheIRPath": [
+          {
+            "from": "0xd3916df1280",
+            "edge": "module bindings environment",
+            "to": "0x36062c6c5da0"
+          },
+          {
+            "from": "0x36062c6c5da0",
+            "edge": "detectSVGStylePolicy",
+            "to": "0xa63c274b708"
+          },
+          {
+            "from": "0xa63c274b708",
+            "edge": "JSFunction script",
+            "to": "0xa63c270b560"
+          },
+          {
+            "from": "0xa63c270b560",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x3198ea1f2940"
+          },
+          {
+            "from": "0x3198ea1f2940",
+            "edge": "base",
+            "to": "0x233af86f76e8"
+          },
+          {
+            "from": "0x233af86f76e8",
+            "edge": "baseshape_global",
+            "to": "0x53bff8a6f50"
+          },
+          {
+            "from": "0x53bff8a6f50",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x1b52e57183f8"
+          }
+        ],
+        "snapshotNodes": 108699,
+        "snapshotEdges": 366304,
+        "nativeAPIPathsVerified": 70,
+        "snapshotModuleCandidates": 77,
+        "shortestSnapshotModulePath": [
+          {
+            "from": 140729843214552,
+            "edge": "mModuleRecord, holder 0x7ae7fca14b40",
+            "to": 14538848014976
+          },
+          {
+            "from": 14538848014976,
+            "edge": "module bindings environment",
+            "to": 59400143003040
+          },
+          {
+            "from": 59400143003040,
+            "edge": "detectSVGStylePolicy",
+            "to": 11423580469000
+          },
+          {
+            "from": 11423580469000,
+            "edge": "JSFunction script",
+            "to": 11423580206432
+          },
+          {
+            "from": 11423580206432,
+            "edge": "cacheir-weak-shape",
+            "to": 54532832700800
+          },
+          {
+            "from": 54532832700800,
+            "edge": "base",
+            "to": 38736183130576
+          },
+          {
+            "from": 38736183130576,
+            "edge": "baseshape_global",
+            "to": 5755248471888
+          },
+          {
+            "from": 5755248471888,
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": 30042850690040
+          }
+        ],
+        "shortestSnapshotModulePathNodes": [
+          {
+            "id": 14538848014976,
+            "type": "JSObject",
+            "class": "Module",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 59400143003040,
+            "type": "JSObject",
+            "class": "ModuleEnvironmentObject",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 11423580469000,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 11423580206432,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 54532832700800,
+            "type": "js::Shape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 38736183130576,
+            "type": "js::BaseShape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 5755248471888,
+            "type": "JSObject",
+            "class": "Window",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 30042850690040,
+            "type": "JSObject",
+            "class": "HTMLDocument",
+            "script": null,
+            "description": null
+          }
+        ],
+        "inspectionErrors": [],
+        "ccErrors": []
+      },
+      {
+        "phase": "primary",
+        "case": "pending-font",
+        "primary": {
+          "collected": false
+        },
+        "target": "0x1b52e5718270",
+        "gcNodes": 114616,
+        "gcUnparsedRows": 0,
+        "gcModuleWitnesses": 85,
+        "gcModuleWitnessesExcludingNamedObserverEdges": 77,
+        "explicitCacheIRPath": [
+          {
+            "from": "0xd3916df1280",
+            "edge": "module bindings environment",
+            "to": "0x36062c6c5da0"
+          },
+          {
+            "from": "0x36062c6c5da0",
+            "edge": "detectSVGStylePolicy",
+            "to": "0xa63c274b708"
+          },
+          {
+            "from": "0xa63c274b708",
+            "edge": "JSFunction script",
+            "to": "0xa63c270b560"
+          },
+          {
+            "from": "0xa63c270b560",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x3a123efdbca0"
+          },
+          {
+            "from": "0x3a123efdbca0",
+            "edge": "base",
+            "to": "0x233af86f7700"
+          },
+          {
+            "from": "0x233af86f7700",
+            "edge": "baseshape_global",
+            "to": "0x28a066b50b88"
+          },
+          {
+            "from": "0x28a066b50b88",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x1b52e5718270"
+          }
+        ],
+        "snapshotNodes": 107448,
+        "snapshotEdges": 368679,
+        "nativeAPIPathsVerified": 76,
+        "snapshotModuleCandidates": 77,
+        "shortestSnapshotModulePath": [
+          {
+            "from": 140729843213800,
+            "edge": "mModuleRecord, holder 0x7ae7fca14b40",
+            "to": 14538848014976
+          },
+          {
+            "from": 14538848014976,
+            "edge": "module bindings environment",
+            "to": 59400143003040
+          },
+          {
+            "from": 59400143003040,
+            "edge": "detectSVGStylePolicy",
+            "to": 11423580469000
+          },
+          {
+            "from": 11423580469000,
+            "edge": "JSFunction script",
+            "to": 11423580206432
+          },
+          {
+            "from": 11423580206432,
+            "edge": "cacheir-weak-shape",
+            "to": 63850040638688
+          },
+          {
+            "from": 63850040638688,
+            "edge": "base",
+            "to": 38736183130600
+          },
+          {
+            "from": 38736183130600,
+            "edge": "baseshape_global",
+            "to": 44669383019400
+          },
+          {
+            "from": 44669383019400,
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": 30042850689648
+          }
+        ],
+        "shortestSnapshotModulePathNodes": [
+          {
+            "id": 14538848014976,
+            "type": "JSObject",
+            "class": "Module",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 59400143003040,
+            "type": "JSObject",
+            "class": "ModuleEnvironmentObject",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 11423580469000,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 11423580206432,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 63850040638688,
+            "type": "js::Shape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 38736183130600,
+            "type": "js::BaseShape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 44669383019400,
+            "type": "JSObject",
+            "class": "Window",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 30042850689648,
+            "type": "JSObject",
+            "class": "HTMLDocument",
+            "script": null,
+            "description": null
+          }
+        ],
+        "inspectionErrors": [],
+        "ccErrors": []
+      },
+      {
+        "phase": "same-configuration-control",
+        "case": "environment-false",
+        "primary": {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        "target": "0x38ace051bf20",
+        "gcNodes": 95397,
+        "gcUnparsedRows": 0,
+        "gcModuleWitnesses": 84,
+        "gcModuleWitnessesExcludingNamedObserverEdges": 76,
+        "explicitCacheIRPath": [
+          {
+            "from": "0x3034abcf6b8",
+            "edge": "module bindings environment",
+            "to": "0x218bb4a34da0"
+          },
+          {
+            "from": "0x218bb4a34da0",
+            "edge": "createSVGStyleEnvironment",
+            "to": "0x369cc6df9e0"
+          },
+          {
+            "from": "0x369cc6df9e0",
+            "edge": "JSFunction script",
+            "to": "0x369cc68c7e0"
+          },
+          {
+            "from": "0x369cc68c7e0",
+            "edge": "script-gcthing",
+            "to": "0x369cc689a18"
+          },
+          {
+            "from": "0x369cc689a18",
+            "edge": "JSFunction script",
+            "to": "0x369cc68c880"
+          },
+          {
+            "from": "0x369cc68c880",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x350171799300"
+          },
+          {
+            "from": "0x350171799300",
+            "edge": "base",
+            "to": "0x3a292a26ee0"
+          },
+          {
+            "from": "0x3a292a26ee0",
+            "edge": "baseshape_global",
+            "to": "0x10de03cc3a28"
+          },
+          {
+            "from": "0x10de03cc3a28",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x38ace051bf20"
+          }
+        ],
+        "snapshotNodes": 88806,
+        "snapshotEdges": 299196,
+        "nativeAPIPathsVerified": 41,
+        "snapshotModuleCandidates": 76,
+        "shortestSnapshotModulePath": [
+          {
+            "from": 140723306647336,
+            "edge": "mModuleRecord, holder 0x7174862c1800",
+            "to": 3312673683128
+          },
+          {
+            "from": 3312673683128,
+            "edge": "module bindings environment",
+            "to": 36883914771872
+          },
+          {
+            "from": 36883914771872,
+            "edge": "createSVGStyleEnvironment",
+            "to": 3752936208864
+          },
+          {
+            "from": 3752936208864,
+            "edge": "JSFunction script",
+            "to": 3752935868384
+          },
+          {
+            "from": 3752935868384,
+            "edge": "script-gcthing",
+            "to": 3752935856664
+          },
+          {
+            "from": 3752935856664,
+            "edge": "JSFunction script",
+            "to": 3752935868544
+          },
+          {
+            "from": 3752935868544,
+            "edge": "cacheir-weak-shape",
+            "to": 58280315032384
+          },
+          {
+            "from": 58280315032384,
+            "edge": "base",
+            "to": 36883914773432
+          },
+          {
+            "from": 36883914773432,
+            "edge": "baseshape_global",
+            "to": 18545732500008
+          },
+          {
+            "from": 18545732500008,
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": 62315148984096
+          }
+        ],
+        "shortestSnapshotModulePathNodes": [
+          {
+            "id": 3312673683128,
+            "type": "JSObject",
+            "class": "Module",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 36883914771872,
+            "type": "JSObject",
+            "class": "ModuleEnvironmentObject",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3752936208864,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3752935868384,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 3752935856664,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3752935868544,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 58280315032384,
+            "type": "js::Shape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 36883914773432,
+            "type": "js::BaseShape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 18545732500008,
+            "type": "JSObject",
+            "class": "Window",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 62315148984096,
+            "type": "JSObject",
+            "class": "HTMLDocument",
+            "script": null,
+            "description": null
+          }
+        ],
+        "inspectionErrors": [],
+        "ccErrors": []
+      },
+      {
+        "phase": "same-configuration-control",
+        "case": "environment-true",
+        "primary": {
+          "nativeCollected": false,
+          "ownerCollected": false
+        },
+        "target": "0x10de03c183c0",
+        "gcNodes": 116145,
+        "gcUnparsedRows": 0,
+        "gcModuleWitnesses": 85,
+        "gcModuleWitnessesExcludingNamedObserverEdges": 77,
+        "explicitCacheIRPath": [
+          {
+            "from": "0x3034abcf6b8",
+            "edge": "module bindings environment",
+            "to": "0x218bb4a34da0"
+          },
+          {
+            "from": "0x218bb4a34da0",
+            "edge": "detectSVGStylePolicy",
+            "to": "0x369cc6df970"
+          },
+          {
+            "from": "0x369cc6df970",
+            "edge": "JSFunction script",
+            "to": "0x369cc68c470"
+          },
+          {
+            "from": "0x369cc68c470",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x3aa5dc8baa40"
+          },
+          {
+            "from": "0x3aa5dc8baa40",
+            "edge": "base",
+            "to": "0x3a292a264a8"
+          },
+          {
+            "from": "0x3a292a264a8",
+            "edge": "baseshape_global",
+            "to": "0x2f4d73078be0"
+          },
+          {
+            "from": "0x2f4d73078be0",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x10de03c183c0"
+          }
+        ],
+        "snapshotNodes": 108919,
+        "snapshotEdges": 366897,
+        "nativeAPIPathsVerified": 70,
+        "snapshotModuleCandidates": 77,
+        "shortestSnapshotModulePath": [
+          {
+            "from": 140723306647336,
+            "edge": "mModuleRecord, holder 0x7174862c1800",
+            "to": 3312673683128
+          },
+          {
+            "from": 3312673683128,
+            "edge": "module bindings environment",
+            "to": 36883914771872
+          },
+          {
+            "from": 36883914771872,
+            "edge": "detectSVGStylePolicy",
+            "to": 3752936208752
+          },
+          {
+            "from": 3752936208752,
+            "edge": "JSFunction script",
+            "to": 3752935867504
+          },
+          {
+            "from": 3752935867504,
+            "edge": "cacheir-weak-shape",
+            "to": 64484044155520
+          },
+          {
+            "from": 64484044155520,
+            "edge": "base",
+            "to": 3996779702424
+          },
+          {
+            "from": 3996779702424,
+            "edge": "baseshape_global",
+            "to": 52009688861664
+          },
+          {
+            "from": 52009688861664,
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": 18545731797952
+          }
+        ],
+        "shortestSnapshotModulePathNodes": [
+          {
+            "id": 3312673683128,
+            "type": "JSObject",
+            "class": "Module",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 36883914771872,
+            "type": "JSObject",
+            "class": "ModuleEnvironmentObject",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3752936208752,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3752935867504,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 64484044155520,
+            "type": "js::Shape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3996779702424,
+            "type": "js::BaseShape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 52009688861664,
+            "type": "JSObject",
+            "class": "Window",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 18545731797952,
+            "type": "JSObject",
+            "class": "HTMLDocument",
+            "script": null,
+            "description": null
+          }
+        ],
+        "inspectionErrors": [],
+        "ccErrors": []
+      },
+      {
+        "phase": "same-configuration-control",
+        "case": "pending-font",
+        "primary": {
+          "collected": false
+        },
+        "target": "0x10de03c18200",
+        "gcNodes": 114179,
+        "gcUnparsedRows": 0,
+        "gcModuleWitnesses": 85,
+        "gcModuleWitnessesExcludingNamedObserverEdges": 77,
+        "explicitCacheIRPath": [
+          {
+            "from": "0x3034abcf6b8",
+            "edge": "module bindings environment",
+            "to": "0x218bb4a34da0"
+          },
+          {
+            "from": "0x218bb4a34da0",
+            "edge": "detectSVGStylePolicy",
+            "to": "0x369cc6df970"
+          },
+          {
+            "from": "0x369cc6df970",
+            "edge": "JSFunction script",
+            "to": "0x369cc68c470"
+          },
+          {
+            "from": "0x369cc68c470",
+            "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+            "to": "0x30824019eea0"
+          },
+          {
+            "from": "0x30824019eea0",
+            "edge": "base",
+            "to": "0x3a292a26508"
+          },
+          {
+            "from": "0x3a292a26508",
+            "edge": "baseshape_global",
+            "to": "0x23f854435b88"
+          },
+          {
+            "from": "0x23f854435b88",
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": "0x10de03c18200"
+          }
+        ],
+        "snapshotNodes": 107004,
+        "snapshotEdges": 367047,
+        "nativeAPIPathsVerified": 76,
+        "snapshotModuleCandidates": 77,
+        "shortestSnapshotModulePath": [
+          {
+            "from": 140723306646584,
+            "edge": "mModuleRecord, holder 0x7174862c1800",
+            "to": 3312673683128
+          },
+          {
+            "from": 3312673683128,
+            "edge": "module bindings environment",
+            "to": 36883914771872
+          },
+          {
+            "from": 36883914771872,
+            "edge": "detectSVGStylePolicy",
+            "to": 3752936208752
+          },
+          {
+            "from": 3752936208752,
+            "edge": "JSFunction script",
+            "to": 3752935867504
+          },
+          {
+            "from": 3752935867504,
+            "edge": "cacheir-weak-shape",
+            "to": 53335979323136
+          },
+          {
+            "from": 53335979323136,
+            "edge": "base",
+            "to": 3996779702448
+          },
+          {
+            "from": 3996779702448,
+            "edge": "baseshape_global",
+            "to": 39549472562056
+          },
+          {
+            "from": 39549472562056,
+            "edge": "CLASS_OBJECT(BoundFunction)",
+            "to": 18545731797504
+          }
+        ],
+        "shortestSnapshotModulePathNodes": [
+          {
+            "id": 3312673683128,
+            "type": "JSObject",
+            "class": "Module",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 36883914771872,
+            "type": "JSObject",
+            "class": "ModuleEnvironmentObject",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3752936208752,
+            "type": "JSObject",
+            "class": "Function",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3752935867504,
+            "type": "js::BaseScript",
+            "class": null,
+            "script": "http://localhost:63315/src/svg-style-scope.ts",
+            "description": null
+          },
+          {
+            "id": 53335979323136,
+            "type": "js::Shape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 3996779702448,
+            "type": "js::BaseShape",
+            "class": null,
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 39549472562056,
+            "type": "JSObject",
+            "class": "Window",
+            "script": null,
+            "description": null
+          },
+          {
+            "id": 18545731797504,
+            "type": "JSObject",
+            "class": "HTMLDocument",
+            "script": null,
+            "description": null
+          }
+        ],
+        "inspectionErrors": [],
+        "ccErrors": []
+      }
+    ],
+    "interpretation": "Both original and repeat graphs identify the actual private SVG documents. Unprobed source snapshot reaches target through createSVGStyleEnvironment/nested script (including lockResources witness); probed/pending-font through detectSVGStylePolicy. Ordinary GC logs for all six have explicit GetProp cacheir-shape paths to target via source Window. Snapshot cacheir-weak-shape labels are conservatively retained, not automatically strong. No application capture/environment unwrapping; inspector/native preserved-wrapper roots and unknown native ownership remain. This is post-primary evidence, not a unique pre-verdict cause or accepted runtime fix.",
+    "offlineSnapshotParser": "Decodes complete gzip/protobuf graph following Mozilla two/one-byte intern tables and stack order. Strict frame consumption, duplicate IDs, referents, all document census IDs and every provided native path step checked. No live heap/extra collection. Raw snapshot/API outputs remain authoritative; conditional/weak/observer classification limits retained.",
+    "next": "Counterfactual only the private-document DOM access sites indicated by actual graphs, starting with lockResources and detectSVGStylePolicy; preserve output/three-primary-request contracts and normal all-engine/full-package gates. Do not infer a fix from simplified or single passing controls.",
+    "cleanup": {
+      "at": "2026-11-24T05:54:28.255632+00:00",
+      "localContainer": "stopped; tracked source restored; temporary tool test removed",
+      "localFirefoxOriginalSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "remotePRRestore": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      },
+      "allLocalMeasuredSuites": "terminal",
+      "newDeviceValidation": false,
+      "productionChanges": false
+    },
+    "rawFiles": 254
+  },
+  "remoteReferenceRawFiles": 254,
+  "lockCounterfactual": {
+    "date": "2026-11-24",
+    "status": "Operation-group A-B-A outcomes and cache witnesses preserved; no accepted fix",
+    "AOriginal": "4a70ef0231c2ab66deeccd3ab39c94fd9a199f07",
+    "ADocumentationHead": "1e5117babe7d114f3465a13208819ed64be88277",
+    "BLockOperations": "1995c32bb5c3dac77d7e6e74d4ec2d70ded69cc1",
+    "ARestored": "7e6904249d135653ace5a1993f2645eb31d4652f",
+    "AOriginalEvidence": "remote-reference indexed archive: original and source repeat both three Firefox private SVG failures; all six raw graphs",
+    "A1ePR": {
+      "run": 45336954990,
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "sourceSkipped": 4,
+      "browserPackages": "not run",
+      "saved": "complete logs/metadata only; no complete uploaded-artifact claim"
+    },
+    "BPR": {
+      "run": 45338308309,
+      "testedMerge": "bbe7ad9dc61752b17f2206040968617868c6871b",
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1114,
+      "sourceFailed": 1,
+      "sourceSkipped": 4,
+      "failures": ["WebKit frozen SVG host-tree document collection"],
+      "originalThreeFirefox": "pass in normal source and separate source control",
+      "sourceControl": "1115pass/four skips; not replacement of primary failure",
+      "browserPackages": "not run",
+      "CodeQL": {
+        "run": 45338308376,
+        "conclusion": "success"
+      }
+    },
+    "BPush": {
+      "run": 45338301619,
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1113,
+      "sourceFailed": 2,
+      "sourceSkipped": 4,
+      "failures": [
+        "Firefox removed iframe document with frozen snapshot",
+        "WebKit detached source document with frozen snapshot"
+      ],
+      "originalThreeFirefox": "pass in normal source and separate source control",
+      "sourceControl": "1114pass/one removed-iframe Firefox failure/four skips",
+      "browserPackages": "not run",
+      "removedIframeGraphs": [
+        {
+          "phase": "primary",
+          "gcNodes": 193530,
+          "unparsedRows": 0,
+          "moduleCandidates": 84,
+          "namedObserverEdgesExcludedModuleCandidates": 76,
+          "selectedModulePath": [
+            {
+              "from": "0x2a34062298f8",
+              "edge": "module bindings environment",
+              "to": "0x226b9941c2f0"
+            },
+            {
+              "from": "0x226b9941c2f0",
+              "edge": "px",
+              "to": "0x10b10efa4c48"
+            },
+            {
+              "from": "0x10b10efa4c48",
+              "edge": "JSFunction script",
+              "to": "0x10b10ef08060"
+            },
+            {
+              "from": "0x10b10ef08060",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+              "to": "0x268c3e6bdd40"
+            },
+            {
+              "from": "0x268c3e6bdd40",
+              "edge": "base",
+              "to": "0x10f82642ad60"
+            },
+            {
+              "from": "0x10f82642ad60",
+              "edge": "baseshape_global",
+              "to": "0x344565c33e48"
+            },
+            {
+              "from": "0x344565c33e48",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x2ff41a6ff548"
+            }
+          ],
+          "snapshotNodes": 185592,
+          "nativePathsVerified": 107
+        },
+        {
+          "phase": "separate repeat",
+          "gcNodes": 193524,
+          "unparsedRows": 0,
+          "moduleCandidates": 84,
+          "namedObserverEdgesExcludedModuleCandidates": 76,
+          "selectedModulePath": [
+            {
+              "from": "0xc3fd3299598",
+              "edge": "module bindings environment",
+              "to": "0x15f1ac79a388"
+            },
+            {
+              "from": "0x15f1ac79a388",
+              "edge": "px",
+              "to": "0x2ed52ea3d270"
+            },
+            {
+              "from": "0x2ed52ea3d270",
+              "edge": "JSFunction script",
+              "to": "0x23511aca3060"
+            },
+            {
+              "from": "0x23511aca3060",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+              "to": "0x25552a271ae0"
+            },
+            {
+              "from": "0x25552a271ae0",
+              "edge": "base",
+              "to": "0xc0d4575cd60"
+            },
+            {
+              "from": "0xc0d4575cd60",
+              "edge": "baseshape_global",
+              "to": "0x283494df3c90"
+            },
+            {
+              "from": "0x283494df3c90",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x3ac9ef318548"
+            }
+          ],
+          "snapshotNodes": 185586,
+          "nativePathsVerified": 107
+        }
+      ]
+    },
+    "ARestoredPR": {
+      "run": 45339609829,
+      "conclusion": "failure",
+      "coveragePassed": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "sourceSkipped": 4,
+      "failures": [
+        "Firefox environment false",
+        "Firefox environment true",
+        "Firefox pending-font"
+      ],
+      "sourceControl": "same1112/three/four; original failure retained",
+      "browserPackages": "not run",
+      "CodeQL": {
+        "run": 45339609828,
+        "conclusion": "success"
+      },
+      "graphs": [
+        {
+          "phase": "primary",
+          "case": "environment-false",
+          "primary": {
+            "nativeCollected": true,
+            "ownerCollected": false
+          },
+          "target": "0x386316c19c10",
+          "gcNodes": 95441,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 76,
+          "selectedPath": [
+            {
+              "from": "0x1375c5d47c10",
+              "edge": "module bindings environment",
+              "to": "0xfcc2db57388"
+            },
+            {
+              "from": "0xfcc2db57388",
+              "edge": "createSVGStyleEnvironment",
+              "to": "0x3415e510c9a8"
+            },
+            {
+              "from": "0x3415e510c9a8",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbccce0"
+            },
+            {
+              "from": "0xfcc2dbccce0",
+              "edge": "script-gcthing",
+              "to": "0xfcc2dbcae40"
+            },
+            {
+              "from": "0xfcc2dbcae40",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbccd80"
+            },
+            {
+              "from": "0xfcc2dbccd80",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x2ceb60b42ac0"
+            },
+            {
+              "from": "0x2ceb60b42ac0",
+              "edge": "base",
+              "to": "0xfcc2dbc76d0"
+            },
+            {
+              "from": "0xfcc2dbc76d0",
+              "edge": "baseshape_global",
+              "to": "0x16014416a3a0"
+            },
+            {
+              "from": "0x16014416a3a0",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x386316c19c10"
+            }
+          ],
+          "snapshotNodes": 88820,
+          "nativeAPIPathsVerified": 41,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "primary",
+          "case": "environment-true",
+          "primary": {
+            "nativeCollected": false,
+            "ownerCollected": false
+          },
+          "target": "0x3a76ff118430",
+          "gcNodes": 116246,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x1375c5d47c10",
+              "edge": "module bindings environment",
+              "to": "0xfcc2db57388"
+            },
+            {
+              "from": "0xfcc2db57388",
+              "edge": "detectSVGStylePolicy",
+              "to": "0x3415e510c938"
+            },
+            {
+              "from": "0x3415e510c938",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbcc970"
+            },
+            {
+              "from": "0xfcc2dbcc970",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0xe9f393094c0"
+            },
+            {
+              "from": "0xe9f393094c0",
+              "edge": "base",
+              "to": "0xfcc2dbc7778"
+            },
+            {
+              "from": "0xfcc2dbc7778",
+              "edge": "baseshape_global",
+              "to": "0x8d77e5f9ef8"
+            },
+            {
+              "from": "0x8d77e5f9ef8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x3a76ff118430"
+            }
+          ],
+          "snapshotNodes": 108705,
+          "nativeAPIPathsVerified": 70,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "primary",
+          "case": "pending-font",
+          "primary": {
+            "collected": false
+          },
+          "target": "0x3a76ff118200",
+          "gcNodes": 114658,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x1375c5d47c10",
+              "edge": "module bindings environment",
+              "to": "0xfcc2db57388"
+            },
+            {
+              "from": "0xfcc2db57388",
+              "edge": "freezeSVGFragmentStyles",
+              "to": "0x3415e510c9e0"
+            },
+            {
+              "from": "0x3415e510c9e0",
+              "edge": "JSFunction script",
+              "to": "0xfcc2dbcf150"
+            },
+            {
+              "from": "0xfcc2dbcf150",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape CallNativeGetterResult]",
+              "to": "0x1375c5ddc860"
+            },
+            {
+              "from": "0x1375c5ddc860",
+              "edge": "base",
+              "to": "0xfcc2dbc7790"
+            },
+            {
+              "from": "0xfcc2dbc7790",
+              "edge": "baseshape_global",
+              "to": "0x1d6b035c04a8"
+            },
+            {
+              "from": "0x1d6b035c04a8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x3a76ff118200"
+            }
+          ],
+          "snapshotNodes": 107446,
+          "nativeAPIPathsVerified": 76,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "same-configuration-control",
+          "case": "environment-false",
+          "primary": {
+            "nativeCollected": true,
+            "ownerCollected": false
+          },
+          "target": "0x1fc479ea5778",
+          "gcNodes": 95457,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 76,
+          "selectedPath": [
+            {
+              "from": "0x728b3af8238",
+              "edge": "module bindings environment",
+              "to": "0x3a8552c2d8e0"
+            },
+            {
+              "from": "0x3a8552c2d8e0",
+              "edge": "createSVGStyleEnvironment",
+              "to": "0x728d369a430"
+            },
+            {
+              "from": "0x728d369a430",
+              "edge": "JSFunction script",
+              "to": "0x728d361a9c0"
+            },
+            {
+              "from": "0x728d361a9c0",
+              "edge": "script-gcthing",
+              "to": "0x728d361b698"
+            },
+            {
+              "from": "0x728d361b698",
+              "edge": "JSFunction script",
+              "to": "0x728d361aa60"
+            },
+            {
+              "from": "0x728d361aa60",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x92cff2f5180"
+            },
+            {
+              "from": "0x92cff2f5180",
+              "edge": "base",
+              "to": "0x728d360ed30"
+            },
+            {
+              "from": "0x728d360ed30",
+              "edge": "baseshape_global",
+              "to": "0x846d61db6b8"
+            },
+            {
+              "from": "0x846d61db6b8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x1fc479ea5778"
+            }
+          ],
+          "snapshotNodes": 88820,
+          "nativeAPIPathsVerified": 41,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "same-configuration-control",
+          "case": "environment-true",
+          "primary": {
+            "nativeCollected": false,
+            "ownerCollected": false
+          },
+          "target": "0x23f9248183f8",
+          "gcNodes": 116226,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x728b3af8238",
+              "edge": "module bindings environment",
+              "to": "0x3a8552c2d8e0"
+            },
+            {
+              "from": "0x3a8552c2d8e0",
+              "edge": "detectSVGStylePolicy",
+              "to": "0x728d369a3c0"
+            },
+            {
+              "from": "0x728d369a3c0",
+              "edge": "JSFunction script",
+              "to": "0x728d361a650"
+            },
+            {
+              "from": "0x728d361a650",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x2f59ac6f59a0"
+            },
+            {
+              "from": "0x2f59ac6f59a0",
+              "edge": "base",
+              "to": "0x728d360e7f0"
+            },
+            {
+              "from": "0x728d360e7f0",
+              "edge": "baseshape_global",
+              "to": "0x846d61db348"
+            },
+            {
+              "from": "0x846d61db348",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x23f9248183f8"
+            }
+          ],
+          "snapshotNodes": 108893,
+          "nativeAPIPathsVerified": 70,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        },
+        {
+          "phase": "same-configuration-control",
+          "case": "pending-font",
+          "primary": {
+            "collected": false
+          },
+          "target": "0x23f924818200",
+          "gcNodes": 114693,
+          "unparsedRows": 0,
+          "moduleCandidatesExcludingNamedObserverEdges": 77,
+          "selectedPath": [
+            {
+              "from": "0x728b3af8238",
+              "edge": "module bindings environment",
+              "to": "0x3a8552c2d8e0"
+            },
+            {
+              "from": "0x3a8552c2d8e0",
+              "edge": "detectSVGStylePolicy",
+              "to": "0x728d369a3c0"
+            },
+            {
+              "from": "0x728d369a3c0",
+              "edge": "JSFunction script",
+              "to": "0x728d361a650"
+            },
+            {
+              "from": "0x728d361a650",
+              "edge": "GetProp [kind: cacheir-shape, ops: GuardToObject GuardShape LoadDOMExpandoValueGuardGeneration GuardDOMExpandoMissingOrGuardShape LoadObject GuardShape LoadDynamicSlotResult]",
+              "to": "0x23f924822e40"
+            },
+            {
+              "from": "0x23f924822e40",
+              "edge": "base",
+              "to": "0x728d360e898"
+            },
+            {
+              "from": "0x728d360e898",
+              "edge": "baseshape_global",
+              "to": "0x1d6c65535ef8"
+            },
+            {
+              "from": "0x1d6c65535ef8",
+              "edge": "CLASS_OBJECT(BoundFunction)",
+              "to": "0x23f924818200"
+            }
+          ],
+          "snapshotNodes": 107464,
+          "nativeAPIPathsVerified": 76,
+          "inspectionErrors": [],
+          "nativeLogErrors": []
+        }
+      ]
+    },
+    "ARestoredPush": {
+      "run": 45339605085,
+      "conclusion": "success",
+      "coveragePassed": 1234,
+      "coverageSkipped": 4,
+      "sourcePassed": 1115,
+      "sourceSkipped": 4,
+      "browserPackagesPassed": 162,
+      "limits": "Same A source can pass; does not resolve inconsistent baseline or establish a fix"
+    },
+    "nativeControls": "Five library-free direct/borrowed cold/warm/replayed variants all collect, including20000 direct calls; weak/strong controls valid; not independent native reproduction or verified JIT tier",
+    "BLocal": "lint/build/ESM-CJS-UMD/tarball/TS4.9-current entries/browser types passed;149focusedpass/one inherited skip across3engines;407input hashes stable",
+    "restorationProof": {
+      "AbytesSHA256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef",
+      "BbytesSHA256": "8bc318b6a266e5415a0f95fbae5ee84d30af9fe2c55c4a05c2b49ddaa9d27683",
+      "AEqualsOriginalRuntime": true,
+      "testScriptConfigurationBytes": "unchanged across A/B/A; source policy operation group only",
+      "limits": "Different CI jobs/process/timing/sort caches are not identical; within each job the existing repeat restores its saved pre-source cache. A-B-A outcomes support a targeted operation-group hypothesis, not deterministic iff or proof of one necessary accessor."
+    },
+    "cacheMechanismEvidence": "Actual GC guard-owner lookup reaches private Document expando shapes with location and DocumentPrototype, through explicit GetProp cacheir-shape/object fields. A private-SVG paths return after restoration. B removed-iframe actual/repeat graphs instead reach via util.px GetProp CallNativeGetterResult -> source Window/Document; px has document.defaultView at that site. Native/context/compiler/cache effects not all ruled out.",
+    "webkitLimits": "Normal B PR and push have different WebKit collection failures; later diagnostic collection or separate repeat can pass. Original failures retained; neither discarded as flakes nor attributed to B without evidence. Failed pre-render image assertions do not imply image acceptance.",
+    "next": "Test semantically equivalent reflective Document property reads, rather than altering created-node realm, and cover the observed defaultView access class across capture paths. Preserve normal full CI/package/output/device gates. No claim B is ready to merge.",
+    "cleanup": {
+      "at": "2026-11-24T06:39:29.661537+00:00",
+      "localContainer": "stopped; tracked source restored",
+      "localBrowserSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+      "remoteARestoredPR": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      },
+      "remoteBPR": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      },
+      "remoteBPush": {
+        "status": "restored",
+        "restored": true,
+        "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+      },
+      "deviceUsed": false,
+      "published": false
+    },
+    "rawFiles": 342
+  },
+  "lockCounterfactualRawFiles": 342,
+  "reflectiveDocument": {
+    "summary": "gc-observer-controls/reflective-document-summary.json",
+    "localCoveragePassed": 1234,
+    "localSourcePassed": 1115,
+    "localBrowserPackagesPassed": 162,
+    "measuredInputsUnchanged": 414,
+    "candidateRemote": "not run",
+    "candidateDevice": "not run",
+    "userRequestedPause": true,
+    "acceptedFix": false
+  },
+  "reflectiveDocumentRawFiles": 22
+}

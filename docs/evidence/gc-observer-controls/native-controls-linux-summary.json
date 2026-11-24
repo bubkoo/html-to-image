@@ -1,0 +1,285 @@
+{
+  "pr": {
+    "run": 43677392127,
+    "ordinary": [
+      "Test Files  130 passed (130)",
+      "Tests  1225 passed | 4 skipped (1229)",
+      "Test Files  1 failed | 116 passed (117)",
+      "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+    ],
+    "repeat": [
+      "Test Files  1 failed | 116 passed (117)",
+      "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+    ],
+    "sortingRestorationVerified": true,
+    "phases": {
+      "normal": {
+        "records": 18,
+        "retainedPrimary": [
+          "firefox-pending-font",
+          "firefox-environment-true",
+          "firefox-environment-false"
+        ],
+        "newNativeRows": 72,
+        "newNativeRetained": 0,
+        "newNativeErrors": 0,
+        "retainedSupplemental": [
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "await-document"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "weak-promise"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "cleared-local"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "await-document"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "weak-promise"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "cleared-local"
+          },
+          {
+            "engine": "firefox",
+            "kind": "frozen-svg-source",
+            "owner": null,
+            "helper": "await-capture"
+          }
+        ],
+        "noCollectionCheckpoints": {
+          "firefox-pending-font": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 0,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          },
+          "firefox-environment-true": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 1,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          },
+          "firefox-environment-false": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 1,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          }
+        }
+      },
+      "same-configuration-control": {
+        "records": 9,
+        "retainedPrimary": [
+          "firefox-pending-font",
+          "firefox-environment-true",
+          "firefox-environment-false"
+        ],
+        "newNativeRows": 36,
+        "newNativeRetained": 0,
+        "newNativeErrors": 0,
+        "retainedSupplemental": [
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "await-document"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "weak-promise"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "cleared-local"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "await-document"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "weak-promise"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "cleared-local"
+          }
+        ],
+        "noCollectionCheckpoints": {
+          "firefox-pending-font": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 0,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          },
+          "firefox-environment-true": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 0,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          },
+          "firefox-environment-false": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 0,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          }
+        }
+      }
+    }
+  },
+  "push": {
+    "run": 43677387222,
+    "ordinary": [
+      "Test Files  130 passed (130)",
+      "Tests  1225 passed | 4 skipped (1229)",
+      "Test Files  1 failed | 116 passed (117)",
+      "Tests  3 failed | 1103 passed | 4 skipped (1110)"
+    ],
+    "repeat": [
+      "Test Files  117 passed (117)",
+      "Tests  1106 passed | 4 skipped (1110)"
+    ],
+    "sortingRestorationVerified": true,
+    "phases": {
+      "normal": {
+        "records": 18,
+        "retainedPrimary": [
+          "firefox-pending-font",
+          "firefox-environment-true",
+          "firefox-environment-false"
+        ],
+        "newNativeRows": 72,
+        "newNativeRetained": 0,
+        "newNativeErrors": 0,
+        "retainedSupplemental": [
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "await-document"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "weak-promise"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-removal-control",
+            "helper": "cleared-local"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "await-document"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "weak-promise"
+          },
+          {
+            "engine": "firefox",
+            "kind": "environment-true",
+            "owner": "library-cleared-references",
+            "helper": "cleared-local"
+          }
+        ],
+        "noCollectionCheckpoints": {
+          "firefox-pending-font": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 0,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          },
+          "firefox-environment-true": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 0,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          },
+          "firefox-environment-false": {
+            "explicitCollections": 0,
+            "atEntry": false,
+            "afterMicrotask": false,
+            "afterTask": false,
+            "elapsedMs": 0,
+            "canaryCollected": false,
+            "strongControlPreserved": true
+          }
+        }
+      },
+      "same-configuration-control": {
+        "records": 9,
+        "retainedPrimary": [],
+        "newNativeRows": 36,
+        "newNativeRetained": 0,
+        "newNativeErrors": 0,
+        "retainedSupplemental": [],
+        "noCollectionCheckpoints": {}
+      }
+    }
+  },
+  "head": "9a391dc5639ab80085d73e411ffea5738279d201",
+  "conclusion": "All new native sandbox/policy-document/reaction/lock rows collect without errors. Those differences alone do not reproduce the retained original. Ordinary source still fails in both events; the identical-sort repeat fails in PR and passes in push. No production fix or unique cause established."
+}

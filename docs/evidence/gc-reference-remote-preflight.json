@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-24",
+  "scope": "Branch-only observer infrastructure, not lifecycle fix",
+  "sourceHead": "f267e03739f11c5651700d6c4dd53ca9ccb9a091",
+  "local": "Pinned Linux/amd64 emulation, not remote CI/device",
+  "staticGates": "project lint/browser types passed",
+  "focusedThreeEngines": {
+    "passed": 20,
+    "skipped": 1,
+    "reproduced": false
+  },
+  "standaloneControls": "Held positive target and known member found; independent collected WeakRef has zero direct targets; official registration balanced",
+  "testFrameIntegration": "One existing-WeakRef positive through BrowserCommands passed; primary receipt, identified target, raw heap/GC/CC copied, known owner member found, no inspection error",
+  "cleanup": {
+    "status": "restored",
+    "restored": true,
+    "sha256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+  },
+  "preflightCorrection": "Initial installer validation reused mutable ZipInfo metadata and failed before browser replacement or test start. Cache original bytes and copy ZipInfo independently; verified all archive entries after patching.",
+  "originalGates": "Three primary requests/assertions/timeouts/skips retained; graphs and extra ordinary CC after cached failure only; later observations may be perturbed",
+  "sortInputs": "Readable hook increases test byte lengths; do not claim original ordering or process/timing identity",
+  "files": {
+    "scripts/firefox-gc-reference-probe.py": "3bacbbef17b73c5476ae82d6a2d2fe611388d4cdbf064ee8a8d66baa9b1cd4ba",
+    "scripts/firefox-gc-reference-method.txt": "992026c1ca51616198ff1967a1f7fbd0a749dd5af4f8b733fd8702c2010a0e80",
+    "scripts/firefox-gc-reference-controls.cjs": "eabda622c99798f801a4ecb8e90460cedc1c3e8c63ee2a4fa82ec05c35638276",
+    "test/browser/fixtures/reference-lifetime-probe.ts": "4f1c62a512269cbd129141391196e18e6bb8758c58adb35f744a5d08b00d59eb",
+    "test/browser-unit/resource-resolver-cancellation.test.ts": "26fe04bfa0a8e224e7033a5bc2642390c714d6131b249fa993d8205a371d921c",
+    "test/browser-unit/capture-lifetime.test.ts": "de9aef6780231ea329f0b502471122e23b5f34003262b1078141f8ad62313087",
+    "vitest.browser.config.mts": "773d2a68b5a9e1fc0e2c0fbcf796aace4aeb37473179a79552b19542e3f45adf"
+  },
+  "remote": "Not yet run at preparation; preserve terminal primary status separately from diagnostic repeat/inspection status"
+}

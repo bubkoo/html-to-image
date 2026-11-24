@@ -9,6 +9,8 @@ on:
       - next-major
       - alpha
       - beta
+      # Temporary direct-head comparison for the lifecycle investigation.
+      - codex/gc-observer-lifetime-controls
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -61,17 +63,53 @@ jobs:
       - name: 🌐　Install browser engines
         run: pnpm exec playwright install --with-deps
 
+      - name: 🔬　Install and validate reference-only Firefox probe
+        if: ${{ github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls' }}
+        run: |
+          python3 scripts/firefox-gc-reference-probe.py install
+          node scripts/firefox-gc-reference-controls.cjs
+
       - name: 🧪　Test migrated regressions and browser behavior
-        run: pnpm run test
+        id: gc_primary
+        # Temporary paired observers on the investigation branch only.
+        env:
+          GC_OBSERVER_DIAGNOSTICS: ${{ (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') && '1' || '0' }}
+          GC_REFERENCE_PROBE: ${{ (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') && '1' || '0' }}
+        run: |
+          if [ "$GC_OBSERVER_DIAGNOSTICS" = "1" ]; then
+            pnpm run test:coverage
+            node scripts/gc-diagnostic-cache.mjs save
+            echo "source_started=true" >> "$GITHUB_OUTPUT"
+            pnpm run test:browser:source
+          else
+            pnpm run test
+          fi
 
       - name: 📦　Test built package in browsers
         run: pnpm run test:browser:package
+
+      # Restore the pre-source sorting inputs so failures are not moved first.
+      - name: 🔬　Repeat source with the same configuration and sort cache
+        id: gc_same_configuration_control
+        if: ${{ failure() && steps.gc_primary.conclusion == 'failure' && steps.gc_primary.outputs.source_started == 'true' && (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') }}
+        env:
+          GC_OBSERVER_DIAGNOSTICS: '1'
+          GC_REFERENCE_PROBE: '1'
+          GC_OBSERVER_PHASE: same-configuration-control
+        run: |
+          node scripts/gc-diagnostic-cache.mjs restore same-configuration-control
+          pnpm run test:browser:source > .vitest/attachments/gc-same-configuration-control.log 2>&1
+
+      - name: 🧹　Restore original Firefox
+        if: ${{ always() && (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') }}
+        run: python3 scripts/firefox-gc-reference-probe.py restore
 
       - name: 📋　Upload browser report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
+          include-hidden-files: true
           path: |
             playwright-report/
             test-results/

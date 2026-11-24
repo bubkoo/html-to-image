@@ -1,0 +1,15 @@
+{
+  "scope": "local integration: restore after the real focused Vitest execution updated its result cache",
+  "helperSHA256": "dbf5aa146d9153e15e55d45fe7d678572f0755f63c663b48527b7c411676246a",
+  "files": [
+    {
+      "path": "da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+      "beforeSHA256": "4fc1066d8898f7b493d68317f8ef2e59d9bc224dc3dd7be3ef78f9a865930012",
+      "expectedSHA256": "c406f3f8ee4225d831b4b47081b59964db5ee8e9af285b02aaece2e581565ff5",
+      "restoredSHA256": "c406f3f8ee4225d831b4b47081b59964db5ee8e9af285b02aaece2e581565ff5"
+    }
+  ],
+  "changedByRealTestThenRestored": true,
+  "snapshotArchive": "order-cache-local-raw.tar.gz",
+  "noSourceOrBundleChange": true
+}

@@ -1,0 +1,52 @@
+{
+  "status": "Resumed; cold environment rebuild and after-verdict hook prepared, not executed",
+  "remote": {
+    "pr": {
+      "conclusion": "failure",
+      "event": "pull_request",
+      "headSha": "d75d622987f7c03173c51aca6d2a11137f2ac86c",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/44369692907",
+      "testSummary": [
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:10.3107420Z       Tests  1234 passed | 4 skipped (1238)",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7168463Z \u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 5 \u23af\u23af\u23af\u23af\u23af\u23af\u23af",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7268969Z       Tests  5 failed | 1110 passed | 4 skipped (1119)"
+      ],
+      "failures": [
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7170331Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7172239Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7294196Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7624412Z  FAIL   firefox  test/browser-unit/svg-style-source-lifetime.test.ts > disposed SVG owner releases source with font=false and opened=true",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:54:54.7696628Z  FAIL   firefox  test/browser-unit/svg-style-source-lifetime.test.ts > disposed SVG owner releases source with font=true and opened=true"
+      ],
+      "packages": "not run"
+    },
+    "push": {
+      "conclusion": "failure",
+      "event": "push",
+      "headSha": "d75d622987f7c03173c51aca6d2a11137f2ac86c",
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/44369678841",
+      "testSummary": [
+        "ci\tUNKNOWN STEP\t2026-11-18T18:52:42.4129156Z       Tests  1234 passed | 4 skipped (1238)",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8913247Z \u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 3 \u23af\u23af\u23af\u23af\u23af\u23af\u23af",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.9048183Z       Tests  3 failed | 1112 passed | 4 skipped (1119)"
+      ],
+      "failures": [
+        "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8916266Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.8917688Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true",
+        "ci\tUNKNOWN STEP\t2026-11-18T18:53:26.9005327Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending"
+      ],
+      "packages": "not run"
+    }
+  },
+  "environment": "Docker engine inventory empty after startup on 2026-11-24; prior stopped container and images are absent. Pulling original pinned amd64 digest, live exec handle20780. No container/baseline/heap result claimed.",
+  "imageDigest": "sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0",
+  "sourceCheckpoint": "9a391dc5639ab80085d73e411ffea5738279d201",
+  "hook": {
+    "bytes": 4520,
+    "primary": "original diagnosis booleans cached first; original assertions/three requests retained",
+    "inspection": "only after capturedCollected=false; target/probe introduce post-verdict roots; before-heap Node receipt preserves verdict even if capture crashes",
+    "validation": "esbuild syntax only; no type/runtime/no-hook acceptance",
+    "negative": "no actual failing suite has yet been sampled by the heap tool"
+  },
+  "next": "Finish current image pull; verify runtime and pristine hash; rebuild dependencies frozen; patched no-hook baseline; only then run prepared hook. New environment results must remain distinct from older runs."
+}

@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-24",
+  "candidateHead": "1995c32bb5c3dac77d7e6e74d4ec2d70ded69cc1",
+  "candidatePR": {
+    "run": 45338308309,
+    "testedMerge": "bbe7ad9dc61752b17f2206040968617868c6871b",
+    "conclusion": "failure",
+    "staticAndToolGates": "passed",
+    "coveragePassed": 1234,
+    "coverageSkipped": 4,
+    "sourcePassed": 1114,
+    "sourceFailed": 1,
+    "sourceSkipped": 4,
+    "failure": "WebKit frozen SVG host-tree source lifetime",
+    "browserPackages": "not run",
+    "CodeQL": {
+      "run": 45338308376,
+      "conclusion": "success"
+    }
+  },
+  "firefoxPrimaryAndRepeat": {
+    "environment-false": {
+      "nativeCollected": true,
+      "ownerCollected": true
+    },
+    "environment-true": {
+      "nativeCollected": true,
+      "ownerCollected": true
+    },
+    "pending-font": {
+      "ownerCollected": true,
+      "nativeDiagnosticCollections": 0
+    }
+  },
+  "separateSourceRepeat": {
+    "passed": 1115,
+    "skipped": 4,
+    "failures": 0,
+    "limits": "Not replacement of normal failure; not complete original pipeline/package acceptance"
+  },
+  "webkitFrozenPrimary": {
+    "ownerCollected": false,
+    "collectedAfterExtraDiagnostic": true,
+    "repeatPrimaryCollected": true,
+    "limits": "Primary failure retained; does not prove that the candidate introduced it, nor that later collection fixes original timing"
+  },
+  "reversal": {
+    "change": "Restore only lockResources original operations, exact source bytes of1e5117b/4a70ef0; all tests/scripts/config unchanged",
+    "sourceSHA256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef",
+    "purpose": "Check whether three Firefox failures and original Document-proxy cache fields return, before attributing the unstable baseline difference to B",
+    "remote": "pending preparation"
+  },
+  "interpretation": "Candidate B changes outcomes but complete CI fails and baseline is unstable. No accepted lifecycle fix, no retry waiver, no single necessary accessor proof. Native five-case controls did not reproduce independently.",
+  "remaining": "Preserve WebKit failure and broader lifecycle/output/device gates; actual current baseline1e5117b normal CI remains pending at previous readback."
+}

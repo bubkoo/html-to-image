@@ -1,0 +1,161 @@
+{
+  "archive": "native-controls-local-raw.tar.gz",
+  "archiveSHA256": "0436252619499c82cffdb25c7977f427892d851fdecf9fe8e19aaf522c221367",
+  "files": [
+    {
+      "path": "inputs/.github/workflows/ci.yml",
+      "bytes": 4018,
+      "sha256": "1558edba158377aa2c28ec8df826aa61785bcbc5494778c6d0bfe205e7f29f4e"
+    },
+    {
+      "path": "inputs/scripts/gc-diagnostic-cache.mjs",
+      "bytes": 2941,
+      "sha256": "dbf5aa146d9153e15e55d45fe7d678572f0755f63c663b48527b7c411676246a"
+    },
+    {
+      "path": "inputs/src/svg-style-scope.ts",
+      "bytes": 21777,
+      "sha256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef"
+    },
+    {
+      "path": "inputs/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 8371,
+      "sha256": "660b31d222bcbb7d87807d03f3387320db8c2f58e6bac1910e91b1b952033c54"
+    },
+    {
+      "path": "inputs/test/browser-unit/svg-fragment-lifetime.test.ts",
+      "bytes": 2874,
+      "sha256": "c7a041193dfd91ffca61168207a8841170d1711e7b1adb2b2d7e1ab97493abf6"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/gc-observer-controls.mjs",
+      "bytes": 12642,
+      "sha256": "d89332e2dff33332d4281a54ef9a96cede4e2c9774c976905001df53beb89721"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 9264,
+      "sha256": "7229a518b6ddd424a93a01689913c29f807789f14d59f8e43372da7ab7add83f"
+    },
+    {
+      "path": "logs/full.log",
+      "bytes": 23796,
+      "sha256": "6976c2443c7b9014af3948d6625a3d18be926f8dd8ac25ee602038a24409eb5b"
+    },
+    {
+      "path": "logs/output-gc-controls-lint.log",
+      "bytes": 368,
+      "sha256": "ca2ce376ec02c2fb616014827a94d37f3e4e680c2e669d13ec665c5b7d87631e"
+    },
+    {
+      "path": "logs/output-gc-controls-local.log",
+      "bytes": 496,
+      "sha256": "8c94bcac0925590832942193d88af676113f083101f528e4c2b514e05de41fc8"
+    },
+    {
+      "path": "logs/output-gc-controls-types.log",
+      "bytes": 164,
+      "sha256": "bd4db7a1d5f5d4df7259eeb046cc42e7eae9e0a75dbeeb61fbad8c6c782f237a"
+    },
+    {
+      "path": "production-runtime-sha256.json",
+      "bytes": 8796,
+      "sha256": "4c4725e389e49250c6937c30962e88ab76f3979d8e37008258aaa1390e551bd0"
+    },
+    {
+      "path": "records/browser-chromium-environment-false.json",
+      "bytes": 12137,
+      "sha256": "fae12fa1479338f8085fc67dcd7d3bc0214557de54e8389aba4b4c4345276da7"
+    },
+    {
+      "path": "records/browser-chromium-environment-true.json",
+      "bytes": 5983,
+      "sha256": "8e7b415dd5f0e7986f4d8e76e34e8b4b7d29a6affb862e0d1b14b75814c4c754"
+    },
+    {
+      "path": "records/browser-chromium-frozen-svg-source.json",
+      "bytes": 1296,
+      "sha256": "f7e429105b2f99fca98037ac9d84b7513eafd8d735a83f1da8419d8b0ca71e38"
+    },
+    {
+      "path": "records/browser-chromium-pending-font.json",
+      "bytes": 6144,
+      "sha256": "41a9cf4bb2239f38bccf023704295bc95889df443e0eb125fa5cc2d7e2bea704"
+    },
+    {
+      "path": "records/browser-firefox-environment-false.json",
+      "bytes": 11759,
+      "sha256": "6332e5ba5be06c5f7b31a468378f5b1df2975b5a5caf38f9bea201afdf2d0668"
+    },
+    {
+      "path": "records/browser-firefox-environment-true.json",
+      "bytes": 5794,
+      "sha256": "8a00e4ed9ba3f49cf93546185c66ff4e948211cd479fd611bed58c02a7de1a46"
+    },
+    {
+      "path": "records/browser-firefox-frozen-svg-source.json",
+      "bytes": 1234,
+      "sha256": "3e936ace27775030691513173c8f25ed07862a5ba32c8220c186e0d8fdc1294d"
+    },
+    {
+      "path": "records/browser-firefox-pending-font.json",
+      "bytes": 6303,
+      "sha256": "227f671dc86e8eacbf1a217cb38a614699356fa7aa1f79d48f97bb58a11462fb"
+    },
+    {
+      "path": "records/browser-webkit-frozen-svg-source.json",
+      "bytes": 1232,
+      "sha256": "f01b53ad32cc8678bbfa03816af7ba90fdbf2aca0fcdf08bb660a272d19da6ff"
+    },
+    {
+      "path": "records/coverage-chromium-environment-false.json",
+      "bytes": 12230,
+      "sha256": "a30cbd3f8204e927dd531978dd038598d6f4eae4b9643cb55b735bdfaef6e7b9"
+    },
+    {
+      "path": "records/coverage-chromium-environment-true.json",
+      "bytes": 5975,
+      "sha256": "5723657d5192a0cd8cf2a29959e8df67e5a00308340e57a52701b2815e279d12"
+    },
+    {
+      "path": "records/coverage-chromium-frozen-svg-source.json",
+      "bytes": 1263,
+      "sha256": "417b0f61f9146eb86626c3f9ea851341aad9af32fbb32ad6f90e8ee3ed096126"
+    },
+    {
+      "path": "records/coverage-chromium-pending-font.json",
+      "bytes": 6100,
+      "sha256": "7662740f68746e9d73d5372e3b46bb59b00bdd33c97b64e6d4b4631218be67f5"
+    },
+    {
+      "path": "records/coverage-firefox-environment-false.json",
+      "bytes": 11758,
+      "sha256": "efd3f5f13e6ac07b59786b703bc85fd6716a9c2892a741857a2ae29416d13be8"
+    },
+    {
+      "path": "records/coverage-firefox-environment-true.json",
+      "bytes": 5793,
+      "sha256": "c543e3a23c338f1bd6b068828bf15f51e88d36ce7c3ddd20b617087d9038435c"
+    },
+    {
+      "path": "records/coverage-firefox-frozen-svg-source.json",
+      "bytes": 1232,
+      "sha256": "a27b51b119f2c4c5487eaed71a7c06bb58279d8b9775bcfe3853d7007228d5da"
+    },
+    {
+      "path": "records/coverage-firefox-pending-font.json",
+      "bytes": 6302,
+      "sha256": "ee6308e8b9a8b2ad06d8c013debba1eadc2c36c1aade6db65c92bcae72aef749"
+    },
+    {
+      "path": "records/coverage-webkit-frozen-svg-source.json",
+      "bytes": 1230,
+      "sha256": "26549ff69083285807c15d4a82a2548e4dcff47e2bce964e03465bfc48f81057"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 838,
+      "sha256": "73f2646767ff039baa72243ec61c02d3c871271b28bf1def01a4e318708bc0d7"
+    }
+  ]
+}

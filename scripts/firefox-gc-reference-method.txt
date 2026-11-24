@@ -1,0 +1,49 @@
+  async _codexHeapPaths(root) {
+    dump("codex heap begin\n");
+    const ids = {}, rawHolds = {};
+    for (const key of ['reference']) {
+      const object = root.getOwnPropertyDescriptor(key)?.value;
+      if (object instanceof Debugger.Object)
+        ids[key] = ChromeUtils.getObjectNodeId(rawHolds[key] = object.unsafeDereference());
+    }
+    dump("codex heap ids "+JSON.stringify(ids)+"\n");
+    const opened = Services.cpmm.sendSyncMessage('codex-heap-state', {action:'open'});
+    let file, closed;
+    try { file = ChromeUtils.saveHeapSnapshot({runtime: true}); }
+    finally { closed = Services.cpmm.sendSyncMessage('codex-heap-state', {action:'close'}); }
+    const beforeIDs = {...ids};
+    for (const key of Object.keys(rawHolds)) ids[key] = ChromeUtils.getObjectNodeId(rawHolds[key]);
+    dump("codex heap file "+file+"\n");
+    let contentRead;
+    if (root.getOwnPropertyDescriptor('checkContentRead')?.value === true) {
+      try { ChromeUtils.readHeapSnapshot(file); contentRead = {succeeded:true}; }
+      catch (error) { contentRead = {succeeded:false,name:error.name,message:error.message,result:error.result,stack:error.stack}; }
+    }
+    // The snapshot is a parent-created file. Analyze its saved bytes in the
+    // parent, without changing content sandbox policy or sending app objects.
+    const results = Services.cpmm.sendSyncMessage('codex-heap-analyze', {file,ids});
+    const graph = results[0] || {ids,errors:[{phase:'parent-analysis',message:'No parent response'}]};
+    if (!graph.ids.target) return {...graph,beforeIDs,opened,closed,contentRead,
+      limits:{introducedTargetHold:false,introducedWeakRefWrapperHold:true,weakTargetMayHaveCollectedAfterPrimary:true}};
+    const request = Services.appinfo.processID+'-'+Date.now()+'-'+ids.reference;
+    const cc = await new Promise(resolve => {
+      const {setTimeout,clearTimeout} = ChromeUtils.importESModule('resource://gre/modules/Timer.sys.mjs');
+      const timer = setTimeout(() => {
+        Services.cpmm.removeMessageListener('codex-gc-done', listener);
+        resolve({error:'Parent GC/CC log request timed out',request});
+      },10000);
+      const listener = ({data}) => {
+        if (data.request !== request) return;
+        clearTimeout(timer);
+        Services.cpmm.removeMessageListener('codex-gc-done', listener);
+        resolve({...data,wantAllTraces:false,phase:'after-primary-and-heap',extraCollectionForDiagnosisOnly:true,
+          method:'parent nsIMemoryInfoDumper with native child file-descriptor sink'});
+      };
+      Services.cpmm.addMessageListener('codex-gc-done', listener);
+      Services.cpmm.sendAsyncMessage('codex-gc-start', {request,pid:Services.appinfo.processID});
+    });
+    return {...graph,version:9,cc,file,ids:graph.ids,beforeIDs,opened,closed,contentRead,
+      limits:{maxPathsPerStart:20,runtimeSnapshot:true,introducedTargetHold:false,
+        introducedAllRootWrapperHolds:false,introducedWeakRefWrapperHold:true,introducedApplicationObjectHolds:false,
+        snapshotIsAfterPrimaryOnly:true,rootPathsIncludeInspectorReferences:true,analysisProcess:'parent'}};
+  }

@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getResourceLoader } from './dataurl.js'
 import { embedResources } from './embed-resources.js'
@@ -99,7 +100,9 @@ function collectFontScopes(node: Element, source: Element, options: Options) {
   const visit = (element: Element, inherited: Element) => {
     const original =
       task?.getCloneSource(element) ||
-      (element.ownerDocument.defaultView ? element : inherited)
+      (readDocumentProperty(element.ownerDocument, 'defaultView')
+        ? element
+        : inherited)
     const document = original.ownerDocument
     let scope = scopes.get(document)
     if (!scope) {
@@ -118,7 +121,7 @@ function collectFontScopes(node: Element, source: Element, options: Options) {
     )
     const family =
       inline ||
-      (element.ownerDocument.defaultView || window)
+      (readDocumentProperty(element.ownerDocument, 'defaultView') || window)
         .getComputedStyle(element)
         .getPropertyValue('font-family')
     addUsed(scope, family)

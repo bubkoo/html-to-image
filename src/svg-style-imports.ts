@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 export type SVGLayerPolicy = 'none' | 'flat' | 'ordered'
 
 export interface SVGImportPolicy {
@@ -188,7 +189,7 @@ export async function prepareSVGFileStyle(
   // An inert parser retains imports without activating their resources. A
   // constructed sheet would remove @import before it could be inspected.
   const parserDocument = document.implementation.createHTMLDocument()
-  const view = document.defaultView || window
+  const view = readDocumentProperty(document, 'defaultView') || window
   const active = new Set<string>()
   const parse = (css: string) => {
     const style = parserDocument.createElement('style')

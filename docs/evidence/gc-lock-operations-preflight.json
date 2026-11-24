@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-24",
+  "status": "LockResources-only counterfactual prepared; not accepted lifecycle fix",
+  "base": "1e5117babe7d114f3465a13208819ed64be88277",
+  "previousMeasuredBase": "4a70ef0231c2ab66deeccd3ab39c94fd9a199f07",
+  "beforeEvidence": "PR45335352750 and separate source control both fail actual three Firefox cases; indexed remote-reference archive. 1e5117b runtime/tests/config identical to4a70ef0; its latest CI still installing browsers at saved readback.",
+  "hypothesis": "Private-document DOM operations can place private-realm guards in long-lived scripts. Change only lockResources operation entry/created-meta realm; leave policy text/order, native style detector and owner lifecycle untouched.",
+  "candidate": "Create detached meta with module document, resolve private head through module Document getter and append through module Element method. This is an operation-group counterfactual, not identification of one necessary accessor or a compatibility fix.",
+  "standaloneNativeControls": {
+    "libraryLoaded": false,
+    "cases": 5,
+    "directCalls": 20000,
+    "allDocumentsCollected": true,
+    "canaryAndStrongControlsValid": true,
+    "limits": "Cold/warm direct and borrowed variants all collect, including direct repeat. No native standalone reproduction or deterministic JIT-state claim."
+  },
+  "localStatic": "Full lint/build/tarball ESM CJS UMD and TS4.9/current entries/browser types passed",
+  "localFocused": {
+    "engines": ["chromium", "firefox", "webkit"],
+    "passed": 149,
+    "skipped": 1,
+    "files": 8,
+    "scope": "CSP/resource policy/native SVG styles/loaded fonts/source lifetime plus capture/private environment cancellation",
+    "allInputHashesStableDuringRun": true,
+    "inputFiles": 407,
+    "limits": "No local actual three-case reproduction; this focused pass does not prove collection cause, complete pipeline or device acceptance"
+  },
+  "originalGates": "No test/config/collection command/assertion/deadline/skip/JIT/sandbox changes. Same branch-only post-primary observer remains enabled in remote normal full CI.",
+  "runtimeChange": {
+    "file": "src/svg-style-scope.ts",
+    "beforeSHA256": "23f3c7e7ef6fa3cdd25198244d1b4a006caa7c5fcbe1098ee808bd9f464117ef",
+    "candidateSHA256": "8bc318b6a266e5415a0f95fbae5ee84d30af9fe2c55c4a05c2b49ddaa9d27683"
+  },
+  "remote": "not yet run at preparation; compare exact-head normal failure/graphs, with any repeats kept separate",
+  "device": "not run; candidate not accepted/published"
+}

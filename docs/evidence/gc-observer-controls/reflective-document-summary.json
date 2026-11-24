@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-24",
+  "status": "Local C candidate gates passed; paused at user-requested milestone; not an accepted fix",
+  "base": "5d22112014c369c872f0c1e0ed4ebaecccb57f64",
+  "candidate": "Exact source candidate.patch and complete measured input manifests preserved in indexed archive; local checkpoint only, not pushed",
+  "reason": "Actual remote paths reach private/source Document via Document property access caches. Isolate Document reads without B-created-meta realm change.",
+  "change": {
+    "helper": "Internal generic Reflect.get(target,key), no stored Document or DOM constructor at module load",
+    "reads": "15 defaultView sites plus lockResources createElement/head",
+    "metaCreation": "Reflect.apply resolved createElement with original private document receiver; original policy text and application order retained",
+    "scope": "9 existing source files plus new src/document.ts; no test/config/scripts assertion or collection changes"
+  },
+  "static": {
+    "host": "lint/build/tarball ESM CJS UMD/TS4.9 and current entries/browser types passed",
+    "linux": "same full static/build/package-entry/type gates passed"
+  },
+  "local": {
+    "sequence": [
+      "test:coverage",
+      "test:browser:source",
+      "test:browser:package"
+    ],
+    "coverage": {
+      "passed": 1234,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 1115,
+      "skipped": 4
+    },
+    "packages": {
+      "passed": 162
+    },
+    "engines": ["chromium", "firefox", "webkit"],
+    "exitCode": 0,
+    "inputs": 414,
+    "inputHashesUnchanged": true,
+    "newHelperIncluded": true,
+    "hostSourceTestsScriptsConfigMatchesLinux": true,
+    "sortCache": "Only saved results.json removed before run; optimized bundles retained; original bytes and receipt archived",
+    "firefox": "Original unpatched omni.ja SHA256 f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+    "observerEnvironment": "GC_REFERENCE_PROBE and GC_OBSERVER_DIAGNOSTICS unset; branch post-failure hooks remain but no failure occurred",
+    "measurementSession": 51309
+  },
+  "baselineRemote": {
+    "run": 45342549882,
+    "head": "5d22112014c369c872f0c1e0ed4ebaecccb57f64",
+    "event": "pull_request",
+    "conclusion": "failure",
+    "staticAndToolPreflight": "passed",
+    "coverage": {
+      "passed": 1234,
+      "skipped": 4
+    },
+    "source": {
+      "passed": 1111,
+      "failed": 4,
+      "skipped": 4
+    },
+    "failures": [
+      "Firefox removed iframe source document",
+      "Firefox disposed SVG environment probed=false",
+      "Firefox disposed SVG environment probed=true",
+      "Firefox pending custom font resolver cancellation"
+    ],
+    "packages": "not run",
+    "independentSourceControl": "failed, original result preserved; no claim of exact repeat counts from run metadata",
+    "preserved": "Complete CLI log and run/job metadata; uploaded raw artifact not downloaded in this milestone",
+    "limits": "Different environment and observer configuration from local C; not a controlled before/after comparison"
+  },
+  "limits": [
+    "Same runtime previously produced both full pass and failure; single local pass does not establish root cause or full repair",
+    "Candidate exact-head remote CI not run",
+    "Candidate real iPhone not run",
+    "Diagnostic draft #646 not ready to merge; branch-only instrumentation must be excluded from any eventual production fix",
+    "Old PR/Issue acceptance and #585 native appearance scope remain open"
+  ],
+  "cleanup": {
+    "sourceRestoredTo": "5d22112014c369c872f0c1e0ed4ebaecccb57f64",
+    "ownedNewHelperRemoved": true,
+    "trackedSourceTestScriptDiffEmpty": true,
+    "firefoxSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3",
+    "firefoxOriginal": true,
+    "ignoredBuiltOutputs": "C candidate bytes retained; not rebuilt to baseline",
+    "sortCache": "post-test ignored cache retained; initial results.json separately archived",
+    "containerStopped": true
+  },
+  "next": "On explicit resume, push the preserved C checkpoint for exact-head normal remote gates and failure graphs if needed, then evaluate production-only change and real device acceptance. Do not rerun just to replace failures.",
+  "userRequestedPause": true,
+  "published": false,
+  "rawFiles": 22,
+  "archiveIndex": "reflective-document-index.json"
+}

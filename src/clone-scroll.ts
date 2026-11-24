@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getTask } from './task.js'
 import { uuid } from './util.js'
@@ -136,7 +137,8 @@ export function cloneScrollState<T extends HTMLElement>(
     clonedNode.style.display === 'block' &&
     clonedNode.style.writingMode === 'horizontal-tb'
   ) {
-    const view = original.ownerDocument.defaultView || window
+    const view =
+      readDocumentProperty(original.ownerDocument, 'defaultView') || window
     const before = view.getComputedStyle(original, '::before')
     const after = scrollLeft
       ? view.getComputedStyle(original, '::after')

@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import type {
   CaptureDiagnostic,
   CaptureStage,
@@ -165,9 +166,9 @@ export class CaptureTask {
     let cached = this.inheritedStyles.get(node)
     if (!cached) {
       cached = {
-        style: (node.ownerDocument.defaultView || window).getComputedStyle(
-          node,
-        ),
+        style: (
+          readDocumentProperty(node.ownerDocument, 'defaultView') || window
+        ).getComputedStyle(node),
         values: new Map(),
       }
       this.inheritedStyles.set(node, cached)

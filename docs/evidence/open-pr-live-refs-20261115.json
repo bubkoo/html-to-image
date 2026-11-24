@@ -1,0 +1,362 @@
+{
+  "checkedAt": "2026-11-15T03:16:12.671352+00:00",
+  "scope": "read-only refresh of all 28 original PR heads and states; not new whole-application acceptance",
+  "all28HeadsUnchangedSinceReview": true,
+  "open": 27,
+  "closedUnmerged": 1,
+  "PR398Closure": {
+    "number": 398,
+    "state": "CLOSED",
+    "mergedAt": null,
+    "closedAt": "2026-11-14T19:38:55Z",
+    "timelineItems": {
+      "nodes": [
+        {
+          "createdAt": "2026-11-14T19:38:55Z",
+          "actor": {
+            "login": "bubkoo"
+          }
+        }
+      ]
+    }
+  },
+  "stateRecords": [
+    {
+      "number": 585,
+      "url": "https://github.com/bubkoo/html-to-image/pull/585",
+      "title": "fix: apply ios workarounds and rendering issues and improve image generation performance",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "9ede3815e690aa25b2f1f3a8926ce8d807e4d0eb",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-05T09:40:13Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 581,
+      "url": "https://github.com/bubkoo/html-to-image/pull/581",
+      "title": "fix(svg): support font-family attribute on SVG text elements",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "9ee9e0f9dd311e48eabee59f26ac8efffcefb6db",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-03T16:13:09Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 577,
+      "url": "https://github.com/bubkoo/html-to-image/pull/577",
+      "title": "fix: preserve repeating-linear-gradient through cssText round-trip",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "35a6953ce31c59b67271babbfaaddc76bbf9013c",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-07T17:56:08Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 575,
+      "url": "https://github.com/bubkoo/html-to-image/pull/575",
+      "title": "fix: resolve CSS custom properties (var()) in SVG descendants",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "a8def89611d014a4161823817a8ae86d6aa2c66e",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-02T04:03:27Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 574,
+      "url": "https://github.com/bubkoo/html-to-image/pull/574",
+      "title": "build(deps-dev): bump rollup from 3.12.0 to 3.30.0",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "8edd3595adb1f6df10cff4bce335ef0a3391fd37",
+      "baseRefName": "master",
+      "updatedAt": "2026-02-26T06:44:41Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 568,
+      "url": "https://github.com/bubkoo/html-to-image/pull/568",
+      "title": "fix: child return false in iframe that use srcdoc",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "a752f019d2472b52100e1cbe71a469d9526e3607",
+      "baseRefName": "master",
+      "updatedAt": "2026-06-19T02:59:55Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 560,
+      "url": "https://github.com/bubkoo/html-to-image/pull/560",
+      "title": "perf: allow to clear internal caches",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "e3f59317b338a2bf8805eb66152c72ea82f6c37f",
+      "baseRefName": "master",
+      "updatedAt": "2026-06-10T03:07:57Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 540,
+      "url": "https://github.com/bubkoo/html-to-image/pull/540",
+      "title": "build(deps-dev): bump pbkdf2 from 3.1.2 to 3.1.3",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "76805a80a7beddc0cf9d6fda0bd46dde9478c766",
+      "baseRefName": "master",
+      "updatedAt": "2026-06-10T03:16:53Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 533,
+      "url": "https://github.com/bubkoo/html-to-image/pull/533",
+      "title": "fix(createImage): make waiting on animation frame optional",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "247475cc4c7fb4e96ed8909b116d7d06cbeb9683",
+      "baseRefName": "master",
+      "updatedAt": "2026-06-04T17:34:16Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 511,
+      "url": "https://github.com/bubkoo/html-to-image/pull/511",
+      "title": "feat(disable-font-size-shrink): add optional flag to disable font size shrinking",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "1d59779c522c6e2c78a435919cd290804b40f8b7",
+      "baseRefName": "master",
+      "updatedAt": "2026-06-26T15:19:17Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 504,
+      "url": "https://github.com/bubkoo/html-to-image/pull/504",
+      "title": "refactor: improve image embedding and async image loading",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "c9d4b5f192a1ee6868d130697fd268945c165525",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-05T12:59:34Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 499,
+      "url": "https://github.com/bubkoo/html-to-image/pull/499",
+      "title": "fix: fix a bug cannot read href attribute in use tags",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "3caf213e24d96f8e4e576e47352f66b0c53d8b7d",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-02T04:03:21Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 498,
+      "url": "https://github.com/bubkoo/html-to-image/pull/498",
+      "title": "fix: blank image in safari, algin #461, #478",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "91bec76c178a970acace1d117ffaa0f3adc4acc8",
+      "baseRefName": "master",
+      "updatedAt": "2026-06-05T18:00:30Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 482,
+      "url": "https://github.com/bubkoo/html-to-image/pull/482",
+      "title": "fix: Adding error handling to embedWebFonts and embedImages",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "712af489c3956765fb38446fe306c855f30217eb",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-03T09:07:13Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 473,
+      "url": "https://github.com/bubkoo/html-to-image/pull/473",
+      "title": "feat: add usePageCss option, add toCanvasList and toImage method for large html",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "0b677d591b33c4a92d854095e6935bba0db34ce3",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-03T09:54:47Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 451,
+      "url": "https://github.com/bubkoo/html-to-image/pull/451",
+      "title": "fix: Abnormal video size",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "ad7092d5e75ac7186f216ad147fbd21e07c4424a",
+      "baseRefName": "master",
+      "updatedAt": "2026-08-27T11:46:32Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 443,
+      "url": "https://github.com/bubkoo/html-to-image/pull/443",
+      "title": "feat: Added fetchRequestInitGenerator option",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "7aee57edb9bf026b2060b332929698e260a90841",
+      "baseRefName": "master",
+      "updatedAt": "2025-11-04T21:17:53Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 442,
+      "url": "https://github.com/bubkoo/html-to-image/pull/442",
+      "title": "This pull request is an attempt to resolve the issue of IOS not loading images",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "0fb224261833201c29ddbfcaf05911e2cc341e33",
+      "baseRefName": "master",
+      "updatedAt": "2025-10-17T11:36:39Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 430,
+      "url": "https://github.com/bubkoo/html-to-image/pull/430",
+      "title": "feat: cache request itself",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "b26144609a76c3da452e2dd9846ba0805cc15a5c",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-05T04:23:37Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 427,
+      "url": "https://github.com/bubkoo/html-to-image/pull/427",
+      "title": "fix: make external svg files referred to in use tags work",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "225e357cd971880c36542279960876d30d1651ae",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-02T04:03:18Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 409,
+      "url": "https://github.com/bubkoo/html-to-image/pull/409",
+      "title": "fix: Bug that changes content size when width and height are set to 'style' tag in canvas",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "9673188ab391df9f8a3db207ba855a2fd06a1cbe",
+      "baseRefName": "master",
+      "updatedAt": "2026-04-01T12:58:06Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 408,
+      "url": "https://github.com/bubkoo/html-to-image/pull/408",
+      "title": "fix: workaround for respecting scrollbar positions",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "a6e135583d82028a26e717221bf9ccb8888a8f99",
+      "baseRefName": "master",
+      "updatedAt": "2026-04-03T17:32:50Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 407,
+      "url": "https://github.com/bubkoo/html-to-image/pull/407",
+      "title": "feat: support extra content which will be added to style tag from svg",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "772ca3228b2d2639d2f9659586a978b15c0f39fd",
+      "baseRefName": "master",
+      "updatedAt": "2023-06-08T17:26:29Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 401,
+      "url": "https://github.com/bubkoo/html-to-image/pull/401",
+      "title": "fix: the incorrect usage of `image.decode`",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "676b0db994578c6d97a8d3f2f7ac7930a8e55440",
+      "baseRefName": "master",
+      "updatedAt": "2026-09-29T10:13:19Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 400,
+      "url": "https://github.com/bubkoo/html-to-image/pull/400",
+      "title": "feat: add 'cacheDisable' option to set fetch cache option to 'no-cache'",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "f4a9fdd3a64b977f0d877ac993a120184047b088",
+      "baseRefName": "master",
+      "updatedAt": "2025-09-17T09:48:41Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 398,
+      "url": "https://github.com/bubkoo/html-to-image/pull/398",
+      "title": "docs: add open in new tab example for toBlobs",
+      "state": "CLOSED",
+      "isDraft": false,
+      "headRefOid": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-14T19:38:55Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-14T19:38:55Z"
+    },
+    {
+      "number": 393,
+      "url": "https://github.com/bubkoo/html-to-image/pull/393",
+      "title": "Handle `href` use attribute",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "90389a7df1c90179458043e799d4c87ffd62c9d5",
+      "baseRefName": "master",
+      "updatedAt": "2026-11-02T04:03:24Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "number": 376,
+      "url": "https://github.com/bubkoo/html-to-image/pull/376",
+      "title": "feat: allow user to provide custom pseudo elements to be captured",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "f6363fcc11e3c8860ae78b77f3cb57396ede876d",
+      "baseRefName": "master",
+      "updatedAt": "2026-05-09T12:38:56Z",
+      "mergedAt": null,
+      "closedAt": null
+    }
+  ],
+  "commentOrClosureActionsInThisRefresh": 0
+}

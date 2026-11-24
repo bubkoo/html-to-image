@@ -1,0 +1,91 @@
+{
+  "archive": "no-collection-local-raw.tar.gz",
+  "archiveSHA256": "e3112e9533bee423d5b4a8ef6ba7f68ed18735c5eea12a6ddf07bf2c3b487c18",
+  "files": [
+    {
+      "path": "inputs/.github/workflows/ci.yml",
+      "bytes": 3128,
+      "sha256": "157d601d1bf85497b8f57dfa0fc7a8408006113d4508a3eb6ed60a886a183043"
+    },
+    {
+      "path": "inputs/test/browser-unit/resource-resolver-cancellation.test.ts",
+      "bytes": 8371,
+      "sha256": "660b31d222bcbb7d87807d03f3387320db8c2f58e6bac1910e91b1b952033c54"
+    },
+    {
+      "path": "inputs/test/browser-unit/svg-fragment-lifetime.test.ts",
+      "bytes": 2874,
+      "sha256": "c7a041193dfd91ffca61168207a8841170d1711e7b1adb2b2d7e1ab97493abf6"
+    },
+    {
+      "path": "inputs/test/browser/fixtures/gc-observer-controls.mjs",
+      "bytes": 10905,
+      "sha256": "f9b215fc06dfdd4c1298a510f28cf81056af04feb3ca2a87e108933f2c61f7b3"
+    },
+    {
+      "path": "inputs/vitest.browser.config.mts",
+      "bytes": 8610,
+      "sha256": "78cf34fd9c0351897e5a3ba3adacaf64a57ee2c4500ef0db592580dfebc0667f"
+    },
+    {
+      "path": "logs/no-collection-focused.log",
+      "bytes": 195,
+      "sha256": "96a4b1bbfbc86c73fc6141744cafbfbc78daf5379081436c9ac3e977e3528e3f"
+    },
+    {
+      "path": "logs/no-collection-lint.log",
+      "bytes": 341,
+      "sha256": "e556bfffc4fd3d7d11563ff29ec4113b871c35ac2caf5f5ccf908157567e1758"
+    },
+    {
+      "path": "logs/no-collection-types.log",
+      "bytes": 137,
+      "sha256": "38f0863e0be4625d09f5323fc85bc0390fac422668c68a20a66948296cb13591"
+    },
+    {
+      "path": "observations/browser-chromium-environment-false.json",
+      "bytes": 5717,
+      "sha256": "a2bce3f649355ff859081e8c3414e223a3b0398a267f2d995481d566741107e2"
+    },
+    {
+      "path": "observations/browser-chromium-environment-true.json",
+      "bytes": 5699,
+      "sha256": "cd73b1478a1ee42458f8f0b0a651326f535dca2c3730cf3874c3b431200ec8f4"
+    },
+    {
+      "path": "observations/browser-chromium-frozen-svg-source.json",
+      "bytes": 1264,
+      "sha256": "b8681a8c35f0f23095f6a15dc2b3c7d7ff19c875ca8fb8c94d5e70b1beca4920"
+    },
+    {
+      "path": "observations/browser-chromium-pending-font.json",
+      "bytes": 5849,
+      "sha256": "15a73fb7aef9d5381a3fd66b575c6936eb17f2b1355b563ff3dd2ff605740103"
+    },
+    {
+      "path": "observations/browser-firefox-environment-false.json",
+      "bytes": 5491,
+      "sha256": "a19d6a0ba7a261fb13482abb1e81ceb2cc27e5e135ab7cd501579d203214af18"
+    },
+    {
+      "path": "observations/browser-firefox-environment-true.json",
+      "bytes": 5496,
+      "sha256": "d250aeef209d885eafb80ad604fe51e9a566121f302be47cea1efe6cdc4188f8"
+    },
+    {
+      "path": "observations/browser-firefox-frozen-svg-source.json",
+      "bytes": 1201,
+      "sha256": "b216ca883df2ee5b4263a8ef69062c7f614e4901b04f16a034226b19e36d085c"
+    },
+    {
+      "path": "observations/browser-firefox-pending-font.json",
+      "bytes": 6006,
+      "sha256": "266d5330be7729122f3a9faff756038c1a590a1fe5fb458a6059c348293580c1"
+    },
+    {
+      "path": "observations/browser-webkit-frozen-svg-source.json",
+      "bytes": 1198,
+      "sha256": "03b977b0fd24e2332ded1a1c2c68545af2e15e471730899d30e6de7a39454e3d"
+    }
+  ]
+}

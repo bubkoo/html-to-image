@@ -78,5 +78,27 @@
   ],
   "oldContributorPRCommentsOrClosures": false,
   "npmPublished": false,
-  "remoteGates": "pending current new PR exact-head checks"
+  "remoteGates": {
+    "pr": 644,
+    "finalHead": "e664f65bcb2db760605a1221420130ff7321d292",
+    "mergedAs": "8d4991e3fb399ac5a7e7c823bc06009944032ed8",
+    "prCI": {
+      "run": 43661113765,
+      "conclusion": "success",
+      "coverage": 1225,
+      "source": 1106,
+      "packages": 159,
+      "inheritedSkips": [4, 4]
+    },
+    "postMergeCI": {
+      "run": 43661748647,
+      "conclusion": "failure",
+      "coverage": 1225,
+      "sourcePassed": 1103,
+      "sourceFailed": 3,
+      "packages": "not run"
+    },
+    "genericLifecycleInvestigation": "draft #646; see gc-observer-controls.json",
+    "refreshedAt": "2026-11-15T03:16:12.671352+00:00"
+  }
 }
