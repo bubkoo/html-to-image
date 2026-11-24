@@ -1,0 +1,481 @@
+{
+  "schemaVersion": 1,
+  "archive": {
+    "path": "animation-root-before-20261125-raw.tar.gz",
+    "bytes": 105334,
+    "sha256": "1491a7fd4385f9542241b8d55f310fecb0a80f95b53591c2b4e7b99d66da9a33",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberCount": 77,
+  "members": [
+    {
+      "path": "original/assessment.json",
+      "bytes": 6024,
+      "sha256": "92661f0352fe82172f5b9a7c007cd97789107e45e4adc1420fddee9d0e351ef2",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-inside-capture.svg",
+      "bytes": 21598,
+      "sha256": "383cb5767f69216233f431d82dcbd60350abdc5ca0d3af798256156a0b8e512e",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-inside-default.png",
+      "bytes": 139,
+      "sha256": "9c401168416a06bccb8ba740f12afd94784c0d9dd76f62186c0eddd568a5b678",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-inside-frozen.png",
+      "bytes": 139,
+      "sha256": "9c401168416a06bccb8ba740f12afd94784c0d9dd76f62186c0eddd568a5b678",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-inside-native.png",
+      "bytes": 121,
+      "sha256": "8bff0b6c8617e5a149fd2f6f1719a6ba8812375c486d7ec3d6e59e29b278ba1a",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-inside-oracle.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-outside-capture.svg",
+      "bytes": 14417,
+      "sha256": "e19ba9e8b59dba5838fa1fb0756cf0eaa25883c4fe74a724998692c354a6b57e",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-outside-default.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-outside-frozen.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-outside-native.png",
+      "bytes": 121,
+      "sha256": "8bff0b6c8617e5a149fd2f6f1719a6ba8812375c486d7ec3d6e59e29b278ba1a",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-keyframes-outside-oracle.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-paused-negative-delay-capture.svg",
+      "bytes": 21613,
+      "sha256": "00b5bb79d3a151ffbd47f626d98487ace8e498ff52d538f3ac3fc706c2e1f59d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-paused-negative-delay-default.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-paused-negative-delay-frozen.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-paused-negative-delay-native.png",
+      "bytes": 121,
+      "sha256": "8bff0b6c8617e5a149fd2f6f1719a6ba8812375c486d7ec3d6e59e29b278ba1a",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-css-paused-negative-delay-oracle.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-js-animation-capture.svg",
+      "bytes": 14414,
+      "sha256": "67eca3e6e6fd36aefa88c1551ff06f7ab513036e6c7629e6b4c066fe76460fdc",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-js-animation-default.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-js-animation-frozen.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-js-animation-native.png",
+      "bytes": 121,
+      "sha256": "8bff0b6c8617e5a149fd2f6f1719a6ba8812375c486d7ec3d6e59e29b278ba1a",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/chromium-js-animation-oracle.png",
+      "bytes": 143,
+      "sha256": "c6c23acffe137db40975712e6f4511dba35e67419292f0223e821d3972a13c4d",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-inside-capture.svg",
+      "bytes": 18114,
+      "sha256": "5775117833b06cbb4f90bfd28ad502c292b96790363f83397affe4a2d316df29",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-inside-default.png",
+      "bytes": 112,
+      "sha256": "d85dc764b9dee1898b246133cf659c8cf1270a4184fc6abb7511ebb54ea80ecb",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-inside-frozen.png",
+      "bytes": 112,
+      "sha256": "d85dc764b9dee1898b246133cf659c8cf1270a4184fc6abb7511ebb54ea80ecb",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-inside-native.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-inside-oracle.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-outside-capture.svg",
+      "bytes": 12104,
+      "sha256": "c555c6a11fa22cdb6a1e34bd3f27066fd39836eff0ca02bb622d0830f6bdb9fa",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-outside-default.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-outside-frozen.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-outside-native.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-keyframes-outside-oracle.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-paused-negative-delay-capture.svg",
+      "bytes": 18140,
+      "sha256": "070e31fc7ae181ff5564c6c94251fea421684026ac408823cb7670c486c457ee",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-paused-negative-delay-default.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-paused-negative-delay-frozen.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-paused-negative-delay-native.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-css-paused-negative-delay-oracle.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-js-animation-capture.svg",
+      "bytes": 12093,
+      "sha256": "6de5ad47f9751bc74cc9d11abae02dee8736e9299bdd71fa731de278821ffc95",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-js-animation-default.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-js-animation-frozen.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-js-animation-native.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/firefox-js-animation-oracle.png",
+      "bytes": 118,
+      "sha256": "5c186b7f749becbfa34934c3c39a99250e8c667bf8caec867dd9dc9fbd149939",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/inputs-after.json",
+      "bytes": 46818,
+      "sha256": "532e7cfce42c309070b6895fafd6174e7ab1058d81cd481c3da245cc57400472",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/inputs-before.json",
+      "bytes": 46818,
+      "sha256": "532e7cfce42c309070b6895fafd6174e7ab1058d81cd481c3da245cc57400472",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/minimal-repro.md",
+      "bytes": 1880,
+      "sha256": "f4e11a3cba4b81b0a673e15f2a1a9e239fccac17614e1510fac1bc02d9e6d4b4",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/probe.mjs",
+      "bytes": 7902,
+      "sha256": "349a3620bd9ad0ef7681ecfe9880f2c37fe449d9f3bdece8e1f27c427a0e0b44",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/results.json",
+      "bytes": 51400,
+      "sha256": "dc24133074582afc534b6e1681d24d1457063ed3550536c8eb497a1b5a272e37",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/run.log",
+      "bytes": 2721,
+      "sha256": "aeede9572f35ba4587739c6615ac794d0e7e1aad18e9e8139d70525094d9a3cb",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/sha256-index.json",
+      "bytes": 12144,
+      "sha256": "943c99357a144e1a2dcedef6e2367b472eee709394e0a50526fe1b5d26d38ef7",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/source/src/apply-style.ts",
+      "bytes": 733,
+      "sha256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/source/src/capture.ts",
+      "bytes": 8276,
+      "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/source/src/clone-node.ts",
+      "bytes": 19463,
+      "sha256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/source/src/util.ts",
+      "bytes": 10273,
+      "sha256": "ce65454d5dd576fbae58a7df75167f549ef5d276a86713d10247e2a152318eb8",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-inside-capture.svg",
+      "bytes": 21747,
+      "sha256": "51b69047a744767e486818d4a1e9e7184eaf33e60cfa65e1a399488ad9ffca3f",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-inside-default.png",
+      "bytes": 217,
+      "sha256": "87719268f3e34957a6eca6ae4f979beb780273b8e7b5f228ec16cfbbe55091ed",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-inside-frozen.png",
+      "bytes": 217,
+      "sha256": "87719268f3e34957a6eca6ae4f979beb780273b8e7b5f228ec16cfbbe55091ed",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-inside-native.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-inside-oracle.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-outside-capture.svg",
+      "bytes": 14519,
+      "sha256": "4f7e9fc21e3d4499bfe3a7d7e51393d8a3211ef5b86effc35bbe254802c1c17e",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-outside-default.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-outside-frozen.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-outside-native.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-keyframes-outside-oracle.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-paused-negative-delay-capture.svg",
+      "bytes": 21773,
+      "sha256": "87294942c6101c8787512125c56d2c3765e90682c37c843013a87e0104828864",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-paused-negative-delay-default.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-paused-negative-delay-frozen.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-paused-negative-delay-native.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-css-paused-negative-delay-oracle.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-js-animation-capture.svg",
+      "bytes": 14506,
+      "sha256": "f69f9804363bcb4cceb16e42670be74c1a46fac8b1fd5a23b8b109ead7f59920",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-js-animation-default.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-js-animation-frozen.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-js-animation-native.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/webkit-js-animation-oracle.png",
+      "bytes": 221,
+      "sha256": "7ef47e0e82386f613a43a6c0b54528d2740ecb8f54e76a3cd2095835036111c6",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 1524,
+      "sha256": "a75a3f92b6bd813694994ae5c52ac3e71e2c0e105e263ca7bbbf82b50e661d74",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    },
+    {
+      "path": "supplemental/LICENSE",
+      "bytes": 1066,
+      "sha256": "dcfe4a33fbd700305cf9308c02e8800dbef57c46ecc26ce2f4438b28a0bd9571",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    },
+    {
+      "path": "supplemental/dist/html-to-image.js",
+      "bytes": 98997,
+      "sha256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 3013,
+      "sha256": "752ed5a9c149ca9afa1ccba08cc6e325002040fb670670fdb4dc6b0ffa442a47",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 10805,
+      "sha256": "42294f8b1e41db185a8f0e62314a7c05cbb47123ac316c88e059fb2a405327fa",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    }
+  ],
+  "originalIndexedPayloadFiles": 71,
+  "originalFilesIncludingIndex": 72,
+  "verificationScript": {
+    "path": "animation-root-before-20261125-verify.py",
+    "bytes": 10805,
+    "sha256": "42294f8b1e41db185a8f0e62314a7c05cbb47123ac316c88e059fb2a405327fa"
+  }
+}

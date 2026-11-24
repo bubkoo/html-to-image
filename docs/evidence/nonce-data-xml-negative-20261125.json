@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-24T23:17:11.584434+00:00",
+  "kind": "nonce-data-xml",
+  "scope": "Root native XML-route negative evidence; one self-removal variant; Firefox selector repair but animation mismatch; C/WK guard unknown. Not complete3-engine safety verification.",
+  "rawArchive": {
+    "path": "nonce-data-xml-negative-20261125-raw.tar.gz",
+    "bytes": 39654,
+    "sha256": "ba459ed86aeebecc14b163aa370b5b1a9046398e3baae32cbe74e6541eaff134",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberIndex": "nonce-data-xml-negative-20261125-index.json",
+  "verificationScript": "nonce-data-xml-negative-20261125-verify.py",
+  "originalEvidenceDirectory": "root-origin-nonce-data-child-20261125",
+  "verification": {
+    "kind": "nonce-data-xml",
+    "status": "rejected-as-generic-coordinate-oracle",
+    "originalIndexedPayloadFiles": 13,
+    "originalFilesIncludingTheirIndex": 14,
+    "baseCases": 6,
+    "selfRemovalCases": 7,
+    "FirefoxSelfRemovalFixesStaticSelectorControls": true,
+    "FirefoxActiveAnimationXMLx": 49,
+    "FirefoxActiveAnimationSVGImageX": 7,
+    "ChromiumAndWebKitSafetyStatus": "unknown: unchanged2.5s guard, not passed",
+    "framenavigatedEvents": "not collected; no inferred committed child URL/contentType",
+    "sourceMarkupOrCSSRemoved": false,
+    "currentLibraryOr39InputAcceptance": false,
+    "cleanupVerified": true,
+    "assessmentLimitsPreserved": {
+      "actualMarkerHTTPAllRuns": 0,
+      "FirefoxPositiveControls": "Loaded data FontFace status loaded and data image4x4; blocked remote font rejects.",
+      "attempts": "Direct/nested HTTP script, inline script/event handler, font, SVG/HTML image, CSS import and frame; form submit attempted by trusted script with no allow-forms. Nested data HTML retained the restrictive policy in this bounded observation.",
+      "ChromiumAndWebKit": "Parent ready/correct policy observed; console records blocked resource attempts, but no complete child measurement/positive-control message before unchanged2.5s guard. Unknown, no safety pass.",
+      "zeroHTTPIsNotUniversalUnsafeBehaviorProof": true,
+      "formsBlockedBySandboxDoesNotIndependentlyProveAllCSPDirectives": true
+    }
+  },
+  "operations": {
+    "sourceOrTrackerChanges": 0,
+    "oldArchiveChanges": 0,
+    "browserOrPhoneOperations": 0,
+    "commitsOrPushes": 0
+  }
+}

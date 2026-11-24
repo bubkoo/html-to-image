@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-24T23:17:11.782171+00:00",
+  "kind": "animation-root-before",
+  "scope": "Current root UMD9c09/449-ledger defect reproduction before any animation fix. Not the independent animation-fix branch before/after and not an after-fix result.",
+  "rawArchive": {
+    "path": "animation-root-before-20261125-raw.tar.gz",
+    "bytes": 105334,
+    "sha256": "1491a7fd4385f9542241b8d55f310fecb0a80f95b53591c2b4e7b99d66da9a33",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberIndex": "animation-root-before-20261125-index.json",
+  "verificationScript": "animation-root-before-20261125-verify.py",
+  "originalEvidenceDirectory": "animation-snapshot-20261125",
+  "verification": {
+    "kind": "animation-root-before",
+    "status": "current-root-UMD-before-reproduction-confirmed",
+    "originalIndexedPayloadFiles": 71,
+    "originalFilesIncludingTheirIndex": 72,
+    "inputLedgerEntries": 449,
+    "sourceFingerprint": "b29cfa7e5bb1e90c87f64a3be3976794acf120a747c580b24466e1dda130f746",
+    "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+    "supplementalUMDBytesHashMatchesOriginalRunLedger": true,
+    "sourceSnapshotsVerified": 4,
+    "PNGFilesIndependentlyDecodedAndCRCChecked": 48,
+    "cases": [
+      {
+        "engine": "chromium",
+        "mode": "css-keyframes-inside",
+        "defaultDifferentChannels": 800,
+        "frozenDifferentChannels": 800
+      },
+      {
+        "engine": "chromium",
+        "mode": "css-keyframes-outside",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "chromium",
+        "mode": "js-animation",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "chromium",
+        "mode": "css-paused-negative-delay",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "firefox",
+        "mode": "css-keyframes-inside",
+        "defaultDifferentChannels": 800,
+        "frozenDifferentChannels": 800
+      },
+      {
+        "engine": "firefox",
+        "mode": "css-keyframes-outside",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "firefox",
+        "mode": "js-animation",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "firefox",
+        "mode": "css-paused-negative-delay",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "webkit",
+        "mode": "css-keyframes-inside",
+        "defaultDifferentChannels": 800,
+        "frozenDifferentChannels": 800
+      },
+      {
+        "engine": "webkit",
+        "mode": "css-keyframes-outside",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "webkit",
+        "mode": "js-animation",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      },
+      {
+        "engine": "webkit",
+        "mode": "css-paused-negative-delay",
+        "defaultDifferentChannels": 0,
+        "frozenDifferentChannels": 0
+      }
+    ],
+    "insideKeyframeOutputsFailing": 6,
+    "controlOutputsMatching": 18,
+    "sourceStatesBeforeAfterIdentical": true,
+    "stabilizationAttempts": "default1",
+    "isFixBranchBeforeAfter": false,
+    "isAfterFixValidation": false,
+    "fixDirectionIsNotImplementedOrValidatedHere": true,
+    "causalLimits": [
+      "Observed initial image pose is proven; progression of an exported SVGImage over later frames was not measured or needed.",
+      "This fixture is paused before capture; it does not rely on a race while a source animation advances.",
+      "This is separate from native glyph/shadow/fractional residuals, CSSOM parser branches and SMIL."
+    ],
+    "cleanupVerified": true
+  },
+  "operations": {
+    "sourceOrTrackerChanges": 0,
+    "oldArchiveChanges": 0,
+    "browserOrPhoneOperations": 0,
+    "commitsOrPushes": 0
+  }
+}

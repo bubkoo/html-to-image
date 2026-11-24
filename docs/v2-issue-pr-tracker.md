@@ -1,5 +1,11 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-25 CSS 动画重启缺陷与 XML 测量负例
+
+当前根运行时 UMD `9c090fc2…` 的纯色、无文字/资源对照确认了一个新快照缺陷：源 CSS 动画已由 Web Animations API 暂停在 500ms、当前位移 10px，但子树内保留的 `@keyframes` 在 SVGImage 中重新从初态呈现。三引擎各默认导出及冻结 capture 共 **6 份输出均差 800 通道**；外置关键帧、纯 JS 动画和 CSS paused/负 delay 的 **18 份控制输出零差**。12 场源 DOM/CSSOM/动画状态前后相同，449 输入不变。[原始 PNG、SVG、运行脚本及独立像素复验](evidence/animation-root-before-20261125.json)只证明当前根代码修复前状态；独立修复分支尚在处理伪元素及高优先级规则，不称已修复或 #585 整体完成。
+
+根原点测量另尝试受控父 realm、nonce 脚本及 opaque data XML 子 frame。Firefox 的真实 XML/受限资源控制通过，但可信测量脚本自身令 `:has(script)` 的坐标从 SVGImage 的 x7 变为 x49；仅删除脚本自身可修复静态选择器控制，保留源动画后仍是 XML x49 / SVGImage 初帧 x7。Chromium/WebKit 未在原 2.5 秒 guard 内完成正控，HTTP0 仍为 unknown，且原 driver 没采 frame navigation，不补造记录。[13 项原始 payload 及索引](evidence/nonce-data-xml-negative-20261125.json)独立保留；未运行旧39场或当前 UMD 的坐标集成，未接入生产、未改电脑网络或使用手机。
+
 ## 2026-11-25 独立修复、当前整合检查与远端结果
 
 取消原因修复已直接基于 master 拆为[草稿 #654](https://github.com/bubkoo/html-to-image/pull/654)，head `b652860`。SVG 环境的同测试固定对照为 **60 失败 / 33 通过 → 93 通过**；公开 API 与图片解码另一个独立基线为 **48 失败 / 36 通过 → 84 通过**，不能合并两组失败数。修复保留 `null`、`false`、`0`、空字符串等取消原因的身份，并覆盖待决操作和晚到解码。完整本地检查在最终纯格式修改之前为 **1411 coverage / 1292 source / 162 包**通过（各 4 项既有跳过）；格式修改后仅复核 AST/产物边界、84 新例及 40 项已有渲染例，不冒称重复完整检查。[207 份固定输入与失败前后证据](evidence/cancellation-reasons-master.json)已独立封存。我们自己的旧堆叠 #652 已于 **2026-11-24 21:32:30 UTC 关闭、未合并**，由 #654 取代；`3c0ec09` 分支及原失败记录仍保留，关闭不代表回收失败已解决。

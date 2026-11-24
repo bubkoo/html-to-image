@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "archive": {
+    "path": "nonce-data-xml-negative-20261125-raw.tar.gz",
+    "bytes": 39654,
+    "sha256": "ba459ed86aeebecc14b163aa370b5b1a9046398e3baae32cbe74e6541eaff134",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberCount": 18,
+  "members": [
+    {
+      "path": "original/assessment.json",
+      "bytes": 11080,
+      "sha256": "f74310787debf69c824ba97cadee957cd2fef41f56e81d1b4c08697071aed5b9",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/guard-diagnostics.json",
+      "bytes": 19635,
+      "sha256": "cf00bb4e71ec1ab4e3e4627754648c602ca2918a5478270c4a8f9b569aa75ef4",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/initial-scaffold-error/note.json",
+      "bytes": 327,
+      "sha256": "499b43c612c6f66da86d741cbe844d8461b32ee9f19abea3f675a13736e5f6e1",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/initial-scaffold-error/probe.mjs",
+      "bytes": 10391,
+      "sha256": "eeff85f124bb7c3b57f88aeba35e1f2d592d73471a5070009a13f7e84029ef99",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/initial-scaffold-error/results.json",
+      "bytes": 40024,
+      "sha256": "4c894082138ed7100f8aca8af7e79913dc9ec8bf9f9377cf52a0a607ff1839fd",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/initial-scaffold-error/run.log",
+      "bytes": 291,
+      "sha256": "0362d24a1b32aec0df58fa0494cb66bf1ca550946efbfb8e9ac3458e009941a4",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/input/font-metrics.ttf",
+      "bytes": 1120,
+      "sha256": "609ed7142290b5032cdd169a0f9f11c61eac8584215b381e4d21089196b7e7fe",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/probe.mjs",
+      "bytes": 10441,
+      "sha256": "53a5fcc250627696c5a8e2433aa46722364a556c4a2b0c56b8d0145598d757bc",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/results.json",
+      "bytes": 90115,
+      "sha256": "68b527e9cceab47f1e155151d83cc12c52a205f21df6e5f57f6ea313b7c4f6ee",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/run.log",
+      "bytes": 966,
+      "sha256": "5a203744687c88ece13a7c2e19c214504933a01b55a807d015c022e4fb624c0f",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/self-remove-variant/probe.mjs",
+      "bytes": 10841,
+      "sha256": "3bc1dbebd16c440a5b4405a010488069507e91f09535f8c6772eb416698b93ba",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/self-remove-variant/results.json",
+      "bytes": 100350,
+      "sha256": "d9f95050c1a18033fc0cd001495db6459021e73c2ef5a3a80c2464db3c9dafd5",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/self-remove-variant/run.log",
+      "bytes": 1179,
+      "sha256": "2e3a3536e165f7dd8e53c9ed45ea6199278da4c725a9d97bcb480d76b9570dae",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "original/sha256-index.json",
+      "bytes": 2151,
+      "sha256": "567dfed2a1d645d5c282d401a18d5ce9f66fcfc51837cbd3cb7edcdb9dda4dbc",
+      "origin": "original indexed evidence"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 921,
+      "sha256": "8ec772ac80b82ad0e4c5c61cec96e0a2a25220e2fbb8f229e00a62bc1885f6d7",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    },
+    {
+      "path": "supplemental/LICENSE",
+      "bytes": 1066,
+      "sha256": "dcfe4a33fbd700305cf9308c02e8800dbef57c46ecc26ce2f4438b28a0bd9571",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 1414,
+      "sha256": "1f4c57c305844f4bd951af611afdbbb934ed2402b1a56bce04e4d11ffacfb546",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 10805,
+      "sha256": "42294f8b1e41db185a8f0e62314a7c05cbb47123ac316c88e059fb2a405327fa",
+      "origin": "new independent verification or explicitly supplemental hash-equal input"
+    }
+  ],
+  "originalIndexedPayloadFiles": 13,
+  "originalFilesIncludingIndex": 14,
+  "verificationScript": {
+    "path": "nonce-data-xml-negative-20261125-verify.py",
+    "bytes": 10805,
+    "sha256": "42294f8b1e41db185a8f0e62314a7c05cbb47123ac316c88e059fb2a405327fa"
+  }
+}
