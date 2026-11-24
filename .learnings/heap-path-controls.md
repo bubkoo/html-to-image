@@ -20,3 +20,6 @@ Use known member ownership and independent negative controls, record registratio
 - Source: diagnostic tool debugging
 - Related Files: docs/evidence/gc-observer-controls/heap-tool-controls-summary.json
 - Tags: firefox, heap-snapshot, weak-reference, debugger, positive-control
+
+### Resume addendum
+A stopped-engine note is not evidence that the old container/image still exists. Check current inventory, rebuild from pinned digests if absent, and establish a fresh baseline. Before a potentially crashing post-failure inspector request, persist only the cached primary booleans on the Node side so inspection errors cannot erase the original observation. Syntax-only hook checks are not runtime acceptance.
