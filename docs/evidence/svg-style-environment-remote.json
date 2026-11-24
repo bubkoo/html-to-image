@@ -1,0 +1,115 @@
+{
+  "checkedAt": "2026-11-24T20:43:51.452911+00:00",
+  "status": "PR652 latest head fails WebKit source-document GC; keep draft. Earlier fullCI success retained, not substituted. PR651 strict glyph gate remains failed.",
+  "pr652": {
+    "base": "25e83810cb7d1865b6a2108c67f195b6a09a05e3",
+    "sourceRun": {
+      "head": "786603d733ae273e1c6ad420d3239414d36e8a45",
+      "run": 45480659033,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45480659033",
+      "conclusion": "success",
+      "testedMerge": "903427ac43c8ad89b86af0ce53c5929eccf30444",
+      "tree": "6a272cb3b0bb19fa0fc1016ce1d3d58661475863",
+      "headInSecondParentAndTreesEqual": true,
+      "coveragePassed": 1393,
+      "sourcePassed": 1274,
+      "existingSkippedEach": 4,
+      "packagesPassed": 162,
+      "artifact": {
+        "id": 14960739273,
+        "bytes": 254375,
+        "sha256": "8f6327bf4dfdd9970367f663268d9c2a0b9a5d4f7b3bd34068e8a2194c552a63",
+        "verifiedMembers": 8
+      },
+      "Codecov": "upload succeeded; external patch/project verdict not established by collected status/checks; no pass claim"
+    },
+    "latestHeadRun": {
+      "head": "3c0ec0930cd1d4da97a4cb68e46630f35e7b194f",
+      "run": 45481650657,
+      "url": "https://github.com/bubkoo/html-to-image/actions/runs/45481650657",
+      "conclusion": "failure",
+      "testedMerge": "170375aad0ae136531767a098f3d1693e3721397",
+      "tree": "dddfeb09ab98ad84459e9c3d9d667b466db4e7fc",
+      "headInSecondParentAndTreesEqual": true,
+      "coverage": {
+        "passed": 1393,
+        "skipped": 4
+      },
+      "source": {
+        "passed": 1273,
+        "failed": 1,
+        "skipped": 4
+      },
+      "failure": "WebKit capture-lifetime.test.ts:81: a frozen snapshot releases its source document before lazy rendering; WeakRef still present after original3GC commands",
+      "imageAssertions": "not reached",
+      "packages": "not run",
+      "Codecov": "skipped after failure",
+      "artifact": {
+        "id": 14961983101,
+        "bytes": 7697,
+        "sha256": "ec2731e954f280b773f550049e6001c606197db8c9999eef4151288ffc5bc9a3",
+        "verifiedMembers": 6
+      }
+    },
+    "onlyDeltaBetweenHeads": [
+      ".learnings/svg-style-environment-cancellation.md",
+      "docs/evidence/svg-style-environment-cancellation-index.json",
+      "docs/evidence/svg-style-environment-cancellation-raw.tar.gz",
+      "docs/evidence/svg-style-environment-cancellation.json"
+    ],
+    "productionAndTestBytesUnchangedBetweenHeads": true,
+    "interpretation": "Earlier success and same production/tests do not establish cause, unrelatedness or a stable GC fix. Failed current head has not been rerun to replace it.",
+    "CodeQL": "not scheduled by existing PR filter for stackedbase",
+    "combinedStatusEndpointBoundary": "AccessLint success alone is not full CI or Codecov acceptance"
+  },
+  "pr651": {
+    "head": "b6bd47bac5cc9b88150443b876832e60f564f541",
+    "run": 45481800953,
+    "url": "https://github.com/bubkoo/html-to-image/actions/runs/45481800953",
+    "testedMerge": "9718eb347193994a94ca2bec8416ab43fa4ba9a2",
+    "tree": "77ab7f75b685bda2fcb7584d3235b1682fe08f5c",
+    "headInSecondParentAndTreesEqual": true,
+    "coverage": {
+      "passed": 1555,
+      "failed": 1,
+      "skipped": 45
+    },
+    "failure": "Chromium visible-text channel37 actual255 expected231",
+    "sourcePackagesCodecov": "not run",
+    "artifact": {
+      "id": 14963465146,
+      "bytes": 18044,
+      "sha256": "c7877ae19477bdba8309deac4b243e5412a7b3901a2e1b75d7950b9877a0203b",
+      "verifiedMembers": 13
+    },
+    "comparisonToC621": [
+      {
+        "file": "chromium-native-visible-text-native.png",
+        "latestSHA256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed",
+        "previousSHA256": "f1b1e0235c836a06fc20954d3235f54db3645c37320e730eb3dd997a1d7ea3ed",
+        "equal": true
+      },
+      {
+        "file": "chromium-native-visible-text-capture.png",
+        "latestSHA256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a",
+        "previousSHA256": "c40061d0d89910111404dbe661134266ed882d272fea746de5c2ba70894e350a",
+        "equal": true
+      }
+    ]
+  },
+  "physicalDevice": "Not used; earliest user allows2026-11-24T22:02:04Z.",
+  "npmPublished": false,
+  "macNetworkChanged": false,
+  "oldContributorPRActions": 0,
+  "rawEvidence": {
+    "index": "svg-style-environment-remote-index.json",
+    "archive": {
+      "path": "svg-style-environment-remote-raw.tar.gz",
+      "bytes": 712501,
+      "sha256": "fca865b1d59075d309ceed5fead3a09108cb2c09ffd0c676ef39fc815fd915b9"
+    },
+    "fileCount": 39,
+    "uncompressedBytes": 2034393,
+    "allMemberHashesVerified": true
+  }
+}

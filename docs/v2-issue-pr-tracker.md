@@ -1,5 +1,15 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-25 #652 最新 head 的回收失败
+
+#652 首个源码 `786603d` 的 [CI 45480659033](https://github.com/bubkoo/html-to-image/actions/runs/45480659033)完整通过 **1393 coverage / 1274 source / 162 产物**。但只补四份文档/证据、生产与测试字节不变的 `3c0ec09` 在 [CI 45481650657](https://github.com/bubkoo/html-to-image/actions/runs/45481650657)为 coverage **1393 通过 / 4 跳过**、source **1273 通过 / 1 WebKit 回收失败 / 4 跳过**；`capture-lifetime.test.ts:81` 原三次 GC 后源文档 WeakRef 仍存在，后续图片断言及产物没有执行。不能用首轮绿色替代最新失败，也不据同字节判断无关或偶发；保持草稿，先复核实际持有路径，不增加回收、重试或等待。
+
+两轮实际合并测试都已核对准确 head、父提交及相同源码树；上传物各 8/6 成员完整核验。旧源码的 Codecov upload 成功只证明上传，不等于外部 patch/project verdict；最新失败后未执行 Codecov。堆叠 base 的既有 CodeQL 分支过滤仍不调度本 PR。[39 份远端原始记录和哈希](evidence/svg-style-environment-remote.json)同时保留成功与失败。
+
+同一归档还记录 #651 的 `b6bd47b`：[CI 45481800953](https://github.com/bubkoo/html-to-image/actions/runs/45481800953)为 **1555 通过 / 1 Chromium 字形失败 / 45 跳过**，source/产物/Codecov未执行。native/capture 两张原始 PNG 与 `c621e09` 相同；严格原生保真门禁仍未通过。
+
+根原点测量的 nested-owner 后续路线也未集成：Chromium/Firefox 的窄安全/XML 控制通过，但 WebKit 的源 Blob HTML 后代实际向服务器发出 CSS、图片、frame、字体四类 HTTP；随后触发原 5 秒 guard，两个 URL 的 revoke 后 fetch 仍成功，清理不能算通过。未运行的 WebKit 语义与取消控制明确保留，[19 份新增安全负控](evidence/root-origin-nested-owner.json)不覆盖旧归档。手机仍未使用，电脑网络配置未改。
+
 ## 2026-11-25 独立取消修复与剩余绘制边界
 
 新增[草稿 #652](https://github.com/bubkoo/html-to-image/pull/652)将 SVG 环境取消缺陷独立到 #650 的 `25e8381` 基线，源码 `786603d`，只改一个生产文件和一个测试文件；不包含 #651 原生滚动实现。旧实现丢失 `null` / `false` / `0` / 空字符串 reason，并可能在 raw 文档就绪后向默认消费者返回已释放文档。同一最终测试和配置、只替换该生产文件，由 **60 失败 / 33 通过**变为三引擎 **93 通过**；另有 **51 项**独立原生 iframe 边界控制通过。

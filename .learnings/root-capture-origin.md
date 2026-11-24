@@ -28,3 +28,7 @@
 - Validation: reproduced defect; safe generic runtime repair not integrated
 - Last-Validated: 2026-11-25
 - Evidence: docs/evidence/root-capture-origin-boundaries.json
+
+### 2026-11-25 nested-owner follow-up
+
+保持受限HTML owner、在其内部创建真实XML child，Chromium/Firefox的窄控制通过；WebKit中由源预制Blob HTML的后代发出四类真实HTTP，否决通用路径。直接SVG层被拦与script0不足以证明后代资源受限。既定5s guard和两URL revoke后仍能fetch的清理负控都保留，未继续WebKit语义/取消或生产集成。初始自有harness异常已单独封存，derived输入重建明确不冒充原始浏览器snapshot。见docs/evidence/root-origin-nested-owner.json。
