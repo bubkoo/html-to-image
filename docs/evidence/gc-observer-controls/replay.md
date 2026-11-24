@@ -409,3 +409,19 @@ existing two test files pass20/skip1 across three engines; they did not reproduc
 a failure. Full remote CI is still required. See
 [preflight](../gc-reference-remote-preflight.json). The temporary integration test
 was removed, tracked container inputs restored and Firefox restored before stop.
+
+
+### Parent analysis after the remote preflight failure
+
+At8d398dc both PR45333796763 and push45333790744 fail at the tool's child
+readHeapSnapshot, despite matching patched browser/source hashes and valid
+held/collected primary controls. No measured project suite starts. Both restore
+original Firefox. Version8 reads/analyzes saved content-runtime bytes in parent
+via primitive file/ID IPC; content retains snapshot creation and ordinary CC.
+Standalone controls alone check child read access and persist detailed errors.
+No sandbox/JIT setting or original lifetime assertion changes. The repeat source
+control now requires the original source step to have actually begun and failed,
+avoiding the unrelated absent-cache error after a failed tool preflight. Local
+positive/negative and test-frame integration pass, including known member/raw
+files, but remote acceptance remains required. Parent analysis does not establish
+the application failure's cause. See [preflight](../gc-reference-parent-preflight.json).

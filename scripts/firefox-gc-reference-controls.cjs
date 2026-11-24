@@ -35,7 +35,11 @@ fs.mkdirSync(folder, { recursive: true })
       ['negative', '__codexNegativeRef'],
     ]) {
       const handle = await page.evaluateHandle(
-        (key) => ({ __codexHeap: true, reference: globalThis[key] }),
+        (key) => ({
+          __codexHeap: true,
+          reference: globalThis[key],
+          checkContentRead: true,
+        }),
         key,
       )
       try {

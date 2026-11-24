@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-24",
+  "scope": "Observer v8 parent-process analysis, no production fix",
+  "previousRemote": {
+    "head": "8d398dc9d2763e6924faabab73645c56faf17f37",
+    "PR": 45333796763,
+    "push": 45333790744,
+    "result": "installer hashes match; tool control fails at child readHeapSnapshot; actual coverage/source/package not run; browser restored",
+    "repeatOrchestration": "old repeat attempted a missing cache after preflight failure; next workflow only repeats after source actually began"
+  },
+  "change": "Analyze the already saved content-runtime snapshot in parent through primitive file/ID IPC. Content process still creates snapshot and ordinary CC. No sandbox/JIT configuration changes.",
+  "readCheck": "Only standalone controls request a child read check and preserve its detailed native error; actual failed test exposes only marker/existing WeakRef.",
+  "localControls": "held target/member, independently collected target absence and balanced registration passed; test-frame raw snapshot/GC/CC integration passes",
+  "originalGates": "assertions/three requests/deadlines/skips unchanged; subsequent observations can be perturbed",
+  "remote": "requires new exact-head CI",
+  "files": {
+    "scripts/firefox-gc-reference-controls.cjs": "8531164bcad28eaabef25771e5bbb82cceeec966104621e4293941677bf1c7c3",
+    "scripts/firefox-gc-reference-method.txt": "212b2838cd8f37e63667b49e9e65ff275fc6099cbaace82d5ebf3b4ccdec1e5b",
+    "scripts/firefox-gc-reference-parent.txt": "da34f1ea719c66432fab5d94d0ddd1a2760e1a2b12c78213b24aa3756bca45db",
+    "scripts/firefox-gc-reference-probe.py": "b1182572a3ade61f1b0eaadd9908d8b9727c7fcbd32c4555756ffbd621673839"
+  }
+}

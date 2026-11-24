@@ -70,6 +70,7 @@ jobs:
           node scripts/firefox-gc-reference-controls.cjs
 
       - name: 🧪　Test migrated regressions and browser behavior
+        id: gc_primary
         # Temporary paired observers on the investigation branch only.
         env:
           GC_OBSERVER_DIAGNOSTICS: ${{ (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') && '1' || '0' }}
@@ -78,6 +79,7 @@ jobs:
           if [ "$GC_OBSERVER_DIAGNOSTICS" = "1" ]; then
             pnpm run test:coverage
             node scripts/gc-diagnostic-cache.mjs save
+            echo "source_started=true" >> "$GITHUB_OUTPUT"
             pnpm run test:browser:source
           else
             pnpm run test
@@ -89,7 +91,7 @@ jobs:
       # Restore the pre-source sorting inputs so failures are not moved first.
       - name: 🔬　Repeat source with the same configuration and sort cache
         id: gc_same_configuration_control
-        if: ${{ failure() && (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') }}
+        if: ${{ failure() && steps.gc_primary.conclusion == 'failure' && steps.gc_primary.outputs.source_started == 'true' && (github.head_ref == 'codex/gc-observer-lifetime-controls' || github.ref == 'refs/heads/codex/gc-observer-lifetime-controls') }}
         env:
           GC_OBSERVER_DIAGNOSTICS: '1'
           GC_REFERENCE_PROBE: '1'

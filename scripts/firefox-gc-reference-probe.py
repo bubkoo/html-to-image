@@ -65,6 +65,8 @@ expected = {
 }
 method_path = Path(__file__).with_name("firefox-gc-reference-method.txt")
 method = method_path.read_text()
+parent_method_path = Path(__file__).with_name("firefox-gc-reference-parent.txt")
+parent_method = parent_method_path.read_text()
 with ZipFile(backup) as original:
     original_bytes = {entry.filename: original.read(entry) for entry in original.infolist()}
     texts = {entry: original_bytes[entry].decode() for entry in expected}
@@ -92,7 +94,7 @@ try {
   }
 } catch (error) { dump('codex-content-jit-options-error '+String(error)+'\\n'); }
 """
-    parent = texts[parent_entry] + """
+    parent = texts[parent_entry] + "\n" + parent_method + """
 Services.ppmm.addMessageListener('codex-heap-state', ({data}) => { const before=ChromeUtils.isDevToolsOpened(); if(data.action==='open')ChromeUtils.notifyDevToolsOpened();else if(data.action==='close')ChromeUtils.notifyDevToolsClosed(); return {before,after:ChromeUtils.isDevToolsOpened()}; });
 dump('codex-jit-prefs '+JSON.stringify(Object.fromEntries(['javascript.options.blinterp','javascript.options.baselinejit','javascript.options.ion'].map(key=>[key,Services.prefs.getBoolPref(key)])))+'\\n');
 """
@@ -114,6 +116,7 @@ dump('codex-jit-prefs '+JSON.stringify(Object.fromEntries(['javascript.options.b
         "originalSHA256": expected_omni,
         "patchedSHA256": sha(patched.read_bytes()),
         "methodSHA256": sha(method_path.read_bytes()),
+        "parentMethodSHA256": sha(parent_method_path.read_bytes()),
         "installerSHA256": sha(Path(__file__).read_bytes()),
         "originalSourceSHA256": expected,
         "patchedSourceSHA256": {entry: sha(data) for entry, data in replacements.items()},
