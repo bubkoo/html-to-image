@@ -6,6 +6,7 @@ import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
 import { resourcePolicyServer } from './test/browser/fixtures/resource-policy-server.mjs'
+import { getGCRunnerFrame } from './test/browser/gc-frame.mjs'
 
 const names = ['chromium', 'firefox', 'webkit'] as const
 const selected = process.env.TEST_BROWSER
@@ -140,8 +141,8 @@ export default defineConfig({
           svgStyleBlobStops.delete(marker)
           return trace
         },
-        async collectGarbage({ page, frame }) {
-          const target = await frame()
+        async collectGarbage({ page }) {
+          const target = await getGCRunnerFrame(page)
           await page.requestGC()
           // Firefox's parent-process GC request can finish before child GC/CC.
           // Round-trip through the test frame before resuming its assertions.
