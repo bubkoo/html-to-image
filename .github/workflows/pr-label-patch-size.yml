@@ -1,16 +1,53 @@
 name: 🏷️　Label(Patch Size)
-on: pull_request_target
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+concurrency:
+  group: pr-size-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: bubkoo/use-app-token@v1
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
           variable_name: bot_token
-      - uses: pascalgn/size-label-action@v0.1.1
-        env:
-          GITHUB_TOKEN: "${{ env.bot_token }}"
-          IGNORED: "!.gitignore\npnpm-lock.yaml"
+      - uses: actions/github-script@v8
+        with:
+          github-token: ${{ env.bot_token }}
+          script: |
+            const pull_number = context.payload.pull_request.number
+            const params = { ...context.repo, pull_number }
+            const { data: pull } = await github.rest.pulls.get(params)
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              ...params,
+              per_page: 100,
+            })
+            if (files.length !== pull.changed_files) {
+              throw new Error(`File list incomplete: ${files.length} of ${pull.changed_files} changed files`)
+            }
+
+            const ignored = (name) => !name || name === 'pnpm-lock.yaml'
+            const changedLines = files.reduce((total, file) => {
+              // A rename counts if either side is included; .gitignore still counts.
+              return ignored(file.filename) && ignored(file.previous_filename)
+                ? total
+                : total + file.changes
+            }, 0)
+            if (!Number.isSafeInteger(changedLines) || changedLines < 0) {
+              throw new Error(`Invalid changed-line count: ${changedLines}`)
+            }
+            const sizes = [[0, 'XS'], [10, 'S'], [30, 'M'], [100, 'L'], [500, 'XL'], [1000, 'XXL']]
+            const sizeLabel = `size/${sizes.findLast(([minimum]) => changedLines >= minimum)[1]}`
+            core.info(`Changed lines: ${changedLines}; matching label: ${sizeLabel}`)
+            core.setOutput('changedLines', changedLines)
+            core.setOutput('sizeLabel', sizeLabel)
+
+            const issue = { ...context.repo, issue_number: pull_number }
+            if (!pull.labels.some(({ name }) => name === sizeLabel)) {
+              await github.rest.issues.addLabels({ ...issue, labels: [sizeLabel] })
+            }
+            const stale = pull.labels.filter(({ name }) => name.startsWith('size/') && name !== sizeLabel)
+            await Promise.all(stale.map(({ name }) => github.rest.issues.removeLabel({ ...issue, name })))

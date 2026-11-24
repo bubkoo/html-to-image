@@ -49,6 +49,9 @@ jobs:
       - name: 🧹　Check source and test lint
         run: pnpm run lint:check
 
+      - name: 🔎　Check PR size labeling
+        run: node scripts/check-pr-size-label.mjs
+
       - name: 📦　Build
         run: pnpm run build
 

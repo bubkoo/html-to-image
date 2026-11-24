@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-24",
+  "scope": "PR-size workflow only; no renderer runtime change",
+  "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+  "reproduction": {
+    "pull": "https://github.com/bubkoo/html-to-image/pull/646",
+    "head": "f267e03739f11c5651700d6c4dd53ca9ccb9a091",
+    "failedRun": "https://github.com/bubkoo/html-to-image/actions/runs/45322882060",
+    "oldRequestAccept": "application/vnd.github.v3.diff",
+    "oldStatus": 406,
+    "oldError": "diff exceeded maximum number of lines (20000)"
+  },
+  "sameScriptLiveReadOnly": {
+    "repository": "bubkoo/html-to-image",
+    "number": 646,
+    "head": "f267e03739f11c5651700d6c4dd53ca9ccb9a091",
+    "changedFiles": 106,
+    "outputs": {
+      "changedLines": 25590,
+      "sizeLabel": "size/XXL"
+    },
+    "plan": [],
+    "mutation": false
+  },
+  "localChecks": [
+    "Exact embedded workflow script: paginated >30-file/>20000-line input",
+    "pnpm-lock exclusion and .gitignore inclusion",
+    "Rename from included path into lockfile still counted",
+    "Fresh metadata labels, stale size labels removed, unrelated labels preserved",
+    "Already-correct label idempotence",
+    "3000/3001 truncated list rejected before any label write",
+    "Full project lint passed"
+  ],
+  "files": {
+    ".github/workflows/pr-label-patch-size.yml": "c323fbf845a23cb3f5632331e5d889796a7663ffc4790cb6adc87b5df64d1e5f",
+    ".github/workflows/ci.yml": "1a57439b31ae1051fa3840eddd4bd546bbd1d8e5cea9451e2d58abdb26c92276",
+    "scripts/check-pr-size-label.mjs": "a08709ae607969826f2fc86467f5dd2f2cf768be83e82e4b3270ef991f10ca02"
+  },
+  "limits": [
+    "Live read-only replay stubs label mutations; it does not claim new workflow has already run on GitHub",
+    "pull_request_target uses the base workflow, so activation requires merge to master",
+    "GitHub file metadata is limited to 3000 files; count mismatch fails explicitly",
+    "Normal full remote CI and CodeQL still required on the actual PR head"
+  ]
+}
