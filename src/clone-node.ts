@@ -16,10 +16,17 @@ import { cloneScrollState } from './clone-scroll.js'
 function createCloneDocument(source: Document) {
   // A detached element in a browsing document can still load resources in
   // WebKit when styles or image loading attributes change.
-  const copy = source.implementation.createHTMLDocument()
-  const base = copy.createElement('base')
-  base.href = source.baseURI
-  copy.head.append(base)
+  const copy = readDocumentProperty(
+    source,
+    'implementation',
+  ).createHTMLDocument()
+  const base = Reflect.apply(
+    readDocumentProperty(copy, 'createElement'),
+    copy,
+    ['base'],
+  ) as HTMLBaseElement
+  base.href = readDocumentProperty(source, 'baseURI')
+  readDocumentProperty(copy, 'head').append(base)
   return copy
 }
 

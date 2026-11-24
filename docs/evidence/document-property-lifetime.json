@@ -140,5 +140,7 @@
   "diagnosticHistory": "https://github.com/bubkoo/html-to-image/pull/646",
   "broaderScope": "Old28 PR/Issue dispositions remain in both trackers; #585 current-browser appearance/resource/font/native scope and manual #398 trusted-click acceptance stay open. No npm publication or old contributor PR closure.",
   "rawFiles": 104,
-  "index": "document-property-lifetime/index.json"
+  "index": "document-property-lifetime/index.json",
+  "latestFactoryPreflight": "document-property-lifetime/factory-preflight.json",
+  "latestStatus": "Default7d production CI fails one WebKit source collection;7d offline iPhone112 subset passes. Native-only direct factory reproduces2/16, reflective16/16 collects. Four-factory extension prepared; full new gates pending."
 }

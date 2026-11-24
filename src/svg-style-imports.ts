@@ -188,13 +188,20 @@ export async function prepareSVGFileStyle(
 ) {
   // An inert parser retains imports without activating their resources. A
   // constructed sheet would remove @import before it could be inspected.
-  const parserDocument = document.implementation.createHTMLDocument()
+  const parserDocument = readDocumentProperty(
+    document,
+    'implementation',
+  ).createHTMLDocument()
   const view = readDocumentProperty(document, 'defaultView') || window
   const active = new Set<string>()
   const parse = (css: string) => {
-    const style = parserDocument.createElement('style')
+    const style = Reflect.apply(
+      readDocumentProperty(parserDocument, 'createElement'),
+      parserDocument,
+      ['style'],
+    ) as HTMLStyleElement
     style.textContent = css
-    parserDocument.head.append(style)
+    readDocumentProperty(parserDocument, 'head').append(style)
     return style
   }
   const resolveURLs = (css: string, base: string) =>

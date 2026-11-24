@@ -412,14 +412,25 @@ export function getSVGStyleFontCSS(
   // Only source-page families that were already loaded may affect measurement.
   // Do not activate @font-face declarations supplied by fetched SVG content.
   const loaded = new Set(loadedFamilies.map(normalizeFontFamily))
-  const document = source.ownerDocument.implementation.createHTMLDocument()
-  const node = document.createElement('div')
+  const document = readDocumentProperty(
+    source.ownerDocument,
+    'implementation',
+  ).createHTMLDocument()
+  const node = Reflect.apply(
+    readDocumentProperty(document, 'createElement'),
+    document,
+    ['div'],
+  ) as HTMLDivElement
   families.forEach((value) => {
     const used = fontFamilies(value).filter((name) =>
       loaded.has(normalizeFontFamily(name)),
     )
     if (used.length) {
-      const span = document.createElement('span')
+      const span = Reflect.apply(
+        readDocumentProperty(document, 'createElement'),
+        document,
+        ['span'],
+      ) as HTMLSpanElement
       span.style.fontFamily = used.join(', ')
       node.append(span)
     }

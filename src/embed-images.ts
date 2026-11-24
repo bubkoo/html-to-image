@@ -48,13 +48,19 @@ async function embedStyleRules(
   if (node.localName !== 'style' || !node.textContent) return
   // An inert stylesheet preserves @import rules without loading them. A
   // constructed CSSStyleSheet.replaceSync would silently remove those rules.
-  const parserDocument = (context.parserDocument ||=
-    node.ownerDocument.implementation.createHTMLDocument())
-  const parser = parserDocument.createElement('style')
+  const parserDocument = (context.parserDocument ||= readDocumentProperty(
+    node.ownerDocument,
+    'implementation',
+  ).createHTMLDocument())
+  const parser = Reflect.apply(
+    readDocumentProperty(parserDocument, 'createElement'),
+    parserDocument,
+    ['style'],
+  ) as HTMLStyleElement
   const type = node.getAttribute('type')
   if (type) parser.setAttribute('type', type)
   parser.textContent = node.textContent
-  parserDocument.head.append(parser)
+  readDocumentProperty(parserDocument, 'head').append(parser)
   try {
     const sheet = parser.sheet
     if (!sheet) return
@@ -84,7 +90,7 @@ async function embedStyleRules(
   } finally {
     // Retain the parser document across asynchronous embedding, as with the
     // clone document; its nodes alone are insufficient ownership in WebKit.
-    parserDocument.head.removeChild(parser)
+    readDocumentProperty(parserDocument, 'head').removeChild(parser)
   }
 }
 
