@@ -699,15 +699,15 @@
       "reviewedHead": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
       "observedState": "closed",
       "requirement": "Blob PNG 在新标签页预览",
-      "disposition": "原 PR 已关闭但未合入；保留 V2 README helper 与三引擎交互结论，不把关闭当功能验收通过；真机可信点击/新标签/清理仍未完成。",
+      "disposition": "原需求的 Blob PNG 新标签页预览已有 V2 README 点击链接与清理示例；三引擎和当前准确 UMD 的真实 iPhone 可信点击、新标签显示、返回清理均验收通过。原 PR 仍关闭且未合并，不对其执行状态或评论操作。",
       "evidence": [
         "docs/evidence/blob-preview-browser-checks.json",
         "README.md",
         "docs/evidence/blob-preview-device-20261115.json",
         "docs/evidence/ios-integrated-acceptance.json"
       ],
-      "remainingBoundary": "真实 iPhone PNG MIME/96×60/red-blue 读取通过；W3C element click 与 touch actions 虽返回成功但页面未收到事件、没有新标签，不算可信点击/清理通过。实际 Wi-Fi 地址导航也失败，物理交互仍缺可达页面及真实点击。",
-      "checkedAt": "2026-11-14T16:13:24.589942+00:00",
+      "remainingBoundary": "本条原始预览需求的已列可信点击缺口已补齐。真机仅验证当前整合 UMD、默认160×80 PNG及特定设备浏览器；不扩大为完整 iOS 套件、独立 opener runtime probe、撤销后 fetch 探针或其他原生绘制边界。",
+      "checkedAt": "2026-11-24T22:24:56.058Z",
       "observedClosure": {
         "closedAt": "2026-11-14T19:38:55Z",
         "merged": false,
@@ -719,7 +719,14 @@
         "state": "passed exact integrated UMD trusted pointer/new PNG tab/cleanup",
         "at": "2026-11-24T22:24:56.058Z",
         "oldPRStateUnchanged": true
-      }
+      },
+      "previousPhysicalBlobBoundary": {
+        "disposition": "原 PR 已关闭但未合入；保留 V2 README helper 与三引擎交互结论，不把关闭当功能验收通过；真机可信点击/新标签/清理仍未完成。",
+        "remainingBoundary": "真实 iPhone PNG MIME/96×60/red-blue 读取通过；W3C element click 与 touch actions 虽返回成功但页面未收到事件、没有新标签，不算可信点击/清理通过。实际 Wi-Fi 地址导航也失败，物理交互仍缺可达页面及真实点击。",
+        "checkedAt": "2026-11-14T16:13:24.589942+00:00",
+        "supersededBy": "docs/evidence/ios-integrated-acceptance.json"
+      },
+      "dispositionKind": "equivalent requirement implemented and scoped native interaction acceptance complete"
     },
     {
       "number": 393,
