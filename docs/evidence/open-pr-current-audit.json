@@ -52,6 +52,14 @@
         "local": "before 9 fail/3 pass, after 12 pass; full 1234/1115/162, inherited skips 4/4; 18 desktop native pairs exact",
         "remaining": "PR #647 merged f8d1c4b after final-head checks passed; master CI 44363483198 failed three Firefox lifecycle checks (1234 coverage, 1112 source, packages not run). Poster history/broader media states and device GC remain unclaimed.",
         "device": "physical iPhone Safari/iOS 26.6.1: 6 exact native pairs, 12 source photos, 38 PASS / 2 INFO smoke and 4 cancellation controls; 104 inputs unchanged; session/server released"
+      },
+      "nativeResourceTiming": {
+        "evidence": "docs/evidence/svg-resource-timing.json",
+        "scope": "read-only fresh-page HTTP observations, no export/runtime fix",
+        "nativeBeforeAfterExact": 3,
+        "columns": 33,
+        "firefox": "explicit installed159, not historical157 or package acceptance",
+        "remaining": "per-element provenance, cache/CSP/resource-policy controls; no automatic resolution branch"
       }
     },
     {
@@ -664,7 +672,7 @@
   "runtimeBaseScope": "Original baseline for the 28-PR review; not the current production revision",
   "currentMasterAtRefresh": "901c4bc0c71087ae41de95458b9e04bce5eb5ff3",
   "latestStateReadback": {
-    "date": "2026-11-19 Asia/Shanghai",
+    "date": "2026-11-24 Asia/Shanghai",
     "scope": "original 28",
     "open": 27,
     "closed": 1,

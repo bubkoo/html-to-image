@@ -1,0 +1,312 @@
+{
+  "status": "Read-only native HTTP observation; no runtime change/export acceptance",
+  "scope": "#585 user-selected actual browser-page appearance; same prior qualified-paint HTTP fixture with resource timing attached before SVG load",
+  "engines": {
+    "chromium": {
+      "version": "156.0.8078.4",
+      "binaryPath": "/Users/bytedance/Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+      "sdk": "1.64.1",
+      "node": "v22.21.1",
+      "nativeChannelsBeforeAfter": 17600,
+      "nativeExact": true,
+      "resourceTimingPositive": true,
+      "entryNames": [
+        "http://127.0.0.1:4496/favicon.ico",
+        "http://127.0.0.1:4496/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/performance-positive.txt",
+        "http://127.0.0.1:4496/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/assets/sprite.svg#attr",
+        "http://127.0.0.1:4496/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/sprite.svg#paint",
+        "http://127.0.0.1:4496/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/other.svg#paint",
+        "http://127.0.0.1:4496/probe/sprite.svg#paint",
+        "http://127.0.0.1:4496/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/sprite.svg?different#paint",
+        "http://127.0.0.1:4496/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/assets/sprite.svg#paint",
+        "http://127.0.0.1:4496/foreign/sprite.svg#paint"
+      ],
+      "serverRequests": [
+        "/favicon.ico",
+        "/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/performance-positive.txt",
+        "/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/assets/sprite.svg",
+        "/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/sprite.svg",
+        "/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/assets/sprite.svg",
+        "/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/other.svg",
+        "/probe/sprite.svg",
+        "/probe/030d8d68-34ed-4b8d-a2b6-cb6b189c0692/sprite.svg?different",
+        "/foreign/sprite.svg"
+      ],
+      "nativeCenters": [
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          165,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          128,
+          0,
+          128,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          255,
+          255,
+          0,
+          255
+        ]
+      ]
+    },
+    "firefox": {
+      "version": "159.0",
+      "binaryPath": "/Users/bytedance/Library/Caches/ms-playwright/firefox-1578/firefox/Nightly.app/Contents/MacOS/firefox",
+      "sdk": "1.64.1",
+      "node": "v22.21.1",
+      "nativeChannelsBeforeAfter": 17600,
+      "nativeExact": true,
+      "resourceTimingPositive": true,
+      "entryNames": [
+        "http://127.0.0.1:4496/favicon.ico",
+        "http://127.0.0.1:4496/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/performance-positive.txt",
+        "http://127.0.0.1:4496/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/assets/sprite.svg",
+        "http://127.0.0.1:4496/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/assets/other.svg",
+        "http://127.0.0.1:4496/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/sprite.svg",
+        "http://127.0.0.1:4496/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/assets/sprite.svg?different",
+        "http://127.0.0.1:4496/foreign/sprite.svg"
+      ],
+      "serverRequests": [
+        "/favicon.ico",
+        "/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/performance-positive.txt",
+        "/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/assets/sprite.svg",
+        "/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/assets/other.svg",
+        "/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/sprite.svg",
+        "/foreign/sprite.svg",
+        "/probe/82045961-c8cb-4e8c-aa83-b7fde05e7ecd/assets/sprite.svg?different"
+      ],
+      "nativeCenters": [
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          255,
+          165,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          128,
+          0,
+          128,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          255,
+          255,
+          0,
+          255
+        ]
+      ]
+    },
+    "webkit": {
+      "version": "27.2",
+      "binaryPath": "/Users/bytedance/Library/Caches/ms-playwright/webkit-2370/pw_run.sh",
+      "sdk": "1.64.1",
+      "node": "v22.21.1",
+      "nativeChannelsBeforeAfter": 17600,
+      "nativeExact": true,
+      "resourceTimingPositive": true,
+      "entryNames": [
+        "http://127.0.0.1:4496/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/performance-positive.txt",
+        "http://127.0.0.1:4496/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/sprite.svg",
+        "http://127.0.0.1:4496/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/sprite.svg",
+        "http://127.0.0.1:4496/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/other.svg",
+        "http://127.0.0.1:4496/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/sprite.svg",
+        "http://127.0.0.1:4496/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/sprite.svg?different",
+        "http://127.0.0.1:4496/foreign/sprite.svg"
+      ],
+      "serverRequests": [
+        "/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/performance-positive.txt",
+        "/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/sprite.svg",
+        "/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/sprite.svg",
+        "/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/other.svg",
+        "/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/sprite.svg",
+        "/probe/a2420ae8-ab30-47d3-abd1-3441659aadd1/assets/sprite.svg?different",
+        "/foreign/sprite.svg"
+      ],
+      "nativeCenters": [
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          255,
+          165,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          128,
+          0,
+          128,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          128,
+          0,
+          128,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          0,
+          128,
+          0,
+          255
+        ],
+        [
+          255,
+          255,
+          0,
+          255
+        ]
+      ]
+    }
+  },
+  "columnsPerEngine": 11,
+  "nativePairs": 3,
+  "photos": 6,
+  "positive": "fresh page, resource buffer1000, observer buffered before load, owned 200 fetch/text control appears in entries",
+  "inference": "Nested SVG request URLs are visible in these scenes. Global entries include multiple use/paint cases, including both page/file resources; the observation alone does not uniquely establish per-element provenance or complete history in arbitrary pages. A runtime strategy still needs ambiguity, cache, CSP and resource-policy controls.",
+  "limits": [
+    "No library capture invoked; no export pixel comparison or production fix",
+    "Firefox1555 expected by SDK was absent; installed1578/Firefox159 was explicitly selected; not a Firefox157 retest or three-engine package gate",
+    "Query-resource fixture bodies are deliberately equal; no general query identity claim",
+    "No physical iPhone, UMD, Linux or restricted-CSP result"
+  ],
+  "controllerFailures": [
+    "initial pngjs root import missing, resolved using binary PNG equality plus Python RGBA verification without adding dependencies",
+    "missing pinned Firefox executable retained as a separate setup failure"
+  ],
+  "originalFixture": "svg-qualified-paint-bases archive; controller includes complete owned server fixture and closes server/browsers in finally",
+  "rawFiles": 14
+}

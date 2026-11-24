@@ -1,0 +1,76 @@
+{
+  "archive": "raw.tar.gz",
+  "archiveSHA256": "f9caf7590af68e4eca26dbeb5a1540b94c64a741534b4d0f28c263380266466d",
+  "files": [
+    {
+      "path": "initial-failed-native/chromium-after.png",
+      "bytes": 180,
+      "sha256": "16c1d49a791a818a02d5c10be72da375e15ac9daa5b8281ec1f268bbf30ed273"
+    },
+    {
+      "path": "initial-failed-native/chromium-before.png",
+      "bytes": 180,
+      "sha256": "16c1d49a791a818a02d5c10be72da375e15ac9daa5b8281ec1f268bbf30ed273"
+    },
+    {
+      "path": "initial-failed.log",
+      "bytes": 1112,
+      "sha256": "248f70d73d9e6a2b11e08900ab3d1550ad58446a4c60afdfdf816633ccde047c"
+    },
+    {
+      "path": "missing-pinned-firefox.log",
+      "bytes": 1196,
+      "sha256": "3dd78e541644437bdd9a5a6121899e6814ffaeb62ac27a50336a2f46ada127f6"
+    },
+    {
+      "path": "native-performance.log",
+      "bytes": 2004,
+      "sha256": "1c0b3361912fd6a58ceda5881bd2532a7b95bfda8d427203d0e99f67be239d72"
+    },
+    {
+      "path": "native-performance.mjs",
+      "bytes": 6059,
+      "sha256": "9c0d3103e9ad424c9b2c343c17679232a2c91c6e6c3ad553c63c3a1483eb82d7"
+    },
+    {
+      "path": "native/chromium-after.png",
+      "bytes": 180,
+      "sha256": "16c1d49a791a818a02d5c10be72da375e15ac9daa5b8281ec1f268bbf30ed273"
+    },
+    {
+      "path": "native/chromium-before.png",
+      "bytes": 180,
+      "sha256": "16c1d49a791a818a02d5c10be72da375e15ac9daa5b8281ec1f268bbf30ed273"
+    },
+    {
+      "path": "native/firefox-after.png",
+      "bytes": 277,
+      "sha256": "7e136eab1990344aaecf57d701f1ec8259b46729826d02091c12d9c8ee2727a7"
+    },
+    {
+      "path": "native/firefox-before.png",
+      "bytes": 277,
+      "sha256": "7e136eab1990344aaecf57d701f1ec8259b46729826d02091c12d9c8ee2727a7"
+    },
+    {
+      "path": "native/observation.json",
+      "bytes": 59129,
+      "sha256": "3ad03d08cc8d18a1483c605cac6e257349b9f470429f3a86d9918411441022d8"
+    },
+    {
+      "path": "native/webkit-after.png",
+      "bytes": 355,
+      "sha256": "64a907e50f0404002e3330efb3fb9650a65bfc1027986d8faeef30da92a153b9"
+    },
+    {
+      "path": "native/webkit-before.png",
+      "bytes": 355,
+      "sha256": "64a907e50f0404002e3330efb3fb9650a65bfc1027986d8faeef30da92a153b9"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 8794,
+      "sha256": "b959e4c994491417c064cfef6c804c4750f7dcab4bf4dd9c9a32d283a82b7462"
+    }
+  ]
+}
