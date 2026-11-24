@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-11-24T18:30:30.691294+00:00",
+  "sourceCommit": "aaf0491959c2be07b7d15ed3b29135930daaf0c7",
+  "runtimeUnchangedFrom": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+  "change": "Failure diagnostics in existing test fixture only; original60RAF, geometry order, assertions, waits, source styling, and error prefixes retained. No production source changes.",
+  "observedFailuresNotSolved": true,
+  "diagnostics": [
+    "original bbox samples and timestamps",
+    "pre-finally isConnected and outerSVG styles/geometry",
+    "document visibility and parent frame geometry/style",
+    "original URL ResourceTiming or explicit unknown"
+  ],
+  "independentOriginalFixtureControls": {
+    "engine": "Firefox157",
+    "passed": 4,
+    "kinds": [
+      "native policy normal HTTP",
+      "native policy real404",
+      "whole-style normal HTTP stopped before capture",
+      "whole-style real404"
+    ],
+    "negativeEvidence": "60 original samples;404 ResourceTiming and passive HTTP status/MIME agree;before-finally connected records and after-finally cleanup",
+    "productionCaptureCalls": 0,
+    "invalidGeometryAndMissingTimingBranchesNotForced": true
+  },
+  "validation": {
+    "targetedCoverage": {
+      "passed": 354,
+      "failed": 0
+    },
+    "defaultCoverage": {
+      "passed": 1461,
+      "failed": 2,
+      "skipped": 45,
+      "sourcePhaseNotRun": true
+    },
+    "separateFullSource": {
+      "passed": 1342,
+      "failed": 2,
+      "skipped": 45
+    },
+    "fullBuiltPackages": {
+      "passed": 176,
+      "failed": 2,
+      "unsupported": 2
+    },
+    "strictFailures": "same WebKit glyph/inset-shadow in source and additionally DPR2 fractional in each native package format; unchanged assertions",
+    "all445MeasuredInputsStableAndCurrent": true,
+    "recordedMeasuredHead": "0c5c0e222e620d18a2f0b75e5c2811cae0944b88",
+    "savedSourceIdentity": {
+      "sourceCommit": "aaf0491959c2be07b7d15ed3b29135930daaf0c7",
+      "runtimeUnchangedFrom": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+      "all445InputsMatchCommitOrMeasuredGeneratedBytes": true
+    }
+  },
+  "interpretation": "Diagnostic controls validate evidence collection, not the original concurrency failure cause or product fidelity. Later complete checks do not erase earlier native preparation failures. Missing timing is unknown, not proof of no request. Frame rect/style does not prove full occlusion visibility.",
+  "remaining": [
+    "capture original failing native preparation state and passive HTTP events",
+    "current-source remote checks",
+    "unchanged native fidelity and physical-device acceptance gates"
+  ],
+  "physicalDevice": "not used; user deferral through at least2026-11-24T22:02:04Z retained",
+  "rawEvidence": {
+    "index": "native-svg-readiness-diagnostics-index.json",
+    "archive": "native-svg-readiness-diagnostics-raw.tar.gz",
+    "fileCount": 140,
+    "allMemberHashesVerified": true
+  },
+  "oldPRCommentOrClosureActions": 0,
+  "npmPublished": false,
+  "macNetworkConfigurationChanged": false
+}

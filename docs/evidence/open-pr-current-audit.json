@@ -953,5 +953,15 @@
       "WebKit glyph/inset shadow and DPR2 fractional SVG image composition"
     ],
     "physicalDevice": "deferred by user; parent result is not reused as candidate acceptance"
+  },
+  "latestNativeSVGReadinessDiagnostics": {
+    "source": "aaf0491959c2be07b7d15ed3b29135930daaf0c7",
+    "runtimeUnchangedFrom": "e014fefb5928e5a85b8ba2af3f32a4c082713346",
+    "evidence": "docs/evidence/native-svg-readiness-diagnostics.json",
+    "historicalFailureRootCauseSolved": false,
+    "independentHTTPControlsPassed": 4,
+    "targetedCoveragePassed": 354,
+    "fullGatesStillFail": true,
+    "inputsUnchanged": 445
   }
 }
