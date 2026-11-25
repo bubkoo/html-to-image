@@ -1,0 +1,818 @@
+{
+  "createdAt": "2026-11-25T00:41:06.622424+00:00",
+  "status": "Rejected output-only measurement-Document-base candidate; not a production fix",
+  "contract": "Preserve each current browser real HTTP source appearance",
+  "sourceRecord": {
+    "checkoutHeadAtReview": "df82d6557f1f8ea610c2a5183eef9c18e2dfc167",
+    "baselineUMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+    "candidateUMDSHA256": "81a44cf0ed4eeeec7d8adfad0179eeacf03d7dacc78997afce22f71ca675221e",
+    "rawPayloadCount": 90,
+    "originalInputIndexBytes": 14741,
+    "originalInputIndexSHA256": "dcda4fac56a6ea9242ea9aa78c1eb863f54d8ff891b81ad793827aa6920b6929",
+    "sourceOriginalMatchesRootAtOriginalSeal": true,
+    "originalSourceFiles": 24,
+    "copiedChangedFiles": ["svg-references.ts", "svg-style-scope.ts"],
+    "candidatePatchSHA256": "ad7160bb4231fa7e623d3a1ea9232c35237fe9a9f64cfcdc0e5edbfb959351d8"
+  },
+  "execution": {
+    "startedAt": "2026-11-25T00:36:25.394Z",
+    "endedAt": "2026-11-25T00:36:33.580Z",
+    "engines": [
+      {
+        "engine": "chromium",
+        "version": "156.0.8078.4",
+        "startedAt": "2026-11-25T00:36:25.541Z",
+        "endedAt": "2026-11-25T00:36:27.227Z",
+        "browserClosed": true
+      },
+      {
+        "engine": "firefox",
+        "version": "157.0",
+        "startedAt": "2026-11-25T00:36:29.050Z",
+        "endedAt": "2026-11-25T00:36:31.397Z",
+        "browserClosed": true
+      },
+      {
+        "engine": "webkit",
+        "version": "27.2",
+        "startedAt": "2026-11-25T00:36:31.562Z",
+        "endedAt": "2026-11-25T00:36:33.580Z",
+        "browserClosed": true
+      }
+    ],
+    "publicationBrowserRuns": 0,
+    "fixture": "One fixed real HTTP page, 12 columns, current and candidate source screenshots before/after, no native XML/blob/data replacement for source."
+  },
+  "candidate": "Copied complete source; optional escaped baseURL inserted before existing CSP meta in a private srcdoc; per-fragment measurement environment chooses page base when page flag true, otherwise file final-response URL when file flag true, otherwise page base. Original fragment fill/style bytes remain unchanged. Other file/page CSS URL rewriting unchanged. Separate environments disposed in finally.",
+  "independentRecomputation": {
+    "comparisons": [
+      {
+        "engine": "chromium",
+        "mode": "current",
+        "width": 240,
+        "height": 20,
+        "nativeBeforeSHA256": "311271668b8634bb52e80b06981631b30b31ebad7a4afaa42fb4e10194802f0f",
+        "nativeAfterSHA256": "311271668b8634bb52e80b06981631b30b31ebad7a4afaa42fb4e10194802f0f",
+        "captureSHA256": "6dbb448f5a24413192714b97ca0af90d01a7df9f38e40fa3404bd57917b7bbf5",
+        "totalDifferentChannels": 1200,
+        "totalDifferentPixels": 400,
+        "columns": [
+          {
+            "id": "relative-attribute",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "relative-inline",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "page-rule-winner",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "file-rule-winner",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 255, 255, 255],
+            "captureCenter": [0, 255, 255, 255]
+          },
+          {
+            "id": "literal-attribute-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 165, 0, 255],
+            "captureCenter": [255, 165, 0, 255]
+          },
+          {
+            "id": "literal-inline-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 255, 255, 255],
+            "captureCenter": [0, 255, 255, 255]
+          },
+          {
+            "id": "inline-priority",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "inherited-custom-property",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-page",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-file",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "redirect-relative",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "redirect-xml-base",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          }
+        ]
+      },
+      {
+        "engine": "chromium",
+        "mode": "candidate",
+        "width": 240,
+        "height": 20,
+        "nativeBeforeSHA256": "311271668b8634bb52e80b06981631b30b31ebad7a4afaa42fb4e10194802f0f",
+        "nativeAfterSHA256": "311271668b8634bb52e80b06981631b30b31ebad7a4afaa42fb4e10194802f0f",
+        "captureSHA256": "07d70a2bff64e171caaea955e4c1853f1ea8c11b7c3363accc8347f31dbe6818",
+        "totalDifferentChannels": 7200,
+        "totalDifferentPixels": 2400,
+        "columns": [
+          {
+            "id": "relative-attribute",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "relative-inline",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "page-rule-winner",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "file-rule-winner",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 255, 255, 255],
+            "captureCenter": [0, 255, 255, 255]
+          },
+          {
+            "id": "literal-attribute-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 165, 0, 255],
+            "captureCenter": [255, 165, 0, 255]
+          },
+          {
+            "id": "literal-inline-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 255, 255, 255],
+            "captureCenter": [0, 255, 255, 255]
+          },
+          {
+            "id": "inline-priority",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "inherited-custom-property",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "authored-absolute-page",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-file",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "redirect-relative",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "redirect-xml-base",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [255, 255, 0, 255]
+          }
+        ]
+      },
+      {
+        "engine": "firefox",
+        "mode": "current",
+        "width": 240,
+        "height": 20,
+        "nativeBeforeSHA256": "0e604d6a53f2323439e669314ac005ecb660bcee9463d34b6f2a5200615f5854",
+        "nativeAfterSHA256": "0e604d6a53f2323439e669314ac005ecb660bcee9463d34b6f2a5200615f5854",
+        "captureSHA256": "83a078d99fb435df137705fb4bd5a93aef6856198f59c65a9d1324c6e69215c8",
+        "totalDifferentChannels": 8400,
+        "totalDifferentPixels": 2800,
+        "columns": [
+          {
+            "id": "relative-attribute",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "relative-inline",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "page-rule-winner",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 165, 0, 255],
+            "captureCenter": [255, 165, 0, 255]
+          },
+          {
+            "id": "file-rule-winner",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "literal-attribute-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 165, 0, 255],
+            "captureCenter": [255, 165, 0, 255]
+          },
+          {
+            "id": "literal-inline-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 255, 255, 255],
+            "captureCenter": [0, 255, 255, 255]
+          },
+          {
+            "id": "inline-priority",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "inherited-custom-property",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-page",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-file",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "redirect-relative",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "redirect-xml-base",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          }
+        ]
+      },
+      {
+        "engine": "firefox",
+        "mode": "candidate",
+        "width": 240,
+        "height": 20,
+        "nativeBeforeSHA256": "0e604d6a53f2323439e669314ac005ecb660bcee9463d34b6f2a5200615f5854",
+        "nativeAfterSHA256": "0e604d6a53f2323439e669314ac005ecb660bcee9463d34b6f2a5200615f5854",
+        "captureSHA256": "1b4a89c5b8953c72847e3370dee47b71e3ed1cc5bcd9febed03407f591f2310e",
+        "totalDifferentChannels": 8400,
+        "totalDifferentPixels": 2800,
+        "columns": [
+          {
+            "id": "relative-attribute",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "relative-inline",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "page-rule-winner",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 165, 0, 255],
+            "captureCenter": [255, 165, 0, 255]
+          },
+          {
+            "id": "file-rule-winner",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "literal-attribute-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 165, 0, 255],
+            "captureCenter": [255, 165, 0, 255]
+          },
+          {
+            "id": "literal-inline-important",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 255, 255, 255],
+            "captureCenter": [0, 255, 255, 255]
+          },
+          {
+            "id": "inline-priority",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "inherited-custom-property",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-page",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-file",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "redirect-relative",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "redirect-xml-base",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          }
+        ]
+      },
+      {
+        "engine": "webkit",
+        "mode": "current",
+        "width": 240,
+        "height": 20,
+        "nativeBeforeSHA256": "1f3c66d83d45a1e927bd9844fbba97131aa69eb77c32ffd1360e872d41b7ff4d",
+        "nativeAfterSHA256": "1f3c66d83d45a1e927bd9844fbba97131aa69eb77c32ffd1360e872d41b7ff4d",
+        "captureSHA256": "c2dad0f45db586c89bf39a7bbfff7dc346fd54fa7966ac1b74c1492e90fdcaed",
+        "totalDifferentChannels": 12000,
+        "totalDifferentPixels": 4000,
+        "columns": [
+          {
+            "id": "relative-attribute",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "relative-inline",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "page-rule-winner",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "file-rule-winner",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "literal-attribute-important",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "literal-inline-important",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "inline-priority",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "inherited-custom-property",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-page",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-file",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "redirect-relative",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "redirect-xml-base",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          }
+        ]
+      },
+      {
+        "engine": "webkit",
+        "mode": "candidate",
+        "width": 240,
+        "height": 20,
+        "nativeBeforeSHA256": "1f3c66d83d45a1e927bd9844fbba97131aa69eb77c32ffd1360e872d41b7ff4d",
+        "nativeAfterSHA256": "1f3c66d83d45a1e927bd9844fbba97131aa69eb77c32ffd1360e872d41b7ff4d",
+        "captureSHA256": "c2dad0f45db586c89bf39a7bbfff7dc346fd54fa7966ac1b74c1492e90fdcaed",
+        "totalDifferentChannels": 12000,
+        "totalDifferentPixels": 4000,
+        "columns": [
+          {
+            "id": "relative-attribute",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "relative-inline",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "page-rule-winner",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "file-rule-winner",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "literal-attribute-important",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "literal-inline-important",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "inline-priority",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "inherited-custom-property",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-page",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [0, 0, 255, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "authored-absolute-file",
+            "differentChannels": 0,
+            "differentPixels": 0,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [255, 255, 0, 255]
+          },
+          {
+            "id": "redirect-relative",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          },
+          {
+            "id": "redirect-xml-base",
+            "differentChannels": 1200,
+            "differentPixels": 400,
+            "nativeCenter": [255, 255, 0, 255],
+            "captureCenter": [0, 0, 255, 255]
+          }
+        ]
+      }
+    ],
+    "sourceFingerprints": [
+      {
+        "path": "src/apply-style.ts",
+        "originalSHA256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471",
+        "candidateSHA256": "2430370cea2d2592fb170cf512e2be7e30d947ce2b7f0c39195113fa2e2bc471"
+      },
+      {
+        "path": "src/capture.ts",
+        "originalSHA256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae",
+        "candidateSHA256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+      },
+      {
+        "path": "src/clone-node.ts",
+        "originalSHA256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf",
+        "candidateSHA256": "429d2dcb1a61cdc78f3ffe16038be71d8acfc12187d664aac267cb848d1db6cf"
+      },
+      {
+        "path": "src/clone-pseudos.ts",
+        "originalSHA256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4",
+        "candidateSHA256": "d5b0c2d65996e3dc4f117328d082d59035d89cc2bb20a178d692fe8f026852a4"
+      },
+      {
+        "path": "src/clone-scroll-native.ts",
+        "originalSHA256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be",
+        "candidateSHA256": "84d09ded027933f6744e91b486609a2f5245397c53374b3fcc56fa22134f82be"
+      },
+      {
+        "path": "src/clone-scroll.ts",
+        "originalSHA256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff",
+        "candidateSHA256": "e4fdb57c8f5e646fc16fe817545bdc2f666f014c6ca22b668afcd9d0216937ff"
+      },
+      {
+        "path": "src/clone-scrollbars.ts",
+        "originalSHA256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596",
+        "candidateSHA256": "5a41e0e7b82384e506c2c3911e47f54c8815a7d6203b90ae4dc090a9ade43596"
+      },
+      {
+        "path": "src/css-nesting.ts",
+        "originalSHA256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504",
+        "candidateSHA256": "b74383452ba0081d461fe1a329ce66e4afe26728673d8bb71e86eeca52421504"
+      },
+      {
+        "path": "src/dataurl.ts",
+        "originalSHA256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458",
+        "candidateSHA256": "aa50b8eb4c37f897282a5aa760761c579a0032a66f3a100fdba3a03ec1cde458"
+      },
+      {
+        "path": "src/document.ts",
+        "originalSHA256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c",
+        "candidateSHA256": "1fd5b92f5e3a32932d27e43017bc9b7a91e35367957453c014d4a27f2ff4905c"
+      },
+      {
+        "path": "src/dom.ts",
+        "originalSHA256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f",
+        "candidateSHA256": "982c37a47097ccfa1bab19e0b588a4b2e46472ded460a73b407351927c75fe3f"
+      },
+      {
+        "path": "src/embed-images.ts",
+        "originalSHA256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a",
+        "candidateSHA256": "3c64aa985be409b68072eaba26a662089f8c42bd4b658d58180d20100d93433a"
+      },
+      {
+        "path": "src/embed-resources.ts",
+        "originalSHA256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0",
+        "candidateSHA256": "93a51514fbde372dec629d88bde0aac5f2e653aa9da1ecda7e531266e3a832e0"
+      },
+      {
+        "path": "src/embed-webfonts.ts",
+        "originalSHA256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759",
+        "candidateSHA256": "57aee1ed6a44a9f843f31fe6f22a5833f32f1e3500a107dd887c961a2f4df759"
+      },
+      {
+        "path": "src/index.ts",
+        "originalSHA256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4",
+        "candidateSHA256": "f695ae5aa0fb1676816d3b25f85eef64bee9b7af3bf8e1550e442f144835e7b4"
+      },
+      {
+        "path": "src/mimes.ts",
+        "originalSHA256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9",
+        "candidateSHA256": "b4253961b1959b7041f32929072295aa33cac991c6c05652784d790308f63dd9"
+      },
+      {
+        "path": "src/renderer.ts",
+        "originalSHA256": "0b7979bcf8feb5e39add09eb535bee81eb903b443ac0c867244a04a659c1121b",
+        "candidateSHA256": "0b7979bcf8feb5e39add09eb535bee81eb903b443ac0c867244a04a659c1121b"
+      },
+      {
+        "path": "src/resource-loader.ts",
+        "originalSHA256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f",
+        "candidateSHA256": "cee8145f74f61198f938cf620ae1df79f5f959eab467792962ffea81a9067d3f"
+      },
+      {
+        "path": "src/svg-references.ts",
+        "originalSHA256": "c26c2c7f42094d9302ae5eb823992570d34e7c0d31b065e6a0d12db6817577e5",
+        "candidateSHA256": "6edd82d076483e4a4fd22ec31ec73972f8844626bbf6dc8494562d267b6b0812"
+      },
+      {
+        "path": "src/svg-style-imports.ts",
+        "originalSHA256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157",
+        "candidateSHA256": "f4b004a1a5e2802bdc05de0eedd31913f264eb3120d8f47746c42cb4ff34e157"
+      },
+      {
+        "path": "src/svg-style-scope.ts",
+        "originalSHA256": "32cad8ced62649fa840d599afb110ffb36697ec0b359007b7348ca9f73e63aba",
+        "candidateSHA256": "793861e1f1161deab8c721c71eb0f235f0565dc24f15c60cfd61604cf6560e4e"
+      },
+      {
+        "path": "src/task.ts",
+        "originalSHA256": "ec71f41780683c68fba246c65a7fa017f6d8353ae1f2f0d6a8bcb69cbc8ac0b1",
+        "candidateSHA256": "ec71f41780683c68fba246c65a7fa017f6d8353ae1f2f0d6a8bcb69cbc8ac0b1"
+      },
+      {
+        "path": "src/types.ts",
+        "originalSHA256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e",
+        "candidateSHA256": "dca8e6558d0e08e0f3b542e22294e14bf5184b7c0afce723f8250b656f3cd09e"
+      },
+      {
+        "path": "src/util.ts",
+        "originalSHA256": "ce65454d5dd576fbae58a7df75167f549ef5d276a86713d10247e2a152318eb8",
+        "candidateSHA256": "ce65454d5dd576fbae58a7df75167f549ef5d276a86713d10247e2a152318eb8"
+      }
+    ],
+    "changedCopiedSourceFiles": ["svg-references.ts", "svg-style-scope.ts"],
+    "cleanup": {
+      "serverClosed": true,
+      "browsersClosed": true
+    }
+  },
+  "decisiveFindings": [
+    {
+      "finding": "Same Chromium SVG has two different URL provenance channels",
+      "evidence": "Direct attribute and inline qualified relative URL native blue(page ?different); inherited --paint native yellow(file ?different).",
+      "consequence": "A single global measurement Document base cannot preserve both, even before cross-browser differences."
+    },
+    {
+      "finding": "Stylesheet flags do not equal qualified relative URL base policy",
+      "evidence": "Chromium file=true/page=false yet direct relative paint uses page base; Firefox file=false/page=true yet direct relative paint uses file base; WebKit neither stylesheet scope yet direct relative paint uses file base.",
+      "consequence": "Do not invert/map these flags by UA or treat fragment policy as relative URI policy."
+    },
+    {
+      "finding": "Countercandidate worsens Chromium",
+      "evidence": "Current mismatches only inherited-var column:1200 channels/400pixels; candidate fixes var but newly mismatches six direct/inline-related columns:7200 channels/2400pixels. Firefox8400->8400 and WebKit12000->12000.",
+      "consequence": "Candidate is rejected and must not be submitted."
+    }
+  ],
+  "preservedControls": {
+    "source": "Each native-before PNG is byte-identical to native-after and to the other mode native PNG in the same engine; source fixture subtree/style unchanged, all capture aftermath iframe counts0. PNG recomputation uses exact raw pixels, no tolerance/mask/transform.",
+    "winners": "File/page rule winners independently observed: C(file cyan, page ignored), FF(page orange,file ignored), WK neither. Exact literal fill/style selectors retain native orange/cyan in both C and FF; WK is not a positive selector-rule control.",
+    "absolute": "Author absolute-page blue and absolute-file yellow match native across six modes; do not rebase already-frozen or author-absolute URLs based on string similarity.",
+    "redirectXML": "Direct, 302 redirect and redirect+xml:base included; final response and request traces retained. Native XML base semantics are not assumed.",
+    "query": "Actual default/page/file/query resource bytes differ: default page red/file green; ?different page blue/file yellow.",
+    "customVar": "Inherited custom-property distinct-origin negative control retained.",
+    "failures": "All runtime mismatches, first verifier script, saved verifier failure log and original receipt are byte-preserved."
+  },
+  "verificationFailureProvenance": {
+    "initialFailure": "The original session tool output showed assert a[execution][changedCopiedSourceFiles]==[svg-references.ts,svg-style-scope.ts] failing because the rglob list was not sorted.",
+    "initialFailureTranscriptExcerpt": "Traceback (most recent call last):\n  File \"/Users/bytedance/.codex/worktrees/gc-native-release-controls/html-to-image/output/playwright/svg-measurement-base-candidate-20261125/verify.py\", line 25, in <module>\n    assert a['execution']['changedCopiedSourceFiles']==['svg-references.ts','svg-style-scope.ts']\nAssertionError\n",
+    "excerptType": "Transcribed from original session tool output, not a saved standalone first-process raw log.",
+    "savedFailureLog": "verification-first-failure.log actually records the subsequent membership failure after adding verifier receipt files before refreshing the old index. Preserved unchanged; not relabeled as the original sorting failure.",
+    "receiptCorrection": "verification-receipt.json and original assessment over-summarized the saved raw failure as sorting. This publication distinguishes the two; no old original is edited.",
+    "finalOriginalCheck": "Final original verifier sorted the changed-file list and verified all90payloads. Publication now independently decodes PNGs and checks all member bytes.",
+    "publicationVerification": "stdlib-only publication verifier verifies tar/gzip/member SHA, six PNG pairs/12columns,24source pairs, recorded metadata and cleanup. No browser."
+  },
+  "limitations": [
+    "selectedBase is the chosen parameter, not a directly recorded Document.baseURI read; no stronger baseURI observation is claimed.",
+    "This is bounded HTTP fixture evidence, not a generic stylesheet/cascade/custom-property base implementation or caller-CSP/security proof.",
+    "The SVG/DOM source provenance plumbing still needs a correct native qualified URL source/base capability; no behavior patch is established.",
+    "HTTP requests are expected/nonzero here; HTTP0 is not asserted. No phone actions or computer network settings changed.",
+    "The primitive unchanged checks cover the fixture subtree/style and screenshots; harness-added UMD script nodes are separately visible in raw sourceBefore/sourceAfter HTML."
+  ],
+  "cleanup": {
+    "serverClosed": true,
+    "browsersClosed": true
+  },
+  "publicationPrivacy": {
+    "scannedAll90Payloads": true,
+    "signedDownloadURLsOrTokensFound": false,
+    "privatePhoneFoldersIncluded": false,
+    "fixtureLoopbackURLRetained": "Original HTTP fixture local loopback origin is preserved for provenance; the service was closed.",
+    "absolutePathBoundary": "Saved verifier traceback and its explicitly labeled transcript excerpt include the task-local checkout path; no private phone content or credentials are included."
+  },
+  "license": {
+    "project": "html-to-image",
+    "source": "Repository LICENSE accompanies this project publication",
+    "text": "MIT License\n\nCopyright (c) 2017-2026 W.Y.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  }
+}

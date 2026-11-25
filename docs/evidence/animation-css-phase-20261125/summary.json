@@ -1,0 +1,54 @@
+{
+  "title": "CSS-only animation phase freezing: exact native counterexamples",
+  "scope": "Frozen integrated root9c09 protocol experiment; not an independent master fix, production patch, CI or real-device acceptance. No source modifications, resource URI rewrite, STYLE/keyframes deletion or XML-frame scripts.",
+  "sourceUMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+  "validNumericCases": 33,
+  "exactMatches": 21,
+  "failures": 12,
+  "numericCasesPerEngine": 11,
+  "engines": ["chromium", "firefox", "webkit"],
+  "newCallbackRegressions": {
+    "modes": ["callback-delay", "callback-append-important"],
+    "cases": 6,
+    "baselineDifferentChannels": 0,
+    "candidateDifferentChannels": 400,
+    "expectedPose": "15px",
+    "actualPose": "10px"
+  },
+  "imperativeCounterexamples": {
+    "updateTiming": {
+      "cases": 3,
+      "sourcePose": "5px",
+      "candidatePose": "10px",
+      "differentChannels": 400
+    },
+    "setKeyframes": {
+      "cases": 3,
+      "sourcePose": "20px",
+      "candidatePose": "10px",
+      "differentChannels": 800
+    }
+  },
+  "boundaries": {
+    "typedScroll": {
+      "engines": ["chromium", "webkit"],
+      "value": "CSSUnitValue 50%",
+      "phaseSVGGenerated": false,
+      "excludedFrom33": true
+    },
+    "firefox": {
+      "nativeAPI": "ScrollTimeline/CSS.percent unavailable",
+      "harness": "Original driver failed to short-circuit unsupported setup; subsequent running-source and accidental phase metrics are INVALID, fully retained, excluded from33 and not product evidence.",
+      "excludedFrom33": true
+    }
+  },
+  "invariants": "All33 numeric sources/URIs unchanged; HTTP0. Parked8-file source/test SHA manifests equal; all browser/context cleanup recorded. No browser started for publication/verification. All PNGs are synthetic fixtures, no user images or signed resource URLs.",
+  "verifier": "Python3 stdlib only; validates exact payload allowlist/SHA, PNG CRC/filter reconstruction and RGBA counts, SVG-only added phase layer, original URI identity, 33 exact case identities,21/12 split and excluded boundary. Run python3 verify.py.",
+  "payloadFiles": 189,
+  "archive": {
+    "path": "raw.tar.gz",
+    "bytes": 112624,
+    "sha256": "d17a552bab2ee6722684480c4097f425da0d71a55790cb53eb5e09e3eb19c35f"
+  },
+  "decision": "Reject simple sourceDelay-currentTime as a general default freeze. Preserve positive limited scope without shipping a partial fix."
+}

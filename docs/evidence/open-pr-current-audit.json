@@ -928,6 +928,16 @@
       "discoveredDuring": "offline Blob preview preparation",
       "condition": "Real root margin and first-child collapse shift capture origin;39native controls valid/33exports differ; safe XML coordinate measurement not integrated. Existing same-frame Blob navigation leaks real HTTP in2engines; retainedHTMLDocument changes type-selector semantics.",
       "evidence": "docs/evidence/root-capture-origin-boundaries.json"
+    },
+    {
+      "kind": "newly-discovered-css-animation-snapshot",
+      "condition": "Source CSSAnimation paused via WA API at500ms restarts in serialized SVG. URI rewriting changes selector identity; active XML introduces caller CSP requirements; simple negative-delay freezing changes callbacks and imperative animation timing/keyframes. No production repair or before-after acceptance yet.",
+      "evidence": [
+        "docs/evidence/animation-root-before-20261125.json",
+        "docs/evidence/data-css-uri-identity-20261125.json",
+        "docs/evidence/xml-inherited-csp-20261125.json",
+        "docs/evidence/animation-css-phase-20261125/summary.json"
+      ]
     }
   ],
   "candidateExpansion": {
@@ -1579,5 +1589,32 @@
     "allOwnedResourcesCleaned": true,
     "phoneOperations": 0,
     "networkConfigurationChanges": 0
+  },
+  "latestCSSOnlyAnimationPhase": {
+    "evidence": "docs/evidence/animation-css-phase-20261125/summary.json",
+    "validNumericCases": 33,
+    "passed": 21,
+    "failed": 12,
+    "newCallbackRegressions": 6,
+    "updateTimingFailures": 3,
+    "setKeyframesFailures": 3,
+    "typedTimeRefusedWithoutSVG": 2,
+    "unsupportedFirefoxInvalidHarnessExcluded": 1,
+    "productionIntegration": false
+  },
+  "latestSVGMeasurementDocumentBase": {
+    "evidence": "docs/evidence/svg-measurement-base-20261125/summary.json",
+    "fixedColumnsEach": 12,
+    "currentCandidateDifferentChannels": {
+      "chromium": [1200, 7200],
+      "firefox": [8400, 8400],
+      "webkit": [12000, 12000]
+    },
+    "ChromiumDirectAndInheritedVariableBasesDifferInSameSVG": true,
+    "stylePolicyIsNotURLBasePolicy": true,
+    "candidateNewChromiumFailingColumns": 6,
+    "selectedBaseParameterIsNotDirectDocumentBaseURIObservation": true,
+    "sourceDOMAndNativeScreenshotsUnchanged": true,
+    "productionIntegration": false
   }
 }
