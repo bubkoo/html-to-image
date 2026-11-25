@@ -3,6 +3,7 @@
 import { expect, test } from 'vitest'
 import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
+import { recordGCFailure } from './gc-failure'
 import {
   createSVGStyleEnvironment,
   detectSVGStylePolicy,
@@ -108,6 +109,20 @@ test.each([false, true])(
         nativeCollected: native.reference.deref() === undefined,
         ownerCollected: reference.deref() === undefined,
       }
+      if (!diagnosis.ownerCollected)
+        await recordGCFailure(
+          reference,
+          diagnosis.ownerCollected,
+          'resolver/environment-' + probed,
+          { ...diagnosis, probed },
+        )
+      else if (!diagnosis.nativeCollected)
+        await recordGCFailure(
+          native.reference,
+          diagnosis.nativeCollected,
+          'resolver/native-' + probed,
+          { ...diagnosis, probed },
+        )
       expect(diagnosis.ownerCollected, JSON.stringify(diagnosis)).toBe(true)
       expect(diagnosis.nativeCollected).toBe(true)
     }
@@ -199,6 +214,13 @@ test('cancellation releases private SVG work while a custom font resolver remain
         : { native: await nativeRetention(), tree }
       // Report primitive observations rather than rooting the failed document
       // in the test reporter and contaminating later collection controls.
+      if (!collected)
+        await recordGCFailure(reference!, collected, 'resolver/pending-font', {
+          plainRetained: diagnosis?.native.plain ?? null,
+          sharedFontsRetained: diagnosis?.native.sharedFonts ?? null,
+          nativeProbeRetained: diagnosis?.native.nativeProbe ?? null,
+          measuredProbeRetained: diagnosis?.native.measuredProbe ?? null,
+        })
       expect(collected, JSON.stringify(diagnosis)).toBe(true)
     }
   } finally {
