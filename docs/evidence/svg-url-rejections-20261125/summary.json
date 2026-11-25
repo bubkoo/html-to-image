@@ -1,0 +1,54 @@
+{
+  "createdUTC": "2026-11-25T03:12:31.343446+00:00",
+  "scope": "Two bounded rejected SVG URL experiments;47 originals unchanged;no production fix.",
+  "originalSeals": [
+    {
+      "prefix": "var",
+      "originalDirectory": "output/playwright/svg-var-parse-context-20261125",
+      "originalsIncludingIndex": 26,
+      "originalIndexSHA256": "5616a97af07c9ad90649b3cce493c96719b8b608c3f198660b48b2d63c8475d9"
+    },
+    {
+      "prefix": "query",
+      "originalDirectory": "output/playwright/svg-query-clip-capability-20261125",
+      "originalsIncludingIndex": 21,
+      "originalIndexSHA256": "7fd5166890ae3c116e84d45686bca961bbcc9ebb8d120b278e7b01033874d67d"
+    }
+  ],
+  "independentDerivationSHA256": "4af29eefcb0b4a8e0ba0a1f2f076b49611986f40cadfe4381a5e04dbf807cf50",
+  "counts": {
+    "originals": 47,
+    "transientXMLBaseNativeColumns": 9,
+    "computedFillChanges": 0,
+    "current9c09DifferentChannels": [1200, 3600, 3600],
+    "queryCases": 6,
+    "queryReadyCases": 0,
+    "queryInitialHTTP": 6,
+    "queryExtraHTTP": 1,
+    "postRevokeRejected": 10,
+    "postRevokeHeadersOnly200": 2
+  },
+  "notes": [
+    "Temporary xml:base plus style/TypedOM reads left observed baseURI at the page and9computed fills unchanged; serializedXML/attribute/style literals remained exact. No established file context was observed, so this does not prove CSSVariableData discarded one. No candidate build or full12 expansion.",
+    "Original6query probes are rejected:Chromium no-query caused1actual extra callerHTML request and0/6positive readiness. OfflineURL and browserrequest records retain caller.html versus caller.html? distinction; q=1 exact equality still fails other controls. Inputs unchanged; no basename retry or URI-base inference.",
+    "Preserve2WebKit post-revoke Blob fetch responses with status200 but unread bodies, versus10fetch rejections. Revoke calls are not full invalidation or GC proof. Runtime cleanup and all failures retained; new verifier reads data only and copies four files to an empty directory for portable stdlib verification."
+  ],
+  "privacy": {
+    "allOriginalsScanned": true,
+    "credentialOrSignedURLFindings": [],
+    "redactionCount": 0,
+    "retainedMetadata": "Controlledloopback URLs/Blob IDs andtaskpaths retained asoriginalprovenance;no privatephonefolders/credentialvalues."
+  },
+  "operations": {
+    "browserLaunches": 0,
+    "networkRequests": 0,
+    "productionSourceChanges": 0,
+    "PRWrites": 0,
+    "phoneActions": 0,
+    "networkSettingsChanges": 0
+  },
+  "license": {
+    "project": "html-to-image",
+    "text": "MIT License\n\nCopyright (c) 2017-2026 W.Y.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  }
+}

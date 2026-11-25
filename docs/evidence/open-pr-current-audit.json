@@ -1694,5 +1694,18 @@
     "runtimeChanged": false,
     "deviceUsed": false,
     "computerNetworkSettingsChanged": false
+  },
+  "latestSVGURLCapabilityRejections": {
+    "date": "2026-11-25",
+    "evidence": "docs/evidence/svg-url-rejections-20261125/summary.json",
+    "status": "both bounded hypotheses rejected; relative paint base remains unresolved",
+    "variableRows": 9,
+    "variableFileContextActuallyEstablished": false,
+    "queryRows": 6,
+    "queryPositiveReady": 0,
+    "extraHTTPRequest": 1,
+    "revokeFetchRejected": 10,
+    "webkitHeadersOnly200": 2,
+    "productionChanged": false
   }
 }
