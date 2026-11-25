@@ -1,0 +1,8 @@
+{
+  "bytes": 164338,
+  "sha256": "a1fa59b74ca3ea93c6c1645fe34bb2b89a1456b4269461837465aa5e5b3b6fb8",
+  "members": 88,
+  "indexedPayloadFiles": 87,
+  "initialSealPreservedAt": "initial-seal-before-caller-csp/",
+  "initialSealArchiveSHA256": "cf4e008a50c38e0d3b4220a4b36b4a3c81148f9a5ee2645996e6b8b97f4b0990"
+}

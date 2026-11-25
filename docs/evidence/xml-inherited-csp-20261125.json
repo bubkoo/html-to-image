@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-25T00:22:03.226716+00:00",
+  "kind": "xml-inherited-csp",
+  "rawArchive": {
+    "path": "xml-inherited-csp-20261125-raw.tar.gz",
+    "bytes": 38029,
+    "sha256": "477aeeba1e59d8412e5b181a7ab72854cc8e63e7bfc2c3d530bddb37e537fb80",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberIndex": "xml-inherited-csp-20261125-index.json",
+  "verificationScript": "xml-inherited-csp-20261125-verify.py",
+  "verification": {
+    "kind": "xml-inherited-csp",
+    "status": "inherited-caller-script-policy-blocks-new-nonce-srcdoc-protocol",
+    "originalIndexedPayloadFiles": 12,
+    "originalFilesIncludingIndex": 13,
+    "rows": [
+      {
+        "engine": "chromium",
+        "mode": "unrestricted",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": true,
+        "guardExpired": false,
+        "CSPConsoleErrors": 0,
+        "framesAfter": 0
+      },
+      {
+        "engine": "chromium",
+        "mode": "script-none",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": false,
+        "guardExpired": true,
+        "CSPConsoleErrors": 1,
+        "framesAfter": 0
+      },
+      {
+        "engine": "chromium",
+        "mode": "different-nonce",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": false,
+        "guardExpired": true,
+        "CSPConsoleErrors": 1,
+        "framesAfter": 0
+      },
+      {
+        "engine": "firefox",
+        "mode": "unrestricted",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": true,
+        "guardExpired": false,
+        "CSPConsoleErrors": 0,
+        "framesAfter": 0
+      },
+      {
+        "engine": "firefox",
+        "mode": "script-none",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": false,
+        "guardExpired": true,
+        "CSPConsoleErrors": 1,
+        "framesAfter": 0
+      },
+      {
+        "engine": "firefox",
+        "mode": "different-nonce",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": false,
+        "guardExpired": true,
+        "CSPConsoleErrors": 1,
+        "framesAfter": 0
+      },
+      {
+        "engine": "webkit",
+        "mode": "unrestricted",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": true,
+        "guardExpired": false,
+        "CSPConsoleErrors": 0,
+        "framesAfter": 0
+      },
+      {
+        "engine": "webkit",
+        "mode": "script-none",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": false,
+        "guardExpired": true,
+        "CSPConsoleErrors": 1,
+        "framesAfter": 0
+      },
+      {
+        "engine": "webkit",
+        "mode": "different-nonce",
+        "currentAPI800RedPixels": true,
+        "XMLMessageAccepted": false,
+        "guardExpired": true,
+        "CSPConsoleErrors": 1,
+        "framesAfter": 0
+      }
+    ],
+    "currentAPIControlPasses": 9,
+    "newProtocolPasses": 3,
+    "newProtocolBlocked": 6,
+    "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+    "allBrowsersClosed": true,
+    "productionFix": false,
+    "limits": [
+      "Static 40x20 control proves the current API works under these policies; it is not animation-fix validation.",
+      "The experimental sampler introduces active scripts into srcdoc. Its meta policy cannot loosen an inherited caller script-src directive.",
+      "Only the fixed caller policies and native-XML nonce protocol were tested. No claim about arbitrary CSP, alternate iframe architectures, or all API options.",
+      "No phone, network configuration, server, commit, or remote application changes occurred during the probe."
+    ]
+  }
+}

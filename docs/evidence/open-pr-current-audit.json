@@ -1498,7 +1498,7 @@
     "original28ContributorPRActions": 0
   },
   "latestDiscoveredCSSAnimationSnapshot": {
-    "status": "confirmed; URI-rewrite candidate parked after actual selector regression; native XML sampling prototype pending",
+    "status": "confirmed; URI-rewrite candidate parked; conditional native XML prototype subset passes but default integration rejected by inherited caller CSP",
     "rootMeasuredSource": "854fa0abe0583b3129b67a3c2163b4b70f7fe1ff",
     "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
     "sourceFingerprint": "b29cfa7e5bb1e90c87f64a3be3976794acf120a747c580b24466e1dda130f746",
@@ -1510,7 +1510,9 @@
     "sourceStatesStable": true,
     "evidence": "docs/evidence/animation-root-before-20261125.json",
     "fixBranch": "codex/freeze-source-css-animations",
-    "fullFixAcceptance": false
+    "fullFixAcceptance": false,
+    "conditionalProtocolEvidence": "docs/evidence/native-xml-conditional-ready-20261125.json",
+    "callerCSPBoundaryEvidence": "docs/evidence/xml-inherited-csp-20261125.json"
   },
   "latestNonceDataXMLMeasurement": {
     "evidence": "docs/evidence/nonce-data-xml-negative-20261125.json",
@@ -1551,5 +1553,30 @@
     "genericSecurityClaim": false,
     "oldAnimationCounterexampleRetained": true,
     "productionIntegration": false
+  },
+  "latestXMLReadinessProtocol": {
+    "mandatoryObserverEvidence": "docs/evidence/native-xml-resize-ready-20261125.json",
+    "mandatoryObserverFirefoxSameDOMEmptyToReady": 4,
+    "mandatoryObserverChromiumGuardDespiteValidStyles": true,
+    "conditionalEvidence": "docs/evidence/native-xml-conditional-ready-20261125.json",
+    "conditionalPositiveCases": 12,
+    "conditionalDirectReadyCases": 11,
+    "conditionalObserverReadyCases": 1,
+    "nonemptyURIIdentityCases": 6,
+    "negativeNeverAttachedGuardAndCleanup": true,
+    "noRAFReadyPollingRetryOrEmptyStyleFallback": true,
+    "productionIntegration": false
+  },
+  "latestXMLCallerCSPBoundary": {
+    "evidence": "docs/evidence/xml-inherited-csp-20261125.json",
+    "fixedCases": 9,
+    "currentStaticAPIPasses": 9,
+    "newProtocolUnrestrictedPasses": 3,
+    "newProtocolInheritedScriptPolicyBlocked": 6,
+    "guardMs": 2500,
+    "newDefaultIntegrationRejected": true,
+    "allOwnedResourcesCleaned": true,
+    "phoneOperations": 0,
+    "networkConfigurationChanges": 0
   }
 }

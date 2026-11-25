@@ -1,0 +1,91 @@
+{
+  "archive": {
+    "path": "xml-inherited-csp-20261125-raw.tar.gz",
+    "bytes": 38029,
+    "sha256": "477aeeba1e59d8412e5b181a7ab72854cc8e63e7bfc2c3d530bddb37e537fb80",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberCount": 16,
+  "members": [
+    {
+      "path": "original/chromium-different-nonce-current.png",
+      "bytes": 137,
+      "sha256": "4a4ad950eb2cdfcb6d343449484eaf1c53b6918ec310c69da94a96eb43602c50"
+    },
+    {
+      "path": "original/chromium-script-none-current.png",
+      "bytes": 137,
+      "sha256": "4a4ad950eb2cdfcb6d343449484eaf1c53b6918ec310c69da94a96eb43602c50"
+    },
+    {
+      "path": "original/chromium-unrestricted-current.png",
+      "bytes": 137,
+      "sha256": "4a4ad950eb2cdfcb6d343449484eaf1c53b6918ec310c69da94a96eb43602c50"
+    },
+    {
+      "path": "original/firefox-different-nonce-current.png",
+      "bytes": 108,
+      "sha256": "dd3bf9670d8d960f08b100db6ffd353fc68b75bf1ecca347b5cb0d0860a6de88"
+    },
+    {
+      "path": "original/firefox-script-none-current.png",
+      "bytes": 108,
+      "sha256": "dd3bf9670d8d960f08b100db6ffd353fc68b75bf1ecca347b5cb0d0860a6de88"
+    },
+    {
+      "path": "original/firefox-unrestricted-current.png",
+      "bytes": 108,
+      "sha256": "dd3bf9670d8d960f08b100db6ffd353fc68b75bf1ecca347b5cb0d0860a6de88"
+    },
+    {
+      "path": "original/probe.mjs",
+      "bytes": 6110,
+      "sha256": "34daf1817e52281f4f9805afb6f6988bbde55c37dc34cff1ab32d446b3ccdd6d"
+    },
+    {
+      "path": "original/results.json",
+      "bytes": 10591,
+      "sha256": "fc1f7e61cecf35cadac46622ce5a00b766b8806346075c54ebc2efc9c2b6c113"
+    },
+    {
+      "path": "original/root-9c09.umd.js",
+      "bytes": 98997,
+      "sha256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a"
+    },
+    {
+      "path": "original/sha256-index.json",
+      "bytes": 1979,
+      "sha256": "ba4467056d9b5ecbf3af6e04d06a28f35b734c1c8659d926f6e4df6701bd0f0e"
+    },
+    {
+      "path": "original/webkit-different-nonce-current.png",
+      "bytes": 216,
+      "sha256": "8f45309491885dd33eae6aa20a48f26e40e5fde677055a45e9f949ddde28b425"
+    },
+    {
+      "path": "original/webkit-script-none-current.png",
+      "bytes": 216,
+      "sha256": "8f45309491885dd33eae6aa20a48f26e40e5fde677055a45e9f949ddde28b425"
+    },
+    {
+      "path": "original/webkit-unrestricted-current.png",
+      "bytes": 216,
+      "sha256": "8f45309491885dd33eae6aa20a48f26e40e5fde677055a45e9f949ddde28b425"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 160,
+      "sha256": "adc1d864518e50ae2e8dfef2578f5499b5ba52975690bbc7bf0dd2efb39d3514"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 2991,
+      "sha256": "3047069d4f164483159f2ec783b32e3cfc762b12c89e42dc5bedc422b4ed10ec"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 9373,
+      "sha256": "fc0d1922640e0862b1601d528dda9aacb1615dfc0506af7ed10b90c66d1017c0"
+    }
+  ]
+}

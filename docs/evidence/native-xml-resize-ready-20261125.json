@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-25T00:22:03.208133+00:00",
+  "kind": "native-xml-resize-ready",
+  "rawArchive": {
+    "path": "native-xml-resize-ready-20261125-raw.tar.gz",
+    "bytes": 78738,
+    "sha256": "413404468e615396bc573531c4d4cd57a8faa1e4ed75528aaeb50bbac147992a",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberIndex": "native-xml-resize-ready-20261125-index.json",
+  "verificationScript": "native-xml-resize-ready-20261125-verify.py",
+  "verification": {
+    "kind": "native-xml-resize-ready",
+    "status": "same-document-Firefox-readiness-observed-mandatory-observer-blocks-Chromium",
+    "originalIndexedPayloadFiles": 39,
+    "originalFilesIncludingIndex": 40,
+    "rows": [
+      {
+        "engine": "firefox",
+        "label": "callback",
+        "earlyRootStyleCount": 0,
+        "readyRootStyleCount": 385,
+        "zeroDifferenceOutput": true,
+        "guardExpired": false,
+        "framesAfter": 0
+      },
+      {
+        "engine": "firefox",
+        "label": "fresh-1",
+        "earlyRootStyleCount": 0,
+        "readyRootStyleCount": 385,
+        "zeroDifferenceOutput": true,
+        "guardExpired": false,
+        "framesAfter": 0
+      },
+      {
+        "engine": "firefox",
+        "label": "fresh-2",
+        "earlyRootStyleCount": 0,
+        "readyRootStyleCount": 385,
+        "zeroDifferenceOutput": true,
+        "guardExpired": false,
+        "framesAfter": 0
+      },
+      {
+        "engine": "firefox",
+        "label": "fresh-3",
+        "earlyRootStyleCount": 385,
+        "readyRootStyleCount": 385,
+        "zeroDifferenceOutput": true,
+        "guardExpired": false,
+        "framesAfter": 0
+      },
+      {
+        "engine": "firefox",
+        "label": "fresh-4",
+        "earlyRootStyleCount": 0,
+        "readyRootStyleCount": 385,
+        "zeroDifferenceOutput": true,
+        "guardExpired": false,
+        "framesAfter": 0
+      },
+      {
+        "engine": "chromium",
+        "label": "callback",
+        "earlyRootStyleCount": 480,
+        "readyRootStyleCount": null,
+        "zeroDifferenceOutput": false,
+        "guardExpired": true,
+        "framesAfter": 0
+      },
+      {
+        "engine": "webkit",
+        "label": "callback",
+        "earlyRootStyleCount": 433,
+        "readyRootStyleCount": 433,
+        "zeroDifferenceOutput": true,
+        "guardExpired": false,
+        "framesAfter": 0
+      },
+      {
+        "engine": "chromium",
+        "label": "negative-never-attach",
+        "earlyRootStyleCount": null,
+        "readyRootStyleCount": null,
+        "zeroDifferenceOutput": false,
+        "guardExpired": true,
+        "framesAfter": 0
+      }
+    ],
+    "positiveOutputs": 6,
+    "FirefoxEmptyToReadySameDOM": 4,
+    "PNGsCRCAndPixelsIndependentlyChecked": 15,
+    "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+    "allBrowsersClosed": true,
+    "productionFix": false,
+    "limits": [
+      "Observer entry is evidence of native layout readiness, not proof that observing causes readiness.",
+      "Chromium already has valid computed styles but never emits an observer entry within the unchanged 2500ms guard. Always awaiting ResizeObserver is not a cross-engine protocol.",
+      "Negative control proves host observer disconnect. Chromium child observer cleanup has no acknowledgment; only frame/context/browser teardown is proven.",
+      "This callback fixture has no LINK href values. Nonempty resource identity and arbitrary animations are not covered."
+    ]
+  }
+}
