@@ -6,6 +6,7 @@ import { extname, resolve, sep } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
 import { resourcePolicyServer } from './test/browser/fixtures/resource-policy-server.mjs'
+import { captureGCFailureHeap } from './test/browser/gc-failure.mjs'
 
 const names = ['chromium', 'firefox', 'webkit'] as const
 const selected = process.env.TEST_BROWSER
@@ -139,6 +140,9 @@ export default defineConfig({
           svgStyleBlobStops.get(marker)?.()
           svgStyleBlobStops.delete(marker)
           return trace
+        },
+        async captureGCFailureHeap({ page }, record) {
+          return captureGCFailureHeap(page, record)
         },
         async collectGarbage({ page, frame }) {
           const target = await frame()

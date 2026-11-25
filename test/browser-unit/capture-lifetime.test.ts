@@ -3,6 +3,7 @@
 import { expect, test } from 'vitest'
 import { commands, server } from 'vitest/browser'
 import { createRenderer } from '../../src'
+import { recordGCFailure } from './gc-failure'
 
 declare module 'vitest/browser' {
   interface BrowserCommands {
@@ -78,7 +79,10 @@ test('a frozen snapshot releases its source document before lazy rendering', asy
   const { reference, capture, renderer } = await captureDetachedDocument()
   try {
     await collectGarbage()
-    expect(reference.deref() === undefined).toBe(true)
+    const collected = reference.deref() === undefined
+    if (!collected)
+      await recordGCFailure(reference, collected, 'capture/frozen-detached')
+    expect(collected).toBe(true)
     const image = await capture.toImageData()
     expect([image.width, image.height]).toEqual([20, 20])
     expect(Array.from(image.data.slice(0, 4))).toEqual([0, 128, 0, 255])
@@ -94,7 +98,10 @@ test('holding a disposed capture does not retain its source document', async () 
     capture.dispose()
     renderer.dispose()
     await collectGarbage()
-    expect(reference.deref() === undefined).toBe(true)
+    const collected = reference.deref() === undefined
+    if (!collected)
+      await recordGCFailure(reference, collected, 'capture/disposed-detached')
+    expect(collected).toBe(true)
     await expect(capture.toSvg()).rejects.toThrow(/disposed/)
   } finally {
     renderer.dispose()
@@ -131,6 +138,18 @@ test.runIf(server.browser !== 'webkit')(
         nativeCollected: native.deref() === undefined,
         capturedCollected: reference.deref() === undefined,
       }
+      if (!diagnosis.capturedCollected)
+        await recordGCFailure(
+          reference,
+          diagnosis.capturedCollected,
+          'capture/removed-frame',
+        )
+      else if (!diagnosis.nativeCollected)
+        await recordGCFailure(
+          native,
+          diagnosis.nativeCollected,
+          'capture/native-frame',
+        )
       expect(diagnosis.capturedCollected, JSON.stringify(diagnosis)).toBe(true)
       expect(diagnosis.nativeCollected).toBe(true)
       const image = await capture.toImageData()

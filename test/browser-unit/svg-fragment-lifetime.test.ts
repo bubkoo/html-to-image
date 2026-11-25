@@ -2,6 +2,7 @@
 import { expect, test } from 'vitest'
 import { commands } from 'vitest/browser'
 import { createRenderer } from '../../src'
+import { recordGCFailure } from './gc-failure'
 const fixtureURL = '/test/browser/fixtures/svg-fragment-paint.mjs'
 async function captureDocument() {
   const source = document.implementation.createHTMLDocument()
@@ -41,7 +42,14 @@ test('a frozen SVG host-tree capture releases its source document before renderi
     await commands.collectGarbage()
     await commands.collectGarbage()
     await commands.collectGarbage()
-    expect(reference.deref() === undefined).toBe(true)
+    const collected = reference.deref() === undefined
+    if (!collected)
+      await recordGCFailure(
+        reference,
+        collected,
+        'svg-fragment/frozen-host-tree',
+      )
+    expect(collected).toBe(true)
     expect(Array.from(document.querySelectorAll('iframe'))).toEqual(frames)
     const image = await capture.toImageData(),
       offset = 4 * (10 * image.width + 10)
