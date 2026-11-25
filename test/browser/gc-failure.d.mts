@@ -1,6 +1,7 @@
 export interface GCFailureRecord {
   id: string
   caseName: string
+  context?: Readonly<Record<string, string | number | boolean | null>>
   browser: string
   phase: 'snapshot' | 'after'
   observation?: 'after-diagnostic-await'

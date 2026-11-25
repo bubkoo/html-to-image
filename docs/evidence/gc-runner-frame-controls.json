@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-24T21:26:00.152633Z",
+  "title": "GC runner frame selection: isolated test-infrastructure repair",
+  "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+  "branch": "codex/gc-runner-frame-controls",
+  "scope": "Only the project GC test adapter and its typed helper. No production source or dependency changes.",
+  "finding": "The installed @vitest/browser-playwright 5.0.5 provider accepts the first arbitrary frameattached when named vitest-iframe is absent. Controlled real private frames reproduce selection of the wrong frame, false success, and FrameDetached after removal.",
+  "repair": "Select the outer page actual iframe[data-vitest=\"true\"] DOM element, obtain contentFrame, await ElementHandle.dispose, then retain the original one page.requestGC followed by same-target evaluate.",
+  "preservedContracts": [
+    "Original 1000ms frame-selection waiting bound.",
+    "Existing three GC calls per lifetime test, existing assertions/timeouts/retries/browser arguments unchanged.",
+    "A genuinely selected runner that detaches still raises the original FrameDetached error.",
+    "Missing runner does not succeed merely because a private frame attaches; it times out without requesting GC."
+  ],
+  "causalLimit": "This establishes and fixes an independently reproducible provider-fallback exposure in the project test tool. The security 20:53 failure and issue #650 failure had no recorded frame identity; their actual causes and general GC stability are NOT established by these controls or passing suites.",
+  "evidence": {
+    "fileCount": 43,
+    "originalProviderControls": {
+      "files": 13,
+      "cases": 3,
+      "expectedOutcomes": 3,
+      "browser": "Chromium 156.0.8078.4",
+      "actualLaunchResolvedUTC": "2026-11-24T21:00:23.402Z",
+      "actualCloseResolvedUTC": "2026-11-24T21:00:23.564Z"
+    },
+    "repairControls": {
+      "files": 30,
+      "cases": 10,
+      "variants": "Five scenarios, original versus candidate, each with a real isolated browser context.",
+      "expectedOutcomes": 10,
+      "actualLaunchResolvedUTC": "2026-11-24T21:17:26.983Z",
+      "actualCloseResolvedUTC": "2026-11-24T21:17:28.655Z",
+      "noRunnerCandidate": "Timeout1000ms, observed1002.257ms, zero GC.",
+      "handleRelease": "Every candidate selected-runner scenario creates/disposes one real helper ElementHandle before its sole native GC request.",
+      "realRunnerRemoval": "Both original and candidate retain FrameDetached failure after one GC.",
+      "independentIdentity": "Selected object identity compared with actual runner DOM ElementHandle.contentFrame, with control handles also disposed."
+    },
+    "rawFailuresPreserved": [
+      "Initial CommonJS dynamic-import harness TypeError before any browser launch; corrected harness and original preparation bytes retained.",
+      "Original wrong-private-frame FrameDetached stacks and private-only false success.",
+      "Genuine selected-runner removal failures for both variants.",
+      "Preliminary missing .d.mts type diagnostic is explicitly marked a tool-transcript-derived record, not an original full raw log."
+    ],
+    "temporalIndex": "Original provider prepared-sha256-index.json describes pre-run input. Its old probe bytes are preserved in initial-import-harness-error/probe.mjs; prepared-preservation.json and portable verification check that mapping.",
+    "inputVerification": "All original source-index entries plus each index itself verified before packing; 284 repair measurement inputs unchanged at final check."
+  },
+  "validation": {
+    "lint": "passed",
+    "build": "passed",
+    "types": "passed",
+    "packageConsumers": "ESM/CJS/UMD and TypeScript4.9/current installed tarball consumers passed",
+    "defaultCoverage": {
+      "passed": 1234,
+      "skipped": 4
+    },
+    "defaultSource": {
+      "passed": 1115,
+      "skipped": 4
+    },
+    "browserPackage": {
+      "passed": 162,
+      "commandStartedUTC": "2026-11-24T21:18:48.957Z",
+      "commandFinishedUTC": "2026-11-24T21:20:54.937Z"
+    },
+    "commands": "Seven recorded commands exit0; unchanged original tests.",
+    "boundary": "These results belong to the exact f8d baseline candidate, not other active fixes or a combined future branch."
+  },
+  "candidateSources": [
+    {
+      "path": "test/browser/gc-frame.mjs",
+      "bytes": 621,
+      "sha256": "ad69c92188d98c93e39872c937fe91406320d90084052b45505995b2c41a0632",
+      "archivedAt": "gc-runner-frame-controls-20261125/candidate-inputs/gc-frame.mjs"
+    },
+    {
+      "path": "test/browser/gc-frame.d.mts",
+      "bytes": 108,
+      "sha256": "e58825680f5aecbd635d65178dc81935c9a3a6905a300649295295d5881ce6ad",
+      "archivedAt": "gc-runner-frame-controls-20261125/candidate-inputs/gc-frame.d.mts"
+    },
+    {
+      "path": "vitest.browser.config.mts",
+      "bytes": 7668,
+      "sha256": "0adb3830455c03eb39c9206e37166cdf71d2944f78ef5a5d4caaac33224c9ebe",
+      "archivedAt": "gc-runner-frame-controls-20261125/candidate-inputs/vitest.browser.config.mts"
+    }
+  ],
+  "cleanup": {
+    "allOwnedBrowserStagesTerminal": true,
+    "own4213and4214ListenersAfterPackage": 0,
+    "port4173Touched": false,
+    "computerNetworkConfigurationChanged": false,
+    "phoneOperated": false,
+    "archiveCreationStartedBrowser": false
+  },
+  "artifacts": {
+    "rawArchive": {
+      "file": "gc-runner-frame-controls-raw.tar.gz",
+      "bytes": 68982,
+      "sha256": "1b6b31c65adc072d54a8343bb96ebdd80c64bbac1f3115cbcac3520371970af6"
+    },
+    "index": {
+      "file": "gc-runner-frame-controls-index.json",
+      "sha256": "002b1207e07b9209a23f4d71cb77e252aff6c055dce9d2dd4ff5485f63977446"
+    },
+    "portableVerifier": {
+      "file": "gc-runner-frame-controls.verify.py",
+      "sha256": "86e13edf0d5cc00f806cecc0c20fab183051bc306b792b6062bf72dd64a87fbe",
+      "usage": "python3 docs/evidence/gc-runner-frame-controls.verify.py",
+      "needs": "Python standard library only; no extraction, browser or network."
+    }
+  },
+  "delivery": "Evidence only; no commit, push, pull request or alert closure performed by this archive task."
+}

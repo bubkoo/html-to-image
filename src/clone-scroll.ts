@@ -1,3 +1,10 @@
+import {
+  readDOMMethod,
+  readDOMProperty,
+  readOptionalDOMProperty,
+  writeDOMProperty,
+} from './dom.js'
+import { readDocumentProperty } from './document.js'
 import type { Options } from './types.js'
 import { getTask } from './task.js'
 import { uuid } from './util.js'
@@ -6,31 +13,50 @@ export function cloneScrollState<T extends HTMLElement>(
   nativeNode: T,
   clonedNode: T,
   options: Options,
-  scrollLeft = nativeNode.scrollLeft,
-  scrollTop = nativeNode.scrollTop,
+  scrollLeft = readDOMProperty(nativeNode, 'scrollLeft'),
+  scrollTop = readDOMProperty(nativeNode, 'scrollTop'),
 ) {
   if (!scrollLeft && !scrollTop) return
-  const children = Array.from(clonedNode.children)
-  const hasDirectText = Array.from(clonedNode.childNodes).some(
-    (child) => child.nodeType === Node.TEXT_NODE && child.textContent?.trim(),
+  const children = Array.from(readDOMProperty(clonedNode, 'children'))
+  const hasDirectText = Array.from(
+    readDOMProperty(clonedNode, 'childNodes'),
+  ).some(
+    (child) =>
+      readDOMProperty(child, 'nodeType') === Node.TEXT_NODE &&
+      readDOMProperty(child, 'textContent')?.trim(),
   )
   const hasInline = children.some((child) =>
-    (child as HTMLElement).style.display.startsWith('inline'),
+    readDOMProperty(
+      readDOMProperty(child as HTMLElement, 'style'),
+      'display',
+    ).startsWith('inline'),
   )
   const task = getTask(options)
-  const descendants = Array.from(clonedNode.querySelectorAll('*'))
+  const descendants = Array.from(
+    readDOMMethod(clonedNode, 'querySelectorAll')('*'),
+  )
   const positioned = descendants.filter((child) =>
-    ['fixed', 'absolute'].includes((child as HTMLElement).style?.position),
+    ['fixed', 'absolute'].includes(
+      readOptionalDOMProperty(
+        readDOMProperty(child as HTMLElement, 'style'),
+        'position',
+      ),
+    ),
   ) as HTMLElement[]
   const fixed = positioned.filter(
-    (child) => child.style.position === 'fixed',
+    (child) =>
+      readDOMProperty(readDOMProperty(child, 'style'), 'position') === 'fixed',
   ) as HTMLElement[]
   const original = task?.getCloneSource(clonedNode) || nativeNode
   const hasSticky = descendants.some(
-    (child) => (child as HTMLElement).style?.position === 'sticky',
+    (child) =>
+      readOptionalDOMProperty(
+        readDOMProperty(child as HTMLElement, 'style'),
+        'position',
+      ) === 'sticky',
   )
   const shiftMargins = (element: HTMLElement, left: number, top: number) => {
-    const { style } = element
+    const style = readDOMProperty(element, 'style')
     const margins = [
       ['margin-left', -left],
       ['margin-right', left],
@@ -39,8 +65,8 @@ export function cloneScrollState<T extends HTMLElement>(
     ] as const
     margins.forEach(([property, delta]) => {
       if (!delta) return
-      const value = style.getPropertyValue(property) || '0px'
-      style.setProperty(
+      const value = readDOMMethod(style, 'getPropertyValue')(property) || '0px'
+      readDOMMethod(style, 'setProperty')(
         property,
         `calc(${value} ${delta < 0 ? '-' : '+'} ${Math.abs(delta)}px)`,
         'important',
@@ -49,20 +75,28 @@ export function cloneScrollState<T extends HTMLElement>(
   }
   const shiftPositioned = (element: HTMLElement) => {
     const source = task?.getCloneSource(element) as HTMLElement | undefined
-    if (source?.offsetParent !== original) return
+    if (readOptionalDOMProperty(source, 'offsetParent') !== original) return
     // Use the source browser's containing block, rather than guessing from a
     // subset of CSS properties. Insets do not create another containing block
     // for nested fixed descendants, as an added transform would.
-    const { style } = element
+    const style = readDOMProperty(element, 'style')
     const shift = (start: string, end: string, amount: number) => {
       if (!amount) return
-      const value = style.getPropertyValue(start)
-      const opposite = style.getPropertyValue(end)
+      const value = readDOMMethod(style, 'getPropertyValue')(start)
+      const opposite = readDOMMethod(style, 'getPropertyValue')(end)
       if (value && value !== 'auto') {
-        style.setProperty(start, `calc(${value} - ${amount}px)`, 'important')
-        style.setProperty(end, 'auto', 'important')
+        readDOMMethod(style, 'setProperty')(
+          start,
+          `calc(${value} - ${amount}px)`,
+          'important',
+        )
+        readDOMMethod(style, 'setProperty')(end, 'auto', 'important')
       } else if (opposite && opposite !== 'auto') {
-        style.setProperty(end, `calc(${opposite} + ${amount}px)`, 'important')
+        readDOMMethod(style, 'setProperty')(
+          end,
+          `calc(${opposite} + ${amount}px)`,
+          'important',
+        )
       }
     }
     shift('left', 'right', scrollLeft)
@@ -72,17 +106,22 @@ export function cloneScrollState<T extends HTMLElement>(
     task &&
     positioned.length &&
     !hasDirectText &&
-    ['flex', 'inline-flex'].includes(clonedNode.style.display) &&
-    clonedNode.style.writingMode === 'horizontal-tb' &&
+    ['flex', 'inline-flex'].includes(
+      readDOMProperty(readDOMProperty(clonedNode, 'style'), 'display'),
+    ) &&
+    readDOMProperty(readDOMProperty(clonedNode, 'style'), 'writingMode') ===
+      'horizontal-tb' &&
     !hasSticky &&
     children.every((child) => {
-      const style = (child as HTMLElement).style
+      const style = readDOMProperty(child as HTMLElement, 'style')
       return (
-        style.display !== 'contents' &&
+        readDOMProperty(style, 'display') !== 'contents' &&
         (!scrollLeft ||
-          (style.marginLeft !== 'auto' && style.marginRight !== 'auto')) &&
+          (readDOMProperty(style, 'marginLeft') !== 'auto' &&
+            readDOMProperty(style, 'marginRight') !== 'auto')) &&
         (!scrollTop ||
-          (style.marginTop !== 'auto' && style.marginBottom !== 'auto'))
+          (readDOMProperty(style, 'marginTop') !== 'auto' &&
+            readDOMProperty(style, 'marginBottom') !== 'auto'))
       )
     })
   ) {
@@ -91,12 +130,13 @@ export function cloneScrollState<T extends HTMLElement>(
     // flex-item margins cannot collapse. Added transforms would re-anchor
     // positioned descendants of ordinary wrappers.
     children.forEach((child) => {
-      const { style } = child as HTMLElement
-      if (['fixed', 'absolute'].includes(style.position)) return
+      const style = readDOMProperty(child as HTMLElement, 'style')
+      if (['fixed', 'absolute'].includes(readDOMProperty(style, 'position')))
+        return
       shiftMargins(child as HTMLElement, scrollLeft, scrollTop)
     })
     positioned.forEach(shiftPositioned)
-    clonedNode.style.overflow = 'hidden'
+    writeDOMProperty(readDOMProperty(clonedNode, 'style'), 'overflow', 'hidden')
     return
   }
   const canShiftBlockX =
@@ -105,24 +145,33 @@ export function cloneScrollState<T extends HTMLElement>(
       !hasInline &&
       !hasSticky &&
       children.every((child) => {
-        const { style } = child as HTMLElement
+        const style = readDOMProperty(child as HTMLElement, 'style')
         // Pseudo cloning appends stylesheet nodes with no inline box styles.
         // They do not participate in the source content flow.
-        if (child.tagName === 'STYLE' && !style.display) return true
+        if (
+          readDOMProperty(child, 'tagName') === 'STYLE' &&
+          !readDOMProperty(style, 'display')
+        )
+          return true
         return (
-          ['fixed', 'absolute'].includes(style.position) ||
+          ['fixed', 'absolute'].includes(readDOMProperty(style, 'position')) ||
           (['block', 'flow-root', 'flex', 'grid', 'table', 'none'].includes(
-            style.display,
+            readDOMProperty(style, 'display'),
           ) &&
-            (!style.cssFloat || style.cssFloat === 'none') &&
-            style.marginLeft !== 'auto' &&
-            style.marginRight !== 'auto')
+            (!readDOMProperty(style, 'cssFloat') ||
+              readDOMProperty(style, 'cssFloat') === 'none') &&
+            readDOMProperty(style, 'marginLeft') !== 'auto' &&
+            readDOMProperty(style, 'marginRight') !== 'auto')
         )
       }))
   const hasExternalAbsolute = positioned.some((element) => {
-    if (element.style.position !== 'absolute') return false
+    if (
+      readDOMProperty(readDOMProperty(element, 'style'), 'position') !==
+      'absolute'
+    )
+      return false
     const source = task?.getCloneSource(element) as HTMLElement | undefined
-    const anchor = source?.offsetParent
+    const anchor = readOptionalDOMProperty(source, 'offsetParent')
     // A containing block outside the captured tree has another coordinate
     // origin. Keep its existing fallback until that origin is reconstructed.
     return !anchor || !task?.hasClonedSource(anchor)
@@ -133,29 +182,40 @@ export function cloneScrollState<T extends HTMLElement>(
     canShiftBlockX &&
     !hasExternalAbsolute &&
     scrollTop >= 0 &&
-    clonedNode.style.display === 'block' &&
-    clonedNode.style.writingMode === 'horizontal-tb'
+    readDOMProperty(readDOMProperty(clonedNode, 'style'), 'display') ===
+      'block' &&
+    readDOMProperty(readDOMProperty(clonedNode, 'style'), 'writingMode') ===
+      'horizontal-tb'
   ) {
-    const view = original.ownerDocument.defaultView || window
-    const before = view.getComputedStyle(original, '::before')
+    const view =
+      readDocumentProperty(
+        readDOMProperty(original, 'ownerDocument'),
+        'defaultView',
+      ) || window
+    const before = readDOMMethod(view, 'getComputedStyle')(original, '::before')
     const after = scrollLeft
-      ? view.getComputedStyle(original, '::after')
+      ? readDOMMethod(view, 'getComputedStyle')(original, '::after')
       : undefined
     const empty = (style: CSSStyleDeclaration) =>
-      !style.content ||
-      style.content === 'none' ||
-      style.content === 'normal' ||
-      style.display === 'none'
+      !readDOMProperty(style, 'content') ||
+      readDOMProperty(style, 'content') === 'none' ||
+      readDOMProperty(style, 'content') === 'normal' ||
+      readDOMProperty(style, 'display') === 'none'
     const supported = (style: CSSStyleDeclaration) =>
       empty(style) ||
-      (['block', 'flow-root', 'flex', 'grid'].includes(style.display) &&
+      (['block', 'flow-root', 'flex', 'grid'].includes(
+        readDOMProperty(style, 'display'),
+      ) &&
         (!scrollLeft ||
-          (style.marginLeft !== 'auto' && style.marginRight !== 'auto')))
+          (readDOMProperty(style, 'marginLeft') !== 'auto' &&
+            readDOMProperty(style, 'marginRight') !== 'auto')))
     if (supported(before) && (!after || supported(after))) {
       let beforeDeclarations = ''
       if (scrollTop) {
         const margin =
-          before.marginTop === 'auto' ? '0px' : before.marginTop || '0px'
+          readDOMProperty(before, 'marginTop') === 'auto'
+            ? '0px'
+            : readDOMProperty(before, 'marginTop') || '0px'
         // The nonzero box prevents collapse with a following negative margin.
         // Its height plus margin still totals -scrollTop.
         beforeDeclarations = empty(before)
@@ -164,13 +224,16 @@ export function cloneScrollState<T extends HTMLElement>(
       }
       const pseudoX = (style: CSSStyleDeclaration) =>
         scrollLeft && !empty(style)
-          ? `margin-left:calc(${style.marginLeft || '0px'} - ${scrollLeft}px)!important;margin-right:calc(${style.marginRight || '0px'} + ${scrollLeft}px)!important;`
+          ? `margin-left:calc(${readDOMProperty(style, 'marginLeft') || '0px'} - ${scrollLeft}px)!important;margin-right:calc(${readDOMProperty(style, 'marginRight') || '0px'} + ${scrollLeft}px)!important;`
           : ''
       beforeDeclarations += pseudoX(before)
       const afterDeclarations = after ? pseudoX(after) : ''
       if (beforeDeclarations || afterDeclarations) {
         const className = uuid()
-        clonedNode.classList.add(className)
+        readDOMMethod(
+          readDOMProperty(clonedNode, 'classList'),
+          'add',
+        )(className)
         if (beforeDeclarations)
           task.addClonedStyle(`.${className}::before { ${beforeDeclarations} }`)
         if (afterDeclarations)
@@ -179,11 +242,19 @@ export function cloneScrollState<T extends HTMLElement>(
       if (scrollLeft)
         children.forEach((child) => {
           const element = child as HTMLElement
-          if (!['fixed', 'absolute'].includes(element.style.position))
+          if (
+            !['fixed', 'absolute'].includes(
+              readDOMProperty(readDOMProperty(element, 'style'), 'position'),
+            )
+          )
             shiftMargins(element, scrollLeft, 0)
         })
       positioned.forEach(shiftPositioned)
-      clonedNode.style.overflow = 'hidden'
+      writeDOMProperty(
+        readDOMProperty(clonedNode, 'style'),
+        'overflow',
+        'hidden',
+      )
       return
     }
   }
@@ -193,13 +264,20 @@ export function cloneScrollState<T extends HTMLElement>(
   if (
     scrollLeft === 0 &&
     scrollTop > 0 &&
-    clonedNode.style.display === 'block' &&
+    readDOMProperty(readDOMProperty(clonedNode, 'style'), 'display') ===
+      'block' &&
     !hasDirectText &&
     children.some(
-      (child) => (child as HTMLElement).style.position === 'sticky',
+      (child) =>
+        readDOMProperty(
+          readDOMProperty(child as HTMLElement, 'style'),
+          'position',
+        ) === 'sticky',
     ) &&
     children.every((child) => {
-      const { display, position } = (child as HTMLElement).style
+      const childStyle = readDOMProperty(child as HTMLElement, 'style')
+      const display = readDOMProperty(childStyle, 'display')
+      const position = readDOMProperty(childStyle, 'position')
       return (
         !display.startsWith('inline') &&
         display !== 'contents' &&
@@ -208,32 +286,51 @@ export function cloneScrollState<T extends HTMLElement>(
     })
   ) {
     const firstFlowChild = children.find((child) => {
-      const style = (child as HTMLElement).style
-      return style.display !== 'none' && style.position !== 'fixed'
+      const style = readDOMProperty(child as HTMLElement, 'style')
+      return (
+        readDOMProperty(style, 'display') !== 'none' &&
+        readDOMProperty(style, 'position') !== 'fixed'
+      )
     }) as HTMLElement | undefined
-    const margin = firstFlowChild?.style.marginTop || '0px'
+    const margin =
+      (firstFlowChild &&
+        readDOMProperty(
+          readDOMProperty(firstFlowChild, 'style'),
+          'marginTop',
+        )) ||
+      '0px'
     if (firstFlowChild && margin !== 'auto') {
-      firstFlowChild.style.marginTop = `calc(${margin} - ${scrollTop}px)`
+      writeDOMProperty(
+        readDOMProperty(firstFlowChild, 'style'),
+        'marginTop',
+        `calc(${margin} - ${scrollTop}px)`,
+      )
       fixed.forEach(shiftPositioned)
-      clonedNode.style.overflow = 'hidden'
+      writeDOMProperty(
+        readDOMProperty(clonedNode, 'style'),
+        'overflow',
+        'hidden',
+      )
       return
     }
   }
   const isSupportedSticky = (child: Element, index: number) => {
-    const style = (child as HTMLElement).style
+    const style = readDOMProperty(child as HTMLElement, 'style')
     return (
       index === 0 &&
       scrollLeft === 0 &&
-      style.position === 'sticky' &&
-      parseFloat(style.top) === 0 &&
-      (!style.bottom || style.bottom === 'auto')
+      readDOMProperty(style, 'position') === 'sticky' &&
+      parseFloat(readDOMProperty(style, 'top')) === 0 &&
+      (!readDOMProperty(style, 'bottom') ||
+        readDOMProperty(style, 'bottom') === 'auto')
     )
   }
   const hasUnsupportedPosition = children.some((child, index) => {
-    const style = (child as HTMLElement).style
+    const style = readDOMProperty(child as HTMLElement, 'style')
     return (
-      (style.position === 'sticky' && !isSupportedSticky(child, index)) ||
-      style.display === 'inline'
+      (readDOMProperty(style, 'position') === 'sticky' &&
+        !isSupportedSticky(child, index)) ||
+      readDOMProperty(style, 'display') === 'inline'
     )
   })
   if (hasDirectText || hasUnsupportedPosition) return
@@ -241,28 +338,43 @@ export function cloneScrollState<T extends HTMLElement>(
   const y = -scrollTop
   children.forEach((child, index) => {
     const element = child as HTMLElement
-    if (element.style.position === 'fixed') {
+    if (
+      readDOMProperty(readDOMProperty(element, 'style'), 'position') === 'fixed'
+    ) {
       shiftPositioned(element)
       // Translated siblings create stacking contexts above an auto-z fixed child.
-      if (!element.style.zIndex || element.style.zIndex === 'auto') {
-        element.style.zIndex = '1'
+      if (
+        !readDOMProperty(readDOMProperty(element, 'style'), 'zIndex') ||
+        readDOMProperty(readDOMProperty(element, 'style'), 'zIndex') === 'auto'
+      ) {
+        writeDOMProperty(readDOMProperty(element, 'style'), 'zIndex', '1')
       }
       return
     }
     if (isSupportedSticky(child, index)) {
       // Transformed siblings become stacking contexts; keep the sticky header
       // above the normal-flow content as it appears in the live scroller.
-      if (!element.style.zIndex || element.style.zIndex === 'auto') {
-        element.style.zIndex = '1'
+      if (
+        !readDOMProperty(readDOMProperty(element, 'style'), 'zIndex') ||
+        readDOMProperty(readDOMProperty(element, 'style'), 'zIndex') === 'auto'
+      ) {
+        writeDOMProperty(readDOMProperty(element, 'style'), 'zIndex', '1')
       }
       return
     }
-    const transform = element.style.transform
-    element.style.transform = `translate(${x}px, ${y}px) ${
-      transform && transform !== 'none' ? transform : ''
-    }`.trim()
+    const transform = readDOMProperty(
+      readDOMProperty(element, 'style'),
+      'transform',
+    )
+    writeDOMProperty(
+      readDOMProperty(element, 'style'),
+      'transform',
+      `translate(${x}px, ${y}px) ${
+        transform && transform !== 'none' ? transform : ''
+      }`.trim(),
+    )
   })
   // SVG foreignObject serialization loses the live scroll offset. Preserve
   // the source viewport by clipping the shifted copy instead.
-  clonedNode.style.overflow = 'hidden'
+  writeDOMProperty(readDOMProperty(clonedNode, 'style'), 'overflow', 'hidden')
 }

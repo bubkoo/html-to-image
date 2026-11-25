@@ -1,3 +1,5 @@
+import { readDOMMethod, readDOMProperty, writeDOMProperty } from './dom.js'
+import { readDocumentMethod } from './document.js'
 import type { Capture, CaptureNode, EncodingOptions, Options } from './types.js'
 import { cloneNode, ensureSVGSymbols } from './clone-node.js'
 import { applyStyle } from './apply-style.js'
@@ -15,7 +17,7 @@ import {
 } from './util.js'
 
 function getContext(canvas: HTMLCanvasElement) {
-  const context = canvas.getContext('2d')
+  const context = readDOMMethod(canvas, 'getContext')('2d')
   if (!context) throw new Error('A 2D canvas context is not available')
   return context
 }
@@ -48,7 +50,7 @@ export async function createCapture(
       const root = (await cloneNode(node as HTMLElement, options, true, false))!
       // Retain the inert document across async resource work. WebKit can lose
       // a detached copy's document/base URL when only its nodes remain alive.
-      const cloneDocument = root.ownerDocument
+      const cloneDocument = readDOMProperty(root, 'ownerDocument')
       applyStyle(root, options)
       task.stage('transform')
       const context = Object.freeze({ root, signal: task.context.signal })
@@ -143,18 +145,37 @@ function fromSnapshot(
           task.check()
           // Use the library's document so a snapshot cannot keep a captured
           // iframe and its live source tree alive through this render closure.
-          canvas = document.createElement('canvas')
-          canvas.width = canvasWidth * pixelRatio
-          canvas.height = canvasHeight * pixelRatio
+          canvas = readDocumentMethod(document, 'createElement')('canvas')
+          writeDOMProperty(canvas, 'width', canvasWidth * pixelRatio)
+          writeDOMProperty(canvas, 'height', canvasHeight * pixelRatio)
           if (!options.skipAutoScale) checkCanvasDimensions(canvas)
-          canvas.style.width = `${canvasWidth}px`
-          canvas.style.height = `${canvasHeight}px`
+          writeDOMProperty(
+            readDOMProperty(canvas, 'style'),
+            'width',
+            `${canvasWidth}px`,
+          )
+          writeDOMProperty(
+            readDOMProperty(canvas, 'style'),
+            'height',
+            `${canvasHeight}px`,
+          )
           const ctx = getContext(canvas)
           if (options.backgroundColor) {
             ctx.fillStyle = options.backgroundColor
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
+            ctx.fillRect(
+              0,
+              0,
+              readDOMProperty(canvas, 'width'),
+              readDOMProperty(canvas, 'height'),
+            )
           }
-          ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
+          ctx.drawImage(
+            image,
+            0,
+            0,
+            readDOMProperty(canvas, 'width'),
+            readDOMProperty(canvas, 'height'),
+          )
         }
         return canvas!
       })()
@@ -173,17 +194,27 @@ function fromSnapshot(
       task.run(async () => {
         const source = await render()
         task.check()
-        const canvas = source.ownerDocument.createElement('canvas')
-        canvas.width = source.width
-        canvas.height = source.height
-        canvas.style.cssText = source.style.cssText
+        const canvas = readDocumentMethod(
+          readDOMProperty(source, 'ownerDocument'),
+          'createElement',
+        )('canvas')
+        writeDOMProperty(canvas, 'width', readDOMProperty(source, 'width'))
+        writeDOMProperty(canvas, 'height', readDOMProperty(source, 'height'))
+        writeDOMProperty(
+          readDOMProperty(canvas, 'style'),
+          'cssText',
+          readDOMProperty(readDOMProperty(source, 'style'), 'cssText'),
+        )
         getContext(canvas).drawImage(source, 0, 0)
         return canvas
       }),
-    toPng: () => task.run(async () => (await render()).toDataURL('image/png')),
+    toPng: () =>
+      task.run(async () =>
+        readDOMMethod(await render(), 'toDataURL')('image/png'),
+      ),
     toJpeg: (encoding = {}) =>
       task.run(async () =>
-        (await render()).toDataURL(
+        readDOMMethod(await render(), 'toDataURL')(
           'image/jpeg',
           encoding.quality ?? options.quality ?? 1,
         ),
@@ -202,8 +233,8 @@ function fromSnapshot(
         return getContext(canvas).getImageData(
           0,
           0,
-          canvas.width,
-          canvas.height,
+          readDOMProperty(canvas, 'width'),
+          readDOMProperty(canvas, 'height'),
         )
       }),
     toPixelData: async () => (await capture.toImageData()).data,

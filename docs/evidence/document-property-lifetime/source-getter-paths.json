@@ -1,0 +1,213 @@
+{
+  "date": "2026-11-24",
+  "status": "Actual post-failure source-document cache paths captured; production candidate incomplete; no new runtime change",
+  "sourceHead": "1e208d44b94df468ee369605c15df3e22567b9d3",
+  "productionEvidenceHead": "b0f361f7df2677d9d71c56260a7c3e5f2f8b3a4e",
+  "precedingExactHeadCI": {
+    "run": 45371616776,
+    "testedMerge": "8512cf9f4e55a5e2a4f226b6df061c4a621877e9",
+    "coveragePassed": 1249,
+    "sourcePassed": 1130,
+    "packagesPassed": 162,
+    "skipped": [4, 4],
+    "codeqlRun": 45371616813,
+    "result": "success",
+    "artifactId": 14908999087,
+    "artifactMembers": 8,
+    "artifactDigestVerified": true
+  },
+  "sourceHookExperiment": {
+    "changedOnly": [
+      "vitest.browser.config.mts",
+      "test/browser-unit/svg-style-source-lifetime.test.ts"
+    ],
+    "originalPrimaryConditionsCachedBeforeSampling": true,
+    "coveragePassed": 1249,
+    "sourcePassed": 1130,
+    "skipped": [4, 4],
+    "noFailedTargetCaptured": true,
+    "configurationTestsAndBrowserRestored": true
+  },
+  "standalonePairExperiment": {
+    "originalHelpersLogic": "Original fontState and sourceFrame; TypeScript syntax stripped; existing ESM library used",
+    "pairs": 64,
+    "weakReferencesSampled": 128,
+    "allCollected": true,
+    "weakStrongCanariesValid": true,
+    "scope": "standalone repeated original source/font/environment flow; not original Vitest gate or no-library control",
+    "productionTestConfigBuildInputs": 408,
+    "hashesUnchanged": true,
+    "browserRestored": true
+  },
+  "registryObserver": {
+    "method": "Global WeakRef constructor proxy stores existing weak wrappers plus creation-stack strings, no target dereference. Existing test files unchanged. Vitest onTestFailed samples only after original assertion failure and cleanup.",
+    "initialToolError": "Control loader evaluate syntax error, before test start; corrected and preserved; environment restored",
+    "firstRestrictedAttempt": {
+      "coveragePassed": 1248,
+      "coverageFailed": 1,
+      "skipped": 4,
+      "failure": "Firefox removed iframe capture document",
+      "sourceAndPackages": "not run",
+      "noGraph": "Observer then covered only the source/font file"
+    },
+    "observedAttempt": {
+      "coveragePassed": 1248,
+      "coverageFailed": 1,
+      "skipped": 4,
+      "failure": "Firefox removed iframe capture document",
+      "originalDiagnosis": {
+        "nativeCollected": true,
+        "capturedCollected": false
+      },
+      "sourceAndPackages": "not run",
+      "originalCollectionRequests": 3,
+      "weakReferenceCount": 2,
+      "nativeIndex0": "no direct target remains in snapshot",
+      "capturedIndex1": {
+        "target": "0x39e243c75388",
+        "decimal": 63643962528648,
+        "class": "HTMLDocument",
+        "constructorStack": "original captureFrame in capture-lifetime.test.ts",
+        "uniqueDirectWeakTarget": true,
+        "heapAndRawGCIdentityPresent": true,
+        "inspectionErrors": []
+      }
+    },
+    "controls": {
+      "positiveHeld": true,
+      "negativeCollected": true,
+      "knownOwnedDocumentRawMemberPresent": true,
+      "devtoolsRegistrationBalanced": true
+    },
+    "all408ProductionTestAndBuildInputHashesRestored": true,
+    "browserRestoredSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+  },
+  "observedPaths": {
+    "rawGCNodes": 210942,
+    "rawGCRootAddresses": 4469,
+    "firstAnalysis": "Exclude explicit weak and debugger-boundary edges; ordinary field paths present",
+    "sensitivityAnalysis": "Also exclude every cacheir-weak-* name regardless of trace strength; property-cache object/shape paths still remain",
+    "propertyCacheFields": 49,
+    "cacheirObjectFields": 48,
+    "cacheirShapeFields": 1,
+    "scripts": 14,
+    "sourceFiles": 5,
+    "moduleRecordRootsReachingTarget": 13,
+    "moduleRootsAreNotIndependentCauses": true,
+    "getterExamples": [
+      "ownerDocument",
+      "childNodes",
+      "style",
+      "tagName",
+      "shadowRoot",
+      "baseURI",
+      "namespaceURI",
+      "localName",
+      "scrollLeft",
+      "scrollTop",
+      "nodeType"
+    ],
+    "sourceMapReconstruction": "Same production bytes and Istanbul transform; all14 recorded script-start lines match reconstructed functions and all original source-map contents match source bytes. These are reconstructed code, not code bytes extracted from the failed process.",
+    "mappedFunctions": [
+      {
+        "file": "src/clone-node.ts",
+        "line": 138,
+        "generatedLine": 6217
+      },
+      {
+        "file": "src/clone-node.ts",
+        "line": 141,
+        "generatedLine": 6222
+      },
+      {
+        "file": "src/clone-node.ts",
+        "line": 184,
+        "generatedLine": 6276
+      },
+      {
+        "file": "src/clone-node.ts",
+        "line": 209,
+        "generatedLine": 6302
+      },
+      {
+        "file": "src/clone-node.ts",
+        "line": 245,
+        "generatedLine": 6359
+      },
+      {
+        "file": "src/clone-node.ts",
+        "line": 376,
+        "generatedLine": 6514
+      },
+      {
+        "file": "src/clone-node.ts",
+        "line": 478,
+        "generatedLine": 6624
+      },
+      {
+        "file": "src/clone-pseudos.ts",
+        "line": 43,
+        "generatedLine": 666
+      },
+      {
+        "file": "src/clone-scroll.ts",
+        "line": 6,
+        "generatedLine": 4719
+      },
+      {
+        "file": "src/embed-images.ts",
+        "line": 43,
+        "generatedLine": 2287
+      },
+      {
+        "file": "src/embed-images.ts",
+        "line": 97,
+        "generatedLine": 2378
+      },
+      {
+        "file": "src/embed-images.ts",
+        "line": 153,
+        "generatedLine": 2473
+      },
+      {
+        "file": "src/embed-images.ts",
+        "line": 163,
+        "generatedLine": 2488
+      },
+      {
+        "file": "src/util.ts",
+        "line": 62,
+        "generatedLine": 3798
+      }
+    ],
+    "directNonSourcePropertyCachePaths": 0,
+    "directNonSourceScope": "No direct ordinary property-cache entry outside /src/ reaches this target under the same weak/debugger exclusions without crossing another JSFunction script. This does not exclude all test/observer/native ownership."
+  },
+  "nativeCCLimit": "Filtered wantAllTraces=false CC log does not contain this target or its native holder; no complete native-ownership attribution or unique original root claim",
+  "observerLimits": [
+    "WeakRef constructor identity is changed by the registry; canaries validate only listed controls, not zero observer effect.",
+    "Test failure and cleanup precede the snapshot. Root paths are post-failure/post-inspection observations, not proof of unique pre-primary causality.",
+    "Snapshots of references0/1 are sequential; first diagnostic collection can affect the second.",
+    "Native holder missing in filtered CC log, conditional WeakMap entries not treated as unconditional ownership, and native preserved-wrapper roots remain qualified.",
+    "All passing diagnostic runs and standalone pairs do not replace preserved original production local failures."
+  ],
+  "typedNodeWindowAudit": {
+    "total": 448,
+    "files": 11,
+    "roles": {
+      "read": 257,
+      "method": 139,
+      "compound-write": 4,
+      "write": 47,
+      "construct": 1
+    },
+    "optionalChains": 8,
+    "scope": "Static Node/Window and unions containing them; excludes any/unknown/never, broader object supertypes and other DOM interfaces such as CSSStyleDeclaration/NodeList",
+    "implemented": false
+  },
+  "nextStep": "Validate generic cross-realm Node/Window property and method access isolation against observed getter/prototype paths; preserve receiver, argument/assignment/optional evaluation order and native constructor semantics. Keep original GC assertions/count/deadlines/skips. Do not assume that static Document-only zero reads is sufficient.",
+  "computerNetworkSettingsModified": false,
+  "archive": "source-getter-raw.tar.gz",
+  "index": "source-getter-index.json",
+  "rawFiles": 174
+}

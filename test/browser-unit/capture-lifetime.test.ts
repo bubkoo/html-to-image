@@ -143,12 +143,14 @@ test.runIf(server.browser !== 'webkit')(
           reference,
           diagnosis.capturedCollected,
           'capture/removed-frame',
+          diagnosis,
         )
       else if (!diagnosis.nativeCollected)
         await recordGCFailure(
           native,
           diagnosis.nativeCollected,
           'capture/native-frame',
+          diagnosis,
         )
       expect(diagnosis.capturedCollected, JSON.stringify(diagnosis)).toBe(true)
       expect(diagnosis.nativeCollected).toBe(true)

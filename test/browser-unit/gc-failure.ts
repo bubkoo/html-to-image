@@ -35,6 +35,7 @@ export async function recordGCFailure(
   reference: WeakRef<Document>,
   originalCollected: boolean,
   caseName: string,
+  context?: GCFailureRecord['context'],
 ) {
   if (originalCollected) return
   const id = crypto.randomUUID()
@@ -42,6 +43,7 @@ export async function recordGCFailure(
   const record: GCFailureRecord = {
     id,
     caseName,
+    context,
     browser: server.browser,
     phase: 'snapshot',
     originalCollected,

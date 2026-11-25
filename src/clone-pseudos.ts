@@ -1,10 +1,12 @@
+import { readDOMMethod, readDOMProperty, writeDOMProperty } from './dom.js'
+import { readDocumentMethod, readDocumentProperty } from './document.js'
 import { uuid, getStyleProperties } from './util.js'
 
 type Pseudo = ':before' | ':after'
 
 function formatCSSText(style: CSSStyleDeclaration) {
-  const content = style.getPropertyValue('content')
-  return `${style.cssText} content: '${content.replace(/'|"/g, '')}';`
+  const content = readDOMMethod(style, 'getPropertyValue')('content')
+  return `${readDOMProperty(style, 'cssText')} content: '${content.replace(/'|"/g, '')}';`
 }
 
 function formatCSSProperties(
@@ -13,8 +15,8 @@ function formatCSSProperties(
 ) {
   return getStyleProperties(style, selected)
     .map((name) => {
-      const value = style.getPropertyValue(name)
-      const priority = style.getPropertyPriority(name)
+      const value = readDOMMethod(style, 'getPropertyValue')(name)
+      const priority = readDOMMethod(style, 'getPropertyPriority')(name)
 
       return `${name}: ${value}${priority ? ' !important' : ''};`
     })
@@ -29,11 +31,14 @@ function getPseudoElementStyle(
 ): Text {
   const selector = `.${className}:${pseudo}`
   const cssText =
-    style.cssText && selected == null
+    readDOMProperty(style, 'cssText') && selected == null
       ? formatCSSText(style)
       : formatCSSProperties(style, selected)
 
-  return document.createTextNode(`${selector}{${cssText}}`)
+  return readDocumentMethod(
+    document,
+    'createTextNode',
+  )(`${selector}{${cssText}}`)
 }
 
 function clonePseudoElement<T extends HTMLElement>(
@@ -42,26 +47,35 @@ function clonePseudoElement<T extends HTMLElement>(
   pseudo: Pseudo,
   selected?: readonly string[],
 ) {
-  const style = (
-    nativeNode.ownerDocument.defaultView || window
-  ).getComputedStyle(nativeNode, pseudo)
-  const content = style.getPropertyValue('content')
+  const style = readDOMMethod(
+    readDocumentProperty(
+      readDOMProperty(nativeNode, 'ownerDocument'),
+      'defaultView',
+    ) || window,
+    'getComputedStyle',
+  )(nativeNode, pseudo)
+  const content = readDOMMethod(style, 'getPropertyValue')('content')
   if (content === '' || content === 'none') {
     return
   }
 
   const className = uuid()
   try {
-    clonedNode.className = `${clonedNode.className} ${className}`
+    writeDOMProperty(
+      clonedNode,
+      'className',
+      `${readDOMProperty(clonedNode, 'className')} ${className}`,
+    )
   } catch (err) {
     return
   }
 
-  const styleElement = document.createElement('style')
-  styleElement.appendChild(
-    getPseudoElementStyle(className, pseudo, style, selected),
-  )
-  clonedNode.appendChild(styleElement)
+  const styleElement = readDocumentMethod(document, 'createElement')('style')
+  readDOMMethod(
+    styleElement,
+    'appendChild',
+  )(getPseudoElementStyle(className, pseudo, style, selected))
+  readDOMMethod(clonedNode, 'appendChild')(styleElement)
 }
 
 export function clonePseudoElements<T extends HTMLElement>(

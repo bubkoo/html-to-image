@@ -1,27 +1,28 @@
+import { readDOMProperty, writeDOMProperty } from './dom.js'
 import type { Options } from './types.js'
 
 export function applyStyle<T extends HTMLElement>(
   node: T,
   options: Options,
 ): T {
-  const { style } = node
+  const style = readDOMProperty(node, 'style')
 
   if (options.backgroundColor) {
-    style.backgroundColor = options.backgroundColor
+    writeDOMProperty(style, 'backgroundColor', options.backgroundColor)
   }
 
   if (options.width != null) {
-    style.width = `${options.width}px`
+    writeDOMProperty(style, 'width', `${options.width}px`)
   }
 
   if (options.height != null) {
-    style.height = `${options.height}px`
+    writeDOMProperty(style, 'height', `${options.height}px`)
   }
 
   const manual = options.style
   if (manual != null) {
     Object.keys(manual).forEach((key: any) => {
-      style[key] = manual[key] as string
+      writeDOMProperty(style, key, manual[key] as string)
     })
   }
 

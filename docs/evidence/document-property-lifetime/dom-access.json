@@ -1,0 +1,195 @@
+{
+  "date": "2026-11-24",
+  "status": "Complete local and current physical UMD subset pass; exact-head remote pending; PR remains draft",
+  "sourceHead": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
+  "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+  "precedingEvidenceHead": "f3749624f9107f299aa2e1842cc1a74f5e2b2e4a",
+  "precedingRemote": {
+    "ci": 45380273999,
+    "codeql": 45380273748,
+    "conclusion": "success",
+    "testedMerge": "6e688d592711d7d4151689b0d100385da7720d3b",
+    "coveragePassed": 1249,
+    "sourcePassed": 1130,
+    "packagesPassed": 162,
+    "skipped": [4, 4]
+  },
+  "scope": "Generic DOM property/method reads, writes and presence checks; statically Node/Window, CSS declarations/rules/sheets/lists, DOM collections, implementation, media/rect/font objects, plus four erased accesses in toArray/prototype inspection. Other host interfaces and user code are outside the static audit.",
+  "unchanged": [
+    "all original lifecycle test bytes",
+    "three primary collection requests",
+    "assertions, timeouts and existing skips",
+    "default browser and JIT settings",
+    "CI workflows, test scripts and configuration",
+    "Mac network settings"
+  ],
+  "iterations": [
+    {
+      "candidate": "Node/Window reflection",
+      "normal": {
+        "coveragePassed": 1263,
+        "coverageFailed": 1,
+        "sourceAndPackages": "not run",
+        "skipped": 4
+      },
+      "observer": {
+        "coveragePassed": 1263,
+        "coverageFailed": 1,
+        "sourceAndPackages": "not run",
+        "skipped": 4
+      },
+      "failure": "Firefox removed iframe capture document; nativeCollected=true, capturedCollected=false",
+      "observedTarget": "0x3cb2ad9b0388",
+      "sourceCacheFields": 17,
+      "scripts": 8,
+      "sourceFiles": 4,
+      "cachedObjects": [
+        "CSSStyleDeclarationPrototype",
+        "CSSStylePropertiesPrototype",
+        "cssText/boxSizing/overflowX/overflowY native getters"
+      ],
+      "sourceInputs": 415
+    },
+    {
+      "candidate": "CSS and related native interfaces reflected",
+      "normal": {
+        "coveragePassed": 1267,
+        "sourcePassed": 1147,
+        "sourceFailed": 1,
+        "packages": "not run",
+        "skipped": [4, 4]
+      },
+      "observer": {
+        "coveragePassed": 1267,
+        "sourcePassed": 1148,
+        "failed": 0,
+        "skipped": [4, 4],
+        "noFailedTarget": true
+      },
+      "failure": "Firefox removed iframe capture document; nativeCollected=true, capturedCollected=false"
+    },
+    {
+      "candidate": "Also isolate four erased array/prototype accesses",
+      "normal": {
+        "coveragePassed": 1270,
+        "sourcePassed": 1150,
+        "sourceFailed": 1,
+        "packages": "not run",
+        "skipped": [4, 4]
+      },
+      "failure": "Firefox removed iframe capture document; nativeCollected=true, capturedCollected=false",
+      "observer": {
+        "coveragePassed": 1270,
+        "sourcePassed": 1150,
+        "sourceFailed": 1,
+        "skipped": [4, 4],
+        "failure": "disposed SVG owner releases source with font=true and opened=false",
+        "failedLine": 83,
+        "nativeAssertionPassedBeforeHeldAssertionFailed": true,
+        "target": "0xfdeaeeaa4d8",
+        "targetClass": "HTMLDocument",
+        "referenceIndex": 1,
+        "graphErrors": [],
+        "sourceScriptCacheFields": 0,
+        "engineSelfHostedCacheFields": 2,
+        "engineScript": "self-hosted:2914",
+        "function": "Reflect.get",
+        "objects": ["FontFacePrototype", "Function status"],
+        "weakEdgePolicy": "Exclude explicit weak/WeakMap and every cacheir-weak named edge, debugger boundaries and crossing another JSFunction script",
+        "nativeCC": "wantAllTraces=false; target and owning holder absent from filtered CC log; no complete native ownership attribution"
+      },
+      "sourceInputs": 415
+    }
+  ],
+  "candidate": {
+    "implementation": "Reflection receives a fresh transparent proxy with a frozen, null-prototype, trap-free handler. The original receiver is explicit; no proxy references are stored. Method reads use the same entry, resolving before argument evaluation. Strict writes preserve failure and RHS return values. Primitive coercion remains valid at erased array/prototype boundaries.",
+    "semanticsCases": 13,
+    "threeEngineSemanticsPassed": 39,
+    "normalCoveragePassed": 1273,
+    "normalSourcePassed": 1154,
+    "skipped": [4, 4],
+    "packageResult": {
+      "passed": 162,
+      "inputFiles": 415,
+      "hashesUnchanged": true,
+      "stockFirefoxSHA256": "f975f204199e40fcb5a7545b44b90ca4e365c1344825c0a2248d1556b35951a3"
+    },
+    "staticAndPackageEntryChecks": "host and pinned Linux pass",
+    "currentSourceByteHashMatchesHost": true,
+    "priorComparablePackageWallTime": "same pinned local environment: previous 7.9m, current 8.1m; not a per-capture benchmark or a performance claim",
+    "sourceFilesChangedThisIteration": 14,
+    "sourceFilesChangedFromMaster": 15,
+    "addedBehaviorCasesThisIteration": 8,
+    "macNetworkConfigurationActions": "none"
+  },
+  "nonDifferentialControls": [
+    {
+      "kind": "four built public APIs, same explicitly held document, eight captures each",
+      "versions": [
+        "baseline ESM",
+        "candidate ESM",
+        "baseline UMD",
+        "candidate UMD"
+      ],
+      "outputs": "all green 20x20, [0,128,0,255]",
+      "rootContrast": "no matching cache field on either variant; no differential proof",
+      "inspectionOrder": [
+        "negative before positive",
+        "positive before negative"
+      ],
+      "baselineSourceAndBuildFilesMatch": 150,
+      "sourceMapNormalization": "Only tslib dependency-relative path adjusted after symlinked baseline build; original map saved; normalized map and all 150 source/build files match first failed candidate"
+    },
+    {
+      "kind": "stock Firefox native unloaded FontFace getter; 40000 reads per fresh browser",
+      "nativeControlCollected": true,
+      "baselineCollected": true,
+      "candidateCollected": true,
+      "strongWeakCanariesValid": true,
+      "rootContrast": "not reproduced; cannot establish the new candidate fixed the original complete-test failure"
+    }
+  ],
+  "limits": [
+    "Failures are preserved and are never replaced by observer or standalone passes",
+    "Observers alter WeakRef constructor identity and sample only after original failure and cleanup; sequential snapshots can change later observations",
+    "Actual JS cache paths establish a post-failure holding path, not a unique pre-inspection cause or complete native CC ownership",
+    "A single local full pass cannot establish universal GC stability",
+    "Original #585 appearance/resource/font/native and #398 trusted-click scope remain open",
+    "No npm publication; no old contributor PR closure"
+  ],
+  "physicalDevice": {
+    "sourceHead": "5c92de360a4e400f25502f2e3f254c0a4f8ec7ef",
+    "sessionCreated": true,
+    "platform": "physical iPhone Safari/iOS 26.6.1",
+    "offlineUMD": {
+      "passed": 112,
+      "failed": 0,
+      "fixtures": 5,
+      "httpResources": []
+    },
+    "umdSHA256": "3208fe30970d07df52b74c4437eafeb9aca76feb4643d1fa6f140da624478307",
+    "inputFiles": 418,
+    "inputHashesUnchanged": true,
+    "sessionEnded": true,
+    "driverEnded": true,
+    "networkSettingsChanged": false,
+    "previousAttempt": "device locked; no test result; preserved separately",
+    "scopeExcludes": [
+      "ESM",
+      "HTTP",
+      "external SVG/CSP",
+      "loaded fonts",
+      "source screenshots",
+      "device GC"
+    ],
+    "controllerGuard": "Exact 415 runtime file hashes and source-commit ancestry; permits documentation-only descendants; before/after complete 418-file device manifest and HEAD must match"
+  },
+  "archive": "dom-access-index.json",
+  "rawFiles": 267,
+  "archivedAtUTC": "2026-11-24T12:19:44.432955+00:00",
+  "remoteAtArchiveTime": {
+    "status": "not yet published",
+    "currentChecks": "https://github.com/bubkoo/html-to-image/pull/650/checks",
+    "policy": "Previous Document-only CI successes do not accept this candidate. Verify the exact published head and tested merge separately."
+  }
+}

@@ -114,12 +114,14 @@ test.each([false, true])(
           reference,
           diagnosis.ownerCollected,
           'resolver/environment-' + probed,
+          { ...diagnosis, probed },
         )
       else if (!diagnosis.nativeCollected)
         await recordGCFailure(
           native.reference,
           diagnosis.nativeCollected,
           'resolver/native-' + probed,
+          { ...diagnosis, probed },
         )
       expect(diagnosis.ownerCollected, JSON.stringify(diagnosis)).toBe(true)
       expect(diagnosis.nativeCollected).toBe(true)
@@ -213,7 +215,12 @@ test('cancellation releases private SVG work while a custom font resolver remain
       // Report primitive observations rather than rooting the failed document
       // in the test reporter and contaminating later collection controls.
       if (!collected)
-        await recordGCFailure(reference!, collected, 'resolver/pending-font')
+        await recordGCFailure(reference!, collected, 'resolver/pending-font', {
+          plainRetained: diagnosis?.native.plain ?? null,
+          sharedFontsRetained: diagnosis?.native.sharedFonts ?? null,
+          nativeProbeRetained: diagnosis?.native.nativeProbe ?? null,
+          measuredProbeRetained: diagnosis?.native.measuredProbe ?? null,
+        })
       expect(collected, JSON.stringify(diagnosis)).toBe(true)
     }
   } finally {

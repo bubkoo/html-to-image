@@ -1,3 +1,4 @@
+import { readDocumentProperty } from './document.js'
 import type {
   CaptureDiagnostic,
   ExtensionContext,
@@ -142,7 +143,7 @@ export class ResourceLoader {
         }
       }
     }
-    const requestURL = new URL(url, document.baseURI)
+    const requestURL = new URL(url, readDocumentProperty(document, 'baseURI'))
     requestURL.hash = ''
     const originalURL = requestURL.href
     const originalNonce = requestURL.searchParams.getAll('_htmlToImage')
