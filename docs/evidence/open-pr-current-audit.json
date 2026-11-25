@@ -1644,5 +1644,39 @@
     "nativeControlGroupedAnnotationMappingUnproven": true,
     "isGCBehaviorFix": false,
     "masterMerged": false
+  },
+  "gcFailureDiagnosticsIntegratedHead": {
+    "pr": 657,
+    "state": "open draft; dependency650; not merged",
+    "head": "03538420fd6cbffe435f568ce9beee3d425211a2",
+    "parents": [
+      "8fb282ca769c297ec3833787e660f22ceb057c46",
+      "877c476888bbc2146a15d3c673f7a3385f3b9ddb"
+    ],
+    "base": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "merge": "6f270dcac2402baf6ecdbe01c0e92ddaf018d05d",
+    "headAndMergeTree": "6706b7a4226bc6b23d307c74de94a1a3bf6fe469",
+    "runtimeSourceTreeEquals650": "963f0a731dd4bb82c329a2d7fda5603618d6c4c7",
+    "changedFilesAgainst650": 9,
+    "independentMasterRuntimeUnchangedClaimRevoked": true,
+    "localEvidence": "docs/evidence/gc-failure-diagnostics-650-0353842/summary.json",
+    "allStageInputsStable": 299,
+    "localCoverageSourcePackagePassed": [1300, 1181, 162],
+    "remoteEvidence": "docs/evidence/gc-failure-diagnostics-650-remote-0353842/summary.json",
+    "ciRun": 45524225763,
+    "ciConclusion": "success",
+    "remoteCoverageSourcePackagePassed": [1300, 1181, 162],
+    "coverageSourceSkippedEach": 4,
+    "packageSkipped": 0,
+    "CodecovUpload": "success",
+    "CodecovPatchCheck": 138906823239,
+    "CodecovPatchConclusion": "success",
+    "CodecovProjectCheck": 138906809006,
+    "CodecovProjectConclusion": "success",
+    "CodeQL": "not scheduled for current stacked base; old8fb result not reused",
+    "isGCBehaviorFix": false,
+    "oldMasterHeadFailuresRetained": true,
+    "phoneOperations": 0,
+    "networkConfigurationChanges": 0
   }
 }

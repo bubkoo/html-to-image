@@ -1,0 +1,260 @@
+{
+  "createdAt": "2026-11-25T01:27:28.194898+00:00",
+  "scope": "Only newly sealed M035 dependent-integration remote acceptance originals; no local102 or old8fb72 payloads. Static publication, no browser/network/test/CI/PR action.",
+  "dependency": "#650 at877; source tree963f0a equals650, not an independent master-only diagnostic source baseline.",
+  "links": {
+    "PR": "https://github.com/bubkoo/html-to-image/pull/657",
+    "CI": "https://github.com/bubkoo/html-to-image/actions/runs/45524225763/job/138903432506",
+    "CodecovPatch": "https://github.com/bubkoo/html-to-image/runs/138906823239",
+    "CodecovProject": "https://github.com/bubkoo/html-to-image/runs/138906809006"
+  },
+  "originalSeal": {
+    "originalsIncludingIndex": 76,
+    "indexedPayloadsExcludingSelf": 75,
+    "indexSHA256": "e7d088f9fa7295f57726064aad14e58e1a07a8a643b25adc41ddf20128ebbd7c",
+    "allOriginalsBytePreserved": true,
+    "authorPermission": "Read only after package_regression explicitly froze and authorized this exact76-file directory."
+  },
+  "independentChecks": {
+    "head": "03538420fd6cbffe435f568ce9beee3d425211a2",
+    "headParents": [
+      "8fb282ca769c297ec3833787e660f22ceb057c46",
+      "877c476888bbc2146a15d3c673f7a3385f3b9ddb"
+    ],
+    "base": "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+    "baseRef": "codex/document-property-lifetime",
+    "changedFiles": 9,
+    "testedMerge": "6f270dcac2402baf6ecdbe01c0e92ddaf018d05d",
+    "mergeParents": [
+      "877c476888bbc2146a15d3c673f7a3385f3b9ddb",
+      "03538420fd6cbffe435f568ce9beee3d425211a2"
+    ],
+    "headAndMergeTree": "6706b7a4226bc6b23d307c74de94a1a3bf6fe469",
+    "srcTreeExactly650": "963f0a731dd4bb82c329a2d7fda5603618d6c4c7",
+    "CI": {
+      "run": 45524225763,
+      "job": 138903432506,
+      "attempt": 1,
+      "conclusion": "success",
+      "startedUTC": "2026-11-25T01:14:18Z",
+      "completedUTC": "2026-11-25T01:20:58Z",
+      "coveragePassed": 1300,
+      "coverageSkipped": 4,
+      "sourcePassed": 1181,
+      "sourceSkipped": 4,
+      "packagePassed": 162,
+      "packageSkipped": 0,
+      "steps": [
+        {
+          "number": 7,
+          "name": "🧹　Check source and test lint",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "📦　Build",
+          "conclusion": "success"
+        },
+        {
+          "number": 9,
+          "name": "🔎　Check published entries",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "🔎　Check browser test types",
+          "conclusion": "success"
+        },
+        {
+          "number": 12,
+          "name": "🧪　Test migrated regressions and browser behavior",
+          "conclusion": "success"
+        },
+        {
+          "number": 13,
+          "name": "📦　Test built package in browsers",
+          "conclusion": "success"
+        },
+        {
+          "number": 14,
+          "name": "📋　Upload browser report",
+          "conclusion": "success"
+        },
+        {
+          "number": 15,
+          "name": "🔑　Generate Token",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 16,
+          "name": "💡　Coveralls",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 17,
+          "name": "💡　Codecov",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "Codecov": {
+      "uploadStepSuccess": true,
+      "uploadLogQueuedOnly": true,
+      "earlyTerminalExternalChecksAbsent": true,
+      "finalExternalChecks": [
+        {
+          "id": 138906823239,
+          "name": "codecov/patch",
+          "head_sha": "03538420fd6cbffe435f568ce9beee3d425211a2",
+          "status": "completed",
+          "conclusion": "success",
+          "completed_at": "2026-11-25T01:22:16Z",
+          "details_url": "https://app.codecov.io/gh/bubkoo/html-to-image/pull/657",
+          "html_url": "https://github.com/bubkoo/html-to-image/runs/138906823239"
+        },
+        {
+          "id": 138906809006,
+          "name": "codecov/project",
+          "head_sha": "03538420fd6cbffe435f568ce9beee3d425211a2",
+          "status": "completed",
+          "conclusion": "success",
+          "completed_at": "2026-11-25T01:22:14Z",
+          "details_url": "https://app.codecov.io/gh/bubkoo/html-to-image/pull/657",
+          "html_url": "https://github.com/bubkoo/html-to-image/runs/138906809006"
+        }
+      ],
+      "finalReadUTC": "2026-11-25T01:23:24.067035+00:00"
+    },
+    "CodeQL": {
+      "currentHeadRunsCount": 4,
+      "runIDs": [45524244010, 45524225763, 45524223336, 45524223253],
+      "currentHeadCodeQLRunCount": 0,
+      "workflowPullRequestTarget": "master",
+      "scope": "Not scheduled on this current integration head; no inherited CodeQL verdict."
+    },
+    "sourceFiles": [
+      {
+        "path": "test/browser-unit/capture-lifetime.test.ts",
+        "blobSHA1": "8f417a8fe6bf9aa03dd116607982a19343208ad1",
+        "sha256": "46e24b8ca35fe081586d8a3632280489c3faadf74d906757709a74b152fbca2b",
+        "bytes": 5218
+      },
+      {
+        "path": "test/browser-unit/gc-failure.ts",
+        "blobSHA1": "0bc547b1966668e4c211dec4098c283f2c2b8c1a",
+        "sha256": "7092f0286668d655cdb308074d970b051a0c41f66d061cb75b3561e94becb588",
+        "bytes": 2954
+      },
+      {
+        "path": "test/browser-unit/resource-resolver-cancellation.test.ts",
+        "blobSHA1": "5ca4658500e1440e828923e33ff2510721a0008c",
+        "sha256": "8a306158a82d0b89c9410018552c05ab80aac639dc1e6a789264a34f982948f9",
+        "bytes": 8037
+      },
+      {
+        "path": "test/browser-unit/svg-fragment-lifetime.test.ts",
+        "blobSHA1": "6af5a1629f4d4f4fa79a06b2dd2859fc994272b2",
+        "sha256": "e927ae14ef4f018c0135af8392e53b95080bdbd71e0a360edcde44a7804b5391",
+        "bytes": 2453
+      },
+      {
+        "path": "test/browser/gc-failure-budget.d.mts",
+        "blobSHA1": "f2b59624792b776b1daf0d666838eb7f82f4012c",
+        "sha256": "ffed61ad6a99dcd1cb33107a09bb9ae56c6b3bf5c291075ba8a5bb34071f067c",
+        "bytes": 107
+      },
+      {
+        "path": "test/browser/gc-failure-budget.mjs",
+        "blobSHA1": "a2a8ff36a10d2814418cb77eba72d77c8ac85b04",
+        "sha256": "6594d260fff8eac451bcb9c6fb6a17df5c0b1b52635502ef174cf0572349ee4a",
+        "bytes": 692
+      },
+      {
+        "path": "test/browser/gc-failure.d.mts",
+        "blobSHA1": "80b5244c8ed0fe8467502dffb00bd03032a5a83c",
+        "sha256": "3b8325e190c25ae0251fd42ada1b9191d38be1c0030ce2ecbfcadb7be9f59f06",
+        "bytes": 657
+      },
+      {
+        "path": "test/browser/gc-failure.mjs",
+        "blobSHA1": "5fd6396ae3ed8586ba063c75df6b4f0ad2dd72f9",
+        "sha256": "2cec614c90b50b1d766c2a6f5de2043185198e31fb237a946021f1d95d09533d",
+        "bytes": 4202
+      },
+      {
+        "path": "vitest.browser.config.mts",
+        "blobSHA1": "f8e7ac3d81f52b464dc76f57cb57cf43756b7664",
+        "sha256": "48672a0ccc5eef7b441a96b04c77227288d15cf64ab1d68ff925b7f252a90129",
+        "bytes": 7855
+      }
+    ],
+    "workflowBytesPinnedToHead": true,
+    "artifact": {
+      "id": 14981927626,
+      "zipBytes": 256362,
+      "sha256": "d1e01f81dbb15224b422fc1a04acccae0ce1197a12885d3409f0281d8b2b61f6",
+      "apiDigestMatched": true,
+      "CRCChecked": true,
+      "members": 8,
+      "gcHeapMembers": 0
+    }
+  },
+  "interpretation": {
+    "revision": "Remote CI API headM035, actual job checkout6f270d parents[877,M035], merge tree6706 equalsM head tree; currentPR target650branch codex/document-property-lifetime. HeadM itself parents[8fb,877]. Nine pinned diagnostic source files plus CI/CodeQL workflows independently verified with Contents API Git blob and SHA256 bytes.",
+    "runtime": "Remote head/base tree metadata bothsrc963f0a matches650. Production-unchanged statement applies relative650/877 only; no use of oldmaster8fb production-unchanged wording.",
+    "completeFreshCI": "CurrentM remote attempt1 successful:coverage1300pass/4skip, source1181pass/4skip, actual built browser package162pass/0skip. Lint/build/published-entry/browser-types and source/package stages allsuccess. These are currentM remote logs, not parent or local results.",
+    "uploads": "Browser-report upload14success; Codecov uploader step17success with log only saying queued processing at that point. GenerateToken15 and Coveralls16skipped. Upload success alone is not an external coverage verdict.",
+    "externalCodecov": "Earlier terminal head-check snapshot had no Codecov contexts and is preserved. Later GitHub CheckRuns read2026-11-25T01:23:24.067035+00:00 independently reports codecov/project success completed01:22:14Z and codecov/patch success completed01:22:16Z, both exactM head. These external verdicts are separate from the uploader step.",
+    "CodeQL": "No CodeQL run among all4saved current-head workflow runs. Immutable remoteM CodeQL workflow triggers PRs targetingmaster; currentPR target is650branch, so no currentM CodeQL acceptance is claimed or inherited from8fb/650.",
+    "artifact": "Actual256362-byte ZIP digestd1e01f81... matches GitHub API; CRC and all8memberSHA/bytes rechecked against extracted originals. No gc-heap members. Generated Playwright HTML and CI mobile-smoke reports are execution artifacts, not physicaliPhone acceptance.",
+    "notGCRepair": "Green M CI and external Codecov do not identify or repair original GC retaining roots, prove universal repeatability, erase archived8fb failure, or add failure-branch heap evidence to this success-only artifact.",
+    "oldAndLocalBoundary": "No local102 or oldremote72 files used in these statistics. Parent commit identifiers in the current remote metadata are provenance only.",
+    "readbackBoundary": "Evidence is fixed historical readback at recordedUTC. This publisher did not refetch APIs, rerun pipelines, edit code/PRs or run a browser."
+  },
+  "limits": [
+    "CurrentM CodeQL was not scheduled; no CodeQLsuccess claim forM.",
+    "External Codecovpatch/projectsuccess is now obtained on exactM; early queued/absent-context snapshot remains separately preserved. No coverage percentages or unpublished threshold interpretations are inferred.",
+    "Existing4coverage and4source skips remain; package reports162pass with no skip and no physical mobile acceptance follows.",
+    "No failed GC heap artifact exists in this success run. The underlying cause of old failures is not determined by these green results."
+  ],
+  "privacy": {
+    "scannedTextContainers": 77,
+    "patterns": [
+      "gh[pousr]_[A-Za-z0-9_]{20,}",
+      "github_pat_[A-Za-z0-9_]{20,}",
+      "X-Amz-Signature=",
+      "X-Goog-Signature=",
+      "https://[^\\s\"<>]*\\.blob\\.core\\.windows\\.net/[^\\s\"<>]*[?&]sig=",
+      "[?&]access_token=[A-Za-z0-9_.-]{8,}",
+      "Bearer\\s+eyJ[A-Za-z0-9_.-]{20,}"
+    ],
+    "findings": [],
+    "redactionCount": 0,
+    "redactions": [],
+    "reason": "No credential values, signed download URLs or privatephone folder references found in saved text originals/ZIPtext members. Existing source masks and publicGit PGP signatures retained unchanged.",
+    "retainedMetadata": "PublicGitHub/Codecov repository metadata, CI/loopback session URLs and runner paths retained for provenance."
+  },
+  "operations": {
+    "publicationBrowserRuns": 0,
+    "sourceExecution": 0,
+    "APIRefetches": 0,
+    "CITriggers": 0,
+    "PRWrites": 0,
+    "phoneActions": 0,
+    "networkSettingsChanges": 0
+  },
+  "licenses": {
+    "htmlToImage": {
+      "text": "MIT License\n\nCopyright (c) 2017-2026 W.Y.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    },
+    "generatedPlaywrightReportSupplement": {
+      "version": "1.64.1",
+      "source": "Installed matching Playwright package license/notice texts accompany the unmodified generated report artifact; supplementary notices, not remote test-input evidence.",
+      "texts": {
+        "LICENSE": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Portions Copyright (c) Microsoft Corporation.\n   Portions Copyright 2017 Google Inc.\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n",
+        "NOTICE": "Playwright\nCopyright (c) Microsoft Corporation\n\nThis software contains code derived from the Puppeteer project (https://github.com/puppeteer/puppeteer),\navailable under the Apache 2.0 license (https://github.com/puppeteer/puppeteer/blob/master/LICENSE).\n",
+        "ThirdPartyNotices.txt": "microsoft/playwright\n\nTHIRD-PARTY SOFTWARE NOTICES AND INFORMATION\n\nThis package bundles third-party software inside individual files under\n`lib/`. Each bundled output has a sidecar `<bundle>.js.LICENSE` file next\nto it listing every npm package whose source was inlined into that\nbundle, together with the full license text for each.\n\nFor example:\n- lib/common/index.js.LICENSE\n- lib/matchers/expect.js.LICENSE\n\nThis project incorporates components from the projects listed below. The original copyright notices and the licenses under which Microsoft received such components are set forth below. Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.\n"
+      }
+    }
+  }
+}

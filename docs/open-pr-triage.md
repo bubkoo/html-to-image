@@ -1,5 +1,15 @@
 # 开放 PR 处理台账
 
+## 2026-11-25 #657 依赖整合后的准确检查
+
+[草稿 #657](https://github.com/bubkoo/html-to-image/pull/657) 已普通整合 #650 的 `877c476`，新 head `0353842` 的父为 `[8fb282c,877c476]`，目标分支为 `codex/document-property-lifetime`。生产源码树严格等于该父，相对它只有九份诊断文件；相对旧 master 的生产变化属于 #650，不能继续称独立 master 补丁。新增 context 只保存原本已计算的原生/owner/probe 标量，不额外读取源对象、修改回收命令、次数、断言、跳过或原测试期限。
+
+[新树 102 份本地原件](evidence/gc-failure-diagnostics-650-0353842/summary.json)独立核对全部阶段的 299 输入、完整 lint/构建/类型/消费者、**1300 coverage / 1181 source**（各四项既有跳过）及 **162 构建浏览器包、零跳过**。最终 Node 八项和两场浏览器控制均绑定当前 M 字节：成功时零诊断，故意强持有仍按原 false 失败，六次原回收外另有一次明确标注的诊断快照；context、ACK、after 观测和清理逐项核验。
+
+[CI 45524225763](https://github.com/bubkoo/html-to-image/actions/runs/45524225763) 已成功，实际日志同样为 **1300 / 1181 / 162**，不是借父版或本地计数。[76 份远端原件](evidence/gc-failure-diagnostics-650-remote-0353842/summary.json)验证测试合并 `6f270dc` 的父 `[877c476,0353842]`、树 `6706b7a` 与 head 相同，以及原 ZIP 的 CRC/全部八成员摘要。Codecov 上传成功与外部 **patch / project 两项 success**分别核对。当前 head 的 CodeQL 因目标分支过滤未调度，不沿用旧 `8fb282c` 的 CodeQL 绿色。
+
+旧 master head 的三项 Firefox 失败、原 WebKit 诊断前后变化和全部中间版本边界仍独立保存。本次通过只验证当前依赖组合和诊断行为，不据此认定旧失败的唯一根因或 #560 整体完成。PR 保持未合并草稿；未发布 npm、未使用手机或修改电脑网络设置。
+
 ## 2026-11-25 独立回收失败诊断 #657
 
 [草稿 #657](https://github.com/bubkoo/html-to-image/pull/657) 的首个 head `8fb282c` 基于 master `f8d1c4b`，只改九份测试/诊断文件，生产源码、package 和 lock 相同。它在原回收判定失败后保存 before/heap/after，固定原布尔和断言；成功路径不发快照命令。WebKit 原生 Heap 能力按当前固定 Playwright 检测，其他引擎明确 unsupported；共享两秒预算与 session 所有权防止诊断掩盖原失败。after 只表示诊断 await 之后，只有明确 ACK 才确认快照完成；预算耗尽可能只有 unknown，不能称诊断完整。
