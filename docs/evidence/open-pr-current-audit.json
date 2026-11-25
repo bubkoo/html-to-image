@@ -1707,5 +1707,47 @@
     "revokeFetchRejected": 10,
     "webkitHeadersOnly200": 2,
     "productionChanged": false
+  },
+  "latestRootMarginScopedCandidate": {
+    "date": "2026-11-25",
+    "branch": "codex/root-layout-origin",
+    "commit": "b39036e8247c92136dae68b96cec9a63732372f5",
+    "base": "2f5b369e376fd462034ee8349125fea9724b61b7",
+    "tree": "c4789b4df229456dd42b8f17114c964c8f81571f",
+    "status": "experimental candidate saved; pause requested after scoped milestone",
+    "userDecision": "preserve explicit16px style/onClone whitespace",
+    "finalFixedMatrix": {
+      "total": 141,
+      "passed": 133,
+      "failed": 8,
+      "defaultScenesPassed": 39,
+      "userIntentScenesWithRawAlphaPassed": 54
+    },
+    "remainingFailures": {
+      "importantRoot": 3,
+      "importantChild": 3,
+      "firefoxColumns": 1,
+      "webkitContentVisibilityAuto": 1
+    },
+    "sameInitial93": {
+      "basePassed": 34,
+      "baseFailed": 59,
+      "initialCandidatePassed": 82,
+      "initialCandidateFailed": 11
+    },
+    "staticChecks": "types, relevant lint and formatting pass; five files exactly match tested snapshots and commit",
+    "notRun": [
+      "full build",
+      "full source suite",
+      "built package suite",
+      "new exact-head remote CI",
+      "new device validation"
+    ],
+    "newPRCreated": false,
+    "separate650BaseExtracted": false,
+    "pauseRequestedByUser": true,
+    "evidence": "docs/evidence/root-layout-candidate-b39036e/summary.json",
+    "receiptCheckout449InputsUnchanged": true,
+    "experimentalCandidateRuntimeChanged": true
   }
 }

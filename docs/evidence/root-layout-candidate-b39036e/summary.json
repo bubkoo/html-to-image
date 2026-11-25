@@ -1,0 +1,70 @@
+{
+  "createdUTC": "2026-11-25T03:37:48.798985+00:00",
+  "scope": "Experimental five-file root-layout work, saved b390;not complete acceptance. Publication closes this small objective and stops.",
+  "head": "b39036e8247c92136dae68b96cec9a63732372f5",
+  "tree": "c4789b4df229456dd42b8f17114c964c8f81571f",
+  "base": "2f5b369e376fd462034ee8349125fea9724b61b7",
+  "sourceSeals": [
+    {
+      "path": "terminal-preliminary-index.json",
+      "sha256": "b6465faeb22b7ffdf47575817eeee87d7a0f8a3884c98f578b8cf6a47ed479ec",
+      "originalMemberCount": 104
+    },
+    {
+      "path": "final-terminal-index.json",
+      "sha256": "37ff94ed2edbab3ba5063ccbb948518f9ebc0dab3aec5d8253b8f99bf82c9295",
+      "originalMemberCount": 44
+    }
+  ],
+  "includedOriginals": 138,
+  "excludedOriginals": 12,
+  "independentDerivationSHA256": "e1601f4d8cd8172e3b71f23a5b8b82aaed89e5d8c154abebf021daa8c60c0aec",
+  "counts": {
+    "baseline93": {
+      "passed": 34,
+      "failed": 59
+    },
+    "initial93": {
+      "passed": 82,
+      "failed": 11
+    },
+    "bounded126": {
+      "passed": 116,
+      "failed": 10
+    },
+    "final141": {
+      "passed": 133,
+      "failed": 8
+    },
+    "finalIntentWithRawAlpha": 54,
+    "finalBottomCases": 12,
+    "filteredDiagnosticSkips": [
+      123,
+      126,
+      126
+    ],
+    "pairedImageRecords": 6
+  },
+  "notes": [
+    "Initial93andbaseline93 use the same fixture/test hashes;126/141 expand the workload. Final8 failure titles already appear in baseline93:important root/child3engines,Firefoxcolumns,WebKitcontent-auto. GroupedVitest errors are preserved without assigning shared scalar messages to everycase. No full/default/package/650-extraction or PR acceptance is claimed.",
+    "All three five-input snapshots are SHA-checked;final commit receipt matches measured bytes and records clean/pushed b390. Childlogical isolated baseline omitted actualbaselineInputs, and intermediate fixture/test full bytes f1b052b/c102259 were not captured;retain before/restored hash receipt,logs,sourceHTML,frozenSVG without retroactive reconstruction.",
+    "Six childlogical JSON records bind UA-derived engine,native/capture PNG and frozenSVG. New verifier recomputes full whiteRGB differences and rawalpha top16 contract:zero-baseline C/WK5120/1280alpha versuscandidate10240/2560;Firefoxpasses in logs. Other provider screenshots can be overwritten/stale viewport captures and are not engine-specific native/export pairs.",
+    "Only the two permittedterminal allowlists were read.12unrelatedoldbranch evidence copies are excluded with explicit list inindex;original104seal and transitionreceipt retained. Static types/lint/format exit0;framework lifecycle limits remain incleanupreceipt. No newbrowser/sourceexecution/network/phone actions;after this package no furtherwork."
+  ],
+  "privacy": {
+    "credentialSignedURLFindings": [],
+    "redactionCount": 0
+  },
+  "operations": {
+    "newBrowsers": 0,
+    "productionChanges": 0,
+    "CITriggers": 0,
+    "networkRequests": 0,
+    "phoneActions": 0,
+    "networkSettingsChanges": 0
+  },
+  "license": {
+    "project": "html-to-image",
+    "text": "MIT License\n\nCopyright (c) 2017-2026 W.Y.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  }
+}
