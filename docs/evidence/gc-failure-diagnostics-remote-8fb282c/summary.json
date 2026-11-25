@@ -1,0 +1,353 @@
+{
+  "createdAt": "2026-11-25T01:06:38.278993+00:00",
+  "scope": "Static publication of sealed old8fb #657 remote attempt1 only; independent from later integration outputs. No new network/browser/test/CI/PR operations.",
+  "links": {
+    "PR": "https://github.com/bubkoo/html-to-image/pull/657",
+    "CI": "https://github.com/bubkoo/html-to-image/actions/runs/45522024628/job/138896004801",
+    "CodeQL": "https://github.com/bubkoo/html-to-image/actions/runs/45522024385"
+  },
+  "originalSeal": {
+    "payloadIncludingOriginalIndex": 72,
+    "originalIndexSHA256": "3551689ec751be21ff4c5579297020df0dc3433d6c9b7c3834c565b425719215",
+    "originalIndexCountExcludingSelf": 71,
+    "allOriginalPayloadsBytePreserved": true
+  },
+  "independentChecks": {
+    "head": "8fb282ca769c297ec3833787e660f22ceb057c46",
+    "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "testedMerge": "57ab218860d37aa310a154e014ccfb3b35952a91",
+    "mergeParents": [
+      "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "8fb282ca769c297ec3833787e660f22ceb057c46"
+    ],
+    "tree": "c3acd5e2f924d3c144275deff400da0dd9774f5d",
+    "mergeTreeEqualsHeadTree": true,
+    "CI": {
+      "run": 45522024628,
+      "job": 138896004801,
+      "attempt": 1,
+      "conclusion": "failure",
+      "createdUTC": "2026-11-25T00:56:54Z",
+      "completedUTC": "2026-11-25T01:00:09Z",
+      "coveragePassed": 1234,
+      "sourcePassed": 1112,
+      "sourceFailed": 3,
+      "skippedEach": 4,
+      "steps": [
+        {
+          "number": 7,
+          "name": "🧹　Check source and test lint",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "📦　Build",
+          "conclusion": "success"
+        },
+        {
+          "number": 9,
+          "name": "🔎　Check published entries",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "🔎　Check browser test types",
+          "conclusion": "success"
+        },
+        {
+          "number": 12,
+          "name": "🧪　Test migrated regressions and browser behavior",
+          "conclusion": "failure"
+        },
+        {
+          "number": 13,
+          "name": "📦　Test built package in browsers",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 14,
+          "name": "📋　Upload browser report",
+          "conclusion": "success"
+        },
+        {
+          "number": 16,
+          "name": "💡　Coveralls",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 17,
+          "name": "💡　Codecov",
+          "conclusion": "skipped"
+        }
+      ],
+      "failureLines": [
+        "2026-11-25T01:00:06.4317614Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=false",
+        "2026-11-25T01:00:06.4320107Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > a disposed SVG environment releases its document with probed=true",
+        "2026-11-25T01:00:06.4404367Z  FAIL   firefox  test/browser-unit/resource-resolver-cancellation.test.ts > cancellation releases private SVG work while a custom font resolver remains pending"
+      ],
+      "disposedControlAnnotationValues": [
+        {
+          "nativeCollected": true,
+          "ownerCollected": false
+        },
+        {
+          "nativeCollected": false,
+          "ownerCollected": false
+        }
+      ]
+    },
+    "CodeQL": {
+      "run": 45522024385,
+      "job": 138896004312,
+      "attempt": 1,
+      "conclusion": "success",
+      "completedUTC": "2026-11-25T00:58:15Z"
+    },
+    "artifact": {
+      "id": 14980382454,
+      "zipBytes": 14999,
+      "sha256": "09888ad021dd2fe162d7affae74d9c1896f8cf0fa2fb6b5a1c0f1eb2331040d8",
+      "apiDigestMatched": true,
+      "CRCChecked": true,
+      "members": 22,
+      "actualHeaps": 0
+    },
+    "cases": [
+      {
+        "id": "1daad9c7-3bd0-4a35-9b99-e9fb8d53076c",
+        "before": {
+          "id": "1daad9c7-3bd0-4a35-9b99-e9fb8d53076c",
+          "caseName": "resolver/environment-true",
+          "browser": "firefox",
+          "phase": "snapshot",
+          "originalCollected": false,
+          "alive": true,
+          "marker": "__hti_gc_failure_1daad9c7_3bd0_4a35_9b99_e9fb8d53076c",
+          "markerAttached": true,
+          "deadline": 1795568393361,
+          "snapshotConfirmed": false,
+          "atUTC": "2026-11-25T00:59:51.613Z"
+        },
+        "after": {
+          "id": "1daad9c7-3bd0-4a35-9b99-e9fb8d53076c",
+          "caseName": "resolver/environment-true",
+          "browser": "firefox",
+          "phase": "after",
+          "originalCollected": false,
+          "alive": true,
+          "marker": "__hti_gc_failure_1daad9c7_3bd0_4a35_9b99_e9fb8d53076c",
+          "markerAttached": true,
+          "deadline": 1795568393611,
+          "snapshotConfirmed": false,
+          "observation": "after-diagnostic-await",
+          "markerRemoved": true,
+          "atUTC": "2026-11-25T00:59:51.616Z"
+        },
+        "transport": {
+          "startedUTC": "2026-11-25T00:59:51.613Z",
+          "pageURL": "http://localhost:63315/__vitest_test__/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7",
+          "frames": [
+            {
+              "name": "",
+              "url": "http://localhost:63315/__vitest_test__/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7"
+            },
+            {
+              "name": "vitest-iframe",
+              "url": "http://localhost:63315/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7&iframeId=%2Fhome%2Frunner%2Fwork%2Fhtml-to-image%2Fhtml-to-image%2Ftest%2Fbrowser-unit%2Fresource-resolver-cancellation.test.ts"
+            }
+          ],
+          "status": "unsupported",
+          "reason": "Native Heap protocol is WebKit-only"
+        },
+        "heapPresent": false
+      },
+      {
+        "id": "d24c460f-856e-4675-be0d-278ba016aed5",
+        "before": {
+          "id": "d24c460f-856e-4675-be0d-278ba016aed5",
+          "caseName": "resolver/environment-false",
+          "browser": "firefox",
+          "phase": "snapshot",
+          "originalCollected": false,
+          "alive": true,
+          "marker": "__hti_gc_failure_d24c460f_856e_4675_be0d_278ba016aed5",
+          "markerAttached": true,
+          "deadline": 1795568393079,
+          "snapshotConfirmed": false,
+          "atUTC": "2026-11-25T00:59:51.329Z"
+        },
+        "after": {
+          "id": "d24c460f-856e-4675-be0d-278ba016aed5",
+          "caseName": "resolver/environment-false",
+          "browser": "firefox",
+          "phase": "after",
+          "originalCollected": false,
+          "alive": true,
+          "marker": "__hti_gc_failure_d24c460f_856e_4675_be0d_278ba016aed5",
+          "markerAttached": true,
+          "deadline": 1795568393329,
+          "snapshotConfirmed": false,
+          "observation": "after-diagnostic-await",
+          "markerRemoved": true,
+          "atUTC": "2026-11-25T00:59:51.335Z"
+        },
+        "transport": {
+          "startedUTC": "2026-11-25T00:59:51.331Z",
+          "pageURL": "http://localhost:63315/__vitest_test__/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7",
+          "frames": [
+            {
+              "name": "",
+              "url": "http://localhost:63315/__vitest_test__/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7"
+            },
+            {
+              "name": "vitest-iframe",
+              "url": "http://localhost:63315/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7&iframeId=%2Fhome%2Frunner%2Fwork%2Fhtml-to-image%2Fhtml-to-image%2Ftest%2Fbrowser-unit%2Fresource-resolver-cancellation.test.ts"
+            }
+          ],
+          "status": "unsupported",
+          "reason": "Native Heap protocol is WebKit-only"
+        },
+        "heapPresent": false
+      },
+      {
+        "id": "e10a9c3a-9eff-4f81-9881-b089a5afd13b",
+        "before": {
+          "id": "e10a9c3a-9eff-4f81-9881-b089a5afd13b",
+          "caseName": "resolver/pending-font",
+          "browser": "firefox",
+          "phase": "snapshot",
+          "originalCollected": false,
+          "alive": true,
+          "marker": "__hti_gc_failure_e10a9c3a_9eff_4f81_9881_b089a5afd13b",
+          "markerAttached": true,
+          "deadline": 1795568393779,
+          "snapshotConfirmed": false,
+          "atUTC": "2026-11-25T00:59:52.030Z"
+        },
+        "after": {
+          "id": "e10a9c3a-9eff-4f81-9881-b089a5afd13b",
+          "caseName": "resolver/pending-font",
+          "browser": "firefox",
+          "phase": "after",
+          "originalCollected": false,
+          "alive": true,
+          "marker": "__hti_gc_failure_e10a9c3a_9eff_4f81_9881_b089a5afd13b",
+          "markerAttached": true,
+          "deadline": 1795568394029,
+          "snapshotConfirmed": false,
+          "observation": "after-diagnostic-await",
+          "markerRemoved": true,
+          "atUTC": "2026-11-25T00:59:52.034Z"
+        },
+        "transport": {
+          "startedUTC": "2026-11-25T00:59:52.031Z",
+          "pageURL": "http://localhost:63315/__vitest_test__/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7",
+          "frames": [
+            {
+              "name": "",
+              "url": "http://localhost:63315/__vitest_test__/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7"
+            },
+            {
+              "name": "vitest-iframe",
+              "url": "http://localhost:63315/?sessionId=c69617b7-1d13-478f-b049-9879b831bff7&iframeId=%2Fhome%2Frunner%2Fwork%2Fhtml-to-image%2Fhtml-to-image%2Ftest%2Fbrowser-unit%2Fresource-resolver-cancellation.test.ts"
+            }
+          ],
+          "status": "unsupported",
+          "reason": "Native Heap protocol is WebKit-only"
+        },
+        "heapPresent": false
+      }
+    ],
+    "pinnedRemoteSourceFiles": [
+      {
+        "path": "test/browser-unit/resource-resolver-cancellation.test.ts",
+        "blobSHA": "7e9df7d5e8eb74e1b13415358f497503a38e3598",
+        "sha256": "b33cb895ef0bb2047d006813f96cd539a44f40197436fb49de21e0d068746ad2",
+        "bytes": 7680,
+        "readUTC": "2026-11-25T01:02:11.106262+00:00"
+      },
+      {
+        "path": "test/browser-unit/gc-failure.ts",
+        "blobSHA": "59c1b1b6e491f733e10c65ca96e3d50dd543e834",
+        "sha256": "ffe4a79de37b2330ab82a3cada6ee158370b31d8e6516af46f080cb99266d59d",
+        "bytes": 2901,
+        "readUTC": "2026-11-25T01:02:11.028476+00:00"
+      },
+      {
+        "path": "test/browser/gc-failure.mjs",
+        "blobSHA": "5fd6396ae3ed8586ba063c75df6b4f0ad2dd72f9",
+        "sha256": "2cec614c90b50b1d766c2a6f5de2043185198e31fb237a946021f1d95d09533d",
+        "bytes": 4202,
+        "readUTC": "2026-11-25T01:02:11.010436+00:00"
+      },
+      {
+        "path": "test/browser/gc-failure-budget.mjs",
+        "blobSHA": "a2a8ff36a10d2814418cb77eba72d77c8ac85b04",
+        "sha256": "6594d260fff8eac451bcb9c6fb6a17df5c0b1b52635502ef174cf0572349ee4a",
+        "bytes": 692,
+        "readUTC": "2026-11-25T01:02:11.025688+00:00"
+      },
+      {
+        "path": "test/browser/gc-failure.d.mts",
+        "blobSHA": "612dacda59fd04f1e89f29765976454dce669c42",
+        "sha256": "6adf4f2a417f3a3b9d8dc3f4246b8c32abfed2cae7da12813aa59f9958ad3bd8",
+        "bytes": 586,
+        "readUTC": "2026-11-25T01:02:11.025587+00:00"
+      },
+      {
+        "path": "vitest.browser.config.mts",
+        "blobSHA": "395384c1ecd92136d80f261f82f713cc97fdd176",
+        "sha256": "b2b0c5c78eeb33e0563e4906353bb7192adad537df09676a3431bf2bf6d9cfd6",
+        "bytes": 7784,
+        "readUTC": "2026-11-25T01:02:11.106826+00:00"
+      }
+    ]
+  },
+  "interpretation": {
+    "revision": "CI and CodeQL API head8fb; both actual job checkout logs confirm merge57ab, parents[f8d,8fb], treec3acd equal head tree. This is fixed historical run evidence, not current remote status.",
+    "result": "CI coverage1234pass/4skip, source1112pass/3fail/4skip. All3failedcases are Firefox resource-resolver cancellation/lifetime tests. Source step12 failed; built-browser package step13 skipped; upload14success; Coveralls16/Codecov17skipped. Therefore remote162package cases did not execute. CodeQL succeeded independently.",
+    "diagnostics": "All3before/after originalCollected=false, alive=true, snapshotConfirmed=false; after observation=after-diagnostic-await and markerRemoved=true. Node transport explicitly unsupported:Native Heap protocol is WebKit-only. ZIP and extracted artifact contain0heap.json. No heap root chain is available, and unsupported does not mean source released.",
+    "assertions": "The original owner collection assertions failed. Disposed cases fail before later native assertion and terminal getDocument rejection check. Pending-font fails at original collection assertion; finally cleanup does not constitute subsequent successful acceptance.",
+    "annotationCorrection": "The sealed assessment disposedControlDiagnosis assigns nativeCollected=true to both probed parameters. Independent full CI ::error annotations contain one nativeCollected=true and one nativeCollected=false, with ownerCollected=false in both. The combined summary FAIL lists two cases before one shared message, so this publication does not map these annotation values to probed parameters without a reliable per-case record. Original assessment is preserved unchanged.",
+    "pendingFont": "Original logged diagnostic has plain=false/sharedFonts=false/nativeProbe=true/measuredProbe=true and InvalidModificationError. Those native retention diagnostics and source tree strings are observations, not a demonstrated shared cause.",
+    "noFix": "This is failure-only diagnostic evidence, not a GC fix. Root cause remains unknown; no common root is inferred with other PR failures. This publication performs0GC calls and0reruns, adds0GC operations, and does not alter original assertions/source. Native snapshot transport was unsupported for these Firefox failures.",
+    "localVsRemote": "Earlier local1234/1115/162 results do not replace remote1112+3source failure or skipped package stage. Later integration results are excluded.",
+    "sourceBoundary": "Six remote pinned source files and their ContentsAPI blob/SHA256 bytes are included; this is not a claim that all293local inputs were retrieved remotely."
+  },
+  "limits": [
+    "No heap was captured for these Firefox failures. No claim about a retaining root, source-release repair, GC stability, or a successful package/coverage upload is justified.",
+    "after-diagnostic-await with snapshotConfirmed=false reports after diagnostic completion/unsupported handling; it is not snapshot-finished confirmation.",
+    "The head/base/merge/tree relationships are independently checked against frozen GitHub metadata and actual checkout logs, not re-fetched live during publication.",
+    "Fixed run timestamps and saved logs are historical. No manual rerun or later-head substitution was performed.",
+    "Public Git commit PGP signatures are authenticity metadata, not credentials or signed artifact-download URLs; they are preserved."
+  ],
+  "privacy": {
+    "scannedTextContainers": 75,
+    "patterns": [
+      "gh[pousr]_[A-Za-z0-9_]{20,}",
+      "github_pat_[A-Za-z0-9_]{20,}",
+      "X-Amz-Signature=",
+      "X-Goog-Signature=",
+      "https://[^\\s\"<>]*\\.blob\\.core\\.windows\\.net/[^\\s\"<>]*[?&]sig=",
+      "[?&]access_token=[A-Za-z0-9_.-]{8,}",
+      "Bearer\\s+eyJ[A-Za-z0-9_.-]{20,}"
+    ],
+    "findings": [],
+    "redactionCount": 0,
+    "redactions": [],
+    "reason": "No credential values or signed download URLs found in saved originals or text ZIP members. Source masks such as *** remain unchanged; public PGP commit signature is retained.",
+    "retainedMetadata": "Public repository/actor metadata, GitHub API/HTML URLs, local CI-provider loopback session URLs, and runner/task paths are original execution provenance. No private phone data."
+  },
+  "operations": {
+    "publicationBrowserRuns": 0,
+    "sourceExecution": 0,
+    "CITriggers": 0,
+    "PRWrites": 0,
+    "phoneActions": 0,
+    "networkSettingsChanges": 0
+  },
+  "license": {
+    "project": "html-to-image",
+    "text": "MIT License\n\nCopyright (c) 2017-2026 W.Y.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  }
+}

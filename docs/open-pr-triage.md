@@ -1,5 +1,15 @@
 # 开放 PR 处理台账
 
+## 2026-11-25 独立回收失败诊断 #657
+
+[草稿 #657](https://github.com/bubkoo/html-to-image/pull/657) 的首个 head `8fb282c` 基于 master `f8d1c4b`，只改九份测试/诊断文件，生产源码、package 和 lock 相同。它在原回收判定失败后保存 before/heap/after，固定原布尔和断言；成功路径不发快照命令。WebKit 原生 Heap 能力按当前固定 Playwright 检测，其他引擎明确 unsupported；共享两秒预算与 session 所有权防止诊断掩盖原失败。after 只表示诊断 await 之后，只有明确 ACK 才确认快照完成；预算耗尽可能只有 unknown，不能称诊断完整。
+
+[本地 296 份原件与独立复验](evidence/gc-failure-diagnostics-local-8fb282c/summary.json)保存 coverage **1234**、source **1115**（各四项既有跳过）、构建浏览器包 **162**通过，以及最终两场控制：一场成功不采快照，一场故意强持有仍按原判定失败。原三次回收在两场中共调用六次，另有一次明确标注的诊断快照。首轮 build/消费者等检查早于四份纯诊断字段的最终修改，最终默认/包流程的 293 输入匹配最终九文件；归档不把中间 Node 八项控制冒充最终接口。原始错误 include 合并曾带入 40 文件并捕获真实 WebKit 失败，原 false 在诊断后目标才释放；后来的 heap 没有 marker 不能恢复原持有链，更不证明问题已修。
+
+[准确合并提交 `57ab218` 的远端回执](evidence/gc-failure-diagnostics-remote-8fb282c/summary.json)核对父 `[f8d1c4b,8fb282c]`、树与 head 相同。[CI 45522024628](https://github.com/bubkoo/html-to-image/actions/runs/45522024628)是 **coverage 1234 通过 / source 1112 通过、3 Firefox 回收失败、4 跳过**；构建浏览器包、Codecov、Coveralls 均 skipped，报告上传成功。CodeQL 45522024385 通过。三份新记录都保留 owner 的原 false、before/after alive=true、unsupported、无 heap，不能借本地绿色或 WebKit 能力解释 Firefox 持有链。原 annotation 同时有 native=true/owner=false 与 native=false/owner=false，分组 AssertionError 不足以可靠绑定 probed 参数；新摘要纠正了旧 assessment 的武断映射而不修改原件。
+
+旧 head、CI 红色及九文件证据保持不变；另在本地核对与 #650 文档生命周期修复的依赖，新合并树尚待自身完整检查和远端验收。未改回收次数、原断言或测试期限，未使用手机、未修改电脑网络设置、未合并 master。
+
 ## 2026-11-25 来源与动画的两项反例
 
 外部 SVG 的新固定矩阵否定了按样式策略统一选择测量文档基址的方案。Chromium 同一个 SVG 中，直接属性/行内 URL 的原生结果来自页面基址，继承变量中的 URL 却来自文件基址；现有 `file/page` 样式参与标志不能替代 URL 来源判断。候选把 Chromium 的差异从 **1200 增至 7200 通道**，新增六列错误；Firefox **8400→8400**、WebKit **12000→12000**，没有改善。精确属性选择器、绝对地址、重定向、xml:base 等控制与完整失败均保留。[90 份原件、六组原生截图对照及独立重算](evidence/svg-measurement-base-20261125/summary.json)没有修改生产代码；后续必须保留胜出声明及变量中 URL token 的来源，不能从最终绝对地址反猜。

@@ -1,0 +1,403 @@
+{
+  "createdAt": "2026-11-25T01:01:31.114354+00:00",
+  "scope": "Local static publication of already frozen #657 GC-failure diagnostic implementation/control/review evidence. No browser/test/CI/PR action during publication.",
+  "PR": "https://github.com/bubkoo/html-to-image/pull/657",
+  "originalSeals": [
+    {
+      "prefix": "author",
+      "originalCount": 255,
+      "originalIndexSHA256": "8c64ed1d2120ae97cab20f77ac865f757ac73ca56cdb6eee29e69de2be35caef"
+    },
+    {
+      "prefix": "review",
+      "originalCount": 41,
+      "originalIndexSHA256": "ac3a2ad1b43c4d8a34ba0284ac6d57ee31d257f8bf3abafd53914445d4bb33e1"
+    }
+  ],
+  "localGitReadback": {
+    "candidate": {
+      "commit": "8fb282ca769c297ec3833787e660f22ceb057c46",
+      "tree": "c3acd5e2f924d3c144275deff400da0dd9774f5d",
+      "commitBase64": "dHJlZSBjM2FjZDVlMmY5MjRkM2MxNDQyNzVkZWZmNDAwZGEwZGQ5Nzc0ZjVkCnBhcmVudCBmOGQxYzRiMWFiYjdkZWNmMTQzZmRmNDE4YWQwOGZhOGIyMmJkMzA5CmF1dGhvciBidWJrb28gPGJ1Ymtvby53eUBnbWFpbC5jb20+IDE3OTU1NjgxMTcgKzA4MDAKY29tbWl0dGVyIGJ1YmtvbyA8YnVia29vLnd5QGdtYWlsLmNvbT4gMTc5NTU2ODExNyArMDgwMAoKdGVzdDogY2FwdHVyZSBib3VuZGVkIGhlYXAgZGlhZ25vc3RpY3MgYWZ0ZXIgR0MgZmFpbHVyZXMK"
+    },
+    "base": {
+      "commit": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+      "tree": "27665c862e76e4939c2c45cbda234d08348cd278",
+      "commitBase64": "dHJlZSAyNzY2NWM4NjJlNzZlNDkzOWMyYzQ1Y2JkYTIzNGQwODM0OGNkMjc4CnBhcmVudCA5MDFjNGJjMGM3MTA4N2FlNDFkZTk1NDU4YjllMDRiY2U1ZWI1ZmYzCmF1dGhvciBOZW8gPGJ1Ymtvby53eUBnbWFpbC5jb20+IDE3OTUwMjQzNTEgKzA4MDAKY29tbWl0dGVyIEdpdEh1YiA8bm9yZXBseUBnaXRodWIuY29tPiAxNzk1MDI0MzUxICswODAwCmdwZ3NpZyAtLS0tLUJFR0lOIFBHUCBTSUdOQVRVUkUtLS0tLQogCiB3c0ZjQkFBQkNBQVFCUUpxL2VYZkNSQzFhUTd1dTVVaGxBQUFFSmtRQUpDT2ZzQkZUeTloMVJINUNrbi9peWRlCiB4c2ttZWpIVGo5emtQQkZlUmIyTk5QaW5XdW5NbWs2NmoxOGVybGhlOFpEeTd0Zzh5VzVwVXBONkdlQTJSQURtCiAwRHhOaldCMzhMcE8wZ3MycGVzdlkyWm9mQjRmY1ljSEw5eHFSYlBRL0JWSHBVcHlLZWprdUEweFh0d1dYQnFKCiBTdUFCdTFxZTRaN2hMQjJzTUdlL0hNcHEzRVFMcS9McG1QaG5zOHlYaHB3cUtZNDZIV0owUXlJWHNCcS9wTURLCiBsWVdTLys4YVJVdTZhbmZxdUNkbjJtOVA1a0JnTzAvSFNRUFNDU3dIcG5JNDRvUmZPSmcyVlBRQUthSkZQMm9MCiB5TjFhNkZPT3dCTTM0MEdHbEFmb3NXdE52cGViMmJDeG9uNXhUQUZCakZhT2FYZGJJbU04UEdkMWlLS1dySzVVCiBvNWJPemZoOTBQMGJVa1dWcDBpc1NSY0RJVm4rTEtISXJ4eFJwcG1sYzc1eU5MbVk5bnlKL2QyeXJmMFdMdEpTCiBrdW5jbzZPbVRyZkttZUpmS1FPbUNoeEpxd0tGMnJoTkpicDFpaE1vNW11RTdCZUNZZGFCTmpvYWlydC83c1BxCiBSTjNSdE1Hc0JjZ2ptTmd1YjJIZUhTK29jTTcvOUxBaGx1K0QzUGRzVUZwQWUrbXEyU29SaTVCbGNXUFhGdlJUCiBpMEpiOUc4bHpKUDdwWlJBSktsUFM2aHYvWkF6eEhRZ2pQMG9QSzBKdjRqT21TMjZzTEdZOE1EY0twWjMvRWlSCiBtbldZNVdSOXZ5QzlwbGhRZFZOenZPQk12bTFwRDhPNVlHcGxDRm16bncxdFFuTjFMU0ZlNzRwV29HRXAwNWtVCiBwV3dhYmdpNHhZVnN6VHc2TXBZVwogPU1vZkwKIC0tLS0tRU5EIFBHUCBTSUdOQVRVUkUtLS0tLQogCgpmaXg6IHByZXNlcnZlIGVtcHR5IHZpZGVvIHN1cmZhY2VzIGJlZm9yZSBtZWRpYSBkYXRhICgjNjQ3KQoKKiBmaXg6IGNhcHR1cmUgZW1wdHkgdmlkZW8gc3VyZmFjZXMgYmVmb3JlIG1lZGlhIGRhdGEgYXJyaXZlcwoKKiBkb2NzOiBhcmNoaXZlIGVtcHR5IHZpZGVvIHJlZ3Jlc3Npb25zIGFuZCBtZWRpYS1zdGF0ZSBib3VuZGFyaWVzCgoqIGRvY3M6IHByZXNlcnZlIGZpcnN0IGVtcHR5LXZpZGVvIENJIGxpZmVjeWNsZSBmYWlsdXJlcwoKKiBkb2NzOiBwcmVzZXJ2ZSBuYXRpdmUgU1ZHIFVSTCBjb250cm9scyBhbmQgc2Vjb25kIENJIGZhaWx1cmUKCiogZG9jczogYXJjaGl2ZSBwaHlzaWNhbCBpUGhvbmUgZW1wdHktdmlkZW8gYWNjZXB0YW5jZQ=="
+    },
+    "trees": {
+      "27665c862e76e4939c2c45cbda234d08348cd278": "MTAwNjQ0IC5lZGl0b3Jjb25maWcAoyjaCLz526zwKMpa5yg5WlHEO9A0MDAwMCAuZ2l0aHViAG757bfLfEVgQUc39Q2vKbGpaTPrMTAwNjQ0IC5naXRpZ25vcmUAULCadQSid0lLdoUEUPJ/US2DCSs0MDAwMCAuaHVza3kAS+luktiHxCDwkHlfZ0/0Gp1+FB00MDAwMCAubGVhcm5pbmdzAMdIzUo171IbRdp+ydGWn4nDr3vLMTAwNjQ0IC5wcmV0dGllcmlnbm9yZQBn9KJTeHOD2ceY2SVtA85pZdeDizEwMDY0NCAucHJldHRpZXJyYwCFrbfmr/xxNt3Z11OvoGR6mQ8xqzEwMDY0NCBDSEFOR0VMT0cubWQAAGJAUSgAxxFYtkGN91rD3v8K7rAxMDA2NDQgQ09ERV9PRl9DT05EVUNULm1kAGMai8eHaC+QVdIbBIhRZLCE5QioMTAwNjQ0IENPTlRSSUJVVElORy5tZADZdJKWoS/LGCKm89DFANjOzdwSbDEwMDY0NCBDT05UUklCVVRPUlMAJ7IW51Z5VuDw00hWuUMTtMSrAcUxMDA2NDQgQ09OVFJJQlVUT1JTLnN2ZwCYJ+WBlpvaeDvEYEJzAJaokDlsnDEwMDY0NCBMSUNFTlNFAAta2nkSDHW9G91G0VK5D1/9bTSWMTAwNjQ0IFJFQURNRS5tZADk7jpa9vs1m2Cb840R71ZkS92wlTEwMDY0NCBjb21taXRsaW50LmNvbmZpZy5janMAtLD0EA6LZIDbV9NNW7lL1q2YE6A0MDAwMCBkb2NzAPED/YdSbCWYMMgLY4iqvl06ctxNMTAwNjQ0IGVzbGludC5jb25maWcubWpzAAevt1YLA61hFaxC4RpNpKFaziNNMTAwNjQ0IHBhY2thZ2UuanNvbgD9hS6lJjvppKdqAU3gX5uEAVQ81zEwMDY0NCBwbGF5d3JpZ2h0LmNvbmZpZy50cwDOVUusBi+CXISjFCBMNHS2bshdcDEwMDY0NCBwbnBtLWxvY2sueWFtbAAANS2YwEcNBXsAvZEQPnD7XD+G/zEwMDY0NCByb2xsdXAuY29uZmlnLmpzADC9AOSiRhF/PxiZTTBX3VBbLh9pNDAwMDAgc2NyaXB0cwAkUISS9y26f3f7AdrXg8LFydlKLzQwMDAwIHNyYwBZx5owF4M3yPh4iQkpqVetmfknYTQwMDAwIHRlc3QAc8j30/K+xMh8solJeqwIKpz6UQsxMDA2NDQgdHNjb25maWcuYnJvd3Nlci10ZXN0cy5qc29uAEyBVJPSxRaXk4gNWffbNNdIqTg5MTAwNjQ0IHRzY29uZmlnLmpzb24AdNyq5998BNhQgGR0e7RBt/cPRIwxMDA2NDQgdml0ZXN0LmJyb3dzZXIuY29uZmlnLm10cwBuKUf/HRJYyObuGDl+FK4mI+WhZw==",
+      "c3acd5e2f924d3c144275deff400da0dd9774f5d": "MTAwNjQ0IC5lZGl0b3Jjb25maWcAoyjaCLz526zwKMpa5yg5WlHEO9A0MDAwMCAuZ2l0aHViAG757bfLfEVgQUc39Q2vKbGpaTPrMTAwNjQ0IC5naXRpZ25vcmUAULCadQSid0lLdoUEUPJ/US2DCSs0MDAwMCAuaHVza3kAS+luktiHxCDwkHlfZ0/0Gp1+FB00MDAwMCAubGVhcm5pbmdzAMdIzUo171IbRdp+ydGWn4nDr3vLMTAwNjQ0IC5wcmV0dGllcmlnbm9yZQBn9KJTeHOD2ceY2SVtA85pZdeDizEwMDY0NCAucHJldHRpZXJyYwCFrbfmr/xxNt3Z11OvoGR6mQ8xqzEwMDY0NCBDSEFOR0VMT0cubWQAAGJAUSgAxxFYtkGN91rD3v8K7rAxMDA2NDQgQ09ERV9PRl9DT05EVUNULm1kAGMai8eHaC+QVdIbBIhRZLCE5QioMTAwNjQ0IENPTlRSSUJVVElORy5tZADZdJKWoS/LGCKm89DFANjOzdwSbDEwMDY0NCBDT05UUklCVVRPUlMAJ7IW51Z5VuDw00hWuUMTtMSrAcUxMDA2NDQgQ09OVFJJQlVUT1JTLnN2ZwCYJ+WBlpvaeDvEYEJzAJaokDlsnDEwMDY0NCBMSUNFTlNFAAta2nkSDHW9G91G0VK5D1/9bTSWMTAwNjQ0IFJFQURNRS5tZADk7jpa9vs1m2Cb840R71ZkS92wlTEwMDY0NCBjb21taXRsaW50LmNvbmZpZy5janMAtLD0EA6LZIDbV9NNW7lL1q2YE6A0MDAwMCBkb2NzAPED/YdSbCWYMMgLY4iqvl06ctxNMTAwNjQ0IGVzbGludC5jb25maWcubWpzAAevt1YLA61hFaxC4RpNpKFaziNNMTAwNjQ0IHBhY2thZ2UuanNvbgD9hS6lJjvppKdqAU3gX5uEAVQ81zEwMDY0NCBwbGF5d3JpZ2h0LmNvbmZpZy50cwDOVUusBi+CXISjFCBMNHS2bshdcDEwMDY0NCBwbnBtLWxvY2sueWFtbAAANS2YwEcNBXsAvZEQPnD7XD+G/zEwMDY0NCByb2xsdXAuY29uZmlnLmpzADC9AOSiRhF/PxiZTTBX3VBbLh9pNDAwMDAgc2NyaXB0cwAkUISS9y26f3f7AdrXg8LFydlKLzQwMDAwIHNyYwBZx5owF4M3yPh4iQkpqVetmfknYTQwMDAwIHRlc3QAu1BdfwvlXLwFWsQBmYF4ROomA5sxMDA2NDQgdHNjb25maWcuYnJvd3Nlci10ZXN0cy5qc29uAEyBVJPSxRaXk4gNWffbNNdIqTg5MTAwNjQ0IHRzY29uZmlnLmpzb24AdNyq5998BNhQgGR0e7RBt/cPRIwxMDA2NDQgdml0ZXN0LmJyb3dzZXIuY29uZmlnLm10cwA5U4TB7NkhNtgPJh+C9xPMl/3Rdg==",
+      "73c8f7d3f2bec4c87cb289497aac082a9cfa510b": "NDAwMDAgYnJvd3Nlci11bml0AFR+85wYmmTDLjW6VzKqJfcQe/euNDAwMDAgYnJvd3NlcgAuf3cJTT8gMidqXiNu5e4IsqYT+DEwMDY0NCBwYWNrYWdlLXNtb2tlLm10cwB9nCM1MtdVmh+TxKNV905YxAnRaDQwMDAwIHJlc291cmNlcwBX8quJFTnLrX3rtkAMVD3DF9ekQTQwMDAwIHNwZWMAflOqFN8EFVfsY9IhuraZQS4uISw=",
+      "bb505d7f0be55cbc055ac40199817844ea26039b": "NDAwMDAgYnJvd3Nlci11bml0AGcu23EHFDursA+s2uiUcD69Egz3NDAwMDAgYnJvd3NlcgDADWKy1TvSFrJOXTW93ziN1jVuKTEwMDY0NCBwYWNrYWdlLXNtb2tlLm10cwB9nCM1MtdVmh+TxKNV905YxAnRaDQwMDAwIHJlc291cmNlcwBX8quJFTnLrX3rtkAMVD3DF9ekQTQwMDAwIHNwZWMAflOqFN8EFVfsY9IhuraZQS4uISw=",
+      "547ef39c189a64c32e35ba5732aa25f7107bf7ae": "MTAwNjQ0IGNhcHR1cmUtbGlmZXRpbWUudGVzdC50cwDQghXhIpu0SQ/kAElLY8JKgHhy2zEwMDY0NCBjYXB0dXJlLnRlc3QudHMARtGBLC15gjvZKYc0QpC5x2RJKq4xMDA2NDQgY2xpcC1wYXRoLnRlc3QudHMAF0MQIeKP936QhXEGTOzkNFzGBuMxMDA2NDQgY3NzLXZhcmlhYmxlcy50ZXN0LnRzABqjEPcq+NH5zfUn8GsVrYhZT9OVMTAwNjQ0IGRpbWVuc2lvbnMudGVzdC50cwBLGg0rfJM1ZXvBt5DDjaO88UyczzEwMDY0NCBmaXhlZC1zY3JvbGwudGVzdC50cwAn6Gk6B3e1I4r2KgbdMOE1M+PBzjEwMDY0NCBmb250LW1ldHJpY3MudGVzdC50cwBShmWGtyman4ouHbmfj8oxBxBZizEwMDY0NCBpZnJhbWUtZm9udHMudGVzdC50cwBmJ1l5qa3ljmEqSJbwaRA3vjcMOjEwMDY0NCBpbWFnZS1lcnJvcnMudGVzdC50cwDV730+Iu1++0OJ0KCwjERKHsJaYzEwMDY0NCBtaXhlZC1zY3JvbGwudGVzdC50cwDbqzG0hVuNTsD50/kVncmLlHV3ejEwMDY0NCBwb3NpdGlvbmVkLXNjcm9sbC50ZXN0LnRzANdgbVgQRL1PmcYP5Tv5VwSCtSV2MTAwNjQ0IHBzZXVkby1yZXNvdXJjZXMudGVzdC50cwAIWUP84DjorB4o8tXBJpyiYBWoazEwMDY0NCByYXN0ZXItcmV0cnkudGVzdC50cwD+gFLGHgI98Ys1jgemShJtvzUaJDEwMDY0NCByZXNvdXJjZS1wb2xpY3kudGVzdC50cwBON6GD56Rdwblr4MyaSXJ9TQFGqjEwMDY0NCByZXNvdXJjZS1yZXNvbHZlci1jYW5jZWxsYXRpb24udGVzdC50cwD1Oq/uQJ7A/GgekVGE3zTj7zDlZzEwMDY0NCByZXNvdXJjZS1yZXNwb25zZS11cmxzLnRlc3QudHMAycE5zW9AZa2OoRkKJT5zx2cLbnAxMDA2NDQgc2Nyb2xsYmFyLWJveC50ZXN0LnRzAGpkT/pAIK04J/Rcv34bLekHYI+aMTAwNjQ0IHN2Zy1kYXRhLWltcG9ydC1yZXNvdXJjZXMudGVzdC50cwBMjrrDOEiiknY5nRTAysNUP82akTEwMDY0NCBzdmctZGF0YS1pbXBvcnRzLnRlc3QudHMAhwJgwgRe5yDSoEmlwDENM4EzIyMxMDA2NDQgc3ZnLWRlcGVuZGVuY2llcy50ZXN0LnRzAIc61br4vXgE/XJHrNwU26F0p2pqMTAwNjQ0IHN2Zy1mb250LWdseXBocy50ZXN0LnRzAD36rQLOjofhc/JTlacBLNZOIY1eMTAwNjQ0IHN2Zy1mb250LXVuaXRzLnRlc3QudHMAILVqjKavSipLq3BysZw9cKy4/6QxMDA2NDQgc3ZnLWZyYWdtZW50LWxpZmV0aW1lLnRlc3QudHMAhcy7JpRHJhncx+DUL5DUaxqZ9KMxMDA2NDQgc3ZnLWZyYWdtZW50LXBhaW50LnRlc3QudHMAzyTO39FhnJX058y5hJ7Ro2RzGysxMDA2NDQgc3ZnLWZyYWdtZW50LXByb2JlLnRlc3QudHMA8BCjBy3zKXCcVM2ZtS1vWb7Z9E4xMDA2NDQgc3ZnLWltcG9ydC1wcm9iZS50ZXN0LnRzAPyGMGMperK65l+g8quYCT4tlzWkMTAwNjQ0IHN2Zy1uYXRpdmUtc3R5bGVzLnRlc3QudHMApOSplwf1rRf7nZBtQSQ7GYKSRJ4xMDA2NDQgc3ZnLXJlc3BvbnNlLXVybHMudGVzdC50cwDYFhtll3npgFvhemd2NZGE9taJczEwMDY0NCBzdmctc3R5bGUtY3NwLnRlc3QudHMA+2msx8iIqVgSZi8A1y9cdX+i7hMxMDA2NDQgc3ZnLXN0eWxlLWltcG9ydC1wYXJzZXIudGVzdC50cwCvziawVBxl/1Ih+IPgxbMTwb98DzEwMDY0NCBzdmctc3R5bGUtbG9hZGVkLWZvbnQudGVzdC50cwBShxEpI9IBhZ9XyONsDNy0hgjd9TEwMDY0NCBzdmctc3R5bGUtcmVzb3VyY2UtcG9saWN5LnRlc3QudHMAUZ1LIXsG69/Qi1vqGXivmyxsnXgxMDA2NDQgc3ZnLXN0eWxlLXNvdXJjZS1saWZldGltZS50ZXN0LnRzAOQ1imwMokiJtZoz4+/Z9YpkwG6kMTAwNjQ0IHN2Zy1zdHlsZS50ZXN0LnRzABUuOz1MqMTYdV30HxIV2bwjQX8qMTAwNjQ0IHN2Zy11c2UtY3ljbGUudGVzdC50cwAIzKoPJn+/3IPSQvifl+dHPQxspTEwMDY0NCBzdmctdXNlLnRlc3QudHMAXzFMMMWCbxCGfL2b95ze9DXp1aAxMDA2NDQgdHJhbnNmb3JtZWQtc3ZnLnRlc3QudHMAQNk4jO+q2JNU7EVgmZPFJJcFLdkxMDA2NDQgdmlkZW8udGVzdC50cwAsea3cpiMxtKIX+3dHj4z3HKO3VjEwMDY0NCB4bWwtY29tbWVudHMudGVzdC50cwC+GOGYSCzlYJT1B469H8JOSnuKSQ==",
+      "672edb7107143babb00facdae894703ebd120cf7": "MTAwNjQ0IGNhcHR1cmUtbGlmZXRpbWUudGVzdC50cwDJQnillrfr6FMig22Xy9sNwgX6yTEwMDY0NCBjYXB0dXJlLnRlc3QudHMARtGBLC15gjvZKYc0QpC5x2RJKq4xMDA2NDQgY2xpcC1wYXRoLnRlc3QudHMAF0MQIeKP936QhXEGTOzkNFzGBuMxMDA2NDQgY3NzLXZhcmlhYmxlcy50ZXN0LnRzABqjEPcq+NH5zfUn8GsVrYhZT9OVMTAwNjQ0IGRpbWVuc2lvbnMudGVzdC50cwBLGg0rfJM1ZXvBt5DDjaO88UyczzEwMDY0NCBmaXhlZC1zY3JvbGwudGVzdC50cwAn6Gk6B3e1I4r2KgbdMOE1M+PBzjEwMDY0NCBmb250LW1ldHJpY3MudGVzdC50cwBShmWGtyman4ouHbmfj8oxBxBZizEwMDY0NCBnYy1mYWlsdXJlLnRzAFnBsbbkkfcz4Qxlypbj1Q3VQ+g0MTAwNjQ0IGlmcmFtZS1mb250cy50ZXN0LnRzAGYnWXmpreWOYSpIlvBpEDe+Nww6MTAwNjQ0IGltYWdlLWVycm9ycy50ZXN0LnRzANXvfT4i7X77Q4nQoLCMREoewlpjMTAwNjQ0IG1peGVkLXNjcm9sbC50ZXN0LnRzANurMbSFW41OwPnT+RWdyYuUdXd6MTAwNjQ0IHBvc2l0aW9uZWQtc2Nyb2xsLnRlc3QudHMA12BtWBBEvU+Zxg/lO/lXBIK1JXYxMDA2NDQgcHNldWRvLXJlc291cmNlcy50ZXN0LnRzAAhZQ/zgOOisHijy1cEmnKJgFahrMTAwNjQ0IHJhc3Rlci1yZXRyeS50ZXN0LnRzAP6AUsYeAj3xizWOB6ZKEm2/NRokMTAwNjQ0IHJlc291cmNlLXBvbGljeS50ZXN0LnRzAE43oYPnpF3BuWvgzJpJcn1NAUaqMTAwNjQ0IHJlc291cmNlLXJlc29sdmVyLWNhbmNlbGxhdGlvbi50ZXN0LnRzAH6d99Xo63ThsTQVNY9JdQOjjjWYMTAwNjQ0IHJlc291cmNlLXJlc3BvbnNlLXVybHMudGVzdC50cwDJwTnNb0BlrY6hGQolPnPHZwtucDEwMDY0NCBzY3JvbGxiYXItYm94LnRlc3QudHMAamRP+kAgrTgn9Fy/fhst6Qdgj5oxMDA2NDQgc3ZnLWRhdGEtaW1wb3J0LXJlc291cmNlcy50ZXN0LnRzAEyOusM4SKKSdjmdFMDKw1Q/zZqRMTAwNjQ0IHN2Zy1kYXRhLWltcG9ydHMudGVzdC50cwCHAmDCBF7nINKgSaXAMQ0zgTMjIzEwMDY0NCBzdmctZGVwZW5kZW5jaWVzLnRlc3QudHMAhzrVuvi9eAT9ckes3BTboXSnamoxMDA2NDQgc3ZnLWZvbnQtZ2x5cGhzLnRlc3QudHMAPfqtAs6Oh+Fz8lOVpwEs1k4hjV4xMDA2NDQgc3ZnLWZvbnQtdW5pdHMudGVzdC50cwAgtWqMpq9KKkurcHKxnD1wrLj/pDEwMDY0NCBzdmctZnJhZ21lbnQtbGlmZXRpbWUudGVzdC50cwBq9aFin01PT6eaBrLdKFn8mUJysjEwMDY0NCBzdmctZnJhZ21lbnQtcGFpbnQudGVzdC50cwDPJM7f0WGclfTnzLmEntGjZHMbKzEwMDY0NCBzdmctZnJhZ21lbnQtcHJvYmUudGVzdC50cwDwEKMHLfMpcJxUzZm1LW9Zvtn0TjEwMDY0NCBzdmctaW1wb3J0LXByb2JlLnRlc3QudHMA/IYwYyl6srrmX6Dyq5gJPi2XNaQxMDA2NDQgc3ZnLW5hdGl2ZS1zdHlsZXMudGVzdC50cwCk5KmXB/WtF/udkG1BJDsZgpJEnjEwMDY0NCBzdmctcmVzcG9uc2UtdXJscy50ZXN0LnRzANgWG2WXeemAW+F6Z3Y1kYT21olzMTAwNjQ0IHN2Zy1zdHlsZS1jc3AudGVzdC50cwD7aazHyIipWBJmLwDXL1x1f6LuEzEwMDY0NCBzdmctc3R5bGUtaW1wb3J0LXBhcnNlci50ZXN0LnRzAK/OJrBUHGX/UiH4g+DFsxPBv3wPMTAwNjQ0IHN2Zy1zdHlsZS1sb2FkZWQtZm9udC50ZXN0LnRzAFKHESkj0gGFn1fI42wM3LSGCN31MTAwNjQ0IHN2Zy1zdHlsZS1yZXNvdXJjZS1wb2xpY3kudGVzdC50cwBRnUshewbr39CLW+oZeK+bLGydeDEwMDY0NCBzdmctc3R5bGUtc291cmNlLWxpZmV0aW1lLnRlc3QudHMA5DWKbAyiSIm1mjPj79n1imTAbqQxMDA2NDQgc3ZnLXN0eWxlLnRlc3QudHMAFS47PUyoxNh1XfQfEhXZvCNBfyoxMDA2NDQgc3ZnLXVzZS1jeWNsZS50ZXN0LnRzAAjMqg8mf7/cg9JC+J+X50c9DGylMTAwNjQ0IHN2Zy11c2UudGVzdC50cwBfMUwwxYJvEIZ8vZv3nN70NenVoDEwMDY0NCB0cmFuc2Zvcm1lZC1zdmcudGVzdC50cwBA2TiM76rYk1TsRWCZk8UklwUt2TEwMDY0NCB2aWRlby50ZXN0LnRzACx5rdymIzG0ohf7d0ePjPcco7dWMTAwNjQ0IHhtbC1jb21tZW50cy50ZXN0LnRzAL4Y4ZhILOVglPUHjr0fwk5Ke4pJ",
+      "2e7f77094d3f2032276a5e236ee5ee08b2a613f8": "MTAwNjQ0IGNyb3NzLW9yaWdpbi5jc3MASTOzDieiq0QSce8mHJFxh2Exehs0MDAwMCBmaXh0dXJlcwDoyNpH3qbdgsrkQs3D7P7ho0tCMzEwMDY0NCBwYWNrYWdlLnRlc3QudHMAQY2ZsKkOrd/OdAm2Q0/UMJOx1I8xMDA2NDQgc2VydmVyLm1qcwCjmbtcS+FPsXMKCO1FR3vyNIQknDEwMDY0NCBzbW9rZS5odG1sAIqSxoAwoSwXc01eZqfj0Fxan3M5MTAwNjQ0IHNwcml0ZXMuc3ZnAFkVkIj6dUpXtW0j8xKGhn/OUZrXMTAwNjQ0IHN2Zy1uYXRpdmUtZGV2aWNlLmh0bWwAB+RqavQuhlllGpLC5gLcw4hEdn8xMDA2NDQgc3ZnLXN0eWxlLW5hdGl2ZS1wcm9iZS5odG1sAK7zI8tsYFXNIaLL0JFnCechjRlyMTAwNjQ0IHVtZC5odG1sAEODM5UoHGG9mPKVe++J5U2vfVTr",
+      "c00d62b2d53bd216b24e5d35bddf388dd6356e29": "MTAwNjQ0IGNyb3NzLW9yaWdpbi5jc3MASTOzDieiq0QSce8mHJFxh2Exehs0MDAwMCBmaXh0dXJlcwDoyNpH3qbdgsrkQs3D7P7ho0tCMzEwMDY0NCBnYy1mYWlsdXJlLWJ1ZGdldC5kLm10cwDytZYkeSt3ax2vDWZoOOt/gvQBLDEwMDY0NCBnYy1mYWlsdXJlLWJ1ZGdldC5tanMAoqj/NqENKBRBjLd+unLXfIrIWwQxMDA2NDQgZ2MtZmFpbHVyZS5kLm10cwBhLazaWf0E8eifKXZZdkVNzmacQjEwMDY0NCBnYy1mYWlsdXJlLm1qcwBf1jlq4+2FhroGPHXfa08K0t1y+TEwMDY0NCBwYWNrYWdlLnRlc3QudHMAQY2ZsKkOrd/OdAm2Q0/UMJOx1I8xMDA2NDQgc2VydmVyLm1qcwCjmbtcS+FPsXMKCO1FR3vyNIQknDEwMDY0NCBzbW9rZS5odG1sAIqSxoAwoSwXc01eZqfj0Fxan3M5MTAwNjQ0IHNwcml0ZXMuc3ZnAFkVkIj6dUpXtW0j8xKGhn/OUZrXMTAwNjQ0IHN2Zy1uYXRpdmUtZGV2aWNlLmh0bWwAB+RqavQuhlllGpLC5gLcw4hEdn8xMDA2NDQgc3ZnLXN0eWxlLW5hdGl2ZS1wcm9iZS5odG1sAK7zI8tsYFXNIaLL0JFnCechjRlyMTAwNjQ0IHVtZC5odG1sAEODM5UoHGG9mPKVe++J5U2vfVTr"
+    }
+  },
+  "verifiedCommitScope": {
+    "exactCommit": "8fb282ca769c297ec3833787e660f22ceb057c46",
+    "parent": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "changedFiles": [
+      "test/browser-unit/capture-lifetime.test.ts",
+      "test/browser-unit/gc-failure.ts",
+      "test/browser-unit/resource-resolver-cancellation.test.ts",
+      "test/browser-unit/svg-fragment-lifetime.test.ts",
+      "test/browser/gc-failure-budget.d.mts",
+      "test/browser/gc-failure-budget.mjs",
+      "test/browser/gc-failure.d.mts",
+      "test/browser/gc-failure.mjs",
+      "vitest.browser.config.mts"
+    ],
+    "runtimeAndDependencyEntriesEqual": true
+  },
+  "independentChecks": {
+    "stages": [
+      {
+        "family": "full-checks",
+        "stage": "lint",
+        "inputCount": 293,
+        "beforeAfterEqual": true,
+        "finalNineDifferences": [
+          {
+            "path": "test/browser-unit/gc-failure.ts",
+            "testedSHA256": "fa70957cd32c9a2e642d3ff788ad78f4a880607e9f356d02da1da86c2d0af297",
+            "finalSHA256": "ffe4a79de37b2330ab82a3cada6ee158370b31d8e6516af46f080cb99266d59d"
+          },
+          {
+            "path": "test/browser/gc-failure.d.mts",
+            "testedSHA256": "f29050b2055548cf8b99be281cd8da0651861e1aae7ee805e75046fb152660aa",
+            "finalSHA256": "6adf4f2a417f3a3b9d8dc3f4246b8c32abfed2cae7da12813aa59f9958ad3bd8"
+          },
+          {
+            "path": "test/browser/gc-failure.mjs",
+            "testedSHA256": "e6c2132df987fa857f23d55575ce932a60b3981caf1ee7fa28b200d50e31a942",
+            "finalSHA256": "2cec614c90b50b1d766c2a6f5de2043185198e31fb237a946021f1d95d09533d"
+          },
+          {
+            "path": "vitest.browser.config.mts",
+            "testedSHA256": "a4665086394498556e663b11ba58d542bebecc3800faa6e7d2233a53a084ddd8",
+            "finalSHA256": "b2b0c5c78eeb33e0563e4906353bb7192adad537df09676a3431bf2bf6d9cfd6"
+          }
+        ],
+        "startedUTC": "2026-11-25T00:49:58.480Z",
+        "completedUTC": "2026-11-25T00:50:00.170Z"
+      },
+      {
+        "family": "full-checks",
+        "stage": "build",
+        "inputCount": 293,
+        "beforeAfterEqual": true,
+        "finalNineDifferences": [
+          {
+            "path": "test/browser-unit/gc-failure.ts",
+            "testedSHA256": "fa70957cd32c9a2e642d3ff788ad78f4a880607e9f356d02da1da86c2d0af297",
+            "finalSHA256": "ffe4a79de37b2330ab82a3cada6ee158370b31d8e6516af46f080cb99266d59d"
+          },
+          {
+            "path": "test/browser/gc-failure.d.mts",
+            "testedSHA256": "f29050b2055548cf8b99be281cd8da0651861e1aae7ee805e75046fb152660aa",
+            "finalSHA256": "6adf4f2a417f3a3b9d8dc3f4246b8c32abfed2cae7da12813aa59f9958ad3bd8"
+          },
+          {
+            "path": "test/browser/gc-failure.mjs",
+            "testedSHA256": "e6c2132df987fa857f23d55575ce932a60b3981caf1ee7fa28b200d50e31a942",
+            "finalSHA256": "2cec614c90b50b1d766c2a6f5de2043185198e31fb237a946021f1d95d09533d"
+          },
+          {
+            "path": "vitest.browser.config.mts",
+            "testedSHA256": "a4665086394498556e663b11ba58d542bebecc3800faa6e7d2233a53a084ddd8",
+            "finalSHA256": "b2b0c5c78eeb33e0563e4906353bb7192adad537df09676a3431bf2bf6d9cfd6"
+          }
+        ],
+        "startedUTC": "2026-11-25T00:50:00.215Z",
+        "completedUTC": "2026-11-25T00:50:04.099Z"
+      },
+      {
+        "family": "full-checks",
+        "stage": "types",
+        "inputCount": 293,
+        "beforeAfterEqual": true,
+        "finalNineDifferences": [
+          {
+            "path": "test/browser-unit/gc-failure.ts",
+            "testedSHA256": "fa70957cd32c9a2e642d3ff788ad78f4a880607e9f356d02da1da86c2d0af297",
+            "finalSHA256": "ffe4a79de37b2330ab82a3cada6ee158370b31d8e6516af46f080cb99266d59d"
+          },
+          {
+            "path": "test/browser/gc-failure.d.mts",
+            "testedSHA256": "f29050b2055548cf8b99be281cd8da0651861e1aae7ee805e75046fb152660aa",
+            "finalSHA256": "6adf4f2a417f3a3b9d8dc3f4246b8c32abfed2cae7da12813aa59f9958ad3bd8"
+          },
+          {
+            "path": "test/browser/gc-failure.mjs",
+            "testedSHA256": "e6c2132df987fa857f23d55575ce932a60b3981caf1ee7fa28b200d50e31a942",
+            "finalSHA256": "2cec614c90b50b1d766c2a6f5de2043185198e31fb237a946021f1d95d09533d"
+          },
+          {
+            "path": "vitest.browser.config.mts",
+            "testedSHA256": "a4665086394498556e663b11ba58d542bebecc3800faa6e7d2233a53a084ddd8",
+            "finalSHA256": "b2b0c5c78eeb33e0563e4906353bb7192adad537df09676a3431bf2bf6d9cfd6"
+          }
+        ],
+        "startedUTC": "2026-11-25T00:50:04.147Z",
+        "completedUTC": "2026-11-25T00:50:05.527Z"
+      },
+      {
+        "family": "full-checks",
+        "stage": "consumers",
+        "inputCount": 293,
+        "beforeAfterEqual": true,
+        "finalNineDifferences": [
+          {
+            "path": "test/browser-unit/gc-failure.ts",
+            "testedSHA256": "fa70957cd32c9a2e642d3ff788ad78f4a880607e9f356d02da1da86c2d0af297",
+            "finalSHA256": "ffe4a79de37b2330ab82a3cada6ee158370b31d8e6516af46f080cb99266d59d"
+          },
+          {
+            "path": "test/browser/gc-failure.d.mts",
+            "testedSHA256": "f29050b2055548cf8b99be281cd8da0651861e1aae7ee805e75046fb152660aa",
+            "finalSHA256": "6adf4f2a417f3a3b9d8dc3f4246b8c32abfed2cae7da12813aa59f9958ad3bd8"
+          },
+          {
+            "path": "test/browser/gc-failure.mjs",
+            "testedSHA256": "e6c2132df987fa857f23d55575ce932a60b3981caf1ee7fa28b200d50e31a942",
+            "finalSHA256": "2cec614c90b50b1d766c2a6f5de2043185198e31fb237a946021f1d95d09533d"
+          },
+          {
+            "path": "vitest.browser.config.mts",
+            "testedSHA256": "a4665086394498556e663b11ba58d542bebecc3800faa6e7d2233a53a084ddd8",
+            "finalSHA256": "b2b0c5c78eeb33e0563e4906353bb7192adad537df09676a3431bf2bf6d9cfd6"
+          }
+        ],
+        "startedUTC": "2026-11-25T00:50:05.573Z",
+        "completedUTC": "2026-11-25T00:50:08.115Z"
+      },
+      {
+        "family": "full-browser-checks",
+        "stage": "default",
+        "inputCount": 293,
+        "beforeAfterEqual": true,
+        "finalNineDifferences": [],
+        "startedUTC": "2026-11-25T00:51:32.291Z",
+        "completedUTC": "2026-11-25T00:52:06.308Z"
+      },
+      {
+        "family": "full-browser-checks",
+        "stage": "browser-package",
+        "inputCount": 293,
+        "beforeAfterEqual": true,
+        "finalNineDifferences": [],
+        "startedUTC": "2026-11-25T00:52:06.481Z",
+        "completedUTC": "2026-11-25T00:54:16.385Z"
+      }
+    ],
+    "runtimeInputHashesEqualAcrossStages": true,
+    "coveragePassed": 1234,
+    "sourcePassed": 1115,
+    "skippedEach": 4,
+    "packagePassed": 162,
+    "finalControl": {
+      "passed": 1,
+      "deliberatelyFailed": 1,
+      "gcRequests": 6,
+      "snapshotRequests": 1,
+      "successDiagnostics": 0,
+      "finalNineByteExact": true
+    },
+    "finalKnownStrongHolder": {
+      "prefix": "author/final-two-controls/artifacts/9c6d259d-d142-4ce1-bdb0-e4e0a30ce417",
+      "heapSHA256": "0fd1ef827af4d48db6aa1ce521261781776fdbea44feea7aefa3e61afdbf27e5",
+      "heapBytes": 2799576,
+      "before": {
+        "id": "9c6d259d-d142-4ce1-bdb0-e4e0a30ce417",
+        "caseName": "control-deliberate-strong-held",
+        "browser": "webkit",
+        "phase": "snapshot",
+        "originalCollected": false,
+        "alive": true,
+        "marker": "__hti_gc_failure_9c6d259d_d142_4ce1_bdb0_e4e0a30ce417",
+        "markerAttached": true,
+        "deadline": 1795568074557,
+        "snapshotConfirmed": false,
+        "atUTC": "2026-11-25T00:54:32.808Z"
+      },
+      "after": {
+        "id": "9c6d259d-d142-4ce1-bdb0-e4e0a30ce417",
+        "caseName": "control-deliberate-strong-held",
+        "browser": "webkit",
+        "phase": "after",
+        "originalCollected": false,
+        "alive": true,
+        "marker": "__hti_gc_failure_9c6d259d_d142_4ce1_bdb0_e4e0a30ce417",
+        "markerAttached": true,
+        "deadline": 1795568074807,
+        "snapshotConfirmed": true,
+        "snapshotFinishedUTC": "2026-11-25T00:54:32.904Z",
+        "observation": "after-diagnostic-await",
+        "markerRemoved": true,
+        "atUTC": "2026-11-25T00:54:32.914Z"
+      },
+      "transport": {
+        "startedUTC": "2026-11-25T00:54:32.809Z",
+        "snapshotFinishedUTC": "2026-11-25T00:54:32.904Z",
+        "status": "saved",
+        "bytes": 2799576,
+        "sha256": "0fd1ef827af4d48db6aa1ce521261781776fdbea44feea7aefa3e61afdbf27e5",
+        "pageURL": "http://localhost:4277/__vitest_test__/?sessionId=9c3fc9a1-4fd3-414f-8066-8d6673216e48",
+        "frames": [
+          {
+            "name": "",
+            "url": "http://localhost:4277/__vitest_test__/?sessionId=9c3fc9a1-4fd3-414f-8066-8d6673216e48"
+          },
+          {
+            "name": "vitest-iframe",
+            "url": "http://localhost:4277/?sessionId=9c3fc9a1-4fd3-414f-8066-8d6673216e48&iframeId=%2FUsers%2Fbytedance%2F.codex%2Fworktrees%2Fgc-runner-frame-controls%2Fhtml-to-image%2Foutput%2Fplaywright%2Fgc-failure-implementation-controls-20261125%2Ffinal-two-controls%2Fcontrol.test.ts"
+          }
+        ],
+        "completedUTC": "2026-11-25T00:54:32.912Z"
+      },
+      "markerPropertyEdges": [
+        {
+          "from": 41636,
+          "to": 41665,
+          "name": "__hti_gc_failure_9c6d259d_d142_4ce1_bdb0_e4e0a30ce417"
+        }
+      ],
+      "knownStrongHolderChains": [
+        {
+          "holder": {
+            "from": 31978,
+            "to": 41598,
+            "name": "__gcKnownStrongHolder"
+          },
+          "source": {
+            "from": 41598,
+            "to": 41636,
+            "name": "sourceDocument"
+          },
+          "marker": {
+            "from": 41636,
+            "to": 41665,
+            "name": "__hti_gc_failure_9c6d259d_d142_4ce1_bdb0_e4e0a30ce417"
+          },
+          "sourceClass": {
+            "class": "HTMLDocument",
+            "flags": 4
+          }
+        }
+      ]
+    },
+    "originalRealFailure": {
+      "prefix": "author/initial-unbounded-inputs/artifacts/0203913a-b0e9-4bb2-a2c3-51b6565425c6",
+      "heapSHA256": "f06e847555b544d679ebc554293c91691693974343707423302b957a452b22c1",
+      "heapBytes": 14615521,
+      "before": {
+        "id": "0203913a-b0e9-4bb2-a2c3-51b6565425c6",
+        "caseName": "svg-fragment/frozen-host-tree",
+        "browser": "webkit",
+        "phase": "snapshot",
+        "originalCollected": false,
+        "alive": true,
+        "marker": "__hti_gc_failure_0203913a_b0e9_4bb2_a2c3_51b6565425c6",
+        "markerAttached": true,
+        "atUTC": "2026-11-25T00:42:43.476Z"
+      },
+      "after": {
+        "id": "0203913a-b0e9-4bb2-a2c3-51b6565425c6",
+        "caseName": "svg-fragment/frozen-host-tree",
+        "browser": "webkit",
+        "phase": "after",
+        "originalCollected": false,
+        "alive": false,
+        "marker": "__hti_gc_failure_0203913a_b0e9_4bb2_a2c3_51b6565425c6",
+        "markerAttached": true,
+        "markerRemoved": true,
+        "atUTC": "2026-11-25T00:42:44.028Z"
+      },
+      "transport": {
+        "startedUTC": "2026-11-25T00:42:43.477Z",
+        "status": "saved",
+        "bytes": 14615521,
+        "sha256": "f06e847555b544d679ebc554293c91691693974343707423302b957a452b22c1",
+        "completedUTC": "2026-11-25T00:42:44.026Z"
+      },
+      "markerPropertyEdges": [],
+      "knownStrongHolderChains": []
+    },
+    "initialSetup": {
+      "includedFiles": 40,
+      "counts": {
+        "passed": 372,
+        "failed": 2,
+        "skipped": 1
+      }
+    },
+    "nodeGates": {
+      "cases": 8,
+      "result": "all passed",
+      "scope": "Intermediate bounded e6c2132d helper; not final ACK/helper browser controls."
+    }
+  },
+  "interpretation": {
+    "purpose": "Failure-only bounded test diagnostics, not an application GC repair. Original production src and package/lock entries are identical to exact parent f8d.",
+    "finalHead": "Exact local commit8fb282ca769c297ec3833787e660f22ceb057c46; final-source nine files resolve to actual commit-tree blobs, full recursive changed-tree diff proves those are the only changed paths. Git commit/tree object hashes verified portably.",
+    "finalFullBrowser": "Final default coverage1234pass/4skip, source1115pass/4skip; package162pass. Each stage293 inputs before=after; all final nine helper/config/test hashes equal the committed bytes. The application runtime input hashes are equal across earlier static and final browser stages.",
+    "earlierStaticBoundary": "First lint/build/types/consumers succeeded with293stable inputs each, but four helper/config files still have intermediate hashes. Application src/package/lock unchanged; no claim that all commands tested final nine bytes. Exact differences are per stage in independentChecks. Generated package bytes are not in the293 ledger; build/consumer logs establish the earlier successful command behavior, not a new final-artifact byte seal.",
+    "finalLintTypes": "Final lint/types logs are preserved; author assessment reports final reruns passed. There is no separate final-rerun293 input ledger here, so that report is distinct from the fully hash-bound final default/package stages.",
+    "nodeEight": "Eight pure Node pending/rejection/ownership gates passed for bounded intermediate e6c2132d helper; reviewer explicitly identifies this scope. They do not replace final ACK browser controls or claim final eight-gate re-execution.",
+    "finalControls": "Exactly2 original-control tests on final nine bytes: successful collection1pass and deliberately held document1failure;6existing GC commands plus1snapshot RPC and1after RPC. Success branch starts0diagnostics. Final after JSON says snapshotConfirmed=true, snapshotFinishedUTC equal saved transport timestamp, observation=after-diagnostic-await. Original false remains false.",
+    "earlierMistake": "Initial mergeConfig concatenated39original include files plus1control, unexpectedly running40files:372pass/2fail/1skip. A real local WK frozen-host-tree collection assertion failed, alongside the deliberate strong holder failure. This was initial seven-file diagnostics, not final commit; transformed in-memory Vite JS was not separately captured. Complete fixed measured input copies/logs/heap/before/after retained.",
+    "actualFailure": "Initial real failure before originalCollected=false/alive=true; after snapshot originalCollected=false/alive=false and marker property edges absent. Original failure remains a failure; snapshot can change GC/inspector state and does not recover its pre-snapshot retaining root. Frame/pixel assertions following collection were not reached.",
+    "positiveHeap": "Final deliberate holder snapshot contains exactly1marker Property edge, with actual __gcKnownStrongHolder→sourceDocument→marker chain and HTMLDocument owner. This validates positive diagnostic observability only; the marker is introduced after failure and is not a pristine library root.",
+    "races": "Original read-only review/probes retained: unbounded diagnostic could block original expect; late placeholder overwrite; failed enable disabling an unowned session. Bounded deadline, separate after-pending file, session-owner token held until disable ACK, then final saved/finished/after semantics are separate frozen revisions. Final review accepted these within scope.",
+    "remoteBoundary": "This package contains local evidence only. Author assessment not-pushed wording is a historical frozen receipt; PR link is context provided by root. No remote CI result, merge-tree result, or exact remote head was fetched or validated here."
+  },
+  "limits": [
+    "Missing original marker edges is not proof of no retaining root; only the after-snapshot observation is available. Root cause remains unknown and original three-GC failure is not repaired.",
+    "after-diagnostic-await is not automatically snapshot completion: only explicit saved transport/snapshotFinishedUTC ACK confirms finished snapshot; exhausted budget can leave after unknown/missing and means incomplete diagnostic.",
+    "One2000ms diagnostic total; pending async operations bounded, but synchronous JSON serialization and VM GC cannot be preempted by JS timer. Late native work can continue after logical timeout.",
+    "Snapshot/expando/WeakRef observations can affect collection or introduce inspector roots. Known strong-holder control is intentionally artificial; no generalized product ownership cause is claimed.",
+    "No generic browser lifecycle precision: framework-managed browser launch/close timestamps were not directly observed; author process completion and listener-absent receipts bound owned services.",
+    "Full local green gates do not erase earlier local/remote GC failures or authorize merging a product fix."
+  ],
+  "cleanup": {
+    "providerProcessesExited": true,
+    "explicitBrowserLaunchCloseUTC": "Unknown for Vitest/Playwright managed runs; process receipts bound lifecycle. No claim of exact browser launch timestamp.",
+    "ownedPorts": {
+      "4213": {
+        "exitCode": 1,
+        "output": "",
+        "listenerAbsent": true
+      },
+      "4277": {
+        "exitCode": 1,
+        "output": "",
+        "listenerAbsent": true
+      }
+    },
+    "phoneOperations": 0,
+    "networkSettingsChanges": 0
+  },
+  "publication": {
+    "payloadCount": 296,
+    "payloadBytes": 29383133,
+    "fixedAllowlist": "All255indexed author originals including its index; all41indexed review originals including its index. No full node_modules/.git or unindexed temporary copies.",
+    "privacyScan": {
+      "credentialOrSignedDownloadPatterns": [],
+      "forbiddenArchiveMemberPaths": [],
+      "privatePhoneFolderReferences": []
+    },
+    "heapPrivacyScope": "All recorded heaps originate controlled local fixture/provider runs. Byte patterns scanned for credential/signed-download/private-phone indicators; task-local absolute paths, loopback provider URLs/session IDs, test source/dependency names are retained as original provenance. This is not a claim that snapshots contain no ordinary execution metadata.",
+    "newBrowserRuns": 0,
+    "newSourceExecution": 0,
+    "remoteWrites": 0,
+    "phoneActions": 0,
+    "networkSettingChanges": 0
+  },
+  "license": {
+    "project": "html-to-image",
+    "text": "MIT License\n\nCopyright (c) 2017-2026 W.Y.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  }
+}

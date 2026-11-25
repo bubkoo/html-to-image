@@ -1616,5 +1616,33 @@
     "selectedBaseParameterIsNotDirectDocumentBaseURIObservation": true,
     "sourceDOMAndNativeScreenshotsUnchanged": true,
     "productionIntegration": false
+  },
+  "gcFailureDiagnosticsInitialMasterHead": {
+    "pr": 657,
+    "head": "8fb282ca769c297ec3833787e660f22ceb057c46",
+    "base": "f8d1c4b1abb7decf143fdf418ad08fa8b22bd309",
+    "merge": "57ab218860d37aa310a154e014ccfb3b35952a91",
+    "headAndMergeTree": "c3acd5e2f924d3c144275deff400da0dd9774f5d",
+    "runtimeSourcePackageLockUnchanged": true,
+    "changedTestAndDiagnosticFiles": 9,
+    "localEvidence": "docs/evidence/gc-failure-diagnostics-local-8fb282c/summary.json",
+    "localCoverageSourcePackagePassed": [1234, 1115, 162],
+    "localStaticCohortBoundaryRecorded": true,
+    "originalVerdictFixedBeforeSnapshot": true,
+    "diagnosticMayPerformExtraGC": true,
+    "remoteEvidence": "docs/evidence/gc-failure-diagnostics-remote-8fb282c/summary.json",
+    "ciRun": 45522024628,
+    "ciConclusion": "failure",
+    "remoteCoveragePassed": 1234,
+    "remoteSourcePassedFailedSkipped": [1112, 3, 4],
+    "failedEngine": "firefox",
+    "packageCodecovCoverallsSkipped": true,
+    "CodeQLRun": 45522024385,
+    "CodeQLConclusion": "success",
+    "newFailureRecords": 3,
+    "newFailureRecordsAllUnsupportedWithoutHeap": true,
+    "nativeControlGroupedAnnotationMappingUnproven": true,
+    "isGCBehaviorFix": false,
+    "masterMerged": false
   }
 }
