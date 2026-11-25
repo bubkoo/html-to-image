@@ -6,6 +6,7 @@ import { applyStyle } from './apply-style.js'
 import { embedWebFonts } from './embed-webfonts.js'
 import { embedImages, embedClonedStyles } from './embed-images.js'
 import { CaptureTask } from './task.js'
+import { prepareRootLayout } from './root-layout.js'
 import {
   canvasToBlob,
   checkCanvasDimensions,
@@ -47,7 +48,18 @@ export async function createCapture(
       }
 
       task.stage('clone')
-      const root = (await cloneNode(node as HTMLElement, options, true, false))!
+      const rootLayout =
+        readDOMProperty(node, 'namespaceURI') === 'http://www.w3.org/1999/xhtml'
+          ? prepareRootLayout(node as HTMLElement)
+          : undefined
+      const root = (await cloneNode(
+        node as HTMLElement,
+        options,
+        true,
+        false,
+        undefined,
+        rootLayout,
+      ))!
       // Retain the inert document across async resource work. WebKit can lose
       // a detached copy's document/base URL when only its nodes remain alive.
       const cloneDocument = readDOMProperty(root, 'ownerDocument')

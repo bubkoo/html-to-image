@@ -22,6 +22,7 @@ import { resourceToDataURL } from './dataurl.js'
 import { getTask } from './task.js'
 import { embedSVGReferences, getSVGReference } from './svg-references.js'
 import { cloneScrollState } from './clone-scroll.js'
+import { normalizeRootLayout, type RootLayoutPlan } from './root-layout.js'
 import {
   cloneScrollbarStyles,
   beginScrollbarStyleScope,
@@ -179,6 +180,7 @@ async function cloneChildren<T extends HTMLElement>(
   options: Options,
   targetDocument: Document,
   resolveSymbols: boolean,
+  rootLayout?: RootLayoutPlan,
 ): Promise<T> {
   let children: T[]
 
@@ -213,7 +215,14 @@ async function cloneChildren<T extends HTMLElement>(
     (deferred, child) =>
       deferred
         .then(() =>
-          cloneNode(child, options, false, resolveSymbols, targetDocument),
+          cloneNode(
+            child,
+            options,
+            false,
+            resolveSymbols,
+            targetDocument,
+            rootLayout,
+          ),
         )
         .then((clonedChild: HTMLElement | null) => {
           if (clonedChild) {
@@ -495,6 +504,7 @@ async function decorate<T extends HTMLElement>(
   clonedNode: T,
   options: Options,
   isRoot?: boolean,
+  rootLayout?: RootLayoutPlan,
 ): Promise<T> {
   if (isInstanceOfElement(clonedNode, Element)) {
     const selected = options.stylePropertiesForNode
@@ -561,6 +571,8 @@ async function decorate<T extends HTMLElement>(
     if (sourceStyle)
       restoreScrollbarBox(nativeNode, clonedNode, sourceStyle, selected)
     freezeScrollbarPresence(nativeNode, clonedNode, sourceStyle)
+    if (rootLayout)
+      normalizeRootLayout(rootLayout, nativeNode, clonedNode, isRoot)
     options.onCloneNode?.(nativeNode, clonedNode)
   }
 
@@ -590,6 +602,7 @@ export async function cloneNode<T extends HTMLElement>(
   isRoot?: boolean,
   resolveSymbols = true,
   targetDocument?: Document,
+  rootLayout?: RootLayoutPlan,
 ): Promise<T | null> {
   const task = getTask(options)
   task?.check()
@@ -639,9 +652,12 @@ export async function cloneNode<T extends HTMLElement>(
         options,
         copyDocument,
         resolveSymbols,
+        rootLayout,
       )
     })
-    .then((clonedNode) => decorate(node, clonedNode, options, isRoot))
+    .then((clonedNode) =>
+      decorate(node, clonedNode, options, isRoot, rootLayout),
+    )
     .then((clonedNode) =>
       isRoot && resolveSymbols
         ? ensureSVGSymbols(node, clonedNode, options)
