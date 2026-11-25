@@ -1678,5 +1678,21 @@
     "oldMasterHeadFailuresRetained": true,
     "phoneOperations": 0,
     "networkConfigurationChanges": 0
+  },
+  "latestSVGImagePIOriginEvidence": {
+    "date": "2026-11-25",
+    "evidence": "docs/evidence/svgimage-pi-origin-20261125/summary.json",
+    "status": "experimental measurement only; no production integration",
+    "currentUMD": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+    "coreScenes": 39,
+    "knownExact": 36,
+    "negativeMarginUnknown": 3,
+    "extraUnknown": 6,
+    "historicalIdentityCorrection": "original marker15 actually uses40b6; original raw metadata preserved",
+    "defaultAPIBlocker": "Image/Canvas premeasurement conflicts with lazy SVG rendering and existing zero-dimension/draw-count/transform contracts",
+    "rootMarginUserDecision": "preserve explicit style/onClone margin including16px; normalize inherited source origin before callbacks",
+    "runtimeChanged": false,
+    "deviceUsed": false,
+    "computerNetworkSettingsChanged": false
   }
 }

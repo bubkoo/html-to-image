@@ -1,0 +1,193 @@
+{
+  "title": "SVGImage PI origin capability, compatibility and remaining API boundaries",
+  "scope": "Static public evidence seal only. No new browser/run, production/PR/tracker/device/network change. Six fixed source experiments retained with their own exact seals; no global sum of heterogeneous scene counts.",
+  "datasets": [
+    {
+      "name": "pi-style",
+      "sourceSealPayloadFiles": 25,
+      "sourceSealIndexIncluded": true,
+      "archivedFilesIncludingSeal": 26,
+      "sourceSealSHA256": "18490ad220b5198efc8f59969ff3ceb2fc9dc707256442adb762ddc0560a7945"
+    },
+    {
+      "name": "caller-csp",
+      "sourceSealPayloadFiles": 44,
+      "sourceSealIndexIncluded": true,
+      "archivedFilesIncludingSeal": 45,
+      "sourceSealSHA256": "4d4f95d74d5a0b2e10ce4ffbc1e9120e11e9db33de1f55d3ec28fffce00d2c6a"
+    },
+    {
+      "name": "historical-marker-40b6",
+      "sourceSealPayloadFiles": 98,
+      "sourceSealIndexIncluded": true,
+      "archivedFilesIncludingSeal": 99,
+      "sourceSealSHA256": "800d1c1d9d27760a0fd7efffc93333df34a951cfb2c1eef26127a6714d605f83"
+    },
+    {
+      "name": "current-origin-9c09",
+      "sourceSealPayloadFiles": 446,
+      "sourceSealIndexIncluded": true,
+      "archivedFilesIncludingSeal": 447,
+      "sourceSealSHA256": "3b7607631cc4d17457485d74c2416b9274790f05c58a2a545a10ca17683078a9"
+    },
+    {
+      "name": "margin-trim-exact",
+      "sourceSealPayloadFiles": 52,
+      "sourceSealIndexIncluded": true,
+      "archivedFilesIncludingSeal": 53,
+      "sourceSealSHA256": "2f2e4aab045ab74ddd39996865804f2379c0190377b9503286f7d7d3546e2a31"
+    },
+    {
+      "name": "resource-security",
+      "sourceSealPayloadFiles": 39,
+      "sourceSealIndexIncluded": true,
+      "archivedFilesIncludingSeal": 40,
+      "sourceSealSHA256": "f5c2fd89945141c9f8dcbd5464b91a3c4d6b2584ebaa8e5c8cd78a17c2be8aca"
+    }
+  ],
+  "identityCorrection": {
+    "historical15": "Original report.umdSHA256 and saved input bytes bind old marker15 to40b6a68fa1590b7b25be0b5ce0d4236f0ae32f97b611a366ee15a3cfb3af1d15/e014fef historical capture,98736B. Some raw inputOrigin/progress metadata incorrectly says9c09; those original bytes are preserved unedited.",
+    "actualCurrent45": "A separate fresh9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a baseline recaptured all13unchangedfixtures×3 plus6negative controls, freshnative/capture PNGs and SVGs; its markers/oracles/normalization are never substituted by historical15.",
+    "interimCorrection": "current-origin-9c09/provenance-correction.json is the retained interim discovery record. Its waiting-state text is historical; final fresh-current assessment/results supersede that state, not its raw bytes.",
+    "oldRootInput": "Old source/docs correctly recorded40b6 and notCurrentCancellationBuild. Mislabel corrected in this publication; no runtime identity is inferred from a directory nickname."
+  },
+  "findings": {
+    "PIStyle": {
+      "scenes": 9,
+      "result": "A red64/B inlineblue64/C PIblue64 in each3engines"
+    },
+    "callerMetaCSP": {
+      "scenes": 18,
+      "result": "inline/PI blue64 under3caller policies×3engines; boundedpass, not iframe-inheritance inference/general CSP claim"
+    },
+    "historicalMarker": {
+      "scenes": 15,
+      "actualUMD": "40b6a68fa1590b7b25be0b5ce0d4236f0ae32f97b611a366ee15a3cfb3af1d15",
+      "knownExact": 9,
+      "negativeUnknown": 6,
+      "fresh9c09Validation": false
+    },
+    "currentMarker": {
+      "coreScenes": 39,
+      "extraNegativeScenes": 6,
+      "actualUMD": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+      "coreKnownOracleExact": 36,
+      "normalizedNativeRGBAExactZero": 36,
+      "coreNegativeMarginUnknown": 3,
+      "extraUnknown": 6,
+      "unknownOutput": "coordinate null; no normalizedSVG/PNG and no0fallback"
+    },
+    "resourceSecurity": {
+      "fixedImages": 12,
+      "pairs": 6,
+      "positivePIOutlines": 6,
+      "greenAndDataBluePixelsPerImage": 64,
+      "sourceTrapRequests": 0,
+      "actualServerReceipts": 15,
+      "separateWitnessRequests": 9,
+      "serverAPIWitnesses": 6,
+      "unrestrictedHostImagePositive": 3,
+      "strictHeaderHostImageBlocked": 3,
+      "readiness": "decode+native load+positivepixels; HTTP0 neverreadiness",
+      "scope": "Finite attack payload/engine/header matrix; no universalsecurity oractiveXMLfallback"
+    },
+    "marginTrim": {
+      "scenes": 9,
+      "exactValue": "block-start inline-start",
+      "supportedEngines": 0,
+      "candidateEqualsCurrent": 9,
+      "scope": "Reject only exact combined value. C/W property+none recognized, other values not tested."
+    }
+  },
+  "architecture": {
+    "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+    "files": [
+      {
+        "path": "raw/api-contract/src/capture.ts",
+        "repositoryPath": "src/capture.ts",
+        "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+        "bytes": 8276,
+        "sha256": "9b9ac86cd4f58b79bce1bdf6ff7455d8388deacb7cff7d1f2342f7e870988fae"
+      },
+      {
+        "path": "raw/api-contract/src/util.ts",
+        "repositoryPath": "src/util.ts",
+        "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+        "bytes": 10273,
+        "sha256": "ce65454d5dd576fbae58a7df75167f549ef5d276a86713d10247e2a152318eb8"
+      },
+      {
+        "path": "raw/api-contract/docs/v2-architecture.md",
+        "repositoryPath": "docs/v2-architecture.md",
+        "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+        "bytes": 11006,
+        "sha256": "b0e1ec513e558995cc657900a044cc81cfdd9106a4ed469609e34c852b2689ac"
+      },
+      {
+        "path": "raw/api-contract/test/spec/renderer.test.ts",
+        "repositoryPath": "test/spec/renderer.test.ts",
+        "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+        "bytes": 29774,
+        "sha256": "b2b82e48c2ece84729f1be225f5b97b31374824a4411f0f58bd889b1d84875cd"
+      },
+      {
+        "path": "raw/api-contract/test/spec/options.test.ts",
+        "repositoryPath": "test/spec/options.test.ts",
+        "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+        "bytes": 4711,
+        "sha256": "70d238d6a76ebec0dabd8e55ba2b5294324fa951f132a0611ea8d8df204d7ff1"
+      },
+      {
+        "path": "raw/api-contract/test/browser-unit/dimensions.test.ts",
+        "repositoryPath": "test/browser-unit/dimensions.test.ts",
+        "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+        "bytes": 2584,
+        "sha256": "99f5c44e5dd0690d152cc5e4af59696e3f2b8ead50b7a2ed9b5ff6c4b1a09de0"
+      },
+      {
+        "path": "raw/api-contract/LICENSE",
+        "repositoryPath": "LICENSE",
+        "commit": "2f5b369e376fd462034ee8349125fea9724b61b7",
+        "bytes": 1066,
+        "sha256": "dcfe4a33fbd700305cf9308c02e8800dbef57c46ecc26ce2f4438b28a0bd9571"
+      }
+    ],
+    "references": [
+      {
+        "file": "src/capture.ts",
+        "lines": [125, 149, 197],
+        "meaning": "lazy raster cached once; attempts draw same SVG; toSvg returns saved serializedSVG"
+      },
+      {
+        "file": "docs/v2-architecture.md",
+        "lines": [17, 26],
+        "meaning": "capture completes after serialization; first raster lazy; same frozen snapshot; default/toSvg unchanged"
+      },
+      {
+        "file": "test/spec/renderer.test.ts",
+        "lines": [62, 78, 85, 103, 117],
+        "meaning": "one render stage for concurrentformats, hooks once, stabilization3 explicitly exactly3draws"
+      },
+      {
+        "file": "test/browser-unit/dimensions.test.ts",
+        "lines": [44, 59],
+        "meaning": "zero-sized toSvg succeeds while rasterization rejects"
+      }
+    ],
+    "decision": "PI double-whole-SVGImage/Canvas premeasurement is not a default implementation: pure serialized toSvg/lazy raster/3draw contracts and unknown marker behavior remain unsettled. This is static source/docs/test review, NOT a fresh compatibility browser test."
+  },
+  "limits": [
+    "PrimitivePI capability and finite security positives do not prove allarbitrary selector/resource/dynamic/viewport equivalence.",
+    "Measuredwrapper enlarges outerSVG whilefixingFO160x80+overflowvisible; source unchanged onlyvalidated bytrusted nativeXMLfixture reference, never an arbitrary-payload production fallback.",
+    "Current3negative-margin and6extra marker-negative inputs remainunknown. No silent fallback0/acceptedpartialfix.",
+    "No new compatibility execution was done for puretoSvg/lazy-raster/stabilization contracts; only frozen source/docs/test citation. Root-hook white-space policy remains a separate productdecision."
+  ],
+  "archive": {
+    "path": "raw.tar.gz",
+    "bytes": 523657,
+    "sha256": "554047e701d664c53a8ca3909d01940378aed280097d01395b1c8fe50c4903e8"
+  },
+  "payloadFiles": 722,
+  "licensing": "Only syntheticcontrolled HTML attack fixtures, no PlaywrightHTMLreport/vendorreport assets. RepositoryMIT LICENSE retained at raw/api-contract/LICENSE. Originalfontfixture andsourcebytes preserved. Verifier never executes/renders archivedHTML/JS.",
+  "privacy": "No user screenshots, credentials or signedresourceURLs. Raw records contain localworkspace paths, controlledlocalhost URLs, randomblob handles and nonces as original evidence."
+}
