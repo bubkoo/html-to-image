@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-25T00:28:20.057Z",
+  "repository": "bubkoo/html-to-image",
+  "scope": "Read-only metadata for previously merged scoped fixes and closed original preview PR. Does not independently rerun their CI or phone acceptance.",
+  "tool": "mcp__codex_apps__github_get_pr_info",
+  "mutationActions": 0,
+  "entries": [
+    {
+      "number": 632,
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "url": "https://github.com/bubkoo/html-to-image/pull/632",
+          "number": 632,
+          "state": "closed",
+          "merged": true,
+          "mergeable": false,
+          "draft": false,
+          "body": "When `onClone` or a plugin added or retargeted an SVG `<use>`, reference discovery had already finished. References removed by a transform could still be requested, including inside a same-origin iframe. Resolve references in the resources phase after all transforms, preserve filtering and error identity, and retain default resolution for direct internal `cloneNode` callers.\n\nPrimary `onCloneNode` callbacks still precede transforms. Auxiliary local definitions outside the captured tree invoke that callback during resources; README documents this ordering. Inherited-style metadata remains available until those clones finish.\n\nValidation on exact head `4d1bd59a33109657b875c40cfffa9f206f6cb13e`:\n- Master baseline `132c38d` fails 30/36; candidate passes 36/36 across Chromium, Firefox and WebKit, including standalone compatibility.\n- Complete checks: 282 coverage / 488 source + one existing bounded WebKit iframe GC skip / 132 built-package tests, plus lint/build/types and isolated tarball consumers.\n- Current rectangular-font glyph controls pass 18/18 with actual native-source pixels. Exact v1.11.13 fails 15/18 automatic cases; explicit-font positive and skip-font negative controls pass. This verifies existing font behavior without a font runtime change.\n- USB-connected real iPhone Safari (iOS 18.7, Safari 26.6.1, DPR 3, safari:useSimulator=false): rebuilt exact head passes all 28/28 ESM/UMD smoke cases. All six SVG font modes also pass actual native-source screenshots, automatic/explicit red glyph, omitted-font white negative control, embedded-font and source-unchanged checks.\n- CI 42948699322, CodeQL 42948699314, Codecov patch/project all pass on the exact head; merge state CLEAN.\n\nExternal SVG style/redirect behavior still differs by browser; no uniform style/URL behavior change or whole-#585 completion is claimed. No old contributor PR is closed and no npm publication is triggered.\n",
+          "title": "fix: resolve SVG references after clone transforms",
+          "base": "master",
+          "base_sha": "132c38d186ac4debd9da164363a8bb8234f3c396",
+          "head": "codex/svg-transform-resources",
+          "head_sha": "4d1bd59a33109657b875c40cfffa9f206f6cb13e",
+          "head_repo_id": 113022549,
+          "head_repo_full_name": "bubkoo/html-to-image",
+          "merge_commit_sha": "67b2ec22410c284f5320c2aebee5e837b42bfbb1",
+          "user": {
+            "login": "bubkoo",
+            "name": "bubkoo",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/6045824?v=4",
+            "id": 6045824
+          },
+          "requested_reviewers": null,
+          "requested_team_reviewers": null,
+          "diff": null,
+          "comments": null,
+          "created_at": "2026-11-11T02:47:35Z",
+          "updated_at": "2026-11-11T04:44:28Z",
+          "closed_at": "2026-11-11T04:44:19Z",
+          "merged_at": "2026-11-11T04:44:19Z",
+          "commits": 2,
+          "changed_files": 32,
+          "additions": 1656,
+          "deletions": 18,
+          "display_url": "https://github.com/bubkoo/html-to-image/pull/632",
+          "display_title": "fix: resolve SVG references after clone transforms"
+        },
+        "isError": false
+      }
+    },
+    {
+      "number": 633,
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "url": "https://github.com/bubkoo/html-to-image/pull/633",
+          "number": 633,
+          "state": "closed",
+          "merged": true,
+          "mergeable": false,
+          "draft": false,
+          "body": "Scrolling could lose or misplace fixed/absolute descendants because transforms added to ordinary wrappers established new containing blocks. Preserve the source relationships while encoding the visible viewport in supported flex and block layouts.\n\nFlex items use opposite physical margins on each scrolled axis. Block flow uses a non-collapsing before offset vertically, then shifts actual horizontal flow boxes and supported block before/after boxes. Insets change only for descendants originally anchored to the scroller. Real children are not wrapped or reordered. Internal stylesheet nodes from pseudo cloning are excluded from flow-box eligibility.\n\nThe block path preserves the fallback for an absolute containing block outside the captured tree: its coordinate origin has not been reconstructed. A WeakSet tracks cloned source identities and is cleared with clone-source mappings/disposal, adding no strong source reference.\n\nValidation:\n- Final 55-mode fixture on exact original parent 4d1bd59: 141/165 failures. Previous flex candidate f3f997e: 51/165 failures. Restore both clone-scroll.ts and task.ts with the fixture unchanged. All native setup controls pass; incomplete/browser-error runs are excluded.\n- Current 165 actual source/capture pairs match every one of 6,400 RGBA channels at zero tolerance. With existing fixed/mixed controls: 297/297 pass across Chromium, Firefox and WebKit; source DOM/scroll remain unchanged.\n- Complete local checks: 337 coverage / 653 source + one inherited bounded WebKit iframe GC skip / 135 built-package tests, plus lint/build/types and isolated tarball consumers. Existing external-anchor fallback and source lifetime tests pass.\n- Exact original head 9584645, rebuilt and run on real USB iPhone Safari (iOS 18.7, Safari 26.6.1, DPR 3, non-simulator): full ESM/UMD smoke 29/29. All 55 actual native-source screenshots then match their captures across 6,400 channels per case, tolerance zero, source unchanged. Raw reports, all source PNGs and a replay program are committed.\n- Safari element screenshots can include overflow outside a clipped root. Crop the source CSS viewport at physical DPR before comparison; do not shrink the entire overflow-inclusive screenshot. Initial incorrect-crop source-control failures are excluded.\n- A separate unscrolled gradient probe observes WebKit source [0,128,0,255] versus both the library and a handwritten foreignObject [0,128,1,255]. Native computed-style roundtrip is exact. No gradient byte-equality or general correction is claimed; diagnostic errors are excluded from regression counts.\n\n#632 is merged as master 67b2ec2. This branch is rebased onto it with source and fixture bytes identical to tested 9584645; added commits archive native evidence. Final master-targeted head 1c6b184955eef72819bcb9a332d5f9f50e2e088f passed CI 42961919142 with 337 coverage / 653 source + one inherited skip / 135 package. The exact PR head was verified from the CI job log. CodeQL 42961919318 and Codecov patch/project passed; merge state CLEAN. Historical 9584645 CI is retained only as earlier evidence.\n\nEvidence: docs/evidence/positioned-scroll.json, ios-safari-positioned-scroll-9584645.json, ios-native-positioned-9584645.json and ios-native-source-replay.py.txt. The old horizontal JSON is explicitly historical.\n\nExternal coordinate origins, horizontal anonymous/inline/contents/float/sticky combinations, auto margins/unsupported pseudos, vertical writing and native scrollbar appearance remain bounded. Original #408 also relates to #81, whose stale closure is not proof of a fix. #345 explicitly requires scrollbar appearance and position; that requirement is not a user scope choice. This is not whole-#408/#81/#345 completion. No old contributor PR is closed and no npm publication is triggered.\n",
+          "title": "fix: preserve positioned descendants while scrolling",
+          "base": "master",
+          "base_sha": "67b2ec22410c284f5320c2aebee5e837b42bfbb1",
+          "head": "codex/fixed-horizontal-containers",
+          "head_sha": "1c6b184955eef72819bcb9a332d5f9f50e2e088f",
+          "head_repo_id": 113022549,
+          "head_repo_full_name": "bubkoo/html-to-image",
+          "merge_commit_sha": "7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd",
+          "user": {
+            "login": "bubkoo",
+            "name": "bubkoo",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/6045824?v=4",
+            "id": 6045824
+          },
+          "requested_reviewers": null,
+          "requested_team_reviewers": null,
+          "diff": null,
+          "comments": null,
+          "created_at": "2026-11-11T02:57:43Z",
+          "updated_at": "2026-11-11T04:55:08Z",
+          "closed_at": "2026-11-11T04:54:57Z",
+          "merged_at": "2026-11-11T04:54:57Z",
+          "commits": 5,
+          "changed_files": 92,
+          "additions": 2017,
+          "deletions": 61,
+          "display_url": "https://github.com/bubkoo/html-to-image/pull/633",
+          "display_title": "fix: preserve positioned descendants while scrolling"
+        },
+        "isError": false
+      }
+    },
+    {
+      "number": 398,
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "url": "https://github.com/bubkoo/html-to-image/pull/398",
+          "number": 398,
+          "state": "closed",
+          "merged": false,
+          "mergeable": false,
+          "draft": false,
+          "body": "<!--- Provide a general summary of your changes in the Title above -->\r\n\r\n### Description\r\n\r\nadd open in new tab example for toBlobs, for fast testing result \r\n\r\n### Motivation and Context\r\n\r\n<!--- Why is this change required? What problem does it solve? -->\r\n<!--- If it fixes an open issue, please link to the issue here. -->\r\n<!--- GIF or snapshot should be provided if includes UI/interactive modification. -->\r\n<!--- How to fix the problem, and list final API implementation and usage sample if that is an new feature. -->\r\n\r\n### Types of changes\r\n\r\n<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->\r\n\r\n- [ ] Bug fix (non-breaking change which fixes an issue)\r\n- [ ] New feature (non-breaking change which adds functionality)\r\n- [ ] Breaking change (fix or feature that would cause existing functionality to change)\r\n- [ ] Enhancement (changes that improvement of current feature or performance)\r\n- [ ] Refactoring (changes that neither fixes a bug nor adds a feature)\r\n- [ ] Test Case (changes that add missing tests or correct existing tests)\r\n- [ ] Code style optimization (changes that do not affect the meaning of the code)\r\n- [ ] Docs (changes that only update documentation)\r\n- [ ] Chore (changes that don't modify src or test files)\r\n\r\n### Self Check before Merge\r\n\r\n<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->\r\n<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->\r\n\r\n- [ ] My code follows the code style of this project.\r\n- [ ] My change requires a change to the documentation.\r\n- [ ] I have updated the documentation accordingly.\r\n- [ ] I have read the [**CONTRIBUTING**](https://github.com/bubkoo/html-to-image/blob/master/CONTRIBUTING.md) document.\r\n- [ ] I have added tests to cover my changes.\r\n- [ ] All new and existing tests passed.\r\n",
+          "title": "docs: add open in new tab example for toBlobs",
+          "base": "master",
+          "base_sha": "b751cbf212ccc7909077bc105b0630f9c845389a",
+          "head": "patch-2",
+          "head_sha": "b5bfeb33785dc58cb928865735a2e81d505ba4b7",
+          "head_repo_id": 635325749,
+          "head_repo_full_name": "reslear/html-to-image",
+          "merge_commit_sha": null,
+          "user": {
+            "login": "reslear",
+            "name": "reslear",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/12596485?v=4",
+            "id": 12596485
+          },
+          "requested_reviewers": null,
+          "requested_team_reviewers": null,
+          "diff": null,
+          "comments": null,
+          "created_at": "2023-05-02T13:20:59Z",
+          "updated_at": "2026-11-14T19:38:55Z",
+          "closed_at": "2026-11-14T19:38:55Z",
+          "merged_at": null,
+          "commits": 1,
+          "changed_files": 1,
+          "additions": 5,
+          "deletions": 1,
+          "display_url": "https://github.com/bubkoo/html-to-image/pull/398",
+          "display_title": "docs: add open in new tab example for toBlobs"
+        },
+        "isError": false
+      }
+    }
+  ]
+}

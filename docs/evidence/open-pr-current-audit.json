@@ -940,7 +940,8 @@
     "currentFullPixelPassed": 165,
     "withExistingFixedAndMixedPassed": 297,
     "localCoverageSource": [337, 653],
-    "remote": "9584645 CI/Codecov passed; rebased master-targeted head requires new CI/CodeQL/Codecov.",
+    "remote": "Historical 9584645 checks remain earlier evidence. Final master-targeted head 1c6b184955eef72819bcb9a332d5f9f50e2e088f CI42961919142/CodeQL42961919318 and Codecov passed per archived acceptance; PR633 merged as7d8d3509ce28ebcd6884aa33a2cb9ae108a5ddfd. Current metadata readback confirms merged state, not a CI rerun.",
+    "currentStateReadbackEvidence": "docs/evidence/triage-index-state-readback-20261125.json",
     "nativeIOS": {
       "status": "passed",
       "revision": "9584645a407800a40afb18bedc7346bee2da0389",

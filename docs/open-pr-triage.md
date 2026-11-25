@@ -348,7 +348,9 @@ CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真�
 
 更新于 2026-11-11。按创建 [PR #603](https://github.com/bubkoo/html-to-image/pull/603) 前的 52 个开放 PR 编号逐一登记。`master` 已包含 V2，尚未发布 V2 到 npm。已向下节 22 个 PR 回复具体证据并关闭；无关的 #517 也已说明后关闭。其余“关闭”仍为建议动作，不能当作已完成。旧分支的补丁不能因 CI 变绿就直接合并到 V2。
 
-## 2026-11-11 剩余 28 项的当前处置索引
+## 2026-11-25 剩余 28 项的当前处置索引
+
+此索引合并后续验收进展；下方按日期保留的旧记录仍是当时状态。#632/#633 的合并状态及原 #398 的关闭未合并状态已[重新只读回读](evidence/triage-index-state-readback-20261125.json)。这次回读没有重跑历史 CI 或使用手机。
 
 本轮重新核对全部 28 个旧 PR 的原需求、head 与现行代码/测试；锁文件项复核同一 head 的既有归档。下面是当前处置路径；完整 head、来源和边界见 [审计索引](evidence/open-pr-current-audit.json)。本轮 SVG 变换修复及真实字体新验收仍以候选的真机/远端记录为准；旧 PR 未被评论或关闭。“核心等价”不代表所有原应用或旧平台都已复测。
 
@@ -373,13 +375,13 @@ CSP 禁止 Blob 时仅证明保留原有导出并给诊断，完整样式保真�
 | [#443](https://github.com/bubkoo/html-to-image/pull/443) | 不同 URL 需要不同 RequestInit。以 resources.resolve 替代第二套生成器 API。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 受控私有 Cookie 图片与公开图/字体双源已验证；原业务 URL/登录及完整 fixture 未取得，resolver 自行管理请求选项和 signal |
 | [#442](https://github.com/bubkoo/html-to-image/pull/442) | 图片与公开字体的凭据配置不同，并报告 iOS 空白。URL/kind resolver 覆盖混合凭据核心需求；原 iOS 故障保留条件。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 原私有资源 URL、CORS 响应、凭据和完整故障 fixture 未验；include 不是所有 iOS 请求的统一要求 |
 | [#430](https://github.com/bubkoo/html-to-image/pull/430) | 缓存进行中的请求避免短时间重复加载。核心等价；#622 另消除 WebKit 副本的额外原生请求。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 缓存限单次捕获，不承诺跨捕获响应永不变化 |
-| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；本候选补齐变换阶段。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts) | 外部兄弟 CSS/字体及相对 paint 重定向的输出语义待定，不按任意 sprite 已完成 |
+| [#427](https://github.com/bubkoo/html-to-image/pull/427) | 外部 SVG use 的引用可以导出。基础与传递属性依赖已由 #627 覆盖；变换阶段修复 #632 已合入。 | [svg-dependencies.test.ts](../test/browser-unit/svg-dependencies.test.ts)、[变换资源验收](evidence/transformed-svg-resources.json) | 已确定跟随当前浏览器页面；外部 CSS/字体及 attribute/inline 相对 paint 的来源与重定向仍开放，不按任意 sprite 已完成 |
 | [#409](https://github.com/bubkoo/html-to-image/pull/409) | CSS 尺寸、canvasWidth/Height、pixelRatio 输出一致。#618 修复零值/NaN；不采用重设 canvas 属性破坏 DPR 的旧补丁。 | [dimensions.test.ts](../test/browser-unit/dimensions.test.ts) | 原个人项目设备/完整 fixture 未复验；不是任意超大画布的保证 |
-| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631 已合入；#633 扩展二维 flex 与受支持块流 fixed/absolute，55 输入的三引擎全像素和构建包通过，待真机。 | [positioned-scroll.json](evidence/positioned-scroll.json) | 捕获树外 absolute 坐标、水平文本/inline/contents/float/sticky、auto 边距/部分伪元素、竖排及原生滚动条仍保留边界；#633 尚未合并 |
+| [#408](https://github.com/bubkoo/html-to-image/pull/408) | 保留可见滚动位置。#630/#631/#633 已合入；#633 的二维 flex 与受支持块流 fixed/absolute 已完成 55 输入真机原生像素对照及准确 head 的远端门禁。 | [positioned-scroll.json](evidence/positioned-scroll.json)、[真机原生对照](evidence/ios-native-positioned-9584645.json) | 捕获树外 absolute 坐标、水平文本/inline/contents/float/sticky、auto 边距/部分伪元素、竖排仍有边界；原生滚动条候选 #651 未合并且严格像素门禁失败，不称整项完成 |
 | [#407](https://github.com/bubkoo/html-to-image/pull/407) | 把额外 CSS 放进输出副本。使用 onClone 插入 style 的现有原语，不新增 extraStyleContent。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 自定义 CSS 注入不等于源原生滚动条外观/位置已保留 |
 | [#401](https://github.com/bubkoo/html-to-image/pull/401) | 应调用并等待 decode，而不是覆盖方法。核心等价；保留可用图片 decode 拒绝不悬挂的边界。 | [renderer.test.ts](../test/spec/renderer.test.ts) | 图片可解码不等于所有 WebKit foreignObject 首绘问题已解决 |
 | [#400](https://github.com/bubkoo/html-to-image/pull/400) | 允许配置 fetch cache:no-cache。已有 fetchRequestInit.cache，不新增 cacheDisable。 | [resource-policy.test.ts](../test/browser-unit/resource-policy.test.ts) | 真实请求/重新验证指令已验；不强制假定默认 HTTP 缓存会命中 |
-| [#398](https://github.com/bubkoo/html-to-image/pull/398) | Blob PNG 在新标签页预览。README helper 与三引擎交互已验；保留单数 toBlob API。 | [blob-preview-browser-checks.json](evidence/blob-preview-browser-checks.json) | 真机 PNG 生成/读取通过；可信点击开启新标签及之后清理仍需一次物理点击 |
+| [#398](https://github.com/bubkoo/html-to-image/pull/398) | Blob PNG 在新标签页预览。README helper 与三引擎交互已验；锁屏 iPhone 镜像中的可信点击、新 PNG 标签及返回清理已补齐。保留单数 toBlob API。 | [桌面交互](evidence/blob-preview-browser-checks.json)、[已完成的真机子集](evidence/ios-integrated-acceptance.json) | 真机范围限整合 UMD、默认 160×80 PNG 和记录设备；没有另做 opener runtime 或 revoke 后 fetch 探针，不扩大为完整 iOS 套件 |
 | [#393](https://github.com/bubkoo/html-to-image/pull/393) | 支持 SVG use href 属性。核心等价，现代/旧命名空间及优先级有回归。 | [svg-use.test.ts](../test/browser-unit/svg-use.test.ts) | 同 #499 的属性级结论，不扩大为全部外部 SVG 样式兼容 |
 | [#376](https://github.com/bubkoo/html-to-image/pull/376) | 允许额外伪元素，尤其非标准滚动条。不把通用伪元素列表等同于滚动条完成；继续原生外观验证。 | [scrollbar-extension-probes.json](evidence/scrollbar-extension-probes.json) | 按 #345 保留源轨道/滑块外观和位置的明确要求验证；非标准伪元素有引擎差异 |
 
