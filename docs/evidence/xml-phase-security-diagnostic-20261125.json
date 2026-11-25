@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-25T00:03:01.364846+00:00",
+  "kind": "xml-phase-diagnostic",
+  "scope": "New phase diagnostics and distinct synchronous-layout protocol, not a rewrite of oldguard evidence; finite source+marker-validated nativeXML resource controls.",
+  "rawArchive": {
+    "path": "xml-phase-security-diagnostic-20261125-raw.tar.gz",
+    "bytes": 37371,
+    "sha256": "e19a4a769d1a01a3b77d29724efe7b291699993902a525a843742449434f0a42",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberIndex": "xml-phase-security-diagnostic-20261125-index.json",
+  "verificationScript": "xml-phase-security-diagnostic-20261125-verify.py",
+  "verification": {
+    "kind": "xml-phase-diagnostic",
+    "status": "rAF-unfinished-wait-localized-new-sync-protocol-bounded-controls-complete",
+    "originalIndexedPayloadFiles": 9,
+    "originalFilesIncludingIndex": 10,
+    "rows": [
+      {
+        "round": "original-2RAF",
+        "engine": "chromium",
+        "lastAcceptedPhase": "before-rAF2",
+        "guardExpired": true,
+        "completeSourceValidatedXMLMessage": false,
+        "HTTPMarkerRequests": 0,
+        "attackMessages": 0,
+        "navigationEvents": 5
+      },
+      {
+        "round": "original-2RAF",
+        "engine": "firefox",
+        "lastAcceptedPhase": "after-rAF2",
+        "guardExpired": false,
+        "completeSourceValidatedXMLMessage": true,
+        "HTTPMarkerRequests": 0,
+        "attackMessages": 0,
+        "navigationEvents": 3
+      },
+      {
+        "round": "original-2RAF",
+        "engine": "webkit",
+        "lastAcceptedPhase": "before-rAF1",
+        "guardExpired": true,
+        "completeSourceValidatedXMLMessage": false,
+        "HTTPMarkerRequests": 0,
+        "attackMessages": 0,
+        "navigationEvents": 3
+      },
+      {
+        "round": "new-sync-layout",
+        "engine": "chromium",
+        "lastAcceptedPhase": "after-sync-layout",
+        "guardExpired": false,
+        "completeSourceValidatedXMLMessage": true,
+        "HTTPMarkerRequests": 0,
+        "attackMessages": 0,
+        "navigationEvents": 5
+      },
+      {
+        "round": "new-sync-layout",
+        "engine": "firefox",
+        "lastAcceptedPhase": "after-sync-layout",
+        "guardExpired": false,
+        "completeSourceValidatedXMLMessage": true,
+        "HTTPMarkerRequests": 0,
+        "attackMessages": 0,
+        "navigationEvents": 3
+      },
+      {
+        "round": "new-sync-layout",
+        "engine": "webkit",
+        "lastAcceptedPhase": "after-sync-layout",
+        "guardExpired": false,
+        "completeSourceValidatedXMLMessage": true,
+        "HTTPMarkerRequests": 0,
+        "attackMessages": 0,
+        "navigationEvents": 3
+      }
+    ],
+    "sameSourceSVGPairs": [
+      {
+        "engine": "chromium",
+        "sameSourceSVGSHA256": "1c887dfaadab17c7db6b9000739a5f7989a459785784f1d8b2a99d0e7751a55c",
+        "freshNonce": true
+      },
+      {
+        "engine": "firefox",
+        "sameSourceSVGSHA256": "dfd20512f58ba464876787dd09fa9368d583bf69c7b89433024b883c8fb3bca7",
+        "freshNonce": true
+      },
+      {
+        "engine": "webkit",
+        "sameSourceSVGSHA256": "78bba9c1ad97c336a024baa787e90cd8f264674b558d262b6cf2ea6815da1447",
+        "freshNonce": true
+      }
+    ],
+    "sourceAndFocusUnchanged": true,
+    "allResourcesClosed": true,
+    "guardMs": 2500,
+    "newMeasurementProtocol": true,
+    "oldGuardEvidenceRewritten": false,
+    "oldAnimation49vs7Negated": false,
+    "noLibraryOrNewAnimationCandidateValidation": true,
+    "limits": [
+      "Three-engine result applies to this finite hostile fixture, not arbitrary payloads or universal unsafe-behavior absence.",
+      "Same previously random marker was intentionally reused for exact source-byte pairing after old contexts closed; nonce remained fresh and source/origin validation remained mandatory.",
+      "This round records actual navigation events; previous archives without them remain unchanged.",
+      "Owned loopback harness pages were fetched; markerHTTP0 is not a claim that the entire experiment used zero network."
+    ]
+  },
+  "operations": {
+    "productionOrTrackerChanges": 0,
+    "oldArchiveChanges": 0,
+    "browserOrPhoneOperations": 0,
+    "networkSettingsChanges": 0,
+    "commitsOrPushes": 0
+  }
+}

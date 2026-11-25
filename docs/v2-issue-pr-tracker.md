@@ -1,5 +1,11 @@
 # V2 Issue / PR 回应台账
 
+## 2026-11-25 动画方案的 URI 回归与 XML 等待定位
+
+重编码样式资源的动画候选已停用，未提交为修复。三引擎固定对照中，原生截图和默认导出均为 **800 个红像素、零差**；只把 LINK 的 data URI 换为内容完全相同的另一种合法编码，导出就变成 **800 个蓝像素、1600 通道差**。原 `link[href="原URI"]` 属性选择器观察到身份变化，源 DOM/动画状态保持不变且 HTTP0。[24 份原件与独立 PNG/字节复验](evidence/data-css-uri-identity-20261125.json)证明“保留 data scheme/内容”不足以保真；此控制使用根 UMD `9c090fc2…`，不冒充独立动画分支的前后修复验收。
+
+原 XML 探针的 Chromium/WebKit guard 已有具体定位：字体、图片、load、XML 类型和源校验均完成，分别卡在第二次/第一次离屏 rAF。保留原攻击 SVG、原 2.5 秒 guard、fresh nonce，改用独立同步布局协议后三引擎完成相同有界安全正负控：Goodfont loaded1、Badfont 拒绝、data 图 4×4、HTTP marker0/攻击脚本0、调用方状态未变，所有 frame/浏览器/服务器清理。[新阶段/导航原件](evidence/xml-phase-security-diagnostic-20261125.json)不回写旧 guard，也不否认旧动画 x49/x7 反例。后续保持 URI 的 native XML 动画采样原型尚在验证，未接入生产或宣称通用安全、完整修复。
+
 ## 2026-11-25 CSS 动画重启缺陷与 XML 测量负例
 
 当前根运行时 UMD `9c090fc2…` 的纯色、无文字/资源对照确认了一个新快照缺陷：源 CSS 动画已由 Web Animations API 暂停在 500ms、当前位移 10px，但子树内保留的 `@keyframes` 在 SVGImage 中重新从初态呈现。三引擎各默认导出及冻结 capture 共 **6 份输出均差 800 通道**；外置关键帧、纯 JS 动画和 CSS paused/负 delay 的 **18 份控制输出零差**。12 场源 DOM/CSSOM/动画状态前后相同，449 输入不变。[原始 PNG、SVG、运行脚本及独立像素复验](evidence/animation-root-before-20261125.json)只证明当前根代码修复前状态；独立修复分支尚在处理伪元素及高优先级规则，不称已修复或 #585 整体完成。

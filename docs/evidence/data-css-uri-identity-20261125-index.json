@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "archive": {
+    "path": "data-css-uri-identity-20261125-raw.tar.gz",
+    "bytes": 43242,
+    "sha256": "6004060f7fa701a3e06d2135b51f68ba239a9ebfb45e88367f1e8d6dcd443f0f",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberCount": 28,
+  "members": [
+    {
+      "path": "original/assessment.json",
+      "bytes": 5499,
+      "sha256": "14ab7490731d8316750a5db367cbd07113ee7951129351a4badce3ec9f278c81",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/chromium-default.png",
+      "bytes": 137,
+      "sha256": "4a4ad950eb2cdfcb6d343449484eaf1c53b6918ec310c69da94a96eb43602c50",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/chromium-native.png",
+      "bytes": 113,
+      "sha256": "b236c351940636541ceaf7b670ad53dac151d967a14c984afd284f8aec6679a5",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/chromium-reencoded.png",
+      "bytes": 138,
+      "sha256": "d9fd1f3384b1c2ceb725f87f7629e6b252c65f6371123432c12020fe679a2b9a",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/chromium-source-after.html",
+      "bytes": 1257,
+      "sha256": "968be2822fa540ae919fe6cb1db2f9cddf73d81a6c06f1c1d4aa8e725e2b7e92",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/chromium-source-before.html",
+      "bytes": 1257,
+      "sha256": "968be2822fa540ae919fe6cb1db2f9cddf73d81a6c06f1c1d4aa8e725e2b7e92",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/firefox-default.png",
+      "bytes": 108,
+      "sha256": "dd3bf9670d8d960f08b100db6ffd353fc68b75bf1ecca347b5cb0d0860a6de88",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/firefox-native.png",
+      "bytes": 108,
+      "sha256": "dd3bf9670d8d960f08b100db6ffd353fc68b75bf1ecca347b5cb0d0860a6de88",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/firefox-reencoded.png",
+      "bytes": 108,
+      "sha256": "3e4ddd46e748e280f65eb8188b6a63591871142c2121a47863f083b59760190b",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/firefox-source-after.html",
+      "bytes": 1257,
+      "sha256": "968be2822fa540ae919fe6cb1db2f9cddf73d81a6c06f1c1d4aa8e725e2b7e92",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/firefox-source-before.html",
+      "bytes": 1257,
+      "sha256": "968be2822fa540ae919fe6cb1db2f9cddf73d81a6c06f1c1d4aa8e725e2b7e92",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/html-to-image.umd.js",
+      "bytes": 98997,
+      "sha256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/inputs.json",
+      "bytes": 478,
+      "sha256": "a041d3d8bbcca548ae9632d530b0017587819ae4516ee98d37d5022bf8b16143",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/minimal-native-input.html",
+      "bytes": 1338,
+      "sha256": "a57782169a46fe282d4f2b2a3cf03fce8ac3063bece07d2083d862547dbaf645",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/probe.mjs",
+      "bytes": 8918,
+      "sha256": "5a424692134e1839290550b4e913bf0c93e7aede3c51745d0e81028f46149a11",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/results.json",
+      "bytes": 17189,
+      "sha256": "4fdb927555adfcff5c5a0aecfbcf3e15a469e3c83a05b76b00f43ba2e2bd94a8",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/sha256-index.json",
+      "bytes": 3599,
+      "sha256": "03d2ccf1e35dec3b22311053a3190d3abb50fa02eb81d305c42fdce79980e449",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/stylesheet.css",
+      "bytes": 201,
+      "sha256": "01ce6498fe1e55b838d326d0d44ac3913744efac23968c09f1717720db1d6874",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/uri-inputs.json",
+      "bytes": 850,
+      "sha256": "76b1efb5e2eb8e58ecfda9036569c6e48b14e47c808b1051181cb0da1c9053ce",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/webkit-default.png",
+      "bytes": 216,
+      "sha256": "8f45309491885dd33eae6aa20a48f26e40e5fde677055a45e9f949ddde28b425",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/webkit-native.png",
+      "bytes": 216,
+      "sha256": "8f45309491885dd33eae6aa20a48f26e40e5fde677055a45e9f949ddde28b425",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/webkit-reencoded.png",
+      "bytes": 214,
+      "sha256": "7c40560c20822e868f0893bacac015ed57d40e32a8276dc4a097ec11e2a344dd",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/webkit-source-after.html",
+      "bytes": 1257,
+      "sha256": "968be2822fa540ae919fe6cb1db2f9cddf73d81a6c06f1c1d4aa8e725e2b7e92",
+      "origin": "original evidence"
+    },
+    {
+      "path": "original/webkit-source-before.html",
+      "bytes": 1257,
+      "sha256": "968be2822fa540ae919fe6cb1db2f9cddf73d81a6c06f1c1d4aa8e725e2b7e92",
+      "origin": "original evidence"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 953,
+      "sha256": "cb620c8ddc5b3b12a380cebb20f2bdf8d1b14e86c860d515923e273233070f39",
+      "origin": "new independent verification/project license"
+    },
+    {
+      "path": "supplemental/LICENSE",
+      "bytes": 1066,
+      "sha256": "dcfe4a33fbd700305cf9308c02e8800dbef57c46ecc26ce2f4438b28a0bd9571",
+      "origin": "new independent verification/project license"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 2036,
+      "sha256": "52de58a8b754b114b9e4ea81be1f87de598af8ddc10bd9690787d6cc648a3287",
+      "origin": "new independent verification/project license"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 11746,
+      "sha256": "685db7dface518071dc5339da42fe8a1e9331f46fac5e3647b4a9c8ccbf96cbf",
+      "origin": "new independent verification/project license"
+    }
+  ],
+  "originalIndexedPayloadFiles": 23,
+  "originalFilesIncludingIndex": 24,
+  "verificationScript": {
+    "path": "data-css-uri-identity-20261125-verify.py",
+    "bytes": 11746,
+    "sha256": "685db7dface518071dc5339da42fe8a1e9331f46fac5e3647b4a9c8ccbf96cbf"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "sealedAt": "2026-11-25T00:03:01.419626+00:00",
+  "kind": "data-css-uri-identity",
+  "scope": "Original pinned UMD9c09 URI identity counterfactual; not the new animation-fix branch or its before/after acceptance.",
+  "rawArchive": {
+    "path": "data-css-uri-identity-20261125-raw.tar.gz",
+    "bytes": 43242,
+    "sha256": "6004060f7fa701a3e06d2135b51f68ba239a9ebfb45e88367f1e8d6dcd443f0f",
+    "format": "gzip-compressed USTAR"
+  },
+  "memberIndex": "data-css-uri-identity-20261125-index.json",
+  "verificationScript": "data-css-uri-identity-20261125-verify.py",
+  "verification": {
+    "kind": "data-css-uri-identity",
+    "status": "content-equal-data-CSS-reencoding-changes-selector-observed-capture",
+    "originalIndexedPayloadFiles": 23,
+    "originalFilesIncludingIndex": 24,
+    "UMDSHA256": "9c090fc25401c32b55c80dce3acaa71c6a8e0dc538046b4abad67c584dccee1a",
+    "sameDecodedCSSBytes": 201,
+    "CSSSHA256": "01ce6498fe1e55b838d326d0d44ac3913744efac23968c09f1717720db1d6874",
+    "PNGsCRCAndPixelsIndependentlyChecked": 9,
+    "rows": [
+      {
+        "engine": "chromium",
+        "nativeRedPixels": 800,
+        "defaultRedPixels": 800,
+        "reencodedBluePixels": 800,
+        "changedChannels": 1600,
+        "sourceUnchanged": true,
+        "cloneHrefEdits": 1,
+        "recordedHTTPRequestEvents": 0,
+        "browserCloseResolvedUTC": "2026-11-24T23:34:02.170Z"
+      },
+      {
+        "engine": "firefox",
+        "nativeRedPixels": 800,
+        "defaultRedPixels": 800,
+        "reencodedBluePixels": 800,
+        "changedChannels": 1600,
+        "sourceUnchanged": true,
+        "cloneHrefEdits": 1,
+        "recordedHTTPRequestEvents": 0,
+        "browserCloseResolvedUTC": "2026-11-24T23:34:03.707Z"
+      },
+      {
+        "engine": "webkit",
+        "nativeRedPixels": 800,
+        "defaultRedPixels": 800,
+        "reencodedBluePixels": 800,
+        "changedChannels": 1600,
+        "sourceUnchanged": true,
+        "cloneHrefEdits": 1,
+        "recordedHTTPRequestEvents": 0,
+        "browserCloseResolvedUTC": "2026-11-24T23:34:04.236Z"
+      }
+    ],
+    "isNewAnimationCandidateValidation": false,
+    "isProductionFix": false,
+    "limits": [
+      "Pinned original UMD9c09 controlled onCloneNode counterfactual, not the subsequent animation-fix branch.",
+      "Equal decoded stylesheet bytes do not preserve literal LINK href identity observed by existing attribute/sibling selectors.",
+      "No HTTP(S) request events were recorded; driver also installed abort routes. This is not independent wire-level network accounting or security acceptance.",
+      "Source exact outerHTML/computed background remained unchanged. No phone or network setting changes were performed."
+    ]
+  },
+  "operations": {
+    "productionOrTrackerChanges": 0,
+    "oldArchiveChanges": 0,
+    "browserOrPhoneOperations": 0,
+    "networkSettingsChanges": 0,
+    "commitsOrPushes": 0
+  }
+}
